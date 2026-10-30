@@ -1,0 +1,3453 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "wolf"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:63cbdaf5a1d78de279a80f3b9c604a608e0431ac44810641e5bcd997636e3349"
+  },
+  "source": {
+   "repo": "quaternionmedia/wolf",
+   "commit": "d960d108d8915b195c5de3b74fc10ac2144e7670"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::wolf": {
+      "label": "wolf",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "wolf — n/a · not adopted",
+       "click": "<p><b>wolf</b> — remote midi controller</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:wolf",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::wolf",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:wolf",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:wolf",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/wolf": {
+      "id": "dir::quaternionmedia/wolf",
+      "label": "quaternionmedia/wolf",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -378.12323224634105,
+      "y": 0,
+      "size": 130
+     },
+     "dir::quaternionmedia/wolf/website": {
+      "id": "dir::quaternionmedia/wolf/website",
+      "label": "website",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 544.1613846514806,
+      "y": -434.00558645171293,
+      "size": 60
+     },
+     "dir::quaternionmedia/wolf/website/src": {
+      "id": "dir::quaternionmedia/wolf/website/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 324.2312384781124,
+      "y": 7.703934385445336,
+      "size": 130
+     },
+     "file::quaternionmedia/wolf/README.md": {
+      "id": "file::quaternionmedia/wolf/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -324.12323224634105,
+      "y": 0,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/cyto.py": {
+      "id": "file::quaternionmedia/wolf/cyto.py",
+      "label": "cyto.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/cyto.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -250.79865314317132,
+      "y": -427.5369958757363,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/midihub.py": {
+      "id": "file::quaternionmedia/wolf/midihub.py",
+      "label": "midihub.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midihub.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -416.130288287124,
+      "y": -231.98420597119113,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/midistream.py": {
+      "id": "file::quaternionmedia/wolf/midistream.py",
+      "label": "midistream.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midistream.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -684.2577581957803,
+      "y": -276.7549669323532,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/obsws.py": {
+      "id": "file::quaternionmedia/wolf/obsws.py",
+      "label": "obsws.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/obsws.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -766.5173769379671,
+      "y": 139.6531151316164,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/realbook.py": {
+      "id": "file::quaternionmedia/wolf/realbook.py",
+      "label": "realbook.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/realbook.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -621.7289806201871,
+      "y": -46.519585571724306,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/soup.py": {
+      "id": "file::quaternionmedia/wolf/soup.py",
+      "label": "soup.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/soup.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -293.12992739228616,
+      "y": 405.3104495808574,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Control.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Control.js",
+      "label": "Control.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Control.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 437.328745884038,
+      "y": 235.774961424352,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Lyrics.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "label": "Lyrics.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Lyrics.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 436.157256733245,
+      "y": -223.86819758004265,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Menu.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "label": "Menu.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 249.66209995845117,
+      "y": 136.86147097814023,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Mixer.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "label": "Mixer.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 251.21219244765572,
+      "y": -118.76876325951615,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Patchbay.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "label": "Patchbay.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 74.3333380180768,
+      "y": 5.339206671223565,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/index.html": {
+      "id": "file::quaternionmedia/wolf/website/src/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 59.9864568331825,
+      "y": -203.20597052722763,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/index.js": {
+      "id": "file::quaternionmedia/wolf/website/src/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 51.71591941478505,
+      "y": 213.15012146683864,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/style.css": {
+      "id": "file::quaternionmedia/wolf/website/src/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 496.9720127577145,
+      "y": 7.703934385445336,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/wolf.py": {
+      "id": "file::quaternionmedia/wolf/wolf.py",
+      "label": "wolf.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/wolf.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -499.2621737753044,
+      "y": 209.8188015032802,
+      "size": 30
+     },
+     "css::style.css::class::button::67": {
+      "id": "css::style.css::class::button::67",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 67,
+      "meta": {},
+      "x": 530.9720127577145,
+      "y": 7.703934385445336,
+      "label_at": "right"
+     },
+     "css::style.css::class::channel::13": {
+      "id": "css::style.css::class::channel::13",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "channel",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 13,
+      "meta": {},
+      "x": 469.18521289513706,
+      "y": 33.15891922922515,
+      "label_at": "left"
+     },
+     "css::style.css::class::graph::85": {
+      "id": "css::style.css::class::graph::85",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "graph",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 85,
+      "meta": {},
+      "x": 500.5597976971412,
+      "y": -33.177024497981336,
+      "label_at": "above"
+     },
+     "css::style.css::class::layout::125": {
+      "id": "css::style.css::class::layout::125",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "layout",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 125,
+      "meta": {},
+      "x": 523.8274557650896,
+      "y": 42.732104204572806,
+      "label_at": "right"
+     },
+     "css::style.css::class::lyrics::102": {
+      "id": "css::style.css::class::lyrics::102",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "lyrics",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 102,
+      "meta": {},
+      "x": 450.6564455162728,
+      "y": -0.4886373172304843,
+      "label_at": "left"
+     },
+     "css::style.css::class::menu::129": {
+      "id": "css::style.css::class::menu::129",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "menu",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 129,
+      "meta": {},
+      "x": 538.9594372775161,
+      "y": -19.00502819631663,
+      "label_at": "right"
+     },
+     "css::style.css::class::mixer::6": {
+      "id": "css::style.css::class::mixer::6",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "mixer",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 6,
+      "meta": {},
+      "x": 483.3820931282153,
+      "y": 58.25775802385823,
+      "label_at": "below"
+     },
+     "css::style.css::class::patchbay::90": {
+      "id": "css::style.css::class::patchbay::90",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "patchbay",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 90,
+      "meta": {},
+      "x": 471.7084315018932,
+      "y": -40.93955399820692,
+      "label_at": "left"
+     },
+     "css::style.css::class::setlist::97": {
+      "id": "css::style.css::class::setlist::97",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "setlist",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 97,
+      "meta": {},
+      "x": 550.6737596643472,
+      "y": 27.315726225457354,
+      "label_at": "right"
+     },
+     "css::style.css::class::sheet::106": {
+      "id": "css::style.css::class::sheet::106",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "sheet",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 106,
+      "meta": {},
+      "x": 442.03319811876736,
+      "y": 30.38187842954676,
+      "label_at": "left"
+     },
+     "css::style.css::class::slider::23": {
+      "id": "css::style.css::class::slider::23",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "slider",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 23,
+      "meta": {},
+      "x": 523.0880293232458,
+      "y": -48.10447608062054,
+      "label_at": "right"
+     },
+     "css::style.css::class::slider::39": {
+      "id": "css::style.css::class::slider::39",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "slider",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 39,
+      "meta": {},
+      "x": 516.0434352506991,
+      "y": 68.50663452363062,
+      "label_at": "below"
+     },
+     "css::style.css::class::slider::57": {
+      "id": "css::style.css::class::slider::57",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "slider",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 57,
+      "meta": {},
+      "x": 440.07327380417456,
+      "y": -25.27004786567079,
+      "label_at": "left"
+     },
+     "css::style.css::class::songs::93": {
+      "id": "css::style.css::class::songs::93",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "songs",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 93,
+      "meta": {},
+      "x": 563.1327858834165,
+      "y": -6.841325990683572,
+      "label_at": "right"
+     },
+     "cyto.cytoscape_data": {
+      "id": "cyto.cytoscape_data",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cytoscape_data",
+      "file": "cyto.py",
+      "line": 0,
+      "meta": {
+       "module": "cyto",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -216.79865314317132,
+      "y": -427.5369958757363,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::root::9": {
+      "id": "html::index.html::anchor::root::9",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "root",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.html",
+      "line": 9,
+      "meta": {},
+      "x": 93.9864568331825,
+      "y": -203.20597052722763,
+      "label_at": "right"
+     },
+     "javascript::Control.js::function::Control::4": {
+      "id": "javascript::Control.js::function::Control::4",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Control",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Control.js",
+      "line": 4,
+      "meta": {},
+      "x": 471.328745884038,
+      "y": 235.774961424352,
+      "label_at": "right"
+     },
+     "javascript::Lyrics.js::function::Lyrics::4": {
+      "id": "javascript::Lyrics.js::function::Lyrics::4",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Lyrics",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Lyrics.js",
+      "line": 4,
+      "meta": {},
+      "x": 470.157256733245,
+      "y": -223.86819758004265,
+      "label_at": "right"
+     },
+     "javascript::Lyrics.js::function::Song::14": {
+      "id": "javascript::Lyrics.js::function::Song::14",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Song",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Lyrics.js",
+      "line": 14,
+      "meta": {},
+      "x": 408.37045687066757,
+      "y": -198.41321273626278,
+      "label_at": "left"
+     },
+     "javascript::Menu.js::function::Layout::36": {
+      "id": "javascript::Menu.js::function::Layout::36",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Layout",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 36,
+      "meta": {},
+      "x": 283.66209995845117,
+      "y": 136.86147097814023,
+      "label_at": "right"
+     },
+     "javascript::Menu.js::function::Link::4": {
+      "id": "javascript::Menu.js::function::Link::4",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Link",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 4,
+      "meta": {},
+      "x": 221.87530009587357,
+      "y": 162.31645582192004,
+      "label_at": "left"
+     },
+     "javascript::Menu.js::function::Links::14": {
+      "id": "javascript::Menu.js::function::Links::14",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Links",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 14,
+      "meta": {},
+      "x": 253.24988489787782,
+      "y": 95.9805120947135,
+      "label_at": "above"
+     },
+     "javascript::Menu.js::function::Menu::27": {
+      "id": "javascript::Menu.js::function::Menu::27",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Menu",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 27,
+      "meta": {},
+      "x": 276.5175429658262,
+      "y": 171.8896407972677,
+      "label_at": "right"
+     },
+     "javascript::Mixer.js::function::Fader::16": {
+      "id": "javascript::Mixer.js::function::Fader::16",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Fader",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
+      "line": 16,
+      "meta": {},
+      "x": 285.2121924476557,
+      "y": -118.76876325951615,
+      "label_at": "right"
+     },
+     "javascript::Mixer.js::function::Mixer::75": {
+      "id": "javascript::Mixer.js::function::Mixer::75",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Mixer",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
+      "line": 75,
+      "meta": {},
+      "x": 223.42539258507813,
+      "y": -93.31377841573635,
+      "label_at": "left"
+     },
+     "javascript::Mixer.js::function::Selector::59": {
+      "id": "javascript::Mixer.js::function::Selector::59",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Selector",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
+      "line": 59,
+      "meta": {},
+      "x": 254.79997738708224,
+      "y": -159.64972214294284,
+      "label_at": "above"
+     },
+     "javascript::Patchbay.js::function::Button::184": {
+      "id": "javascript::Patchbay.js::function::Button::184",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
+      "line": 184,
+      "meta": {},
+      "x": 108.3333380180768,
+      "y": 5.339206671223565,
+      "label_at": "right"
+     },
+     "javascript::Patchbay.js::function::Patchbay::15": {
+      "id": "javascript::Patchbay.js::function::Patchbay::15",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Patchbay",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
+      "line": 15,
+      "meta": {},
+      "x": 46.54653815549932,
+      "y": 30.794191515003376,
+      "label_at": "left"
+     },
+     "javascript::Patchbay.js::function::PatchbayPage::192": {
+      "id": "javascript::Patchbay.js::function::PatchbayPage::192",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "PatchbayPage",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
+      "line": 192,
+      "meta": {},
+      "x": 77.92112295750348,
+      "y": -35.54175221220311,
+      "label_at": "above"
+     },
+     "javascript::index.js::function::Home::11": {
+      "id": "javascript::index.js::function::Home::11",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "Home",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.js",
+      "line": 11,
+      "meta": {},
+      "x": 85.71591941478505,
+      "y": 213.15012146683864,
+      "label_at": "right"
+     },
+     "midihub.CONTROL_CHANGE": {
+      "id": "midihub.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -382.130288287124,
+      "y": -231.98420597119113,
+      "label_at": "right"
+     },
+     "midihub.HoloController": {
+      "id": "midihub.HoloController",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "HoloController",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -443.9170881497015,
+      "y": -206.5292211274113,
+      "label_at": "left"
+     },
+     "midihub.NOTE_ON": {
+      "id": "midihub.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -412.54250334769733,
+      "y": -272.86516485461783,
+      "label_at": "above"
+     },
+     "midihub.PROGRAM_CHANGE": {
+      "id": "midihub.PROGRAM_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PROGRAM_CHANGE",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -389.274845279749,
+      "y": -196.95603615206363,
+      "label_at": "right"
+     },
+     "midihub.__call__": {
+      "id": "midihub.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -462.44585552856574,
+      "y": -240.17677767386698,
+      "label_at": "left"
+     },
+     "midihub.__init__": {
+      "id": "midihub.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -374.14286376732235,
+      "y": -258.69316855295307,
+      "label_at": "right"
+     },
+     "midihub.changeDrumBank": {
+      "id": "midihub.changeDrumBank",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "changeDrumBank",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -429.7202079166231,
+      "y": -181.43038233277824,
+      "label_at": "below"
+     },
+     "midihub.clear": {
+      "id": "midihub.clear",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clear",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -441.39386954294537,
+      "y": -280.6276943548434,
+      "label_at": "left"
+     },
+     "midihub.collections.deque": {
+      "id": "midihub.collections.deque",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "collections.deque",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -362.42854138049125,
+      "y": -212.37241413117914,
+      "label_at": "right"
+     },
+     "midihub.exit": {
+      "id": "midihub.exit",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "exit",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -471.0691029260712,
+      "y": -209.3062619270897,
+      "label_at": "left"
+     },
+     "midihub.open_midiinput": {
+      "id": "midihub.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midiinput",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -390.0142717215926,
+      "y": -287.792616437257,
+      "label_at": "right"
+     },
+     "midihub.open_midioutput": {
+      "id": "midihub.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midioutput",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -397.05886579413936,
+      "y": -171.18150583300582,
+      "label_at": "below"
+     },
+     "midihub.operator.xor": {
+      "id": "midihub.operator.xor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "operator.xor",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -473.02902724066394,
+      "y": -264.95818822230723,
+      "label_at": "left"
+     },
+     "midihub.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "midihub.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -349.969515161422,
+      "y": -246.52946634732,
+      "label_at": "right"
+     },
+     "midihub.rtmidi.midiconstants.NOTE_OFF": {
+      "id": "midihub.rtmidi.midiconstants.NOTE_OFF",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_OFF",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -456.1952879392128,
+      "y": -174.99586678782728,
+      "label_at": "left"
+     },
+     "midihub.rtmidi.midiconstants.NOTE_ON": {
+      "id": "midihub.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -425.3230141870224,
+      "y": -302.92383728211166,
+      "label_at": "above"
+     },
+     "midihub.rtmidi.midiconstants.POLY_AFTERTOUCH": {
+      "id": "midihub.rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -360.03923202927064,
+      "y": -184.71060437496902,
+      "label_at": "right"
+     },
+     "midihub.rtmidi.midiconstants.PROGRAM_CHANGE": {
+      "id": "midihub.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.PROGRAM_CHANGE",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -491.1997591758459,
+      "y": -228.87984766594727,
+      "label_at": "left"
+     },
+     "midihub.rtmidi.midiutil.open_midiinput": {
+      "id": "midihub.rtmidi.midiutil.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midiinput",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -361.64198059848565,
+      "y": -286.2073497866163,
+      "label_at": "right"
+     },
+     "midihub.rtmidi.midiutil.open_midioutput": {
+      "id": "midihub.rtmidi.midiutil.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midioutput",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -419.7595333218369,
+      "y": -153.49843604773295,
+      "label_at": "below"
+     },
+     "midihub.time": {
+      "id": "midihub.time",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -467.5359685645123,
+      "y": -293.58539131058967,
+      "label_at": "left"
+     },
+     "midihub.time.sleep": {
+      "id": "midihub.time.sleep",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.sleep",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -334.99981525992183,
+      "y": -221.0682155725866,
+      "label_at": "right"
+     },
+     "midihub.time.time": {
+      "id": "midihub.time.time",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.time",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -484.63815826853926,
+      "y": -184.318214419462,
+      "label_at": "left"
+     },
+     "midihub.toggleCut": {
+      "id": "midihub.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -397.4686436713266,
+      "y": -314.93708729687916,
+      "label_at": "above"
+     },
+     "midihub.toggleLive": {
+      "id": "midihub.toggleLive",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleLive",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -373.0918236201703,
+      "y": -156.8763464682644,
+      "label_at": "right"
+     },
+     "midihub.toggleOverdub": {
+      "id": "midihub.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "midihub.py",
+      "line": 0,
+      "meta": {
+       "module": "midihub",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -500.04063474558916,
+      "y": -258.75389512180203,
+      "label_at": "left"
+     },
+     "midistream.Backend": {
+      "id": "midistream.Backend",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Backend",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -650.2577581957803,
+      "y": -276.7549669323532,
+      "label_at": "right"
+     },
+     "midistream.Message": {
+      "id": "midistream.Message",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Message",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -712.0445580583579,
+      "y": -251.2999820885734,
+      "label_at": "left"
+     },
+     "midistream.callback": {
+      "id": "midistream.callback",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "callback",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -680.6699732563536,
+      "y": -317.6359258157799,
+      "label_at": "above"
+     },
+     "midistream.make_stream": {
+      "id": "midistream.make_stream",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "make_stream",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -657.4023151884054,
+      "y": -241.7267971132257,
+      "label_at": "right"
+     },
+     "midistream.mido.Backend": {
+      "id": "midistream.mido.Backend",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mido.Backend",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -730.5733254372221,
+      "y": -284.94753863502905,
+      "label_at": "left"
+     },
+     "midistream.mido.Message": {
+      "id": "midistream.mido.Message",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mido.Message",
+      "file": "midistream.py",
+      "line": 0,
+      "meta": {
+       "module": "midistream",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -642.2703336759787,
+      "y": -303.4639295141152,
+      "label_at": "right"
+     },
+     "obsws.argv": {
+      "id": "obsws.argv",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "argv",
+      "file": "obsws.py",
+      "line": 0,
+      "meta": {
+       "module": "obsws",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -732.5173769379671,
+      "y": 139.6531151316164,
+      "label_at": "right"
+     },
+     "obsws.obswebsocket.obsws": {
+      "id": "obsws.obswebsocket.obsws",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "obswebsocket.obsws",
+      "file": "obsws.py",
+      "line": 0,
+      "meta": {
+       "module": "obsws",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -794.3041768005446,
+      "y": 165.10809997539624,
+      "label_at": "left"
+     },
+     "obsws.obswebsocket.requests": {
+      "id": "obsws.obswebsocket.requests",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "obswebsocket.requests",
+      "file": "obsws.py",
+      "line": 0,
+      "meta": {
+       "module": "obsws",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -762.9295919985404,
+      "y": 98.77215624818972,
+      "label_at": "above"
+     },
+     "obsws.requests": {
+      "id": "obsws.requests",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "requests",
+      "file": "obsws.py",
+      "line": 0,
+      "meta": {
+       "module": "obsws",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -739.6619339305921,
+      "y": 174.6812849507439,
+      "label_at": "right"
+     },
+     "obsws.sys.argv": {
+      "id": "obsws.sys.argv",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "sys.argv",
+      "file": "obsws.py",
+      "line": 0,
+      "meta": {
+       "module": "obsws",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -812.8329441794089,
+      "y": 131.46054342894055,
+      "label_at": "left"
+     },
+     "realbook.PdfReader": {
+      "id": "realbook.PdfReader",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PdfReader",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -587.7289806201871,
+      "y": -46.519585571724306,
+      "label_at": "right"
+     },
+     "realbook.PdfWriter": {
+      "id": "realbook.PdfWriter",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PdfWriter",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -649.5157804827646,
+      "y": -21.064600727944473,
+      "label_at": "left"
+     },
+     "realbook.capwords": {
+      "id": "realbook.capwords",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "capwords",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -618.1411956807605,
+      "y": -87.40054445515099,
+      "label_at": "above"
+     },
+     "realbook.openCsv": {
+      "id": "realbook.openCsv",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "openCsv",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -594.8735376128121,
+      "y": -11.491415752596815,
+      "label_at": "right"
+     },
+     "realbook.parseReal": {
+      "id": "realbook.parseReal",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "parseReal",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -668.0445478616289,
+      "y": -54.712157274400155,
+      "label_at": "left"
+     },
+     "realbook.pdfrw.PdfReader": {
+      "id": "realbook.pdfrw.PdfReader",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pdfrw.PdfReader",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -579.7415561003854,
+      "y": -73.22854815348626,
+      "label_at": "right"
+     },
+     "realbook.pdfrw.PdfWriter": {
+      "id": "realbook.pdfrw.PdfWriter",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pdfrw.PdfWriter",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -635.3189002496863,
+      "y": 4.03423806668858,
+      "label_at": "below"
+     },
+     "realbook.string.capwords": {
+      "id": "realbook.string.capwords",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "string.capwords",
+      "file": "realbook.py",
+      "line": 0,
+      "meta": {
+       "module": "realbook",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -646.9925618760085,
+      "y": -95.16307395537657,
+      "label_at": "left"
+     },
+     "soup.BeautifulSoup": {
+      "id": "soup.BeautifulSoup",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "BeautifulSoup",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -259.12992739228616,
+      "y": 405.3104495808574,
+      "label_at": "right"
+     },
+     "soup.bs4.BeautifulSoup": {
+      "id": "soup.bs4.BeautifulSoup",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "bs4.BeautifulSoup",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -320.91672725486364,
+      "y": 430.7654344246372,
+      "label_at": "left"
+     },
+     "soup.dumps": {
+      "id": "soup.dumps",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dumps",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -289.5421424528595,
+      "y": 364.42949069743077,
+      "label_at": "above"
+     },
+     "soup.join": {
+      "id": "soup.join",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "join",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -266.27448438491115,
+      "y": 440.3386193999849,
+      "label_at": "right"
+     },
+     "soup.json.dumps": {
+      "id": "soup.json.dumps",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "json.dumps",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -339.4454946337279,
+      "y": 397.1178778781816,
+      "label_at": "left"
+     },
+     "soup.os.path.join": {
+      "id": "soup.os.path.join",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "os.path.join",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -251.14250287248453,
+      "y": 378.60148699909547,
+      "label_at": "right"
+     },
+     "soup.parseXml": {
+      "id": "soup.parseXml",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "parseXml",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -306.7198470217853,
+      "y": 455.8642732192704,
+      "label_at": "below"
+     },
+     "soup.rackControl": {
+      "id": "soup.rackControl",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "rackControl",
+      "file": "soup.py",
+      "line": 0,
+      "meta": {
+       "module": "soup",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -318.39350864810746,
+      "y": 356.6669611972052,
+      "label_at": "left"
+     },
+     "wolf.Backend": {
+      "id": "wolf.Backend",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Backend",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -465.2621737753044,
+      "y": 209.8188015032802,
+      "label_at": "right"
+     },
+     "wolf.Client": {
+      "id": "wolf.Client",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Client",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -527.048973637882,
+      "y": 235.27378634706005,
+      "label_at": "left"
+     },
+     "wolf.FastAPI": {
+      "id": "wolf.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "FastAPI",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -495.6743888358778,
+      "y": 168.93784261985354,
+      "label_at": "above"
+     },
+     "wolf.Graph": {
+      "id": "wolf.Graph",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Graph",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -472.4067307679295,
+      "y": 244.84697132240768,
+      "label_at": "right"
+     },
+     "wolf.HTTPException": {
+      "id": "wolf.HTTPException",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HTTPException",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -545.5777410167462,
+      "y": 201.62622980060436,
+      "label_at": "left"
+     },
+     "wolf.Message": {
+      "id": "wolf.Message",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Message",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -457.27474925550274,
+      "y": 183.10983892151825,
+      "label_at": "right"
+     },
+     "wolf.Query": {
+      "id": "wolf.Query",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Query",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -512.8520934048036,
+      "y": 260.3726251416931,
+      "label_at": "below"
+     },
+     "wolf.StaticFiles": {
+      "id": "wolf.StaticFiles",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "StaticFiles",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -524.5257550311258,
+      "y": 161.17531311962796,
+      "label_at": "left"
+     },
+     "wolf.TrelloClient": {
+      "id": "wolf.TrelloClient",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "TrelloClient",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -445.56042686867164,
+      "y": 229.4305933432922,
+      "label_at": "right"
+     },
+     "wolf.basename": {
+      "id": "wolf.basename",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "basename",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -554.2009884142517,
+      "y": 232.49674554738164,
+      "label_at": "left"
+     },
+     "wolf.cyto.cytoscape_data": {
+      "id": "wolf.cyto.cytoscape_data",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "cyto.cytoscape_data",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -473.14615720977315,
+      "y": 154.01039103721433,
+      "label_at": "right"
+     },
+     "wolf.cytoscape_data": {
+      "id": "wolf.cytoscape_data",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "cytoscape_data",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -480.19075128231987,
+      "y": 270.62150164146556,
+      "label_at": "below"
+     },
+     "wolf.fastapi.FastAPI": {
+      "id": "wolf.fastapi.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.FastAPI",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -556.1609127288443,
+      "y": 176.84481925216411,
+      "label_at": "left"
+     },
+     "wolf.fastapi.HTTPException": {
+      "id": "wolf.fastapi.HTTPException",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.HTTPException",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -433.10140064960245,
+      "y": 195.27354112715133,
+      "label_at": "right"
+     },
+     "wolf.fastapi.Query": {
+      "id": "wolf.fastapi.Query",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.Query",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -539.3271734273933,
+      "y": 266.80714068664406,
+      "label_at": "left"
+     },
+     "wolf.fastapi.WebSocket": {
+      "id": "wolf.fastapi.WebSocket",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.WebSocket",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -508.4548996752029,
+      "y": 138.8791701923597,
+      "label_at": "above"
+     },
+     "wolf.glob": {
+      "id": "wolf.glob",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "glob",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -443.17111751745114,
+      "y": 257.09240309950235,
+      "label_at": "right"
+     },
+     "wolf.glob.glob": {
+      "id": "wolf.glob.glob",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "glob.glob",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -574.3316446640264,
+      "y": 212.92315980852408,
+      "label_at": "left"
+     },
+     "wolf.jack.Client": {
+      "id": "wolf.jack.Client",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "jack.Client",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -444.7738660866661,
+      "y": 155.59565768785507,
+      "label_at": "right"
+     },
+     "wolf.json.loads": {
+      "id": "wolf.json.loads",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "json.loads",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -502.8914188100174,
+      "y": 288.3045714267384,
+      "label_at": "below"
+     },
+     "wolf.loads": {
+      "id": "wolf.loads",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "loads",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -550.6678540526929,
+      "y": 148.2176161638817,
+      "label_at": "left"
+     },
+     "wolf.mido.Backend": {
+      "id": "wolf.mido.Backend",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mido.Backend",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -418.1317007481024,
+      "y": 220.7347919018847,
+      "label_at": "right"
+     },
+     "wolf.mido.Message": {
+      "id": "wolf.mido.Message",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mido.Message",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -567.7700437567196,
+      "y": 257.48479305500933,
+      "label_at": "left"
+     },
+     "wolf.networkx.Graph": {
+      "id": "wolf.networkx.Graph",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "networkx.Graph",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -480.60052915950706,
+      "y": 126.8659201775922,
+      "label_at": "above"
+     },
+     "wolf.networkx.set_node_attributes": {
+      "id": "wolf.networkx.set_node_attributes",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "networkx.set_node_attributes",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -456.22370910835076,
+      "y": 284.9266610062069,
+      "label_at": "right"
+     },
+     "wolf.os.path.basename": {
+      "id": "wolf.os.path.basename",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "os.path.basename",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -583.1725202337697,
+      "y": 183.04911235266928,
+      "label_at": "left"
+     },
+     "wolf.port_connect": {
+      "id": "wolf.port_connect",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "port_connect",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -417.957199940576,
+      "y": 172.2538413710756,
+      "label_at": "right"
+     },
+     "wolf.starlette.staticfiles.StaticFiles": {
+      "id": "wolf.starlette.staticfiles.StaticFiles",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.staticfiles.StaticFiles",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -534.403674043291,
+      "y": 293.78761987602564,
+      "label_at": "left"
+     },
+     "wolf.trello.TrelloClient": {
+      "id": "wolf.trello.TrelloClient",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "trello.TrelloClient",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -530.5571158008465,
+      "y": 122.81089034792628,
+      "label_at": "above"
+     },
+     "wolf.typing.List": {
+      "id": "wolf.typing.List",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.List",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -416.1589011562826,
+      "y": 253.49555252723485,
+      "label_at": "right"
+     },
+     "wolf.uvicorn.run": {
+      "id": "wolf.uvicorn.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "uvicorn.run",
+      "file": "wolf.py",
+      "line": 0,
+      "meta": {
+       "module": "wolf",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -591.3930288526807,
+      "y": 234.10419922931095,
+      "label_at": "left"
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/cyto.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/midihub.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/midistream.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/obsws.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/realbook.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/soup.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/wolf.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "dir::quaternionmedia/wolf/website",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website",
+      "target": "dir::quaternionmedia/wolf/website/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Control.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "midistream.make_stream",
+      "target": "midistream.callback",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.mido.Backend",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.mido.Message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.make_stream",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.callback",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.Backend",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midistream.py",
+      "target": "midistream.Message",
+      "kind": "contains"
+     },
+     {
+      "source": "realbook.parseReal",
+      "target": "realbook.openCsv",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.pdfrw.PdfReader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.pdfrw.PdfWriter",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.string.capwords",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.openCsv",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.parseReal",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.PdfReader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.PdfWriter",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/realbook.py",
+      "target": "realbook.capwords",
+      "kind": "contains"
+     },
+     {
+      "source": "soup.rackControl",
+      "target": "soup.parseXml",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.bs4.BeautifulSoup",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.parseXml",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.rackControl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.os.path.join",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.json.dumps",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.BeautifulSoup",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.join",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/soup.py",
+      "target": "soup.dumps",
+      "kind": "contains"
+     },
+     {
+      "source": "wolf.cytoscape_data",
+      "target": "cyto.cytoscape_data",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.mido.Backend",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.mido.Message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.fastapi.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.fastapi.WebSocket",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.fastapi.HTTPException",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.fastapi.Query",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.starlette.staticfiles.StaticFiles",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.networkx.Graph",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.networkx.set_node_attributes",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.cyto.cytoscape_data",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.json.loads",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.jack.Client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.glob.glob",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.os.path.basename",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.typing.List",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.port_connect",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.trello.TrelloClient",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.uvicorn.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.Backend",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.Message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.HTTPException",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.Query",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.StaticFiles",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.Graph",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.cytoscape_data",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.loads",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.Client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.glob",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.basename",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "wolf.TrelloClient",
+      "kind": "contains"
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.clear",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.toggleLive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.changeDrumBank",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.exit",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midihub.HoloController",
+      "target": "midihub.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.time.time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.time.sleep",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.collections.deque",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiutil.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiutil.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiconstants.NOTE_OFF",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.operator.xor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.HoloController",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.clear",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.toggleLive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.changeDrumBank",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.exit",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/midihub.py",
+      "target": "midihub.PROGRAM_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/cyto.py",
+      "target": "cyto.cytoscape_data",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/obsws.py",
+      "target": "obsws.obswebsocket.obsws",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/obsws.py",
+      "target": "obsws.obswebsocket.requests",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/obsws.py",
+      "target": "obsws.sys.argv",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/obsws.py",
+      "target": "obsws.requests",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/obsws.py",
+      "target": "obsws.argv",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::mixer::6",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::channel::13",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::slider::23",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::slider::39",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::slider::57",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::button::67",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::graph::85",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::patchbay::90",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::songs::93",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::setlist::97",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::lyrics::102",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::sheet::106",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::layout::125",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/style.css",
+      "target": "css::style.css::class::menu::129",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "target": "javascript::Patchbay.js::function::Patchbay::15",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "target": "javascript::Patchbay.js::function::Button::184",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "target": "javascript::Patchbay.js::function::PatchbayPage::192",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/index.js",
+      "target": "javascript::index.js::function::Home::11",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Control.js",
+      "target": "javascript::Control.js::function::Control::4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/index.html",
+      "target": "html::index.html::anchor::root::9",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "target": "javascript::Menu.js::function::Link::4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "target": "javascript::Menu.js::function::Links::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "target": "javascript::Menu.js::function::Menu::27",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "target": "javascript::Menu.js::function::Layout::36",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "target": "javascript::Lyrics.js::function::Lyrics::4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "target": "javascript::Lyrics.js::function::Song::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "target": "javascript::Mixer.js::function::Fader::16",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "target": "javascript::Mixer.js::function::Selector::59",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "target": "javascript::Mixer.js::function::Mixer::75",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/wolf/wolf.py",
+      "target": "file::quaternionmedia/wolf/cyto.py",
+      "kind": "depends_on"
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/wolf",
+    "depth": 2,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "wolf declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/wolf/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

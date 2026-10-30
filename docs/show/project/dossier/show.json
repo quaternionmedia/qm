@@ -1,0 +1,5668 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "dossier"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:6c21c4a588c1ff56634b4cb0c5021a72e8f3328c26699ebdbe91b2e80ed6fd42"
+  },
+  "source": {
+   "repo": "quaternionmedia/dossier",
+   "commit": "414be1c9dad7a4e314e1334c37e59ed713f1a75d"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::dossier": {
+      "label": "dossier",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "dossier — v0.0.1 · governed",
+       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:dossier",
+       "shape": "square",
+       "color": "#74a8f6",
+       "x": 0,
+       "y": 0,
+       "size": 81,
+       "label_at": "below"
+      }
+     },
+     "family::core": {
+      "label": "core",
+      "metadata": {
+       "kind": "family",
+       "family": "core",
+       "drives": "the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "core — drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
+       "show": "family:core",
+       "color": "#74a8f6",
+       "x": 32.879284136636066,
+       "y": 168.82817500246324,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "phase::v0.0.1": {
+      "label": "phase: v0.0.1",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
+       "x": -54.198613500062756,
+       "y": 163.237588485835,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "attention::active": {
+      "label": "attention: active",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention active, a claim in ci/workspace.yaml",
+       "x": -127.32781549695424,
+       "y": 115.63575312494652,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::live": {
+      "label": "recency: live",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency live, measured from the default branch's last commit",
+       "x": -167.68760089527368,
+       "y": 38.273600640486094,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "branch::project/dossier": {
+      "label": "project/dossier",
+      "metadata": {
+       "kind": "branch",
+       "depth": 0,
+       "hover": "project/dossier: this project's records in the corpus",
+       "x": 167.68760089527368,
+       "y": -38.27360064048607,
+       "size": 60,
+       "label_at": "none"
+      }
+     },
+     "record::adr/DRAFT-constitution-adoption-scope.md": {
+      "label": "ADR-XXXX — QM Constitution Adoption Scope for dossier",
+      "metadata": {
+       "kind": "record",
+       "depth": 1,
+       "status": "Proposed",
+       "hover": "ADR-XXXX — QM Constitution Adoption Scope for dossier — Proposed",
+       "x": 167.68760089527368,
+       "y": 37.72639935951393,
+       "size": 30,
+       "label_at": "below"
+      }
+     },
+     "capability::dossier/trim": {
+      "label": "Trimming branches main already has",
+      "metadata": {
+       "kind": "capability",
+       "phase": "execution",
+       "hover": "Trimming branches main already has — claims execution",
+       "x": -164.89087072230564,
+       "y": -48.938744900537515,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "capability::dossier/harness-queue": {
+      "label": "The harness queue, whole",
+      "metadata": {
+       "kind": "capability",
+       "phase": "execution",
+       "hover": "The harness queue, whole — claims execution",
+       "x": -119.65739870379964,
+       "y": -123.55608821680917,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "repo::rad": {
+      "label": "rad ↗",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "quiet",
+       "elsewhere": true,
+       "also_in": [],
+       "hover": "rad — v0.0.1 · governed",
+       "click": "<p><b>rad</b> — QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p><p>governed. Phase <b>v0.0.1</b> (stated); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad",
+       "shape": "square",
+       "color": "#74a8f6",
+       "x": -43.62858843243543,
+       "y": -166.37471644271304,
+       "size": 11,
+       "label_at": "above"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::dossier",
+      "target": "family::core",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "phase::v0.0.1",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "attention::active",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "recency::live",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "branch::project/dossier",
+      "label": "records on",
+      "metadata": {
+       "kind": "governed_by",
+       "basis": "measured",
+       "stated": false,
+       "hover": "records on (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "dossier implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "branch::project/dossier",
+      "target": "record::adr/DRAFT-constitution-adoption-scope.md",
+      "label": "Proposed",
+      "metadata": {
+       "kind": "contains",
+       "basis": "measured",
+       "stated": false,
+       "hover": "Proposed (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "capability::dossier/trim",
+      "target": "repo::dossier",
+      "label": "claims execution",
+      "metadata": {
+       "kind": "lives_in",
+       "basis": "declared",
+       "stated": true,
+       "hover": "claims execution (declared)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "capability::dossier/harness-queue",
+      "target": "repo::dossier",
+      "label": "claims execution",
+      "metadata": {
+       "kind": "lives_in",
+       "basis": "declared",
+       "stated": true,
+       "hover": "claims execution (declared)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:dossier",
+     "measured": 0,
+     "unread": [],
+     "records": 1,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:dossier",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/dossier": {
+      "id": "dir::quaternionmedia/dossier",
+      "label": "quaternionmedia/dossier",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -178.41235302664916,
+      "y": -284.1260640641416,
+      "size": 220
+     },
+     "dir::quaternionmedia/dossier/.github": {
+      "id": "dir::quaternionmedia/dossier/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -141.86557404445782,
+      "y": 500.16864695940393,
+      "size": 70
+     },
+     "dir::quaternionmedia/dossier/.github/workflows": {
+      "id": "dir::quaternionmedia/dossier/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -216.0968634816962,
+      "y": 523.5626241433916,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/.vscode": {
+      "id": "dir::quaternionmedia/dossier/.vscode",
+      "label": ".vscode",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -118.59603908223029,
+      "y": -256.23325878925544,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/LICENSES": {
+      "id": "dir::quaternionmedia/dossier/LICENSES",
+      "label": "LICENSES",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -264.9241766278956,
+      "y": -344.7722047260735,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/alembic": {
+      "id": "dir::quaternionmedia/dossier/alembic",
+      "label": "alembic",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -623.3355060137311,
+      "y": -759.1738181873613,
+      "size": 70
+     },
+     "dir::quaternionmedia/dossier/alembic/versions": {
+      "id": "dir::quaternionmedia/dossier/alembic/versions",
+      "label": "versions",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -384.1001358906607,
+      "y": -647.6165329974281,
+      "size": 190
+     },
+     "dir::quaternionmedia/dossier/docs": {
+      "id": "dir::quaternionmedia/dossier/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 129.02058356394969,
+      "y": -764.598707483392,
+      "size": 250
+     },
+     "dir::quaternionmedia/dossier/docs/fonts": {
+      "id": "dir::quaternionmedia/dossier/docs/fonts",
+      "label": "fonts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -11.088364422893221,
+      "y": -770.8872044437269,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/docs/screenshots": {
+      "id": "dir::quaternionmedia/dossier/docs/screenshots",
+      "label": "screenshots",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -39.366187757903106,
+      "y": -834.8016828035453,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/examples": {
+      "id": "dir::quaternionmedia/dossier/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 535.5673138353122,
+      "y": -736.2332553373295,
+      "size": 60
+     },
+     "dir::quaternionmedia/dossier/governance": {
+      "id": "dir::quaternionmedia/dossier/governance",
+      "label": "governance",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -183.85478459289195,
+      "y": -411.5517970957658,
+      "size": 50
+     },
+     "dir::quaternionmedia/dossier/hooks": {
+      "id": "dir::quaternionmedia/dossier/hooks",
+      "label": "hooks",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -872.1272370329622,
+      "y": -832.0112560426843,
+      "size": 60
+     },
+     "dir::quaternionmedia/dossier/scripts": {
+      "id": "dir::quaternionmedia/dossier/scripts",
+      "label": "scripts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -894.4761482429493,
+      "y": -563.409846615811,
+      "size": 80
+     },
+     "dir::quaternionmedia/dossier/src": {
+      "id": "dir::quaternionmedia/dossier/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1097.4764052356718,
+      "y": -265.73379146561865,
+      "size": 60
+     },
+     "dir::quaternionmedia/dossier/src/dossier": {
+      "id": "dir::quaternionmedia/dossier/src/dossier",
+      "label": "dossier",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 604.806188649226,
+      "y": 56.46545611696555,
+      "size": 540
+     },
+     "dir::quaternionmedia/dossier/src/dossier/api": {
+      "id": "dir::quaternionmedia/dossier/src/dossier/api",
+      "label": "api",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 575.0471735016657,
+      "y": -283.68164349831295,
+      "size": 70
+     },
+     "dir::quaternionmedia/dossier/src/dossier/models": {
+      "id": "dir::quaternionmedia/dossier/src/dossier/models",
+      "label": "models",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 635.8962609931724,
+      "y": 411.8266091049075,
+      "size": 100
+     },
+     "dir::quaternionmedia/dossier/src/dossier/parsers": {
+      "id": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "label": "parsers",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 281.50936647156664,
+      "y": -94.29032792165172,
+      "size": 100
+     },
+     "dir::quaternionmedia/dossier/src/dossier/rad": {
+      "id": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "label": "rad",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 305.5119961398584,
+      "y": 266.03350585441285,
+      "size": 120
+     },
+     "dir::quaternionmedia/dossier/src/dossier/tui": {
+      "id": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "label": "tui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 935.9445397980999,
+      "y": 210.87780516650457,
+      "size": 120
+     },
+     "dir::quaternionmedia/dossier/tests": {
+      "id": "dir::quaternionmedia/dossier/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -860.0528438293325,
+      "y": 27.753268528999232,
+      "size": 140
+     },
+     "dir::quaternionmedia/dossier/tests/core": {
+      "id": "dir::quaternionmedia/dossier/tests/core",
+      "label": "core",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -529.9733367534097,
+      "y": 181.67187047852894,
+      "size": 530
+     },
+     "dir::quaternionmedia/dossier/tests/db": {
+      "id": "dir::quaternionmedia/dossier/tests/db",
+      "label": "db",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1088.1058782458676,
+      "y": -78.58960788491657,
+      "size": 100
+     },
+     "dir::quaternionmedia/dossier/tests/e2e": {
+      "id": "dir::quaternionmedia/dossier/tests/e2e",
+      "label": "e2e",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -753.7099674154165,
+      "y": -200.29976588753607,
+      "size": 100
+     },
+     "dir::quaternionmedia/dossier/tests/ui": {
+      "id": "dir::quaternionmedia/dossier/tests/ui",
+      "label": "ui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -998.518593932582,
+      "y": 324.6940278789654,
+      "size": 350
+     },
+     "dir::quaternionmedia/dossier/walkthrough": {
+      "id": "dir::quaternionmedia/dossier/walkthrough",
+      "label": "walkthrough",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -185.53250522357314,
+      "y": -1062.5904982069076,
+      "size": 110
+     },
+     "file::quaternionmedia/dossier/.github/copilot-instructions.md": {
+      "id": "file::quaternionmedia/dossier/.github/copilot-instructions.md",
+      "label": "copilot-instructions.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/.github/copilot-instructions.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -82.04926010003891,
+      "y": 528.0614522342901,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/AGENTS.md": {
+      "id": "file::quaternionmedia/dossier/AGENTS.md",
+      "label": "AGENTS.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/AGENTS.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -252.64364246388755,
+      "y": -260.7320868801538,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/CHANGELOG.md": {
+      "id": "file::quaternionmedia/dossier/CHANGELOG.md",
+      "label": "CHANGELOG.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/CHANGELOG.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -134.34873246520914,
+      "y": -360.3987481851127,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/CLAUDE.md": {
+      "id": "file::quaternionmedia/dossier/CLAUDE.md",
+      "label": "CLAUDE.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/CLAUDE.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -157.39872887469633,
+      "y": -189.15704227282026,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/README.md": {
+      "id": "file::quaternionmedia/dossier/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -65.95391310428413,
+      "y": -298.853989587711,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/REUSE.toml": {
+      "id": "file::quaternionmedia/dossier/REUSE.toml",
+      "label": "REUSE.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/REUSE.toml",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -256.0636647438296,
+      "y": -191.73748907458304,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/env.py": {
+      "id": "file::quaternionmedia/dossier/alembic/env.py",
+      "label": "env.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/env.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -574.394885513752,
+      "y": -736.3524320533636,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0000_001_initial_schema.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0000_001_initial_schema.py",
+      "label": "2026_01_17_0000_001_initial_schema.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_01_17_0000_001_initial_schema.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -335.1595153906816,
+      "y": -624.7951468634303,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0001_002_add_project_version.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0001_002_add_project_version.py",
+      "label": "2026_01_17_0001_002_add_project_version.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_01_17_0001_002_add_project_version.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -441.36581981371387,
+      "y": -629.5692632641703,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0000_003_add_performance_indexes.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0000_003_add_performance_indexes.py",
+      "label": "2026_01_18_0000_003_add_performance_indexes.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_01_18_0000_003_add_performance_indexes.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -351.3199700964744,
+      "y": -704.3579264461764,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0001_004_add_full_name_column.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0001_004_add_full_name_column.py",
+      "label": "2026_01_18_0001_004_add_full_name_column.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_01_18_0001_004_add_full_name_column.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -368.84931481933677,
+      "y": -578.691936831397,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_09_0000_005_governance_tables.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_09_0000_005_governance_tables.py",
+      "label": "2026_08_09_0000_005_governance_tables.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_09_0000_005_governance_tables.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -445.7706084122367,
+      "y": -690.8484982426668,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0000_006_disk_tables.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0000_006_disk_tables.py",
+      "label": "2026_08_11_0000_006_disk_tables.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_11_0000_006_disk_tables.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -305.0176032511258,
+      "y": -657.9734404179327,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0001_007_disk_reclaim.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0001_007_disk_reclaim.py",
+      "label": "2026_08_11_0001_007_disk_reclaim.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_11_0001_007_disk_reclaim.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -438.1250480908973,
+      "y": -583.3383573718183,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0002_008_release_state.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0002_008_release_state.py",
+      "label": "2026_08_11_0002_008_release_state.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_11_0002_008_release_state.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -387.85414028425714,
+      "y": -735.5104744895061,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_18_0000_009_delta_tables.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_18_0000_009_delta_tables.py",
+      "label": "2026_08_18_0000_009_delta_tables.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_18_0000_009_delta_tables.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -319.2532935790167,
+      "y": -582.6289415494541,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_18_1747_4a0159a74bbe_add_is_fork_and_is_archived_to_project.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_18_1747_4a0159a74bbe_add_is_fork_and_is_archived_to_project.py",
+      "label": "2026_08_18_1747_4a0159a74bbe_add_is_fork_and_is_archived_to_project.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_18_1747_4a0159a74bbe_add_is_fork_and_is_archived_to_project.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -479.4900322131538,
+      "y": -651.8979088958966,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_19_0733_cb1ba35f82fb_add_the_harness_view_tables.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_19_0733_cb1ba35f82fb_add_the_harness_view_tables.py",
+      "label": "2026_08_19_0733_cb1ba35f82fb_add_the_harness_view_tables.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_19_0733_cb1ba35f82fb_add_the_harness_view_tables.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -308.153789465825,
+      "y": -711.1679095735406,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0720_4e21fe9daec9_add_the_harness_ask_queue.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0720_4e21fe9daec9_add_the_harness_ask_queue.py",
+      "label": "2026_08_20_0720_4e21fe9daec9_add_the_harness_ask_queue.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_20_0720_4e21fe9daec9_add_the_harness_ask_queue.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -397.6237309792081,
+      "y": -546.06457646344,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0800_b7c4d1a90e33_add_delta_relations.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0800_b7c4d1a90e33_add_delta_relations.py",
+      "label": "2026_08_20_0800_b7c4d1a90e33_add_delta_relations.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_20_0800_b7c4d1a90e33_add_delta_relations.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -444.6194681594097,
+      "y": -734.3469222606195,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/alembic/versions/2026_08_31_0000_c1f2a3b4d5e6_add_is_private_to_project.py": {
+      "id": "file::quaternionmedia/dossier/alembic/versions/2026_08_31_0000_c1f2a3b4d5e6_add_is_private_to_project.py",
+      "label": "2026_08_31_0000_c1f2a3b4d5e6_add_is_private_to_project.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/alembic/versions/2026_08_31_0000_c1f2a3b4d5e6_add_is_private_to_project.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -277.75777680657046,
+      "y": -623.8443819708502,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/DELTA_ENTITY_PLAN.md": {
+      "id": "file::quaternionmedia/dossier/docs/DELTA_ENTITY_PLAN.md",
+      "label": "DELTA_ENTITY_PLAN.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/DELTA_ENTITY_PLAN.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 188.83689750836857,
+      "y": -736.7059022085058,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/architecture.md": {
+      "id": "file::quaternionmedia/dossier/docs/architecture.md",
+      "label": "architecture.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/architecture.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 54.7892941267113,
+      "y": -741.2047302994041,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/commands.md": {
+      "id": "file::quaternionmedia/dossier/docs/commands.md",
+      "label": "commands.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/commands.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 173.0842041253898,
+      "y": -840.8713916043631,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/contributing.md": {
+      "id": "file::quaternionmedia/dossier/docs/contributing.md",
+      "label": "contributing.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/contributing.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 150.03420771590257,
+      "y": -669.6296856920707,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/cookbook.md": {
+      "id": "file::quaternionmedia/dossier/docs/cookbook.md",
+      "label": "cookbook.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/cookbook.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 42.50875996270332,
+      "y": -825.2448481453239,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/dashboard.md": {
+      "id": "file::quaternionmedia/dossier/docs/dashboard.md",
+      "label": "dashboard.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/dashboard.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 241.47902348631476,
+      "y": -779.3266330069614,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/dev-loop.md": {
+      "id": "file::quaternionmedia/dossier/docs/dev-loop.md",
+      "label": "dev-loop.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/dev-loop.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 51.369271846769294,
+      "y": -672.2101324938334,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/disk.md": {
+      "id": "file::quaternionmedia/dossier/docs/disk.md",
+      "label": "disk.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/disk.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 123.57815199770697,
+      "y": -892.0244405150163,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/extending.md": {
+      "id": "file::quaternionmedia/dossier/docs/extending.md",
+      "label": "extending.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/extending.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 223.70305806313016,
+      "y": -669.7107260383636,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/governance.md": {
+      "id": "file::quaternionmedia/dossier/docs/governance.md",
+      "label": "governance.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/governance.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 241.13613938894827,
+      "y": -858.4162279262795,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/index.md": {
+      "id": "file::quaternionmedia/dossier/docs/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 108.96937700444249,
+      "y": -614.0293327237551,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/overview.md": {
+      "id": "file::quaternionmedia/dossier/docs/overview.md",
+      "label": "overview.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/overview.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 38.9494502203965,
+      "y": -893.6798483917673,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/plan-rad-tui.md": {
+      "id": "file::quaternionmedia/dossier/docs/plan-rad-tui.md",
+      "label": "plan-rad-tui.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/plan-rad-tui.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 287.8167253384626,
+      "y": -729.1008503997764,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/quickstart.md": {
+      "id": "file::quaternionmedia/dossier/docs/quickstart.md",
+      "label": "quickstart.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/quickstart.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -16.511716196123302,
+      "y": -680.943314790845,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/rad-commands.md": {
+      "id": "file::quaternionmedia/dossier/docs/rad-commands.md",
+      "label": "rad-commands.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/rad-commands.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 181.33457797721204,
+      "y": -929.349074671235,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/roadmap.md": {
+      "id": "file::quaternionmedia/dossier/docs/roadmap.md",
+      "label": "roadmap.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/roadmap.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 203.77488391005215,
+      "y": -603.3758971252894,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/settings.md": {
+      "id": "file::quaternionmedia/dossier/docs/settings.md",
+      "label": "settings.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/settings.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 304.9366150337751,
+      "y": -828.1414086528212,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/docs/workflows.md": {
+      "id": "file::quaternionmedia/dossier/docs/workflows.md",
+      "label": "workflows.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/docs/workflows.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 40.14240094599353,
+      "y": -594.9332833259366,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/examples/demo_tui.py": {
+      "id": "file::quaternionmedia/dossier/examples/demo_tui.py",
+      "label": "demo_tui.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/examples/demo_tui.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 584.5079343352913,
+      "y": -713.4118692033318,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/hooks/pictures.py": {
+      "id": "file::quaternionmedia/dossier/hooks/pictures.py",
+      "label": "pictures.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/hooks/pictures.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -823.186616532983,
+      "y": -809.1898699086863,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/pyproject.toml": {
+      "id": "file::quaternionmedia/dossier/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -83.72987852746871,
+      "y": -189.2380826191133,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/scripts/license_gate.py": {
+      "id": "file::quaternionmedia/dossier/scripts/license_gate.py",
+      "label": "license_gate.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/scripts/license_gate.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -845.5355277429701,
+      "y": -540.5884604818132,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/scripts/lint_ascii.py": {
+      "id": "file::quaternionmedia/dossier/scripts/lint_ascii.py",
+      "label": "lint_ascii.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/scripts/lint_ascii.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -951.7418321660024,
+      "y": -545.3625768825532,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/scripts/spdx_allowlist.py": {
+      "id": "file::quaternionmedia/dossier/scripts/spdx_allowlist.py",
+      "label": "spdx_allowlist.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/scripts/spdx_allowlist.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -861.695982448763,
+      "y": -620.1512400645593,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 653.7468091492051,
+      "y": 79.2868422509633,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/actions.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/actions.py",
+      "label": "actions.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/actions.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 547.5405047261727,
+      "y": 74.51272585022326,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/api/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/api/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/api/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 623.9877940016448,
+      "y": -260.8602573643152,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/api/main.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/api/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/api/main.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 517.7814895786125,
+      "y": -265.6343737650553,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/approval.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/approval.py",
+      "label": "approval.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/approval.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 637.5863544434123,
+      "y": -0.2759373317827851,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/branches.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/branches.py",
+      "label": "branches.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/branches.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 620.0570097205499,
+      "y": 125.3900522829966,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/capabilities.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/capabilities.py",
+      "label": "capabilities.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/capabilities.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 543.1357161276499,
+      "y": 13.233490871726787,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/chat.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/chat.py",
+      "label": "chat.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/chat.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 683.8887212887608,
+      "y": 46.10854869646096,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/cli.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/cli.py",
+      "label": "cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/cli.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 550.7812764489893,
+      "y": 120.74363174257519,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/clone.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/clone.py",
+      "label": "clone.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/clone.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 601.0521842556294,
+      "y": -31.428485375112615,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/composition.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/composition.py",
+      "label": "composition.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/composition.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 669.65303096087,
+      "y": 121.45304756493951,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/compound.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/compound.py",
+      "label": "compound.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/compound.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 509.41629232673284,
+      "y": 52.184080218496945,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/config.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/config.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 680.7525350740617,
+      "y": -7.085920459146905,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/cookbook.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/cookbook.py",
+      "label": "cookbook.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/cookbook.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 591.2825935606784,
+      "y": 158.01741265095373,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/corpus.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/corpus.py",
+      "label": "corpus.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/corpus.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 544.2868563804768,
+      "y": -30.264933146225957,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/delta_graph.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/delta_graph.py",
+      "label": "delta_graph.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/delta_graph.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 711.1485477333163,
+      "y": 80.23760714354333,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/diagnostics.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/diagnostics.py",
+      "label": "diagnostics.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/diagnostics.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 507.63225300051084,
+      "y": 112.32332244337815,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/disk.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/disk.py",
+      "label": "disk.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/disk.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 639.6456444381328,
+      "y": -53.25304651742522,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/disk_store.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/disk_store.py",
+      "label": "disk_store.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/disk_store.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 654.4734491077481,
+      "y": 163.58297680590482,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/dossier_file.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/dossier_file.py",
+      "label": "dossier_file.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/dossier_file.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 493.1654548483727,
+      "y": 9.920756564739094,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/facets.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/facets.py",
+      "label": "facets.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/facets.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 721.215277782646,
+      "y": 14.41728175555636,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/filmstrip.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/filmstrip.py",
+      "label": "filmstrip.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/filmstrip.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 546.0953998048212,
+      "y": 168.54235281413378,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/freshness.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/freshness.py",
+      "label": "freshness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/freshness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 571.7005420729837,
+      "y": -68.43957246382843,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/governance.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/governance.py",
+      "label": "governance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/governance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 715.8113385675554,
+      "y": 127.62843238699813,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/harness.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/harness.py",
+      "label": "harness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/harness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 472.3350039534664,
+      "y": 79.41671371435989,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/health.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/health.py",
+      "label": "health.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/health.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 688.5346714302798,
+      "y": -51.95031151478992,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/human.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/human.py",
+      "label": "human.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/human.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 616.5103656925626,
+      "y": 195.44931215693234,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/ingest.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/ingest.py",
+      "label": "ingest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/ingest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 500.49389692371903,
+      "y": -39.77127437078923,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/interaction.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/interaction.py",
+      "label": "interaction.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/interaction.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 749.1369421888603,
+      "y": 56.97396637383849,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/intersections.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/intersections.py",
+      "label": "intersections.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/intersections.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 496.28622600500637,
+      "y": 155.17769045343044,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/loop.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/loop.py",
+      "label": "loop.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/loop.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 618.3581583685394,
+      "y": -91.94645080672706,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/maintenance.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/maintenance.py",
+      "label": "maintenance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/maintenance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 696.4536334225413,
+      "y": 176.87956810772073,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/models/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/models/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/models/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 684.8368814931515,
+      "y": 434.6479952389053,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/models/disk.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/models/disk.py",
+      "label": "disk.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/models/disk.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 578.6305770701192,
+      "y": 429.8738788381652,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/models/governance.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/models/governance.py",
+      "label": "governance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/models/governance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 668.6764267873588,
+      "y": 355.08521565615916,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/models/harness.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/models/harness.py",
+      "label": "harness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/models/harness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 651.1470820644963,
+      "y": 480.75120527093856,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/models/schemas.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/models/schemas.py",
+      "label": "schemas.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/models/schemas.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 574.2257884715964,
+      "y": 368.5946438596688,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/naming.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/naming.py",
+      "label": "naming.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/naming.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 453.665687472386,
+      "y": 29.18132329194012,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/narratives.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/narratives.py",
+      "label": "narratives.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/narratives.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 736.5660147810416,
+      "y": -26.698753238463897,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/numpad_graph.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/numpad_graph.py",
+      "label": "numpad_graph.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/numpad_graph.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 563.2497170865126,
+      "y": 208.90908396430262,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/overview.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/overview.py",
+      "label": "overview.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/overview.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 531.4830610911747,
+      "y": -85.93813044287418,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/palette.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/palette.py",
+      "label": "palette.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/palette.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 757.0691267502323,
+      "y": 112.68042459377881,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/parsers/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/parsers/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/parsers/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 330.44998697154574,
+      "y": -71.46894178765395,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/parsers/autolinker.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/parsers/autolinker.py",
+      "label": "autolinker.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/parsers/autolinker.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 224.24368254851336,
+      "y": -76.24305818839409,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/parsers/base.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/parsers/base.py",
+      "label": "base.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/parsers/base.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 314.2895322657528,
+      "y": -151.0317213704001,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/parsers/github.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/parsers/github.py",
+      "label": "github.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/parsers/github.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 296.76018754289055,
+      "y": -25.36573175562073,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/parsers/governance.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/parsers/governance.py",
+      "label": "governance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/parsers/governance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 219.8388939499905,
+      "y": -137.52229316689048,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 354.4526166398375,
+      "y": 288.8548919884106,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/index.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/index.py",
+      "label": "index.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/index.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 248.24631221680528,
+      "y": 284.08077558767053,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/numpad.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/numpad.py",
+      "label": "numpad.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/numpad.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 338.29216193404477,
+      "y": 209.29211240566445,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/palette.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/palette.py",
+      "label": "palette.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/palette.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 320.76281721118244,
+      "y": 334.9581020204439,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/ring.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/ring.py",
+      "label": "ring.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/ring.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 243.84152361828245,
+      "y": 222.80154060917408,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/session.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/session.py",
+      "label": "session.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/session.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 384.59452877939333,
+      "y": 255.67659843390817,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/rad/tokens.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/rad/tokens.py",
+      "label": "tokens.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/rad/tokens.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 251.48708393962175,
+      "y": 330.3116814800225,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/ratelimit.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/ratelimit.py",
+      "label": "ratelimit.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/ratelimit.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 452.60731358701764,
+      "y": 118.66424975316303,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/readiness.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/readiness.py",
+      "label": "readiness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/readiness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 675.9074251808987,
+      "y": -94.08973032198486,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/sources.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/sources.py",
+      "label": "sources.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/sources.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 654.6854934127844,
+      "y": 217.47280829786467,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/sweep.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/sweep.py",
+      "label": "sweep.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/sweep.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 457.5135327317202,
+      "y": -29.588297506959805,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/threads.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/threads.py",
+      "label": "threads.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/threads.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 773.5062083146572,
+      "y": 19.999844029916574,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/toc.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/toc.py",
+      "label": "toc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/toc.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 503.89700535916535,
+      "y": 198.92891363408805,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/topology.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/topology.py",
+      "label": "topology.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/topology.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 582.735460120218,
+      "y": -118.69288779561778,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/trim.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/trim.py",
+      "label": "trim.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/trim.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 740.8778866654757,
+      "y": 171.96921362716319,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/__init__.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 984.8851602980791,
+      "y": 233.69919130050235,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/app.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/app.py",
+      "label": "app.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/app.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 878.6788558750465,
+      "y": 228.92507489976214,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/delta_board.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/delta_board.py",
+      "label": "delta_board.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/delta_board.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 968.724705592286,
+      "y": 154.13641171775612,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/intersections_panel.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/intersections_panel.py",
+      "label": "intersections_panel.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/intersections_panel.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 951.1953608694237,
+      "y": 279.8024013325355,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/overview_panel.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/overview_panel.py",
+      "label": "overview_panel.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/overview_panel.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 874.2740672765237,
+      "y": 167.6458399212658,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/section_render.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/section_render.py",
+      "label": "section_render.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/section_render.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1015.0270724376346,
+      "y": 200.5208977459999,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/tui/widgets.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/tui/widgets.py",
+      "label": "widgets.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/tui/widgets.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 881.9196275978632,
+      "y": 275.1559807921141,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/src/dossier/views.py": {
+      "id": "file::quaternionmedia/dossier/src/dossier/views.py",
+      "label": "views.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/src/dossier/views.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 424.53086757924854,
+      "y": 63.28426195937944,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/README.md": {
+      "id": "file::quaternionmedia/dossier/tests/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -811.1122233293532,
+      "y": 50.57465466299698,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/__init__.py": {
+      "id": "file::quaternionmedia/dossier/tests/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -917.3185277523854,
+      "y": 45.80053826225702,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/conftest.py": {
+      "id": "file::quaternionmedia/dossier/tests/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/conftest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -827.272678035146,
+      "y": -28.988124919749115,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/__init__.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -481.0327162534307,
+      "y": 204.49325661252672,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_act_on_what_is_recommended.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_act_on_what_is_recommended.py",
+      "label": "test_act_on_what_is_recommended.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_act_on_what_is_recommended.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -587.239020676463,
+      "y": 199.7191402117867,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_actions_registry.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_actions_registry.py",
+      "label": "test_actions_registry.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_actions_registry.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -497.1931709592236,
+      "y": 124.93047702978059,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_api.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_api.py",
+      "label": "test_api.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_api.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -514.7225156820859,
+      "y": 250.59646664456005,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_approval.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_approval.py",
+      "label": "test_approval.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_approval.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -591.6438092749859,
+      "y": 138.4399052332903,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_branch_hygiene.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_branch_hygiene.py",
+      "label": "test_branch_hygiene.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_branch_hygiene.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -450.89080411387494,
+      "y": 171.31496305802438,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_capabilities.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_capabilities.py",
+      "label": "test_capabilities.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_capabilities.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -583.9982489536465,
+      "y": 245.9500461041386,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_chat.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_chat.py",
+      "label": "test_chat.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_chat.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -533.7273411470064,
+      "y": 93.77792898645089,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_cli.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_cli.py",
+      "label": "test_cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_cli.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -465.12649444176583,
+      "y": 246.65946192650293,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_clone.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_clone.py",
+      "label": "test_clone.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_clone.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -625.363233075903,
+      "y": 177.39049458006042,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_composition.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_composition.py",
+      "label": "test_composition.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_composition.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -454.0269903285742,
+      "y": 118.12049390241657,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_compound.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_compound.py",
+      "label": "test_compound.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_compound.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -543.4969318419573,
+      "y": 283.2238270125172,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_cookbook.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_cookbook.py",
+      "label": "test_cookbook.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_cookbook.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -590.492669022159,
+      "y": 94.94148121533746,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_database_override.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_database_override.py",
+      "label": "test_database_override.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_database_override.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -423.63097766931963,
+      "y": 205.4440215051067,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_delta_graph.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_delta_graph.py",
+      "label": "test_delta_graph.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_delta_graph.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -627.1472724021249,
+      "y": 237.5297368049416,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_diagnostics.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_diagnostics.py",
+      "label": "test_diagnostics.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_diagnostics.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -495.13388096450296,
+      "y": 71.95336784413828,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_disk.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_disk.py",
+      "label": "test_disk.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_disk.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -480.3060762948877,
+      "y": 288.78939116746824,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_disk_reclaim.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_disk_reclaim.py",
+      "label": "test_disk_reclaim.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_disk_reclaim.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -641.6140705542631,
+      "y": 135.12717092630254,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_disk_store.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_disk_store.py",
+      "label": "test_disk_store.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_disk_store.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -413.5642476199898,
+      "y": 139.62369611711983,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_documented_commands.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_documented_commands.py",
+      "label": "test_documented_commands.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_documented_commands.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -588.6841255978146,
+      "y": 293.7487671756972,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_every_module_compiles.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_every_module_compiles.py",
+      "label": "test_every_module_compiles.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_every_module_compiles.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -563.0789833296521,
+      "y": 56.76684189773508,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_freshness.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_freshness.py",
+      "label": "test_freshness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_freshness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -418.9681868350805,
+      "y": 252.83484674856157,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_github.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_github.py",
+      "label": "test_github.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_github.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -662.4445214491694,
+      "y": 204.62312807592332,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_governance.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_governance.py",
+      "label": "test_governance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_governance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -446.24485397235605,
+      "y": 73.25610284677356,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_harness.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_harness.py",
+      "label": "test_harness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_harness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -518.2691597100732,
+      "y": 320.65572651849584,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_harness_run.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_harness_run.py",
+      "label": "test_harness_run.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_harness_run.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -634.2856284789168,
+      "y": 85.43513999077425,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_ingest.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_ingest.py",
+      "label": "test_ingest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_ingest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -385.64258321377554,
+      "y": 182.18038073540188,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_interaction.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_interaction.py",
+      "label": "test_interaction.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_interaction.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -638.4932993976295,
+      "y": 280.38410481499386,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_loop.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_loop.py",
+      "label": "test_loop.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_loop.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -516.4213670340964,
+      "y": 33.25996355483633,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_no_typed_routes.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_no_typed_routes.py",
+      "label": "test_no_typed_routes.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_no_typed_routes.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -438.32589198009464,
+      "y": 302.0859824692842,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_numpad_graph.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_numpad_graph.py",
+      "label": "test_numpad_graph.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_numpad_graph.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -681.1138379302498,
+      "y": 154.3877376535036,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_overview.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_overview.py",
+      "label": "test_overview.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_overview.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -398.2135106215941,
+      "y": 98.50766112309955,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_overview_redacts_private.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_overview_redacts_private.py",
+      "label": "test_overview_redacts_private.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_overview_redacts_private.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -571.5298083161232,
+      "y": 334.11549832586604,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_parsers.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_parsers.py",
+      "label": "test_parsers.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_parsers.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -603.296464311461,
+      "y": 39.268283918689235,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_published_artifacts.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_published_artifacts.py",
+      "label": "test_published_artifacts.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_published_artifacts.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -377.71039865240357,
+      "y": 237.88683895534226,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_published_screenshots.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_published_screenshots.py",
+      "label": "test_published_screenshots.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_published_screenshots.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -682.1722118156182,
+      "y": 243.87066411472648,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_rad_availability.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_rad_availability.py",
+      "label": "test_rad_availability.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_rad_availability.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -458.87210022173707,
+      "y": 31.11668403957856,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_rad_index.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_rad_index.py",
+      "label": "test_rad_index.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_rad_index.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -480.09403198985166,
+      "y": 342.6792226594281,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_readiness.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_readiness.py",
+      "label": "test_readiness.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_readiness.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -677.2659926709155,
+      "y": 95.61811685460361,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_sources.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_sources.py",
+      "label": "test_sources.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_sources.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -361.2733170879787,
+      "y": 145.20625839148,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_sweep.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_sweep.py",
+      "label": "test_sweep.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_sweep.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -630.8825200434704,
+      "y": 324.1353279956515,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_threads_as_deltas.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_threads_as_deltas.py",
+      "label": "test_threads_as_deltas.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_threads_as_deltas.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -552.0440652824179,
+      "y": 6.5135265659456545,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_threads_client.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_threads_client.py",
+      "label": "test_threads_client.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_threads_client.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -393.90163873716006,
+      "y": 297.17562798872666,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_toc.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_toc.py",
+      "label": "test_toc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_toc.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -710.2486578233874,
+      "y": 188.49067632094298,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_topology_mermaid.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_topology_mermaid.py",
+      "label": "test_topology_mermaid.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_topology_mermaid.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -400.29863633876397,
+      "y": 53.53435812413749,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_topology_render.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_topology_render.py",
+      "label": "test_topology_render.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_topology_render.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -539.1292439028789,
+      "y": 365.62833778606966,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_topology_route.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_topology_route.py",
+      "label": "test_topology_route.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_topology_route.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -648.6702947829937,
+      "y": 38.41019676736775,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/core/test_trim.py": {
+      "id": "file::quaternionmedia/dossier/tests/core/test_trim.py",
+      "label": "test_trim.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/core/test_trim.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -343.85261670561,
+      "y": 207.38208379714075,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/db/__init__.py": {
+      "id": "file::quaternionmedia/dossier/tests/db/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/db/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1039.1652577458885,
+      "y": -55.76822175091877,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/db/test_health.py": {
+      "id": "file::quaternionmedia/dossier/tests/db/test_health.py",
+      "label": "test_health.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/db/test_health.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1145.371562168921,
+      "y": -60.542338151658946,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/db/test_maintenance.py": {
+      "id": "file::quaternionmedia/dossier/tests/db/test_maintenance.py",
+      "label": "test_maintenance.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/db/test_maintenance.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1055.3257124516815,
+      "y": -135.33100133366497,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/db/test_models.py": {
+      "id": "file::quaternionmedia/dossier/tests/db/test_models.py",
+      "label": "test_models.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/db/test_models.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -1072.8550571745438,
+      "y": -9.665011718885523,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/db/test_workflows.py": {
+      "id": "file::quaternionmedia/dossier/tests/db/test_workflows.py",
+      "label": "test_workflows.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/db/test_workflows.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1149.7763507674438,
+      "y": -121.82157313015529,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/disk_documents.py": {
+      "id": "file::quaternionmedia/dossier/tests/disk_documents.py",
+      "label": "disk_documents.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/disk_documents.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -844.8020227580084,
+      "y": 96.67786469503034,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/e2e/__init__.py": {
+      "id": "file::quaternionmedia/dossier/tests/e2e/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/e2e/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -704.7693469154374,
+      "y": -177.47837975353832,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/e2e/test_adversarial.py": {
+      "id": "file::quaternionmedia/dossier/tests/e2e/test_adversarial.py",
+      "label": "test_adversarial.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/e2e/test_adversarial.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -810.9756513384698,
+      "y": -182.25249615427842,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/e2e/test_fresh_setup.py": {
+      "id": "file::quaternionmedia/dossier/tests/e2e/test_fresh_setup.py",
+      "label": "test_fresh_setup.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/e2e/test_fresh_setup.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -720.9298016212302,
+      "y": -257.0411593362844,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/e2e/test_seam_port.py": {
+      "id": "file::quaternionmedia/dossier/tests/e2e/test_seam_port.py",
+      "label": "test_seam_port.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/e2e/test_seam_port.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -738.4591463440926,
+      "y": -131.37516972150505,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/e2e/test_workspace_composition.py": {
+      "id": "file::quaternionmedia/dossier/tests/e2e/test_workspace_composition.py",
+      "label": "test_workspace_composition.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/e2e/test_workspace_composition.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -815.3804399369926,
+      "y": -243.5317311327749,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/structural.py": {
+      "id": "file::quaternionmedia/dossier/tests/structural.py",
+      "label": "structural.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/structural.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -921.7233163509084,
+      "y": -15.478696716239426,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/__init__.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -949.5779734326028,
+      "y": 347.51541401296316,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/conftest.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/conftest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1055.784277855635,
+      "y": 342.741297612223,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_button_wiring.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_button_wiring.py",
+      "label": "test_button_wiring.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_button_wiring.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -965.7384281383956,
+      "y": 267.95263443021696,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_chat_screen.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_chat_screen.py",
+      "label": "test_chat_screen.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_chat_screen.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -983.2677728612582,
+      "y": 393.6186240449964,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_consolidated_views.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_consolidated_views.py",
+      "label": "test_consolidated_views.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_consolidated_views.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1060.1890664541581,
+      "y": 281.46206263372665,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_delta_board.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_delta_board.py",
+      "label": "test_delta_board.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_delta_board.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -919.436061293047,
+      "y": 314.33712045846073,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_demo_tui.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_demo_tui.py",
+      "label": "test_demo_tui.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_demo_tui.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1052.5435061328187,
+      "y": 388.9722035045751,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_disk_views.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_disk_views.py",
+      "label": "test_disk_views.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_disk_views.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -1002.2725983261785,
+      "y": 236.8000863868872,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_docs_at_org_scope.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_docs_at_org_scope.py",
+      "label": "test_docs_at_org_scope.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_docs_at_org_scope.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -933.6717516209382,
+      "y": 389.6816193269392,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_dossier_inflight.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_dossier_inflight.py",
+      "label": "test_dossier_inflight.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_dossier_inflight.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1093.9084902550753,
+      "y": 320.4126519804968,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_field_submission.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_field_submission.py",
+      "label": "test_field_submission.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_field_submission.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -922.5722475077465,
+      "y": 261.14265130285287,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_goals_tab.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_goals_tab.py",
+      "label": "test_goals_tab.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_goals_tab.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -1012.0421890211295,
+      "y": 426.2459844129535,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_harness_console.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_harness_console.py",
+      "label": "test_harness_console.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_harness_console.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1059.0379262013312,
+      "y": 237.96363861577373,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_intersections.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_intersections.py",
+      "label": "test_intersections.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_intersections.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -892.1762348484918,
+      "y": 348.4661789055432,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_narratives.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_narratives.py",
+      "label": "test_narratives.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_narratives.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1095.692529581297,
+      "y": 380.5518942053778,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_numpad.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_numpad.py",
+      "label": "test_numpad.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_numpad.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -963.6791381436753,
+      "y": 214.97552524457467,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_one_row_on_the_middle_rank.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_one_row_on_the_middle_rank.py",
+      "label": "test_one_row_on_the_middle_rank.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_one_row_on_the_middle_rank.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -948.8513334740599,
+      "y": 431.81154856790454,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_progress.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_progress.py",
+      "label": "test_progress.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_progress.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1110.1593277334352,
+      "y": 278.1493283267388,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_rad.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_rad.py",
+      "label": "test_rad.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_rad.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -882.1095047991619,
+      "y": 282.64585351755625,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_rad_ingest.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_rad_ingest.py",
+      "label": "test_rad_ingest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_rad_ingest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1057.2293827769868,
+      "y": 436.77092457613355,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_rad_sync.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_rad_sync.py",
+      "label": "test_rad_sync.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_rad_sync.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -1031.6242405088242,
+      "y": 199.78899929817152,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_reconcile.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_reconcile.py",
+      "label": "test_reconcile.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_reconcile.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -887.5134440142526,
+      "y": 395.85700414899793,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_rows_know_their_repository.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_rows_know_their_repository.py",
+      "label": "test_rows_know_their_repository.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_rows_know_their_repository.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1130.9897786283416,
+      "y": 347.6452854763597,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_scope_and_links.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_scope_and_links.py",
+      "label": "test_scope_and_links.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_scope_and_links.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -914.7901111515282,
+      "y": 216.27826024720994,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_startup_order.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_startup_order.py",
+      "label": "test_startup_order.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_startup_order.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -986.8144168892454,
+      "y": 463.6778839189323,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_sweep_follows_the_selection.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_sweep_follows_the_selection.py",
+      "label": "test_sweep_follows_the_selection.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_sweep_follows_the_selection.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1102.8308856580888,
+      "y": 228.4572973912106,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_sweep_review.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_sweep_review.py",
+      "label": "test_sweep_review.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_sweep_review.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -854.1878403929477,
+      "y": 325.20253813583827,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_the_ring_takes_the_pointer.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_the_ring_takes_the_pointer.py",
+      "label": "test_the_ring_takes_the_pointer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_the_ring_takes_the_pointer.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1107.0385565768017,
+      "y": 423.4062622154303,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_topology_tab.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_topology_tab.py",
+      "label": "test_topology_tab.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_topology_tab.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -984.9666242132687,
+      "y": 176.28212095527266,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/tests/ui/test_tui.py": {
+      "id": "file::quaternionmedia/dossier/tests/ui/test_tui.py",
+      "label": "test_tui.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/tests/ui/test_tui.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -906.8711491592668,
+      "y": 445.1081398697205,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/01-first-run.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/01-first-run.md",
+      "label": "01-first-run.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/01-first-run.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -136.59188472359403,
+      "y": -1039.7691120729098,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/02-filling-it.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/02-filling-it.md",
+      "label": "02-filling-it.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/02-filling-it.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -242.79818914662633,
+      "y": -1044.5432284736498,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/03-before-a-pull-request.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/03-before-a-pull-request.md",
+      "label": "03-before-a-pull-request.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/03-before-a-pull-request.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -152.75233942938695,
+      "y": -1119.331891655656,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/04-the-pair.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/04-the-pair.md",
+      "label": "04-the-pair.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/04-the-pair.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -170.28168415224917,
+      "y": -993.6659020408766,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/05-a-project-made-of-projects.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/05-a-project-made-of-projects.md",
+      "label": "05-a-project-made-of-projects.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/05-a-project-made-of-projects.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -247.20297774514927,
+      "y": -1105.8224634521464,
+      "size": 30
+     },
+     "file::quaternionmedia/dossier/walkthrough/06-a-sweep-across-the-org.md": {
+      "id": "file::quaternionmedia/dossier/walkthrough/06-a-sweep-across-the-org.md",
+      "label": "06-a-sweep-across-the-org.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/dossier/main/walkthrough/06-a-sweep-across-the-org.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -106.44997258403828,
+      "y": -1072.947405627412,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/AGENTS.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/CHANGELOG.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/CLAUDE.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/REUSE.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "file::quaternionmedia/dossier/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/.vscode",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/LICENSES",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/alembic",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/governance",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/hooks",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/scripts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier",
+      "target": "dir::quaternionmedia/dossier/walkthrough",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/.github",
+      "target": "file::quaternionmedia/dossier/.github/copilot-instructions.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/.github",
+      "target": "dir::quaternionmedia/dossier/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic",
+      "target": "file::quaternionmedia/dossier/alembic/env.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic",
+      "target": "dir::quaternionmedia/dossier/alembic/versions",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0000_001_initial_schema.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_01_17_0001_002_add_project_version.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0000_003_add_performance_indexes.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_01_18_0001_004_add_full_name_column.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_09_0000_005_governance_tables.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0000_006_disk_tables.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0001_007_disk_reclaim.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_11_0002_008_release_state.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_18_0000_009_delta_tables.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_18_1747_4a0159a74bbe_add_is_fork_and_is_archived_to_project.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_19_0733_cb1ba35f82fb_add_the_harness_view_tables.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0720_4e21fe9daec9_add_the_harness_ask_queue.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_20_0800_b7c4d1a90e33_add_delta_relations.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/alembic/versions",
+      "target": "file::quaternionmedia/dossier/alembic/versions/2026_08_31_0000_c1f2a3b4d5e6_add_is_private_to_project.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/DELTA_ENTITY_PLAN.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/architecture.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/commands.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/contributing.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/cookbook.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/dashboard.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/dev-loop.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/disk.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/extending.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/governance.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/overview.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/plan-rad-tui.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/quickstart.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/rad-commands.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/roadmap.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/settings.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "file::quaternionmedia/dossier/docs/workflows.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "dir::quaternionmedia/dossier/docs/fonts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/docs",
+      "target": "dir::quaternionmedia/dossier/docs/screenshots",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/examples",
+      "target": "file::quaternionmedia/dossier/examples/demo_tui.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/hooks",
+      "target": "file::quaternionmedia/dossier/hooks/pictures.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/scripts",
+      "target": "file::quaternionmedia/dossier/scripts/license_gate.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/scripts",
+      "target": "file::quaternionmedia/dossier/scripts/lint_ascii.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/scripts",
+      "target": "file::quaternionmedia/dossier/scripts/spdx_allowlist.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src",
+      "target": "dir::quaternionmedia/dossier/src/dossier",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/actions.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/approval.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/branches.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/capabilities.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/chat.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/clone.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/composition.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/compound.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/cookbook.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/corpus.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/delta_graph.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/diagnostics.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/disk.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/disk_store.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/dossier_file.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/facets.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/filmstrip.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/freshness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/governance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/harness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/health.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/human.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/ingest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/interaction.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/intersections.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/loop.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/maintenance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/naming.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/narratives.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/numpad_graph.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/overview.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/palette.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/ratelimit.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/readiness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/sources.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/sweep.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/threads.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/toc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/topology.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/trim.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "file::quaternionmedia/dossier/src/dossier/views.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "dir::quaternionmedia/dossier/src/dossier/api",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "dir::quaternionmedia/dossier/src/dossier/models",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier",
+      "target": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/api",
+      "target": "file::quaternionmedia/dossier/src/dossier/api/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/api",
+      "target": "file::quaternionmedia/dossier/src/dossier/api/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/models",
+      "target": "file::quaternionmedia/dossier/src/dossier/models/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/models",
+      "target": "file::quaternionmedia/dossier/src/dossier/models/disk.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/models",
+      "target": "file::quaternionmedia/dossier/src/dossier/models/governance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/models",
+      "target": "file::quaternionmedia/dossier/src/dossier/models/harness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/models",
+      "target": "file::quaternionmedia/dossier/src/dossier/models/schemas.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "target": "file::quaternionmedia/dossier/src/dossier/parsers/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "target": "file::quaternionmedia/dossier/src/dossier/parsers/autolinker.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "target": "file::quaternionmedia/dossier/src/dossier/parsers/base.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "target": "file::quaternionmedia/dossier/src/dossier/parsers/github.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/parsers",
+      "target": "file::quaternionmedia/dossier/src/dossier/parsers/governance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/index.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/numpad.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/palette.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/ring.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/session.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/rad",
+      "target": "file::quaternionmedia/dossier/src/dossier/rad/tokens.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/app.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/delta_board.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/intersections_panel.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/overview_panel.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/section_render.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/src/dossier/tui",
+      "target": "file::quaternionmedia/dossier/src/dossier/tui/widgets.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "file::quaternionmedia/dossier/tests/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "file::quaternionmedia/dossier/tests/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "file::quaternionmedia/dossier/tests/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "file::quaternionmedia/dossier/tests/disk_documents.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "file::quaternionmedia/dossier/tests/structural.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "dir::quaternionmedia/dossier/tests/core",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "dir::quaternionmedia/dossier/tests/db",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "dir::quaternionmedia/dossier/tests/e2e",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests",
+      "target": "dir::quaternionmedia/dossier/tests/ui",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_act_on_what_is_recommended.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_actions_registry.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_api.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_approval.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_branch_hygiene.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_capabilities.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_chat.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_clone.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_composition.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_compound.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_cookbook.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_database_override.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_delta_graph.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_diagnostics.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_disk.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_disk_reclaim.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_disk_store.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_documented_commands.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_every_module_compiles.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_freshness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_github.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_governance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_harness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_harness_run.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_ingest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_interaction.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_loop.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_no_typed_routes.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_numpad_graph.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_overview.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_overview_redacts_private.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_parsers.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_published_artifacts.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_published_screenshots.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_rad_availability.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_rad_index.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_readiness.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_sources.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_sweep.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_threads_as_deltas.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_threads_client.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_toc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_topology_mermaid.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_topology_render.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_topology_route.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/core",
+      "target": "file::quaternionmedia/dossier/tests/core/test_trim.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/db",
+      "target": "file::quaternionmedia/dossier/tests/db/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/db",
+      "target": "file::quaternionmedia/dossier/tests/db/test_health.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/db",
+      "target": "file::quaternionmedia/dossier/tests/db/test_maintenance.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/db",
+      "target": "file::quaternionmedia/dossier/tests/db/test_models.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/db",
+      "target": "file::quaternionmedia/dossier/tests/db/test_workflows.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/e2e",
+      "target": "file::quaternionmedia/dossier/tests/e2e/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/e2e",
+      "target": "file::quaternionmedia/dossier/tests/e2e/test_adversarial.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/e2e",
+      "target": "file::quaternionmedia/dossier/tests/e2e/test_fresh_setup.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/e2e",
+      "target": "file::quaternionmedia/dossier/tests/e2e/test_seam_port.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/e2e",
+      "target": "file::quaternionmedia/dossier/tests/e2e/test_workspace_composition.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_button_wiring.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_chat_screen.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_consolidated_views.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_delta_board.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_demo_tui.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_disk_views.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_docs_at_org_scope.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_dossier_inflight.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_field_submission.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_goals_tab.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_harness_console.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_intersections.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_narratives.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_numpad.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_one_row_on_the_middle_rank.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_progress.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_rad.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_rad_ingest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_rad_sync.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_reconcile.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_rows_know_their_repository.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_scope_and_links.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_startup_order.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_sweep_follows_the_selection.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_sweep_review.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_the_ring_takes_the_pointer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_topology_tab.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/tests/ui",
+      "target": "file::quaternionmedia/dossier/tests/ui/test_tui.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/01-first-run.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/02-filling-it.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/03-before-a-pull-request.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/04-the-pair.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/05-a-project-made-of-projects.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/dossier/walkthrough",
+      "target": "file::quaternionmedia/dossier/walkthrough/06-a-sweep-across-the-org.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/dossier",
+    "depth": 1,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "dossier declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/dossier/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

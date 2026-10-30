@@ -1,0 +1,305 @@
+"""Tests for the `qm` governance CLI.
+
+The CLI's whole contract is that it *dispatches* and decides nothing, so the
+tests are mostly about what it must not do: form a verdict, change an exit
+status, or run somewhere that is not the corpus.
+"""
+
+from __future__ import annotations
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+
+CI_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(CI_DIR))
+
+import cli  # noqa: E402
+
+CORPUS = CI_DIR.parent
+
+
+def run(*args: str, cwd: Path) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        [sys.executable, str(CI_DIR / "cli.py"), *args],
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(cwd),
+    )
+
+
+# --- it decides nothing ----------------------------------------------------
+
+
+def test_the_cli_forms_no_verdict():
+    """No document parsing and no child processes. A subcommand that recomputed
+    a verdict would be a second definition of a governance rule.
+
+    Asserted on the imports rather than on substrings: the route table names
+    `status/gates.yaml`, and a substring check for "json" fails on a filename
+    while a module that genuinely parsed one could import it under an alias.
+    """
+    import ast
+
+    tree = ast.parse((CI_DIR / "cli.py").read_text(encoding="utf-8"))
+    imported = {
+        node.module.split(".")[0] if isinstance(node, ast.ImportFrom) and node.module
+        else alias.name.split(".")[0]
+        for node in ast.walk(tree)
+        if isinstance(node, (ast.Import, ast.ImportFrom))
+        for alias in getattr(node, "names", [])
+    }
+    assert not imported & {"json", "yaml", "subprocess", "urllib", "requests"}
+
+
+def test_the_exit_status_is_the_module_s_own():
+    class Module:
+        __name__ = "fake"
+
+        @staticmethod
+        def main(argv):
+            return 42
+
+    assert cli.call_main(Module, []) == 42
+
+
+def test_a_main_without_argv_still_receives_its_arguments():
+    """Two seed scripts read sys.argv themselves. Adapting is the wrapper's job."""
+    seen = {}
+
+    class Module:
+        __name__ = "fake"
+
+        @staticmethod
+        def main():
+            seen["argv"] = list(sys.argv)
+            return 0
+
+    before = list(sys.argv)
+    assert cli.call_main(Module, ["--flag", "value"]) == 0
+    assert seen["argv"][1:] == ["--flag", "value"]
+    assert sys.argv == before, "sys.argv must be restored"
+
+
+def test_sys_argv_is_restored_even_when_the_module_raises():
+    class Module:
+        __name__ = "fake"
+
+        @staticmethod
+        def main():
+            raise RuntimeError("boom")
+
+    before = list(sys.argv)
+    with pytest.raises(RuntimeError):
+        cli.call_main(Module, ["x"])
+    assert sys.argv == before
+
+
+def test_it_runs_without_the_package_installed():
+    """CI invokes `python ci/cli.py` and installs nothing.
+
+    `uv run qm` installs the package first, so an `import ci.foo` that only
+    resolves when installed works locally and fails on the runner.
+
+    `-S` skips `site`, so site-packages is not on the path and the installed
+    distribution is invisible. Without the path insertion in cli.py the import
+    fails outright.
+
+    Asserted on the import failure rather than on exit 0: the routed command's
+    own verdict depends on corpus state, and a test that failed whenever an
+    unrelated record went out of pair would be noise dressed as a regression.
+    """
+    result = subprocess.run(
+        [sys.executable, "-S", str(CI_DIR / "cli.py"), "restatements"],
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(CORPUS),
+    )
+    assert "ModuleNotFoundError" not in result.stderr, result.stderr
+    assert "No module named 'ci'" not in result.stderr, result.stderr
+
+
+# --- it runs in the corpus, or not at all ----------------------------------
+
+
+def test_the_corpus_root_is_found_from_a_subdirectory():
+    assert cli.corpus_root(CI_DIR) == CORPUS
+
+
+def test_outside_the_corpus_it_refuses_rather_than_writing_somewhere_else(tmp_path: Path):
+    """Every generator path is corpus-relative; running elsewhere writes there."""
+    result = run("docs", "check", cwd=tmp_path)
+    assert result.returncode == 2
+    assert "not inside the QM corpus" in result.stderr
+
+
+def test_a_directory_with_only_one_marker_is_not_the_corpus(tmp_path: Path):
+    """A fork that copied the seed has records/ and no charter."""
+    (tmp_path / "records").mkdir()
+    assert cli.corpus_root(tmp_path) is None
+
+
+# --- the surface -----------------------------------------------------------
+
+
+def test_help_lists_every_command():
+    result = run("--help", cwd=CORPUS)
+    assert result.returncode == 0
+    for command in ("docs", "gates", "tags", "restatements", "stacks", "branch",
+                    "preflight", "brief"):
+        assert command in result.stdout
+
+
+def test_the_earlier_name_for_stacks_still_runs_and_is_not_listed():
+    """Mutation: drop the `slot` parser or its dispatch entry, and the second
+    assertion fails; give it a help string, and the first does."""
+    listed = run("--help", cwd=CORPUS).stdout
+    assert "stacks" in listed and "slot" not in listed.split()
+    assert run("slot", "--help", cwd=CORPUS).returncode == 0
+
+
+def test_no_arguments_prints_help_rather_than_doing_something():
+    result = run(cwd=CORPUS)
+    assert result.returncode == 0
+    assert "usage: qm" in result.stdout
+
+
+def test_an_unknown_command_exits_two_and_says_so():
+    result = run("ratify", cwd=CORPUS)
+    assert result.returncode == 2
+    assert "unknown command 'ratify'" in result.stderr
+
+
+def test_an_unknown_docs_subcommand_exits_non_zero():
+    assert run("docs", "publish", cwd=CORPUS).returncode == 2
+
+
+def test_every_route_names_a_module_that_exists():
+    """A route to a module nobody wrote is a command that fails at the prompt."""
+    for command, (module, is_seed, _) in cli.ROUTES.items():
+        directory = CORPUS / ("project-seed/ci" if is_seed else "ci")
+        assert (directory / f"{module}.py").is_file(), f"{command} -> {module}"
+    for command, (module, _) in cli.DOCS_ROUTES.items():
+        assert (CORPUS / "ci" / f"{module}.py").is_file(), f"docs {command} -> {module}"
+
+
+def test_flags_reach_the_underlying_module():
+    """`--state` belongs to doc_dashboard, and the CLI must not swallow it."""
+    result = run("docs", "states", "--state", "nonsense", cwd=CORPUS)
+    assert result.returncode == 2
+    assert "vocabulary is closed" in result.stderr
+
+
+def test_every_runnable_module_is_reachable_through_the_cli():
+    """The converse of the test above: a module with no route works for
+    whoever knows its path and does not exist for anybody reading
+    `uv run qm --help`, which is the second entry point `ci/cli.py`'s own
+    header says must not exist.
+
+    A library with a debug `main` is exempt, and the exemption is earned by
+    being called: a generator invoked by `generate_docs` or by another
+    dashboard is not an operation anybody performs. The test is whether
+    something else in the repository names it, not a list somebody
+    maintains.
+    """
+    routed = {module for module, _, _ in cli.ROUTES.values()}
+    routed |= {module for module, _ in cli.DOCS_ROUTES.values()}
+
+    searched = list((CORPUS / "ci").glob("*.py"))
+    searched += list((CORPUS / ".github" / "workflows").glob("*.yml"))
+
+    unreachable = []
+    for path in sorted((CORPUS / "ci").glob("*.py")):
+        name = path.stem
+        if name == "cli" or name in routed:
+            continue
+        if not re.search(r"^def main", path.read_text(encoding="utf-8"),
+                         re.MULTILINE):
+            continue
+        called_elsewhere = any(
+            name in other.read_text(encoding="utf-8", errors="ignore")
+            for other in searched if other != path)
+        if not called_elsewhere:
+            unreachable.append(name)
+
+    assert not unreachable, (
+        "these modules can be run but no `qm` command reaches them, so they "
+        "exist only for somebody who already knows the path: "
+        + ", ".join(unreachable))
+
+
+def test_the_dashboard_route_exists_and_reports_without_starting_anything():
+    """`qm dashboard` is the from-scratch route: it says what of the trio is up
+    and prints the command for the rest.
+
+    Reporting must not start anything: somebody looking at a status table has
+    not asked for servers to start.
+
+    Mutation: start a surface when no `--start` is given and this fails.
+    """
+    assert cli.ROUTES["dashboard"][0] == "dashboard"
+
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    before = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert dashboard.main([]) == 0
+    after = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert before == after, "reporting changed what was running"
+
+
+def test_a_terminal_front_end_is_never_detached():
+    """A TUI backgrounded by this command would draw to a pipe nobody reads,
+    and report success. It prints the command instead.
+
+    Mutation: mark the terminal surface detachable and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    terminal = dashboard.BY_NAME["terminal"]
+    assert terminal.detachable is False
+    ok, detail = dashboard.start(terminal, CORPUS)
+    assert ok is False
+    assert "run it" in detail or "yourself" in detail
+
+
+def test_each_surface_sits_on_its_own_constant():
+    """The table exists so that no two servers on one workstation collide, and
+    its ports are a memory aid: each is its constant's first four digits, read
+    from the constant rather than typed, and no two surfaces share one.
+
+    Mutation: give apothecary's surface 2718 and this fails, those being e's
+    digits rather than tau's; name its constant e as well and it fails again,
+    the port shared with the web front end.
+    """
+    import math
+
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    constants = {"pi": math.pi, "e": math.e, "phi": (1 + math.sqrt(5)) / 2,
+                 "root two": math.sqrt(2), "tau": math.tau}
+    for surface in dashboard.SURFACES:
+        assert surface.constant in constants, (
+            f"{surface.name}: name its constant's value here, beside the others")
+        digits = f"{constants[surface.constant]:.10f}".replace(".", "")[:4]
+        assert surface.port == int(digits), (
+            f"{surface.name}: {surface.port} is not {surface.constant}'s {digits}")
+    ports = [surface.port for surface in dashboard.SURFACES]
+    assert len(ports) == len(set(ports)), f"two surfaces share a port: {ports}"
+
+
+def test_stopping_acts_on_a_recorded_pid_rather_than_a_port():
+    """Stopping whatever holds a port would let this kill a process it never
+    started and knows nothing about.
+
+    Mutation: stop by port and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    ok, detail = dashboard.stop("web") if "web" not in dashboard.running() \
+        else (True, "already recorded")
+    if "web" not in dashboard.running():
+        assert ok is False
+        assert "did not start" in detail

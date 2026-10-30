@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P5 — one stack, deeply known |
+| **Principle** | `one-house-stack` — one stack, deeply known |
 
 ## Context
 
@@ -15,21 +15,17 @@ stack below is descriptive before it is prescriptive — it is what QM's
 existing systems are built from — and this record's job is to make additions
 deliberate rather than enthusiasm-driven.
 
-Descriptive-before-prescriptive cuts both ways, and the packaging entry is
-where it has been tested. Two projects — alfred and the otto engine it
-consumes — migrated to PDM deliberately, for PEP 621 conformance. That is
-this record's own revision trigger firing exactly as designed: the same
-out-of-set choice made by two projects is a signal the set needs a decision
-rather than repeated exceptions. The set records PDM because that is what QM
-builds with; a project standing on uv would be the same trigger firing in the
-other direction, and would be answered the same way.
+Descriptive-before-prescriptive cuts both ways. The same out-of-set choice made
+by more than one project is a signal the set needs a decision rather than
+repeated exceptions: alfred and the otto engine it consumes use PDM, for PEP 621
+conformance, so the set records PDM because that is what QM builds with. A
+project standing on uv would be the same trigger in the other direction, and
+would be answered the same way.
 
-The frontend entry is a second correction of the same kind. The set
-contemplated browser code only as single-file visualization deliverables,
-which described the visualization work and not the interfaces QM actually
-ships alongside its services. A project running a real frontend had no entry
-to point at and no honest way to comply, which produces silent drift rather
-than a record.
+The frontend entry follows the same logic. Browser code is not only
+single-file visualization deliverables: QM ships interfaces alongside its
+services, and a project running a real frontend with no entry to point at has
+no honest way to comply, which produces silent drift rather than a record.
 
 ## Decision
 

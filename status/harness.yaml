@@ -1,0 +1,6621 @@
+schema: 1
+generated_at: '2026-10-24T15:38:50Z'
+generator:
+  tool: ci/harness_status.py
+  org: quaternionmedia
+  rule: no pull request is ready while stacked on another open one
+  rule_source: handbook/async-contract.md
+  phase_ladder_source: records/DRAFT-project-phase-ladder.md
+  phase_layer_is_a_claim: phase and phase_source come from ci/workspace.yaml and record
+    what a human stated. They are never derived from artifacts.
+  version_is_the_rung: v0.0.0 until a project has a project/<name> branch in the corpus,
+    and v0.0.1 from then on, however much of the seed it carries; a rung above v0.0.1
+    is the project's own and counts when a human stated it. A stated phase that is
+    not the version is intent, carried beside it as `intent`.
+  family_is_a_claim: family comes from ci/workspace.yaml, where a person stated it;
+    the families themselves are declared in records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+    null is unstated, which is not none.
+  thread_stages:
+  - local
+  - pushed
+  - draft
+  - ready
+  thread_stages_are_states_not_progress: 'observable states, not a percentage. Nothing
+    estimates completion: the corpus has no definition of done a tool could read,
+    and a number that looks like progress is the most confidently wrong thing a dashboard
+    can print.'
+  stalled_after_hours: 48
+  governance_layer_is_evidence: read from status/governance.yaml, on each project's
+    default branch. Work in an open pull request is work, not evidence. The seed it
+    reports measures how far a v0.0.1 project's adoption has got, and never decides
+    a rung.
+  layers:
+  - phase
+  - slots
+  - governance
+  local_layer_scope: null
+  search_roots: []
+reading:
+  refresh: uv run qm docs generate
+  refresh_without_the_cli: python ci/harness_status.py --no-local --write status/harness.yaml
+  staleness_budget_hours: 24
+  human_view: python ci/harness_dashboard.py status/harness.yaml --out status.html
+  agent_view: uv run qm harness
+  unknown_convention: '{"unknown": "<reason>"} is a value. It means the fact could
+    not be established and says why. It is not zero, not empty, and not compliant
+    -- a repository nobody could measure must never be read as a repository with nothing
+    wrong.'
+  do_not:
+  - quote a figure from this document without its generated_at
+  - 'treat a phase as evidence: phase is what a human claimed'
+  - 'treat the governance layer as a claim: it is what has landed'
+  - 'read an incomplete seed as a project below v0.0.1: the seed measures adoption,
+    and the branch decides the rung'
+  - 'read a null family as a repository that belongs to none: it is one nobody has
+    placed'
+  - regenerate this in CI -- it reads other repositories, so every unrelated pull
+    request would go red for a reason its author cannot fix
+  committed_copy_omits:
+  - local
+totals:
+  repositories: 49
+  slots_measured: 42
+  slots_unknown: 7
+  compliant: 42
+  over_limit: 0
+  governance_readable: 15
+  seed_complete: 3
+  at_v0.0.0: 32
+  past_v0.0.0: 17
+  version_unknown: 0
+  phase_scaffolded: 14
+  phase_stated_as_intent: 1
+  threads_by_stage:
+    local: 0
+    pushed: 0
+    draft: 96
+    ready: 88
+  threads_stalled: 138
+  threads_unreadable: 7
+repositories:
+- name: qm
+  slug: quaternionmedia/qm
+  role: corpus
+  family: core
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.1
+  intent: null
+  note: the constitution; every other entry adopts it by reference
+  slots:
+    repository: quaternionmedia/qm
+    contributor: null
+    open_prs:
+    - number: 222
+      title: 'Plan the triplet: every family and project shown as pictures, graphs
+        and a terminal view'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/the-triplet
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 211
+      title: 'adr: draft the Airgap panel''s metrics document record'
+      author: subcontrabass
+      bot: false
+      base: adr/apothecary-review-the-whole
+      head: adr/apothecary-airgap-metrics
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 201
+      title: codecartographer's shell drafts say what the shell does, in fewer words
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-shell-notes
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 197
+      title: A draft record has apothecary reviewed as one integrated whole, walked
+        as a demo from its README
+      author: subcontrabass
+      bot: false
+      base: propagate/apothecary-2026-10-13
+      head: adr/apothecary-review-the-whole
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 185
+      title: Record that a human merges every change into codecartographer's main
+        and its project branch
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-a-human-merges
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 184
+      title: Record codecartographer's adoption, naming each obligation it owes and
+        its state
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-adoption
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 183
+      title: State the Rust-stack records as the code is, keeping each decision and
+        naming its gaps
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-rust-records-state-the-code
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 182
+      title: State the parser, token and consumption records as the code is, and what
+        each pends on
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-parser-records-state-the-code
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 181
+      title: State the three graphbase records as the code is, and what they pend
+        on
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-graphbase-records-state-the-code
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 180
+      title: State the shell and layout records as the code is, with the owner's panel
+        decisions
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-shell-records-state-the-code
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 179
+      title: Propose the rad record, now that its inputs have landed, and state the
+        menu as it is
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-rad-is-proposed
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 172
+      title: project/apothecary carries main at 03670b8
+      author: subcontrabass
+      bot: false
+      base: fix/apothecary-seed-refresh
+      head: propagate/apothecary-2026-10-13
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 171
+      title: apothecary's project index names its branch and lists each draft by its
+        whole title
+      author: subcontrabass
+      bot: false
+      base: project/apothecary
+      head: fix/apothecary-seed-refresh
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 170
+      title: Record that any graph on codecartographer's canvas can be read as a chrestomathy,
+        and name compare among its host verbs
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-every-graph-a-chrestomathy
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 166
+      title: State the parser/cache record as it stands now that a second batch parser
+        fired its trigger
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-parser-cache-by-file-key
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 165
+      title: Record that codecartographer reads Rust at the item level until an engine's
+        index replaces it
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-rust-at-the-item-level
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 164
+      title: Record that one construct vocabulary says what a parsed node is in every
+        language codecartographer reads
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-one-construct-vocabulary
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 163
+      title: Record that codecartographer reads what cargo wrote and never runs cargo
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-reads-what-cargo-wrote
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 156
+      title: looksatwords adopts the corpus, and its border with codecartographer
+        is the corpus each reads
+      author: subcontrabass
+      bot: false
+      base: project/looksatwords
+      head: adr/looksatwords-adopt-and-scope
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 155
+      title: codecartographer's system monitor derives its diagram from a repository's
+        declarations
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/the-monitor-derives-the-system
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 154
+      title: apothecary's v0.0.2 is said to assert one path, evidenced by one demonstration
+      author: subcontrabass
+      bot: false
+      base: adr/firmware-toolchain-seam
+      head: adr/apothecary-what-v0-0-2-asserts
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 153
+      title: qmetronome's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/qmetronome
+      head: adr/qmetronome-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 151
+      title: The records of private-34 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-34
+      head: adr/private-34-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 150
+      title: factorio-sysops's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/factorio-sysops
+      head: adr/factorio-sysops-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 149
+      title: The records of private-32 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-32
+      head: adr/private-32-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 148
+      title: datum's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/datum
+      head: adr/datum-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 147
+      title: The records of private-33 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-33
+      head: adr/private-33-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 146
+      title: codecartographer's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 145
+      title: apothecary's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/apothecary
+      head: adr/apothecary-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 144
+      title: alfred's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/alfred
+      head: adr/alfred-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 121
+      title: 'Seven records for apothecary: the toolchain, printer and slicer seams,
+        the rings, one screen, and personal data staying on the device'
+      author: subcontrabass
+      bot: false
+      base: project/apothecary
+      head: adr/firmware-toolchain-seam
+      head_repo: quaternionmedia/qm
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/the-triplet
+    stage: draft
+    pr: 222
+    base: main
+    title: 'Plan the triplet: every family and project shown as pictures, graphs and
+      a terminal view'
+    author: subcontrabass
+    delta:
+      additions: 535
+      changed_files: 4
+      commits: 7
+      deletions: 8
+      mergeable_state: dirty
+      updated_at: '2026-10-24T14:39:07Z'
+    idle_hours: 1.0
+    stalled: false
+  - name: adr/apothecary-airgap-metrics
+    stage: draft
+    pr: 211
+    base: adr/apothecary-review-the-whole
+    title: 'adr: draft the Airgap panel''s metrics document record'
+    author: subcontrabass
+    delta:
+      additions: 162
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-23T23:50:21Z'
+    idle_hours: 15.8
+    stalled: false
+  - name: adr/codecartographer-shell-notes
+    stage: ready
+    pr: 201
+    base: project/codecartographer
+    title: codecartographer's shell drafts say what the shell does, in fewer words
+    author: subcontrabass
+    delta:
+      additions: 72
+      changed_files: 2
+      commits: 3
+      deletions: 60
+      mergeable_state: clean
+      updated_at: '2026-10-20T01:57:05Z'
+    idle_hours: 109.7
+    stalled: true
+  - name: adr/apothecary-review-the-whole
+    stage: draft
+    pr: 197
+    base: propagate/apothecary-2026-10-13
+    title: A draft record has apothecary reviewed as one integrated whole, walked
+      as a demo from its README
+    author: subcontrabass
+    delta:
+      additions: 171
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-20T00:36:07Z'
+    idle_hours: 111.0
+    stalled: true
+  - name: adr/codecartographer-a-human-merges
+    stage: ready
+    pr: 185
+    base: project/codecartographer
+    title: Record that a human merges every change into codecartographer's main and
+      its project branch
+    author: subcontrabass
+    delta:
+      additions: 1729
+      changed_files: 19
+      commits: 14
+      deletions: 735
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:39Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-adoption
+    stage: ready
+    pr: 184
+    base: project/codecartographer
+    title: Record codecartographer's adoption, naming each obligation it owes and
+      its state
+    author: subcontrabass
+    delta:
+      additions: 1614
+      changed_files: 18
+      commits: 13
+      deletions: 735
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:33Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-rust-records-state-the-code
+    stage: ready
+    pr: 183
+    base: project/codecartographer
+    title: State the Rust-stack records as the code is, keeping each decision and
+      naming its gaps
+    author: subcontrabass
+    delta:
+      additions: 1509
+      changed_files: 17
+      commits: 12
+      deletions: 735
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:26Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-parser-records-state-the-code
+    stage: ready
+    pr: 182
+    base: project/codecartographer
+    title: State the parser, token and consumption records as the code is, and what
+      each pends on
+    author: subcontrabass
+    delta:
+      additions: 1423
+      changed_files: 17
+      commits: 11
+      deletions: 735
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:19Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-graphbase-records-state-the-code
+    stage: ready
+    pr: 181
+    base: project/codecartographer
+    title: State the three graphbase records as the code is, and what they pend on
+    author: subcontrabass
+    delta:
+      additions: 1215
+      changed_files: 15
+      commits: 10
+      deletions: 516
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:14Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-shell-records-state-the-code
+    stage: ready
+    pr: 180
+    base: project/codecartographer
+    title: State the shell and layout records as the code is, with the owner's panel
+      decisions
+    author: subcontrabass
+    delta:
+      additions: 1033
+      changed_files: 12
+      commits: 9
+      deletions: 368
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:08Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-rad-is-proposed
+    stage: ready
+    pr: 179
+    base: project/codecartographer
+    title: Propose the rad record, now that its inputs have landed, and state the
+      menu as it is
+    author: subcontrabass
+    delta:
+      additions: 697
+      changed_files: 7
+      commits: 8
+      deletions: 126
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:02Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: propagate/apothecary-2026-10-13
+    stage: draft
+    pr: 172
+    base: fix/apothecary-seed-refresh
+    title: project/apothecary carries main at 03670b8
+    author: subcontrabass
+    delta:
+      additions: 81378
+      changed_files: 447
+      commits: 495
+      deletions: 3394
+      mergeable_state: clean
+      updated_at: '2026-10-20T00:36:18Z'
+    idle_hours: 111.0
+    stalled: true
+  - name: fix/apothecary-seed-refresh
+    stage: ready
+    pr: 171
+    base: project/apothecary
+    title: apothecary's project index names its branch and lists each draft by its
+      whole title
+    author: subcontrabass
+    delta:
+      additions: 5
+      changed_files: 1
+      commits: 1
+      deletions: 4
+      mergeable_state: unstable
+      updated_at: '2026-10-13T19:33:51Z'
+    idle_hours: 260.0
+    stalled: true
+  - name: adr/codecartographer-every-graph-a-chrestomathy
+    stage: ready
+    pr: 170
+    base: project/codecartographer
+    title: Record that any graph on codecartographer's canvas can be read as a chrestomathy,
+      and name compare among its host verbs
+    author: subcontrabass
+    delta:
+      additions: 495
+      changed_files: 7
+      commits: 7
+      deletions: 10
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:14:51Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-parser-cache-by-file-key
+    stage: ready
+    pr: 166
+    base: project/codecartographer
+    title: State the parser/cache record as it stands now that a second batch parser
+      fired its trigger
+    author: subcontrabass
+    delta:
+      additions: 468
+      changed_files: 6
+      commits: 5
+      deletions: 5
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:53Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-rust-at-the-item-level
+    stage: ready
+    pr: 165
+    base: project/codecartographer
+    title: Record that codecartographer reads Rust at the item level until an engine's
+      index replaces it
+    author: subcontrabass
+    delta:
+      additions: 447
+      changed_files: 5
+      commits: 4
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:47Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-one-construct-vocabulary
+    stage: ready
+    pr: 164
+    base: project/codecartographer
+    title: Record that one construct vocabulary says what a parsed node is in every
+      language codecartographer reads
+    author: subcontrabass
+    delta:
+      additions: 347
+      changed_files: 4
+      commits: 3
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:40Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/codecartographer-reads-what-cargo-wrote
+    stage: ready
+    pr: 163
+    base: project/codecartographer
+    title: Record that codecartographer reads what cargo wrote and never runs cargo
+    author: subcontrabass
+    delta:
+      additions: 244
+      changed_files: 3
+      commits: 2
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:35Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: adr/looksatwords-adopt-and-scope
+    stage: ready
+    pr: 156
+    base: project/looksatwords
+    title: looksatwords adopts the corpus, and its border with codecartographer is
+      the corpus each reads
+    author: subcontrabass
+    delta:
+      additions: 175
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: unstable
+      updated_at: '2026-10-11T17:39:15Z'
+    idle_hours: 310.0
+    stalled: true
+  - name: adr/the-monitor-derives-the-system
+    stage: ready
+    pr: 155
+    base: project/codecartographer
+    title: codecartographer's system monitor derives its diagram from a repository's
+      declarations
+    author: subcontrabass
+    delta:
+      additions: 133
+      changed_files: 2
+      commits: 3
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-24T01:55:57Z'
+    idle_hours: 13.7
+    stalled: false
+  - name: adr/apothecary-what-v0-0-2-asserts
+    stage: draft
+    pr: 154
+    base: adr/firmware-toolchain-seam
+    title: apothecary's v0.0.2 is said to assert one path, evidenced by one demonstration
+    author: subcontrabass
+    delta:
+      additions: 160
+      changed_files: 2
+      commits: 2
+      deletions: 1
+      mergeable_state: dirty
+      updated_at: '2026-10-11T17:37:04Z'
+    idle_hours: 310.0
+    stalled: true
+  - name: adr/qmetronome-charter-by-name
+    stage: ready
+    pr: 153
+    base: project/qmetronome
+    title: qmetronome's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 12
+      changed_files: 5
+      commits: 2
+      deletions: 12
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:54Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/private-34-charter-by-name
+    stage: ready
+    pr: 151
+    base: project/private-34
+    title: The records of private-34 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 7
+      changed_files: 2
+      commits: 2
+      deletions: 2
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:39Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/factorio-sysops-charter-by-name
+    stage: ready
+    pr: 150
+    base: project/factorio-sysops
+    title: factorio-sysops's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 3
+      changed_files: 2
+      commits: 2
+      deletions: 3
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:34Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/private-32-charter-by-name
+    stage: ready
+    pr: 149
+    base: project/private-32
+    title: The records of private-32 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 5
+      changed_files: 2
+      commits: 2
+      deletions: 3
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:28Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/datum-charter-by-name
+    stage: ready
+    pr: 148
+    base: project/datum
+    title: datum's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 16
+      changed_files: 2
+      commits: 2
+      deletions: 6
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:22Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/private-33-charter-by-name
+    stage: ready
+    pr: 147
+    base: project/private-33
+    title: The records of private-33 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 6
+      changed_files: 2
+      commits: 2
+      deletions: 4
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:15Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/codecartographer-charter-by-name
+    stage: ready
+    pr: 146
+    base: project/codecartographer
+    title: codecartographer's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:09Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/apothecary-charter-by-name
+    stage: ready
+    pr: 145
+    base: project/apothecary
+    title: apothecary's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 4
+      changed_files: 2
+      commits: 1
+      deletions: 4
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:03Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/alfred-charter-by-name
+    stage: ready
+    pr: 144
+    base: project/alfred
+    title: alfred's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 9
+      changed_files: 4
+      commits: 1
+      deletions: 9
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:40:57Z'
+    idle_hours: 315.9
+    stalled: true
+  - name: adr/firmware-toolchain-seam
+    stage: ready
+    pr: 121
+    base: project/apothecary
+    title: 'Seven records for apothecary: the toolchain, printer and slicer seams,
+      the rings, one screen, and personal data staying on the device'
+    author: subcontrabass
+    delta:
+      additions: 2062
+      changed_files: 8
+      commits: 34
+      deletions: 168
+      mergeable_state: unstable
+      updated_at: '2026-10-13T23:32:33Z'
+    idle_hours: 256.1
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: this repository is the corpus
+- name: dossier
+  slug: quaternionmedia/dossier
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: the intended durable surface for governance review
+  slots:
+    repository: quaternionmedia/dossier
+    contributor: null
+    open_prs:
+    - number: 61
+      title: dossier deltas drift compares the delta board against the clones it describes
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/the-delta-board-checks-the-clones
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 60
+      title: This host replays rad's governed cell vectors, and reaches the families
+        as data
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/rad-conformance-replay
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 9
+      title: 'build(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 7
+      title: 'build(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 6
+      title: 'build(deps): bump mako from 1.3.10 to 1.3.12'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mako-1.3.12
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 4
+      title: 'build(deps-dev): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 3
+      title: 'build(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/dossier
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: feat/the-delta-board-checks-the-clones
+    stage: ready
+    pr: 61
+    base: main
+    title: dossier deltas drift compares the delta board against the clones it describes
+    author: subcontrabass
+    delta:
+      additions: 1012
+      changed_files: 6
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-11T23:08:09Z'
+    idle_hours: 304.5
+    stalled: true
+  - name: evolve/rad-conformance-replay
+    stage: ready
+    pr: 60
+    base: main
+    title: This host replays rad's governed cell vectors, and reaches the families
+      as data
+    author: subcontrabass
+    delta:
+      additions: 284
+      changed_files: 7
+      commits: 8
+      deletions: 12
+      mergeable_state: clean
+      updated_at: '2026-10-11T23:08:07Z'
+    idle_hours: 304.5
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/dossier
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 435
+    observed_at: '2026-10-24T15:35:51Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: qmcp
+  slug: quaternionmedia/qmcp
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: null
+  slots:
+    repository: quaternionmedia/qmcp
+    contributor: null
+    open_prs:
+    - number: 3
+      title: 'build(deps): bump protobuf from 6.33.4 to 6.33.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/protobuf-6.33.5
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: incomplete
+    missing:
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmcp
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 1
+    behind_corpus: 299
+    observed_at: '2026-10-24T15:36:03Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: vox
+  slug: quaternionmedia/vox
+  role: project
+  family: core
+  phase: v0.0.0
+  phase_source: scaffolded
+  version: v0.0.0
+  intent: null
+  note: 'the voice-interaction seam. States an EngineContract an HTTP speech engine
+    must answer and names no engine; qmcp vendors it as a submodule to answer its
+    human-in-the-loop queue by speaking. Placed in core by the border test in records/DRAFT-a-family-is-bordered-by-what-it-drives.md
+    2 -- what its output acts on is the corpus''s own tooling, not the sound it emits
+    and not the family of the engine it talks to.
+
+    '
+  slots:
+    repository: quaternionmedia/vox
+    contributor: null
+    open_prs:
+    - number: 16
+      title: vox states a media surface, and its offline engine answers it as joe
+        does
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/tighten-language
+      head_repo: quaternionmedia/vox
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/tighten-language
+    stage: ready
+    pr: 16
+    base: main
+    title: vox states a media surface, and its offline engine answers it as joe does
+    author: subcontrabass
+    delta:
+      additions: 4982
+      changed_files: 27
+      commits: 23
+      deletions: 244
+      mergeable_state: clean
+      updated_at: '2026-10-20T01:56:51Z'
+    idle_hours: 109.7
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: rad
+  slug: quaternionmedia/rad
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: stated
+  version: v0.0.1
+  intent: null
+  note: radial menu; defined the phase ladder above
+  slots:
+    repository: quaternionmedia/rad
+    contributor: null
+    open_prs:
+    - number: 7
+      title: A session can open entered at an item, by walking its path
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/open-entered-at-an-item
+      head_repo: quaternionmedia/rad
+      draft: false
+    - number: 2
+      title: Bump playwright and @playwright/test
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-6aef298a9b
+      head_repo: quaternionmedia/rad
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/open-entered-at-an-item
+    stage: ready
+    pr: 7
+    base: main
+    title: A session can open entered at an item, by walking its path
+    author: subcontrabass
+    delta:
+      additions: 41
+      changed_files: 1
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-03T13:55:52Z'
+    idle_hours: 505.7
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/rad
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 532
+    observed_at: '2026-10-24T15:36:07Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: alfred
+  slug: quaternionmedia/alfred
+  role: project
+  family: performing
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: video editor; UI migration and Playwright coverage in flight
+  slots:
+    repository: quaternionmedia/alfred
+    contributor: null
+    open_prs:
+    - number: 131
+      title: Password hashing leaves the event loop, media work moves into otto, refusals
+        carry codes, and ./al family runs the family
+      author: subcontrabass
+      bot: false
+      base: integrate/wave-4
+      head: integrate/wave-5
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 130
+      title: Every setting reaches its service, no request waits on a preview, the
+        timeline's sound comes from otto, and the phone keeps the whole picture
+      author: subcontrabass
+      bot: false
+      base: integrate/wave-3
+      head: integrate/wave-4
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 129
+      title: Captions come through vox and joe, and the editor becomes a Golden Layout
+        workspace
+      author: subcontrabass
+      bot: false
+      base: integrate/wave-2
+      head: integrate/wave-3
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 128
+      title: Media access and storage, the editor's tools, accounts and the timeline
+        API land, with otto pinned at e050396
+      author: subcontrabass
+      bot: false
+      base: integrate/review-fixes
+      head: integrate/wave-2
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 127
+      title: The review's first round fixes the render pipeline, auth and ownership,
+        the editor and CI, and adopts otto's engine contract
+      author: subcontrabass
+      bot: false
+      base: feat/thin-dev-stack
+      head: integrate/review-fixes
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 126
+      title: The docs say less and show first, are checked against the code, and the
+        stack has a demo
+      author: subcontrabass
+      bot: false
+      base: integrate/wave-5
+      head: integrate/wave-6
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 125
+      title: A thin dev stack runs everything but the renderer
+      author: subcontrabass
+      bot: false
+      base: stack/08-stage-flow
+      head: feat/thin-dev-stack
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 124
+      title: One stage flow replaces the duplicate UIs, the quality gates check again,
+        and the editor's controls work
+      author: subcontrabass
+      bot: false
+      base: stack/07-flow-and-render
+      head: stack/08-stage-flow
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 123
+      title: The timeline is the way in, the flow has four stages, a render produces
+        a video, and governance is current
+      author: subcontrabass
+      bot: false
+      base: stack/06-timeline-editor
+      head: stack/07-flow-and-render
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 122
+      title: The timeline editor has its data, fonts and endpoints, and the API image
+        installs from the lockfile
+      author: subcontrabass
+      bot: false
+      base: stack/05-review-and-auth
+      head: stack/06-timeline-editor
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 121
+      title: The website container has its own dependencies, review findings are closed,
+        and a development auth bypass exists
+      author: subcontrabass
+      bot: false
+      base: stack/04-dev-loop-and-release
+      head: stack/05-review-and-auth
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 120
+      title: The dev loop builds, the DB layer reuses its clients and seeds, and the
+        version is 0.3.0
+      author: subcontrabass
+      bot: false
+      base: stack/03-core-tests
+      head: stack/04-dev-loop-and-release
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 119
+      title: The Python suite runs, and covers config validity, input, output and
+        the render pipeline
+      author: subcontrabass
+      bot: false
+      base: stack/02-playwright
+      head: stack/03-core-tests
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 118
+      title: The Cypress suite is replaced by a Playwright suite whose tests can fail
+      author: subcontrabass
+      bot: false
+      base: stack/01-adopt-governance
+      head: stack/02-playwright
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 117
+      title: Alfred adopts the QM constitution, with a report-only license report
+      author: subcontrabass
+      bot: false
+      base: main
+      head: stack/01-adopt-governance
+      head_repo: quaternionmedia/alfred
+      draft: false
+    - number: 116
+      title: Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7
+      head_repo: quaternionmedia/alfred
+      draft: false
+    - number: 113
+      title: Config
+      author: mrharpo
+      bot: false
+      base: main
+      head: config
+      head_repo: quaternionmedia/alfred
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 37
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: integrate/wave-5
+    stage: draft
+    pr: 131
+    base: integrate/wave-4
+    title: Password hashing leaves the event loop, media work moves into otto, refusals
+      carry codes, and ./al family runs the family
+    author: subcontrabass
+    delta:
+      additions: 6623
+      changed_files: 97
+      commits: 47
+      deletions: 849
+      mergeable_state: clean
+      updated_at: '2026-10-23T23:47:05Z'
+    idle_hours: 15.8
+    stalled: false
+  - name: integrate/wave-4
+    stage: draft
+    pr: 130
+    base: integrate/wave-3
+    title: Every setting reaches its service, no request waits on a preview, the timeline's
+      sound comes from otto, and the phone keeps the whole picture
+    author: subcontrabass
+    delta:
+      additions: 4462
+      changed_files: 89
+      commits: 58
+      deletions: 841
+      mergeable_state: clean
+      updated_at: '2026-10-23T23:47:03Z'
+    idle_hours: 15.8
+    stalled: false
+  - name: integrate/wave-3
+    stage: draft
+    pr: 129
+    base: integrate/wave-2
+    title: Captions come through vox and joe, and the editor becomes a Golden Layout
+      workspace
+    author: subcontrabass
+    delta:
+      additions: 12283
+      changed_files: 99
+      commits: 29
+      deletions: 1620
+      mergeable_state: clean
+      updated_at: '2026-10-23T23:47:02Z'
+    idle_hours: 15.8
+    stalled: false
+  - name: integrate/wave-2
+    stage: draft
+    pr: 128
+    base: integrate/review-fixes
+    title: Media access and storage, the editor's tools, accounts and the timeline
+      API land, with otto pinned at e050396
+    author: subcontrabass
+    delta:
+      additions: 13115
+      changed_files: 138
+      commits: 50
+      deletions: 2122
+      mergeable_state: unstable
+      updated_at: '2026-10-24T00:31:35Z'
+    idle_hours: 15.1
+    stalled: false
+  - name: integrate/review-fixes
+    stage: draft
+    pr: 127
+    base: feat/thin-dev-stack
+    title: The review's first round fixes the render pipeline, auth and ownership,
+      the editor and CI, and adopts otto's engine contract
+    author: subcontrabass
+    delta:
+      additions: 11965
+      changed_files: 116
+      commits: 67
+      deletions: 1732
+      mergeable_state: clean
+      updated_at: '2026-10-23T23:46:57Z'
+    idle_hours: 15.8
+    stalled: false
+  - name: integrate/wave-6
+    stage: draft
+    pr: 126
+    base: integrate/wave-5
+    title: The docs say less and show first, are checked against the code, and the
+      stack has a demo
+    author: subcontrabass
+    delta:
+      additions: 2598
+      changed_files: 71
+      commits: 27
+      deletions: 1889
+      mergeable_state: clean
+      updated_at: '2026-10-24T01:06:54Z'
+    idle_hours: 14.5
+    stalled: false
+  - name: feat/thin-dev-stack
+    stage: draft
+    pr: 125
+    base: stack/08-stage-flow
+    title: A thin dev stack runs everything but the renderer
+    author: subcontrabass
+    delta:
+      additions: 37
+      changed_files: 3
+      commits: 4
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:30Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/08-stage-flow
+    stage: draft
+    pr: 124
+    base: stack/07-flow-and-render
+    title: One stage flow replaces the duplicate UIs, the quality gates check again,
+      and the editor's controls work
+    author: subcontrabass
+    delta:
+      additions: 4275
+      changed_files: 98
+      commits: 13
+      deletions: 2145
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:28Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/07-flow-and-render
+    stage: draft
+    pr: 123
+    base: stack/06-timeline-editor
+    title: The timeline is the way in, the flow has four stages, a render produces
+      a video, and governance is current
+    author: subcontrabass
+    delta:
+      additions: 4979
+      changed_files: 55
+      commits: 7
+      deletions: 531
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:25Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/06-timeline-editor
+    stage: draft
+    pr: 122
+    base: stack/05-review-and-auth
+    title: The timeline editor has its data, fonts and endpoints, and the API image
+      installs from the lockfile
+    author: subcontrabass
+    delta:
+      additions: 3089
+      changed_files: 33
+      commits: 5
+      deletions: 617
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:22Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/05-review-and-auth
+    stage: draft
+    pr: 121
+    base: stack/04-dev-loop-and-release
+    title: The website container has its own dependencies, review findings are closed,
+      and a development auth bypass exists
+    author: subcontrabass
+    delta:
+      additions: 922
+      changed_files: 24
+      commits: 3
+      deletions: 31
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:20Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/04-dev-loop-and-release
+    stage: draft
+    pr: 120
+    base: stack/03-core-tests
+    title: The dev loop builds, the DB layer reuses its clients and seeds, and the
+      version is 0.3.0
+    author: subcontrabass
+    delta:
+      additions: 2552
+      changed_files: 28
+      commits: 5
+      deletions: 412
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:18Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/03-core-tests
+    stage: draft
+    pr: 119
+    base: stack/02-playwright
+    title: The Python suite runs, and covers config validity, input, output and the
+      render pipeline
+    author: subcontrabass
+    delta:
+      additions: 2246
+      changed_files: 11
+      commits: 4
+      deletions: 909
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:16Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/02-playwright
+    stage: draft
+    pr: 118
+    base: stack/01-adopt-governance
+    title: The Cypress suite is replaced by a Playwright suite whose tests can fail
+    author: subcontrabass
+    delta:
+      additions: 798
+      changed_files: 34
+      commits: 1
+      deletions: 672
+      mergeable_state: unstable
+      updated_at: '2026-10-11T23:25:14Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: stack/01-adopt-governance
+    stage: ready
+    pr: 117
+    base: main
+    title: Alfred adopts the QM constitution, with a report-only license report
+    author: subcontrabass
+    delta:
+      additions: 347
+      changed_files: 10
+      commits: 7
+      deletions: 0
+      mergeable_state: blocked
+      updated_at: '2026-10-11T23:25:12Z'
+    idle_hours: 304.2
+    stalled: true
+  - name: config
+    stage: ready
+    pr: 113
+    base: main
+    title: Config
+    author: mrharpo
+    delta:
+      additions: 58
+      changed_files: 10
+      commits: 9
+      deletions: 44
+      mergeable_state: clean
+      updated_at: '2023-12-30T22:55:40Z'
+    idle_hours: 24688.7
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - submodule
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 0
+      workflows_absent: 4
+      licensing_present: 0
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:35:39Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: otto
+  slug: quaternionmedia/otto
+  role: project
+  family: performing
+  phase: v0.0.0
+  phase_source: scaffolded
+  version: v0.0.0
+  intent: null
+  note: 'the picture engine: renders alfred''s previews, frames, sound and presets,
+    published as the `al-otto` package and vendored in alfred at `alfred/otto`. Placed
+    in performing by the border test in records/DRAFT-a-family-is-bordered-by-what-it-drives.md
+    2 -- what its output acts on is the video of a show, before it and after it, as
+    alfred''s does.
+
+    '
+  slots:
+    repository: quaternionmedia/otto
+    contributor: null
+    open_prs:
+    - number: 34
+      title: otto renders frames, sound and presets for alfred, and its docs say each
+        thing once
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/tighten-language
+      head_repo: quaternionmedia/otto
+      draft: false
+    - number: 33
+      title: makeColor accepts every colour spelling its callers pass
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/makecolor-accepts-every-colour-spelling
+      head_repo: quaternionmedia/otto
+      draft: false
+    - number: 32
+      title: ⬇️ Download
+      author: mrharpo
+      bot: false
+      base: main
+      head: download
+      head_repo: quaternionmedia/otto
+      draft: false
+    - number: 31
+      title: 🤖 Update dependencies
+      author: github-actions[bot]
+      bot: true
+      base: main
+      head: update-dependencies
+      head_repo: quaternionmedia/otto
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.2.2
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: docs/tighten-language
+    stage: ready
+    pr: 34
+    base: main
+    title: otto renders frames, sound and presets for alfred, and its docs say each
+      thing once
+    author: subcontrabass
+    delta:
+      additions: 6383
+      changed_files: 51
+      commits: 38
+      deletions: 1526
+      mergeable_state: blocked
+      updated_at: '2026-10-20T01:56:47Z'
+    idle_hours: 109.7
+    stalled: true
+  - name: fix/makecolor-accepts-every-colour-spelling
+    stage: ready
+    pr: 33
+    base: main
+    title: makeColor accepts every colour spelling its callers pass
+    author: subcontrabass
+    delta:
+      additions: 31
+      changed_files: 1
+      commits: 1
+      deletions: 4
+      mergeable_state: blocked
+      updated_at: '2026-10-11T23:28:37Z'
+    idle_hours: 304.1
+    stalled: true
+  - name: download
+    stage: ready
+    pr: 32
+    base: main
+    title: ⬇️ Download
+    author: mrharpo
+    delta:
+      additions: 65
+      changed_files: 10
+      commits: 7
+      deletions: 46
+      mergeable_state: blocked
+      updated_at: '2024-01-12T23:41:31Z'
+    idle_hours: 24375.9
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: apothecary
+  slug: quaternionmedia/apothecary
+  role: project
+  family: irl
+  phase: v0.0.2
+  phase_source: stated
+  version: v0.0.2
+  intent: null
+  note: parametric assembly; named as a v0.0.2 integration consumer
+  slots:
+    repository: quaternionmedia/apothecary
+    contributor: null
+    open_prs:
+    - number: 91
+      title: The step-through tests run under --steps, weekly and on demand, and skip
+        in every other run
+      author: subcontrabass
+      bot: false
+      base: build/tests-shared-helpers
+      head: build/tests-steps-on-demand
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 90
+      title: Tests share helpers through garage.py, boards.py and views_helpers.py,
+        and none imports another test module
+      author: subcontrabass
+      bot: false
+      base: build/tests-one-ring-helper
+      head: build/tests-shared-helpers
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 89
+      title: The browser tests reach the ring through rings.py alone, and a unit test
+        refuses a copy
+      author: subcontrabass
+      bot: false
+      base: build/docs-generated-says-when
+      head: build/tests-one-ring-helper
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 88
+      title: A generated page says the day it was made and the commit it was made
+        from
+      author: subcontrabass
+      bot: false
+      base: build/docs-every-command
+      head: build/docs-generated-says-when
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 87
+      title: 'Every command and flag a person uses is named where they look: firmware
+        boards, docs clean, --slow and --record-durations'
+      author: subcontrabass
+      bot: false
+      base: build/docs-index-whole
+      head: build/docs-every-command
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 86
+      title: The docs index lists every guide, the gathering pictures and the sweep's
+        notes, and its test covers the guides
+      author: subcontrabass
+      bot: false
+      base: build/docs-every-variable
+      head: build/docs-index-whole
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 85
+      title: The configuration page names every APOTHECARY_* variable the code reads,
+        and a test holds it to the code
+      author: subcontrabass
+      bot: false
+      base: build/docs-adding-a-system
+      head: build/docs-every-variable
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 84
+      title: An author's guide says how a window or a focused system is added, and
+        the tests that hold each
+      author: subcontrabass
+      bot: false
+      base: build/docs-the-parts-windows
+      head: build/docs-adding-a-system
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 83
+      title: The README, the viewer and authoring guides, walkthrough 10 and the changelog
+        say which window holds a part's editing
+      author: subcontrabass
+      bot: false
+      base: build/docs-the-machines-windows
+      head: build/docs-the-parts-windows
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 82
+      title: The firmware guide and the bench checklist describe the Machine as a
+        main window and its kind's sections
+      author: subcontrabass
+      bot: false
+      base: build/ci-rust-check
+      head: build/docs-the-machines-windows
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 81
+      title: CI checks that the Rust workspace compiles against its committed lock
+      author: subcontrabass
+      bot: false
+      base: build/ci-coverage
+      head: build/ci-rust-check
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 80
+      title: CI measures what the unit tests cover and keeps the report, with no threshold
+      author: subcontrabass
+      bot: false
+      base: build/tests-timeout
+      head: build/ci-coverage
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 79
+      title: Every test has ten minutes of its own, so a hung wait fails that test
+        rather than the CI job
+      author: subcontrabass
+      bot: false
+      base: build/ci-newest-python
+      head: build/tests-timeout
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 78
+      title: CI runs the walkthrough and the unit tests on the newest Python, 3.14,
+        beside the floor
+      author: subcontrabass
+      bot: false
+      base: build/ci-docs-generate
+      head: build/ci-newest-python
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 77
+      title: A weekly workflow runs the doc-capture tests, and the printer monitor's
+        doc walk passes again
+      author: subcontrabass
+      bot: false
+      base: build/ci-openscad-snapshot
+      head: build/ci-docs-generate
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 76
+      title: CI's unit job renders with a pinned OpenSCAD snapshot, so the tests that
+        need one run there
+      author: subcontrabass
+      bot: false
+      base: build/jogs-add-up-said
+      head: build/ci-openscad-snapshot
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 75
+      title: The firmware guide says the travel cap bounds a jog, not where jogs add
+        up to
+      author: subcontrabass
+      bot: false
+      base: build/demo-git-timeouts
+      head: build/jogs-add-up-said
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 74
+      title: The demo's git calls are given a time, and one that runs out leaves the
+        demo without saves
+      author: subcontrabass
+      bot: false
+      base: build/rust-unpack-no-links
+      head: build/demo-git-timeouts
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 73
+      title: The Rust installer refuses a link in a tarball where Python has no data
+        filter
+      author: subcontrabass
+      bot: false
+      base: build/review-part-names-encoded
+      head: build/rust-unpack-no-links
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 72
+      title: The review withdraws its finding that part names reach fetch URLs unencoded
+      author: subcontrabass
+      bot: false
+      base: build/print-id-no-dot
+      head: build/review-part-names-encoded
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 71
+      title: A kept print file's id that starts with a dot names no file, to read,
+        delete or print
+      author: subcontrabass
+      bot: false
+      base: build/stays-local-said-right
+      head: build/print-id-no-dot
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 70
+      title: The network guard's docstring counts its five rules, and the review withdraws
+        its cross-origin finding
+      author: subcontrabass
+      bot: false
+      base: build/latch-monotonic
+      head: build/stays-local-said-right
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 69
+      title: A printer's control latch runs on the monotonic clock
+      author: subcontrabass
+      bot: false
+      base: build/estop-at-once
+      head: build/latch-monotonic
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 68
+      title: The emergency stop is written at once, ahead of the exchange in flight,
+        and the board's halt line is its answer
+      author: subcontrabass
+      bot: false
+      base: build/review-2026-10-24
+      head: build/estop-at-once
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 67
+      title: A dated review records the gaps in the systems, the tests and the docs
+        at the top of the stack
+      author: subcontrabass
+      bot: false
+      base: build/window-views
+      head: build/review-2026-10-24
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 66
+      title: The Airgap, the Part and the Machine are focused systems in windows of
+        their own, on a window manager held by its own tests
+      author: subcontrabass
+      bot: false
+      base: build/airgap
+      head: build/window-views
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 65
+      title: The Airgap analyses the airgap part from its own text, its figures a
+        metrics document
+      author: subcontrabass
+      bot: false
+      base: build/golden-layout
+      head: build/airgap
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 64
+      title: The world and every panel are windows of one GoldenLayout
+      author: subcontrabass
+      bot: false
+      base: build/qm-propagation
+      head: build/golden-layout
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 63
+      title: governance/qm pins project/apothecary carrying the corpus's main, and
+        the seed's checks run from it
+      author: subcontrabass
+      bot: false
+      base: theatre
+      head: build/qm-propagation
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 62
+      title: A theatre is a site, its shell sized by sliders, its lighting rig lit
+        by a console's levels
+      author: subcontrabass
+      bot: false
+      base: build/control-popped-out
+      head: theatre
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 61
+      title: Bump pillow from 12.3.0 to 13.0.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pillow-13.0.0
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 60
+      title: Bump virtualenv from 20.36.1 to 21.14.13
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/virtualenv-21.14.13
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 59
+      title: An armed printer's control pad pops out loudly, and what the review's
+        walk of rows 5 to 16 found is fixed
+      author: subcontrabass
+      bot: false
+      base: build/picture-fits-the-host
+      head: build/control-popped-out
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 58
+      title: A picture pinned at a structure lies clear of what rests on it, is drawn
+        seen through, and a shape over what rests there is flagged
+      author: subcontrabass
+      bot: false
+      base: build/scene-not-mirrored
+      head: build/picture-fits-the-host
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 57
+      title: The viewer draws a site as OpenSCAD does, turned into three.js's frame
+        rather than mirrored
+      author: subcontrabass
+      bot: false
+      base: build/grid-and-fit
+      head: build/scene-not-mirrored
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 56
+      title: A part stepped into stands on the floor grid and fills the view, wherever
+        the site puts it
+      author: subcontrabass
+      bot: false
+      base: build/integration
+      head: build/grid-and-fit
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 55
+      title: Every open pull request merged into one tree, its README mapping what
+        the tree does, and a check that each pull request integrates
+      author: subcontrabass
+      bot: false
+      base: build/timeless-docs
+      head: build/integration
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 53
+      title: The walkthrough's loops come first, the pages the browser tests write
+        numbered 01 to 06 and the others 07 to 16
+      author: subcontrabass
+      bot: false
+      base: build/timeless-docs
+      head: timeless/walkthrough-7c-loops-first
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 52
+      title: Walkthrough pages 11 to 16 say which test writes them, and their tests'
+        words say what the runs hold
+      author: subcontrabass
+      bot: false
+      base: timeless/page-tests-6-page-tests-config
+      head: timeless/walkthrough-7b-generated
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 51
+      title: Walkthrough pages 00 to 10 state their constraints as facts, held by
+        doctests where a story held them
+      author: subcontrabass
+      bot: false
+      base: timeless/docs-4-reference
+      head: timeless/walkthrough-7a-pages
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 50
+      title: 'Durable text states what is true: the documentation sweep''s plan, and
+        the base its steps merge into'
+      author: subcontrabass
+      bot: false
+      base: build/governance
+      head: build/timeless-docs
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 49
+      title: The page's comments, the tests' docstrings and the configuration's comments
+        state what is true, without the history
+      author: subcontrabass
+      bot: false
+      base: timeless/page-tests-1-contradictions
+      head: timeless/page-tests-6-page-tests-config
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 48
+      title: The page's comments, the tests' docstrings and the configuration's comments
+        say what the code does
+      author: subcontrabass
+      bot: false
+      base: build/timeless-docs
+      head: timeless/page-tests-1-contradictions
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 47
+      title: The pictures packages state their rules as constraints, without the failures
+        that found them
+      author: subcontrabass
+      bot: false
+      base: timeless/package-2-narration
+      head: timeless/package-3-pictures
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 46
+      title: The package's docstrings and comments state what is true, without the
+        history (all but the pictures packages)
+      author: subcontrabass
+      bot: false
+      base: timeless/package-1-contradictions
+      head: timeless/package-2-narration
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 45
+      title: OpenSCAD, pictures, configuration and the census each have one reference
+        page, and the pages that repeated them point there
+      author: subcontrabass
+      bot: false
+      base: timeless/docs-3-plans-retire
+      head: timeless/docs-4-reference
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 44
+      title: The package's docstrings, --help texts and API descriptions say what
+        the code does
+      author: subcontrabass
+      bot: false
+      base: build/timeless-docs
+      head: timeless/package-1-contradictions
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 43
+      title: Finished plans retire to a dated History, and what is still true of them
+        is stated where it lives
+      author: subcontrabass
+      bot: false
+      base: timeless/docs-2-front-door
+      head: timeless/docs-3-plans-retire
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 42
+      title: The front door is one path, and the reference pages state what is true
+        without their history
+      author: subcontrabass
+      bot: false
+      base: timeless/docs-1-contradictions
+      head: timeless/docs-2-front-door
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 41
+      title: The network guard goes on where the personal-data record says, no file
+        names the board's serial, CI checks leaks and stacked drafts, and the bench
+        checklist is current
+      author: subcontrabass
+      bot: false
+      base: build/input
+      head: build/governance
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 40
+      title: The top-level and reference pages say what the code does
+      author: subcontrabass
+      bot: false
+      base: build/timeless-docs
+      head: timeless/docs-1-contradictions
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 39
+      title: The right button is the camera's, Ctrl + right-click opens the ring,
+        fractal zoom has keys and settings, and the page's inputs hold together
+      author: subcontrabass
+      bot: false
+      base: build/part-iteration
+      head: build/input
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 38
+      title: A part's parameters and its SCAD text are one draft, with real controls,
+        kept work, variants managed and compared, and errors drawn as failures
+      author: subcontrabass
+      bot: false
+      base: build/onboarding
+      head: build/part-iteration
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 37
+      title: A newcomer starts at Getting started and tries every loop with serve
+        --demo, the docs say what the code does, and the pictures hold still
+      author: subcontrabass
+      bot: false
+      base: build/scad-loop
+      head: build/onboarding
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 36
+      title: A part's SCAD is edited in the page, checked as typing stops, rendered
+        into the cache and saved as a variant in git without touching the checkout
+      author: subcontrabass
+      bot: false
+      base: build/slicer
+      head: build/scad-loop
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 35
+      title: OrcaSlicer slices a part or a made piece for printer_1 from the page,
+        its settings traced to the part and the bench, and Print follows Slice
+      author: subcontrabass
+      bot: false
+      base: build/picture-to-print
+      head: build/slicer
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 34
+      title: 'A picture becomes a print without leaving the page: Make names the next
+        step, a piece''s ring prints it, and the loop is held twice round'
+      author: subcontrabass
+      bot: false
+      base: build/part-loop
+      head: build/picture-to-print
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 33
+      title: 'A part is designed in the page: Apply renders variants into a cache,
+        OpenSCAD''s errors show by line, and the part''s ring holds the loop'
+      author: subcontrabass
+      bot: false
+      base: build/rust-firmware
+      head: build/part-loop
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 32
+      title: Firmware toolchains are modules, and the classic ESP32 can be programmed
+        in Rust from the Bench and its Machine
+      author: subcontrabass
+      bot: false
+      base: build/rust-research
+      head: build/rust-firmware
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 31
+      title: A spike chooses which Rust kernel to try first, a comparison by numbers
+        waits for one, and two Rust crates exist as stubs
+      author: subcontrabass
+      bot: false
+      base: review/2026-09-26
+      head: build/rust-research
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 30
+      title: Cameras are parts and the screen carries less, with the plans for Rust,
+        the loops through the page and the cleanup triage
+      author: subcontrabass
+      bot: false
+      base: stack/06-one-page
+      head: review/2026-09-26
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 29
+      title: One page holds the world, one rail and one Machine per board
+      author: subcontrabass
+      bot: false
+      base: stack/05-openscad-installers
+      head: stack/06-one-page
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 28
+      title: OpenSCAD snapshots install natively and renders prefer them, with the
+        gridfinity bin declared as the standard draws it
+      author: subcontrabass
+      bot: false
+      base: stack/04-pictures-in-the-world
+      head: stack/05-openscad-installers
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 27
+      title: A picture is pinned in the world, a made piece is a part, and the browser
+        suite runs in three shards
+      author: subcontrabass
+      bot: false
+      base: stack/03-review-ws-15-and-parts-seams
+      head: stack/04-pictures-in-the-world
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 26
+      title: A part declares its OpenSCAD, its parameter names and its geometry through
+        small seams, and the test workflow runs on every pull request
+      author: subcontrabass
+      bot: false
+      base: stack/02-review-ws-18
+      head: stack/03-review-ws-15-and-parts-seams
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 25
+      title: The viewer and the API serve nothing that nothing calls, and the page
+        escapes what it writes
+      author: subcontrabass
+      bot: false
+      base: stack/01-review-ws-12
+      head: stack/02-review-ws-18
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 24
+      title: Parts, the photo gatherer, the CLI and the test helpers each hold one
+        copy of what they do
+      author: subcontrabass
+      bot: false
+      base: consolidate/2026-09-19
+      head: stack/01-review-ws-12
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 23
+      title: Bump urllib3 from 2.6.2 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 21
+      title: 'Consolidate every unmerged line: the printer seam on the bench, the
+        ring, one screen, the camera, personal data on the device, the bench drawn
+        as it is'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: consolidate/2026-09-19
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 19
+      title: Bump anyio from 4.11.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 17
+      title: Bump idna from 3.11 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 16
+      title: Bump pytest from 9.0.0 to 9.0.3
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 15
+      title: Bump starlette from 0.49.3 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: build/tests-steps-on-demand
+    stage: draft
+    pr: 91
+    base: build/tests-shared-helpers
+    title: The step-through tests run under --steps, weekly and on demand, and skip
+      in every other run
+    author: subcontrabass
+    delta:
+      additions: 127
+      changed_files: 11
+      commits: 2
+      deletions: 17
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:23:58Z'
+    idle_hours: 0.2
+    stalled: false
+  - name: build/tests-shared-helpers
+    stage: draft
+    pr: 90
+    base: build/tests-one-ring-helper
+    title: Tests share helpers through garage.py, boards.py and views_helpers.py,
+      and none imports another test module
+    author: subcontrabass
+    delta:
+      additions: 755
+      changed_files: 42
+      commits: 2
+      deletions: 660
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/tests-one-ring-helper
+    stage: draft
+    pr: 89
+    base: build/docs-generated-says-when
+    title: The browser tests reach the ring through rings.py alone, and a unit test
+      refuses a copy
+    author: subcontrabass
+    delta:
+      additions: 173
+      changed_files: 21
+      commits: 2
+      deletions: 396
+      mergeable_state: unstable
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-generated-says-when
+    stage: draft
+    pr: 88
+    base: build/docs-every-command
+    title: A generated page says the day it was made and the commit it was made from
+    author: subcontrabass
+    delta:
+      additions: 75
+      changed_files: 3
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-every-command
+    stage: draft
+    pr: 87
+    base: build/docs-index-whole
+    title: 'Every command and flag a person uses is named where they look: firmware
+      boards, docs clean, --slow and --record-durations'
+    author: subcontrabass
+    delta:
+      additions: 7
+      changed_files: 4
+      commits: 2
+      deletions: 2
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:52Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-index-whole
+    stage: draft
+    pr: 86
+    base: build/docs-every-variable
+    title: The docs index lists every guide, the gathering pictures and the sweep's
+      notes, and its test covers the guides
+    author: subcontrabass
+    delta:
+      additions: 8
+      changed_files: 2
+      commits: 2
+      deletions: 5
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-every-variable
+    stage: draft
+    pr: 85
+    base: build/docs-adding-a-system
+    title: The configuration page names every APOTHECARY_* variable the code reads,
+      and a test holds it to the code
+    author: subcontrabass
+    delta:
+      additions: 23
+      changed_files: 3
+      commits: 2
+      deletions: 2
+      mergeable_state: unstable
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-adding-a-system
+    stage: draft
+    pr: 84
+    base: build/docs-the-parts-windows
+    title: An author's guide says how a window or a focused system is added, and the
+      tests that hold each
+    author: subcontrabass
+    delta:
+      additions: 103
+      changed_files: 3
+      commits: 2
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-the-parts-windows
+    stage: draft
+    pr: 83
+    base: build/docs-the-machines-windows
+    title: The README, the viewer and authoring guides, walkthrough 10 and the changelog
+      say which window holds a part's editing
+    author: subcontrabass
+    delta:
+      additions: 18
+      changed_files: 6
+      commits: 2
+      deletions: 13
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/docs-the-machines-windows
+    stage: draft
+    pr: 82
+    base: build/ci-rust-check
+    title: The firmware guide and the bench checklist describe the Machine as a main
+      window and its kind's sections
+    author: subcontrabass
+    delta:
+      additions: 32
+      changed_files: 2
+      commits: 2
+      deletions: 20
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/ci-rust-check
+    stage: draft
+    pr: 81
+    base: build/ci-coverage
+    title: CI checks that the Rust workspace compiles against its committed lock
+    author: subcontrabass
+    delta:
+      additions: 56
+      changed_files: 5
+      commits: 2
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-24T15:08:53Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: build/ci-coverage
+    stage: draft
+    pr: 80
+    base: build/tests-timeout
+    title: CI measures what the unit tests cover and keeps the report, with no threshold
+    author: subcontrabass
+    delta:
+      additions: 13
+      changed_files: 4
+      commits: 1
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-24T14:05:05Z'
+    idle_hours: 1.5
+    stalled: false
+  - name: build/tests-timeout
+    stage: draft
+    pr: 79
+    base: build/ci-newest-python
+    title: Every test has ten minutes of its own, so a hung wait fails that test rather
+      than the CI job
+    author: subcontrabass
+    delta:
+      additions: 42
+      changed_files: 4
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T14:00:27Z'
+    idle_hours: 1.6
+    stalled: false
+  - name: build/ci-newest-python
+    stage: draft
+    pr: 78
+    base: build/ci-docs-generate
+    title: CI runs the walkthrough and the unit tests on the newest Python, 3.14,
+      beside the floor
+    author: subcontrabass
+    delta:
+      additions: 39
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:56:42Z'
+    idle_hours: 1.7
+    stalled: false
+  - name: build/ci-docs-generate
+    stage: draft
+    pr: 77
+    base: build/ci-openscad-snapshot
+    title: A weekly workflow runs the doc-capture tests, and the printer monitor's
+      doc walk passes again
+    author: subcontrabass
+    delta:
+      additions: 69
+      changed_files: 3
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:52:22Z'
+    idle_hours: 1.7
+    stalled: false
+  - name: build/ci-openscad-snapshot
+    stage: draft
+    pr: 76
+    base: build/jogs-add-up-said
+    title: CI's unit job renders with a pinned OpenSCAD snapshot, so the tests that
+      need one run there
+    author: subcontrabass
+    delta:
+      additions: 16
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:46:34Z'
+    idle_hours: 1.8
+    stalled: false
+  - name: build/jogs-add-up-said
+    stage: draft
+    pr: 75
+    base: build/demo-git-timeouts
+    title: The firmware guide says the travel cap bounds a jog, not where jogs add
+      up to
+    author: subcontrabass
+    delta:
+      additions: 4
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:41:41Z'
+    idle_hours: 1.9
+    stalled: false
+  - name: build/demo-git-timeouts
+    stage: draft
+    pr: 74
+    base: build/rust-unpack-no-links
+    title: The demo's git calls are given a time, and one that runs out leaves the
+      demo without saves
+    author: subcontrabass
+    delta:
+      additions: 37
+      changed_files: 2
+      commits: 1
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:41:13Z'
+    idle_hours: 1.9
+    stalled: false
+  - name: build/rust-unpack-no-links
+    stage: draft
+    pr: 73
+    base: build/review-part-names-encoded
+    title: The Rust installer refuses a link in a tarball where Python has no data
+      filter
+    author: subcontrabass
+    delta:
+      additions: 26
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:40:25Z'
+    idle_hours: 1.9
+    stalled: false
+  - name: build/review-part-names-encoded
+    stage: draft
+    pr: 72
+    base: build/print-id-no-dot
+    title: The review withdraws its finding that part names reach fetch URLs unencoded
+    author: subcontrabass
+    delta:
+      additions: 4
+      changed_files: 1
+      commits: 1
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:39:31Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/print-id-no-dot
+    stage: draft
+    pr: 71
+    base: build/stays-local-said-right
+    title: A kept print file's id that starts with a dot names no file, to read, delete
+      or print
+    author: subcontrabass
+    delta:
+      additions: 32
+      changed_files: 4
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:38:53Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/stays-local-said-right
+    stage: draft
+    pr: 70
+    base: build/latch-monotonic
+    title: The network guard's docstring counts its five rules, and the review withdraws
+      its cross-origin finding
+    author: subcontrabass
+    delta:
+      additions: 11
+      changed_files: 2
+      commits: 1
+      deletions: 12
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:36:56Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/latch-monotonic
+    stage: draft
+    pr: 69
+    base: build/estop-at-once
+    title: A printer's control latch runs on the monotonic clock
+    author: subcontrabass
+    delta:
+      additions: 19
+      changed_files: 3
+      commits: 1
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:35:29Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/estop-at-once
+    stage: draft
+    pr: 68
+    base: build/review-2026-10-24
+    title: The emergency stop is written at once, ahead of the exchange in flight,
+      and the board's halt line is its answer
+    author: subcontrabass
+    delta:
+      additions: 83
+      changed_files: 5
+      commits: 1
+      deletions: 10
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:34:22Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/review-2026-10-24
+    stage: draft
+    pr: 67
+    base: build/window-views
+    title: A dated review records the gaps in the systems, the tests and the docs
+      at the top of the stack
+    author: subcontrabass
+    delta:
+      additions: 357
+      changed_files: 3
+      commits: 2
+      deletions: 2
+      mergeable_state: clean
+      updated_at: '2026-10-24T13:37:04Z'
+    idle_hours: 2.0
+    stalled: false
+  - name: build/window-views
+    stage: draft
+    pr: 66
+    base: build/airgap
+    title: The Airgap, the Part and the Machine are focused systems in windows of
+      their own, on a window manager held by its own tests
+    author: subcontrabass
+    delta:
+      additions: 4418
+      changed_files: 124
+      commits: 20
+      deletions: 1214
+      mergeable_state: clean
+      updated_at: '2026-10-24T02:44:29Z'
+    idle_hours: 12.9
+    stalled: false
+  - name: build/airgap
+    stage: draft
+    pr: 65
+    base: build/golden-layout
+    title: The Airgap analyses the airgap part from its own text, its figures a metrics
+      document
+    author: subcontrabass
+    delta:
+      additions: 4791
+      changed_files: 69
+      commits: 6
+      deletions: 72
+      mergeable_state: unstable
+      updated_at: '2026-10-24T02:26:41Z'
+    idle_hours: 13.2
+    stalled: false
+  - name: build/golden-layout
+    stage: draft
+    pr: 64
+    base: build/qm-propagation
+    title: The world and every panel are windows of one GoldenLayout
+    author: subcontrabass
+    delta:
+      additions: 11779
+      changed_files: 157
+      commits: 9
+      deletions: 1863
+      mergeable_state: unstable
+      updated_at: '2026-10-24T02:26:40Z'
+    idle_hours: 13.2
+    stalled: false
+  - name: build/qm-propagation
+    stage: draft
+    pr: 63
+    base: theatre
+    title: governance/qm pins project/apothecary carrying the corpus's main, and the
+      seed's checks run from it
+    author: subcontrabass
+    delta:
+      additions: 389
+      changed_files: 17
+      commits: 2
+      deletions: 869
+      mergeable_state: unstable
+      updated_at: '2026-10-24T02:26:39Z'
+    idle_hours: 13.2
+    stalled: false
+  - name: theatre
+    stage: draft
+    pr: 62
+    base: build/control-popped-out
+    title: A theatre is a site, its shell sized by sliders, its lighting rig lit by
+      a console's levels
+    author: subcontrabass
+    delta:
+      additions: 2020
+      changed_files: 29
+      commits: 1
+      deletions: 14
+      mergeable_state: unstable
+      updated_at: '2026-10-24T02:26:37Z'
+    idle_hours: 13.2
+    stalled: false
+  - name: build/control-popped-out
+    stage: draft
+    pr: 59
+    base: build/picture-fits-the-host
+    title: An armed printer's control pad pops out loudly, and what the review's walk
+      of rows 5 to 16 found is fixed
+    author: subcontrabass
+    delta:
+      additions: 585
+      changed_files: 53
+      commits: 14
+      deletions: 109
+      mergeable_state: clean
+      updated_at: '2026-10-20T02:19:21Z'
+    idle_hours: 109.3
+    stalled: true
+  - name: build/picture-fits-the-host
+    stage: draft
+    pr: 58
+    base: build/scene-not-mirrored
+    title: A picture pinned at a structure lies clear of what rests on it, is drawn
+      seen through, and a shape over what rests there is flagged
+    author: subcontrabass
+    delta:
+      additions: 1378
+      changed_files: 26
+      commits: 9
+      deletions: 57
+      mergeable_state: clean
+      updated_at: '2026-10-20T02:19:18Z'
+    idle_hours: 109.3
+    stalled: true
+  - name: build/scene-not-mirrored
+    stage: draft
+    pr: 57
+    base: build/grid-and-fit
+    title: The viewer draws a site as OpenSCAD does, turned into three.js's frame
+      rather than mirrored
+    author: subcontrabass
+    delta:
+      additions: 198
+      changed_files: 55
+      commits: 4
+      deletions: 100
+      mergeable_state: clean
+      updated_at: '2026-10-20T02:19:14Z'
+    idle_hours: 109.3
+    stalled: true
+  - name: build/grid-and-fit
+    stage: draft
+    pr: 56
+    base: build/integration
+    title: A part stepped into stands on the floor grid and fills the view, wherever
+      the site puts it
+    author: subcontrabass
+    delta:
+      additions: 52
+      changed_files: 30
+      commits: 2
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-20T02:19:11Z'
+    idle_hours: 109.3
+    stalled: true
+  - name: build/integration
+    stage: draft
+    pr: 55
+    base: build/timeless-docs
+    title: Every open pull request merged into one tree, its README mapping what the
+      tree does, and a check that each pull request integrates
+    author: subcontrabass
+    delta:
+      additions: 3370
+      changed_files: 309
+      commits: 202
+      deletions: 2955
+      mergeable_state: clean
+      updated_at: '2026-10-20T02:19:07Z'
+    idle_hours: 109.3
+    stalled: true
+  - name: timeless/walkthrough-7c-loops-first
+    stage: draft
+    pr: 53
+    base: build/timeless-docs
+    title: The walkthrough's loops come first, the pages the browser tests write numbered
+      01 to 06 and the others 07 to 16
+    author: subcontrabass
+    delta:
+      additions: 2881
+      changed_files: 305
+      commits: 196
+      deletions: 2955
+      mergeable_state: clean
+      updated_at: '2026-10-20T00:36:30Z'
+    idle_hours: 111.0
+    stalled: true
+  - name: timeless/walkthrough-7b-generated
+    stage: draft
+    pr: 52
+    base: timeless/page-tests-6-page-tests-config
+    title: Walkthrough pages 11 to 16 say which test writes them, and their tests'
+      words say what the runs hold
+    author: subcontrabass
+    delta:
+      additions: 255
+      changed_files: 63
+      commits: 15
+      deletions: 150
+      mergeable_state: clean
+      updated_at: '2026-10-20T00:36:30Z'
+    idle_hours: 111.0
+    stalled: true
+  - name: timeless/walkthrough-7a-pages
+    stage: draft
+    pr: 51
+    base: timeless/docs-4-reference
+    title: Walkthrough pages 00 to 10 state their constraints as facts, held by doctests
+      where a story held them
+    author: subcontrabass
+    delta:
+      additions: 135
+      changed_files: 10
+      commits: 12
+      deletions: 165
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:01:23Z'
+    idle_hours: 244.6
+    stalled: true
+  - name: build/timeless-docs
+    stage: draft
+    pr: 50
+    base: build/governance
+    title: 'Durable text states what is true: the documentation sweep''s plan, and
+      the base its steps merge into'
+    author: subcontrabass
+    delta:
+      additions: 3758
+      changed_files: 7
+      commits: 12
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:22:25Z'
+    idle_hours: 241.2
+    stalled: true
+  - name: timeless/page-tests-6-page-tests-config
+    stage: draft
+    pr: 49
+    base: timeless/page-tests-1-contradictions
+    title: The page's comments, the tests' docstrings and the configuration's comments
+      state what is true, without the history
+    author: subcontrabass
+    delta:
+      additions: 624
+      changed_files: 98
+      commits: 36
+      deletions: 1203
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:04:27Z'
+    idle_hours: 244.5
+    stalled: true
+  - name: timeless/page-tests-1-contradictions
+    stage: draft
+    pr: 48
+    base: build/timeless-docs
+    title: The page's comments, the tests' docstrings and the configuration's comments
+      say what the code does
+    author: subcontrabass
+    delta:
+      additions: 45
+      changed_files: 13
+      commits: 13
+      deletions: 38
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:03:32Z'
+    idle_hours: 244.6
+    stalled: true
+  - name: timeless/package-3-pictures
+    stage: draft
+    pr: 47
+    base: timeless/package-2-narration
+    title: The pictures packages state their rules as constraints, without the failures
+      that found them
+    author: subcontrabass
+    delta:
+      additions: 170
+      changed_files: 29
+      commits: 13
+      deletions: 201
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:59:08Z'
+    idle_hours: 243.6
+    stalled: true
+  - name: timeless/package-2-narration
+    stage: draft
+    pr: 46
+    base: timeless/package-1-contradictions
+    title: The package's docstrings and comments state what is true, without the history
+      (all but the pictures packages)
+    author: subcontrabass
+    delta:
+      additions: 393
+      changed_files: 48
+      commits: 32
+      deletions: 469
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:56:30Z'
+    idle_hours: 243.7
+    stalled: true
+  - name: timeless/docs-4-reference
+    stage: draft
+    pr: 45
+    base: timeless/docs-3-plans-retire
+    title: OpenSCAD, pictures, configuration and the census each have one reference
+      page, and the pages that repeated them point there
+    author: subcontrabass
+    delta:
+      additions: 593
+      changed_files: 19
+      commits: 13
+      deletions: 142
+      mergeable_state: clean
+      updated_at: '2026-10-14T10:58:42Z'
+    idle_hours: 244.6
+    stalled: true
+  - name: timeless/package-1-contradictions
+    stage: draft
+    pr: 44
+    base: build/timeless-docs
+    title: The package's docstrings, --help texts and API descriptions say what the
+      code does
+    author: subcontrabass
+    delta:
+      additions: 108
+      changed_files: 19
+      commits: 11
+      deletions: 110
+      mergeable_state: clean
+      updated_at: '2026-10-14T11:56:29Z'
+    idle_hours: 243.7
+    stalled: true
+  - name: timeless/docs-3-plans-retire
+    stage: draft
+    pr: 43
+    base: timeless/docs-2-front-door
+    title: Finished plans retire to a dated History, and what is still true of them
+      is stated where it lives
+    author: subcontrabass
+    delta:
+      additions: 164
+      changed_files: 11
+      commits: 12
+      deletions: 38
+      mergeable_state: clean
+      updated_at: '2026-10-14T10:58:10Z'
+    idle_hours: 244.7
+    stalled: true
+  - name: timeless/docs-2-front-door
+    stage: draft
+    pr: 42
+    base: timeless/docs-1-contradictions
+    title: The front door is one path, and the reference pages state what is true
+      without their history
+    author: subcontrabass
+    delta:
+      additions: 161
+      changed_files: 24
+      commits: 16
+      deletions: 207
+      mergeable_state: clean
+      updated_at: '2026-10-14T10:57:21Z'
+    idle_hours: 244.7
+    stalled: true
+  - name: build/governance
+    stage: draft
+    pr: 41
+    base: build/input
+    title: The network guard goes on where the personal-data record says, no file
+      names the board's serial, CI checks leaks and stacked drafts, and the bench
+      checklist is current
+    author: subcontrabass
+    delta:
+      additions: 1506
+      changed_files: 39
+      commits: 13
+      deletions: 67
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:22:00Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: timeless/docs-1-contradictions
+    stage: draft
+    pr: 40
+    base: build/timeless-docs
+    title: The top-level and reference pages say what the code does
+    author: subcontrabass
+    delta:
+      additions: 41
+      changed_files: 11
+      commits: 12
+      deletions: 34
+      mergeable_state: clean
+      updated_at: '2026-10-14T10:56:53Z'
+    idle_hours: 244.7
+    stalled: true
+  - name: build/input
+    stage: draft
+    pr: 39
+    base: build/part-iteration
+    title: The right button is the camera's, Ctrl + right-click opens the ring, fractal
+      zoom has keys and settings, and the page's inputs hold together
+    author: subcontrabass
+    delta:
+      additions: 3493
+      changed_files: 96
+      commits: 21
+      deletions: 646
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:53Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/part-iteration
+    stage: draft
+    pr: 38
+    base: build/onboarding
+    title: A part's parameters and its SCAD text are one draft, with real controls,
+      kept work, variants managed and compared, and errors drawn as failures
+    author: subcontrabass
+    delta:
+      additions: 14744
+      changed_files: 116
+      commits: 59
+      deletions: 1228
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:33Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/onboarding
+    stage: draft
+    pr: 37
+    base: build/scad-loop
+    title: A newcomer starts at Getting started and tries every loop with serve --demo,
+      the docs say what the code does, and the pictures hold still
+    author: subcontrabass
+    delta:
+      additions: 5880
+      changed_files: 147
+      commits: 55
+      deletions: 1258
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:24Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/scad-loop
+    stage: draft
+    pr: 36
+    base: build/slicer
+    title: A part's SCAD is edited in the page, checked as typing stops, rendered
+      into the cache and saved as a variant in git without touching the checkout
+    author: subcontrabass
+    delta:
+      additions: 30276
+      changed_files: 81
+      commits: 17
+      deletions: 113
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:17Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/slicer
+    stage: draft
+    pr: 35
+    base: build/picture-to-print
+    title: OrcaSlicer slices a part or a made piece for printer_1 from the page, its
+      settings traced to the part and the bench, and Print follows Slice
+    author: subcontrabass
+    delta:
+      additions: 5897
+      changed_files: 49
+      commits: 19
+      deletions: 128
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:10Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/picture-to-print
+    stage: draft
+    pr: 34
+    base: build/part-loop
+    title: 'A picture becomes a print without leaving the page: Make names the next
+      step, a piece''s ring prints it, and the loop is held twice round'
+    author: subcontrabass
+    delta:
+      additions: 1164
+      changed_files: 39
+      commits: 18
+      deletions: 78
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:20:02Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/part-loop
+    stage: draft
+    pr: 33
+    base: build/rust-firmware
+    title: 'A part is designed in the page: Apply renders variants into a cache, OpenSCAD''s
+      errors show by line, and the part''s ring holds the loop'
+    author: subcontrabass
+    delta:
+      additions: 3541
+      changed_files: 43
+      commits: 27
+      deletions: 135
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:19:56Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/rust-firmware
+    stage: draft
+    pr: 32
+    base: build/rust-research
+    title: Firmware toolchains are modules, and the classic ESP32 can be programmed
+      in Rust from the Bench and its Machine
+    author: subcontrabass
+    delta:
+      additions: 6814
+      changed_files: 59
+      commits: 18
+      deletions: 324
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:19:38Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: build/rust-research
+    stage: draft
+    pr: 31
+    base: review/2026-09-26
+    title: A spike chooses which Rust kernel to try first, a comparison by numbers
+      waits for one, and two Rust crates exist as stubs
+    author: subcontrabass
+    delta:
+      additions: 1781
+      changed_files: 16
+      commits: 9
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:19:27Z'
+    idle_hours: 241.3
+    stalled: true
+  - name: review/2026-09-26
+    stage: draft
+    pr: 30
+    base: stack/06-one-page
+    title: Cameras are parts and the screen carries less, with the plans for Rust,
+      the loops through the page and the cleanup triage
+    author: subcontrabass
+    delta:
+      additions: 8696
+      changed_files: 103
+      commits: 60
+      deletions: 2090
+      mergeable_state: clean
+      updated_at: '2026-10-14T14:37:59Z'
+    idle_hours: 241.0
+    stalled: true
+  - name: stack/06-one-page
+    stage: draft
+    pr: 29
+    base: stack/05-openscad-installers
+    title: One page holds the world, one rail and one Machine per board
+    author: subcontrabass
+    delta:
+      additions: 9938
+      changed_files: 110
+      commits: 56
+      deletions: 5476
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:55Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: stack/05-openscad-installers
+    stage: draft
+    pr: 28
+    base: stack/04-pictures-in-the-world
+    title: OpenSCAD snapshots install natively and renders prefer them, with the gridfinity
+      bin declared as the standard draws it
+    author: subcontrabass
+    delta:
+      additions: 3399
+      changed_files: 30
+      commits: 14
+      deletions: 98
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:54Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: stack/04-pictures-in-the-world
+    stage: draft
+    pr: 27
+    base: stack/03-review-ws-15-and-parts-seams
+    title: A picture is pinned in the world, a made piece is a part, and the browser
+      suite runs in three shards
+    author: subcontrabass
+    delta:
+      additions: 9717
+      changed_files: 72
+      commits: 38
+      deletions: 1027
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:52Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: stack/03-review-ws-15-and-parts-seams
+    stage: draft
+    pr: 26
+    base: stack/02-review-ws-18
+    title: A part declares its OpenSCAD, its parameter names and its geometry through
+      small seams, and the test workflow runs on every pull request
+    author: subcontrabass
+    delta:
+      additions: 2301
+      changed_files: 63
+      commits: 43
+      deletions: 2375
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:50Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: stack/02-review-ws-18
+    stage: draft
+    pr: 25
+    base: stack/01-review-ws-12
+    title: The viewer and the API serve nothing that nothing calls, and the page escapes
+      what it writes
+    author: subcontrabass
+    delta:
+      additions: 1952
+      changed_files: 139
+      commits: 40
+      deletions: 9223
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:48Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: stack/01-review-ws-12
+    stage: draft
+    pr: 24
+    base: consolidate/2026-09-19
+    title: Parts, the photo gatherer, the CLI and the test helpers each hold one copy
+      of what they do
+    author: subcontrabass
+    delta:
+      additions: 4297
+      changed_files: 148
+      commits: 91
+      deletions: 8214
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:46Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: consolidate/2026-09-19
+    stage: ready
+    pr: 21
+    base: main
+    title: 'Consolidate every unmerged line: the printer seam on the bench, the ring,
+      one screen, the camera, personal data on the device, the bench drawn as it is'
+    author: subcontrabass
+    delta:
+      additions: 110819
+      changed_files: 290
+      commits: 83
+      deletions: 693
+      mergeable_state: clean
+      updated_at: '2026-09-26T00:27:56Z'
+    idle_hours: 687.2
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/apothecary
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:35:41Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: datum
+  slug: quaternionmedia/datum
+  role: project
+  family: irl
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: schema and wire contract; governance propagation open
+  slots:
+    repository: quaternionmedia/datum
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: wp3-firmware
+      head_repo: quaternionmedia/datum
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.0.1
+    annotated: false
+    unreleased_commits: 5
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: wp3-firmware
+    stage: ready
+    pr: 2
+    base: main
+    title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+    author: subcontrabass
+    delta:
+      additions: 4446
+      changed_files: 50
+      commits: 34
+      deletions: 97
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:00:15Z'
+    idle_hours: 833.6
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/datum
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 536
+    observed_at: '2026-10-24T15:35:50Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: codecartographer
+  slug: quaternionmedia/codecartographer
+  role: project
+  family: core
+  phase: v0.0.2
+  phase_source: stated
+  version: v0.0.2
+  intent: null
+  note: code maps; named itself a v0.0.2 RAD consumer
+  slots:
+    repository: quaternionmedia/codecartographer
+    contributor: null
+    open_prs:
+    - number: 147
+      title: Draw every family and project the corpus names, and give each drawing
+        an address
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/the-triplet-poc
+      head_repo: quaternionmedia/codecartographer
+      draft: true
+    - number: 146
+      title: The shell's dependencies are current, and its panels behave as the records
+        say
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/tighten-language
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 145
+      title: Bump brace-expansion from 1.1.16 to 1.1.21 in /web
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/brace-expansion-1.1.21
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 144
+      title: Put the Open panel's parse options above Recent, so they are in view
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-open-panel-right-column-in-view
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 143
+      title: Centre each group outline on what it encloses, and place its label where
+        it covers nothing
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/layout-directory-outlines-enclose-their-contents
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 142
+      title: Mark folders apart from files in the Files panel, and indent what a folder
+        holds
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/files-tree-tells-folders-from-files
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 141
+      title: Keep the local source badge inside the canvas, its path shortened in
+        the middle
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-source-badge-stays-in-the-window
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 140
+      title: Keep every button's label readable under the pointer
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-buttons-keep-their-label-on-hover
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 139
+      title: Open the + menu on the first click after a window is added
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-add-menu-opens-on-the-first-click
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 138
+      title: Add a screenshot tour of the window to the browser suite, and keep its
+        report from every run
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/e2e-screenshot-tour
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 137
+      title: Fit the view to the bounding box of what is drawn, group outlines included
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/fit-frames-the-whole-graph
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 136
+      title: List each file in the Files panel on one line, with a raw link only where
+        a browser can open it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/files-tree-says-each-name-once
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 135
+      title: Grey a disabled ring item's label, set the census's show in its row,
+        and spell Neighbors
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-ring-and-census-polish
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 134
+      title: Put the Open panel's quick starts above its examples, so Load Demo is
+        in view
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-open-panel-puts-the-quick-starts-first
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 133
+      title: Give every dock tab's close button its own room, so no title runs under
+        it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-tab-titles-clear-their-close-button
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 132
+      title: Wait on other servers off the event loop, so a slow seam holds up nothing
+        else
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/seams-off-the-event-loop
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 131
+      title: Rewrite the UI reference from the code, and read its rings and keys against
+        it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-one-reference
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 130
+      title: Start every graph from one Open panel
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-one-open-panel
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 129
+      title: Drop the controls nothing can use, and reach Deselect from the canvas
+        ring
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-no-dead-controls
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 128
+      title: Open a node's source from View > Source as a double-click does, on one
+        rule
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-view-source-opens-source
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 127
+      title: Add windows from the + menu alone, and keep the canvas in view when one
+        opens
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-one-way-to-add-windows
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 126
+      title: Fix the UI's boot, folder and expand bugs and its stale text before consolidating
+        its paths
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ui-fixes-before-consolidating
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 125
+      title: Take the retrospectives and the stories out of the reference, and keep
+        only what is next in the roadmap
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/docs-whys-out
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 124
+      title: Fold the architecture pages into one, and move the reference and roadmap
+        out of docs/llm/
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/docs-one-architecture-page
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 123
+      title: Give setup one page, and make the README an onramp that links to it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/docs-one-setup-path
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 122
+      title: Read every document against the tree, and repair what it found wrong
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/docs-read-against-the-tree
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 121
+      title: Delete the documents nobody reads, and state in the code the facts they
+        were cited for
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/docs-remove-what-nobody-reads
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 120
+      title: Set up a Copilot session from the lockfile, with C parsing and the corpus
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ci-copilot-setup-matches-the-lockfile
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 119
+      title: Run the frontend's suites on pull requests that can change them
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/ci-web-suites-run-on-pull-requests
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 118
+      title: Lead the project selector with Rust, and bundle a recorded firmware that
+        needs nothing
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/rust-examples-in-the-selector
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 117
+      title: Read any graph on the canvas as a chrestomathy
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/every-graph-a-chrestomathy
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 116
+      title: Say what a parse could not read, keep C's namespaces apart, and end the
+        errors that were always there
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/c-namespaces-and-said-failures
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 115
+      title: 'Read the maps the linkers wrote: the package cargo rustc needs, LLD''s
+        sizes and names, GNU ld''s reserved stack and unlisted statics'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/the-first-real-recording
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 114
+      title: 'Measure the memory map from the linker''s own map: each region''s use,
+        each section''s size, each function''s bytes'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/memory-map-measured
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 113
+      title: The API reference shows the envelope the routes answer in
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/api-reference-states-the-envelope
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 112
+      title: Open a Cargo workspace and the chrestomathy beside the estate panels
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/cargo-and-chrestomathy-panels
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 111
+      title: Draw records as polygons, and abstraction layers in colour and in the
+        key
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/records-as-polygons-layers-in-colour
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 110
+      title: Read a Cargo workspace from its manifests and what cargo recorded, and
+        record it from the CLI
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/cargo-workspace-read
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 109
+      title: Read Rust at the item level and linker scripts as memory maps
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/rust-and-linker-readers
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 108
+      title: Say what each parsed node is, once for every language, and read one construct
+        across them
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/one-construct-vocabulary
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 107
+      title: Name folders and files by their path from the root, and let a batch parser
+        say what it knows about files
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/node-ids-are-paths
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 105
+      title: The system monitor derives its diagram from a repository's contents,
+        and PAM is one definition among others
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/the-monitor-derives-the-system
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 104
+      title: Bump virtualenv from 20.36.1 to 21.7.13
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/virtualenv-21.7.13
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 103
+      title: Bump urllib3 from 2.6.3 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 97
+      title: 'build(deps): bump anyio from 4.12.1 to 4.14.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 96
+      title: 'build(deps): bump mkdocs-material from 9.7.1 to 9.7.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mkdocs-material-9.7.7
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 90
+      title: 'build(deps): bump pymdown-extensions from 10.20 to 11.0.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pymdown-extensions-11.0.1
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 89
+      title: 'build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/postcss-8.5.25
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 87
+      title: 'build(deps): bump black from 25.12.0 to 26.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/black-26.3.1
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 85
+      title: 'build(deps): bump setuptools from 80.9.0 to 83.0.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/setuptools-83.0.0
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/the-triplet-poc
+    stage: draft
+    pr: 147
+    base: main
+    title: Draw every family and project the corpus names, and give each drawing an
+      address
+    author: subcontrabass
+    delta:
+      additions: 22840
+      changed_files: 292
+      commits: 73
+      deletions: 15444
+      mergeable_state: clean
+      updated_at: '2026-10-24T14:37:36Z'
+    idle_hours: 1.0
+    stalled: false
+  - name: docs/tighten-language
+    stage: ready
+    pr: 146
+    base: main
+    title: The shell's dependencies are current, and its panels behave as the records
+      say
+    author: subcontrabass
+    delta:
+      additions: 1779
+      changed_files: 20
+      commits: 14
+      deletions: 1276
+      mergeable_state: unstable
+      updated_at: '2026-10-20T01:57:01Z'
+    idle_hours: 109.7
+    stalled: true
+  - name: evolve/ui-open-panel-right-column-in-view
+    stage: ready
+    pr: 144
+    base: main
+    title: Put the Open panel's parse options above Recent, so they are in view
+    author: subcontrabass
+    delta:
+      additions: 19447
+      changed_files: 271
+      commits: 67
+      deletions: 15389
+      mergeable_state: unstable
+      updated_at: '2026-10-24T11:59:48Z'
+    idle_hours: 3.6
+    stalled: false
+  - name: evolve/layout-directory-outlines-enclose-their-contents
+    stage: ready
+    pr: 143
+    base: main
+    title: Centre each group outline on what it encloses, and place its label where
+      it covers nothing
+    author: subcontrabass
+    delta:
+      additions: 19423
+      changed_files: 271
+      commits: 65
+      deletions: 15389
+      mergeable_state: unstable
+      updated_at: '2026-10-24T11:59:45Z'
+    idle_hours: 3.6
+    stalled: false
+  - name: evolve/files-tree-tells-folders-from-files
+    stage: ready
+    pr: 142
+    base: main
+    title: Mark folders apart from files in the Files panel, and indent what a folder
+      holds
+    author: subcontrabass
+    delta:
+      additions: 19077
+      changed_files: 268
+      commits: 62
+      deletions: 15361
+      mergeable_state: unstable
+      updated_at: '2026-10-24T11:59:42Z'
+    idle_hours: 3.6
+    stalled: false
+  - name: evolve/ui-source-badge-stays-in-the-window
+    stage: ready
+    pr: 141
+    base: main
+    title: Keep the local source badge inside the canvas, its path shortened in the
+      middle
+    author: subcontrabass
+    delta:
+      additions: 18974
+      changed_files: 268
+      commits: 60
+      deletions: 15361
+      mergeable_state: unstable
+      updated_at: '2026-10-24T11:59:23Z'
+    idle_hours: 3.6
+    stalled: false
+  - name: evolve/ui-buttons-keep-their-label-on-hover
+    stage: ready
+    pr: 140
+    base: main
+    title: Keep every button's label readable under the pointer
+    author: subcontrabass
+    delta:
+      additions: 18874
+      changed_files: 268
+      commits: 58
+      deletions: 15361
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:07Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-add-menu-opens-on-the-first-click
+    stage: ready
+    pr: 139
+    base: main
+    title: Open the + menu on the first click after a window is added
+    author: subcontrabass
+    delta:
+      additions: 18679
+      changed_files: 264
+      commits: 57
+      deletions: 15346
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:13:00Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/e2e-screenshot-tour
+    stage: ready
+    pr: 138
+    base: main
+    title: Add a screenshot tour of the window to the browser suite, and keep its
+      report from every run
+    author: subcontrabass
+    delta:
+      additions: 18630
+      changed_files: 264
+      commits: 56
+      deletions: 15336
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:53Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/fit-frames-the-whole-graph
+    stage: ready
+    pr: 137
+    base: main
+    title: Fit the view to the bounding box of what is drawn, group outlines included
+    author: subcontrabass
+    delta:
+      additions: 18374
+      changed_files: 263
+      commits: 55
+      deletions: 15342
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:47Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/files-tree-says-each-name-once
+    stage: ready
+    pr: 136
+    base: main
+    title: List each file in the Files panel on one line, with a raw link only where
+      a browser can open it
+    author: subcontrabass
+    delta:
+      additions: 18075
+      changed_files: 260
+      commits: 54
+      deletions: 15324
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:41Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-ring-and-census-polish
+    stage: ready
+    pr: 135
+    base: main
+    title: Grey a disabled ring item's label, set the census's show in its row, and
+      spell Neighbors
+    author: subcontrabass
+    delta:
+      additions: 17977
+      changed_files: 259
+      commits: 53
+      deletions: 15323
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:35Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-open-panel-puts-the-quick-starts-first
+    stage: ready
+    pr: 134
+    base: main
+    title: Put the Open panel's quick starts above its examples, so Load Demo is in
+      view
+    author: subcontrabass
+    delta:
+      additions: 17901
+      changed_files: 258
+      commits: 52
+      deletions: 15320
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:30Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-tab-titles-clear-their-close-button
+    stage: ready
+    pr: 133
+    base: main
+    title: Give every dock tab's close button its own room, so no title runs under
+      it
+    author: subcontrabass
+    delta:
+      additions: 17863
+      changed_files: 258
+      commits: 51
+      deletions: 15317
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:23Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/seams-off-the-event-loop
+    stage: ready
+    pr: 132
+    base: main
+    title: Wait on other servers off the event loop, so a slow seam holds up nothing
+      else
+    author: subcontrabass
+    delta:
+      additions: 17788
+      changed_files: 257
+      commits: 50
+      deletions: 15317
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:17Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-one-reference
+    stage: ready
+    pr: 131
+    base: main
+    title: Rewrite the UI reference from the code, and read its rings and keys against
+      it
+    author: subcontrabass
+    delta:
+      additions: 17694
+      changed_files: 254
+      commits: 49
+      deletions: 15311
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:11Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-one-open-panel
+    stage: ready
+    pr: 130
+    base: main
+    title: Start every graph from one Open panel
+    author: subcontrabass
+    delta:
+      additions: 17318
+      changed_files: 253
+      commits: 48
+      deletions: 15047
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:06Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-no-dead-controls
+    stage: ready
+    pr: 129
+    base: main
+    title: Drop the controls nothing can use, and reach Deselect from the canvas ring
+    author: subcontrabass
+    delta:
+      additions: 16513
+      changed_files: 247
+      commits: 46
+      deletions: 14464
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:12:00Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-view-source-opens-source
+    stage: ready
+    pr: 128
+    base: main
+    title: Open a node's source from View > Source as a double-click does, on one
+      rule
+    author: subcontrabass
+    delta:
+      additions: 16290
+      changed_files: 242
+      commits: 44
+      deletions: 14418
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:53Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-one-way-to-add-windows
+    stage: ready
+    pr: 127
+    base: main
+    title: Add windows from the + menu alone, and keep the canvas in view when one
+      opens
+    author: subcontrabass
+    delta:
+      additions: 16125
+      changed_files: 241
+      commits: 43
+      deletions: 14370
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:43Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ui-fixes-before-consolidating
+    stage: ready
+    pr: 126
+    base: main
+    title: Fix the UI's boot, folder and expand bugs and its stale text before consolidating
+      its paths
+    author: subcontrabass
+    delta:
+      additions: 16016
+      changed_files: 238
+      commits: 41
+      deletions: 14281
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:32Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/docs-whys-out
+    stage: ready
+    pr: 125
+    base: main
+    title: Take the retrospectives and the stories out of the reference, and keep
+      only what is next in the roadmap
+    author: subcontrabass
+    delta:
+      additions: 15609
+      changed_files: 216
+      commits: 34
+      deletions: 13796
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:22Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/docs-one-architecture-page
+    stage: ready
+    pr: 124
+    base: main
+    title: Fold the architecture pages into one, and move the reference and roadmap
+      out of docs/llm/
+    author: subcontrabass
+    delta:
+      additions: 15452
+      changed_files: 213
+      commits: 32
+      deletions: 13015
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:12Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/docs-one-setup-path
+    stage: ready
+    pr: 123
+    base: main
+    title: Give setup one page, and make the README an onramp that links to it
+    author: subcontrabass
+    delta:
+      additions: 14677
+      changed_files: 206
+      commits: 29
+      deletions: 11243
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:11:05Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/docs-read-against-the-tree
+    stage: ready
+    pr: 122
+    base: main
+    title: Read every document against the tree, and repair what it found wrong
+    author: subcontrabass
+    delta:
+      additions: 14552
+      changed_files: 204
+      commits: 27
+      deletions: 10492
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:58Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/docs-remove-what-nobody-reads
+    stage: ready
+    pr: 121
+    base: main
+    title: Delete the documents nobody reads, and state in the code the facts they
+      were cited for
+    author: subcontrabass
+    delta:
+      additions: 13778
+      changed_files: 200
+      commits: 22
+      deletions: 10268
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:53Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ci-copilot-setup-matches-the-lockfile
+    stage: ready
+    pr: 120
+    base: main
+    title: Set up a Copilot session from the lockfile, with C parsing and the corpus
+    author: subcontrabass
+    delta:
+      additions: 13759
+      changed_files: 162
+      commits: 21
+      deletions: 573
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:46Z'
+    idle_hours: 184.4
+    stalled: true
+  - name: evolve/ci-web-suites-run-on-pull-requests
+    stage: ready
+    pr: 119
+    base: main
+    title: Run the frontend's suites on pull requests that can change them
+    author: subcontrabass
+    delta:
+      additions: 13740
+      changed_files: 161
+      commits: 19
+      deletions: 565
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:41Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/rust-examples-in-the-selector
+    stage: ready
+    pr: 118
+    base: main
+    title: Lead the project selector with Rust, and bundle a recorded firmware that
+      needs nothing
+    author: subcontrabass
+    delta:
+      additions: 13599
+      changed_files: 159
+      commits: 17
+      deletions: 540
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:36Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/every-graph-a-chrestomathy
+    stage: ready
+    pr: 117
+    base: main
+    title: Read any graph on the canvas as a chrestomathy
+    author: subcontrabass
+    delta:
+      additions: 12642
+      changed_files: 135
+      commits: 15
+      deletions: 503
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:31Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/c-namespaces-and-said-failures
+    stage: ready
+    pr: 116
+    base: main
+    title: Say what a parse could not read, keep C's namespaces apart, and end the
+      errors that were always there
+    author: subcontrabass
+    delta:
+      additions: 11749
+      changed_files: 127
+      commits: 13
+      deletions: 501
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:26Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/the-first-real-recording
+    stage: ready
+    pr: 115
+    base: main
+    title: 'Read the maps the linkers wrote: the package cargo rustc needs, LLD''s
+      sizes and names, GNU ld''s reserved stack and unlisted statics'
+    author: subcontrabass
+    delta:
+      additions: 11292
+      changed_files: 107
+      commits: 10
+      deletions: 445
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:20Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/memory-map-measured
+    stage: ready
+    pr: 114
+    base: main
+    title: 'Measure the memory map from the linker''s own map: each region''s use,
+      each section''s size, each function''s bytes'
+    author: subcontrabass
+    delta:
+      additions: 10410
+      changed_files: 98
+      commits: 9
+      deletions: 445
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:15Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/api-reference-states-the-envelope
+    stage: ready
+    pr: 113
+    base: main
+    title: The API reference shows the envelope the routes answer in
+    author: subcontrabass
+    delta:
+      additions: 25
+      changed_files: 2
+      commits: 1
+      deletions: 22
+      mergeable_state: unstable
+      updated_at: '2026-10-12T22:04:12Z'
+    idle_hours: 281.6
+    stalled: true
+  - name: evolve/cargo-and-chrestomathy-panels
+    stage: ready
+    pr: 112
+    base: main
+    title: Open a Cargo workspace and the chrestomathy beside the estate panels
+    author: subcontrabass
+    delta:
+      additions: 9356
+      changed_files: 94
+      commits: 8
+      deletions: 444
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:10Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/records-as-polygons-layers-in-colour
+    stage: ready
+    pr: 111
+    base: main
+    title: Draw records as polygons, and abstraction layers in colour and in the key
+    author: subcontrabass
+    delta:
+      additions: 8452
+      changed_files: 81
+      commits: 7
+      deletions: 429
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:10:04Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/cargo-workspace-read
+    stage: ready
+    pr: 110
+    base: main
+    title: Read a Cargo workspace from its manifests and what cargo recorded, and
+      record it from the CLI
+    author: subcontrabass
+    delta:
+      additions: 8281
+      changed_files: 76
+      commits: 6
+      deletions: 422
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:09:58Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/rust-and-linker-readers
+    stage: ready
+    pr: 109
+    base: main
+    title: Read Rust at the item level and linker scripts as memory maps
+    author: subcontrabass
+    delta:
+      additions: 5740
+      changed_files: 61
+      commits: 5
+      deletions: 421
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:09:54Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/one-construct-vocabulary
+    stage: ready
+    pr: 108
+    base: main
+    title: Say what each parsed node is, once for every language, and read one construct
+      across them
+    author: subcontrabass
+    delta:
+      additions: 3689
+      changed_files: 44
+      commits: 4
+      deletions: 400
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:09:49Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: evolve/node-ids-are-paths
+    stage: ready
+    pr: 107
+    base: main
+    title: Name folders and files by their path from the root, and let a batch parser
+      say what it knows about files
+    author: subcontrabass
+    delta:
+      additions: 2115
+      changed_files: 27
+      commits: 3
+      deletions: 389
+      mergeable_state: unstable
+      updated_at: '2026-10-16T23:09:45Z'
+    idle_hours: 184.5
+    stalled: true
+  - name: feat/the-monitor-derives-the-system
+    stage: ready
+    pr: 105
+    base: main
+    title: The system monitor derives its diagram from a repository's contents, and
+      PAM is one definition among others
+    author: subcontrabass
+    delta:
+      additions: 1904
+      changed_files: 24
+      commits: 2
+      deletions: 375
+      mergeable_state: clean
+      updated_at: '2026-10-11T18:15:41Z'
+    idle_hours: 309.4
+    stalled: true
+  governance:
+    seed: complete
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/codecartographer
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 187
+    observed_at: '2026-10-24T15:35:46Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: private-32
+  slug: quaternionmedia/private-32
+  role: project
+  family: games
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-32.
+
+    '
+  slots:
+    repository: quaternionmedia/private-32
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: incomplete
+    missing:
+    - submodule
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 0
+      workflows_absent: 4
+      licensing_present: 0
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:35:53Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: private-33
+  slug: quaternionmedia/private-33
+  role: project
+  family: games
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-33.
+
+    '
+  slots:
+    repository: quaternionmedia/private-33
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 6
+      title: 'chore(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/private-33
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.4.1
+    annotated: true
+    unreleased_commits: 46
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    seed: incomplete
+    missing:
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/private-33
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 1
+      workflows_absent: 3
+      licensing_present: 0
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:35:48Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: factorio-sysops
+  slug: quaternionmedia/factorio-sysops
+  role: project
+  family: games
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: null
+  slots:
+    repository: quaternionmedia/factorio-sysops
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: incomplete
+    missing:
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/factorio-sysops
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 1
+      workflows_absent: 3
+      licensing_present: 0
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:35:55Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: carlos
+  slug: quaternionmedia/carlos
+  role: project
+  family: instruments
+  phase: v0.0.1
+  phase_source: stated
+  version: v0.0.1
+  intent: null
+  note: 'Browser workspace for sketching synth rigs, governed via project/carlos.
+    `stated`, not `scaffolded`: carlos names the rung in its own GOVERNANCE.md, so
+    the claim is the project''s rather than an inference drawn from what it happens
+    to contain. It is what the project works toward and not an attainment -- nothing
+    here is evidence, and the tag that would assert arrival has not been cut. Its
+    default branch is `they`, not `main`.
+
+    '
+  slots:
+    repository: quaternionmedia/carlos
+    contributor: null
+    open_prs:
+    - number: 19
+      title: Bump urllib3 from 2.7.0 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 18
+      title: Bump anyio from 4.10.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 17
+      title: Turn every dial about its centre, give leads ends, and follow a scroll
+      author: subcontrabass
+      bot: false
+      base: they
+      head: fix/dials-cable-ends-and-scroll
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 3
+      title: Bump idna from 3.10 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 2
+      title: Bump starlette from 0.47.2 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/carlos
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/dials-cable-ends-and-scroll
+    stage: ready
+    pr: 17
+    base: they
+    title: Turn every dial about its centre, give leads ends, and follow a scroll
+    author: subcontrabass
+    delta:
+      additions: 1689
+      changed_files: 45
+      commits: 8
+      deletions: 124
+      mergeable_state: unstable
+      updated_at: '2026-08-22T17:27:47Z'
+    idle_hours: 1510.2
+    stalled: true
+  governance:
+    seed: complete
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/carlos
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 565
+    observed_at: '2026-10-24T15:35:43Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: private-34
+  slug: quaternionmedia/private-34
+  role: project
+  family:
+  - instruments
+  - performer-display
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 and private-33 above. Governed via a project/<name>
+    branch here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-34
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'Build(deps): bump httpcore2 from 2.7.0 to 2.10.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpcore2-2.10.0
+      head_repo: quaternionmedia/private-34
+      draft: false
+    - number: 1
+      title: 'Build(deps-dev): bump httpx2 from 2.7.0 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpx2-2.12.0
+      head_repo: quaternionmedia/private-34
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/private-34
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 0
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:36:01Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: private-36
+  slug: quaternionmedia/private-36
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 through private-34 above. Governed via a project/<name>
+    branch here, which carries its records as drafts; no family claimed until governance
+    has run for it.
+
+    '
+  slots:
+    repository: quaternionmedia/private-36
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Mount governance/qm against project/private-36, and measure unpushed
+        against the right ref
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/mount-the-governance-submodule
+      head_repo: quaternionmedia/private-36
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/mount-the-governance-submodule
+    stage: ready
+    pr: 1
+    base: main
+    title: Mount governance/qm against project/private-36, and measure unpushed against
+      the right ref
+    author: subcontrabass
+    delta:
+      additions: 94
+      changed_files: 9
+      commits: 2
+      deletions: 93
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:26:11Z'
+    idle_hours: 833.2
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - submodule
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 425
+    observed_at: '2026-10-24T15:35:56Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: streaming-infrastructure
+  slug: quaternionmedia/streaming-infrastructure
+  role: project
+  family: infra
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'Governed via project/streaming-infrastructure here, whose one record calls
+    the codebase the `qmstream` control plane. No repository by either name is on
+    the host under this org, so there is nothing to clone and status/governance.yaml
+    reports its host layer as unknown. The paths are where a clone would go.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/streaming-infrastructure/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP
+      404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: 'gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found
+      (HTTP 404)'
+- name: qmetronome
+  slug: quaternionmedia/qmetronome
+  role: project
+  family: instruments
+  phase: v0.0.3
+  phase_source: stated
+  version: v0.0.3
+  intent: null
+  note: named as the v0.0.3 Android target
+  slots:
+    repository: quaternionmedia/qmetronome
+    contributor: null
+    open_prs:
+    - number: 15
+      title: Bump the governance pin to the project branch tip
+      author: subcontrabass
+      bot: false
+      base: main
+      head: governance/pin-project-tip
+      head_repo: quaternionmedia/qmetronome
+      draft: false
+    - number: 13
+      title: Route hardware volume keys to media stream in MainActivity
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/fix-volume-button-issue
+      head_repo: quaternionmedia/qmetronome
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: true
+    unreleased_commits: 3
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: governance/pin-project-tip
+    stage: ready
+    pr: 15
+    base: main
+    title: Bump the governance pin to the project branch tip
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-09-20T23:14:49Z'
+    idle_hours: 808.4
+    stalled: true
+  governance:
+    seed: incomplete
+    missing:
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmetronome
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 2
+      workflows_absent: 2
+      licensing_present: 1
+    behind_corpus: 658
+    observed_at: '2026-10-24T15:36:05Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: benchmark
+  slug: quaternionmedia/benchmark
+  role: unmanaged
+  family: commons
+  phase: v0.0.2
+  phase_source: stated
+  version: v0.0.0
+  intent: v0.0.2
+  note: named alongside apothecary as a v0.0.2 consumer
+  slots:
+    repository: quaternionmedia/benchmark
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps-dev): bump vite from 7.3.1 to 7.3.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.3.2
+      head_repo: quaternionmedia/benchmark
+      draft: false
+    - number: 7
+      title: 'fix: handle missing regions/ directory in compile-yaml'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/ci-empty-regions-dir
+      head_repo: quaternionmedia/benchmark
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/ci-empty-regions-dir
+    stage: ready
+    pr: 7
+    base: main
+    title: 'fix: handle missing regions/ directory in compile-yaml'
+    author: subcontrabass
+    delta:
+      additions: 2
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: blocked
+      updated_at: '2026-04-06T16:02:26Z'
+    idle_hours: 4823.6
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: looksatwords
+  slug: quaternionmedia/looksatwords
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  version: v0.0.1
+  intent: null
+  note: 'language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md
+    as where prose analysis belongs, rather than in ci/.
+
+    '
+  slots:
+    repository: quaternionmedia/looksatwords
+    contributor: null
+    open_prs:
+    - number: 21
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 20
+      title: 'chore(deps): bump pillow from 12.1.0 to 12.2.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pillow-12.2.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 19
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 18
+      title: 'chore(deps): bump requests from 2.32.5 to 2.33.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/requests-2.33.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 17
+      title: 'chore(deps): bump nltk from 3.9.2 to 3.9.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/nltk-3.9.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 16
+      title: 'chore(deps): bump tornado from 6.5.4 to 6.5.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/tornado-6.5.5
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 14
+      title: 'chore(deps): bump bokeh from 3.8.1 to 3.8.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/bokeh-3.8.2
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 13
+      title: 'chore(deps): bump urllib3 from 2.6.2 to 2.6.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.6.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: complete
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/looksatwords
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 428
+    observed_at: '2026-10-24T15:35:59Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
+- name: moat
+  slug: quaternionmedia/moat
+  role: unmanaged
+  family: infra
+  phase: v0.0.0
+  phase_source: scaffolded
+  version: v0.0.0
+  intent: null
+  note: 'homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking.
+    status/governance.yaml lists it under org.unmanaged_named; adoption is drafted
+    on an unmerged pull request and nothing binds yet.
+
+    '
+  slots:
+    repository: quaternionmedia/moat
+    contributor: null
+    open_prs:
+    - number: 4
+      title: 🏞 MoatNet
+      author: mrharpo
+      bot: false
+      base: qm
+      head: moatnet
+      head_repo: quaternionmedia/moat
+      draft: true
+    - number: 3
+      title: 💡 QM plan
+      author: mrharpo
+      bot: false
+      base: main
+      head: qm
+      head_repo: quaternionmedia/moat
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: moatnet
+    stage: draft
+    pr: 4
+    base: qm
+    title: 🏞 MoatNet
+    author: mrharpo
+    delta:
+      additions: 8741
+      changed_files: 36
+      commits: 11
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-09-08T02:04:05Z'
+    idle_hours: 1117.6
+    stalled: true
+  - name: qm
+    stage: draft
+    pr: 3
+    base: main
+    title: 💡 QM plan
+    author: mrharpo
+    delta:
+      additions: 4876
+      changed_files: 27
+      commits: 2
+      deletions: 10
+      mergeable_state: unstable
+      updated_at: '2026-08-21T16:20:56Z'
+    idle_hours: 1535.3
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: ShowRunner
+  slug: quaternionmedia/ShowRunner
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: show control for live performances; the hub the periphery names itself after
+  slots:
+    repository: quaternionmedia/ShowRunner
+    contributor: null
+    open_prs:
+    - number: 49
+      title: Renumber cues
+      author: mrharpo
+      bot: false
+      base: main
+      head: renumber-cues
+      head_repo: quaternionmedia/ShowRunner
+      draft: false
+    - number: 46
+      title: ⬆ Bump ruff from 0.17.0 to 0.17.1 in the dev group
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/dev-2e7b3bee18
+      head_repo: quaternionmedia/ShowRunner
+      draft: false
+    - number: 45
+      title: ⬆ Bump the core group with 2 updates
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/core-041212f300
+      head_repo: quaternionmedia/ShowRunner
+      draft: false
+    - number: 30
+      title: Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger
+      author: subcontrabass
+      bot: false
+      base: main
+      head: integrate/2026-09-20
+      head_repo: quaternionmedia/ShowRunner
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.5.3
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: renumber-cues
+    stage: ready
+    pr: 49
+    base: main
+    title: Renumber cues
+    author: mrharpo
+    delta:
+      additions: 470
+      changed_files: 6
+      commits: 2
+      deletions: 16
+      mergeable_state: clean
+      updated_at: '2026-10-23T20:05:05Z'
+    idle_hours: 19.6
+    stalled: false
+  - name: integrate/2026-09-20
+    stage: draft
+    pr: 30
+    base: main
+    title: Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger
+    author: subcontrabass
+    delta:
+      additions: 8752
+      changed_files: 34
+      commits: 22
+      deletions: 513
+      mergeable_state: dirty
+      updated_at: '2026-10-13T05:17:18Z'
+    idle_hours: 274.3
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: Cuelist-python
+  slug: quaternionmedia/Cuelist-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: helpers for Cuelist, and a ShowRunner plugin by its own description
+  slots:
+    repository: quaternionmedia/Cuelist-python
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Make the package installable, and parse the upload in memory
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/install-and-packaging
+      head_repo: quaternionmedia/Cuelist-python
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/install-and-packaging
+    stage: ready
+    pr: 1
+    base: main
+    title: Make the package installable, and parse the upload in memory
+    author: subcontrabass
+    delta:
+      additions: 116
+      changed_files: 8
+      commits: 2
+      deletions: 96
+      mergeable_state: clean
+      updated_at: '2026-09-20T23:14:32Z'
+    idle_hours: 808.4
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: QLab-python
+  slug: quaternionmedia/QLab-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: interface to a third-party cue system
+  slots:
+    repository: quaternionmedia/QLab-python
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 🎭 Theatremix
+      author: mrharpo
+      bot: false
+      base: main
+      head: theatremix
+      head_repo: quaternionmedia/QLab-python
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: theatremix
+    stage: draft
+    pr: 2
+    base: main
+    title: 🎭 Theatremix
+    author: mrharpo
+    delta:
+      additions: 5150
+      changed_files: 26
+      commits: 29
+      deletions: 643
+      mergeable_state: clean
+      updated_at: '2026-10-24T05:30:09Z'
+    idle_hours: 10.1
+    stalled: false
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: TheatreMix-python
+  slug: quaternionmedia/TheatreMix-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: interface to a third-party mixing system
+  slots:
+    repository: quaternionmedia/TheatreMix-python
+    contributor: null
+    open_prs:
+    - number: 8
+      title: Bump certifi from 2026.2.25 to 2026.10.19
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/certifi-2026.10.19
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 7
+      title: Bump aiohttp from 3.13.5 to 3.14.4
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/aiohttp-3.14.4
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 4
+      title: Bump multidict from 6.7.1 to 6.9.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/multidict-6.9.1
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 3
+      title: Bump anyio from 4.13.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 2
+      title: Bump tornado from 6.5.5 to 6.5.9
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/tornado-6.5.9
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: cesar
+  slug: quaternionmedia/cesar
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a unified lighting, sound and video controller for theatre
+  slots:
+    repository: quaternionmedia/cesar
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: ira
+  slug: quaternionmedia/ira
+  role: unmanaged
+  family:
+  - irl
+  - show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: LED control for live theatre
+  slots:
+    repository: quaternionmedia/ira
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: ShowStopper
+  slug: quaternionmedia/ShowStopper
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: timing for the performing arts
+  slots:
+    repository: quaternionmedia/ShowStopper
+    contributor: null
+    open_prs:
+    - number: 3
+      title: '🕰️ Family control: one show clock the hub drives'
+      author: subcontrabass
+      bot: false
+      base: feat/family-demo-contract
+      head: feat/family-control
+      head_repo: quaternionmedia/ShowStopper
+      draft: true
+    - number: 2
+      title: 🎭 Family demo contract
+      author: subcontrabass
+      bot: false
+      base: tests
+      head: feat/family-demo-contract
+      head_repo: quaternionmedia/ShowStopper
+      draft: true
+    - number: 1
+      title: 🧪 Tests
+      author: subcontrabass
+      bot: false
+      base: main
+      head: tests
+      head_repo: quaternionmedia/ShowStopper
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: feat/family-control
+    stage: draft
+    pr: 3
+    base: feat/family-demo-contract
+    title: '🕰️ Family control: one show clock the hub drives'
+    author: subcontrabass
+    delta:
+      additions: 1049
+      changed_files: 9
+      commits: 3
+      deletions: 14
+      mergeable_state: clean
+      updated_at: '2026-10-12T16:49:28Z'
+    idle_hours: 286.8
+    stalled: true
+  - name: feat/family-demo-contract
+    stage: draft
+    pr: 2
+    base: tests
+    title: 🎭 Family demo contract
+    author: subcontrabass
+    delta:
+      additions: 219
+      changed_files: 5
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:45Z'
+    idle_hours: 316.9
+    stalled: true
+  - name: tests
+    stage: ready
+    pr: 1
+    base: main
+    title: 🧪 Tests
+    author: subcontrabass
+    delta:
+      additions: 821
+      changed_files: 11
+      commits: 3
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-09T12:43:26Z'
+    idle_hours: 362.9
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: aes
+  slug: quaternionmedia/aes
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: audio-over-IP transport scripts
+  slots:
+    repository: quaternionmedia/aes
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: holophonor
+  slug: quaternionmedia/holophonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: live looping; the hub two others name themselves after
+  slots:
+    repository: quaternionmedia/holophonor
+    contributor: null
+    open_prs:
+    - number: 11
+      title: 🚰 Pipewire
+      author: mrharpo
+      bot: false
+      base: main
+      head: pipewire
+      head_repo: quaternionmedia/holophonor
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 31
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: pipewire
+    stage: draft
+    pr: 11
+    base: main
+    title: 🚰 Pipewire
+    author: mrharpo
+    delta:
+      additions: 428
+      changed_files: 9
+      commits: 10
+      deletions: 52
+      mergeable_state: clean
+      updated_at: '2025-06-22T22:17:43Z'
+    idle_hours: 11729.3
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: midiphonor
+  slug: quaternionmedia/midiphonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a holophonor implementation in the browser, by its own description
+  slots:
+    repository: quaternionmedia/midiphonor
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 32
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: uPhonor
+  slug: quaternionmedia/uPhonor
+  role: unmanaged
+  family:
+  - irl
+  - instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a micro-holophonor, by its own description
+  slots:
+    repository: quaternionmedia/uPhonor
+    contributor: null
+    open_prs:
+    - number: 33
+      title: Bump vite from 6.1.0 to 6.4.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-6.4.2
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    - number: 32
+      title: Bump rollup from 4.34.6 to 4.59.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/rollup-4.59.0
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    - number: 29
+      title: 🐍 Python
+      author: mrharpo
+      bot: false
+      base: main
+      head: cffi
+      head_repo: quaternionmedia/uPhonor
+      draft: true
+    - number: 7
+      title: Bump esbuild and vite
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-a91bf2f4f6
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.9.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: cffi
+    stage: draft
+    pr: 29
+    base: main
+    title: 🐍 Python
+    author: mrharpo
+    delta:
+      additions: 6751
+      changed_files: 25
+      commits: 6
+      deletions: 42
+      mergeable_state: clean
+      updated_at: '2025-07-13T07:24:23Z'
+    idle_hours: 11240.2
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: stomp
+  slug: quaternionmedia/stomp
+  role: unmanaged
+  family:
+  - irl
+  - instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a MIDI foot controller
+  slots:
+    repository: quaternionmedia/stomp
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: wolf
+  slug: quaternionmedia/wolf
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a remote MIDI controller
+  slots:
+    repository: quaternionmedia/wolf
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: ludwig
+  slug: quaternionmedia/ludwig
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: remote mixing
+  slots:
+    repository: quaternionmedia/ludwig
+    contributor: null
+    open_prs:
+    - number: 9
+      title: 🌌 Universal
+      author: mrharpo
+      bot: false
+      base: main
+      head: api
+      head_repo: quaternionmedia/ludwig
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 20
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: api
+    stage: draft
+    pr: 9
+    base: main
+    title: 🌌 Universal
+    author: mrharpo
+    delta:
+      additions: 4593
+      changed_files: 27
+      commits: 4
+      deletions: 74
+      mergeable_state: clean
+      updated_at: '2025-12-22T07:01:05Z'
+    idle_hours: 7352.6
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: waveofhormuz
+  slug: quaternionmedia/waveofhormuz
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: an oscillator module
+  slots:
+    repository: quaternionmedia/waveofhormuz
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v2.2.0
+    annotated: false
+    unreleased_commits: 1
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: joe
+  slug: quaternionmedia/joe
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'an audio workbench: chroma visualisations and MIDI from audio files, and
+    the media API that alfred''s captions reach through vox
+
+    '
+  slots:
+    repository: quaternionmedia/joe
+    contributor: null
+    open_prs:
+    - number: 35
+      title: joe serves a media API, and a fresh joe exposes that alone
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/tighten-language
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 34
+      title: joe's docstrings, comments and docs state what is true now
+      author: subcontrabass
+      bot: false
+      base: feat/transcript-lane
+      head: docs/timeless-joe-text
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 33
+      title: 'A take is shown on the visualiser: its recording on the transport, its
+        words on the piano roll''s timeline'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/transcript-lane
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 7
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 4
+      title: 🖐 p5.js
+      author: mrharpo
+      bot: false
+      base: main
+      head: p5
+      head_repo: quaternionmedia/joe
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/tighten-language
+    stage: ready
+    pr: 35
+    base: main
+    title: joe serves a media API, and a fresh joe exposes that alone
+    author: subcontrabass
+    delta:
+      additions: 5102
+      changed_files: 33
+      commits: 24
+      deletions: 144
+      mergeable_state: clean
+      updated_at: '2026-10-20T01:56:54Z'
+    idle_hours: 109.7
+    stalled: true
+  - name: docs/timeless-joe-text
+    stage: draft
+    pr: 34
+    base: feat/transcript-lane
+    title: joe's docstrings, comments and docs state what is true now
+    author: subcontrabass
+    delta:
+      additions: 190
+      changed_files: 17
+      commits: 2
+      deletions: 184
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:31Z'
+    idle_hours: 328.0
+    stalled: true
+  - name: feat/transcript-lane
+    stage: ready
+    pr: 33
+    base: main
+    title: 'A take is shown on the visualiser: its recording on the transport, its
+      words on the piano roll''s timeline'
+    author: subcontrabass
+    delta:
+      additions: 304
+      changed_files: 9
+      commits: 4
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-16T00:02:59Z'
+    idle_hours: 207.6
+    stalled: true
+  - name: p5
+    stage: ready
+    pr: 4
+    base: main
+    title: 🖐 p5.js
+    author: mrharpo
+    delta:
+      additions: 3103
+      changed_files: 11
+      commits: 14
+      deletions: 7
+      mergeable_state: dirty
+      updated_at: '2025-01-04T01:07:48Z'
+    idle_hours: 15806.5
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: leo
+  slug: quaternionmedia/leo
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a web document viewer, annotator and collaborator
+  slots:
+    repository: quaternionmedia/leo
+    contributor: null
+    open_prs:
+    - number: 66
+      title: ⬆ Bump the production-dependencies group across 1 directory with 3 updates
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/production-dependencies-d064ebc736
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 65
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 64
+      title: ⬆ Bump vite from 7.1.3 to 7.1.11
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.1.11
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 63
+      title: ⬆ Bump actions/setup-node from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/setup-node-6
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 61
+      title: 📇 Setlist
+      author: mrharpo
+      bot: false
+      base: main
+      head: setlist
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 59
+      title: ⬆ Bump vite from 7.1.3 to 7.1.4 in the development-dependencies group
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/development-dependencies-da77792d36
+      head_repo: quaternionmedia/leo
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: setlist
+    stage: ready
+    pr: 61
+    base: main
+    title: 📇 Setlist
+    author: mrharpo
+    delta:
+      additions: 11847
+      changed_files: 61
+      commits: 28
+      deletions: 1040
+      mergeable_state: clean
+      updated_at: '2026-09-20T22:50:26Z'
+    idle_hours: 808.8
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: scad-chess
+  slug: quaternionmedia/scad-chess
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a chess set designed in OpenSCAD; the deliverable is the printed set
+  slots:
+    repository: quaternionmedia/scad-chess
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.0
+    annotated: false
+    unreleased_commits: 11
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-03
+  slug: quaternionmedia/private-03
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-03/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-03: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-05
+  slug: quaternionmedia/private-05
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-05/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-05: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-07
+  slug: quaternionmedia/private-07
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-07/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-07: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: ztgui
+  slug: quaternionmedia/ztgui
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: a interface onto the overlay network members are reached across
+  slots:
+    repository: quaternionmedia/ztgui
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-23
+  slug: quaternionmedia/private-23
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'Cloud configuration. Name and paths live in ci/workspace-private.yaml, which
+    is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-23/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-23: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-26
+  slug: quaternionmedia/private-26
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'Functions for systems and operating systems. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-26/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-26: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: golfvs
+  slug: quaternionmedia/golfvs
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: arcade physics golf with asymmetric defence, built in Godot
+  slots:
+    repository: quaternionmedia/golfvs
+    contributor: null
+    open_prs:
+    - number: 1
+      title: The first run opens on defence, the range never ends, and it builds for
+        four platforms (ADR-020 to ADR-030)
+      author: subcontrabass
+      bot: false
+      base: main
+      head: camera-orbit-and-selector-corner
+      head_repo: quaternionmedia/golfvs
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.3-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: camera-orbit-and-selector-corner
+    stage: draft
+    pr: 1
+    base: main
+    title: The first run opens on defence, the range never ends, and it builds for
+      four platforms (ADR-020 to ADR-030)
+    author: subcontrabass
+    delta:
+      additions: 8492
+      changed_files: 89
+      commits: 28
+      deletions: 375
+      mergeable_state: blocked
+      updated_at: '2026-09-20T14:13:24Z'
+    idle_hours: 817.4
+    stalled: true
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: private-38
+  slug: quaternionmedia/private-38
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'A game built in Godot; a sibling of golfvs by shape. Private on the host,
+    so name and paths live in ci/workspace-private.yaml, which is not committed --
+    the same reason as every other ref: entry here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-38
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.4-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: rad-godot
+  slug: quaternionmedia/rad-godot
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'rad, the radial menu, as a Godot addon: the contract''s vectors replayed
+    in GDScript. In games because that is where the Godot work is.
+
+    '
+  slots:
+    repository: quaternionmedia/rad-godot
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+- name: qmcli-godot
+  slug: quaternionmedia/qmcli-godot
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  version: v0.0.0
+  intent: null
+  note: 'Named as a games member. No repository by this name is on the host or under
+    the org yet, so there is nothing to clone; the paths are where a clone would go.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/qmcli-godot/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/qmcli-godot: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    seed: n/a
+    missing: []
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
+

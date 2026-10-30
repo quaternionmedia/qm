@@ -1,0 +1,103 @@
+# The published documentation rebuilds, and matches the corpus it documents.
+#
+# Separate from docs.yml, which triggers on push and deploys straight to
+# Pages, so that its build is the deploy and a pull request never shows whether
+# the site still rebuilds. This runs the build on the pull request and
+# publishes nothing.
+#
+# Three dimensions, which fail differently:
+#
+#   rebuild    the generator runs to completion and emits a site. Fails the
+#              pull request, because a site that cannot build must not merge.
+#   generated  every family page, project page and front-page snippet still
+#              matches what `ci/cookbook.py --site` writes from its sources:
+#              `families.json`, `status/inventory.yaml`, `ci/showcase.yaml`,
+#              `docs/show/` and the corpus's `project/*` branches. Fails the
+#              pull request: a page edited by hand, or a source changed
+#              without its pages, is the drift
+#              records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
+#              rules out. The checkout fetches every branch, because a
+#              project's version on its page is read from whether its
+#              `project/<name>` branch exists.
+#   accuracy   links resolve, named repository paths exist, and no page
+#              silently shadows a corpus document. Reported, and does not fail
+#              the run by default: a link typo is worth seeing and not worth
+#              blocking a merge.
+#
+# Path-filtered, because `docs/` and `zensical.toml` do not exist on every
+# branch, and without the filter this would fail a branch for the absence of a
+# site it does not claim to have.
+#
+# What it does not cover:
+#
+#   - Whether a page is *correct*. Every check here is structural: a link that
+#     resolves can still point at the wrong page, and a page that cites its
+#     corpus twin can still contradict it. That is reading.
+#   - The deployed artifact. This builds the same inputs; it does not fetch the
+#     live site and compare.
+#   - Whether a showcase caption describes its picture, or a showgraph was
+#     drawn from the commits its project is at. The generated pages are
+#     compared with their sources, and the sources are read by a person.
+
+name: Docs audit
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'includes/**'
+      - 'zensical.toml'
+      - 'ci/docs_audit.py'
+      - 'ci/cookbook.py'
+      - 'ci/showcase.yaml'
+      - 'families.json'
+      - 'status/inventory.yaml'
+      - '.github/workflows/docs-audit.yml'
+      - '.github/workflows/docs.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+
+      - name: Install the site generator
+        run: pip install --quiet zensical pyyaml
+
+      # The rebuild dimension. `--clean` so a stale artifact cannot stand in
+      # for a build that no longer works.
+      - name: The site rebuilds
+        run: zensical build --clean
+
+      - name: The build emitted a site
+        run: |
+          out=$(ls -d site _site build 2>/dev/null | head -1)
+          if [ -z "$out" ] || [ -z "$(ls -A "$out" 2>/dev/null)" ]; then
+            echo "::error::the generator exited 0 and produced no output. An"
+            echo "::error::empty site deploys clean and says nothing, which is"
+            echo "::error::the worst pass available here."
+            exit 1
+          fi
+          echo "built $(find "$out" -type f | wc -l) file(s) into $out"
+
+      # The generated dimension. Blocking -- see the header.
+      - name: The generated pages match their sources
+        run: python ci/cookbook.py docs/families --site --check
+
+      # The accuracy dimension. Reported, not blocking -- see the header.
+      - name: The pages match the corpus
+        run: python ci/docs_audit.py

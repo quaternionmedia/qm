@@ -16,6 +16,7 @@ the one it was imitating. A mock would have passed all three.
 from __future__ import annotations
 
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -94,25 +95,72 @@ def record(status: str = "Proposed", body: str = "Context body line.\n") -> str:
     )
 
 
-def index_for(numbers: list[int]) -> str:
-    rows = "\n".join(f"| {n:04d} | A Record | Accepted | 2026-01-01 |" for n in numbers)
-    return "| # | Title | Status | Date |\n|---|---|---|---|\n" + rows + "\n"
+def index_for(numbers: list[int], files: list[str] | None = None) -> str:
+    """An index table. Rows carry links, because the lint reads links.
+
+    The index check matches each record file against the link targets in the
+    table, so a row that names a record without linking it does not list it,
+    for the reader as much as for the check.
+
+    `files` is for records that carry no number, which before the first
+    ratification is all of them.
+    """
+    rows = [
+        f"| {n:04d} | [A Record](records/QM-{n:04d}-x.md) | Accepted | 2026-01-01 |"
+        for n in numbers
+    ]
+    rows += [
+        f"| — | [A Record](records/{name}) | Proposed | 2026-01-01 |"
+        for name in (files or [])
+    ]
+    return (
+        "| # | Title | Status | Date |\n|---|---|---|---|\n" + "\n".join(rows) + "\n"
+    )
 
 
-@pytest.fixture
-def repo(tmp_path: Path) -> Path:
-    """An initialised repo with one commit, on branch `main`."""
-    r = tmp_path / "repo"
+@pytest.fixture(scope="session")
+def _repo_template(tmp_path_factory) -> Path:
+    """One initialised repository, built once for the whole session.
+
+    Built once and copied, not built per test. Ninety-odd tests take the
+    `repo` fixture, and each build cost four `git` subprocesses -- init, remote
+    add, add, commit. Measured on this machine that is about a sixth of a second
+    per test, most of it process start, and it bought every test an identical
+    repository.
+
+    A git repository is a directory; copying one is a filesystem operation and
+    costs a fraction of spawning git four times. The one thing a copy does not
+    carry correctly is `origin`, which holds the *template's* absolute path --
+    so `repo` rewrites it. That is one git call instead of four.
+    """
+    r = tmp_path_factory.mktemp("template") / "repo"
     r.mkdir()
     git(r, "init", "-q", "-b", "main")
     # A remote named `origin`, because actions/checkout always configures one
     # and the tools' ref handling is remote-list-dependent by design: a prefix
     # is only stripped when it names a remote that exists. A fixture without a
-    # remote tests a configuration CI never has, and an earlier version of this
-    # file did exactly that, then blamed the tool.
+    # remote would test a configuration CI never has.
     git(r, "remote", "add", "origin", str(r))
     write(r / "README.md", index_for([]))
     (r / "records").mkdir()
     write(r / "records" / ".keep", "")
     commit_all(r, "init")
+    return r
+
+
+@pytest.fixture
+def repo(tmp_path: Path, _repo_template: Path) -> Path:
+    """An initialised repo with one commit, on branch `main`.
+
+    A copy of the session template. Every test still gets its own repository on
+    its own path — the sharing is of the *construction*, never of the state,
+    and a test that commits into this one cannot be seen by any other.
+    """
+    r = tmp_path / "repo"
+    shutil.copytree(_repo_template, r)
+    # `origin` points at the template's path after a copy. Left alone, a test
+    # that fetches or compares against `origin/` would silently read another
+    # test's repository — which is exactly the cross-contamination a per-test
+    # fixture exists to prevent.
+    git(r, "remote", "set-url", "origin", str(r))
     return r
