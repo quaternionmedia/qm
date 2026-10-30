@@ -15,7 +15,7 @@ project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
 This directory lives inside the `governance/qm` submodule, on this
-project's own dedicated branch (`project/<name>`, created from `main`) -
+project's own dedicated branch (`project/alfred`, created from `main`) -
 not copied into this project's own git history. The branch's ancestry *is*
 the pin: there is no separate commit hash to hand-maintain here. `git log
 --first-parent` on this branch shows exactly which org state was adopted
@@ -117,11 +117,11 @@ assignment, index update — is a **human commit** naming the record.
 working against, and check it is the one that matters — a review of a stale
 branch is a confident claim about code nobody is running. Establish claims of
 fact by execution rather than from memory: run the command, read the output,
-record what was run. This applies hardest to the three cases that look least
-like they need it —
+record what was run. This applies hardest to the cases that look least like
+they need it —
 
-- *a tool's behavior* — flags, defaults and output formats are the single
-  most common source of confident error, and cost under a minute to check;
+- *a tool's behavior* — flags, defaults and output formats are a common
+  source of confident error, and cost under a minute to check;
 - *a documented step* — verify the artifact it produced, not that the step
   ran. Its instructions were written by someone for whom they worked;
 - *your own setup* — before reporting a defect in the project, rule out the
@@ -218,12 +218,13 @@ describing the rule, not breaking it, which is why the template's own
 drafting-rules comment and the discipline record's own enumeration do not
 trip it.
 
-`submodule-check.yml` is the second workflow, and it is self-contained
-rather than run from the submodule. It verifies every submodule's pinned
-commit exists on that submodule's own remote, catching a pointer bump
-committed without pushing the submodule — which resolves fine locally and
-fails much later, in whatever workflow fetches first, as
-`upload-pack: not our ref`. Two QM projects have hit it.
+`submodule-check.yml` is copied the same way, and it too runs its script
+out of the submodule: it checks out the governance submodule and no other,
+and runs `governance/qm/project-seed/ci/check_submodule_pins.py`. It
+verifies every submodule's pinned commit exists on that submodule's own
+remote, catching a pointer bump committed without pushing the submodule —
+which resolves fine locally and fails much later, in whatever workflow
+fetches first, as `upload-pack: not our ref`.
 
 The license gates required by the org open-license record are doctrine
 rather than one fixed script, and they are cumulative: wire an SBOM per
@@ -241,6 +242,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): Constitution adoption and scope;
-Control plane and engine boundary; Datastore and task queue; Object storage
-seam.
+Drafts in flight (numberless, by title): Constitution adoption and scope; Control plane and engine boundary; Datastore and task queue; Object storage seam.
