@@ -43,10 +43,13 @@ session rather than starting a second.
 4. **Say who it is.** `--session` on the wrapper, `QMCP_SESSION` for qmcp. The
    name is what a person reads in the monitor to find the session to ask.
 5. **Stop what it started, by its pid.** `qm dashboard --stop <surface>`, or
-   interrupting the wrapper, which withdraws its run-file. Never by port: a
-   port names whoever holds it now. A process killed outright leaves its
-   run-file behind, and `qm instances prune` removes the ones whose process is
-   gone.
+   the session's own stop for the background command it ran. Never by port: a
+   port names whoever holds it now. A server that exits by itself has its
+   run-file withdrawn by the wrapper, and qmcp withdraws its own when it shuts
+   down cleanly. A stop that ends the process outright, which both of those
+   stops do on Windows, leaves the run-file behind: `qm instances` then reads
+   it as `stale`, and `qm instances prune --yes` removes the run-files whose
+   process is gone, and no others.
 6. **Leave everything else alone.** A server another session started is that
    session's to stop.
 
@@ -92,6 +95,6 @@ All of it is machine-scoped, and none of it is committed:
 ## How this was proven
 
 `perspectives/2026-10-29-several-repositories-one-workstation.md` is the run
-this page was written from: three sessions and a shared stack on one
-workstation, the faults it was made to show, and what the collector said at
-each step.
+this page was written from: two sessions serving at once on one workstation,
+one of them two qmcp, the faults it was made to show, and what the collector
+said at each step.

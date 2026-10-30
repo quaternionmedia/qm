@@ -261,11 +261,11 @@ def render(document: dict) -> str:
     out = [f"INSTANCES ON THIS MACHINE  (at {document['generated_at']}; "
            "machine-scoped, never committed)", "=" * 78]
     if rows:
-        out.append(f"{'repo':<18} {'session':<14} {'pid':>7} {'port':>6}  {'state':<11} why")
+        out.append(f"{'repo':<17} {'session':<19} {'pid':>6} {'port':>6}  {'state':<11} why")
         out.append("-" * 78)
         for row in rows:
-            out.append(f"{str(row['repo'] or '?'):<18} {str(row['session'] or '-'):<14} "
-                       f"{row['pid'] or 0:>7} {row['port'] or 0:>6}  {row['state']:<11} "
+            out.append(f"{str(row['repo'] or '?'):<17} {str(row['session'] or '-'):<19} "
+                       f"{row['pid'] or 0:>6} {row['port'] or 0:>6}  {row['state']:<11} "
                        f"{row['why']}")
     else:
         out.append("No run-file declares a server here.")
