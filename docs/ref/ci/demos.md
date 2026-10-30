@@ -134,3 +134,26 @@ real board.
   (3141) for the harness, e (2718) for the web front end, phi for the terminal
   one, root two for the prose reader, and tau for apothecary's viewer. Each is
   its constant's first four digits, and no two surfaces share one.
+
+## Which server is which
+
+`uv run qm instances` reports every server this machine declares, and whether
+each is the server its declaration names. The source is `ci/instances.py`; the
+procedure, for a person and for several sessions at once, is
+[handbook/running-several-repositories.md](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md).
+
+```sh
+uv run qm instances                       # every declared server, and its state
+uv run qm instances --port 8000           # also look at a port nothing declares
+uv run qm instances run --repo dossier --session mine -- uv run dossier serve --port {port}
+uv run qm instances prune                 # run-files whose process is gone; --yes removes them
+```
+
+- **A server is found by its run-file, never by its port.** qmcp writes its
+  own; `qm dashboard --start` writes one for every other surface it starts;
+  `qm instances run` writes one for any command and withdraws it when the
+  server exits.
+- **Only the declared health path is requested.** A read of qmcp's queue can
+  write to it, so nothing else is in reach.
+- **A server that states no pid is `answering`, never `identified`.** Only
+  qmcp says which process it is today.
