@@ -80,8 +80,8 @@ harness` takes the name of one surface. It will not start the terminal front
 end, on purpose: a detached terminal draws where nobody is looking. That one you
 run yourself, in the terminal you want to watch.
 
-To say once which repositories your machine runs, register a family or your
-own selection: `uv run qm instances register --family core`, or `--repo` once
+To say once which repositories your machine runs, name a family or a selection
+of your own: `uv run qm instances register --family core`, or `--repo` once
 for each repository. `uv run qm dashboard --start-registered` then brings up
 the surfaces in it, and `uv run qm instances` says which of them is up.
 

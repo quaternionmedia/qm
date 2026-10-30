@@ -177,6 +177,6 @@ uv run qm instances register              # what is registered; --clear register
   whose members `families.json` resolves when it is read, or a selection named
   repository by repository, or both. It is kept in `~/.qm/registered.json` and
   never committed. Each registered repository then reads as `up`, `silent`,
-  `missing` (nothing declares it, and this corpus starts a server for it) or
+  `missing` (nothing declares it, and this [corpus](../../ref/glossary.md#corpus){ .glossary-term } starts a server for it) or
   `unjudged` (nothing in this corpus starts one, as for `qm` itself).
   `--check` fails on `missing`.
