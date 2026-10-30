@@ -20,6 +20,12 @@ sys.path.insert(0, str(CI_DIR))
 import instances  # noqa: E402
 
 
+@pytest.fixture(autouse=True)
+def no_registration(tmp_path, monkeypatch):
+    """No test reads this machine's own registration."""
+    monkeypatch.setenv("QM_REGISTERED", str(tmp_path / "none" / "registered.json"))
+
+
 def declare(directory: Path, name: str, **fields) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / f"{name}.json"
@@ -161,3 +167,104 @@ def test_a_port_named_when_looking_is_probed_and_reported_as_undeclared(tmp_path
     assert instances.main(["--port", "8000", "--json"]) == 0
     document = json.loads(capsys.readouterr().out)
     assert document["undeclared"] == [{"port": 8000, "reserved_for": "named on the command line"}]
+
+
+# --- which repositories this machine should be running
+
+FAMILIES = {"core": ["qm", "qmcp", "codecartographer"], "irl": ["apothecary"]}
+STARTS = {"qmcp": "uv run qm dashboard --start harness",
+          "codecartographer": "uv run qm dashboard --start web",
+          "apothecary": "uv run qm dashboard --start parts"}
+
+
+def registered(**fields) -> dict:
+    return {"name": "x", "families": [], "repos": [],
+            "registered_at": "2026-10-30T00:00:00Z", **fields}
+
+
+def test_a_name_nothing_resolves_is_refused_when_registering():
+    with pytest.raises(ValueError, match="no family named nope"):
+        instances.registration(["nope"], [], None, FAMILIES, {"qmcp"})
+    with pytest.raises(ValueError, match="stranger: not in the roster"):
+        instances.registration([], ["stranger"], None, FAMILIES, {"qmcp"})
+    assert instances.registration(["core"], [], None, FAMILIES, set())["name"] == "core"
+    assert instances.registration(["core"], ["qmcp"], None, FAMILIES, {"qmcp"})["name"] == "local"
+
+
+def test_a_family_is_resolved_when_read_and_one_that_has_gone_is_named():
+    members, gone = instances.expected(
+        registered(families=["core", "renamed"], repos=["apothecary", "qm"]), FAMILIES)
+    assert members == {"qm": "family core", "qmcp": "family core",
+                       "codecartographer": "family core", "apothecary": "named"}
+    assert gone == ["renamed"]
+
+
+def test_a_registered_repository_this_corpus_starts_nothing_for_is_unjudged(tmp_path):
+    """`qm` serves nothing, so a family registered whole would fail `--check`
+    for as long as it is registered if `qm` read as missing. Mutation: judge
+    every registered repository without a live run-file missing, and this
+    fails."""
+    declare(tmp_path, "qmcp-7", repo="qmcp", pid=7, port=3141)
+    machine = Machine(live={7}, held={3141}, answers={3141: (200, {"pid": 7, "port": 3141})})
+    document = instances.collect([tmp_path], machine.world(), {},
+                                 registered(families=["core"]), FAMILIES, STARTS)
+    judged = {row["repo"]: row["state"] for row in document["registered"]["repositories"]}
+    assert judged == {"qm": "unjudged", "qmcp": "up", "codecartographer": "missing"}
+    assert (document["counts"]["missing"], document["counts"]["unjudged"]) == (1, 1)
+
+
+def test_a_registered_server_nothing_declares_fails_the_check(tmp_path, monkeypatch, capsys):
+    """Mutation: leave `missing` out of PROBLEMS, and `--check` passes."""
+    path = tmp_path / "registered.json"
+    path.write_text(json.dumps(registered(repos=["codecartographer"])), encoding="utf-8")
+    monkeypatch.setenv("QM_REGISTERED", str(path))
+    monkeypatch.setattr(instances, "run_dirs", lambda: [tmp_path / "run"])
+    monkeypatch.setattr(instances, "reserved_ports", lambda: {})
+    monkeypatch.setattr(instances, "servers", lambda: STARTS)
+    world = Machine().world()
+    monkeypatch.setattr(instances, "World", lambda: world)
+    assert instances.main(["--check"]) == 1
+    out = capsys.readouterr().out
+    assert "missing" in out and "uv run qm dashboard --start web" in out
+
+
+def test_a_server_outside_the_registration_is_reported_and_is_no_problem(tmp_path):
+    declare(tmp_path, "apothecary-9", repo="apothecary", pid=9, port=6283)
+    machine = Machine(live={9}, held={6283}, answers={6283: (200, {"pid": 9, "port": 6283})})
+    document = instances.collect([tmp_path], machine.world(), {},
+                                 registered(repos=["qm"]), FAMILIES, STARTS)
+    assert document["instances"][0]["registered"] is False
+    assert not any(document["counts"][k] for k in instances.PROBLEMS)
+    assert "Running and not registered: apothecary." in instances.render(document)
+
+
+def test_register_writes_one_machine_s_claim_and_clear_removes_it(tmp_path, monkeypatch, capsys):
+    path = tmp_path / "registered.json"
+    monkeypatch.setenv("QM_REGISTERED", str(path))
+    monkeypatch.setattr(instances, "families", lambda: FAMILIES)
+    monkeypatch.setattr(instances, "roster_names", lambda: {"apothecary"})
+    assert instances.main(["register", "--family", "core", "--repo", "apothecary",
+                           "--name", "bench"]) == 0
+    written = json.loads(path.read_text(encoding="utf-8"))
+    assert (written["name"], written["families"], written["repos"]) == (
+        "bench", ["core"], ["apothecary"])
+    assert instances.main(["register"]) == 0
+    assert "4 repositories: qm, qmcp, codecartographer, apothecary" in capsys.readouterr().out
+    assert instances.main(["register", "--clear"]) == 0
+    assert not path.exists()
+
+
+def test_a_registration_inside_a_repository_is_refused(monkeypatch):
+    """Decision 2: what one machine runs is never committed."""
+    inside = CI_DIR / "registered.json"
+    monkeypatch.setenv("QM_REGISTERED", str(inside))
+    monkeypatch.setattr(instances, "families", lambda: FAMILIES)
+    assert instances.main(["register", "--family", "core"]) == 2
+    assert not inside.exists()
+
+
+def test_a_process_start_time_is_its_own_and_stays_put():
+    import os
+    here = instances.created(os.getpid())
+    assert here is not None and here == instances.created(os.getpid())
+    assert instances.created(0) is None
