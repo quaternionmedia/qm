@@ -9,7 +9,7 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. The rest of the page holds at the stamp, which those entries do not
+day. Entries that name 2026-10-31 were re-derived at `qm` `91ed0ae`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
@@ -161,6 +161,9 @@ each pull request into it is behind its base until brought level.
   who refreshes the document; how a committed generated artifact squares with
   refusing to commit what a gate generated; and the stale copy every project
   vendors with the corpus.
+- **The decisions in `hil-review-2026-10-31.md` §4**: #222, a plan left in
+  draft against `main`; alfred's and titanharvest's branches that exist on one
+  disk alone; the worktrees only a person may remove.
 
 ## 4. Unfinished, and what done looks like
 
@@ -243,6 +246,24 @@ each pull request into it is behind its base until brought level.
   private repository's name. Done is the check clean, by redaction in the
   show generator or by an allowance with a stated reason. (2026-10-26)
 
+- **Two green pull requests left a generated page on `main` stale, and no gate
+  saw it.** The pull request that put cathy in the roster moved the roster,
+  and the one that drew every showgraph as a Showcase carried
+  `docs/families/index.md` as generated before it; each passed
+  `docs-audit.yml` at its own tip, and
+  merged in that order they left `main`'s page one rostered repository
+  behind. The audit runs on `pull_request` alone, filtered to `docs/**` and
+  the generator's inputs, so `main` was never checked after either merge and
+  the red surfaced on the next pull request that touched `docs/`, as a
+  failure its branch did not cause. Three local runs the same day read the
+  step's wording, *no longer describe this disk*, as an environment
+  difference; the host's run and a regeneration from `main` showed the same
+  one-line drift. Done is the audit running on every push to `main` as well,
+  so a stale generated page is `main`'s red and not the next contributor's,
+  and the step saying *stale against its committed inputs* rather than
+  naming a disk. `hil-review-2026-10-31.md` §5 names the three pull requests.
+  (2026-10-31)
+
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
@@ -323,7 +344,13 @@ re-checked and is re-derived before anyone acts on it.
   and `loose-ends.json` regenerated; the full generator also rewrites the
   host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
   that mode, or `handbook/consolidation-runbook.md` Step 8 naming
-  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
+  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it. Until then the three steps are
+  `ci/doc_status.py --write status/documents.yaml`,
+  `ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md`
+  and `ci/loose_ends.py --write loose-ends.json`, run after taking `main`'s
+  copy of each conflicting file; every pull request that lands re-conflicts
+  every other open one on those three files, and each is brought level the
+  same way, once per landing.
 - **Only qmcp says which server it is.** `qm instances` identifies a server
   whose health answer names its pid and port; on 2026-10-29 qmcp's did, and
   codecartographer's checkout served no health route, and looksatwords'
@@ -445,6 +472,9 @@ re-checked and is re-derived before anyone acts on it.
   2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
   its pull request carries no comment or review saying so. The session that
   asked for its merge records Peter's test (`joe-open-set.md` §2).
+- That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
+  on `main`: every local run on 2026-10-31 skipped it, because the families
+  step before it failed first (§4).
 
 ## 6. Standing constraints
 
