@@ -109,6 +109,7 @@ uv run qm dashboard --start harness  # detach the harness into its own process
 uv run qm dashboard --start web
 uv run qm dashboard --stop harness   # stop what --start launched, by its pid
 uv run qm dashboard --start-registered  # every surface this machine registered, not yet up
+uv run qm journey-pictures          # the journeys' pictures, from the surfaces that are up
 ```
 
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
@@ -132,6 +133,15 @@ speech engine it hears its captions with.
   reported as not running, with the end of its log, and its record and
   run-file are dropped. One still silent at the deadline is reported, and kept
   so `--stop` can end it.
+- **A fresh clone is refused, with what to run in it.** `--start` runs a
+  server with `uv run --no-sync`, so a repository with no environment yet is
+  not started, and the report names the command it needs once, such as
+  `uv sync`, then in `web/`, `npm install && npm run build` for the web
+  front end.
+- **The report says where to look.** For each surface that is up it names
+  the place in the application that answers "is my set up": the web front
+  end's Estate tab, the prose reader's Harness tab. The terminal front end
+  opens no port, so its row says that rather than "nothing listening".
 - **A stack its owner starts is never started here.** alfred's editor runs in
   containers, with joe beside it, and one session starts it for every other,
   as [running several repositories](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md)

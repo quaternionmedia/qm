@@ -189,3 +189,33 @@ def test_start_registered_names_who_starts_a_stack_and_starts_none_of_it(machine
 def test_start_registered_refuses_when_nothing_is_registered(machine, capsys):
     assert dashboard.start_registered() == 1
     assert "nothing is registered" in capsys.readouterr().out
+
+
+def test_a_fresh_clone_is_refused_with_what_to_run_in_it(machine, monkeypatch):
+    """A clone nobody has synced has no environment for `uv run --no-sync` to
+    run in. Mutation: drop the check from `start`, and the server is launched
+    into nothing and reported only by its log."""
+    tmp_path, _ = machine
+    monkeypatch.setattr(dashboard, "RUNNER", ("uv", "run", "--no-sync"))
+    ok, detail = dashboard.start(surface(free_port(), EXITS), tmp_path, wait=5)
+    assert ok is False
+    assert "has no environment yet" in detail and "`uv sync`" in detail
+    assert dashboard.running() == {} and run_files(tmp_path) == []
+
+
+def test_the_report_says_where_to_look_and_what_a_fresh_clone_runs_first(machine, monkeypatch,
+                                                                        capsys):
+    """A person who opens an application cold is not told where its answer is,
+    and one with a fresh clone is not told to sync it. Mutation: drop either
+    line from `report`, or probe the terminal front end's port as if it were
+    the front end, and this fails."""
+    tmp_path, _ = machine
+    monkeypatch.setattr(dashboard, "repo_of", lambda s: tmp_path)
+    monkeypatch.setattr(dashboard, "listening", lambda port: port == 1414)
+    assert dashboard.report() == 0
+    out = capsys.readouterr().out
+    assert f"({dashboard.BY_NAME['prose'].look})" in out
+    assert "first, once, in qmcp: uv sync" in out
+    assert "first, once, in codecartographer: uv sync, then in web/" in out
+    terminal = next(line for line in out.splitlines() if line.startswith("terminal "))
+    assert "a terminal application" in terminal and "nothing listening" not in terminal
