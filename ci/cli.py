@@ -210,6 +210,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "references",
+        help="what still refers to a branch, before it is retired",
+        add_help=False,
+    )
+    sub.add_parser(
         "estate",
         help="every rostered repository, and what of it exists on this disk alone",
         add_help=False,
@@ -330,7 +335,15 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "instances", help="every server running on this machine, and which one each is",
+        add_help=False,
+    )
+    sub.add_parser(
         "demo", help="run one topology through every window and check they agree",
+        add_help=False,
+    )
+    sub.add_parser(
+        "journey-pictures", help="take the journeys' pictures from the surfaces that are up",
         add_help=False,
     )
     sub.add_parser(
@@ -347,6 +360,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     return parser
 
+
+# Commands that read and write only machine-scoped paths, outside every
+# repository, and so run from any directory: a session serving another
+# repository calls them from that repository's checkout.
+ANYWHERE = frozenset({"instances"})
 
 # command -> (module, is_seed_script, argv transform)
 ROUTES: dict[str, tuple[str, bool, list[str]]] = {
@@ -369,6 +387,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "merge": ("merge_review", False, []),
     "queue": ("queue_page", False, []),
     "assigned": ("assigned", False, []),
+    "references": ("branch_references", False, []),
     "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
@@ -401,7 +420,9 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     # A module with a `main` and no route is reachable only by a path somebody
     # has to have been told; `ci/tests/test_cli.py` refuses one.
     "dashboard": ("dashboard", False, []),
+    "instances": ("instances", False, []),
     "demo": ("trio_demo", False, []),
+    "journey-pictures": ("journey_pictures", False, []),
     "mathematics": ("check_mathematics", False, []),
     "patterns": ("check_pattern_coverage", False, []),
     "session": ("session_record", False, []),
@@ -424,6 +445,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     command, rest = argv[0], argv[1:]
+
+    if command in ANYWHERE:
+        # Read and written outside every repository, and `run` starts its
+        # command where it was asked to: neither refused outside the corpus nor
+        # moved into it.
+        return dispatch(ROUTES[command][0], rest)
 
     root = corpus_root()
     if root is None:

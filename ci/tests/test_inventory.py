@@ -25,8 +25,9 @@ import inventory  # noqa: E402
 from inventory import LOCAL, PRIVATE, PUBLIC, assign_references, local_clone  # noqa: E402
 
 ORG = "testorg"
-# The real read, kept before the fixture below replaces it for every other case.
+# The real reads, kept before the fixture below replaces them for every other case.
 pictures_on_host = inventory.pictures_on_host
+showcase_paths = inventory.showcase_paths
 
 
 def strings(obj) -> list[str]:
@@ -559,3 +560,34 @@ def test_only_a_public_repository_is_asked_about_its_pictures(monkeypatch, tmp_p
     row = next(r for r in pub["repositories"] if r.get("name") == "synth")
     assert row["pictures_on_default_branch"] == ["a.png"]
     assert all("pictures_on_default_branch" not in r for r in pub["repositories"] if r.get("private"))
+
+
+def test_every_picture_a_detail_block_names_is_asked_about(tmp_path):
+    """A detail block's pictures are held back like the project's own, so the
+    inventory asks the host about each, wherever in the block it sits, and
+    about a path named twice once.
+
+    Mutation: read only `projects:` in `showcase_paths` and this fails.
+    """
+    shown = tmp_path / "showcase.yaml"
+    shown.write_text(
+        "projects:\n  synth:\n    - {path: a.png, caption: A.}\n"
+        "details:\n"
+        "  synth:\n    picture: {path: a.png, caption: A.}\n"
+        "    steps: {title: t, items: [{name: n, text: x, picture: {path: b.png, caption: B.}}]}\n"
+        "    features: [{title: t, text: x, pictures: [{path: c.png, caption: C.}]}]\n"
+        "  pedal:\n    picture: {path: d.png, caption: D.}\n", encoding="utf-8")
+    assert showcase_paths(shown) == {"synth": ["a.png", "b.png", "c.png"],
+                                              "pedal": ["d.png"]}
+
+
+def test_a_preview_reads_the_tree_at_the_ref_it_names(monkeypatch):
+    """The default branch unless a ref is named; a preview names one."""
+    asked = []
+    tree = {"truncated": False, "tree": [{"path": "a.png", "type": "blob"}]}
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw: asked.append(cmd[2])
+                        or subprocess.CompletedProcess(cmd, 0, json.dumps(tree), ""))
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}, ref="c0ffee") == {"synth": ["a.png"]}
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}) == {"synth": ["a.png"]}
+    assert asked == [f"repos/{ORG}/synth/git/trees/c0ffee?recursive=1",
+                     f"repos/{ORG}/synth/git/trees/HEAD?recursive=1"]

@@ -333,6 +333,17 @@ repositories:
       than in ci/.
     paths: [qm/looksatwords, looksatwords]
 
+  - name: cathy
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      a digital assistant whose subject is the public internet. Reads a site's
+      export into pages its owner keeps and fetches the public assets those
+      pages show; it posts nothing, per its adoption record's 2 on
+      project/cathy.
+    paths: [qm/cathy, cathy]
+
   - name: moat
     role: unmanaged
     family: infra

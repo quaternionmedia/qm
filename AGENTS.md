@@ -62,10 +62,11 @@ since its stamp. Its first section says how a session keeps it.
 3. **Everything you produce arrives as a pull request, and the pull request is
    an audit record rather than a request for anyone's attention.** Work on a
    branch — `evolve/<slug>` for org-level work and, cut from `project/<name>`,
-   for one project's records; `perspective/<date>-<slug>` for a perspective —
-   open a PR, and **merge it yourself once every gate is green.** Your output
-   is a `main` that is clean and working, entered through a pull request so the
-   gates ran and the diff stays readable.
+   for one project's records; `perspective/<date>-<slug>` for a perspective;
+   `math/<slug>`, cut from `workspace/<slug>` and opened against it, for an
+   exploration — open a PR, and **merge it yourself once every gate is
+   green.** Your output is a `main` that is clean and working, entered through
+   a pull request so the gates ran and the diff stays readable.
 
    **Never push `main` directly**, however small or obviously correct the change
    looks. That is the one act that destroys the audit record.
@@ -255,6 +256,14 @@ since its stamp. Its first section says how a session keeps it.
     left. A sweep sorts every passage it touches: a short fact stays inline,
     an explanation moves to `docs/`, a narrative to a dated retrospective in
     `perspectives/`.
+
+19. **Work is delivered into a repository, never to a hosted page** — record
+    `records/DRAFT-work-is-delivered-into-a-repository.md`. A report, a demo, a
+    preview or a handoff is a committed file, and reaches a reviewer as a pull
+    request or as a page the reviewer builds and serves locally. Nothing goes to
+    a page an assistant's host keeps outside the org's repositories, such as a
+    chat product's shareable artifact or canvas: it is not versioned with the
+    code, cannot be reviewed as a diff, and goes stale unseen.
 
 ## If you're forking this corpus into a new project
 

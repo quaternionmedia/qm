@@ -4,13 +4,13 @@
 
 <div class="card qm-f-irl" markdown>
 
-![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif){ .qm-thumb loading=lazy }
+![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png){ .qm-thumb loading=lazy }
 
 [apothecary](projects/apothecary.md){ .qm-card-link }
 
 <span class="qm-meta">irl · v0.0.2</span>
 
-The fractal viewer walking a garage layout and what it holds.
+The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.
 
 </div>
 
