@@ -41,6 +41,7 @@ address above is built from `main` at the stamp.
 | #295 | a record decides how a shared allowance is drawn on | `AGENTS.md` item 20 and `project-seed/ide/AGENTS.md` item 16 against the record's Decision; the perspective's account of the hour it cost |
 | #277 | joe's open set has a handoff, and the voice pages say how joe #33 was tested | `handbook/handoffs/joe-open-set.md` against joe's open pull requests on the host; the changed rows of `voice-set-landing.md` |
 | #272 | the triplet's graph leg has a handoff and a perspective | `handbook/handoffs/the-triplet.md` against what #285 landed: which of its phases the site now shows, and which it still describes as ahead |
+| #296 | the families page is regenerated after the roster gained a member | the families index's count of rostered repositories that state no family, against `ci/workspace.yaml` and `families.json`; that the page and `families.svg` agree |
 
 What the site cannot show is whether a repository works. Every page reports
 what the organisation claimed and what the generating disk held; a figure that
@@ -73,4 +74,4 @@ walked through; walk it with the surfaces up and write what differs in §5.
 
 | # | Where (page, PR, loop) | Did | Saw | The page says | Owning PR | State |
 |---|---|---|---|---|---|---|
-| | | | | | | |
+| 1 | the families index, `docs/families/index.md`, after #248 and #285 | ran `python ci/cookbook.py docs/families --site --check` on `main` at `b67d90b`, then `--write` | the page and `families.svg` out of date; regenerating changes one count, the rostered repositories that state no family | one such repository; the roster has two since #248 | #296 | closed when #296 lands; the gate gap is `qm-queue.md` §4 |
