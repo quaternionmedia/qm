@@ -7,7 +7,7 @@ with `gh` before acting on it. `joe` #33 and #34 were re-derived on
 2026-10-26 at `joe` `474307f`; nothing else here was.
 
 The set's review page is gone with its work, its decisions closed in
-[`qm-queue.md`](qm-queue.md) §1, and §5 below is the order the set landed in;
+[`qm-queue.md`](qm-queue.md) §1;
 [`the-voice-loop.md`](the-voice-loop.md) is the loop itself;
 [`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after the
 set. This page is how far that order has got, what is left, and how each step
@@ -18,8 +18,8 @@ when the set and the steps after it have landed.
 
 ## 1. Decisions in force
 
-1. **The set is approved** (the review page's decision 1) and lands in §5
-   order: `vox`, `qmcp`, `joe`, `qm`.
+1. **The set is approved** and lands in this order: `vox`, `qmcp`, `joe`,
+   `qm`.
 2. **A person clicks every merge.** Each pull request is prepared, shown, and
    its merge asked for, one at a time. `uv run qm merge --repo <owner/name>
    --pr <n> --yes` merges; the host's merge button is not used.

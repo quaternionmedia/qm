@@ -93,12 +93,12 @@ pick up alone; that page is then listed in the index and named here.
     named the one covering the others wins. (2026-10-31)
 11. **Instruct by voice sits in joe's Voice window**, which the dock opens from
     a transport button, a key or the Panels menu and closes after the stream or
-    the queue ends, as joe #51 has it. (2026-10-31)
+    the queue ends, as joe's dock pull request has it. (2026-10-31)
 12. **joe adopts the corpus after its open set has landed**: a joe pull request
     adds `governance/qm` by its HTTPS URL, the seed's `AGENTS.md` and
     workflows, and `project/joe` takes its propagation; nothing opens before
-    the set is in. joe #56 and #52 stand for `voice-set-landing.md` §3's README
-    and cookbook rows. (2026-10-31)
+    the set is in. joe's README pull request and its lane-pages pull request
+    stand for `voice-set-landing.md` §3's README and cookbook rows. (2026-10-31)
 13. **`openai-whisper` becomes an optional `voice` extra of joe**, in a pull
     request after the set lands: joe without it serves the media API and the
     page, and says so where a voice route is asked. (2026-10-31)
@@ -129,8 +129,10 @@ pick up alone; that page is then listed in the index and named here.
     The consent request that waited on the harness since 2026-09-28 is
     superseded by that start. (2026-10-31)
 19. **A shared workflow is exercised from a consumer before it merges**:
-    quaternionmedia/.github#9 was taken on holophonor's run of its black and
-    ruff workflows at the branch, and merged. (2026-10-31)
+    the organisation's shared Python workflows, moved to Node 24 actions with a
+    Python version, submodules and pip arguments as inputs, were taken on
+    holophonor's run of the black and ruff workflows at the branch, and merged.
+    (2026-10-31)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
