@@ -1,6 +1,6 @@
 # Handoff — the estate reviewed by hand, 2026-10-31
 
-**Stamped 2026-10-31.** `qm` `main` at `c681da0`. Every figure on this page
+**Stamped 2026-10-31.** `qm` `main` at `91ed0ae`. Every figure on this page
 was true at that commit and nowhere else; re-derive one before acting on it.
 
 **Nothing on this page is a task.** It is what a person starts, what they look
@@ -41,7 +41,10 @@ address above is built from `main` at the stamp.
 | #295 | a record decides how a shared allowance is drawn on | `AGENTS.md` item 20 and `project-seed/ide/AGENTS.md` item 16 against the record's Decision; the perspective's account of the hour it cost |
 | #277 | joe's open set has a handoff, and the voice pages say how joe #33 was tested | `handbook/handoffs/joe-open-set.md` against joe's open pull requests on the host; the changed rows of `voice-set-landing.md` |
 | #272 | the triplet's graph leg has a handoff and a perspective | `handbook/handoffs/the-triplet.md` against what #285 landed: which of its phases the site now shows, and which it still describes as ahead |
+| #254 | a retrospective reads cathy's importer against quaternion.media and a real export | the perspective's findings against cathy's open pull requests on the host |
 | #296 | the families page is regenerated after the roster gained a member | the families index's count of rostered repositories that state no family, against `ci/workspace.yaml` and `families.json`; that the page and `families.svg` agree |
+| #243 | `qm assigned` reports every open review request, assigned pull request and assigned issue in the organisation | `uv run qm assigned` against the host's own lists; its entry in `docs/ref/ci/gates-and-checks.md` |
+| #297 | a plan for the organisation's protection, CI and repository standards | `plans/org-standards.md`: that it proposes and decides nothing, and that every figure in it names its reading |
 
 What the site cannot show is whether a repository works. Every page reports
 what the organisation claimed and what the generating disk held; a figure that

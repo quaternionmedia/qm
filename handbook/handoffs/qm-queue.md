@@ -9,7 +9,7 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. The rest of the page holds at the stamp, which those entries do not
+day. Entries that name 2026-10-31 were re-derived at `qm` `91ed0ae`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
