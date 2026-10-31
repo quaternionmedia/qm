@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:22e64d98a378a7ec39ef5da63b8b725109a15b6a9c3bc87edcf2c009267baa02"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:ztgui",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,9 +222,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -81.40244189002955,
-      "y": -170.2322378309352,
+      "x": 32.164335249664894,
+      "y": -2.0924478667001405,
       "size": 80
      },
      "dir::quaternionmedia/ztgui/website": {
@@ -236,9 +237,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -394.228362789744,
-      "y": 43.63602004114566,
+      "x": -17.815242797686203,
+      "y": 14.761694283246413,
       "size": 80
      },
      "file::quaternionmedia/ztgui/README.md": {
@@ -250,9 +252,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -27.607928193075303,
-      "y": -165.52582772256164,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": 24.6928750139768,
+      "y": -1.4387797960927045,
       "size": 30
      },
      "file::quaternionmedia/ztgui/config.py": {
@@ -264,9 +267,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/config.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -224.78682722731662,
-      "y": -270.6310653056693,
+      "x": 54.24495499977069,
+      "y": 7.32000781326679,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/index.html": {
@@ -278,9 +282,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -410.32460928712806,
-      "y": 227.61695938438513,
+      "x": -38.860517953225774,
+      "y": 17.600772883009046,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/script.js": {
@@ -292,9 +297,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -198.2145425111621,
-      "y": 60.785007209929454,
+      "x": -3.8366476226907142,
+      "y": -9.460561913468899,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/style.css": {
@@ -306,9 +312,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/style.css",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -340.4338490927897,
-      "y": 48.3424301495192,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -25.286703033374298,
+      "y": 15.415362353853848,
       "size": 30
      },
      "file::quaternionmedia/ztgui/zt.py": {
@@ -320,9 +327,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/zt.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 262.5897005854138,
-      "y": -115.07318321873254,
+      "x": 53.41247788762362,
+      "y": -30.066091540677803,
       "size": 30
      },
      "html::index.html::anchor::cy::20": {
@@ -334,9 +342,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
       "line": 20,
       "meta": {},
-      "x": -376.45398955200875,
-      "y": 230.58025463780552,
-      "label_at": "right"
+      "x": -44.339588792730375,
+      "y": 18.080129468121168,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "html::index.html::anchor::ztgui::13": {
       "id": "html::index.html::anchor::ztgui::13",
@@ -347,9 +356,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
       "line": 13,
       "meta": {},
-      "x": -440.22422009785424,
-      "y": 250.55330114516093,
-      "label_at": "left"
+      "x": -42.8635656877471,
+      "y": 13.829087737726663,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "javascript::script.js::function::addEdge::119": {
       "id": "javascript::script.js::function::addEdge::119",
@@ -360,9 +370,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 119,
       "meta": {},
-      "x": -164.34392277604275,
-      "y": 63.74830246334982,
-      "label_at": "right"
+      "x": -9.315718462195314,
+      "y": -8.98120532835678,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "javascript::script.js::function::addNode::101": {
       "id": "javascript::script.js::function::addNode::101",
@@ -373,9 +384,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 101,
       "meta": {},
-      "x": -228.11415332188832,
-      "y": 83.72134897070517,
-      "label_at": "left"
+      "x": -7.839695357212024,
+      "y": -13.232247058751282,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "javascript::script.js::function::orderDisplay::126": {
       "id": "javascript::script.js::function::orderDisplay::126",
@@ -386,9 +398,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 126,
       "meta": {},
-      "x": -191.07739984089034,
-      "y": 20.372308778567742,
-      "label_at": "above"
+      "x": -7.1239338151135385,
+      "y": -5.051055196260473,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "javascript::script.js::function::orderMenu::148": {
       "id": "javascript::script.js::function::orderMenu::148",
@@ -399,9 +412,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 148,
       "meta": {},
-      "x": -174.51419872998727,
-      "y": 98.0204903497267,
-      "label_at": "right"
+      "x": -2.7315691549222754,
+      "y": -4.072723610394596,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "javascript::script.js::function::ztData::201": {
       "id": "javascript::script.js::function::ztData::201",
@@ -412,9 +426,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 201,
       "meta": {},
-      "x": -243.63983536443797,
-      "y": 48.58694305228033,
-      "label_at": "left"
+      "x": -3.6839460828384434,
+      "y": -14.958441708419565,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "javascript::script.js::function::ztReq::163": {
       "id": "javascript::script.js::function::ztReq::163",
@@ -425,135 +440,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 163,
       "meta": {},
-      "x": -154.0590533461755,
-      "y": 37.8371254645319,
-      "label_at": "right"
-     },
-     "zt.FastAPI": {
-      "id": "zt.FastAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "FastAPI",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 165.48944581498577,
-      "y": -69.79459081048053,
-      "label_at": "none"
-     },
-     "zt.HTTPException": {
-      "id": "zt.HTTPException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "HTTPException",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 174.82716192705232,
-      "y": -176.52517435973834,
-      "label_at": "none"
-     },
-     "zt.StaticFiles": {
-      "id": "zt.StaticFiles",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "StaticFiles",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 271.92741669748034,
-      "y": -221.8037667679904,
-      "label_at": "none"
-     },
-     "zt.fastapi.FastAPI": {
-      "id": "zt.fastapi.FastAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.FastAPI",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 361.05053602931054,
-      "y": -234.33650791126573,
-      "label_at": "none"
-     },
-     "zt.fastapi.HTTPException": {
-      "id": "zt.fastapi.HTTPException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.HTTPException",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 269.7268432556856,
-      "y": -155.48588165009429,
-      "label_at": "above"
-     },
-     "zt.get": {
-      "id": "zt.get",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "get",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 340.9392480185509,
-      "y": 21.028122487889597,
-      "label_at": "none"
+      "x": -11.623435993736598,
+      "y": -5.1179890783110995,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "zt.getZT": {
       "id": "zt.getZT",
@@ -565,121 +455,18 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 329
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 382.5313429754416,
-      "y": -104.57964922492471,
-      "label_at": "none"
-     },
-     "zt.requests.get": {
-      "id": "zt.requests.get",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "requests.get",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 192.8130545246692,
-      "y": -264.7096835859453,
-      "label_at": "none"
-     },
-     "zt.starlette.staticfiles.StaticFiles": {
-      "id": "zt.starlette.staticfiles.StaticFiles",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "starlette.staticfiles.StaticFiles",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 98.11236690363573,
-      "y": -129.46308532285877,
-      "label_at": "none"
-     },
-     "zt.urljoin": {
-      "id": "zt.urljoin",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "urljoin",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 286.2900443665887,
-      "y": -77.8377000789353,
-      "label_at": "right"
-     },
-     "zt.urllib.parse.urljoin": {
-      "id": "zt.urllib.parse.urljoin",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "urllib.parse.urljoin",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 164.9596186354905,
-      "y": 20.20384963800653,
-      "label_at": "none"
-     },
-     "zt.uvicorn.run": {
-      "id": "zt.uvicorn.run",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "uvicorn.run",
-      "file": "zt.py",
-      "line": 0,
-      "meta": {
-       "module": "zt",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 305.63530415426465,
-      "y": -305.25302274550506,
-      "label_at": "none"
+      "x": 43.96876817103703,
+      "y": -29.518239860592864,
+      "label_at": "left",
+      "dot_scale": 2.017195897949974
      },
      "config.Const: ''": {
       "id": "config.Const: ''",
@@ -691,11 +478,13 @@
       "line": 0,
       "meta": {
        "module": "config",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 2
       },
-      "x": -194.90098628456425,
-      "y": -268.0163930232396,
-      "label_at": "right"
+      "x": 50.35802936868541,
+      "y": 5.05245205024523,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "config.ZT_AUTHTOKEN": {
       "id": "config.ZT_AUTHTOKEN",
@@ -707,27 +496,13 @@
       "line": 0,
       "meta": {
        "module": "config",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 15
       },
-      "x": -250.20852221031328,
-      "y": -251.1297852402099,
-      "label_at": "left"
-     },
-     "fastapi.FastAPI": {
-      "id": "fastapi.FastAPI",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.FastAPI",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 187.40572917300415,
-      "y": -67.87716447003204,
-      "label_at": "right"
+      "x": 49.41123650105469,
+      "y": 7.742903384579989,
+      "label_at": "left",
+      "dot_scale": 0.6760912590556812
      },
      "fastapi.HTTPException": {
       "id": "fastapi.HTTPException",
@@ -741,25 +516,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 196.7434452850707,
-      "y": -174.60774801928986,
-      "label_at": "right"
-     },
-     "fastapi.fastapi": {
-      "id": "fastapi.fastapi",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.fastapi",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 382.96681938732894,
-      "y": -232.41908157081724,
-      "label_at": "right"
+      "x": 38.98519036075869,
+      "y": -33.74461281517532,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "requests.get": {
       "id": "requests.get",
@@ -773,25 +533,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 362.85553137656933,
-      "y": 22.945548828338076,
-      "label_at": "right"
-     },
-     "requests.requests": {
-      "id": "requests.requests",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "requests.requests",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 214.7293378826876,
-      "y": -262.79225724549684,
-      "label_at": "right"
+      "x": 39.794804067439365,
+      "y": -24.49068580278277,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "starlette.staticfiles.StaticFiles": {
       "id": "starlette.staticfiles.StaticFiles",
@@ -805,25 +550,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 293.84370005549874,
-      "y": -219.88634042754197,
-      "label_at": "right"
-     },
-     "starlette.staticfiles.starlette.staticfiles": {
-      "id": "starlette.staticfiles.starlette.staticfiles",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "starlette.staticfiles.starlette.staticfiles",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 120.02865026165415,
-      "y": -127.54565898241029,
-      "label_at": "right"
+      "x": 46.709981516273345,
+      "y": -38.73250567969585,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "urllib.parse.urljoin": {
       "id": "urllib.parse.urljoin",
@@ -837,41 +567,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 370.4442554482814,
-      "y": -71.45447277089251,
-      "label_at": "below"
-     },
-     "urllib.parse.urllib.parse": {
-      "id": "urllib.parse.urllib.parse",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "urllib.parse.urllib.parse",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 186.8759019935089,
-      "y": 22.12127597845501,
-      "label_at": "right"
-     },
-     "uvicorn.uvicorn": {
-      "id": "uvicorn.uvicorn",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "uvicorn.uvicorn",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 327.55158751228305,
-      "y": -303.3355964050566,
-      "label_at": "right"
+      "x": 44.0351408249696,
+      "y": -22.98418516131659,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "zt.": {
       "id": "zt.",
@@ -883,13 +582,15 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 38
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 478.4498986816391,
-      "y": -96.18786297885259,
-      "label_at": "none"
+      "x": 51.74176804980826,
+      "y": -24.658741963245877,
+      "label_at": "below",
+      "dot_scale": 1.0797835966168101
      },
      "zt.Const: '/'": {
       "id": "zt.Const: '/'",
@@ -901,11 +602,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 271.00713583722813,
-      "y": -4.758069980020636,
-      "label_at": "right"
+      "x": 42.84214557008452,
+      "y": -19.028220410537706,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "zt.Const: 'X-ZT1-Auth'": {
       "id": "zt.Const: 'X-ZT1-Auth'",
@@ -917,11 +620,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 12
       },
-      "x": 404.44762633346,
-      "y": -102.66222288447624,
-      "label_at": "right"
+      "x": 35.34569426742148,
+      "y": -33.373554450288516,
+      "label_at": "left",
+      "dot_scale": 0.5791812460476248
      },
      "zt.Const: '__main__'": {
       "id": "zt.Const: '__main__'",
@@ -933,11 +638,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 10
       },
-      "x": 296.4603203205331,
-      "y": -112.10988796531218,
-      "label_at": "right"
+      "x": 54.95871649069264,
+      "y": -34.292099844311295,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "zt.Const: 'calling endpoint'": {
       "id": "zt.Const: 'calling endpoint'",
@@ -949,11 +656,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 18
       },
-      "x": 496.38140324729056,
-      "y": -94.61905960939475,
-      "label_at": "right"
+      "x": 42.7776696851765,
+      "y": -39.52079175841909,
+      "label_at": "left",
+      "dot_scale": 0.755272505103306
      },
      "zt.Const: 'error processing request'": {
       "id": "zt.Const: 'error processing request'",
@@ -965,11 +674,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 26
       },
-      "x": 461.60806682177446,
-      "y": -83.26829643797967,
-      "label_at": "left"
+      "x": 48.94479080458664,
+      "y": -21.146954206161166,
+      "label_at": "left",
+      "dot_scale": 0.914973347970818
      },
      "zt.Const: 'http://127.0.0.1:9993/'": {
       "id": "zt.Const: 'http://127.0.0.1:9993/'",
@@ -981,11 +692,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 24
       },
-      "x": 362.9258905249539,
-      "y": -89.54007695003388,
-      "label_at": "left"
+      "x": 42.771352146580284,
+      "y": -35.69811701758757,
+      "label_at": "above",
+      "dot_scale": 0.880211241711606
      },
      "zt.Const: 'website'": {
       "id": "zt.Const: 'website'",
@@ -997,11 +710,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 9
       },
-      "x": 236.233799411712,
-      "y": 6.592693191394414,
-      "label_at": "left"
+      "x": 52.272952284804134,
+      "y": -21.037930541715664,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "zt.Const: 200": {
       "id": "zt.Const: 200",
@@ -1013,11 +728,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 387.2531451442097,
-      "y": -131.3159463559602,
-      "label_at": "above"
+      "x": 46.98042670287785,
+      "y": -24.875029178520066,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "zt.Const: True": {
       "id": "zt.Const: True",
@@ -1029,11 +746,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 4
       },
-      "x": 257.2536671075243,
-      "y": -29.98419814653741,
-      "label_at": "above"
+      "x": 39.81522589094049,
+      "y": -38.984780541677786,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "zt.__name__": {
       "id": "zt.__name__",
@@ -1045,11 +764,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 8
       },
-      "x": 232.6900897746876,
-      "y": -92.13684145795682,
-      "label_at": "left"
+      "x": 55.175047059433666,
+      "y": -25.925638677211683,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "zt.app": {
       "id": "zt.app",
@@ -1061,11 +782,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 15
       },
-      "x": 482.6279345175866,
-      "y": -119.84518777591151,
-      "label_at": "above"
+      "x": 45.65677292845768,
+      "y": -19.48954236982146,
+      "label_at": "left",
+      "dot_scale": 0.6760912590556812
      },
      "zt.app.mount": {
       "id": "zt.app.mount",
@@ -1077,13 +800,15 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 72
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 253.07563127157678,
-      "y": -6.3268733494784835,
-      "label_at": "none"
+      "x": 51.024417440109836,
+      "y": -35.80361960357487,
+      "label_at": "left",
+      "dot_scale": 1.3573324964312685
      },
      "zt.config": {
       "id": "zt.config",
@@ -1095,11 +820,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 6
       },
-      "x": 398.3117276786394,
-      "y": -79.78717136128469,
-      "label_at": "right"
+      "x": 45.87921189518904,
+      "y": -34.712438290319334,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "zt.endpoint": {
       "id": "zt.endpoint",
@@ -1111,11 +838,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 13
       },
-      "x": 352.13977832204114,
-      "y": -112.74070295089504,
-      "label_at": "left"
+      "x": 36.081673256945294,
+      "y": -24.15932668249934,
+      "label_at": "left",
+      "dot_scale": 0.6139433523068368
      },
      "zt.res": {
       "id": "zt.res",
@@ -1127,11 +856,13 @@
       "line": 0,
       "meta": {
        "module": "zt",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 99
       },
-      "x": 412.1845799643212,
-      "y": -119.99062051428027,
-      "label_at": "right"
+      "x": 36.4717434026158,
+      "y": -28.862335183182946,
+      "label_at": "left",
+      "dot_scale": 1.49563519459755
      }
     },
     "edges": [
@@ -1192,34 +923,14 @@
       }
      },
      {
-      "source": "zt.fastapi.FastAPI",
-      "target": "fastapi.fastapi",
-      "kind": "contains",
-      "weight": 1
+      "source": "file::quaternionmedia/ztgui/website/index.html",
+      "target": "html::index.html::anchor::ztgui::13",
+      "kind": "contains"
      },
      {
-      "source": "zt.fastapi.HTTPException",
-      "target": "fastapi.fastapi",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.starlette.staticfiles.StaticFiles",
-      "target": "starlette.staticfiles.starlette.staticfiles",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.requests.get",
-      "target": "requests.requests",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.urllib.parse.urljoin",
-      "target": "urllib.parse.urllib.parse",
-      "kind": "contains",
-      "weight": 1
+      "source": "file::quaternionmedia/ztgui/website/index.html",
+      "target": "html::index.html::anchor::cy::20",
+      "kind": "contains"
      },
      {
       "source": "zt.getZT",
@@ -1230,7 +941,7 @@
      {
       "source": "zt.getZT",
       "target": "zt.",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -1282,6 +993,12 @@
       "weight": 1
      },
      {
+      "source": "zt.endpoint",
+      "target": "zt.res",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "zt.",
       "target": "zt.Const: 'calling endpoint'",
       "kind": "contains",
@@ -1290,7 +1007,7 @@
      {
       "source": "zt.",
       "target": "zt.endpoint",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -1302,13 +1019,19 @@
      {
       "source": "zt.",
       "target": "zt.res",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "zt.",
       "target": "zt.app",
-      "kind": "contains",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "zt.config",
+      "target": "zt.res",
+      "kind": "flows",
       "weight": 1
      },
      {
@@ -1336,69 +1059,18 @@
       "weight": 1
      },
      {
-      "source": "zt.uvicorn.run",
-      "target": "uvicorn.uvicorn",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.FastAPI",
-      "target": "fastapi.FastAPI",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.HTTPException",
-      "target": "fastapi.HTTPException",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.StaticFiles",
-      "target": "starlette.staticfiles.StaticFiles",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.get",
-      "target": "requests.get",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "zt.urljoin",
-      "target": "urllib.parse.urljoin",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
       "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.fastapi.FastAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.fastapi.HTTPException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.starlette.staticfiles.StaticFiles",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.requests.get",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.urllib.parse.urljoin",
+      "target": "zt.app",
       "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/ztgui/zt.py",
       "target": "zt.getZT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.",
       "kind": "contains"
      },
      {
@@ -1414,56 +1086,6 @@
      {
       "source": "file::quaternionmedia/ztgui/zt.py",
       "target": "zt.Const: '__main__'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.uvicorn.run",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.FastAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.HTTPException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.StaticFiles",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.get",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/zt.py",
-      "target": "zt.urljoin",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/website/index.html",
-      "target": "html::index.html::anchor::ztgui::13",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/website/index.html",
-      "target": "html::index.html::anchor::cy::20",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/config.py",
-      "target": "config.ZT_AUTHTOKEN",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ztgui/config.py",
-      "target": "config.Const: ''",
       "kind": "contains"
      },
      {
@@ -1494,6 +1116,16 @@
      {
       "source": "file::quaternionmedia/ztgui/website/script.js",
       "target": "javascript::script.js::function::ztData::201",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/config.py",
+      "target": "config.ZT_AUTHTOKEN",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/config.py",
+      "target": "config.Const: ''",
       "kind": "contains"
      },
      {

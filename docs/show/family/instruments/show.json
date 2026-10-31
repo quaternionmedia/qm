@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:31f568e83dbb18e359699d1f6b98e80b0a50bfdedf475f87538ef77189571e3a"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -526,10 +526,10 @@
     "subject": "family:instruments",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -566,9 +566,74 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 3 member(s) had no clone this export could read, so nothing was measured for them: holophonor, qmetronome, uPhonor."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:instruments",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "holophonor",
+     "qmetronome",
+     "uPhonor"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "carlos": "a5540e7dfb11dea3258cdde8769f26a7dc6d568f",
+     "qmetronome": "1abf5e9f196e33b51567fb866dd3423d4f3a43b9",
+     "holophonor": "dd8d9dbf1c7e9571adc99616330ba56de05f5029",
+     "midiphonor": "407e6c31db235288e05eabf53d7f2074b149b701",
+     "uPhonor": "150f7a770cade664896c403ff27ccc5cf408f08d",
+     "stomp": "6d30a6f47303e2378587f1e5870d1461d1443244",
+     "wolf": "d960d108d8915b195c5de3b74fc10ac2144e7670",
+     "ludwig": "fe7ee650185685313450f4ffe7e157d503c8cdf3",
+     "waveofhormuz": "83746f7cbcaa491c1e55e5b576f4b6abed7999e7"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 3 member(s) had no clone this export could read, so nothing was measured for them: holophonor, qmetronome, uPhonor. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 9 project(s)."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

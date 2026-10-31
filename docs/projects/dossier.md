@@ -69,9 +69,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/dossier/code.svg)](../show/project/dossier/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/dossier/code.svg)](../show/project/dossier/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← datum](datum.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [factorio-sysops →](factorio-sysops.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← datum](datum.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [factorio-sysops →](factorio-sysops.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -80,7 +80,7 @@ the graphs codecarto draws
 **Its system:** not drawn. dossier declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and dossier's default branch at `414be1c`, on 2026-10-27. [The show document](../show/project/dossier/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and dossier's default branch at `414be1c`, on 2026-10-29. [The show document](../show/project/dossier/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
