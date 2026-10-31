@@ -18,6 +18,6 @@ A family within another is listed under it, and its members count toward both. A
 | [`performer-display`](./performer-display.md) | `performing` | the performer — what a player reads while playing | 3 | 0 |
 | [`show-control`](./show-control.md) | `performing` | the room — cues, lighting, sound and video playback, audio transport | 8 | 0 |
 
-`1` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
+`2` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
-*Generated 2026-10-24.*
+*Generated 2026-10-31.*

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-10-25T13:37:01Z"
+generated_at: "2026-10-31T19:33:26Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -25,7 +25,7 @@ generator:
       - LICENSE
       - REUSE.toml
     records_dir_from: ".github/workflows/adr-lint.yml env RECORDS_DIR"
-  unknowns: 17
+  unknowns: 16
 reading:
   refresh: "uv run qm docs generate"
   refresh_without_the_cli: "python ci/governance_status.py --write status/governance.yaml"
@@ -39,29 +39,29 @@ reading:
     - "regenerate this in CI -- it reads other repositories, so every unrelated pull request would go red for a reason its author cannot fix"
 corpus:
   ref: origin/main
-  commit: "ba3e6ab6232083c528f97fb6321c69d407adb492"
-  committed_at: "2026-10-24T19:34:52Z"
+  commit: "b58a7caf9d711cb452eca4055a456ab506f11014"
+  committed_at: "2026-10-31T19:29:00Z"
   records:
-    total: 41
+    total: 44
     ratified: 0
     numbered_files: 0
     by_status:
       draft: 3
-      proposed: 38
+      proposed: 41
 projects:
   - name: alfred
     branch:
       ref: origin/project/alfred
-      commit: "314ca5cfb85d4cc0988dbd75a606dca04c82dc03"
-      committed_at: "2026-08-12T12:41:46Z"
-      behind_corpus: 682
-      ahead_of_corpus: 15
-      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
-      merge_base_at: "2026-08-11T23:00:40Z"
+      commit: "f92d1ac4cef9ccff41739de4b362bcf2372fbdaa"
+      committed_at: "2026-10-30T02:35:56Z"
+      behind_corpus: 78
+      ahead_of_corpus: 20
+      merge_base: "83891aed06157ee37a294e0f38a5b70772c915b3"
+      merge_base_at: "2026-10-30T02:30:48Z"
       last_propagation:
-        commit: "43d94f5277c8b11c12ce26a6fdab017b3a6e117c"
-        committed_at: "2026-08-11T23:03:48Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/alfred-2026-08-11"
+        commit: "e1fb20f1716a7b9cabbc912e901a6d04623ecae4"
+        committed_at: "2026-10-30T02:31:23Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/alfred-2026-10-29"
     records:
       total: 4
       ratified: 0
@@ -69,14 +69,14 @@ projects:
       by_status:
         proposed: 4
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-25T02:36:38Z"
+      pushed_at: "2026-10-26T14:22:54Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -98,13 +98,13 @@ projects:
         unknown: "alfred has no .github/workflows/adr-lint.yml to read"
     open_prs:
       unknown: "pulls?base=project/alfred: unexpected response shape"
-    observed_at: "2026-10-25T13:36:28Z"
+    observed_at: "2026-10-31T19:32:57Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
       commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
       committed_at: "2026-08-12T12:41:51Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -126,7 +126,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-25T13:03:52Z"
+      pushed_at: "2026-10-27T17:12:07Z"
       licence: MIT
     adoption:
       submodule:
@@ -160,17 +160,13 @@ projects:
         head: fix/apothecary-seed-refresh
         draft: false
         title: "apothecary's project index names its branch and lists each draft by its whole title"
-      - number: 237
-        head: perspective/2026-10-24-ci-spent-without-a-budget
-        draft: false
-        title: "A retrospective on spending CI and the maintainer's time without a budget"
-    observed_at: "2026-10-25T13:36:30Z"
+    observed_at: "2026-10-31T19:32:59Z"
   - name: carlos
     branch:
       ref: origin/project/carlos
       commit: "22d32a1a674b49ae2eae95fcdc8331d288387b26"
       committed_at: "2026-08-20T15:32:42Z"
-      behind_corpus: 589
+      behind_corpus: 785
       ahead_of_corpus: 6
       merge_base: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
       merge_base_at: "2026-08-16T22:01:43Z"
@@ -189,7 +185,7 @@ projects:
       default_branch: they
       private: false
       archived: false
-      pushed_at: "2026-10-12T17:18:58Z"
+      pushed_at: "2026-10-26T09:15:29Z"
       licence: MIT
     adoption:
       submodule:
@@ -211,13 +207,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-10-25T13:36:32Z"
+    observed_at: "2026-10-31T19:33:01Z"
   - name: cathy
     branch:
       ref: origin/project/cathy
       commit: "3ea6959bfa4ba78a4115a0fd2235563d28545f45"
       committed_at: "2026-10-25T00:49:27Z"
-      behind_corpus: 0
+      behind_corpus: 196
       ahead_of_corpus: 1
       merge_base: "ba3e6ab6232083c528f97fb6321c69d407adb492"
       merge_base_at: "2026-10-24T19:34:52Z"
@@ -235,26 +231,42 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-25T13:13:54Z"
+      pushed_at: "2026-10-26T01:21:56Z"
       licence: NOASSERTION
     adoption:
-      unknown: "gh api repos/quaternionmedia/cathy/git/trees/HEAD?recursive=1: gh: Git Repository is empty. (HTTP 409)"
+      submodule:
+        corpus_mounted_at: null
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - one-pr-check.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+      records_dir:
+        unknown: "cathy has no .github/workflows/adr-lint.yml to read"
     open_prs:
       unknown: "pulls?base=project/cathy: unexpected response shape"
-    observed_at: "2026-10-25T13:36:33Z"
+    observed_at: "2026-10-31T19:33:02Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
-      commit: "186692b86bceea9723db76a6c6d8f0af3d5e465a"
-      committed_at: "2026-10-18T18:02:36Z"
-      behind_corpus: 211
-      ahead_of_corpus: 33
-      merge_base: "b97b14cdaa58a4f3340205bc71fe03069608b442"
-      merge_base_at: "2026-10-18T17:32:34Z"
+      commit: "40849656c3dd21a810aa1bcf5daeb5a64b9c0f74"
+      committed_at: "2026-10-26T19:44:16Z"
+      behind_corpus: 141
+      ahead_of_corpus: 35
+      merge_base: "2c4cb112b24658e447a2864b7aed107ab2829276"
+      merge_base_at: "2026-10-26T12:25:50Z"
       last_propagation:
-        commit: "b8cbae28cf2e508ed04078a9036e8e37a5446732"
-        committed_at: "2026-10-18T17:44:17Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/codecartographer-2026-10-13"
+        commit: "bd155fc09960db9471856b50cd17d380a1236ee9"
+        committed_at: "2026-10-26T12:52:05Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/codecartographer-2026-10-26"
     records:
       total: 12
       ratified: 0
@@ -270,7 +282,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-25T13:33:35Z"
+      pushed_at: "2026-10-31T18:58:06Z"
       licence: MIT
     adoption:
       submodule:
@@ -352,13 +364,17 @@ projects:
         head: adr/codecartographer-shell-notes
         draft: false
         title: "codecartographer's shell drafts say what the shell does, in fewer words"
-    observed_at: "2026-10-25T13:36:35Z"
+      - number: 291
+        head: adr/codecartographer-a-page-without-a-server
+        draft: true
+        title: "Propose that one page without a server draws the graphs and addresses other apps hand codecartographer"
+    observed_at: "2026-10-31T19:33:04Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
       commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
       committed_at: "2026-08-12T12:42:02Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -402,13 +418,13 @@ projects:
         unknown: "adr-lint.yml in private-33 declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/private-33: unexpected response shape"
-    observed_at: "2026-10-25T13:36:38Z"
+    observed_at: "2026-10-31T19:33:06Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "e49617e5bcc807f509791920da2588347faafad2"
       committed_at: "2026-08-19T15:58:55Z"
-      behind_corpus: 560
+      behind_corpus: 756
       ahead_of_corpus: 18
       merge_base: "88e174938b7938c0ddecc4ac9e0f247792f047de"
       merge_base_at: "2026-08-19T15:42:23Z"
@@ -454,13 +470,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/datum: unexpected response shape"
-    observed_at: "2026-10-25T13:36:40Z"
+    observed_at: "2026-10-31T19:33:08Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
       commit: "a100171a53d43dbeedc132718b86f38c2835d931"
       committed_at: "2026-08-25T15:15:55Z"
-      behind_corpus: 459
+      behind_corpus: 655
       ahead_of_corpus: 14
       merge_base: "de74e9972b97023bbb8ce40d3043fbda4e96cdb3"
       merge_base_at: "2026-08-25T15:04:36Z"
@@ -482,7 +498,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-11T23:07:48Z"
+      pushed_at: "2026-10-31T14:50:17Z"
       licence: MIT
     adoption:
       submodule:
@@ -504,13 +520,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-10-25T13:36:42Z"
+    observed_at: "2026-10-31T19:33:09Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
       commit: "a545991fc62f94e74296d803770391eda1658d8a"
       committed_at: "2026-08-12T12:42:20Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -554,13 +570,13 @@ projects:
         unknown: "private-32 has no .github/workflows/adr-lint.yml to read"
     open_prs:
       unknown: "pulls?base=project/private-32: unexpected response shape"
-    observed_at: "2026-10-25T13:36:43Z"
+    observed_at: "2026-10-31T19:33:11Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
       commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
       committed_at: "2026-08-12T12:42:25Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -604,13 +620,13 @@ projects:
         unknown: "adr-lint.yml in factorio-sysops declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-10-25T13:36:45Z"
+    observed_at: "2026-10-31T19:33:12Z"
   - name: private-36
     branch:
       ref: origin/project/private-36
       commit: "a13f8f24c54292670af38605db0ea335f96c447a"
       committed_at: "2026-09-19T22:00:49Z"
-      behind_corpus: 449
+      behind_corpus: 645
       ahead_of_corpus: 3
       merge_base: "a5072a351661e20f8d6f6e8bcae691ae76e67187"
       merge_base_at: "2026-08-27T00:50:48Z"
@@ -632,12 +648,12 @@ projects:
       default_branch: main
       private: true
       archived: false
-      pushed_at: "2026-09-19T22:26:10Z"
+      pushed_at: "2026-10-26T10:47:16Z"
       licence: NOASSERTION
     adoption:
       submodule:
-        corpus_mounted_at: null
-        branch: null
+        corpus_mounted_at: governance/qm
+        branch: project/private-36
       ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
@@ -654,13 +670,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-10-25T13:36:47Z"
+    observed_at: "2026-10-31T19:33:14Z"
   - name: looksatwords
     branch:
       ref: origin/project/looksatwords
       commit: "b8acde1670fec9d16a2a8632217ea93e7503055b"
       committed_at: "2026-08-27T00:32:55Z"
-      behind_corpus: 452
+      behind_corpus: 648
       ahead_of_corpus: 1
       merge_base: "f1e25fb886ea2e81412d92e1b05f857a16a13248"
       merge_base_at: "2026-08-27T00:26:09Z"
@@ -701,13 +717,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/looksatwords: unexpected response shape"
-    observed_at: "2026-10-25T13:36:49Z"
+    observed_at: "2026-10-31T19:33:16Z"
   - name: private-34
     branch:
       ref: origin/project/private-34
       commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
       committed_at: "2026-08-12T12:42:31Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -750,35 +766,35 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/private-34: unexpected response shape"
-    observed_at: "2026-10-25T13:36:51Z"
+    observed_at: "2026-10-31T19:33:18Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
-      commit: "b5775fab1a826d96ce59f4c0a08b88c6e2f232ee"
-      committed_at: "2026-10-19T00:19:12Z"
-      behind_corpus: 323
-      ahead_of_corpus: 19
-      merge_base: "df1cb51e37626384c969bb009a68ac7271b8d43c"
-      merge_base_at: "2026-09-29T00:38:08Z"
+      commit: "f4786fecb8e539a07ea25e6a7f6f0a897b7ef672"
+      committed_at: "2026-10-26T02:58:43Z"
+      behind_corpus: 176
+      ahead_of_corpus: 30
+      merge_base: "685d086ad663afe9e70fc5a324ea5fd7ced4c046"
+      merge_base_at: "2026-10-26T00:48:30Z"
       last_propagation:
-        commit: "bac41db533d1ba97e33cdbebd7da44337a5f4505"
-        committed_at: "2026-09-29T00:38:23Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/qmcp-2026-09-28"
+        commit: "c1fd0a41ee24dffbcdae0b93b4ac44678ea0bfa3"
+        committed_at: "2026-10-26T00:59:42Z"
+        subject: "Merge main into project/qmcp, bringing qmcp's governance current"
     records:
-      total: 1
+      total: 2
       ratified: 0
       numbered_files: 0
       by_status:
-        proposed: 1
+        proposed: 2
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-25T00:41:15Z"
+      pushed_at: "2026-10-31T14:12:47Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -798,15 +814,14 @@ projects:
       licensing:
         - REUSE.toml
       records_dir: null
-    open_prs:
-      unknown: "pulls?base=project/qmcp: unexpected response shape"
-    observed_at: "2026-10-25T13:36:53Z"
+    open_prs: []
+    observed_at: "2026-10-31T19:33:20Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
       commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
       committed_at: "2026-08-12T12:42:44Z"
-      behind_corpus: 682
+      behind_corpus: 878
       ahead_of_corpus: 24
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -851,13 +866,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-10-25T13:36:55Z"
+    observed_at: "2026-10-31T19:33:22Z"
   - name: rad
     branch:
       ref: origin/project/rad
       commit: "c925686429c3ab00c38ec999978be507dec6cb14"
       committed_at: "2026-08-19T18:23:16Z"
-      behind_corpus: 556
+      behind_corpus: 752
       ahead_of_corpus: 1
       merge_base: "ce616c0fa90b85a8545d88989adb2c834d2c459c"
       merge_base_at: "2026-08-19T16:47:53Z"
@@ -897,13 +912,13 @@ projects:
         - REUSE.toml
       records_dir: adr
     open_prs: []
-    observed_at: "2026-10-25T13:36:57Z"
+    observed_at: "2026-10-31T19:33:24Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 741
+      behind_corpus: 937
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -926,13 +941,13 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-10-25T13:36:58Z"
+    observed_at: "2026-10-31T19:33:24Z"
 org:
   repositories:
-    total: 121
+    total: 123
     private: 38
     governed: 16
-    unmanaged: 104
+    unmanaged: 106
   governed_without_repository:
     - streaming-infrastructure
   unmanaged_named:
@@ -945,6 +960,7 @@ org:
     - New-Dev-Setup
     - OctoPrint-Ira
     - QLab-python
+    - QuaternionSpace
     - ShowAnimator
     - ShowEo
     - ShowEos
@@ -991,6 +1007,7 @@ org:
     - obsidian-templates
     - otto
     - qmmv
+    - quaternion.media
     - rad-godot
     - readysetjazz
     - scad-chess
@@ -1007,7 +1024,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 34
-  observed_at: "2026-10-25T13:37:01Z"
+  observed_at: "2026-10-31T19:33:26Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
