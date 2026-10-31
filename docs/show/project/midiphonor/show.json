@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:50fb8e971ced1a44922044e96af67a88e7b7e19121074552fed0a2a8079178dd"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "407e6c31db235288e05eabf53d7f2074b149b701"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:midiphonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,9 +218,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -863.4161235352985,
-      "y": -724.4921508109859,
+      "x": 124.0660551435484,
+      "y": -119.9170281515293,
       "size": 80
      },
      "dir::quaternionmedia/midiphonor/.github": {
@@ -232,9 +233,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -748.0709212154933,
-      "y": -933.8641752575218,
+      "x": 158.3850037606208,
+      "y": -110.72129358449956,
       "size": 60
      },
      "dir::quaternionmedia/midiphonor/.github/workflows": {
@@ -246,9 +248,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -697.5119879696407,
-      "y": -891.4401930182102,
+      "x": 166.59537328407788,
+      "y": -108.52133170112815,
       "size": 50
      },
      "dir::quaternionmedia/midiphonor/src": {
@@ -260,9 +263,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 596.9872642469411,
-      "y": -203.54041966111816,
+      "x": 48.2409988362792,
+      "y": -62.34260352210788,
       "size": 120
      },
      "dir::quaternionmedia/midiphonor/src/components": {
@@ -274,9 +278,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -190.47171099556726,
-      "y": -52.9192494629243,
+      "x": -49.8703586340426,
+      "y": 1.5082977092308791,
       "size": 120
      },
      "dir::quaternionmedia/midiphonor/src/components/generators": {
@@ -288,9 +293,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -548.0885195639761,
-      "y": -58.708405923900955,
+      "x": -92.72570912831108,
+      "y": 24.263335560750182,
       "size": 90
      },
      "dir::quaternionmedia/midiphonor/src/components/transports": {
@@ -302,9 +308,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 82.96587995028138,
-      "y": 56.2475642530776,
+      "x": 4.977058903633173,
+      "y": 9.818232991663873,
       "size": 90
      },
      "dir::quaternionmedia/midiphonor/src/components/visualizers": {
@@ -316,9 +323,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -277.60740552989625,
-      "y": -267.53895897785134,
+      "x": -75.54798093670063,
+      "y": -24.169324593427135,
       "size": 90
      },
      "dir::quaternionmedia/midiphonor/src/utils": {
@@ -330,9 +338,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 886.7905896548839,
-      "y": 39.633443802635895,
+      "x": 102.1223586111238,
+      "y": -56.463892789454086,
       "size": 80
      },
      "file::quaternionmedia/midiphonor/README.md": {
@@ -344,9 +353,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/README.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -822.0497236068738,
-      "y": -689.7816198879127,
+      "x": 131.3104988407164,
+      "y": -117.97588531326039,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/components.md": {
@@ -358,9 +368,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/components.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -923.4015037157519,
-      "y": -721.8812765117347,
+      "x": 116.49968274222611,
+      "y": -115.97952704873474,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/actions.ts": {
@@ -372,9 +383,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/actions.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 531.1382719321099,
-      "y": -384.45903913995744,
+      "x": 52.58929363073026,
+      "y": -87.26399305788813,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/components.ts": {
@@ -386,9 +398,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/components.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -72.04816773490194,
-      "y": -410.30863984187204,
+      "x": -49.550045978109566,
+      "y": -45.53185965866247,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/generators/note.ts": {
@@ -400,9 +413,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/note.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -404.8059025544227,
-      "y": 61.51998516293082,
+      "x": -71.44675916614112,
+      "y": 29.965013018895885,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/generators/sequencer.css": {
@@ -414,9 +428,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/sequencer.css",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -668.3169106508079,
-      "y": 84.57421108565262,
+      "x": -88.6150219278351,
+      "y": 47.133275780589905,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/generators/sequencer.ts": {
@@ -428,9 +443,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/sequencer.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -506.72211963555134,
-      "y": -23.997875000827833,
+      "x": -85.48126543114307,
+      "y": 26.204478399019088,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/generators/synth.ts": {
@@ -442,9 +458,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/synth.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -608.0738997444292,
-      "y": -56.097531624649775,
+      "x": -100.29208152963336,
+      "y": 28.200836663544752,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/menu.ts": {
@@ -456,9 +473,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/menu.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -149.10531106714242,
-      "y": -18.208718539851183,
+      "x": -42.62591493687459,
+      "y": 3.4494405474997833,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/state.ts": {
@@ -470,9 +488,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/state.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -250.45709117602044,
-      "y": -50.30837516367315,
+      "x": -57.436731035364886,
+      "y": 5.445798812025426,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/syntax.css": {
@@ -484,9 +503,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -28.011972816895454,
-      "y": -196.06929041056435,
+      "x": -37.32166836932427,
+      "y": -21.86582302993655,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/transports/bpm.ts": {
@@ -498,9 +518,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/bpm.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -39.630358552011714,
-      "y": 202.352071926722,
+      "x": 26.7186783494059,
+      "y": 1.9535828999027505,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/transports/clock.ts": {
@@ -512,9 +533,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/clock.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 124.33227987870619,
-      "y": 90.95809517615072,
+      "x": 12.221502600801186,
+      "y": 11.759375829932777,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/transports/transport.css": {
@@ -526,9 +548,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.css",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 234.01486774860865,
-      "y": 182.99271420435545,
+      "x": -15.239013162110213,
+      "y": 28.660088088693485,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/transports/transport.ts": {
@@ -540,9 +563,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": 22.980499769828175,
-      "y": 58.85843855232877,
+      "x": -2.5893134976891234,
+      "y": 13.75573409445845,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/visualizers/meter.ts": {
@@ -554,9 +578,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/visualizers/meter.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -236.2410056014714,
-      "y": -232.82842805477824,
+      "x": -68.30353723953262,
+      "y": -22.228181755158225,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/visualizers/oscilloscope.ts": {
@@ -568,9 +593,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/visualizers/oscilloscope.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -337.5927857103494,
-      "y": -264.9280846786002,
+      "x": -83.11435333802291,
+      "y": -20.231823490632557,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/visualizers/spectrogram.ts": {
@@ -582,9 +608,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/visualizers/spectrogram.ts",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -231.2584435290628,
-      "y": -313.86280512047324,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -72.31429343087176,
+      "y": -33.046321699129365,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/components/visualizers/visualizer.ts": {
@@ -596,9 +623,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/visualizers/visualizer.ts",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -280.7152417487599,
-      "y": -197.01570852782802,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -71.6163075527898,
+      "y": -14.66650063671579,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/index.html": {
@@ -610,9 +638,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/index.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 638.3536641753659,
-      "y": -168.82988873804507,
+      "x": 55.48544253344721,
+      "y": -60.401460683838984,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/index.ts": {
@@ -624,9 +653,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/index.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": 537.001884066488,
-      "y": -200.929545361867,
+      "x": 40.67462643495692,
+      "y": -58.4051024193133,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/state.ts": {
@@ -638,9 +668,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/state.ts",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 643.3362262477744,
-      "y": -249.86426580373998,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": 51.474686342108086,
+      "y": -71.21960062781014,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/types.ts": {
@@ -652,9 +683,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/types.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 746.3964191774825,
-      "y": -330.72752451954625,
+      "x": 28.41190326138357,
+      "y": -81.82130832039158,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/utils/maths.ts": {
@@ -666,9 +698,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/maths.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 749.5596721915906,
-      "y": 89.58141298031677,
+      "x": 94.52497843401292,
+      "y": -40.23834287561117,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/utils/music.ts": {
@@ -680,9 +713,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/music.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 912.1498382112169,
-      "y": -104.18600149406222,
+      "x": 82.05230467415655,
+      "y": -61.84164753391354,
       "size": 30
      },
      "file::quaternionmedia/midiphonor/src/utils/streams.ts": {
@@ -694,9 +728,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/streams.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 1001.0371380371957,
-      "y": 135.49768041351092,
+      "x": 118.58950207554435,
+      "y": -51.348878277827026,
       "size": 30
      },
      "css::sequencer.css::class::sequencer::1": {
@@ -708,9 +743,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/sequencer.css",
       "line": 1,
       "meta": {},
-      "x": -642.2713995847627,
-      "y": 106.42898981499496,
-      "label_at": "right"
+      "x": -83.30242988324522,
+      "y": 48.55678052865377,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::syntax.css::class::boolean::12": {
       "id": "css::syntax.css::class::boolean::12",
@@ -721,9 +757,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 12,
       "meta": {},
-      "x": -1.9664617508502003,
-      "y": -174.214511681222,
-      "label_at": "right"
+      "x": -32.009076324734394,
+      "y": -20.442318281872687,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::syntax.css::class::key::18": {
       "id": "css::syntax.css::class::key::18",
@@ -734,9 +771,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 18,
       "meta": {},
-      "x": -65.66004530602254,
-      "y": -194.43065138581346,
-      "label_at": "left"
+      "x": -34.8500262465096,
+      "y": -16.95247537108639,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::syntax.css::class::null::15": {
       "id": "css::syntax.css::class::null::15",
@@ -747,9 +785,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 15,
       "meta": {},
-      "x": 1.0142037414298528,
-      "y": -225.07973808730532,
-      "label_at": "right"
+      "x": -32.724489672477986,
+      "y": -24.88508585871825,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::syntax.css::class::number::9": {
       "id": "css::syntax.css::class::number::9",
@@ -760,9 +799,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 9,
       "meta": {},
-      "x": -29.95518348332856,
-      "y": -151.97380955021015,
-      "label_at": "below"
+      "x": -36.51735322224266,
+      "y": -27.306694021255414,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "css::syntax.css::class::string::6": {
       "id": "css::syntax.css::class::string::6",
@@ -773,9 +813,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/syntax.css",
       "line": 6,
       "meta": {},
-      "x": -58.22567215015668,
-      "y": -232.11623719665545,
-      "label_at": "left"
+      "x": -39.34554651496241,
+      "y": -16.75173295919979,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::transport.css::class::button::27": {
       "id": "css::transport.css::class::button::27",
@@ -786,9 +827,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.css",
       "line": 27,
       "meta": {},
-      "x": 260.0603788146539,
-      "y": 204.84749293369777,
-      "label_at": "right"
+      "x": -9.926421117520334,
+      "y": 30.083592836757344,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::transport.css::class::button::33": {
       "id": "css::transport.css::class::button::33",
@@ -799,9 +841,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.css",
       "line": 33,
       "meta": {},
-      "x": 196.36679525948168,
-      "y": 184.63135322910637,
-      "label_at": "left"
+      "x": -12.767371039295568,
+      "y": 33.57343574754366,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::transport.css::class::clock::6": {
       "id": "css::transport.css::class::clock::6",
@@ -812,9 +855,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.css",
       "line": 6,
       "meta": {},
-      "x": 263.04104430693417,
-      "y": 153.98226652761457,
-      "label_at": "right"
+      "x": -10.641834465263958,
+      "y": 25.640825259911804,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::transport.css::class::container::20": {
       "id": "css::transport.css::class::container::20",
@@ -825,9 +869,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/transport.css",
       "line": 20,
       "meta": {},
-      "x": 232.07165708217556,
-      "y": 227.08819506470962,
-      "label_at": "below"
+      "x": -14.434698015028625,
+      "y": 23.219217097374617,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "typescript::actions.ts::function::Actions::5": {
       "id": "typescript::actions.ts::function::Actions::5",
@@ -838,9 +883,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/actions.ts",
       "line": 5,
       "meta": {},
-      "x": 557.1837829981552,
-      "y": -362.6042604106151,
-      "label_at": "right"
+      "x": 57.901885675320145,
+      "y": -85.84048830982427,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::bpm.ts::function::BpmValue::35": {
       "id": "typescript::bpm.ts::function::BpmValue::35",
@@ -851,9 +897,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/bpm.ts",
       "line": 35,
       "meta": {},
-      "x": -13.584847485966463,
-      "y": 224.20685065606435,
-      "label_at": "right"
+      "x": 32.031270393995776,
+      "y": 3.3770876479666154,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::bpm.ts::function::NDecimal::34": {
       "id": "typescript::bpm.ts::function::NDecimal::34",
@@ -864,9 +911,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/transports/bpm.ts",
       "line": 34,
       "meta": {},
-      "x": -77.27843104113876,
-      "y": 203.99071095147298,
-      "label_at": "left"
+      "x": 29.19032047222056,
+      "y": 6.866930558752908,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::components.ts::function::Observable::16": {
       "id": "typescript::components.ts::function::Observable::16",
@@ -877,9 +925,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/components.ts",
       "line": 16,
       "meta": {},
-      "x": -46.00265666885667,
-      "y": -388.4538611125297,
-      "label_at": "right"
+      "x": -44.23745393351969,
+      "y": -44.10835491059861,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::components.ts::function::o::38": {
       "id": "typescript::components.ts::function::o::38",
@@ -890,9 +939,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/components.ts",
       "line": 38,
       "meta": {},
-      "x": -109.69624022402895,
-      "y": -408.67000081712126,
-      "label_at": "left"
+      "x": -47.07840385529492,
+      "y": -40.61851199981231,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::maths.ts::function::mapValue::2": {
       "id": "typescript::maths.ts::function::mapValue::2",
@@ -903,9 +953,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/maths.ts",
       "line": 2,
       "meta": {},
-      "x": 775.6051832576359,
-      "y": 111.4361917096591,
-      "label_at": "right"
+      "x": 99.8375704786028,
+      "y": -38.814838127547304,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::maths.ts::function::mapValueToInteger::6": {
       "id": "typescript::maths.ts::function::mapValueToInteger::6",
@@ -916,9 +967,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/maths.ts",
       "line": 6,
       "meta": {},
-      "x": 711.9115997024637,
-      "y": 91.22005200506766,
-      "label_at": "left"
+      "x": 96.99662055682757,
+      "y": -35.32499521676101,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::maths.ts::function::mapValueToNearestFive::10": {
       "id": "typescript::maths.ts::function::mapValueToNearestFive::10",
@@ -929,9 +981,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/maths.ts",
       "line": 10,
       "meta": {},
-      "x": 778.5858487499158,
-      "y": 60.57096530357563,
-      "label_at": "right"
+      "x": 99.12215713085918,
+      "y": -43.25760570439288,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::music.ts::function::chooseDurationRandomly::5": {
       "id": "typescript::music.ts::function::chooseDurationRandomly::5",
@@ -942,9 +995,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/music.ts",
       "line": 5,
       "meta": {},
-      "x": 938.1953492772622,
-      "y": -82.33122276471988,
-      "label_at": "right"
+      "x": 87.36489671874642,
+      "y": -60.41814278584967,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::music.ts::function::chooseNoteAndOctaveRandomly::10": {
       "id": "typescript::music.ts::function::chooseNoteAndOctaveRandomly::10",
@@ -955,9 +1009,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/music.ts",
       "line": 10,
       "meta": {},
-      "x": 874.5017657220899,
-      "y": -102.54736246931134,
-      "label_at": "left"
+      "x": 84.52394679697119,
+      "y": -56.928299875063374,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::music.ts::function::mapMidiKeyToFrequency::35": {
       "id": "typescript::music.ts::function::mapMidiKeyToFrequency::35",
@@ -968,9 +1023,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/music.ts",
       "line": 35,
       "meta": {},
-      "x": 941.1760147695423,
-      "y": -133.19644917080325,
-      "label_at": "right"
+      "x": 86.64948337100282,
+      "y": -64.86091036269525,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::note.ts::function::playNote::22": {
       "id": "typescript::note.ts::function::playNote::22",
@@ -981,9 +1037,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/components/generators/note.ts",
       "line": 22,
       "meta": {},
-      "x": -378.76039148837737,
-      "y": 83.37476389227317,
-      "label_at": "right"
+      "x": -66.13416712155126,
+      "y": 31.38851776695975,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::streams.ts::function::NDecimal::8": {
       "id": "typescript::streams.ts::function::NDecimal::8",
@@ -994,9 +1051,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/streams.ts",
       "line": 8,
       "meta": {},
-      "x": 1027.082649103241,
-      "y": 157.35245914285326,
-      "label_at": "right"
+      "x": 123.90209412013422,
+      "y": -49.925373529763164,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::streams.ts::function::OneIndex::11": {
       "id": "typescript::streams.ts::function::OneIndex::11",
@@ -1007,9 +1065,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/streams.ts",
       "line": 11,
       "meta": {},
-      "x": 963.3890655480686,
-      "y": 137.1363194382618,
-      "label_at": "left"
+      "x": 121.06114419835899,
+      "y": -46.435530618976884,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::streams.ts::function::TwoDecimal::6": {
       "id": "typescript::streams.ts::function::TwoDecimal::6",
@@ -1020,9 +1079,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/streams.ts",
       "line": 6,
       "meta": {},
-      "x": 1030.0633145955212,
-      "y": 106.48723273677008,
-      "label_at": "right"
+      "x": 123.18668077239062,
+      "y": -54.368141106608746,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::streams.ts::function::TwoDigit::3": {
       "id": "typescript::streams.ts::function::TwoDigit::3",
@@ -1033,9 +1093,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/utils/streams.ts",
       "line": 3,
       "meta": {},
-      "x": 999.0939273707627,
-      "y": 179.59316127386506,
-      "label_at": "below"
+      "x": 119.39381722262593,
+      "y": -56.78974926914591,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "typescript::types.ts::interface::TransportState::7": {
       "id": "typescript::types.ts::interface::TransportState::7",
@@ -1046,9 +1107,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/types.ts",
       "line": 7,
       "meta": {},
-      "x": 708.7483466883555,
-      "y": -329.0888854947954,
-      "label_at": "left"
+      "x": 30.883545384198218,
+      "y": -76.90796066154141,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::types.ts::type::Stream::5": {
       "id": "typescript::types.ts::type::Stream::5",
@@ -1059,9 +1121,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/midiphonor/main/src/types.ts",
       "line": 5,
       "meta": {},
-      "x": 772.4419302435277,
-      "y": -308.87274579020396,
-      "label_at": "right"
+      "x": 33.72449530597345,
+      "y": -80.39780357232772,
+      "label_at": "right",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -1338,8 +1401,13 @@
       }
      },
      {
-      "source": "file::quaternionmedia/midiphonor/src/actions.ts",
-      "target": "typescript::actions.ts::function::Actions::5",
+      "source": "file::quaternionmedia/midiphonor/src/components/components.ts",
+      "target": "typescript::components.ts::function::Observable::16",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/midiphonor/src/components/components.ts",
+      "target": "typescript::components.ts::function::o::38",
       "kind": "contains"
      },
      {
@@ -1353,13 +1421,8 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/midiphonor/src/components/components.ts",
-      "target": "typescript::components.ts::function::Observable::16",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/midiphonor/src/components/components.ts",
-      "target": "typescript::components.ts::function::o::38",
+      "source": "file::quaternionmedia/midiphonor/src/actions.ts",
+      "target": "typescript::actions.ts::function::Actions::5",
       "kind": "contains"
      },
      {
@@ -1370,11 +1433,6 @@
      {
       "source": "file::quaternionmedia/midiphonor/src/components/transports/bpm.ts",
       "target": "typescript::bpm.ts::function::BpmValue::35",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/midiphonor/src/components/generators/sequencer.css",
-      "target": "css::sequencer.css::class::sequencer::1",
       "kind": "contains"
      },
      {
@@ -1403,23 +1461,13 @@
       "kind": "contains"
      },
      {
+      "source": "file::quaternionmedia/midiphonor/src/components/generators/sequencer.css",
+      "target": "css::sequencer.css::class::sequencer::1",
+      "kind": "contains"
+     },
+     {
       "source": "file::quaternionmedia/midiphonor/src/components/generators/note.ts",
       "target": "typescript::note.ts::function::playNote::22",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
-      "target": "typescript::maths.ts::function::mapValue::2",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
-      "target": "typescript::maths.ts::function::mapValueToInteger::6",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
-      "target": "typescript::maths.ts::function::mapValueToNearestFive::10",
       "kind": "contains"
      },
      {
@@ -1440,6 +1488,21 @@
      {
       "source": "file::quaternionmedia/midiphonor/src/components/transports/transport.css",
       "target": "css::transport.css::class::button::33",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
+      "target": "typescript::maths.ts::function::mapValue::2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
+      "target": "typescript::maths.ts::function::mapValueToInteger::6",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/midiphonor/src/utils/maths.ts",
+      "target": "typescript::maths.ts::function::mapValueToNearestFive::10",
       "kind": "contains"
      },
      {

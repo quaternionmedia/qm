@@ -60,7 +60,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and moat's default branch at `16a595a`, on 2026-10-27. [The show document](../show/project/moat/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and moat's default branch at `16a595a`, on 2026-10-29. [The show document](../show/project/moat/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
