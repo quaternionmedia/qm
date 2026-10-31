@@ -102,6 +102,16 @@ changes a submodule's path and keeps its name. SSH URLs are tried over https,
 because a runner has no SSH key, and a filesystem path is reported as
 resolvable nowhere else.
 
+The governance submodule is the exception to that translation. The seed
+workflows that run a corpus script clone it on a runner with
+`git submodule update`, by the URL `.gitmodules` records and with no SSH key,
+so any URL but HTTPS fails each of them at the clone, and a local run, which
+has a key, passes. A checkout with `submodules: true` rewrites a GitHub SSH URL
+to HTTPS; the seed's checkouts do not. So the governance URL's form is judged
+before any fetch: anything but `https://` is `not-https`, a hard failure, and
+the local run goes red as the runner does. The path is `$QM_SUBMODULE`, else
+`governance/qm`, and `--governance` names another.
+
 Locally it also lists branches inside each submodule's clone that are on no
 remote: work committed inside a submodule is invisible to every check the
 parent runs. That list is empty in CI, where submodules are cloned fresh, and
@@ -259,6 +269,23 @@ its stamp or the host cannot be read. No workflow runs it, because it reads the
 host; a session runs it at open and close. It cannot see a pull request the
 page never names, or whether a sentence claims one is open, and a stamp moved
 without a re-read silences it.
+
+## Assigned work
+
+`uv run qm assigned` (`ci/assigned.py`) asks the host, as whoever `gh` is
+signed in as, for every open pull request in the organisation that requests
+their review and every open pull request and issue that names them as
+assignee, and lists them in four groups by repository: review requested, pull
+requests assigned by somebody else, issues, and their own pull requests, which
+carry them as assignee because every pull request a session opens does
+(`handbook/async-contract.md` §2). `--org` reads another owner. A private
+repository is marked as one. It prints the host's draft flag and base and reads
+no checks, because whether a pull request can merge is `uv run qm merge`'s
+reading. It never writes, and exits 0 on any completed reading and 2 when the
+host cannot be read. No workflow runs it, because it reads the host. It cannot
+see an ask made in a comment or a mention, a review already given, a repository
+outside `--org` or an archived one, and it reports a search the host counted
+past what it lists.
 
 ## The declared-routes hook
 

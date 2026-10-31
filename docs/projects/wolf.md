@@ -44,9 +44,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory, file and symbol](../show/project/wolf/code.svg)](../show/project/wolf/code.svg)
+[![Its code: its default branch, by directory, file, symbol and member](../show/project/wolf/code.svg)](../show/project/wolf/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← waveofhormuz](waveofhormuz.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [ztgui →](ztgui.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file, symbol and member.<br>[← waveofhormuz](waveofhormuz.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [ztgui →](ztgui.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. wolf declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and wolf's default branch at `d960d10`, on 2026-10-27. [The show document](../show/project/wolf/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and wolf's default branch at `d960d10`, on 2026-10-29. [The show document](../show/project/wolf/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

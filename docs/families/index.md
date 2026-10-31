@@ -126,7 +126,7 @@ A thing somebody builds, holds or installs: parts, boards, enclosures, and the f
 
 </div>
 
-1 rostered repository states no family yet. That is *unstated*, not *none*: nobody has answered the question.
+2 rostered repositories state no family yet. That is *unstated*, not *none*: nobody has answered the question.
 
 <section class="qm-section" markdown>
 
@@ -150,25 +150,9 @@ the graphs codecarto draws
 
 </figure>
 
-<figure class="qm-shot" id="showgraph-code" markdown>
-
-[![The whole corpus: every family, with each project's code in it](../show/index/code.svg)](../show/index/code.svg)
-
-<figcaption><strong>The whole corpus.</strong> Every family, with each project's code in it.</figcaption>
-
-</figure>
-
-<figure class="qm-shot" id="showgraph-full" markdown>
-
-[![Every node: the whole corpus again, every node drawn and nothing written on it](../show/index/full.svg)](../show/index/full.svg)
-
-<figcaption><strong>Every node.</strong> The whole corpus again, every node drawn and nothing written on it.</figcaption>
-
-</figure>
-
 </div>
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/index/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/index/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

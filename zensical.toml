@@ -25,6 +25,12 @@ nav = [
         "families/irl.md",
     ] },
     { "Projects" = "projects/index.md" },
+    { "Journeys" = [
+        "journeys/index.md",
+        "journeys/clone-to-first-demo.md",
+        "journeys/bring-your-set-up.md",
+        "journeys/use-a-model-with-an-application.md",
+    ] },
     { "About" = [
         "about/index.md",
         "about/overview.md",

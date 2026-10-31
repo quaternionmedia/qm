@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:173afb001a222f7b1b0745447b9c65d7262540dd70ec137f9befec1ad86af988"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "dd8d9dbf1c7e9571adc99616330ba56de05f5029"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:holophonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,9 +222,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 531.8215193360245,
-      "y": 221.96474402491702,
+      "x": -66.79109004976772,
+      "y": -31.145196786726814,
       "size": 80
      },
      "dir::quaternionmedia/holophonor/.github": {
@@ -236,9 +237,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 572.2815447324193,
-      "y": 451.42495047676147,
+      "x": -95.05183557773793,
+      "y": -11.356809732615716,
       "size": 60
      },
      "dir::quaternionmedia/holophonor/.github/workflows": {
@@ -250,9 +252,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 583.7423244584368,
-      "y": 516.4222621755672,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -87.3482193879264,
+      "y": -7.764554507819773,
       "size": 50
      },
      "dir::quaternionmedia/holophonor/holophonor": {
@@ -264,9 +267,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -219.59911872655744,
-      "y": -26.641965494932457,
+      "x": 17.812588511924602,
+      "y": 8.363558875985456,
       "size": 160
      },
      "file::quaternionmedia/holophonor/README.md": {
@@ -278,9 +282,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 541.1985209300387,
-      "y": 275.14436268757623,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -59.993781646992836,
+      "y": -27.97555982367157,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/__init__.py": {
@@ -292,9 +297,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "none",
-      "x": 111.57785601477053,
-      "y": 202.94526146338114,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 24.60989691469948,
+      "y": 11.533195839040701,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/_version.py": {
@@ -306,9 +312,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/_version.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -210.22211713254316,
-      "y": 26.53765316772677,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": 9.677426417863007,
+      "y": 10.92735371047269,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/constants.py": {
@@ -320,9 +327,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/constants.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -267.22882353218057,
-      "y": -63.199778888640765,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 22.538623409043403,
+      "y": 0.1829472453544465,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/daw.py": {
@@ -334,9 +342,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/daw.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -553.4689253265016,
-      "y": -262.0008001310814,
+      "x": 44.98924806801266,
+      "y": -44.47627087951366,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/freewheeling.py": {
@@ -348,9 +357,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/freewheeling.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -262.71944388340387,
-      "y": -271.18948161295987,
+      "x": 15.626487711257436,
+      "y": 45.59481652000314,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/holospecs.py": {
@@ -362,9 +372,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/holospecs.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -465.5015488962715,
-      "y": 16.717267565767393,
+      "x": -25.11625146802072,
+      "y": 15.939959467463435,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py": {
@@ -376,9 +387,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadMK2.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 226.39145072746297,
-      "y": -173.77058522447464,
+      "x": 56.076060604001476,
+      "y": 49.80043046674438,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadS.py": {
@@ -390,9 +402,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadS.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 13.594983294075593,
-      "y": -32.77155787503143,
+      "x": 10.249536655136271,
+      "y": -29.521986152625175,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadX.py": {
@@ -404,9 +417,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadX.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -173.60086995622902,
-      "y": 234.22706649048357,
+      "x": 57.65974642905445,
+      "y": 0.017746977326154934,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/main.py": {
@@ -418,9 +432,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/main.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 29.44054129831757,
-      "y": -312.3181367638848,
+      "x": -20.70665715237309,
+      "y": 53.667735468591694,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/qsynth.py": {
@@ -432,9 +447,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/qsynth.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -471.85866793084904,
-      "y": 308.9185810711369,
+      "x": -26.83034626222373,
+      "y": -26.10457979332375,
       "size": 30
      },
      "file::quaternionmedia/holophonor/pyproject.toml": {
@@ -446,94 +462,11 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 725.5555690097663,
-      "y": 232.75961107328737,
+      "x": -87.4876553419992,
+      "y": -46.04157839785636,
       "size": 30
-     },
-     "__init__.HookimplMarker": {
-      "id": "__init__.HookimplMarker",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "HookimplMarker",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 117.48189405544616,
-      "y": 236.4287250657962,
-      "label_at": "below"
-     },
-     "__init__._version.__version__": {
-      "id": "__init__._version.__version__",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "_version.__version__",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 81.68446242847563,
-      "y": 180.00081725797793,
-      "label_at": "left"
-     },
-     "__init__.pluggy.HookimplMarker": {
-      "id": "__init__.pluggy.HookimplMarker",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pluggy.HookimplMarker",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 152.46075359033472,
-      "y": 199.37963587648522,
-      "label_at": "right"
-     },
-     "daw.API_UNIX_JACK": {
-      "id": "daw.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "API_UNIX_JACK",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -547.5648872858259,
-      "y": -228.5173365286663,
-      "label_at": "below"
      },
      "daw.Bitwig": {
       "id": "daw.Bitwig",
@@ -545,37 +478,18 @@
       "line": 0,
       "meta": {
        "module": "daw",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 425
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -583.3623189127965,
-      "y": -284.9452443364845,
-      "label_at": "left"
-     },
-     "daw.CONTROL_CHANGE": {
-      "id": "daw.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CONTROL_CHANGE",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -512.5860277509374,
-      "y": -265.5664257179773,
-      "label_at": "right"
+      "x": 52.01927624493534,
+      "y": -41.19811490356919,
+      "label_at": "right",
+      "dot_scale": 2.1283889300503116
      },
      "daw.__init__": {
       "id": "daw.__init__",
@@ -587,142 +501,18 @@
       "line": 0,
       "meta": {
        "module": "daw",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 237
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -583.3015397995379,
-      "y": -229.47077379074173,
-      "label_at": "left"
-     },
-     "daw.holophonor.holoimpl": {
-      "id": "daw.holophonor.holoimpl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holoimpl",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -553.4434310456846,
-      "y": -309.03535498218685,
-      "label_at": "above"
-     },
-     "daw.holophonor.holospecs.Holophonor": {
-      "id": "daw.holophonor.holospecs.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holospecs.Holophonor",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -519.8746921482782,
-      "y": -225.28922161466306,
-      "label_at": "right"
-     },
-     "daw.open_midioutput": {
-      "id": "daw.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_midioutput",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -605.6145875683252,
-      "y": -266.60567899611914,
-      "label_at": "left"
-     },
-     "daw.rtmidi.API_UNIX_JACK": {
-      "id": "daw.rtmidi.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.API_UNIX_JACK",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -509.95141567913544,
-      "y": -295.32742393385183,
-      "label_at": "right"
-     },
-     "daw.rtmidi.midiconstants.CONTROL_CHANGE": {
-      "id": "daw.rtmidi.midiconstants.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -563.4575594931396,
-      "y": -205.70935151332884,
-      "label_at": "below"
-     },
-     "daw.rtmidi.midiutil.open_midioutput": {
-      "id": "daw.rtmidi.midiutil.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiutil.open_midioutput",
-      "file": "daw.py",
-      "line": 0,
-      "meta": {
-       "module": "daw",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -585.3423654887441,
-      "y": -312.1669870723263,
-      "label_at": "left"
+      "x": 44.48782510435216,
+      "y": -37.244135835204425,
+      "label_at": "below",
+      "dot_scale": 1.8747483460101038
      },
      "daw.toggleFX": {
       "id": "daw.toggleFX",
@@ -734,37 +524,18 @@
       "line": 0,
       "meta": {
        "module": "daw",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 150
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -493.97337133170834,
-      "y": -245.97257331547127,
-      "label_at": "right"
-     },
-     "freewheeling.CONTROL_CHANGE": {
-      "id": "freewheeling.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CONTROL_CHANGE",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -256.81540584272824,
-      "y": -237.7060180105448,
-      "label_at": "below"
+      "x": 50.07341256859402,
+      "y": -49.070144690638564,
+      "label_at": "right",
+      "dot_scale": 1.6760912590556813
      },
      "freewheeling.Fweelin": {
       "id": "freewheeling.Fweelin",
@@ -776,100 +547,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 3974
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -292.6128374696989,
-      "y": -294.1339258183631,
-      "label_at": "left"
-     },
-     "freewheeling.Holophonor": {
-      "id": "freewheeling.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Holophonor",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -221.83654630783977,
-      "y": -274.75510719985573,
-      "label_at": "right"
-     },
-     "freewheeling.NOTE_ON": {
-      "id": "freewheeling.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NOTE_ON",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -292.55205835644017,
-      "y": -238.65945527262028,
-      "label_at": "left"
-     },
-     "freewheeling.NUMBER_LOOPS": {
-      "id": "freewheeling.NUMBER_LOOPS",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NUMBER_LOOPS",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -262.69394960258694,
-      "y": -318.2240364640653,
-      "label_at": "above"
-     },
-     "freewheeling.NUMBER_SCENES": {
-      "id": "freewheeling.NUMBER_SCENES",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NUMBER_SCENES",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -229.1252107051804,
-      "y": -234.4779030965415,
-      "label_at": "right"
+      "x": 24.4162736575514,
+      "y": 49.6935610203032,
+      "label_at": "right",
+      "dot_scale": 3.0992278627737964
      },
      "freewheeling.deletePulse": {
       "id": "freewheeling.deletePulse",
@@ -881,16 +570,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 201
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -314.8651061252274,
-      "y": -275.7943604779977,
-      "label_at": "left"
+      "x": 34.208455753783625,
+      "y": 46.48372320387228,
+      "label_at": "right",
+      "dot_scale": 1.8031960574204888
      },
      "freewheeling.eraseLoop": {
       "id": "freewheeling.eraseLoop",
@@ -902,16 +593,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 207
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -219.20193423603774,
-      "y": -304.51610541573046,
-      "label_at": "right"
+      "x": 8.379143264156347,
+      "y": 46.29467042456686,
+      "label_at": "left",
+      "dot_scale": 1.8159703454569178
      },
      "freewheeling.eraseScene": {
       "id": "freewheeling.eraseScene",
@@ -923,100 +616,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 67
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -272.7080780500419,
-      "y": -214.8980329952073,
-      "label_at": "below"
-     },
-     "freewheeling.holophonor.constants.NUMBER_LOOPS": {
-      "id": "freewheeling.holophonor.constants.NUMBER_LOOPS",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.constants.NUMBER_LOOPS",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -294.5928840456466,
-      "y": -321.3556685542049,
-      "label_at": "left"
-     },
-     "freewheeling.holophonor.constants.NUMBER_SCENES": {
-      "id": "freewheeling.holophonor.constants.NUMBER_SCENES",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.constants.NUMBER_SCENES",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -203.22388988861064,
-      "y": -255.16125479734967,
-      "label_at": "right"
-     },
-     "freewheeling.holophonor.holoimpl": {
-      "id": "freewheeling.holophonor.holoimpl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holoimpl",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -319.28669662214236,
-      "y": -241.84951880467258,
-      "label_at": "left"
-     },
-     "freewheeling.holophonor.holospecs.Holophonor": {
-      "id": "freewheeling.holophonor.holospecs.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holospecs.Holophonor",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -240.12677284564637,
-      "y": -332.9496727993518,
-      "label_at": "above"
+      "x": 26.169373055782664,
+      "y": 64.89216720573737,
+      "label_at": "right",
+      "dot_scale": 1.3260748027008264
      },
      "freewheeling.overdubLoop": {
       "id": "freewheeling.overdubLoop",
@@ -1028,16 +639,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 174
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -236.90646100909757,
-      "y": -208.55959725149256,
-      "label_at": "right"
+      "x": 28.884495992526034,
+      "y": 58.84005287927121,
+      "label_at": "right",
+      "dot_scale": 1.7405492482825997
      },
      "freewheeling.playLoop": {
       "id": "freewheeling.playLoop",
@@ -1049,16 +662,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 329
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -325.79921632028146,
-      "y": -300.74988264731235,
-      "label_at": "left"
+      "x": 29.18452472188426,
+      "y": 40.07806323255809,
+      "label_at": "right",
+      "dot_scale": 2.017195897949974
      },
      "freewheeling.recallScene": {
       "id": "freewheeling.recallScene",
@@ -1070,16 +685,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 924
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -194.45384507289074,
-      "y": -292.5610870520013,
-      "label_at": "right"
+      "x": 13.52012845950171,
+      "y": 53.75881133738674,
+      "label_at": "below",
+      "dot_scale": 2.4656719712201065
      },
      "freewheeling.recordLoop": {
       "id": "freewheeling.recordLoop",
@@ -1091,121 +708,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 140
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -299.53474354558426,
-      "y": -207.74159976664546,
-      "label_at": "left"
-     },
-     "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE": {
-      "id": "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -278.81231682878314,
-      "y": -344.5794123961667,
-      "label_at": "above"
-     },
-     "freewheeling.rtmidi.midiconstants.NOTE_OFF": {
-      "id": "freewheeling.rtmidi.midiconstants.NOTE_OFF",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.NOTE_OFF",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -199.8582761269902,
-      "y": -226.94472386359462,
-      "label_at": "right"
-     },
-     "freewheeling.rtmidi.midiconstants.NOTE_ON": {
-      "id": "freewheeling.rtmidi.midiconstants.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.NOTE_ON",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -340.6430503917425,
-      "y": -261.1346793407318,
-      "label_at": "left"
-     },
-     "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH": {
-      "id": "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.POLY_AFTERTOUCH",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -210.9806216683196,
-      "y": -332.5111276753081,
-      "label_at": "right"
-     },
-     "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE": {
-      "id": "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.PROGRAM_CHANGE",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -259.3814370653268,
-      "y": -189.39602093007608,
-      "label_at": "below"
+      "x": 25.432642270723864,
+      "y": 33.2093082572584,
+      "label_at": "right",
+      "dot_scale": 1.646128035678238
      },
      "freewheeling.stopAllLoops": {
       "id": "freewheeling.stopAllLoops",
@@ -1217,16 +731,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 117
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -321.5575486966769,
-      "y": -330.37945054336484,
-      "label_at": "left"
+      "x": 5.013583984071595,
+      "y": 52.73682659200383,
+      "label_at": "left",
+      "dot_scale": 1.5681858617461617
      },
      "freewheeling.stopLoop": {
       "id": "freewheeling.stopLoop",
@@ -1238,16 +754,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 370
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -177.7862426393636,
-      "y": -267.215965985791,
-      "label_at": "right"
+      "x": 20.839278725204128,
+      "y": 59.92093998890869,
+      "label_at": "below",
+      "dot_scale": 2.068201724066995
      },
      "freewheeling.storeScene": {
       "id": "freewheeling.storeScene",
@@ -1259,16 +777,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 423
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -329.21269527503875,
-      "y": -215.7625250000549,
-      "label_at": "left"
+      "x": 20.41655475204299,
+      "y": 39.4989723356637,
+      "label_at": "right",
+      "dot_scale": 2.1263403673750423
      },
      "freewheeling.tapPulse": {
       "id": "freewheeling.tapPulse",
@@ -1280,37 +800,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 77
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -250.92732521206872,
-      "y": -358.4735491009107,
-      "label_at": "above"
-     },
-     "freewheeling.time.sleep": {
-      "id": "freewheeling.time.sleep",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "time.sleep",
-      "file": "freewheeling.py",
-      "line": 0,
-      "meta": {
-       "module": "freewheeling",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -211.60671936195624,
-      "y": -197.64279989315287,
-      "label_at": "right"
+      "x": 36.491416760042256,
+      "y": 39.99420321443688,
+      "label_at": "right",
+      "dot_scale": 1.3864907251724818
      },
      "freewheeling.toggleCut": {
       "id": "freewheeling.toggleCut",
@@ -1322,16 +823,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 129
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -351.5148447101753,
-      "y": -291.21607123808076,
-      "label_at": "left"
+      "x": 15.713353867771204,
+      "y": 33.05984605803559,
+      "label_at": "above",
+      "dot_scale": 1.610589710299249
      },
      "freewheeling.toggleMute": {
       "id": "freewheeling.toggleMute",
@@ -1343,16 +846,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 209
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -182.4676880571416,
-      "y": -317.11774836451457,
-      "label_at": "right"
+      "x": 12.023864801572289,
+      "y": 39.430006207630015,
+      "label_at": "left",
+      "dot_scale": 1.820146286111054
      },
      "freewheeling.toggleOverdub": {
       "id": "freewheeling.toggleOverdub",
@@ -1364,16 +869,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 145
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -291.301915069727,
-      "y": -181.76434621533795,
-      "label_at": "below"
+      "x": 34.275755507909935,
+      "y": 53.912546485942656,
+      "label_at": "right",
+      "dot_scale": 1.6613680022349748
      },
      "freewheeling.toggleShift": {
       "id": "freewheeling.toggleShift",
@@ -1385,37 +892,18 @@
       "line": 0,
       "meta": {
        "module": "freewheeling",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 137
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -302.6342469400665,
-      "y": -357.70354692576234,
-      "label_at": "left"
-     },
-     "holospecs.API_UNIX_JACK": {
-      "id": "holospecs.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "API_UNIX_JACK",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -459.5975108555959,
-      "y": 50.200731168182465,
-      "label_at": "below"
+      "x": 13.34867634044036,
+      "y": 62.46190776356354,
+      "label_at": "below",
+      "dot_scale": 1.6367205671564067
      },
      "holospecs.Holophonor": {
       "id": "holospecs.Holophonor",
@@ -1427,37 +915,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 2534
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -495.3949424825665,
-      "y": -6.227176639635815,
-      "label_at": "left"
-     },
-     "holospecs.HookspecMarker": {
-      "id": "holospecs.HookspecMarker",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "HookspecMarker",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -424.6186513207074,
-      "y": 13.15164197887149,
-      "label_at": "right"
+      "x": -16.68068912701719,
+      "y": 19.87352678791729,
+      "label_at": "right",
+      "dot_scale": 2.9038066105474227
      },
      "holospecs.__init__": {
       "id": "holospecs.__init__",
@@ -1469,16 +938,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 544
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -495.33416336930765,
-      "y": 49.24729390610706,
-      "label_at": "left"
+      "x": -26.74066333529775,
+      "y": 23.743886712290287,
+      "label_at": "below",
+      "dot_scale": 2.23559889969818
      },
      "holospecs.clearLoop": {
       "id": "holospecs.clearLoop",
@@ -1490,16 +961,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 95
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -465.4760546154544,
-      "y": -30.31728728533805,
-      "label_at": "above"
+      "x": -20.495202793978137,
+      "y": 11.432331727655644,
+      "label_at": "right",
+      "dot_scale": 1.4777236052888476
      },
      "holospecs.clearNote": {
       "id": "holospecs.clearNote",
@@ -1511,16 +984,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 70
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -431.90731571804804,
-      "y": 53.42884608218576,
-      "label_at": "right"
+      "x": -9.451369146352643,
+      "y": 14.51652157636985,
+      "label_at": "right",
+      "dot_scale": 1.345098040014257
      },
      "holospecs.clearPulse": {
       "id": "holospecs.clearPulse",
@@ -1532,16 +1007,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 56
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -517.6472111380949,
-      "y": 12.11238870072961,
-      "label_at": "left"
+      "x": -17.660843066827226,
+      "y": 33.252191317583865,
+      "label_at": "right",
+      "dot_scale": 1.2481880270062002
      },
      "holospecs.clearScene": {
       "id": "holospecs.clearScene",
@@ -1553,16 +1030,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 72
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -421.98403924890533,
-      "y": -16.60935623700307,
-      "label_at": "right"
+      "x": -26.465141427837196,
+      "y": 9.873448373777258,
+      "label_at": "above",
+      "dot_scale": 1.3573324964312685
      },
      "holospecs.close": {
       "id": "holospecs.close",
@@ -1574,16 +1053,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 51
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -475.49018306290935,
-      "y": 73.00871618351995,
-      "label_at": "below"
+      "x": -30.746885642004223,
+      "y": 29.94938218960025,
+      "label_at": "left",
+      "dot_scale": 1.2075701760979363
      },
      "holospecs.deletePulse": {
       "id": "holospecs.deletePulse",
@@ -1595,16 +1076,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 49
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -497.3749890585141,
-      "y": -33.4489193754776,
-      "label_at": "left"
+      "x": -28.49873574321086,
+      "y": 4.66104406243338,
+      "label_at": "above",
+      "dot_scale": 1.1901960800285138
      },
      "holospecs.eraseLoop": {
       "id": "holospecs.eraseLoop",
@@ -1616,16 +1099,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 69
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -406.0059949014783,
-      "y": 32.74549438137761,
-      "label_at": "right"
+      "x": -14.44623287303653,
+      "y": 28.57657374000191,
+      "label_at": "right",
+      "dot_scale": 1.3388490907372552
      },
      "holospecs.eraseScene": {
       "id": "holospecs.eraseScene",
@@ -1637,37 +1122,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 61
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -522.06880163501,
-      "y": 46.0572303740548,
-      "label_at": "left"
-     },
-     "holospecs.open_midioutput": {
-      "id": "holospecs.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_midioutput",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -442.9088778585141,
-      "y": -45.042923620624464,
-      "label_at": "above"
+      "x": -25.397507611594584,
+      "y": 31.165176815156364,
+      "label_at": "below",
+      "dot_scale": 1.2853298350107671
      },
      "holospecs.overdubLoop": {
       "id": "holospecs.overdubLoop",
@@ -1679,16 +1145,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 73
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -439.68856602196513,
-      "y": 79.34715192723466,
-      "label_at": "right"
+      "x": -14.319409772381178,
+      "y": 11.15330922019142,
+      "label_at": "right",
+      "dot_scale": 1.363322860120456
      },
      "holospecs.playLoop": {
       "id": "holospecs.playLoop",
@@ -1700,16 +1168,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 77
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -528.581321333149,
-      "y": -12.843133468584995,
-      "label_at": "left"
+      "x": -20.382678849676665,
+      "y": 28.165237810396576,
+      "label_at": "right",
+      "dot_scale": 1.3864907251724818
      },
      "holospecs.playNote": {
       "id": "holospecs.playNote",
@@ -1721,37 +1191,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 64
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -397.23595008575836,
-      "y": -4.654337873273988,
-      "label_at": "right"
-     },
-     "holospecs.pluggy.HookspecMarker": {
-      "id": "holospecs.pluggy.HookspecMarker",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pluggy.HookspecMarker",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -502.31684855845174,
-      "y": 80.16514941208173,
-      "label_at": "left"
+      "x": -32.00432117653114,
+      "y": 11.682234533807605,
+      "label_at": "left",
+      "dot_scale": 1.306179973983887
      },
      "holospecs.recallScene": {
       "id": "holospecs.recallScene",
@@ -1763,16 +1214,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 63
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -481.5944218416507,
-      "y": -56.67266321743934,
-      "label_at": "above"
+      "x": -9.549748658763361,
+      "y": 25.51209989769286,
+      "label_at": "right",
+      "dot_scale": 1.2993405494535817
      },
      "holospecs.recordLoop": {
       "id": "holospecs.recordLoop",
@@ -1784,58 +1237,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 58
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -402.64038113985777,
-      "y": 60.96202531513265,
-      "label_at": "right"
-     },
-     "holospecs.rtmidi.API_UNIX_JACK": {
-      "id": "holospecs.rtmidi.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.API_UNIX_JACK",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -543.4251554046102,
-      "y": 26.772069837995588,
-      "label_at": "left"
-     },
-     "holospecs.rtmidi.midiutil.open_midioutput": {
-      "id": "holospecs.rtmidi.midiutil.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiutil.open_midioutput",
-      "file": "holospecs.py",
-      "line": 0,
-      "meta": {
-       "module": "holospecs",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -413.7627266811873,
-      "y": -44.60437849658078,
-      "label_at": "right"
+      "x": -9.063551849704437,
+      "y": 8.81263850577884,
+      "label_at": "right",
+      "dot_scale": 1.2634279935629373
      },
      "holospecs.setDrumBank": {
       "id": "holospecs.setDrumBank",
@@ -1847,16 +1260,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 65
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -462.1635420781945,
-      "y": 98.51072824865126,
-      "label_at": "below"
+      "x": -7.749589595667859,
+      "y": 20.07800226888526,
+      "label_at": "right",
+      "dot_scale": 1.3129133566428557
      },
      "holospecs.setDrumPatch": {
       "id": "holospecs.setDrumPatch",
@@ -1868,16 +1283,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 68
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -524.3396537095445,
-      "y": -42.472701364637516,
-      "label_at": "left"
+      "x": -17.41750833298881,
+      "y": 6.141973605413473,
+      "label_at": "right",
+      "dot_scale": 1.3325089127062362
      },
      "holospecs.stopAllLoops": {
       "id": "holospecs.stopAllLoops",
@@ -1889,16 +1306,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 52
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -380.56834765223124,
-      "y": 20.690783192936323,
-      "label_at": "right"
+      "x": -9.406819707388081,
+      "y": 31.040940526886608,
+      "label_at": "right",
+      "dot_scale": 1.2160033436347992
      },
      "holospecs.stopLoop": {
       "id": "holospecs.stopLoop",
@@ -1910,16 +1329,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 55
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -531.9948002879064,
-      "y": 72.14422417867246,
-      "label_at": "left"
+      "x": -12.107918325454746,
+      "y": 4.222945131957688,
+      "label_at": "right",
+      "dot_scale": 1.2403626894942439
      },
      "holospecs.storeScene": {
       "id": "holospecs.storeScene",
@@ -1931,16 +1352,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 61
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -453.7094302249363,
-      "y": -70.5667999221834,
-      "label_at": "above"
+      "x": -23.073104123737515,
+      "y": 5.186864929244256,
+      "label_at": "above",
+      "dot_scale": 1.2853298350107671
      },
      "holospecs.tapPulse": {
       "id": "holospecs.tapPulse",
@@ -1952,16 +1375,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 43
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -414.3888243748238,
-      "y": 90.26394928557447,
-      "label_at": "right"
+      "x": -33.31918565173467,
+      "y": 6.466108949577406,
+      "label_at": "left",
+      "dot_scale": 1.1334684555795866
      },
      "holospecs.toggleCut": {
       "id": "holospecs.toggleCut",
@@ -1973,16 +1398,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 50
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -554.296949723043,
-      "y": -3.3093220593535055,
-      "label_at": "left"
+      "x": -4.1883266667526104,
+      "y": 24.3004902972569,
+      "label_at": "right",
+      "dot_scale": 1.1989700043360187
      },
      "holospecs.toggleFX": {
       "id": "holospecs.toggleFX",
@@ -1994,16 +1421,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 52
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -385.2497930700091,
-      "y": -29.210999185787372,
-      "label_at": "right"
+      "x": -22.448400123428655,
+      "y": 35.81083092011374,
+      "label_at": "below",
+      "dot_scale": 1.2160033436347992
      },
      "holospecs.toggleMute": {
       "id": "holospecs.toggleMute",
@@ -2015,16 +1444,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 72
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -494.0840200825946,
-      "y": 106.14240296338929,
-      "label_at": "below"
+      "x": -31.145755899312043,
+      "y": 17.445661060259745,
+      "label_at": "left",
+      "dot_scale": 1.3573324964312685
      },
      "holospecs.toggleOverdub": {
       "id": "holospecs.toggleOverdub",
@@ -2036,16 +1467,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 58
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -505.41635195293406,
-      "y": -69.79679774703496,
-      "label_at": "left"
+      "x": -34.11038436935134,
+      "y": 22.362574848224668,
+      "label_at": "left",
+      "dot_scale": 1.2634279935629373
      },
      "holospecs.toggleShift": {
       "id": "holospecs.toggleShift",
@@ -2057,16 +1490,18 @@
       "line": 0,
       "meta": {
        "module": "holospecs",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 54
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -376.36133878178157,
-      "y": 54.07982155695738,
-      "label_at": "right"
+      "x": -3.98075596954064,
+      "y": 15.948733495841939,
+      "label_at": "right",
+      "dot_scale": 1.2323937598229686
      },
      "launchpadMK2.LaunchpadMK2": {
       "id": "launchpadMK2.LaunchpadMK2",
@@ -2078,100 +1513,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadMK2",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 253
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 232.29548876813863,
-      "y": -140.28712162205957,
-      "label_at": "below"
-     },
-     "launchpadMK2.LaunchpadX": {
-      "id": "launchpadMK2.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "LaunchpadX",
-      "file": "launchpadMK2.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadMK2",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 196.49805714116806,
-      "y": -196.71502942987792,
-      "label_at": "left"
-     },
-     "launchpadMK2.holophonor.launchpadX.LaunchpadX": {
-      "id": "launchpadMK2.holophonor.launchpadX.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.launchpadX.LaunchpadX",
-      "file": "launchpadMK2.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadMK2",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 267.2743483030271,
-      "y": -177.33621081137062,
-      "label_at": "right"
-     },
-     "launchpadS.API_UNIX_JACK": {
-      "id": "launchpadS.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "API_UNIX_JACK",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 19.49902133475123,
-      "y": 0.7119057273836442,
-      "label_at": "below"
-     },
-     "launchpadS.CONTROL_CHANGE": {
-      "id": "launchpadS.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CONTROL_CHANGE",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -16.298410292219316,
-      "y": -55.71600208043465,
-      "label_at": "left"
+      "x": 62.69776375465154,
+      "y": 52.888181355921596,
+      "label_at": "right",
+      "dot_scale": 1.903120521175818
      },
      "launchpadS.LaunchpadS": {
       "id": "launchpadS.LaunchpadS",
@@ -2183,58 +1536,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 3499
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 54.47788086963978,
-      "y": -36.337183461927346,
-      "label_at": "right"
-     },
-     "launchpadS.LaunchpadX": {
-      "id": "launchpadS.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "LaunchpadX",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -16.2376311789606,
-      "y": -0.2415315346918239,
-      "label_at": "left"
-     },
-     "launchpadS.NOTE_ON": {
-      "id": "launchpadS.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NOTE_ON",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 13.620477574892679,
-      "y": -79.80611272613686,
-      "label_at": "above"
+      "x": 18.93911410651514,
+      "y": -25.46996964091621,
+      "label_at": "right",
+      "dot_scale": 3.0439439424829065
      },
      "launchpadS.__init__": {
       "id": "launchpadS.__init__",
@@ -2246,37 +1559,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 601
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 47.18921647229907,
-      "y": 3.9400206413868806,
-      "label_at": "right"
-     },
-     "launchpadS.chain": {
-      "id": "launchpadS.chain",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "chain",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -38.55067894774777,
-      "y": -37.3764367400692,
-      "label_at": "left"
+      "x": 15.120272966284102,
+      "y": -35.94096160295114,
+      "label_at": "right",
+      "dot_scale": 2.2788744720027396
      },
      "launchpadS.close": {
       "id": "launchpadS.close",
@@ -2288,121 +1582,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 106
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 57.112492941441815,
-      "y": -66.0981816778019,
-      "label_at": "right"
-     },
-     "launchpadS.holophonor.holoimpl": {
-      "id": "launchpadS.holophonor.holoimpl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holoimpl",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 3.6063491274376887,
-      "y": 23.51989074272108,
-      "label_at": "below"
-     },
-     "launchpadS.holophonor.holospecs.Holophonor": {
-      "id": "launchpadS.holophonor.holospecs.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holospecs.Holophonor",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -18.27845686816698,
-      "y": -82.93774481627642,
-      "label_at": "left"
-     },
-     "launchpadS.holophonor.launchpadX.LaunchpadX": {
-      "id": "launchpadS.holophonor.launchpadX.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.launchpadX.LaunchpadX",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 73.09053728886882,
-      "y": -16.743331059421266,
-      "label_at": "right"
-     },
-     "launchpadS.itertools.chain": {
-      "id": "launchpadS.itertools.chain",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "itertools.chain",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -42.972269444662835,
-      "y": -3.4315950667440367,
-      "label_at": "left"
-     },
-     "launchpadS.open_midiinput": {
-      "id": "launchpadS.open_midiinput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_midiinput",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 36.1876543318331,
-      "y": -94.5317490614233,
-      "label_at": "above"
+      "x": 7.042789393131027,
+      "y": -35.234016093178106,
+      "label_at": "left",
+      "dot_scale": 1.5253058652647702
      },
      "launchpadS.playLoop": {
       "id": "launchpadS.playLoop",
@@ -2414,16 +1605,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 293
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 39.40796616838198,
-      "y": 29.85832648643585,
-      "label_at": "right"
+      "x": 15.786124398014605,
+      "y": -15.431881720559648,
+      "label_at": "right",
+      "dot_scale": 1.9668676203541096
      },
      "launchpadS.recallScene": {
       "id": "launchpadS.recallScene",
@@ -2435,16 +1628,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1300
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -49.4847891428019,
-      "y": -62.33195890938388,
-      "label_at": "left"
+      "x": 7.96139007418713,
+      "y": -21.099374232759526,
+      "label_at": "below",
+      "dot_scale": 2.613943352306837
      },
      "launchpadS.recordLoop": {
       "id": "launchpadS.recordLoop",
@@ -2456,100 +1651,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 130
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 81.86058210458873,
-      "y": -54.14316331407281,
-      "label_at": "right"
-     },
-     "launchpadS.rtmidi.API_UNIX_JACK": {
-      "id": "launchpadS.rtmidi.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.API_UNIX_JACK",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -23.2203163681047,
-      "y": 30.67632397128291,
-      "label_at": "left"
-     },
-     "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE": {
-      "id": "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -2.4978896513036357,
-      "y": -106.16148865823818,
-      "label_at": "above"
-     },
-     "launchpadS.rtmidi.midiconstants.NOTE_ON": {
-      "id": "launchpadS.rtmidi.midiconstants.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.NOTE_ON",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 76.45615105048928,
-      "y": 11.473199874333824,
-      "label_at": "right"
-     },
-     "launchpadS.rtmidi.midiutil.open_midiinput": {
-      "id": "launchpadS.rtmidi.midiutil.open_midiinput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiutil.open_midiinput",
-      "file": "launchpadS.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadS",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -64.32862321426305,
-      "y": -22.716755602803246,
-      "label_at": "left"
+      "x": 23.240399193694973,
+      "y": -34.29314239181703,
+      "label_at": "right",
+      "dot_scale": 1.6139433523068367
      },
      "launchpadS.setLayout": {
       "id": "launchpadS.setLayout",
@@ -2561,79 +1674,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadS",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 88
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 65.33380550915986,
-      "y": -94.0932039373796,
-      "label_at": "right"
-     },
-     "launchpadX.API_UNIX_JACK": {
-      "id": "launchpadX.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "API_UNIX_JACK",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -167.6968319155534,
-      "y": 267.71053009289864,
-      "label_at": "below"
-     },
-     "launchpadX.CONTROL_CHANGE": {
-      "id": "launchpadX.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CONTROL_CHANGE",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -203.49426354252392,
-      "y": 211.28262228508038,
-      "label_at": "left"
-     },
-     "launchpadX.Holophonor": {
-      "id": "launchpadX.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Holophonor",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -132.71797238066478,
-      "y": 230.66144090358765,
-      "label_at": "right"
+      "x": 3.9129010792183774,
+      "y": -28.70594219015598,
+      "label_at": "left",
+      "dot_scale": 1.4444826721501687
      },
      "launchpadX.LaunchpadX": {
       "id": "launchpadX.LaunchpadX",
@@ -2645,58 +1697,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 18717
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -203.4334844292652,
-      "y": 266.7570928308232,
-      "label_at": "left"
-     },
-     "launchpadX.NOTE_OFF": {
-      "id": "launchpadX.NOTE_OFF",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NOTE_OFF",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -173.57537567541192,
-      "y": 187.1925116393781,
-      "label_at": "above"
-     },
-     "launchpadX.NOTE_ON": {
-      "id": "launchpadX.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "NOTE_ON",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -140.00663677800554,
-      "y": 270.9386450069019,
-      "label_at": "right"
+      "x": 67.66943784202489,
+      "y": 4.6853427389626106,
+      "label_at": "right",
+      "dot_scale": 3.7722362403500256
      },
      "launchpadX.__call__": {
       "id": "launchpadX.__call__",
@@ -2708,16 +1720,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 7982
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -225.7465321980524,
-      "y": 229.6221876254458,
-      "label_at": "left"
+      "x": 53.6223171751677,
+      "y": 9.498052133987573,
+      "label_at": "left",
+      "dot_scale": 3.4021117234480043
      },
      "launchpadX.__init__": {
       "id": "launchpadX.__init__",
@@ -2729,16 +1743,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 676
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -130.08336030886275,
-      "y": 200.9004426877131,
-      "label_at": "right"
+      "x": 51.86586522963864,
+      "y": -5.7281037702965705,
+      "label_at": "left",
+      "dot_scale": 2.329946695941636
      },
      "launchpadX.clear": {
       "id": "launchpadX.clear",
@@ -2750,16 +1766,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1544
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -183.58950412286688,
-      "y": 290.51851510823604,
-      "label_at": "below"
+      "x": 62.23758321559666,
+      "y": -7.588156626383469,
+      "label_at": "right",
+      "dot_scale": 2.688647295999717
      },
      "launchpadX.clearLoop": {
       "id": "launchpadX.clearLoop",
@@ -2771,16 +1789,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 133
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -205.47431011847158,
-      "y": 184.06087954923856,
-      "label_at": "left"
+      "x": 77.72863368190609,
+      "y": 23.74124374089869,
+      "label_at": "right",
+      "dot_scale": 1.6238516409670858
      },
      "launchpadX.clearPulse": {
       "id": "launchpadX.clearPulse",
@@ -2792,16 +1812,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 136
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -114.10531596143578,
-      "y": 250.25529330609376,
-      "label_at": "right"
+      "x": 47.427845030462834,
+      "y": -12.891749522473347,
+      "label_at": "left",
+      "dot_scale": 1.6335389083702174
      },
      "launchpadX.clearScene": {
       "id": "launchpadX.clearScene",
@@ -2813,16 +1835,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 146
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -230.16812269496745,
-      "y": 263.5670292987709,
-      "label_at": "left"
+      "x": 87.37091279686257,
+      "y": -2.6402293471073364,
+      "label_at": "right",
+      "dot_scale": 1.6643528557844371
      },
      "launchpadX.close": {
       "id": "launchpadX.close",
@@ -2834,16 +1858,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 175
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -151.00819891847152,
-      "y": 172.4668753040917,
-      "label_at": "above"
+      "x": 46.98295203965761,
+      "y": 18.003896880537805,
+      "label_at": "left",
+      "dot_scale": 1.7430380486862944
      },
      "launchpadX.deletePulse": {
       "id": "launchpadX.deletePulse",
@@ -2855,16 +1881,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 330
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -147.78788708192263,
-      "y": 296.85695085195084,
-      "label_at": "right"
+      "x": 54.50112173942245,
+      "y": 20.805204038517996,
+      "label_at": "below",
+      "dot_scale": 2.0185139398778875
      },
      "launchpadX.eraseLoop": {
       "id": "launchpadX.eraseLoop",
@@ -2876,16 +1904,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 164
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -236.6806423931065,
-      "y": 204.6666654561311,
-      "label_at": "left"
+      "x": 84.36507134965939,
+      "y": -15.351255135570153,
+      "label_at": "right",
+      "dot_scale": 1.7148438480476977
      },
      "launchpadX.eraseScene": {
       "id": "launchpadX.eraseScene",
@@ -2897,79 +1927,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 257
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -105.33527114571588,
-      "y": 212.8554610514422,
-      "label_at": "right"
-     },
-     "launchpadX.holophonor.constants.*": {
-      "id": "launchpadX.holophonor.constants.*",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.constants.*",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -210.4161696184093,
-      "y": 297.6749483367979,
-      "label_at": "left"
-     },
-     "launchpadX.holophonor.holoimpl": {
-      "id": "launchpadX.holophonor.holoimpl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holoimpl",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -189.69374290160826,
-      "y": 160.8371357072768,
-      "label_at": "above"
-     },
-     "launchpadX.holophonor.holospecs.Holophonor": {
-      "id": "launchpadX.holophonor.holospecs.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holospecs.Holophonor",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -110.73970219981535,
-      "y": 278.47182423984884,
-      "label_at": "right"
+      "x": 81.91395633364118,
+      "y": -7.999546389301305,
+      "label_at": "right",
+      "dot_scale": 1.9099331233312946
      },
      "launchpadX.lightButton": {
       "id": "launchpadX.lightButton",
@@ -2981,16 +1950,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 65
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -251.52447646456767,
-      "y": 244.2818687627117,
-      "label_at": "left"
+      "x": 85.84597438119175,
+      "y": 11.806384070544983,
+      "label_at": "right",
+      "dot_scale": 1.3129133566428557
      },
      "launchpadX.lightDrums": {
       "id": "launchpadX.lightDrums",
@@ -3002,58 +1973,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 460
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -121.86204774114475,
-      "y": 172.90542042813536,
-      "label_at": "right"
-     },
-     "launchpadX.loguru.logger": {
-      "id": "launchpadX.loguru.logger",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "loguru.logger",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -170.26286313815189,
-      "y": 316.02052717336744,
-      "label_at": "below"
-     },
-     "launchpadX.open_midiinput": {
-      "id": "launchpadX.open_midiinput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_midiinput",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -232.438974769502,
-      "y": 175.03709756007862,
-      "label_at": "left"
+      "x": 45.431923444223564,
+      "y": 1.2416435742806087,
+      "label_at": "left",
+      "dot_scale": 2.1627578316815743
      },
      "launchpadX.overdubLoop": {
       "id": "launchpadX.overdubLoop",
@@ -3065,16 +1996,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 220
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -88.66766871218871,
-      "y": 238.2005821176525,
-      "label_at": "right"
+      "x": 61.351786058795746,
+      "y": -19.41607065178992,
+      "label_at": "above",
+      "dot_scale": 1.8424226808222062
      },
      "launchpadX.playLoop": {
       "id": "launchpadX.playLoop",
@@ -3086,16 +2019,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 454
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -240.09412134786382,
-      "y": 289.6540231033886,
-      "label_at": "left"
+      "x": 79.1817363314683,
+      "y": 0.19072522657658553,
+      "label_at": "right",
+      "dot_scale": 2.1570558528571038
      },
      "launchpadX.recallScene": {
       "id": "launchpadX.recallScene",
@@ -3107,16 +2042,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1125
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -161.80875128489384,
-      "y": 146.94299900253276,
-      "label_at": "above"
+      "x": 63.409339078905866,
+      "y": 17.122758782335794,
+      "label_at": "below",
+      "dot_scale": 2.5511525224473814
      },
      "launchpadX.recordLoop": {
       "id": "launchpadX.recordLoop",
@@ -3128,121 +2065,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 175
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -122.48814543478134,
-      "y": 307.77374821029065,
-      "label_at": "right"
-     },
-     "launchpadX.rtmidi.API_UNIX_JACK": {
-      "id": "launchpadX.rtmidi.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.API_UNIX_JACK",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -262.39627078300043,
-      "y": 214.20047686536265,
-      "label_at": "left"
-     },
-     "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE": {
-      "id": "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -93.34911412996674,
-      "y": 188.29879973892884,
-      "label_at": "right"
-     },
-     "launchpadX.rtmidi.midiconstants.NOTE_OFF": {
-      "id": "launchpadX.rtmidi.midiconstants.NOTE_OFF",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.NOTE_OFF",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -202.1833411425521,
-      "y": 323.6522018881054,
-      "label_at": "below"
-     },
-     "launchpadX.rtmidi.midiconstants.NOTE_ON": {
-      "id": "launchpadX.rtmidi.midiconstants.NOTE_ON",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.NOTE_ON",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -213.51567301289157,
-      "y": 147.71300117768115,
-      "label_at": "left"
-     },
-     "launchpadX.rtmidi.midiutil.open_midiinput": {
-      "id": "launchpadX.rtmidi.midiutil.open_midiinput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiutil.open_midiinput",
-      "file": "launchpadX.py",
-      "line": 0,
-      "meta": {
-       "module": "launchpadX",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -84.46065984173907,
-      "y": 271.58962048167353,
-      "label_at": "right"
+      "x": 60.765418840880336,
+      "y": 25.818065422246754,
+      "label_at": "below",
+      "dot_scale": 1.7430380486862944
      },
      "launchpadX.setDrumBank": {
       "id": "launchpadX.setDrumBank",
@@ -3254,16 +2088,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 135
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -265.8448265610986,
-      "y": 267.34884889842397,
-      "label_at": "left"
+      "x": 66.50136815926291,
+      "y": 30.246855180083738,
+      "label_at": "below",
+      "dot_scale": 1.630333768495006
      },
      "launchpadX.setDrumPatch": {
       "id": "launchpadX.setDrumPatch",
@@ -3275,16 +2111,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 372
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -127.3333762157682,
-      "y": 146.31016525427972,
-      "label_at": "right"
+      "x": 79.08379173290325,
+      "y": 9.145387177234632,
+      "label_at": "right",
+      "dot_scale": 2.0705429398818973
      },
      "launchpadX.stopAllLoops": {
       "id": "launchpadX.stopAllLoops",
@@ -3296,16 +2134,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 399
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -147.99425161882002,
-      "y": 331.5842752493745,
-      "label_at": "below"
+      "x": 73.10384867189762,
+      "y": 15.659947033730528,
+      "label_at": "right",
+      "dot_scale": 2.1009728956867484
      },
      "launchpadX.stopLoop": {
       "id": "launchpadX.stopLoop",
@@ -3317,16 +2157,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 163
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -259.3419435210765,
-      "y": 179.03054663689664,
-      "label_at": "left"
+      "x": 43.34132240663848,
+      "y": -6.738963339004854,
+      "label_at": "left",
+      "dot_scale": 1.712187604403958
      },
      "launchpadX.storeScene": {
       "id": "launchpadX.storeScene",
@@ -3338,16 +2180,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 770
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -71.82516159810424,
-      "y": 216.79275583012418,
-      "label_at": "right"
+      "x": 72.87313233607736,
+      "y": -7.0282685268695175,
+      "label_at": "right",
+      "dot_scale": 2.386490725172482
      },
      "launchpadX.tapPulse": {
       "id": "launchpadX.tapPulse",
@@ -3359,16 +2203,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 347
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -237.64908070933456,
-      "y": 316.8354147328119,
-      "label_at": "left"
+      "x": 68.5252379085584,
+      "y": -15.309959343260255,
+      "label_at": "right",
+      "dot_scale": 2.040329474790874
      },
      "launchpadX.toggleCut": {
       "id": "launchpadX.toggleCut",
@@ -3380,16 +2226,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 216
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -182.27783775063284,
-      "y": 128.79896193626672,
-      "label_at": "above"
+      "x": 76.77147609252113,
+      "y": -15.075646609081339,
+      "label_at": "right",
+      "dot_scale": 1.834453751150931
      },
      "launchpadX.toggleFX": {
       "id": "launchpadX.toggleFX",
@@ -3401,16 +2249,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 251
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -95.0766845547369,
-      "y": 306.94838253352617,
-      "label_at": "right"
+      "x": 70.18221679886,
+      "y": 23.643433355796258,
+      "label_at": "right",
+      "dot_scale": 1.8996737214810382
      },
      "launchpadX.toggleLive": {
       "id": "launchpadX.toggleLive",
@@ -3422,16 +2272,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 194
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -281.85130050584144,
-      "y": 233.64030774660475,
-      "label_at": "left"
+      "x": 42.74651874568943,
+      "y": 9.20200814681647,
+      "label_at": "left",
+      "dot_scale": 1.787801729930226
      },
      "launchpadX.toggleMute": {
       "id": "launchpadX.toggleMute",
@@ -3443,16 +2295,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 302
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -92.48526074276627,
-      "y": 160.7231860355797,
-      "label_at": "right"
+      "x": 55.02885142984895,
+      "y": -14.281946594016459,
+      "label_at": "above",
+      "dot_scale": 1.9800069429571505
      },
      "launchpadX.toggleOverdub": {
       "id": "launchpadX.toggleOverdub",
@@ -3464,16 +2318,18 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 248
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -183.87318756166383,
-      "y": 344.41374667921184,
-      "label_at": "below"
+      "x": 86.37361923983232,
+      "y": 4.9118149823129755,
+      "label_at": "right",
+      "dot_scale": 1.8944516808262162
      },
      "launchpadX.toggleShift": {
       "id": "launchpadX.toggleShift",
@@ -3485,331 +2341,64 @@
       "line": 0,
       "meta": {
        "module": "launchpadX",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 238
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -241.1733434178543,
-      "y": 145.0943097156707,
-      "label_at": "left"
+      "x": 81.41580040671602,
+      "y": 17.20919504091585,
+      "label_at": "right",
+      "dot_scale": 1.876576957056512
      },
-     "main.Fweelin": {
-      "id": "main.Fweelin",
+     "main.get_plugin_manager": {
+      "id": "main.get_plugin_manager",
       "depth": 2,
       "language": "python",
-      "kind": "import",
-      "label": "Fweelin",
+      "kind": "function",
+      "label": "get_plugin_manager",
       "file": "main.py",
       "line": 0,
       "meta": {
        "module": "main",
-       "ast_type": "Import"
+       "ast_type": "Function",
+       "chars": 497
       },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 35.344579338993206,
-      "y": -278.83467316146977,
-      "label_at": "below"
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -13.553430101311392,
+      "y": 57.00334002302326,
+      "label_at": "right",
+      "dot_scale": 2.1963563887333324
      },
-     "main.Holophonor": {
-      "id": "main.Holophonor",
+     "main.main": {
+      "id": "main.main",
       "depth": 2,
       "language": "python",
-      "kind": "import",
-      "label": "Holophonor",
+      "kind": "function",
+      "label": "main",
       "file": "main.py",
       "line": 0,
       "meta": {
        "module": "main",
-       "ast_type": "Import"
+       "ast_type": "Function",
+       "chars": 302
       },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -0.4528522879773292,
-      "y": -335.262580969288,
-      "label_at": "left"
-     },
-     "main.LaunchpadX": {
-      "id": "main.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "LaunchpadX",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 70.32343887388174,
-      "y": -315.8837623507807,
-      "label_at": "right"
-     },
-     "main.PluginManager": {
-      "id": "main.PluginManager",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PluginManager",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -0.39207317471861813,
-      "y": -279.78811042354516,
-      "label_at": "left"
-     },
-     "main.Qsynth": {
-      "id": "main.Qsynth",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Qsynth",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 29.466035579134616,
-      "y": -359.35269161499025,
-      "label_at": "above"
-     },
-     "main.holophonor.freewheeling.Fweelin": {
-      "id": "main.holophonor.freewheeling.Fweelin",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.freewheeling.Fweelin",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 63.03477447654108,
-      "y": -275.6065582474664,
-      "label_at": "right"
-     },
-     "main.holophonor.holospecs.Holophonor": {
-      "id": "main.holophonor.holospecs.Holophonor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holospecs.Holophonor",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -22.705120943505854,
-      "y": -316.9230156289226,
-      "label_at": "left"
-     },
-     "main.holophonor.launchpadMK2.LaunchpadMK2": {
-      "id": "main.holophonor.launchpadMK2.LaunchpadMK2",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.launchpadMK2.LaunchpadMK2",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 72.9580509456838,
-      "y": -345.64476056665535,
-      "label_at": "right"
-     },
-     "main.holophonor.launchpadX.LaunchpadX": {
-      "id": "main.holophonor.launchpadX.LaunchpadX",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.launchpadX.LaunchpadX",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 19.451907131679683,
-      "y": -256.0266881461322,
-      "label_at": "below"
-     },
-     "main.holophonor.qsynth.Qsynth": {
-      "id": "main.holophonor.qsynth.Qsynth",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.qsynth.Qsynth",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -2.4328988639250113,
-      "y": -362.4843237051299,
-      "label_at": "left"
-     },
-     "main.loguru.logger": {
-      "id": "main.loguru.logger",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "loguru.logger",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 88.93609529311081,
-      "y": -296.2899099482747,
-      "label_at": "right"
-     },
-     "main.pluggy.PluginManager": {
-      "id": "main.pluggy.PluginManager",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pluggy.PluginManager",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -27.126711440420863,
-      "y": -282.97817395559747,
-      "label_at": "left"
-     },
-     "main.sys.stderr": {
-      "id": "main.sys.stderr",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "sys.stderr",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 52.03321233607509,
-      "y": -374.07832795027673,
-      "label_at": "above"
-     },
-     "qsynth.API_UNIX_JACK": {
-      "id": "qsynth.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "API_UNIX_JACK",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -465.9546298901734,
-      "y": 342.4020446735519,
-      "label_at": "below"
-     },
-     "qsynth.PROGRAM_CHANGE": {
-      "id": "qsynth.PROGRAM_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PROGRAM_CHANGE",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -501.752061517144,
-      "y": 285.97413686573367,
-      "label_at": "left"
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.403795428880194,
+      "y": 61.095104141376346,
+      "label_at": "below",
+      "dot_scale": 1.9800069429571505
      },
      "qsynth.Qsynth": {
       "id": "qsynth.Qsynth",
@@ -3821,16 +2410,18 @@
       "line": 0,
       "meta": {
        "module": "qsynth",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 497
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -430.97577035528485,
-      "y": 305.3529554842409,
-      "label_at": "right"
+      "x": -19.677119211162037,
+      "y": -22.768975238892182,
+      "label_at": "right",
+      "dot_scale": 2.1963563887333324
      },
      "qsynth.__init__": {
       "id": "qsynth.__init__",
@@ -3842,58 +2433,18 @@
       "line": 0,
       "meta": {
        "module": "qsynth",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 207
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -501.69128240388517,
-      "y": 341.4486074114765,
-      "label_at": "left"
-     },
-     "qsynth.holophonor.holoimpl": {
-      "id": "qsynth.holophonor.holoimpl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "holophonor.holoimpl",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -471.8331736500319,
-      "y": 261.8840262200314,
-      "label_at": "above"
-     },
-     "qsynth.open_midioutput": {
-      "id": "qsynth.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_midioutput",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -438.2644347526254,
-      "y": 345.63015958755517,
-      "label_at": "right"
+      "x": -27.318063908256907,
+      "y": -18.98933492638766,
+      "label_at": "below",
+      "dot_scale": 1.8159703454569178
      },
      "qsynth.playNote": {
       "id": "qsynth.playNote",
@@ -3905,79 +2456,18 @@
       "line": 0,
       "meta": {
        "module": "qsynth",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 69
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -524.0043301726723,
-      "y": 304.31370220609904,
-      "label_at": "left"
-     },
-     "qsynth.rtmidi.API_UNIX_JACK": {
-      "id": "qsynth.rtmidi.API_UNIX_JACK",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.API_UNIX_JACK",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -428.34115828348274,
-      "y": 275.5919572683664,
-      "label_at": "right"
-     },
-     "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE": {
-      "id": "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiconstants.PROGRAM_CHANGE",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -481.8473020974868,
-      "y": 365.21002968888934,
-      "label_at": "below"
-     },
-     "qsynth.rtmidi.midiutil.open_midioutput": {
-      "id": "qsynth.rtmidi.midiutil.open_midioutput",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rtmidi.midiutil.open_midioutput",
-      "file": "qsynth.py",
-      "line": 0,
-      "meta": {
-       "module": "qsynth",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -503.73210809309165,
-      "y": 258.75239412989185,
-      "label_at": "left"
+      "x": -21.515637369401073,
+      "y": -15.425204200176312,
+      "label_at": "right",
+      "dot_scale": 1.3388490907372552
      },
      "qsynth.setDrumPatch": {
       "id": "qsynth.setDrumPatch",
@@ -3989,16 +2479,18 @@
       "line": 0,
       "meta": {
        "module": "qsynth",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 121
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -412.36311393605575,
-      "y": 324.946807886747,
-      "label_at": "right"
+      "x": -21.84578275039081,
+      "y": -30.529956601561132,
+      "label_at": "right",
+      "dot_scale": 1.58278537031645
      },
      "toml::pyproject.toml::section::build-system::17": {
       "id": "toml::pyproject.toml::section::build-system::17",
@@ -4009,9 +2501,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 17,
       "meta": {},
-      "x": 731.459607050442,
-      "y": 266.2430746757025,
-      "label_at": "below"
+      "x": -82.50296251329763,
+      "y": -43.71717795828252,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project.scripts::14": {
       "id": "toml::pyproject.toml::section::project.scripts::14",
@@ -4022,9 +2515,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 14,
       "meta": {},
-      "x": 766.4384665853305,
-      "y": 229.19398548639145,
-      "label_at": "right"
+      "x": -82.43602863124701,
+      "y": -48.21668013690558,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project::1": {
       "id": "toml::pyproject.toml::section::project::1",
@@ -4035,9 +2529,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 1,
       "meta": {},
-      "x": 695.6621754234714,
-      "y": 209.81516686788422,
-      "label_at": "left"
+      "x": -85.9067568839832,
+      "y": -40.77367937970477,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pdm::11": {
       "id": "toml::pyproject.toml::section::tool.pdm::11",
@@ -4048,9 +2543,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 11,
       "meta": {},
-      "x": 695.7229545367301,
-      "y": 265.28963741362696,
-      "label_at": "left"
+      "x": -85.75076221672471,
+      "y": -51.26012247368577,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.ruff::21": {
       "id": "toml::pyproject.toml::section::tool.ruff::21",
@@ -4061,9 +2557,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 21,
       "meta": {},
-      "x": 725.5810632905834,
-      "y": 185.72505622218196,
-      "label_at": "above"
+      "x": -90.36883865218361,
+      "y": -41.35662559840205,
+      "label_at": "left",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -4196,43 +2693,30 @@
       }
      },
      {
-      "source": "file::quaternionmedia/holophonor/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project::1",
+      "source": "daw.Bitwig",
+      "target": "daw.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "daw.Bitwig",
+      "target": "daw.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.Bitwig",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/pyproject.toml",
-      "target": "toml::pyproject.toml::section::tool.pdm::11",
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.__init__",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project.scripts::14",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/pyproject.toml",
-      "target": "toml::pyproject.toml::section::build-system::17",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/pyproject.toml",
-      "target": "toml::pyproject.toml::section::tool.ruff::21",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
-      "target": "__init__._version.__version__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
-      "target": "__init__.pluggy.HookimplMarker",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
-      "target": "__init__.HookimplMarker",
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.toggleFX",
       "kind": "contains"
      },
      {
@@ -4384,21 +2868,6 @@
       "target": "holospecs.close",
       "kind": "contains",
       "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.pluggy.HookspecMarker",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.rtmidi.midiutil.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.rtmidi.API_UNIX_JACK",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
@@ -4531,21 +3000,6 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.HookspecMarker",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "target": "holospecs.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
       "source": "freewheeling.Fweelin",
       "target": "freewheeling.playLoop",
       "kind": "contains",
@@ -4636,54 +3090,52 @@
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.holophonor.holoimpl",
-      "kind": "contains"
+      "source": "freewheeling.playLoop",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.holophonor.holospecs.Holophonor",
-      "kind": "contains"
+      "source": "freewheeling.recordLoop",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.holophonor.constants.NUMBER_LOOPS",
-      "kind": "contains"
+      "source": "freewheeling.eraseLoop",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.holophonor.constants.NUMBER_SCENES",
-      "kind": "contains"
+      "source": "freewheeling.eraseLoop",
+      "target": "freewheeling.toggleShift",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.rtmidi.midiconstants.NOTE_ON",
-      "kind": "contains"
+      "source": "freewheeling.overdubLoop",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.rtmidi.midiconstants.NOTE_OFF",
-      "kind": "contains"
+      "source": "freewheeling.recallScene",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH",
-      "kind": "contains"
+      "source": "freewheeling.recallScene",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.time.sleep",
-      "kind": "contains"
+      "source": "freewheeling.stopAllLoops",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
@@ -4766,248 +3218,33 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.Holophonor",
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.NUMBER_LOOPS",
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm::11",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.NUMBER_SCENES",
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.scripts::14",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.NOTE_ON",
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::17",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
-      "target": "freewheeling.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "daw.Bitwig",
-      "target": "daw.__init__",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "daw.Bitwig",
-      "target": "daw.toggleFX",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.holophonor.holospecs.Holophonor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.holophonor.holoimpl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.rtmidi.midiutil.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.rtmidi.midiconstants.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.rtmidi.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.Bitwig",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.__init__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.toggleFX",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
-      "target": "daw.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
-      "target": "launchpadMK2.holophonor.launchpadX.LaunchpadX",
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.ruff::21",
       "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
       "target": "launchpadMK2.LaunchpadMK2",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
-      "target": "launchpadMK2.LaunchpadX",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.holophonor.holospecs.Holophonor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.holophonor.freewheeling.Fweelin",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.holophonor.qsynth.Qsynth",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.holophonor.launchpadX.LaunchpadX",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.holophonor.launchpadMK2.LaunchpadMK2",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.pluggy.PluginManager",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.loguru.logger",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.sys.stderr",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.Holophonor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.Fweelin",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.Qsynth",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.LaunchpadX",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
-      "target": "main.PluginManager",
-      "kind": "contains"
-     },
-     {
-      "source": "qsynth.Qsynth",
-      "target": "qsynth.__init__",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "qsynth.Qsynth",
-      "target": "qsynth.playNote",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "qsynth.Qsynth",
-      "target": "qsynth.setDrumPatch",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.holophonor.holoimpl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.rtmidi.midiutil.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.rtmidi.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.Qsynth",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.__init__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.playNote",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.setDrumPatch",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.open_midioutput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.PROGRAM_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
-      "target": "qsynth.API_UNIX_JACK",
       "kind": "contains"
      },
      {
@@ -5181,155 +3418,182 @@
      {
       "source": "launchpadX.__init__",
       "target": "launchpadX.__init__",
-      "kind": "contains",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.clear",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.toggleLive",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.lightDrums",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.recallScene",
+      "target": "launchpadX.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.recallScene",
+      "target": "launchpadX.stopLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.deletePulse",
+      "target": "launchpadX.clear",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.setDrumBank",
+      "target": "launchpadX.lightDrums",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.recordLoop",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.playLoop",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.overdubLoop",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.stopLoop",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.eraseLoop",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.clearLoop",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.toggleFX",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.setDrumPatch",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.toggleMute",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.eraseScene",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.storeScene",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.recallScene",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.clearScene",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.deletePulse",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.clearPulse",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.stopAllLoops",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "launchpadX.__call__",
       "target": "launchpadX.tapPulse",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.holophonor.holoimpl",
-      "kind": "contains"
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleShift",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.holophonor.holospecs.Holophonor",
-      "kind": "contains"
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.lightButton",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.holophonor.constants.*",
-      "kind": "contains"
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleCut",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.rtmidi.midiutil.open_midiinput",
-      "kind": "contains"
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.setDrumBank",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.rtmidi.midiconstants.NOTE_ON",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.rtmidi.midiconstants.NOTE_OFF",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.rtmidi.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.loguru.logger",
-      "kind": "contains"
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
@@ -5477,36 +3741,6 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.Holophonor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.open_midiinput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.NOTE_ON",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.NOTE_OFF",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "launchpadX.API_UNIX_JACK",
-      "kind": "contains"
-     },
-     {
       "source": "launchpadS.LaunchpadS",
       "target": "launchpadS.__init__",
       "kind": "contains",
@@ -5543,44 +3777,16 @@
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.holophonor.holoimpl",
-      "kind": "contains"
+      "source": "launchpadS.__init__",
+      "target": "launchpadS.setLayout",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.holophonor.holospecs.Holophonor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.holophonor.launchpadX.LaunchpadX",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.itertools.chain",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.rtmidi.midiutil.open_midiinput",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.rtmidi.midiconstants.NOTE_ON",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.rtmidi.API_UNIX_JACK",
-      "kind": "contains"
+      "source": "launchpadS.recallScene",
+      "target": "launchpadS.playLoop",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
@@ -5618,34 +3824,69 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.LaunchpadX",
+      "source": "main.main",
+      "target": "main.main",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "main.main",
+      "target": "main.get_plugin_manager",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.main",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.chain",
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.get_plugin_manager",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.open_midiinput",
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.playNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.Qsynth",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.NOTE_ON",
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.__init__",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.CONTROL_CHANGE",
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.playNote",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "launchpadS.API_UNIX_JACK",
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.setDrumPatch",
       "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
      },
      {
       "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
@@ -5658,12 +3899,27 @@
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
       "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
       "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
       "kind": "depends_on"
      },
@@ -5690,26 +3946,6 @@
      {
       "source": "file::quaternionmedia/holophonor/holophonor/main.py",
       "target": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
-      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
-      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
       "kind": "depends_on"
      }
     ]

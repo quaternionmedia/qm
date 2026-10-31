@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. joe's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and joe's default branch at `474307f`, on 2026-10-27. [The show document](../show/project/joe/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and joe's default branch at `474307f`, on 2026-10-29. [The show document](../show/project/joe/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

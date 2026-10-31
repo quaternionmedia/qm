@@ -281,6 +281,40 @@ def test_a_terminal_front_end_is_never_detached():
     assert "run it" in detail or "yourself" in detail
 
 
+def test_a_stack_its_owner_starts_is_never_started_here():
+    """alfred's editor is a container stack that one session starts for every
+    other (`handbook/running-several-repositories.md`). A second start would
+    collide with it, so this names who starts it rather than starting one.
+
+    Mutation: drop `owner_starts` from the editor and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    editor = dashboard.BY_NAME["editor"]
+    assert editor.owner_starts is True
+    ok, detail = dashboard.start(editor, CORPUS)
+    assert ok is False
+    assert "owns it" in detail and "./al family up" in detail
+
+
+def test_a_surface_started_with_a_port_is_started_on_its_own():
+    """A command that names a port other than its surface's would start the
+    server where nobody looks for it.
+
+    Mutation: start the speech engine with `--port 8000` and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    for surface in dashboard.SURFACES:
+        command = list(surface.command)
+        if "--port" in command:
+            named = command[command.index("--port") + 1]
+            assert named == str(surface.port), (
+                f"{surface.name} starts on {named}, not its {surface.port}")
+
+
 def test_each_surface_sits_on_its_own_constant():
     """The table exists so that no two servers on one workstation collide, and
     its ports are a memory aid: each is its constant's first four digits, read
@@ -296,7 +330,8 @@ def test_each_surface_sits_on_its_own_constant():
     from ci import dashboard
 
     constants = {"pi": math.pi, "e": math.e, "phi": (1 + math.sqrt(5)) / 2,
-                 "root two": math.sqrt(2), "tau": math.tau}
+                 "root two": math.sqrt(2), "tau": math.tau,
+                 "root three": math.sqrt(3), "twelfth root of two": 2 ** (1 / 12)}
     for surface in dashboard.SURFACES:
         assert surface.constant in constants, (
             f"{surface.name}: name its constant's value here, beside the others")

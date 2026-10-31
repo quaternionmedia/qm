@@ -124,9 +124,17 @@ the graphs codecarto draws
 
 </figure>
 
+<figure class="qm-shot" id="showgraph-code" markdown>
+
+[![Its code: each of its projects with its code in it](../show/family/irl/code.svg)](../show/family/irl/code.svg)
+
+<figcaption><strong>Its code.</strong> Each of its projects with its code in it.</figcaption>
+
+</figure>
+
 </div>
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/family/irl/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/family/irl/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:9258c221d7b11e1ae9f68336bb891d92285220cbcd34d7510e997c413000b9de"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "83746f7cbcaa491c1e55e5b576f4b6abed7999e7"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:waveofhormuz",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,9 +218,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 104.90838182311757,
-      "y": -93.75504757947958,
+      "x": -16.93510290831721,
+      "y": -11.235033669182656,
       "size": 130
      },
      "dir::quaternionmedia/waveofhormuz/.github": {
@@ -232,9 +233,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 332.1566531801593,
-      "y": 96.92889310188859,
+      "x": -46.355439490811534,
+      "y": 18.185302913311688,
       "size": 60
      },
      "dir::quaternionmedia/waveofhormuz/.github/workflows": {
@@ -246,9 +248,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": 382.7155864260119,
-      "y": 139.35287534120016,
+      "x": -38.14506996735445,
+      "y": 20.38526479668311,
       "size": 50
      },
      "dir::quaternionmedia/waveofhormuz/assets": {
@@ -260,9 +263,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -438.7951976316532,
-      "y": -72.5197972155907,
+      "x": 15.043454727801628,
+      "y": -2.6664049754725028,
       "size": 60
      },
      "dir::quaternionmedia/waveofhormuz/assets/css": {
@@ -274,9 +278,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -343.0396422417808,
-      "y": 7.828653995226715,
+      "x": 33.87900834043845,
+      "y": 2.380566404026651,
       "size": 60
      },
      "dir::quaternionmedia/waveofhormuz/res": {
@@ -288,9 +293,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "left",
-      "x": 37.04075334258387,
-      "y": -174.7256286841515,
+      "x": -29.263787068238038,
+      "y": -16.992131191799174,
       "size": 50
      },
      "dir::quaternionmedia/waveofhormuz/src": {
@@ -302,9 +308,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -79.00099918038197,
-      "y": -310.40280425471985,
+      "x": -46.31841204654934,
+      "y": -40.61834280741476,
       "size": 80
      },
      "file::quaternionmedia/waveofhormuz/CHANGELOG.md": {
@@ -316,9 +323,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/CHANGELOG.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 155.4673150689701,
-      "y": -51.33106534016799,
+      "x": -8.724733384860128,
+      "y": -9.03507178581123,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/CONTRIBUTING.md": {
@@ -330,9 +338,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/CONTRIBUTING.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": 27.151655401040216,
-      "y": -90.37067228672345,
+      "x": -25.82677619170792,
+      "y": -6.607852835085525,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/README.md": {
@@ -344,9 +353,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 167.21139419481045,
-      "y": -156.02429881484196,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -13.052202125192371,
+      "y": -21.894226603378403,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/assets/css/style.scss": {
@@ -358,9 +368,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/assets/css/style.scss",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -233.73757398415194,
-      "y": 99.54397915711701,
+      "x": 48.347602305232726,
+      "y": 5.228289425857912,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/build.sh": {
@@ -372,9 +383,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/build.sh",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 268.6841256652318,
-      "y": -288.9353786831084,
+      "x": -10.200171383661635,
+      "y": -42.21939812579896,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/index.md": {
@@ -386,9 +398,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/index.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 100.62619256107025,
-      "y": 3.4167094033186913,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -12.146051253815475,
+      "y": 0.34006689195780515,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/src/WaveOfHormuz.cpp": {
@@ -400,9 +413,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/src/WaveOfHormuz.cpp",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -37.63459925195713,
-      "y": -275.6922733316467,
+      "x": -39.073968349381325,
+      "y": -38.67719996914586,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/src/plugin.cpp": {
@@ -414,9 +428,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/src/plugin.cpp",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -138.98637936083514,
-      "y": -307.7919299554686,
+      "x": -53.88478444787162,
+      "y": -36.68084170462019,
       "size": 30
      },
      "file::quaternionmedia/waveofhormuz/src/plugin.hpp": {
@@ -428,9 +443,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/src/plugin.hpp",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -32.65203717954847,
-      "y": -356.7266503973416,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -43.084724540720465,
+      "y": -49.49533991311703,
       "size": 30
      },
      "css::style.scss::class::screenshots::60": {
@@ -442,9 +458,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/assets/css/style.scss",
       "line": 60,
       "meta": {},
-      "x": -207.6920629181067,
-      "y": 121.39875788645935,
-      "label_at": "right"
+      "x": 53.660194349822596,
+      "y": 6.651794173921777,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::style.scss::class::wrapper::18": {
       "id": "css::style.scss::class::wrapper::18",
@@ -455,9 +472,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/assets/css/style.scss",
       "line": 18,
       "meta": {},
-      "x": -271.38564647327894,
-      "y": 101.18261818186787,
-      "label_at": "left"
+      "x": 50.81924442804737,
+      "y": 10.141637084708067,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "shell::build.sh::function::err::22": {
       "id": "shell::build.sh::function::err::22",
@@ -468,9 +486,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/build.sh",
       "line": 22,
       "meta": {},
-      "x": 294.7296367312771,
-      "y": -267.08059995376607,
-      "label_at": "right"
+      "x": -4.88757933907176,
+      "y": -40.7958933777351,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "shell::build.sh::function::info::19": {
       "id": "shell::build.sh::function::info::19",
@@ -481,9 +500,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/build.sh",
       "line": 19,
       "meta": {},
-      "x": 231.0360531761048,
-      "y": -287.2967396583575,
-      "label_at": "left"
+      "x": -7.728529260846987,
+      "y": -37.306050466948804,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "shell::build.sh::function::ok::20": {
       "id": "shell::build.sh::function::ok::20",
@@ -494,9 +514,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/build.sh",
       "line": 20,
       "meta": {},
-      "x": 297.7103022235571,
-      "y": -317.94582635984943,
-      "label_at": "right"
+      "x": -5.602992686815373,
+      "y": -45.23866095458068,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "shell::build.sh::function::warn::21": {
       "id": "shell::build.sh::function::warn::21",
@@ -507,9 +528,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/waveofhormuz/main/build.sh",
       "line": 21,
       "meta": {},
-      "x": 266.7409149987987,
-      "y": -244.83989782275427,
-      "label_at": "below"
+      "x": -9.395856236580041,
+      "y": -47.66026911711783,
+      "label_at": "above",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -634,16 +656,6 @@
       }
      },
      {
-      "source": "file::quaternionmedia/waveofhormuz/assets/css/style.scss",
-      "target": "css::style.scss::class::wrapper::18",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/waveofhormuz/assets/css/style.scss",
-      "target": "css::style.scss::class::screenshots::60",
-      "kind": "contains"
-     },
-     {
       "source": "file::quaternionmedia/waveofhormuz/build.sh",
       "target": "shell::build.sh::function::info::19",
       "kind": "contains"
@@ -661,6 +673,16 @@
      {
       "source": "file::quaternionmedia/waveofhormuz/build.sh",
       "target": "shell::build.sh::function::err::22",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/waveofhormuz/assets/css/style.scss",
+      "target": "css::style.scss::class::wrapper::18",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/waveofhormuz/assets/css/style.scss",
+      "target": "css::style.scss::class::screenshots::60",
       "kind": "contains"
      }
     ]

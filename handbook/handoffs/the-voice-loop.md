@@ -72,7 +72,8 @@ onboarding.
 - **`joe`'s README and cookbook.** `joe` #33, the transcript lane, and #34
   merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
   pull requests that replace the closed #24 and #25 follow them.
-  `voice-set-landing.md` §3 says what done is for each.
+  `voice-set-landing.md` §3 says what done is for each; `joe`'s pull requests
+  opened after the set are [`joe-open-set.md`](joe-open-set.md)'s.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
@@ -129,12 +130,13 @@ other. `dossier dev doctor` is the preflight, landed as `dossier` #58;
 | harness | `qmcp` | 3141 | `DOSSIER_HARNESS_PORT` |
 | panel | `dossier` | 1618 | `DOSSIER_PORT` |
 | maps | `codecartographer` | 2718 | `CODECARTO_PORT` |
-| speech | `joe` | 8000 | `JOE_PORT` |
+| speech | `joe` | 1059 | `JOE_PORT` |
 
-The allocation is declared once in `dossier/src/dossier/threads.py`. Only
-the harness is required. 8000 is the one to move first when two loops run
-at once: it is the port anything grabs, and the one `dossier`'s `seam-port`
-diagnostic exists because of.
+Every port is the dashboard's allocation, owned by `ci/dashboard.py`;
+`dossier/src/dossier/threads.py` and `loop.py` carry the panel's copy. Only
+the harness is required. joe sat on 8000, the port anything grabs and the one
+`dossier`'s `seam-port` diagnostic exists because of, until it took the twelfth
+root of two, 1059, beside alfred's editor on root three, 1732.
 
 **Set `DOSSIER_DATABASE_URL` before running `dossier`'s suite.**
 `pytest_configure` shells `dossier dev purge` against whatever database the
