@@ -154,6 +154,7 @@ qm/
 | — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
 | — | [Work is delivered into a repository, never to a hosted page](records/DRAFT-work-is-delivered-into-a-repository.md) | Proposed | 2026-10-24 |
 | — | [A project page shows what a person picked and what a tool drew, and is never written by hand](records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md) | Proposed | 2026-10-28 |
+| — | [A shared allowance is drawn on politely](records/DRAFT-a-shared-allowance-is-drawn-on-politely.md) | Proposed | 2026-10-28 |
 
 No record is ratified, because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
