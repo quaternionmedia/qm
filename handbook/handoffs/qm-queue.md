@@ -18,7 +18,8 @@ two `joe` pull requests merged on 2026-10-26, and the steps after it;
 #35 to #58, which a person merges one at a time;
 [`the-voice-loop.md`](the-voice-loop.md) is the loop;
 [`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
-landed on its `main`, and how it keeps landing. This page is everything else open in `qm`.
+landed on its `main`, and how it keeps landing;
+[`the-triplet.md`](the-triplet.md) is the triplet's graph leg, from the pages on. This page is everything else open in `qm`.
 
 ## How this page is kept
 
@@ -106,7 +107,9 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
 it. The codecartographer propagation (#174) showed both. #222, a draft into
-`main`, is another session's and outside this page.
+`main`, is another session's and outside this page. On 2026-10-26
+`project/codecartographer` took `main` at `2c4cb11` again, at merge `4084965`, so
+each pull request into it is behind its base until brought level.
 
 ## 3. Blocked on a person
 
