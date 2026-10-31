@@ -107,8 +107,8 @@ With a registration, each registered repository is judged as well:
 |---|---|---|
 | `up` | a live run-file declares it, and its port answers | nothing |
 | `silent` | a live run-file declares it, and its port does not answer | it is starting, or hung; read its log |
-| `missing` | nothing declares it running, and this corpus starts a server for it | the command printed beside it, or `qm dashboard --start-registered` |
-| `unjudged` | nothing declares it running, and nothing in this corpus starts one | nothing to do here: `qm` itself serves nothing, and a repository started by hand reads as `up` once `qm instances run` declares it |
+| `missing` | nothing declares it running, and this corpus says how it starts | the command printed beside it, or `qm dashboard --start-registered`; for a stack its owner session starts, such as alfred's, ask that session first |
+| `unjudged` | nothing declares it running, and nothing in this corpus says how it starts | nothing to do here: `qm` itself serves nothing, and a repository started by hand reads as `up` once `qm instances run` declares it |
 
 `--check` fails on `missing` as it does on `stale`. A server running outside the
 registration is listed beneath it, and is not a problem: a session's server

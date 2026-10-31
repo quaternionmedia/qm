@@ -270,6 +270,15 @@ def test_a_process_start_time_is_its_own_and_stays_put():
     assert instances.created(0) is None
 
 
+def test_a_stack_its_owner_starts_is_one_this_corpus_says_how_to_start():
+    """A registered alfred that is down reads `missing`, with who starts it.
+    Mutation: leave owner-started surfaces out of `servers`, and it reads
+    `unjudged`."""
+    known = instances.servers()
+    assert "owns alfred" in known["alfred"] and "./al family up" in known["alfred"]
+    assert known["joe"] == "uv run qm dashboard --start speech"
+
+
 def test_a_process_that_exited_is_not_alive_before_its_parent_collects_it():
     import subprocess
     import time

@@ -44,10 +44,10 @@ repository as well as each server:
 
     up           a live run-file declares it, and its port answers
     silent       a live run-file declares it, and its port does not answer
-    missing      nothing declares it running, and this corpus starts a server for it
-    unjudged     nothing declares it running, and nothing in this corpus starts one
+    missing      nothing declares it running, and this corpus says how it starts
+    unjudged     nothing declares it running, and nothing in this corpus says how
 
-A repository this corpus starts no server for, `qm` itself among them, is
+A repository this corpus names no way to start, `qm` itself among them, is
 `unjudged` rather than `missing`, so registering a family does not fail
 `--check` on the members that serve nothing. A server running outside the
 registration is reported, and is not a problem.
@@ -261,9 +261,9 @@ def roster_names() -> set[str]:
 
 def servers() -> dict[str, str]:
     """repo -> the command that brings it up, for every repository this corpus
-    starts a server for: the dashboard's surfaces that detach, and the family
-    demo's members that serve. A repository absent here may well serve; nothing
-    in this corpus says how."""
+    says how to start: the dashboard's surfaces that detach, the stacks its
+    owner session starts, and the family demo's members that serve. A
+    repository absent here may well serve; nothing in this corpus says how."""
     known: dict[str, str] = {}
     try:
         block = yaml.safe_load(FAMILY_DEMO.read_text(encoding="utf-8"))
@@ -278,6 +278,10 @@ def servers() -> dict[str, str]:
         for surface in dashboard.SURFACES:
             if surface.detachable:
                 known[surface.repo] = f"uv run qm dashboard --start {surface.name}"
+            elif surface.owner_starts:
+                known[surface.repo] = (f"ask the session that owns {surface.repo}; "
+                                       f"if none has, cd {surface.repo} && "
+                                       f"{' '.join(surface.command)}")
     except Exception:                                # noqa: BLE001
         pass
     return known

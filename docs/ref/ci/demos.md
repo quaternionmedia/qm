@@ -145,7 +145,8 @@ speech engine it hears its captions with.
   cannot withdraw.
 - **`--start-registered` starts what this machine is registered to run**
   (`uv run qm instances register`), the harness first, skipping a surface whose
-  port already answers.
+  port already answers. For a stack its owner starts it prints what the report
+  does, and starts nothing.
 - **A busy port is "something is listening"**, not "the harness is up": any
   process may hold a port, and the ordinary cause of a surprise is a stale
   process from an earlier session.
@@ -186,6 +187,6 @@ uv run qm instances register              # what is registered; --clear register
   whose members `families.json` resolves when it is read, or a selection named
   repository by repository, or both. It is kept in `~/.qm/registered.json` and
   never committed. Each registered repository then reads as `up`, `silent`,
-  `missing` (nothing declares it, and this [corpus](../../ref/glossary.md#corpus){ .glossary-term } starts a server for it) or
-  `unjudged` (nothing in this corpus starts one, as for `qm` itself).
+  `missing` (nothing declares it, and this [corpus](../../ref/glossary.md#corpus){ .glossary-term } says how it starts) or
+  `unjudged` (nothing in this corpus says how, as for `qm` itself).
   `--check` fails on `missing`.

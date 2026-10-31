@@ -58,10 +58,12 @@ def machine(tmp_path, monkeypatch):
             instances.stop_tree(pid)
 
 
-def surface(port: int, *command: str, declares_itself: bool = False) -> dashboard.Surface:
+def surface(port: int, *command: str, declares_itself: bool = False,
+            health: str = "/health") -> dashboard.Surface:
     return dashboard.Surface(name="probe", repo="probe", role="a test's child", port=port,
                              constant="", command=(sys.executable, "-c", *command),
-                             detachable=True, declares_itself=declares_itself)
+                             detachable=True, declares_itself=declares_itself,
+                             health=health)
 
 
 def run_files(tmp_path: Path) -> list[Path]:
@@ -86,6 +88,18 @@ def test_a_server_whose_port_never_answers_is_reported_and_kept_stoppable(machin
     children.append(dashboard.running()["probe"]["pid"])
     assert ok is False
     assert "did not answer within 1s" in detail and "--stop probe" in detail
+    assert dashboard.stop("probe")[0] is True
+
+
+def test_a_started_server_is_declared_with_its_own_health_path(machine):
+    """`qm instances` asks only the declared path, and joe answers on
+    `/api/health`. Mutation: drop `health` from the declaration in `start`, and
+    the run-file names `/health`, where joe answers nothing."""
+    tmp_path, children = machine
+    dashboard.start(surface(free_port(), SLEEPS, health="/api/health"), tmp_path, wait=0.5)
+    children.append(dashboard.running()["probe"]["pid"])
+    [declared] = run_files(tmp_path)
+    assert json.loads(declared.read_text(encoding="utf-8"))["health"] == "/api/health"
     assert dashboard.stop("probe")[0] is True
 
 
@@ -148,6 +162,28 @@ def test_start_registered_starts_the_registered_surfaces_and_no_others(machine, 
                         lambda s, repo, wait: (started.append(s.name), (True, "up"))[1])
     assert dashboard.start_registered() == 0
     assert started == ["parts"], "the harness was already up; only apothecary's surface was not"
+
+
+def test_start_registered_names_who_starts_a_stack_and_starts_none_of_it(machine, monkeypatch,
+                                                                        capsys):
+    """alfred's editor is a container stack its owner session starts for every
+    other. Mutation: let an owner-started surface fall through to the terminal
+    line, or to `start`, and this fails."""
+    tmp_path, _ = machine
+    (tmp_path / "registered.json").write_text(json.dumps(
+        {"name": "local", "families": [], "repos": ["alfred"],
+         "registered_at": "2026-10-30T00:00:00Z"}), encoding="utf-8")
+    started = []
+    monkeypatch.setattr(dashboard, "repo_of", lambda s: tmp_path)
+    monkeypatch.setattr(dashboard, "listening", lambda port: False)
+    monkeypatch.setattr(dashboard, "start",
+                        lambda s, repo, wait: (started.append(s.name), (True, "up"))[1])
+    assert dashboard.start_registered() == 0
+    out = capsys.readouterr().out
+    assert started == []
+    assert "editor: cd alfred && ./al family up" in out
+    assert f"({dashboard.BY_NAME['editor'].note})" in out
+    assert "draws in a terminal" not in out and "uv run" not in out
 
 
 def test_start_registered_refuses_when_nothing_is_registered(machine, capsys):

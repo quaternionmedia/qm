@@ -400,12 +400,16 @@ def start_registered(wait: float = WAIT) -> int:
         if repo is None:
             print(f"{surface.name}: {surface.repo} is not beside this clone")
             status = 1
-        elif not surface.detachable:
+        elif not surface.detachable and not surface.owner_starts:
             print(f"{surface.name}: draws in a terminal; run "
                   f"`cd {surface.repo} && uv run {' '.join(surface.command)}` "
                   f"where you will watch it")
         elif listening(surface.port):
             print(f"{surface.name}: {surface.port} already answers; left as it is")
+        elif surface.owner_starts:
+            print(f"{surface.name}: cd {surface.repo} && "
+                  f"{' '.join(surface.command)}")
+            print(f"{'':<{len(surface.name) + 2}}({surface.note})")
         else:
             ok, detail = start(surface, repo, wait)
             print(f"{surface.name}: {detail}")
