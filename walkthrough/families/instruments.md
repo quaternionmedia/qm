@@ -13,7 +13,7 @@
 | member | governed |
 |---|---|
 | `carlos` | yes |
-| `private-34` | no |
+| `loopwall` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
 | `midiphonor` | no |
@@ -25,13 +25,13 @@
 
 Also in another family, because each drives more than one thing:
 
-- `private-34` — [`performer-display`](./performer-display.md)
+- `loopwall` — [`performer-display`](./performer-display.md)
 - `uPhonor` — [`irl`](./irl.md)
 - `stomp` — [`irl`](./irl.md)
 
 ## Starting here
 
-2 of 10 members carry governance, so this family has a governed entry point. Begin in `carlos`:
+3 of 10 members carry governance, so this family has a governed entry point. Begin in `carlos`:
 
 ```sh
 cd carlos

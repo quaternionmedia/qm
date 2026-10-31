@@ -12,19 +12,24 @@
 
 | member | governed |
 |---|---|
-| `private-34` | no |
+| `loopwall` | yes |
 | `joe` | no |
 | `leo` | no |
 
 Also in another family, because each drives more than one thing:
 
-- `private-34` — [`instruments`](./instruments.md)
+- `loopwall` — [`instruments`](./instruments.md)
 
 ## Starting here
 
-**No member of this family carries governance yet**, so there is no governed entry point and this page will not invent one. Reading the code is the entry point.
+1 of 3 members carry governance, so this family has a governed entry point. Begin in `loopwall`:
 
-Adopting one is `handbook/forking-a-project.md` — nine steps, taken one repository at a time, and a decision per repository rather than per family. Nothing here recommends which; that is the border test in `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §2 applied by somebody who knows what the code does.
+```sh
+cd loopwall
+uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
+```
+
+A governed member is one with a `project/<name>` branch in the corpus. Its records live there, not in the repository itself.
 
 ## What this page deliberately does not carry
 

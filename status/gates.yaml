@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T19:35:24Z'
+generated_at: '2026-10-31T23:40:59Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml

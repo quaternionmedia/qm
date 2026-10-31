@@ -32,6 +32,7 @@ A version is a project's phase: `v0.0.0` has not adopted the corpus, `v0.0.1` ha
 | [joe](joe.md) | `v0.0.0` | Realtime sheet music visualization | [performer-display](../families/performer-display.md) | [GitHub](https://github.com/quaternionmedia/joe) |
 | [leo](leo.md) | `v0.0.0` | Web pdf viewer, annotator, collaborator | [performer-display](../families/performer-display.md) | [GitHub](https://github.com/quaternionmedia/leo) |
 | [looksatwords](looksatwords.md) | `v0.0.1` | A python module to make, gather, analyze, and visualize language data. | [core](../families/core.md) | [GitHub](https://github.com/quaternionmedia/looksatwords) |
+| <span id="loopwall"></span>loopwall | `v0.0.1` | Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above. | [instruments](../families/instruments.md), [performer-display](../families/performer-display.md) | not on the host yet |
 | [ludwig](ludwig.md) | `v0.0.0` | remote mixing | [instruments](../families/instruments.md) | [GitHub](https://github.com/quaternionmedia/ludwig) |
 | [midiphonor](midiphonor.md) | `v0.0.0` | A Holophonor implementation, using Tone.js | [instruments](../families/instruments.md) | [GitHub](https://github.com/quaternionmedia/midiphonor) |
 | [moat](moat.md) | `v0.0.0` | simple reverse proxy with Traefik | [infra](../families/infra.md) | [GitHub](https://github.com/quaternionmedia/moat) |
@@ -55,7 +56,7 @@ A version is a project's phase: `v0.0.0` has not adopted the corpus, `v0.0.1` ha
 | [wolf](wolf.md) | `v0.0.0` | remote midi controller | [instruments](../families/instruments.md) | [GitHub](https://github.com/quaternionmedia/wolf) |
 | [ztgui](ztgui.md) | `v0.0.0` | Zeroteir Gui | [infra](../families/infra.md) | [GitHub](https://github.com/quaternionmedia/ztgui) |
 
-9 private repositories are in the families too, counted and not named.
+8 private repositories are in the families too, counted and not named.
 
 The host holds 48 more public repositories no family claims; [the organisation's page](https://github.com/orgs/quaternionmedia/repositories) lists every one.
 

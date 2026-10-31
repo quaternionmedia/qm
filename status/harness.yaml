@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T19:35:23Z'
+generated_at: '2026-10-31T23:40:59Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -61,21 +61,21 @@ totals:
   repositories: 50
   slots_measured: 43
   slots_unknown: 7
-  compliant: 43
-  over_limit: 0
-  governance_readable: 16
-  seed_complete: 5
-  at_v0.0.0: 32
-  past_v0.0.0: 18
+  compliant: 42
+  over_limit: 1
+  governance_readable: 15
+  seed_complete: 4
+  at_v0.0.0: 33
+  past_v0.0.0: 17
   version_unknown: 0
   phase_scaffolded: 15
   phase_stated_as_intent: 1
   threads_by_stage:
     local: 0
     pushed: 0
-    draft: 62
-    ready: 67
-  threads_stalled: 110
+    draft: 57
+    ready: 48
+  threads_stalled: 82
   threads_unreadable: 7
 repositories:
 - name: qm
@@ -91,6 +91,14 @@ repositories:
     repository: quaternionmedia/qm
     contributor: null
     open_prs:
+    - number: 303
+      title: The design-review handoff carries Part 1 as run at debf210
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/design-review-2026-10-31
+      head_repo: quaternionmedia/qm
+      draft: false
     - number: 291
       title: Propose that one page without a server draws the graphs and addresses
         other apps hand codecartographer
@@ -98,31 +106,6 @@ repositories:
       bot: false
       base: project/codecartographer
       head: adr/codecartographer-a-page-without-a-server
-      head_repo: quaternionmedia/qm
-      draft: true
-    - number: 247
-      title: cathy's record on the one module that opens connections is drafted
-      author: subcontrabass
-      bot: false
-      base: adr/cathy-adopt-and-scope
-      head: adr/cathy-one-module-opens-connections
-      head_repo: quaternionmedia/qm
-      draft: true
-    - number: 246
-      title: cathy's adoption and scope record is drafted
-      author: subcontrabass
-      bot: false
-      base: project/cathy
-      head: adr/cathy-adopt-and-scope
-      head_repo: quaternionmedia/qm
-      draft: false
-    - number: 222
-      title: 'Plan the triplet: every family and project shown as pictures, graphs
-        and a terminal view'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/the-triplet
       head_repo: quaternionmedia/qm
       draft: true
     - number: 211
@@ -312,7 +295,7 @@ repositories:
       title: The records of private-34 address the charter by name
       author: subcontrabass
       bot: false
-      base: project/private-34
+      base: project/loopwall
       head: adr/private-34-charter-by-name
       head_repo: quaternionmedia/qm
       draft: false
@@ -390,6 +373,21 @@ repositories:
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads:
+  - name: evolve/design-review-2026-10-31
+    stage: ready
+    pr: 303
+    base: main
+    title: The design-review handoff carries Part 1 as run at debf210
+    author: subcontrabass
+    delta:
+      additions: 600
+      changed_files: 8
+      commits: 3
+      deletions: 246
+      mergeable_state: clean
+      updated_at: '2026-10-31T21:49:40Z'
+    idle_hours: 1.8
+    stalled: false
   - name: adr/codecartographer-a-page-without-a-server
     stage: draft
     pr: 291
@@ -404,54 +402,8 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:49Z'
-    idle_hours: 5.0
+    idle_hours: 9.1
     stalled: false
-  - name: adr/cathy-one-module-opens-connections
-    stage: draft
-    pr: 247
-    base: adr/cathy-adopt-and-scope
-    title: cathy's record on the one module that opens connections is drafted
-    author: subcontrabass
-    delta:
-      additions: 90
-      changed_files: 2
-      commits: 2
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T13:49:01Z'
-    idle_hours: 149.7
-    stalled: true
-  - name: adr/cathy-adopt-and-scope
-    stage: ready
-    pr: 246
-    base: project/cathy
-    title: cathy's adoption and scope record is drafted
-    author: subcontrabass
-    delta:
-      additions: 160
-      changed_files: 2
-      commits: 1
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T13:29:25Z'
-    idle_hours: 150.1
-    stalled: true
-  - name: evolve/the-triplet
-    stage: draft
-    pr: 222
-    base: main
-    title: 'Plan the triplet: every family and project shown as pictures, graphs and
-      a terminal view'
-    author: subcontrabass
-    delta:
-      additions: 535
-      changed_files: 4
-      commits: 9
-      deletions: 8
-      mergeable_state: dirty
-      updated_at: '2026-10-24T17:25:23Z'
-    idle_hours: 170.1
-    stalled: true
   - name: adr/apothecary-airgap-metrics
     stage: draft
     pr: 211
@@ -465,7 +417,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-23T23:50:21Z'
-    idle_hours: 187.7
+    idle_hours: 191.8
     stalled: true
   - name: adr/codecartographer-shell-notes
     stage: ready
@@ -480,7 +432,7 @@ repositories:
       deletions: 60
       mergeable_state: clean
       updated_at: '2026-10-20T01:57:05Z'
-    idle_hours: 281.6
+    idle_hours: 285.7
     stalled: true
   - name: adr/apothecary-review-the-whole
     stage: draft
@@ -496,7 +448,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-10-20T00:36:07Z'
-    idle_hours: 283.0
+    idle_hours: 287.0
     stalled: true
   - name: adr/codecartographer-a-human-merges
     stage: ready
@@ -512,7 +464,7 @@ repositories:
       deletions: 735
       mergeable_state: clean
       updated_at: '2026-10-25T00:59:08Z'
-    idle_hours: 162.6
+    idle_hours: 166.7
     stalled: true
   - name: adr/codecartographer-adoption
     stage: ready
@@ -528,7 +480,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:33Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-rust-records-state-the-code
     stage: ready
@@ -544,7 +496,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:26Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-parser-records-state-the-code
     stage: ready
@@ -560,7 +512,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:19Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-graphbase-records-state-the-code
     stage: ready
@@ -575,7 +527,7 @@ repositories:
       deletions: 516
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:14Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-shell-records-state-the-code
     stage: ready
@@ -591,7 +543,7 @@ repositories:
       deletions: 368
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:08Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-rad-is-proposed
     stage: ready
@@ -607,7 +559,7 @@ repositories:
       deletions: 126
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:02Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: propagate/apothecary-2026-10-13
     stage: draft
@@ -622,7 +574,7 @@ repositories:
       deletions: 3394
       mergeable_state: clean
       updated_at: '2026-10-20T00:36:18Z'
-    idle_hours: 283.0
+    idle_hours: 287.0
     stalled: true
   - name: fix/apothecary-seed-refresh
     stage: ready
@@ -638,7 +590,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-13T19:33:51Z'
-    idle_hours: 432.0
+    idle_hours: 436.1
     stalled: true
   - name: adr/codecartographer-every-graph-a-chrestomathy
     stage: ready
@@ -654,7 +606,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:51Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-parser-cache-by-file-key
     stage: ready
@@ -670,7 +622,7 @@ repositories:
       deletions: 5
       mergeable_state: unstable
       updated_at: '2026-10-16T23:13:53Z'
-    idle_hours: 356.3
+    idle_hours: 360.4
     stalled: true
   - name: adr/codecartographer-rust-at-the-item-level
     stage: ready
@@ -686,7 +638,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:34Z'
-    idle_hours: 160.8
+    idle_hours: 164.9
     stalled: true
   - name: adr/codecartographer-one-construct-vocabulary
     stage: ready
@@ -702,7 +654,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:31Z'
-    idle_hours: 160.8
+    idle_hours: 164.9
     stalled: true
   - name: adr/codecartographer-reads-what-cargo-wrote
     stage: ready
@@ -717,7 +669,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:30Z'
-    idle_hours: 160.8
+    idle_hours: 164.9
     stalled: true
   - name: adr/looksatwords-adopt-and-scope
     stage: ready
@@ -733,7 +685,7 @@ repositories:
       deletions: 1
       mergeable_state: unstable
       updated_at: '2026-10-11T17:39:15Z'
-    idle_hours: 481.9
+    idle_hours: 486.0
     stalled: true
   - name: adr/the-monitor-derives-the-system
     stage: ready
@@ -749,7 +701,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-24T01:55:57Z'
-    idle_hours: 185.6
+    idle_hours: 189.7
     stalled: true
   - name: adr/apothecary-what-v0-0-2-asserts
     stage: draft
@@ -764,7 +716,7 @@ repositories:
       deletions: 1
       mergeable_state: dirty
       updated_at: '2026-10-11T17:37:04Z'
-    idle_hours: 481.9
+    idle_hours: 486.0
     stalled: true
   - name: adr/qmetronome-charter-by-name
     stage: ready
@@ -779,12 +731,12 @@ repositories:
       deletions: 12
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:54Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/private-34-charter-by-name
     stage: ready
     pr: 151
-    base: project/private-34
+    base: project/loopwall
     title: The records of private-34 address the charter by name
     author: subcontrabass
     delta:
@@ -794,7 +746,7 @@ repositories:
       deletions: 2
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:39Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/factorio-sysops-charter-by-name
     stage: ready
@@ -809,7 +761,7 @@ repositories:
       deletions: 3
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:34Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/private-32-charter-by-name
     stage: ready
@@ -824,7 +776,7 @@ repositories:
       deletions: 3
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:28Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/datum-charter-by-name
     stage: ready
@@ -839,7 +791,7 @@ repositories:
       deletions: 6
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:22Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/private-33-charter-by-name
     stage: ready
@@ -854,7 +806,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:15Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/codecartographer-charter-by-name
     stage: ready
@@ -869,7 +821,7 @@ repositories:
       deletions: 1
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:09Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/apothecary-charter-by-name
     stage: ready
@@ -884,7 +836,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:03Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/alfred-charter-by-name
     stage: ready
@@ -899,7 +851,7 @@ repositories:
       deletions: 9
       mergeable_state: unstable
       updated_at: '2026-10-11T11:40:57Z'
-    idle_hours: 487.9
+    idle_hours: 492.0
     stalled: true
   - name: adr/firmware-toolchain-seam
     stage: ready
@@ -915,7 +867,7 @@ repositories:
       deletions: 168
       mergeable_state: unstable
       updated_at: '2026-10-13T23:32:33Z'
-    idle_hours: 428.0
+    idle_hours: 432.1
     stalled: true
   governance:
     seed: n/a
@@ -1032,7 +984,7 @@ repositories:
       deletions: 16
       mergeable_state: clean
       updated_at: '2026-10-31T14:50:22Z'
-    idle_hours: 4.7
+    idle_hours: 8.8
     stalled: false
   - name: feat/constant-port
     stage: draft
@@ -1048,7 +1000,7 @@ repositories:
       deletions: 12
       mergeable_state: clean
       updated_at: '2026-10-31T02:01:30Z'
-    idle_hours: 17.5
+    idle_hours: 21.6
     stalled: false
   - name: feat/the-delta-board-checks-the-clones
     stage: ready
@@ -1063,7 +1015,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-11T23:08:09Z'
-    idle_hours: 476.4
+    idle_hours: 480.5
     stalled: true
   - name: evolve/rad-conformance-replay
     stage: ready
@@ -1079,7 +1031,7 @@ repositories:
       deletions: 12
       mergeable_state: clean
       updated_at: '2026-10-11T23:08:07Z'
-    idle_hours: 476.4
+    idle_hours: 480.5
     stalled: true
   governance:
     seed: incomplete
@@ -1093,8 +1045,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 655
-    observed_at: '2026-10-31T19:33:09Z'
+    behind_corpus: 673
+    observed_at: '2026-10-31T23:38:44Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1141,7 +1093,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2026-10-31T14:13:00Z'
-    idle_hours: 5.3
+    idle_hours: 9.4
     stalled: false
   governance:
     seed: incomplete
@@ -1155,8 +1107,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 1
-    behind_corpus: 176
-    observed_at: '2026-10-31T19:33:20Z'
+    behind_corpus: 194
+    observed_at: '2026-10-31T23:38:55Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1218,7 +1170,7 @@ repositories:
       deletions: 25
       mergeable_state: clean
       updated_at: '2026-10-31T02:01:28Z'
-    idle_hours: 17.5
+    idle_hours: 21.6
     stalled: false
   - name: docs/tighten-language
     stage: ready
@@ -1233,7 +1185,7 @@ repositories:
       deletions: 244
       mergeable_state: clean
       updated_at: '2026-10-20T01:56:51Z'
-    idle_hours: 281.6
+    idle_hours: 285.7
     stalled: true
   governance:
     seed: n/a
@@ -1291,7 +1243,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-03T13:55:52Z'
-    idle_hours: 677.6
+    idle_hours: 681.7
     stalled: true
   governance:
     seed: incomplete
@@ -1305,8 +1257,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 752
-    observed_at: '2026-10-31T19:33:24Z'
+    behind_corpus: 770
+    observed_at: '2026-10-31T23:38:59Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1323,6 +1275,24 @@ repositories:
     repository: quaternionmedia/alfred
     contributor: null
     open_prs:
+    - number: 137
+      title: 'Round 13: the docs in six sections, the cookbook an index, and otto''s
+        timeline in otto'
+      author: subcontrabass
+      bot: false
+      base: feat/ui-journeys
+      head: docs/one-pass
+      head_repo: quaternionmedia/alfred
+      draft: true
+    - number: 136
+      title: 'Rounds 11 and 12: the family guide, qm''s ports, and the editor''s user
+        journeys'
+      author: subcontrabass
+      bot: false
+      base: feat/pydantic-2
+      head: feat/ui-journeys
+      head_repo: quaternionmedia/alfred
+      draft: true
     - number: 135
       title: alfred runs on pydantic 2 and fastapi-users 15, with Argon2 hashed off
         the loop four at a time
@@ -1517,6 +1487,38 @@ repositories:
     asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
       no manual test'
   threads:
+  - name: docs/one-pass
+    stage: draft
+    pr: 137
+    base: feat/ui-journeys
+    title: 'Round 13: the docs in six sections, the cookbook an index, and otto''s
+      timeline in otto'
+    author: subcontrabass
+    delta:
+      additions: 1209
+      changed_files: 36
+      commits: 4
+      deletions: 3702
+      mergeable_state: unstable
+      updated_at: '2026-10-31T23:39:07Z'
+    idle_hours: 0.0
+    stalled: false
+  - name: feat/ui-journeys
+    stage: draft
+    pr: 136
+    base: feat/pydantic-2
+    title: 'Rounds 11 and 12: the family guide, qm''s ports, and the editor''s user
+      journeys'
+    author: subcontrabass
+    delta:
+      additions: 5203
+      changed_files: 208
+      commits: 48
+      deletions: 3008
+      mergeable_state: unstable
+      updated_at: '2026-10-31T21:30:37Z'
+    idle_hours: 2.1
+    stalled: false
   - name: feat/pydantic-2
     stage: draft
     pr: 135
@@ -1531,7 +1533,7 @@ repositories:
       deletions: 607
       mergeable_state: clean
       updated_at: '2026-10-26T14:22:56Z'
-    idle_hours: 125.2
+    idle_hours: 129.3
     stalled: true
   - name: feat/edit-by-text-and-loop
     stage: draft
@@ -1547,7 +1549,7 @@ repositories:
       deletions: 881
       mergeable_state: clean
       updated_at: '2026-10-26T12:52:00Z'
-    idle_hours: 126.7
+    idle_hours: 130.8
     stalled: true
   - name: feat/close-gaps
     stage: draft
@@ -1563,7 +1565,7 @@ repositories:
       deletions: 108
       mergeable_state: unstable
       updated_at: '2026-10-30T02:32:05Z'
-    idle_hours: 41.0
+    idle_hours: 45.1
     stalled: false
   - name: feat/journeys-and-onboarding
     stage: draft
@@ -1578,7 +1580,7 @@ repositories:
       deletions: 224
       mergeable_state: clean
       updated_at: '2026-10-24T17:57:38Z'
-    idle_hours: 169.6
+    idle_hours: 173.7
     stalled: true
   - name: integrate/wave-5
     stage: draft
@@ -1594,7 +1596,7 @@ repositories:
       deletions: 849
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:05Z'
-    idle_hours: 187.8
+    idle_hours: 191.9
     stalled: true
   - name: integrate/wave-4
     stage: draft
@@ -1610,7 +1612,7 @@ repositories:
       deletions: 841
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:03Z'
-    idle_hours: 187.8
+    idle_hours: 191.9
     stalled: true
   - name: integrate/wave-3
     stage: draft
@@ -1626,7 +1628,7 @@ repositories:
       deletions: 1620
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:02Z'
-    idle_hours: 187.8
+    idle_hours: 191.9
     stalled: true
   - name: integrate/wave-2
     stage: draft
@@ -1642,7 +1644,7 @@ repositories:
       deletions: 2122
       mergeable_state: unstable
       updated_at: '2026-10-24T00:31:35Z'
-    idle_hours: 187.0
+    idle_hours: 191.1
     stalled: true
   - name: integrate/review-fixes
     stage: draft
@@ -1658,7 +1660,7 @@ repositories:
       deletions: 1732
       mergeable_state: clean
       updated_at: '2026-10-23T23:46:57Z'
-    idle_hours: 187.8
+    idle_hours: 191.9
     stalled: true
   - name: integrate/wave-6
     stage: draft
@@ -1674,7 +1676,7 @@ repositories:
       deletions: 1889
       mergeable_state: clean
       updated_at: '2026-10-24T01:06:54Z'
-    idle_hours: 186.5
+    idle_hours: 190.5
     stalled: true
   - name: feat/thin-dev-stack
     stage: draft
@@ -1689,7 +1691,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:30Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/08-stage-flow
     stage: draft
@@ -1705,7 +1707,7 @@ repositories:
       deletions: 2145
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:28Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/07-flow-and-render
     stage: draft
@@ -1721,7 +1723,7 @@ repositories:
       deletions: 531
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:25Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/06-timeline-editor
     stage: draft
@@ -1737,7 +1739,7 @@ repositories:
       deletions: 617
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:22Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/05-review-and-auth
     stage: draft
@@ -1753,7 +1755,7 @@ repositories:
       deletions: 31
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:20Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/04-dev-loop-and-release
     stage: draft
@@ -1769,7 +1771,7 @@ repositories:
       deletions: 412
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:18Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/03-core-tests
     stage: draft
@@ -1785,7 +1787,7 @@ repositories:
       deletions: 909
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:16Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/02-playwright
     stage: draft
@@ -1800,7 +1802,7 @@ repositories:
       deletions: 672
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:14Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: stack/01-adopt-governance
     stage: ready
@@ -1815,7 +1817,7 @@ repositories:
       deletions: 0
       mergeable_state: blocked
       updated_at: '2026-10-11T23:25:12Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: config
     stage: ready
@@ -1830,7 +1832,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 24860.6
+    idle_hours: 24864.7
     stalled: true
   governance:
     seed: incomplete
@@ -1847,8 +1849,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 78
-    observed_at: '2026-10-31T19:32:57Z'
+    behind_corpus: 2
+    observed_at: '2026-10-31T23:38:31Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1871,6 +1873,14 @@ repositories:
     repository: quaternionmedia/otto
     contributor: null
     open_prs:
+    - number: 36
+      title: The timeline's format is otto's own page
+      author: subcontrabass
+      bot: false
+      base: feat/pydantic-2
+      head: docs/timeline
+      head_repo: quaternionmedia/otto
+      draft: true
     - number: 35
       title: otto runs on pydantic 2 and FastAPI 0.100 or later
       author: subcontrabass
@@ -1884,7 +1894,7 @@ repositories:
         thing once
       author: subcontrabass
       bot: false
-      base: main
+      base: fix/makecolor-accepts-every-colour-spelling
       head: docs/tighten-language
       head_repo: quaternionmedia/otto
       draft: false
@@ -1912,9 +1922,14 @@ repositories:
       head: update-dependencies
       head_repo: quaternionmedia/otto
       draft: true
-    violations: []
-    exit_status: 0
-    compliant: true
+    violations:
+    - author: subcontrabass
+      base: fix/makecolor-accepts-every-colour-spelling
+      numbers:
+      - 34
+      parent: 33
+    exit_status: 1
+    compliant: false
   release:
     state: current
     latest: v0.2.2
@@ -1923,6 +1938,21 @@ repositories:
     asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
       no manual test'
   threads:
+  - name: docs/timeline
+    stage: draft
+    pr: 36
+    base: feat/pydantic-2
+    title: The timeline's format is otto's own page
+    author: subcontrabass
+    delta:
+      additions: 182
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-31T23:39:09Z'
+    idle_hours: 0.0
+    stalled: false
   - name: feat/pydantic-2
     stage: draft
     pr: 35
@@ -1936,24 +1966,24 @@ repositories:
       deletions: 85
       mergeable_state: clean
       updated_at: '2026-10-26T14:22:40Z'
-    idle_hours: 125.2
+    idle_hours: 129.3
     stalled: true
   - name: docs/tighten-language
     stage: ready
     pr: 34
-    base: main
+    base: fix/makecolor-accepts-every-colour-spelling
     title: otto renders frames, sound and presets for alfred, and its docs say each
       thing once
     author: subcontrabass
     delta:
-      additions: 6383
+      additions: 6352
       changed_files: 51
-      commits: 38
-      deletions: 1526
-      mergeable_state: blocked
-      updated_at: '2026-10-20T01:56:47Z'
-    idle_hours: 281.6
-    stalled: true
+      commits: 37
+      deletions: 1522
+      mergeable_state: unstable
+      updated_at: '2026-10-31T23:38:20Z'
+    idle_hours: 0.0
+    stalled: false
   - name: fix/makecolor-accepts-every-colour-spelling
     stage: ready
     pr: 33
@@ -1967,7 +1997,7 @@ repositories:
       deletions: 4
       mergeable_state: blocked
       updated_at: '2026-10-11T23:28:37Z'
-    idle_hours: 476.1
+    idle_hours: 480.2
     stalled: true
   - name: download
     stage: ready
@@ -1982,7 +2012,7 @@ repositories:
       deletions: 46
       mergeable_state: blocked
       updated_at: '2024-01-12T23:41:31Z'
-    idle_hours: 24547.9
+    idle_hours: 24552.0
     stalled: true
   governance:
     seed: n/a
@@ -2022,8 +2052,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:32:59Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:33Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2039,15 +2069,7 @@ repositories:
   slots:
     repository: quaternionmedia/datum
     contributor: null
-    open_prs:
-    - number: 2
-      title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: wp3-firmware
-      head_repo: quaternionmedia/datum
-      draft: false
+    open_prs: []
     violations: []
     exit_status: 0
     compliant: true
@@ -2055,25 +2077,10 @@ repositories:
     state: ahead
     latest: v0.0.1
     annotated: false
-    unreleased_commits: 5
+    unreleased_commits: 40
     asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
       no manual test'
-  threads:
-  - name: wp3-firmware
-    stage: ready
-    pr: 2
-    base: main
-    title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
-    author: subcontrabass
-    delta:
-      additions: 4446
-      changed_files: 50
-      commits: 34
-      deletions: 97
-      mergeable_state: clean
-      updated_at: '2026-09-19T22:00:15Z'
-    idle_hours: 1005.6
-    stalled: true
+  threads: []
   governance:
     seed: incomplete
     missing:
@@ -2086,8 +2093,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 756
-    observed_at: '2026-10-31T19:33:08Z'
+    behind_corpus: 774
+    observed_at: '2026-10-31T23:38:42Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2305,7 +2312,7 @@ repositories:
       deletions: 109
       mergeable_state: clean
       updated_at: '2026-10-31T16:51:20Z'
-    idle_hours: 2.7
+    idle_hours: 6.8
     stalled: false
   - name: evolve/pages
     stage: draft
@@ -2321,7 +2328,7 @@ repositories:
       deletions: 10
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:33Z'
-    idle_hours: 5.0
+    idle_hours: 9.1
     stalled: false
   - name: evolve/view-page
     stage: draft
@@ -2336,7 +2343,7 @@ repositories:
       deletions: 138
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:13Z'
-    idle_hours: 5.0
+    idle_hours: 9.1
     stalled: false
   - name: evolve/export-imports
     stage: draft
@@ -2352,7 +2359,7 @@ repositories:
       deletions: 39
       mergeable_state: clean
       updated_at: '2026-10-31T01:12:02Z'
-    idle_hours: 18.4
+    idle_hours: 22.5
     stalled: false
   - name: evolve/lean-pictures
     stage: draft
@@ -2368,7 +2375,7 @@ repositories:
       deletions: 29
       mergeable_state: clean
       updated_at: '2026-10-31T00:40:16Z'
-    idle_hours: 18.9
+    idle_hours: 23.0
     stalled: false
   - name: evolve/a-page-without-a-server
     stage: draft
@@ -2384,7 +2391,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-30T23:34:18Z'
-    idle_hours: 20.0
+    idle_hours: 24.1
     stalled: false
   - name: evolve/shared-imports
     stage: draft
@@ -2400,7 +2407,7 @@ repositories:
       deletions: 34
       mergeable_state: clean
       updated_at: '2026-10-30T11:30:48Z'
-    idle_hours: 32.1
+    idle_hours: 36.2
     stalled: false
   - name: evolve/showgraph-baseline
     stage: draft
@@ -2416,7 +2423,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-30T01:45:52Z'
-    idle_hours: 41.8
+    idle_hours: 45.9
     stalled: false
   - name: evolve/family-code-maps
     stage: draft
@@ -2432,8 +2439,8 @@ repositories:
       deletions: 82
       mergeable_state: clean
       updated_at: '2026-10-29T20:04:42Z'
-    idle_hours: 47.5
-    stalled: false
+    idle_hours: 51.6
+    stalled: true
   - name: evolve/showcase-layout
     stage: ready
     pr: 159
@@ -2447,8 +2454,8 @@ repositories:
       deletions: 156
       mergeable_state: clean
       updated_at: '2026-10-29T19:55:20Z'
-    idle_hours: 47.6
-    stalled: false
+    idle_hours: 51.7
+    stalled: true
   - name: evolve/an-agent-merges-once-the-local-suite-has-passed
     stage: ready
     pr: 150
@@ -2462,7 +2469,7 @@ repositories:
       deletions: 6
       mergeable_state: clean
       updated_at: '2026-10-26T21:06:43Z'
-    idle_hours: 118.5
+    idle_hours: 122.6
     stalled: true
   - name: docs/tighten-language
     stage: ready
@@ -2478,7 +2485,7 @@ repositories:
       deletions: 1276
       mergeable_state: dirty
       updated_at: '2026-10-20T01:57:01Z'
-    idle_hours: 281.6
+    idle_hours: 285.7
     stalled: true
   governance:
     seed: complete
@@ -2491,8 +2498,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 141
-    observed_at: '2026-10-31T19:33:04Z'
+    behind_corpus: 159
+    observed_at: '2026-10-31T23:38:38Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2537,8 +2544,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:33:11Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:45Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2615,8 +2622,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:33:06Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:40Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2656,8 +2663,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:33:12Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:47Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2681,6 +2688,24 @@ repositories:
     repository: quaternionmedia/carlos
     contributor: null
     open_prs:
+    - number: 22
+      title: A rig sent from outside is held, turned and re-patched in place, and
+        the bar's answer stops short of its hint
+      author: subcontrabass
+      bot: false
+      base: feat/family-control
+      head: feat/hold-the-rig
+      head_repo: quaternionmedia/carlos
+      draft: true
+    - number: 21
+      title: Carlos serves where it is told, and holds the rack a show-control hub
+        leaves, its cues drawn in every open tab
+      author: subcontrabass
+      bot: false
+      base: fix/dials-cable-ends-and-scroll
+      head: feat/family-control
+      head_repo: quaternionmedia/carlos
+      draft: true
     - number: 20
       title: Bump certifi from 2026.7.22 to 2026.10.19
       author: dependabot[bot]
@@ -2738,6 +2763,38 @@ repositories:
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads:
+  - name: feat/hold-the-rig
+    stage: draft
+    pr: 22
+    base: feat/family-control
+    title: A rig sent from outside is held, turned and re-patched in place, and the
+      bar's answer stops short of its hint
+    author: subcontrabass
+    delta:
+      additions: 1150
+      changed_files: 9
+      commits: 4
+      deletions: 59
+      mergeable_state: unstable
+      updated_at: '2026-10-31T20:40:51Z'
+    idle_hours: 3.0
+    stalled: false
+  - name: feat/family-control
+    stage: draft
+    pr: 21
+    base: fix/dials-cable-ends-and-scroll
+    title: Carlos serves where it is told, and holds the rack a show-control hub leaves,
+      its cues drawn in every open tab
+    author: subcontrabass
+    delta:
+      additions: 924
+      changed_files: 16
+      commits: 5
+      deletions: 44
+      mergeable_state: unstable
+      updated_at: '2026-10-31T20:40:50Z'
+    idle_hours: 3.0
+    stalled: false
   - name: fix/dials-cable-ends-and-scroll
     stage: ready
     pr: 17
@@ -2751,7 +2808,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 1682.1
+    idle_hours: 1686.2
     stalled: true
   governance:
     seed: complete
@@ -2764,13 +2821,13 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 785
-    observed_at: '2026-10-31T19:33:01Z'
+    behind_corpus: 803
+    observed_at: '2026-10-31T23:38:35Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
-- name: private-34
-  slug: quaternionmedia/private-34
+- name: loopwall
+  slug: quaternionmedia/loopwall
   role: project
   family:
   - instruments
@@ -2785,7 +2842,7 @@ repositories:
 
     '
   slots:
-    repository: quaternionmedia/private-34
+    repository: quaternionmedia/loopwall
     contributor: null
     open_prs:
     - number: 2
@@ -2794,7 +2851,7 @@ repositories:
       bot: true
       base: main
       head: dependabot/uv/httpcore2-2.10.0
-      head_repo: quaternionmedia/private-34
+      head_repo: quaternionmedia/loopwall
       draft: false
     - number: 1
       title: 'Build(deps-dev): bump httpx2 from 2.7.0 to 2.12.0'
@@ -2802,7 +2859,7 @@ repositories:
       bot: true
       base: main
       head: dependabot/uv/httpx2-2.12.0
-      head_repo: quaternionmedia/private-34
+      head_repo: quaternionmedia/loopwall
       draft: false
     violations: []
     exit_status: 0
@@ -2820,14 +2877,14 @@ repositories:
     - licensing
     detail:
       submodule: governance/qm
-      submodule_branch: project/private-34
+      submodule_branch: project/loopwall
       ide_present: 3
       ide_absent: 0
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 0
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:33:18Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:53Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2837,7 +2894,7 @@ repositories:
   family: null
   phase: v0.0.1
   phase_source: scaffolded
-  version: v0.0.1
+  version: v0.0.0
   intent: null
   note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
     for the same reason as private-32 through private-34 above. Governed via a project/<name>
@@ -2867,21 +2924,10 @@ repositories:
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads: []
   governance:
-    seed: complete
+    seed: n/a
     missing: []
-    detail:
-      submodule: governance/qm
-      submodule_branch: project/private-36
-      ide_present: 3
-      ide_absent: 0
-      workflows_present: 4
-      workflows_absent: 0
-      licensing_present: 2
-    behind_corpus: 645
-    observed_at: '2026-10-31T19:33:14Z'
-    asserted_by: null
-    asserts: the seed set measures how far adoption has got and never decides a rung;
-      a complete set means a human may say adoption is complete, never that they have
+    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
+      the seed measures only a project that has one'
 - name: streaming-infrastructure
   slug: quaternionmedia/streaming-infrastructure
   role: project
@@ -2959,7 +3005,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-09-20T23:14:49Z'
-    idle_hours: 980.3
+    idle_hours: 984.4
     stalled: true
   governance:
     seed: incomplete
@@ -2974,8 +3020,8 @@ repositories:
       workflows_present: 2
       workflows_absent: 2
       licensing_present: 1
-    behind_corpus: 878
-    observed_at: '2026-10-31T19:33:22Z'
+    behind_corpus: 896
+    observed_at: '2026-10-31T23:38:57Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3000,14 +3046,6 @@ repositories:
       head: dependabot/npm_and_yarn/vite-7.3.2
       head_repo: quaternionmedia/benchmark
       draft: false
-    - number: 7
-      title: 'fix: handle missing regions/ directory in compile-yaml'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/ci-empty-regions-dir
-      head_repo: quaternionmedia/benchmark
-      draft: false
     violations: []
     exit_status: 0
     compliant: true
@@ -3016,22 +3054,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: fix/ci-empty-regions-dir
-    stage: ready
-    pr: 7
-    base: main
-    title: 'fix: handle missing regions/ directory in compile-yaml'
-    author: subcontrabass
-    delta:
-      additions: 2
-      changed_files: 2
-      commits: 1
-      deletions: 1
-      mergeable_state: blocked
-      updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 4995.5
-    stalled: true
+  threads: []
   governance:
     seed: n/a
     missing: []
@@ -3137,8 +3160,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 648
-    observed_at: '2026-10-31T19:33:16Z'
+    behind_corpus: 666
+    observed_at: '2026-10-31T23:38:51Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3217,7 +3240,7 @@ repositories:
       deletions: 26
       mergeable_state: clean
       updated_at: '2026-10-26T00:52:32Z'
-    idle_hours: 138.7
+    idle_hours: 142.8
     stalled: true
   - name: evolve/agree-on-scheme-and-host-case
     stage: draft
@@ -3233,7 +3256,7 @@ repositories:
       deletions: 16
       mergeable_state: clean
       updated_at: '2026-10-26T01:07:31Z'
-    idle_hours: 138.4
+    idle_hours: 142.5
     stalled: true
   - name: evolve/read-an-export
     stage: draft
@@ -3249,7 +3272,7 @@ repositories:
       deletions: 2
       mergeable_state: clean
       updated_at: '2026-10-26T01:24:08Z'
-    idle_hours: 138.2
+    idle_hours: 142.3
     stalled: true
   - name: evolve/adopt-the-corpus
     stage: ready
@@ -3264,7 +3287,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-25T16:40:56Z'
-    idle_hours: 146.9
+    idle_hours: 151.0
     stalled: true
   governance:
     seed: incomplete
@@ -3281,8 +3304,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 196
-    observed_at: '2026-10-31T19:33:02Z'
+    behind_corpus: 214
+    observed_at: '2026-10-31T23:38:36Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3341,7 +3364,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 1289.5
+    idle_hours: 1293.6
     stalled: true
   - name: qm
     stage: draft
@@ -3356,7 +3379,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 1707.2
+    idle_hours: 1711.3
     stalled: true
   governance:
     seed: n/a
@@ -3448,7 +3471,7 @@ repositories:
       deletions: 205
       mergeable_state: clean
       updated_at: '2026-10-28T01:13:44Z'
-    idle_hours: 90.3
+    idle_hours: 94.4
     stalled: true
   - name: renumber-cues
     stage: ready
@@ -3463,7 +3486,7 @@ repositories:
       deletions: 16
       mergeable_state: clean
       updated_at: '2026-10-23T20:05:05Z'
-    idle_hours: 191.5
+    idle_hours: 195.6
     stalled: true
   - name: integrate/2026-09-20
     stage: draft
@@ -3478,7 +3501,7 @@ repositories:
       deletions: 513
       mergeable_state: dirty
       updated_at: '2026-10-13T05:17:18Z'
-    idle_hours: 446.3
+    idle_hours: 450.4
     stalled: true
   governance:
     seed: n/a
@@ -3528,7 +3551,7 @@ repositories:
       deletions: 96
       mergeable_state: clean
       updated_at: '2026-09-20T23:14:32Z'
-    idle_hours: 980.3
+    idle_hours: 984.4
     stalled: true
   governance:
     seed: n/a
@@ -3578,7 +3601,7 @@ repositories:
       deletions: 643
       mergeable_state: clean
       updated_at: '2026-10-24T05:30:09Z'
-    idle_hours: 182.1
+    idle_hours: 186.2
     stalled: true
   governance:
     seed: n/a
@@ -3769,7 +3792,7 @@ repositories:
       deletions: 14
       mergeable_state: clean
       updated_at: '2026-10-12T16:49:28Z'
-    idle_hours: 458.8
+    idle_hours: 462.8
     stalled: true
   - name: feat/family-demo-contract
     stage: draft
@@ -3784,7 +3807,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-11T10:44:45Z'
-    idle_hours: 488.8
+    idle_hours: 492.9
     stalled: true
   - name: tests
     stage: ready
@@ -3799,7 +3822,7 @@ repositories:
       deletions: 4
       mergeable_state: clean
       updated_at: '2026-10-09T12:43:26Z'
-    idle_hours: 534.9
+    idle_hours: 539.0
     stalled: true
   governance:
     seed: n/a
@@ -3878,7 +3901,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 11901.3
+    idle_hours: 11905.4
     stalled: true
   governance:
     seed: n/a
@@ -3985,7 +4008,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 11412.2
+    idle_hours: 11416.3
     stalled: true
   governance:
     seed: n/a
@@ -4093,7 +4116,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 7524.6
+    idle_hours: 7528.7
     stalled: true
   governance:
     seed: n/a
@@ -4149,238 +4172,16 @@ repositories:
       title: A manual-validation checklist walks the open set's lanes, docs and tests
       author: subcontrabass
       bot: false
-      base: docs/user-paths
+      base: main
       head: docs/manual-validation-checklist
       head_repo: quaternionmedia/joe
       draft: true
-    - number: 60
-      title: joe's suite runs where no audio server does, and opening the machine's
-        audio is a local check
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/suite-without-an-audio-server
-      head_repo: quaternionmedia/joe
-      draft: false
     - number: 59
       title: joe's API listens on 1059, the twelfth root of two, from qm's port allocation
       author: subcontrabass
       bot: false
       base: main
       head: feat/constant-port
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 58
-      title: 'main''s specs and tests check what their titles say: the ones that could
-        not fail go or are replaced, and waits become conditions'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: test/main-checks-what-it-says
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 57
-      title: 'docs/revamp-audit.md goes: an audit of 2026-04-04 written as if current,
-        most of its items since fixed'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: docs/drop-revamp-audit
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 56
-      title: main's README, contributor guide, API reference and module guide say
-        what main's code does
-      author: subcontrabass
-      bot: false
-      base: main
-      head: docs/main-says-what-is-true
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 55
-      title: joe run and POST /api/run analyse the newest recording, those named,
-        or every one
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/run-chooses-files
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 54
-      title: No setting of the machine's, nor the microphone saved in the checkout,
-        reaches a Python test
-      author: subcontrabass
-      bot: false
-      base: main
-      head: test/python-settings-fixture
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 53
-      title: The specs run on servers of their own, which no running joe, qmcp or
-        dev page can answer
-      author: subcontrabass
-      bot: false
-      base: main
-      head: test/specs-own-servers
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 52
-      title: joe's user paths are pages of steps, each naming the spec or test that
-        checks it, and every page spec is a step of its lane's page
-      author: subcontrabass
-      bot: false
-      base: feat/golden-layout
-      head: docs/user-paths
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 51
-      title: 'joe''s page is a GoldenLayout dock: the visualiser and every panel are
-        windows, kept where the person puts them'
-      author: subcontrabass
-      bot: false
-      base: integrate/open-prs
-      head: feat/golden-layout
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 50
-      title: A take's recording is kept relative to the voice folder, and an older
-        record is found by its file name
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/relative-take-paths
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 49
-      title: A saved microphone that is not connected is named when the default input
-        stands in for it
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/missing-mic-named
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 48
-      title: A name the voice routes are given is looked for in Data/Voice before
-        Data/Audio
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/voice-folder-first
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 47
-      title: L opens the Library and A the Results, and Esc closes whatever is open
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/panel-keys
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 46
-      title: 'The capture select says where Live records from: Browser mic or joe''s
-        mic'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/capture-select-says
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 45
-      title: A hidden page asks qmcp nothing, and while qmcp cannot be reached Instruct
-        by voice says so quietly
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/quiet-qmcp-poll
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 44
-      title: The Results panel's heading reads on one line, with its buttons beneath
-        it when they do not fit beside it
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/results-heading
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 43
-      title: The transport's scrubber keeps room for its knob, so the knob never sits
-        on the time
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/knob-clear-of-time
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 42
-      title: The first-run hint sits below the transcript pane rather than over its
-        last lines
-      author: subcontrabass
-      bot: false
-      base: main
-      head: fix/hint-clear-of-pane
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 41
-      title: 'The transcript names each day where it changes: today, yesterday, then
-        the date'
-      author: subcontrabass
-      bot: false
-      base: feat/clamp-long-asks
-      head: feat/transcript-day-labels
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 40
-      title: A long question in the transcript shows three lines until it is opened
-      author: subcontrabass
-      bot: false
-      base: feat/fold-empty-takes
-      head: feat/clamp-long-asks
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 39
-      title: Takes in a row that heard nothing fold into one line in the transcript
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/fold-empty-takes
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 38
-      title: A fresh joe serves the media API alone, and refuses what a page on another
-        site makes a browser send
-      author: subcontrabass
-      bot: false
-      base: docs/media-engine
-      head: fix/security-defaults
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 37
-      title: The media reference lists every refusal and what a Docker host needs
-        to reach joe, and the contributor guide describes the CI that runs
-      author: subcontrabass
-      bot: false
-      base: feat/video-audio-engine
-      head: docs/media-engine
-      head_repo: quaternionmedia/joe
-      draft: true
-    - number: 36
-      title: joe takes audio and video at /api/media, transcribes it with word times,
-        and measures how its sound moves
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/video-audio-engine
-      head_repo: quaternionmedia/joe
-      draft: false
-    - number: 35
-      title: joe's security, media and API references and its README say the same
-        in fewer words
-      author: subcontrabass
-      bot: false
-      base: fix/security-defaults
-      head: docs/tighten-language
       head_repo: quaternionmedia/joe
       draft: true
     - number: 7
@@ -4411,33 +4212,17 @@ repositories:
   - name: docs/manual-validation-checklist
     stage: draft
     pr: 61
-    base: docs/user-paths
+    base: main
     title: A manual-validation checklist walks the open set's lanes, docs and tests
     author: subcontrabass
     delta:
       additions: 159
       changed_files: 1
-      commits: 1
+      commits: 3
       deletions: 0
       mergeable_state: unstable
-      updated_at: '2026-10-31T18:52:47Z'
-    idle_hours: 0.7
-    stalled: false
-  - name: fix/suite-without-an-audio-server
-    stage: ready
-    pr: 60
-    base: main
-    title: joe's suite runs where no audio server does, and opening the machine's
-      audio is a local check
-    author: subcontrabass
-    delta:
-      additions: 70
-      changed_files: 4
-      commits: 1
-      deletions: 11
-      mergeable_state: clean
-      updated_at: '2026-10-31T15:55:44Z'
-    idle_hours: 3.7
+      updated_at: '2026-10-31T23:13:58Z'
+    idle_hours: 0.4
     stalled: false
   - name: feat/constant-port
     stage: draft
@@ -4450,390 +4235,10 @@ repositories:
       changed_files: 9
       commits: 1
       deletions: 38
-      mergeable_state: unstable
+      mergeable_state: dirty
       updated_at: '2026-10-31T02:01:26Z'
-    idle_hours: 17.6
+    idle_hours: 21.7
     stalled: false
-  - name: test/main-checks-what-it-says
-    stage: ready
-    pr: 58
-    base: main
-    title: 'main''s specs and tests check what their titles say: the ones that could
-      not fail go or are replaced, and waits become conditions'
-    author: subcontrabass
-    delta:
-      additions: 63
-      changed_files: 10
-      commits: 2
-      deletions: 145
-      mergeable_state: clean
-      updated_at: '2026-10-28T19:14:46Z'
-    idle_hours: 72.3
-    stalled: true
-  - name: docs/drop-revamp-audit
-    stage: ready
-    pr: 57
-    base: main
-    title: 'docs/revamp-audit.md goes: an audit of 2026-04-04 written as if current,
-      most of its items since fixed'
-    author: subcontrabass
-    delta:
-      additions: 0
-      changed_files: 1
-      commits: 1
-      deletions: 181
-      mergeable_state: clean
-      updated_at: '2026-10-26T02:56:55Z'
-    idle_hours: 136.6
-    stalled: true
-  - name: docs/main-says-what-is-true
-    stage: ready
-    pr: 56
-    base: main
-    title: main's README, contributor guide, API reference and module guide say what
-      main's code does
-    author: subcontrabass
-    delta:
-      additions: 34
-      changed_files: 4
-      commits: 1
-      deletions: 24
-      mergeable_state: clean
-      updated_at: '2026-10-26T02:56:49Z'
-    idle_hours: 136.6
-    stalled: true
-  - name: feat/run-chooses-files
-    stage: ready
-    pr: 55
-    base: main
-    title: joe run and POST /api/run analyse the newest recording, those named, or
-      every one
-    author: subcontrabass
-    delta:
-      additions: 303
-      changed_files: 10
-      commits: 1
-      deletions: 160
-      mergeable_state: clean
-      updated_at: '2026-10-26T02:56:42Z'
-    idle_hours: 136.6
-    stalled: true
-  - name: test/python-settings-fixture
-    stage: ready
-    pr: 54
-    base: main
-    title: No setting of the machine's, nor the microphone saved in the checkout,
-      reaches a Python test
-    author: subcontrabass
-    delta:
-      additions: 66
-      changed_files: 2
-      commits: 1
-      deletions: 0
-      mergeable_state: clean
-      updated_at: '2026-10-26T02:56:36Z'
-    idle_hours: 136.6
-    stalled: true
-  - name: test/specs-own-servers
-    stage: ready
-    pr: 53
-    base: main
-    title: The specs run on servers of their own, which no running joe, qmcp or dev
-      page can answer
-    author: subcontrabass
-    delta:
-      additions: 66
-      changed_files: 5
-      commits: 1
-      deletions: 9
-      mergeable_state: clean
-      updated_at: '2026-10-26T02:56:28Z'
-    idle_hours: 136.6
-    stalled: true
-  - name: docs/user-paths
-    stage: draft
-    pr: 52
-    base: feat/golden-layout
-    title: joe's user paths are pages of steps, each naming the spec or test that
-      checks it, and every page spec is a step of its lane's page
-    author: subcontrabass
-    delta:
-      additions: 834
-      changed_files: 24
-      commits: 5
-      deletions: 389
-      mergeable_state: clean
-      updated_at: '2026-10-28T19:14:43Z'
-    idle_hours: 72.3
-    stalled: true
-  - name: feat/golden-layout
-    stage: draft
-    pr: 51
-    base: integrate/open-prs
-    title: 'joe''s page is a GoldenLayout dock: the visualiser and every panel are
-      windows, kept where the person puts them'
-    author: subcontrabass
-    delta:
-      additions: 1860
-      changed_files: 33
-      commits: 5
-      deletions: 263
-      mergeable_state: clean
-      updated_at: '2026-10-28T19:14:39Z'
-    idle_hours: 72.3
-    stalled: true
-  - name: feat/relative-take-paths
-    stage: draft
-    pr: 50
-    base: main
-    title: A take's recording is kept relative to the voice folder, and an older record
-      is found by its file name
-    author: subcontrabass
-    delta:
-      additions: 74
-      changed_files: 4
-      commits: 1
-      deletions: 7
-      mergeable_state: clean
-      updated_at: '2026-10-26T23:37:14Z'
-    idle_hours: 116.0
-    stalled: true
-  - name: fix/missing-mic-named
-    stage: ready
-    pr: 49
-    base: main
-    title: A saved microphone that is not connected is named when the default input
-      stands in for it
-    author: subcontrabass
-    delta:
-      additions: 94
-      changed_files: 2
-      commits: 1
-      deletions: 14
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:06:09Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/voice-folder-first
-    stage: ready
-    pr: 48
-    base: main
-    title: A name the voice routes are given is looked for in Data/Voice before Data/Audio
-    author: subcontrabass
-    delta:
-      additions: 17
-      changed_files: 3
-      commits: 1
-      deletions: 4
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:06:04Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: feat/panel-keys
-    stage: ready
-    pr: 47
-    base: main
-    title: L opens the Library and A the Results, and Esc closes whatever is open
-    author: subcontrabass
-    delta:
-      additions: 135
-      changed_files: 7
-      commits: 2
-      deletions: 2
-      mergeable_state: clean
-      updated_at: '2026-10-26T23:49:47Z'
-    idle_hours: 115.8
-    stalled: true
-  - name: feat/capture-select-says
-    stage: ready
-    pr: 46
-    base: main
-    title: 'The capture select says where Live records from: Browser mic or joe''s
-      mic'
-    author: subcontrabass
-    delta:
-      additions: 25
-      changed_files: 5
-      commits: 1
-      deletions: 12
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:55Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/quiet-qmcp-poll
-    stage: ready
-    pr: 45
-    base: main
-    title: A hidden page asks qmcp nothing, and while qmcp cannot be reached Instruct
-      by voice says so quietly
-    author: subcontrabass
-    delta:
-      additions: 80
-      changed_files: 4
-      commits: 1
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:51Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/results-heading
-    stage: ready
-    pr: 44
-    base: main
-    title: The Results panel's heading reads on one line, with its buttons beneath
-      it when they do not fit beside it
-    author: subcontrabass
-    delta:
-      additions: 19
-      changed_files: 2
-      commits: 1
-      deletions: 0
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:47Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/knob-clear-of-time
-    stage: ready
-    pr: 43
-    base: main
-    title: The transport's scrubber keeps room for its knob, so the knob never sits
-      on the time
-    author: subcontrabass
-    delta:
-      additions: 21
-      changed_files: 2
-      commits: 1
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:42Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/hint-clear-of-pane
-    stage: ready
-    pr: 42
-    base: main
-    title: The first-run hint sits below the transcript pane rather than over its
-      last lines
-    author: subcontrabass
-    delta:
-      additions: 19
-      changed_files: 2
-      commits: 1
-      deletions: 0
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:38Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: feat/transcript-day-labels
-    stage: draft
-    pr: 41
-    base: feat/clamp-long-asks
-    title: 'The transcript names each day where it changes: today, yesterday, then
-      the date'
-    author: subcontrabass
-    delta:
-      additions: 77
-      changed_files: 3
-      commits: 1
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:06:45Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: feat/clamp-long-asks
-    stage: draft
-    pr: 40
-    base: feat/fold-empty-takes
-    title: A long question in the transcript shows three lines until it is opened
-    author: subcontrabass
-    delta:
-      additions: 94
-      changed_files: 3
-      commits: 1
-      deletions: 12
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:06:43Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: feat/fold-empty-takes
-    stage: ready
-    pr: 39
-    base: main
-    title: Takes in a row that heard nothing fold into one line in the transcript
-    author: subcontrabass
-    delta:
-      additions: 113
-      changed_files: 3
-      commits: 1
-      deletions: 1
-      mergeable_state: clean
-      updated_at: '2026-10-25T01:05:24Z'
-    idle_hours: 162.5
-    stalled: true
-  - name: fix/security-defaults
-    stage: draft
-    pr: 38
-    base: docs/media-engine
-    title: A fresh joe serves the media API alone, and refuses what a page on another
-      site makes a browser send
-    author: subcontrabass
-    delta:
-      additions: 2652
-      changed_files: 31
-      commits: 16
-      deletions: 149
-      mergeable_state: clean
-      updated_at: '2026-10-25T00:02:41Z'
-    idle_hours: 163.5
-    stalled: true
-  - name: docs/media-engine
-    stage: draft
-    pr: 37
-    base: feat/video-audio-engine
-    title: The media reference lists every refusal and what a Docker host needs to
-      reach joe, and the contributor guide describes the CI that runs
-    author: subcontrabass
-    delta:
-      additions: 108
-      changed_files: 3
-      commits: 4
-      deletions: 24
-      mergeable_state: clean
-      updated_at: '2026-10-24T19:21:26Z'
-    idle_hours: 168.2
-    stalled: true
-  - name: feat/video-audio-engine
-    stage: ready
-    pr: 36
-    base: main
-    title: joe takes audio and video at /api/media, transcribes it with word times,
-      and measures how its sound moves
-    author: subcontrabass
-    delta:
-      additions: 2794
-      changed_files: 15
-      commits: 6
-      deletions: 7
-      mergeable_state: clean
-      updated_at: '2026-10-24T19:21:24Z'
-    idle_hours: 168.2
-    stalled: true
-  - name: docs/tighten-language
-    stage: draft
-    pr: 35
-    base: fix/security-defaults
-    title: joe's security, media and API references and its README say the same in
-      fewer words
-    author: subcontrabass
-    delta:
-      additions: 315
-      changed_files: 7
-      commits: 6
-      deletions: 331
-      mergeable_state: clean
-      updated_at: '2026-10-25T00:02:43Z'
-    idle_hours: 163.5
-    stalled: true
   - name: p5
     stage: ready
     pr: 4
@@ -4845,9 +4250,9 @@ repositories:
       changed_files: 11
       commits: 14
       deletions: 7
-      mergeable_state: dirty
+      mergeable_state: unknown
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 15978.5
+    idle_hours: 15982.5
     stalled: true
   governance:
     seed: n/a
@@ -4937,7 +4342,7 @@ repositories:
       deletions: 1040
       mergeable_state: clean
       updated_at: '2026-09-20T22:50:26Z'
-    idle_hours: 980.7
+    idle_hours: 984.8
     stalled: true
   governance:
     seed: n/a
@@ -5166,7 +4571,7 @@ repositories:
       deletions: 375
       mergeable_state: blocked
       updated_at: '2026-09-20T14:13:24Z'
-    idle_hours: 989.4
+    idle_hours: 993.5
     stalled: true
   governance:
     seed: n/a
@@ -5195,7 +4600,7 @@ repositories:
     compliant: true
   release:
     state: current
-    latest: v0.0.4-prealpha
+    latest: v0.0.5-prealpha
     annotated: true
     unreleased_commits: 0
     asserts: a human reviewed, manually tested and gated this commit

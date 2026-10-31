@@ -13,7 +13,7 @@
 | `alfred` | yes |
 | `otto` | no |
 | `carlos` | yes |
-| `private-34` | no |
+| `loopwall` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
 | `midiphonor` | no |
@@ -45,13 +45,13 @@ Everyone in these is in this family as well, and is in the table above.
 
 | family | drives | members | governed |
 |---|---|---|---|
-| [`instruments`](./instruments.md) | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 2 |
-| [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 3 | 0 |
+| [`instruments`](./instruments.md) | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 3 |
+| [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 3 | 1 |
 | [`show-control`](./show-control.md) | the room — cues, lighting, sound and video playback, audio transport | 8 | 0 |
 
 ## Starting here
 
-3 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
+4 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
 
 ```sh
 cd alfred

@@ -18,6 +18,14 @@ Drives the performer — what a player reads while playing.
 
 <div class="card qm-f-performer-display" markdown>
 
+[loopwall](../projects/index.md#loopwall){ .qm-card-link }
+
+<span class="qm-meta">not on the host yet</span>
+
+</div>
+
+<div class="card qm-f-performer-display" markdown>
+
 [joe](../projects/joe.md){ .qm-card-link }
 
 <span class="qm-meta">v0.0.0</span>
@@ -38,9 +46,7 @@ Web pdf viewer, annotator, collaborator
 
 </div>
 
-1 private repository is counted here and not named.
-
-Every member here is at `v0.0.0`, so no member has records to start from. Reading the code is the entry point.
+Start in `loopwall`: its records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 
