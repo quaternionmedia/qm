@@ -3,10 +3,13 @@
     uv run qm instances                      # what is up, and what each one is
     uv run qm instances --json               # the same document, on stdout
     uv run qm instances --write              # the document, at ~/.qm/instances.json
-    uv run qm instances --check              # exit 1 if any is stale, mismatched or undeclared
+    uv run qm instances --check              # exit 1 on stale, mismatch, undeclared or missing
     uv run qm instances --port 8000          # also look at a port nothing declares; repeatable
     uv run qm instances run --repo NAME [--port N] [--session S] -- COMMAND ...
     uv run qm instances prune [--yes]        # remove run-files whose process is gone
+    uv run qm instances register --family core            # this machine runs a family
+    uv run qm instances register --repo qmcp --repo apothecary [--name bench]
+    uv run qm instances register [--clear]   # what is registered; or nothing
 
 **The collector** `records/DRAFT-monitoring-seam-and-instance-identity.md` asks
 for. A server declares itself with a run-file in a machine-scoped directory
@@ -32,6 +35,22 @@ the health path its run-file declares, and nothing else: a read of qmcp's queue
 can write to it (the record's context), so no other route is in reach. It
 stops nothing; `prune` removes run-files and only those whose process the
 operating system says is gone.
+
+**Which repositories this machine should be running.** `register` writes that
+claim to `~/.qm/registered.json` (`QM_REGISTERED` moves it): a family, whose
+members `families.json` resolves from the family record, a selection named
+repository by repository, or both. Every reading then judges each registered
+repository as well as each server:
+
+    up           a live run-file declares it, and its port answers
+    silent       a live run-file declares it, and its port does not answer
+    missing      nothing declares it running, and this corpus says how it starts
+    unjudged     nothing declares it running, and nothing in this corpus says how
+
+A repository this corpus names no way to start, `qm` itself among them, is
+`unjudged` rather than `missing`, so registering a family does not fail
+`--check` on the members that serve nothing. A server running outside the
+registration is reported, and is not a problem.
 
 **What it cannot see.** A server that writes no run-file and holds no reserved
 port. A server whose health answer states no pid is attributed by its run-file
@@ -60,9 +79,10 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 FAMILY_DEMO = ROOT / "ci" / "family-demo.yaml"
+FAMILIES = ROOT / "families.json"
 SCHEMA = 1
 HOST = "127.0.0.1"
-PROBLEMS = ("stale", "mismatch", "undeclared")
+PROBLEMS = ("stale", "mismatch", "undeclared", "missing")
 
 
 def run_dirs() -> list[Path]:
@@ -73,6 +93,10 @@ def run_dirs() -> list[Path]:
 
 def default_document() -> Path:
     return Path.home() / ".qm" / "instances.json"
+
+
+def registration_path() -> Path:
+    return Path(os.environ.get("QM_REGISTERED") or Path.home() / ".qm" / "registered.json")
 
 
 def tilde(path: str | Path | None) -> str | None:
@@ -91,7 +115,9 @@ def tilde(path: str | Path | None) -> str | None:
 def alive(pid: int) -> bool:
     """Whether the operating system holds a running process with this pid.
 
-    Never `os.kill(pid, 0)` on Windows: there it terminates the process."""
+    A zombie, a process that has exited and whose parent has not yet collected
+    it, holds its pid without running, so it is not alive. Never
+    `os.kill(pid, 0)` on Windows: there it terminates the process."""
     if pid <= 0:
         return False
     if sys.platform == "win32":
@@ -108,8 +134,12 @@ def alive(pid: int) -> bool:
     except ProcessLookupError:
         return False
     except PermissionError:
+        pass
+    try:                                            # field 3 of /proc/<pid>/stat
+        state = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0]
+    except (OSError, IndexError):                   # no /proc, as on macOS
         return True
-    return True
+    return state not in ("Z", "X")
 
 
 def listening(port: int, host: str = HOST) -> bool:
@@ -133,6 +163,30 @@ def fetch(url: str) -> tuple[int, object]:
         return status, json.loads(raw)
     except ValueError:
         return status, raw
+
+
+def created(pid: int) -> int | None:
+    """When the process holding this pid started, in the operating system's own
+    count, or None where it cannot say. A pid is handed out again once its
+    process has gone, so a pid recorded before a restart can name a stranger;
+    the start time tells them apart."""
+    if pid <= 0:
+        return None
+    if sys.platform == "win32":
+        import ctypes
+        from ctypes import wintypes
+        kernel = ctypes.windll.kernel32
+        handle = kernel.OpenProcess(0x1000, False, pid)
+        if not handle:
+            return None
+        times = [wintypes.FILETIME() for _ in range(4)]
+        ok = kernel.GetProcessTimes(handle, *(ctypes.byref(t) for t in times))
+        kernel.CloseHandle(handle)
+        return (times[0].dwHighDateTime << 32 | times[0].dwLowDateTime) if ok else None
+    try:                                            # field 22 of /proc/<pid>/stat
+        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[19])
+    except (OSError, ValueError, IndexError):
+        return None
 
 
 @dataclass
@@ -187,6 +241,121 @@ def reserved_ports() -> dict[int, str]:
     return ports
 
 
+# --- which repositories this machine should be running
+
+
+def families(path: Path = FAMILIES) -> dict[str, list[str]]:
+    """family -> every member, the families within it included, as
+    `families.json` resolves them from the record."""
+    document = json.loads(path.read_text(encoding="utf-8"))
+    return {f["name"]: list(f["all_members"]) for f in document["families"]}
+
+
+def roster_names() -> set[str]:
+    """Every name the roster answers to: a repository's name and its reference."""
+    sys.path.insert(0, str(ROOT / "ci"))
+    import roster
+    return {name for entry in roster.load()
+            for name in (entry.get("name"), entry.get("ref")) if name}
+
+
+def servers() -> dict[str, str]:
+    """repo -> the command that brings it up, for every repository this corpus
+    says how to start: the dashboard's surfaces that detach, the stacks its
+    owner session starts, and the family demo's members that serve. A
+    repository absent here may well serve; nothing in this corpus says how."""
+    known: dict[str, str] = {}
+    try:
+        block = yaml.safe_load(FAMILY_DEMO.read_text(encoding="utf-8"))
+        for member in block.get("members") or []:
+            if member.get("serves"):
+                known[member["name"]] = "uv run qm family-demo"
+    except Exception:                                # noqa: BLE001
+        pass
+    sys.path.insert(0, str(ROOT / "ci"))
+    try:
+        import dashboard
+        for surface in dashboard.SURFACES:
+            if surface.detachable:
+                known[surface.repo] = f"uv run qm dashboard --start {surface.name}"
+            elif surface.owner_starts:
+                known[surface.repo] = (f"ask the session that owns {surface.repo}; "
+                                       f"if none has, cd {surface.repo} && "
+                                       f"{' '.join(surface.command)}")
+    except Exception:                                # noqa: BLE001
+        pass
+    return known
+
+
+def registration(named_families: list[str], repos: list[str], name: str | None,
+                 known_families: dict[str, list[str]], known_repos: set[str]) -> dict:
+    """The document `register` writes, refusing a name nothing resolves."""
+    unknown = [f for f in named_families if f not in known_families]
+    if unknown:
+        raise ValueError(f"no family named {', '.join(unknown)}; families.json names "
+                         f"{', '.join(sorted(known_families))}")
+    strangers = [r for r in repos if r not in known_repos]
+    if strangers:
+        raise ValueError(f"{', '.join(strangers)}: not in the roster, ci/workspace.yaml")
+    if not name:
+        name = named_families[0] if len(named_families) == 1 and not repos else "local"
+    return {
+        "schema": SCHEMA, "name": name,
+        "families": list(dict.fromkeys(named_families)), "repos": list(dict.fromkeys(repos)),
+        "registered_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "scope": "this machine; never committed",
+    }
+
+
+def read_registration(path: Path | None = None) -> dict | None:
+    try:
+        return json.loads((path or registration_path()).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def expected(registered: dict, known_families: dict[str, list[str]]
+             ) -> tuple[dict[str, str], list[str]]:
+    """(repo -> why it is registered, the families that no longer resolve). A
+    family is resolved when it is read, so a member the roster gains later is
+    expected without registering again."""
+    found: dict[str, str] = {}
+    gone = []
+    for family in registered.get("families") or []:
+        if family not in known_families:
+            gone.append(family)
+            continue
+        for member in known_families[family]:
+            found.setdefault(member, f"family {family}")
+    for repo in registered.get("repos") or []:
+        found.setdefault(repo, "named")
+    return found, gone
+
+
+def judge_registered(members: dict[str, str], rows: list[dict],
+                     starts: dict[str, str]) -> list[dict]:
+    """One row per registered repository: up, silent, missing or unjudged."""
+    judged = []
+    for repo, via in members.items():
+        mine = [row for row in rows if row["repo"] == repo]
+        answering = [r for r in mine if r["state"] in ("identified", "answering")]
+        silent = [r for r in mine if r["state"] == "silent"]
+        row = {"repo": repo, "via": via, "start": starts.get(repo)}
+        if answering:
+            row |= {"state": "up", "why": "; ".join(
+                f"pid {r['pid']} on {r['port']}, {r['state']}" for r in answering)}
+        elif silent:
+            row |= {"state": "silent", "why": "; ".join(
+                f"pid {r['pid']} is alive and {r['port']} does not answer" for r in silent)}
+        elif repo in starts:
+            row |= {"state": "missing", "why": f"nothing declares it running; {starts[repo]}"}
+        else:
+            row |= {"state": "unjudged",
+                    "why": "nothing declares it running, and nothing here starts it"}
+        judged.append(row)
+    return judged
+
+
 # --- the judgement, one declaration at a time
 
 
@@ -230,11 +399,24 @@ def judge(declared: dict, world: World) -> dict:
 
 
 def collect(directories: list[Path] | None = None, world: World | None = None,
-            reserved: dict[int, str] | None = None) -> dict:
+            reserved: dict[int, str] | None = None, registered: dict | None = None,
+            known_families: dict[str, list[str]] | None = None,
+            starts: dict[str, str] | None = None) -> dict:
     world = world or World()
     directories = run_dirs() if directories is None else directories
     reserved = reserved_ports() if reserved is None else reserved
     rows = [judge(declared, world) for declared in read_run_files(directories)]
+    machine = None
+    if registered:
+        members, gone = expected(registered, families() if known_families is None
+                                 else known_families)
+        for row in rows:
+            row["registered"] = row["repo"] in members
+        machine = {key: registered.get(key) for key in
+                   ("name", "families", "repos", "registered_at")}
+        machine["unresolved"] = gone
+        machine["repositories"] = judge_registered(
+            members, rows, servers() if starts is None else starts)
     declared_live = {row["port"] for row in rows if row["state"] != "stale"}
     candidates = sorted(port for port in reserved if port not in declared_live)
     with ThreadPoolExecutor(max_workers=32) as pool:
@@ -244,6 +426,9 @@ def collect(directories: list[Path] | None = None, world: World | None = None,
     counts = {state: sum(1 for row in rows if row["state"] == state)
               for state in ("identified", "answering", "silent", "stale", "mismatch")}
     counts["undeclared"] = len(undeclared)
+    judged = machine["repositories"] if machine else []
+    for state in ("missing", "unjudged"):
+        counts[state] = sum(1 for row in judged if row["state"] == state)
     return {
         "schema": SCHEMA,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -252,6 +437,7 @@ def collect(directories: list[Path] | None = None, world: World | None = None,
         "reserved_ports_probed": len(candidates),
         "instances": rows,
         "undeclared": undeclared,
+        "registered": machine,
         "counts": counts,
     }
 
@@ -272,13 +458,30 @@ def render(document: dict) -> str:
     if document["undeclared"]:
         out += ["", "HELD WITHOUT A RUN-FILE  (reserved ports something listens on)", "-" * 78]
         out += [f"{item['port']:>6}  {item['reserved_for']}" for item in document["undeclared"]]
+    machine = document.get("registered")
+    if machine:
+        claim = ", ".join([*(f"family {f}" for f in machine["families"]), *machine["repos"]])
+        out += ["", f"REGISTERED ON THIS MACHINE  ({machine['name']}: {claim}; "
+                    f"since {machine['registered_at']})", "-" * 78]
+        out += [f"{row['repo']:<17} {row['state']:<9} {row['via']:<16} {row['why']}"
+                for row in machine["repositories"]]
+        out += [f"family {name} is no longer in families.json, so nothing of it is expected"
+                for name in machine["unresolved"]]
+        outside = sorted({str(row["repo"] or "?") for row in rows
+                          if not row.get("registered") and row["state"] != "stale"})
+        if outside:
+            out.append(f"Running and not registered: {', '.join(outside)}.")
     counts = document["counts"]
-    problems = sum(counts[k] for k in PROBLEMS)
+    problems = sum(counts.get(k, 0) for k in PROBLEMS)
     out.append("")
     # Decision 7: the quiet sentence only where every instance has earned it.
     if rows and not problems and counts["silent"] == 0 and counts["answering"] == 0:
+        earned = (f" Every registered repository this corpus starts is up, and "
+                  f"{counts['unjudged']} it starts nothing for are not judged."
+                  if machine else "")
         out.append(f"Every declared server is identified, and no reserved port is held "
-                   f"without one. Run-files read from {', '.join(document['run_dirs'])}.")
+                   f"without one.{earned} Run-files read from "
+                   f"{', '.join(document['run_dirs'])}.")
     else:
         out.append("  ".join(f"{k} {v}" for k, v in counts.items()) +
                    f"  -- run-files read from {', '.join(document['run_dirs'])}; "
@@ -379,6 +582,59 @@ def inside_a_repository(path: Path) -> bool:
     return done.returncode == 0
 
 
+def describe(registered: dict, known_families: dict[str, list[str]]) -> str:
+    members, gone = expected(registered, known_families)
+    claim = ", ".join([*(f"family {f}" for f in registered["families"]), *registered["repos"]])
+    lines = [f"{registered['name']}: {claim}, registered {registered['registered_at']}",
+             f"  {len(members)} repositories: {', '.join(members)}"]
+    lines += [f"  family {name} is no longer in families.json" for name in gone]
+    return "\n".join(lines)
+
+
+def register(argv: list[str]) -> int:
+    """Say which repositories this machine should be running, or show it."""
+    parser = argparse.ArgumentParser(
+        prog="qm instances register",
+        description="Which repositories this machine should be running: a family, a "
+                    "selection of its own, or both. Replaces what was registered before; "
+                    "with no option, shows it.")
+    parser.add_argument("--family", action="append", default=[],
+                        help="every member of this family, as families.json resolves it "
+                             "when read; repeatable")
+    parser.add_argument("--repo", action="append", default=[],
+                        help="this repository, by its roster name; repeatable")
+    parser.add_argument("--name", help="what to call the selection (default: the family's "
+                                       "name, or `local`)")
+    parser.add_argument("--clear", action="store_true", help="register nothing")
+    args = parser.parse_args(argv)
+    path = registration_path()
+    if args.clear:
+        path.unlink(missing_ok=True)
+        print(f"instances: nothing is registered on this machine; {tilde(path)} is gone.")
+        return 0
+    if not args.family and not args.repo:
+        current = read_registration(path)
+        print(describe(current, families()) if current else
+              "Nothing is registered on this machine. `qm instances register --family NAME` "
+              "or `--repo NAME` says what it should be running.")
+        return 0
+    if inside_a_repository(path):
+        print(f"instances: {path} is inside a repository, and a registration belongs to "
+              "one machine. Keep it outside every repository.", file=sys.stderr)
+        return 2
+    try:
+        document = registration(args.family, args.repo, args.name, families(), roster_names())
+    except ValueError as error:
+        print(f"instances: {error}", file=sys.stderr)
+        return 2
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(document, indent=2), encoding="utf-8")
+    print(describe(document, families()))
+    print(f"Written to {tilde(path)}; `uv run qm instances` judges it, and "
+          "`uv run qm dashboard --start-registered` starts the surfaces in it.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ["run"]:
@@ -395,6 +651,8 @@ def main(argv: list[str] | None = None) -> int:
         if not command:
             parser.error("give the command after --")
         return run(args.repo, command, args.port, args.session, args.health, args.host, args.state)
+    if argv[:1] == ["register"]:
+        return register(argv[1:])
     if argv[:1] == ["prune"]:
         yes = "--yes" in argv
         gone = prune(run_dirs(), World(), yes)
@@ -417,7 +675,7 @@ def main(argv: list[str] | None = None) -> int:
     reserved = reserved_ports()
     for port in args.port:
         reserved.setdefault(port, "named on the command line")
-    document = collect(reserved=reserved)
+    document = collect(reserved=reserved, registered=read_registration())
     if args.write:
         target = Path(args.write).expanduser()
         if inside_a_repository(target):
