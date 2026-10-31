@@ -118,13 +118,19 @@ reads the conversations the harness archived and reports their topics; it is
 listed because it is one more server on the same workstation, and a port
 collision between any two surfaces is what the table prevents. `apothecary`'s
 viewer is listed for the same reason, started as its demo, which touches no
-real board.
+real board. So are `alfred`, a video editor in the browser, and `joe`, the
+speech engine it hears its captions with.
 
 - **Reporting is the default.** Nothing starts unless `--start` names it.
 - **Servers detach; the terminal front end does not.** `--start` backs a server
   off into its own process under its repository's own environment and records
   its pid. `dossier dashboard` draws in the terminal it is run from, so the
   dashboard prints that command rather than launching it into a pipe.
+- **A stack its owner starts is never started here.** alfred's editor runs in
+  containers, with joe beside it, and one session starts it for every other,
+  as [running several repositories](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md)
+  says. The dashboard prints `./al family up` and the advice to ask that
+  session first, and `--start editor` refuses.
 - **`--stop` acts on the recorded pid, never the port**, so it never stops a
   process it did not start.
 - **A busy port is "something is listening"**, not "the harness is up": any
@@ -132,8 +138,11 @@ real board.
   process from an earlier session.
 - **The ports are defaults, each overridable**, chosen as a memory aid: pi
   (3141) for the harness, e (2718) for the web front end, phi for the terminal
-  one, root two for the prose reader, and tau for apothecary's viewer. Each is
-  its constant's first four digits, and no two surfaces share one.
+  one, root two for the prose reader, tau for apothecary's viewer, root three
+  (1732) for alfred's editor, and the twelfth root of two (1059), a semitone,
+  for joe. Each is its constant's first four digits, and no two surfaces share
+  one. A repository that joins the table takes a constant nobody holds; vox, a
+  client of joe's, and otto, a library, serve nothing and hold none.
 
 ## Which server is which
 
