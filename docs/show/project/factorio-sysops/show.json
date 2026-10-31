@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:694041d1dfc2b380f231f05f8575b05142ec7a62c57fc1f385eb007c4be79a0c"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "da1e1d0c50fd30b082b4031b3ff835947b2246e0"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -224,10 +224,10 @@
     "subject": "project:factorio-sysops",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -275,9 +275,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -792.5279272192009,
-      "y": -457.56621212030166,
+      "x": 162.27456988773025,
+      "y": 47.93035545657518,
       "size": 90
      },
      "dir::quaternionmedia/factorio-sysops/.github": {
@@ -289,9 +290,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -926.9430993889348,
-      "y": -690.3801196263983,
+      "x": 175.26452647218352,
+      "y": 96.40953341786866,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/.github/workflows": {
@@ -303,9 +305,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -869.7854227391618,
-      "y": -657.3801196263983,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": 177.46448835555495,
+      "y": 104.61990294132578,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/docs": {
@@ -316,10 +319,14 @@
       "kind": "directory",
       "file": "",
       "line": 0,
-      "meta": {},
-      "label_at": "none",
-      "x": -1062.5417786477458,
-      "y": -301.67364231310364,
+      "meta": {
+       "lines": 6757,
+       "pages": 18
+      },
+      "dot_scale": 3.829753918924975,
+      "label_at": "left",
+      "x": 149.0582810980038,
+      "y": 39.50813291851476,
       "size": 230
      },
      "dir::quaternionmedia/factorio-sysops/governance": {
@@ -331,9 +338,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -868.5156636463837,
-      "y": -440.73093924835274,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 180.5237618514692,
+      "y": 44.71762989717936,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc": {
@@ -345,9 +353,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 434.4419589589629,
-      "y": -23.116485599951204,
+      "x": 28.041911304110712,
+      "y": 8.76972704764001,
       "size": 140
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics": {
@@ -359,9 +368,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 641.458553074696,
-      "y": 96.40460073948682,
+      "x": 37.23764587114046,
+      "y": 43.088675664712405,
       "size": 70
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/entity": {
@@ -373,9 +383,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 698.616229724469,
-      "y": 129.40460073948682,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": 39.43760775451188,
+      "y": 51.29904518816949,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/icons": {
@@ -387,9 +398,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 864.0270818472968,
-      "y": 224.90460073948682,
+      "x": 46.68454101738246,
+      "y": 78.3449683242634,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/icons/signals": {
@@ -401,9 +413,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 921.18475849707,
-      "y": 257.9046007394869,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": 48.88450290075389,
+      "y": 86.5553378477205,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/gui": {
@@ -415,9 +428,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 247.4544338414813,
-      "y": -362.9668220108555,
+      "x": 42.099067729952374,
+      "y": -42.180092512402275,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/locale": {
@@ -429,9 +443,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 709.5033839647971,
-      "y": -281.54703359153064,
+      "x": 95.48112966273632,
+      "y": -35.53301611890982,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/locale/en": {
@@ -443,9 +458,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 766.66106061457,
-      "y": -248.5470335915307,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": 97.68109154610775,
+      "y": -27.32264659545274,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes": {
@@ -457,9 +473,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 595.6220530442159,
-      "y": -562.6709067934513,
+      "x": 82.00910331814566,
+      "y": 8.50999290905509,
       "size": 100
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/scripts": {
@@ -471,9 +488,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -143.95725574010044,
-      "y": 300.8390187485672,
+      "x": -74.73970100528038,
+      "y": -18.555819644509807,
       "size": 140
      },
      "file::quaternionmedia/factorio-sysops/README.md": {
@@ -485,261 +503,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -735.370250569428,
-      "y": -424.56621212030166,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/01-OVERVIEW.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/01-OVERVIEW.md",
-      "label": "01-OVERVIEW.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/01-OVERVIEW.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -1015.7764068433861,
-      "y": -274.67364231310364,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/02-RESOURCES-RECIPES.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/02-RESOURCES-RECIPES.md",
-      "label": "02-RESOURCES-RECIPES.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/02-RESOURCES-RECIPES.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1121.1624725526585,
-      "y": -288.686081106067,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/03-ENTITIES.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/03-ENTITIES.md",
-      "label": "03-ENTITIES.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/03-ENTITIES.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -1024.9410129904463,
-      "y": -355.34213793190077,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/04-TECHNOLOGY-TREE.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/04-TECHNOLOGY-TREE.md",
-      "label": "04-TECHNOLOGY-TREE.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/04-TECHNOLOGY-TREE.md",
-      "line": 0,
-      "meta": {},
+      "dot_scale": 1.5,
       "label_at": "below",
-      "x": -1053.3561659273798,
-      "y": -231.68212840640598,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/05-MECHANICS.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/05-MECHANICS.md",
-      "label": "05-MECHANICS.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/05-MECHANICS.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1120.2096623611628,
-      "y": -350.1160327167141,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/06-SPACE-AGE.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/06-SPACE-AGE.md",
-      "label": "06-SPACE-AGE.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/06-SPACE-AGE.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -982.8575149617711,
-      "y": -305.0986417034728,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/07-ROADMAP.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/07-ROADMAP.md",
-      "label": "07-ROADMAP.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/07-ROADMAP.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1121.963321885608,
-      "y": -242.34864590154984,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/ARCHITECTURE.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/ARCHITECTURE.md",
-      "label": "ARCHITECTURE.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/ARCHITECTURE.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "above",
-      "x": -1058.6210361674985,
-      "y": -389.56030386309976,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/DATAFACTORIO-INTEGRATION.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/DATAFACTORIO-INTEGRATION.md",
-      "label": "DATAFACTORIO-INTEGRATION.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/DATAFACTORIO-INTEGRATION.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -1003.6057399509241,
-      "y": -231.281573564368,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/DEMO-LOOP.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/DEMO-LOOP.md",
-      "label": "DEMO-LOOP.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/DEMO-LOOP.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1157.195541119322,
-      "y": -314.25250354830473,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/HANDOFF-MULTI-REPO.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/HANDOFF-MULTI-REPO.md",
-      "label": "HANDOFF-MULTI-REPO.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/HANDOFF-MULTI-REPO.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -981.3455635717582,
-      "y": -358.36402648303124,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/MILESTONES.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/MILESTONES.md",
-      "label": "MILESTONES.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/MILESTONES.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "below",
-      "x": -1084.864748573294,
-      "y": -201.68678060766217,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/NEXT-PHASE.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/NEXT-PHASE.md",
-      "label": "NEXT-PHASE.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/NEXT-PHASE.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1115.2717650908994,
-      "y": -393.3486036150034,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/POC-CHECKLIST.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/POC-CHECKLIST.md",
-      "label": "POC-CHECKLIST.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/POC-CHECKLIST.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -958.6759638250376,
-      "y": -268.7236042066786,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/POC-QUICKSTART.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/POC-QUICKSTART.md",
-      "label": "POC-QUICKSTART.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/POC-QUICKSTART.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1164.2142719616822,
-      "y": -254.4975985691908,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/README.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/README.md",
-      "label": "README.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/README.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -1018.272299916174,
-      "y": -407.9381742738425,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/network-cable-refactor.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/network-cable-refactor.md",
-      "label": "network-cable-refactor.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/network-cable-refactor.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "below",
-      "x": -1022.3994241871563,
-      "y": -190.6349491545456,
-      "size": 30
-     },
-     "file::quaternionmedia/factorio-sysops/docs/sysadmin-gdd.md": {
-      "id": "file::quaternionmedia/factorio-sysops/docs/sysadmin-gdd.md",
-      "label": "sysadmin-gdd.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/sysadmin-gdd.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -1169.7010478907869,
-      "y": -357.7713563066117,
+      "x": 165.4216820952392,
+      "y": 59.67553811211881,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua": {
@@ -751,9 +518,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/control.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 519.3982540262868,
-      "y": 495.1765490411403,
+      "x": -12.296189800044536,
+      "y": 61.839456158748675,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py": {
@@ -765,9 +533,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/create_icons.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 40.843070418672255,
-      "y": -355.80362083014757,
+      "x": 24.08281856485867,
+      "y": -70.8786647788869,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/data.lua": {
@@ -779,9 +548,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/data.lua",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 481.2073307633226,
-      "y": 3.883514400048796,
+      "dot_scale": 1.5,
+      "label_at": "below",
+      "x": 29.98305414237962,
+      "y": 16.01417074480802,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/gui/dashboard.lua": {
@@ -793,9 +563,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 383.72231106520644,
-      "y": -284.2925264138389,
+      "x": 46.537254204426716,
+      "y": -25.61655509619902,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/entities.lua": {
@@ -807,9 +578,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/entities.lua",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 642.3874248485756,
-      "y": -535.6709067934513,
+      "dot_scale": 1.5,
+      "label_at": "below",
+      "x": 83.95024615641456,
+      "y": 15.754436606223102,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/items.lua": {
@@ -821,9 +593,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/items.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": 537.0013591393031,
-      "y": -549.6833455864146,
+      "x": 74.81594113503517,
+      "y": 3.926072746413812,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/recipes.lua": {
@@ -835,9 +608,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/recipes.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 633.2228187015155,
-      "y": -616.3394024122483,
+      "x": 91.31365207391919,
+      "y": 6.871949884152116,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/signals.lua": {
@@ -849,9 +623,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/signals.lua",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 604.8076657645819,
-      "y": -492.6793928867536,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": 75.74525305589768,
+      "y": 16.666333917260676,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/technology.lua": {
@@ -863,9 +638,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/technology.lua",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 537.954169330799,
-      "y": -611.1132971970616,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": 81.05136005756135,
+      "y": -2.5058299311509664,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua": {
@@ -877,9 +653,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 268.59458886648196,
-      "y": 276.0898175697919,
+      "x": -56.89626844894505,
+      "y": -75.11400778486058,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-control.lua": {
@@ -891,9 +668,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -146.1192415599866,
-      "y": 622.6298978396973,
+      "x": -115.59536533902961,
+      "y": 16.548000419299164,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-interface.lua": {
@@ -905,9 +683,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -32.758842227719796,
-      "y": -92.07534590395724,
+      "x": -26.689920057699585,
+      "y": -54.85510514131307,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/data-system.lua": {
@@ -919,9 +698,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -311.1668650989793,
-      "y": 397.3775317230081,
+      "x": -60.01185100139895,
+      "y": -42.0474722464625,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py": {
@@ -933,9 +713,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/generate-icons.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 25.80602515862057,
-      "y": 398.8518946739578,
+      "x": -64.86491728740876,
+      "y": 15.11642194657864,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py": {
@@ -947,9 +728,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/generate-sprites.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -188.54583545822825,
-      "y": 121.05323440976375,
+      "x": -111.08494709083705,
+      "y": -33.72322549781228,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua": {
@@ -961,9 +743,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 85.12169694782567,
-      "y": 120.64373961577006,
+      "x": -85.87329852448744,
+      "y": -69.1538944191402,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py": {
@@ -975,9 +758,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/install-mod.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -451.98849678579876,
-      "y": 161.8383897670872,
+      "x": -26.827636444245766,
+      "y": -24.975378331072836,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/technical-debt.lua": {
@@ -989,9 +773,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -381.82504258980094,
-      "y": 657.0474541112716,
+      "x": -112.49606148236984,
+      "y": -73.5355586825871,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/settings.lua": {
@@ -1003,9 +788,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/settings.lua",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": 375.82126505405006,
-      "y": -10.128924392914598,
+      "x": 20.84874912100024,
+      "y": 4.185806884998732,
       "size": 30
      },
      "create_icons.create_png": {
@@ -1018,16 +804,18 @@
       "line": 0,
       "meta": {
        "module": "create_icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 873
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 70.28793414734318,
-      "y": -338.80362083014757,
-      "label_at": "right"
+      "x": 16.685184665568613,
+      "y": -66.93741951173509,
+      "label_at": "left",
+      "dot_scale": 2.4410142437055695
      },
      "create_icons.main": {
       "id": "create_icons.main",
@@ -1039,16 +827,18 @@
       "line": 0,
       "meta": {
        "module": "create_icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1476
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 4.05150342591628,
-      "y": -347.6523572337751,
-      "label_at": "left"
+      "x": 26.3703059873994,
+      "y": -62.3416454962901,
+      "label_at": "below",
+      "dot_scale": 2.6690863574870227
      },
      "create_icons.make_chunk": {
       "id": "create_icons.make_chunk",
@@ -1060,100 +850,18 @@
       "line": 0,
       "meta": {
        "module": "create_icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 189
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 64.39066276124431,
-      "y": -389.41367728454884,
-      "label_at": "right"
-     },
-     "generate-icons.Image": {
-      "id": "generate-icons.Image",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Image",
-      "file": "generate-icons.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-icons",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 55.250888887291495,
-      "y": 415.8518946739578,
-      "label_at": "right"
-     },
-     "generate-icons.ImageDraw": {
-      "id": "generate-icons.ImageDraw",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ImageDraw",
-      "file": "generate-icons.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-icons",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -10.985541834135574,
-      "y": 407.0031582703301,
-      "label_at": "left"
-     },
-     "generate-icons.PIL.Image": {
-      "id": "generate-icons.PIL.Image",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.Image",
-      "file": "generate-icons.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-icons",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 49.353617501192474,
-      "y": 365.24183821955637,
-      "label_at": "right"
-     },
-     "generate-icons.PIL.ImageDraw": {
-      "id": "generate-icons.PIL.ImageDraw",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.ImageDraw",
-      "file": "generate-icons.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-icons",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 31.54943612332858,
-      "y": 442.614901089085,
-      "label_at": "below"
+      "x": 31.12219814315418,
+      "y": -70.44178198242173,
+      "label_at": "right",
+      "dot_scale": 1.776461804173244
      },
      "generate-icons.add_shadow": {
       "id": "generate-icons.add_shadow",
@@ -1165,16 +873,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 139
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -10.208146811816476,
-      "y": 368.59913583639405,
-      "label_at": "left"
+      "x": -37.76801878551821,
+      "y": 30.969614283619144,
+      "label_at": "right",
+      "dot_scale": 1.6430148002540952
      },
      "generate-icons.create_base_icon": {
       "id": "generate-icons.create_base_icon",
@@ -1186,16 +896,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 139
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 75.5226827231314,
-      "y": 396.7149668293247,
-      "label_at": "right"
+      "x": -49.33639393997401,
+      "y": 40.28077383692407,
+      "label_at": "right",
+      "dot_scale": 1.6430148002540952
      },
      "generate-icons.draw_advanced_server": {
       "id": "generate-icons.draw_advanced_server",
@@ -1207,16 +919,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1113
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -11.240102295121005,
-      "y": 435.837830388512,
-      "label_at": "left"
+      "x": -56.29064871665573,
+      "y": 14.549499319403816,
+      "label_at": "right",
+      "dot_scale": 2.5464951643347082
      },
      "generate-icons.draw_basic_server": {
       "id": "generate-icons.draw_basic_server",
@@ -1228,16 +942,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 801
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 28.248866192332965,
-      "y": 344.0936073771109,
-      "label_at": "above"
+      "x": -45.904433754227775,
+      "y": 15.089731051973382,
+      "label_at": "right",
+      "dot_scale": 2.4036325160842376
      },
      "generate-icons.draw_circuit_bridge": {
       "id": "generate-icons.draw_circuit_bridge",
@@ -1249,16 +965,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 845
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 62.50720628736093,
-      "y": 442.68707807445685,
-      "label_at": "right"
+      "x": -63.39739422864174,
+      "y": 6.892620882570618,
+      "label_at": "above",
+      "dot_scale": 2.4268567089496926
      },
      "generate-icons.draw_dashboard_terminal": {
       "id": "generate-icons.draw_dashboard_terminal",
@@ -1270,16 +988,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 779
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -33.111355994562985,
-      "y": 391.0221630022779,
-      "label_at": "left"
+      "x": -81.30076890249755,
+      "y": 24.63418997776056,
+      "label_at": "left",
+      "dot_scale": 2.3915374576725643
      },
      "generate-icons.draw_data_packet": {
       "id": "generate-icons.draw_data_packet",
@@ -1291,16 +1011,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 564
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 76.32736418305882,
-      "y": 363.578401748281,
-      "label_at": "right"
+      "x": -57.246275088920925,
+      "y": 42.75755967109147,
+      "label_at": "below",
+      "dot_scale": 2.251279103983342
      },
      "generate-icons.draw_data_sensor": {
       "id": "generate-icons.draw_data_sensor",
@@ -1312,16 +1034,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 615
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 11.921011454758514,
-      "y": 461.0442888588061,
-      "label_at": "below"
+      "x": -43.74990673896311,
+      "y": 5.442371822398767,
+      "label_at": "right",
+      "dot_scale": 2.288875115775417
      },
      "generate-icons.draw_hp_server": {
       "id": "generate-icons.draw_hp_server",
@@ -1333,16 +1057,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1153
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -6.982737092886225,
-      "y": 341.846218903784,
-      "label_at": "left"
+      "x": -72.60818024017485,
+      "y": 18.912389115206693,
+      "label_at": "left",
+      "dot_scale": 2.561829307294699
      },
      "generate-icons.draw_network_cable": {
       "id": "generate-icons.draw_network_cable",
@@ -1354,16 +1080,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 808
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 90.37556560756155,
-      "y": 419.3357162464219,
-      "label_at": "right"
+      "x": -65.2879682465309,
+      "y": 37.12620641684872,
+      "label_at": "below",
+      "dot_scale": 2.407411360774586
      },
      "generate-icons.draw_network_cable_splitter": {
       "id": "generate-icons.draw_network_cable_splitter",
@@ -1375,16 +1103,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 969
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -37.385451934385145,
-      "y": 428.1727443001905,
-      "label_at": "left"
+      "x": -51.28061137338551,
+      "y": 23.85176945571368,
+      "label_at": "right",
+      "dot_scale": 2.4863237770507656
      },
      "generate-icons.draw_network_cable_underground": {
       "id": "generate-icons.draw_network_cable_underground",
@@ -1396,16 +1126,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 760
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 53.31470665474157,
-      "y": 332.8200088736494,
-      "label_at": "right"
+      "x": -81.83146171994561,
+      "y": 14.139000394919538,
+      "label_at": "left",
+      "dot_scale": 2.3808135922807914
      },
      "generate-icons.draw_signal_data_backlog": {
       "id": "generate-icons.draw_signal_data_backlog",
@@ -1417,16 +1149,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 658
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 50.74550400491265,
-      "y": 467.8375627135973,
-      "label_at": "below"
+      "x": -75.00264353504852,
+      "y": 39.28327581482887,
+      "label_at": "left",
+      "dot_scale": 2.3182258936139553
      },
      "generate-icons.draw_signal_data_rate": {
       "id": "generate-icons.draw_signal_data_rate",
@@ -1438,16 +1172,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 410
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -40.75822283229097,
-      "y": 364.00561238438723,
-      "label_at": "left"
+      "x": -60.254532403623315,
+      "y": -2.156414786607966,
+      "label_at": "above",
+      "dot_scale": 2.1127838567197355
      },
      "generate-icons.draw_signal_it_control": {
       "id": "generate-icons.draw_signal_it_control",
@@ -1459,16 +1195,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 487
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 100.10585573391668,
-      "y": 379.13742850106155,
-      "label_at": "right"
+      "x": -41.43443085719327,
+      "y": 23.67847088373179,
+      "label_at": "right",
+      "dot_scale": 2.1875289612146345
      },
      "generate-icons.draw_signal_monitored_count": {
       "id": "generate-icons.draw_signal_monitored_count",
@@ -1480,16 +1218,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 664
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -16.579878199728483,
-      "y": 465.00794274589674,
-      "label_at": "left"
+      "x": -46.05552731536312,
+      "y": 32.51501688565708,
+      "label_at": "right",
+      "dot_scale": 2.3221680793680175
      },
      "generate-icons.draw_signal_sensor_backlog": {
       "id": "generate-icons.draw_signal_sensor_backlog",
@@ -1501,16 +1241,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 762
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 12.087992809280735,
-      "y": 319.8008631281109,
-      "label_at": "above"
+      "x": -53.55204289025016,
+      "y": 4.561235137963749,
+      "label_at": "right",
+      "dot_scale": 2.3819549713396
      },
      "generate-icons.draw_signal_sensor_data_rate": {
       "id": "generate-icons.draw_signal_sensor_data_rate",
@@ -1522,16 +1264,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 829
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 90.60908062192343,
-      "y": 448.87065618021734,
-      "label_at": "right"
+      "x": -73.46278684001427,
+      "y": 8.486589005657772,
+      "label_at": "left",
+      "dot_scale": 2.4185545305502734
      },
      "generate-icons.draw_signal_sensor_entities": {
       "id": "generate-icons.draw_signal_sensor_entities",
@@ -1543,16 +1287,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 823
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -57.35652638031098,
-      "y": 405.877919263622,
-      "label_at": "left"
+      "x": -56.01881221021514,
+      "y": 33.0011124670157,
+      "label_at": "right",
+      "dot_scale": 2.41539983521227
      },
      "generate-icons.draw_signal_sensor_id": {
       "id": "generate-icons.draw_signal_sensor_id",
@@ -1564,16 +1310,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 605
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 83.44392413514213,
-      "y": 336.34341443669484,
-      "label_at": "right"
+      "x": -89.87133942624283,
+      "y": 19.78645131434221,
+      "label_at": "left",
+      "dot_scale": 2.2817553746524686
      },
      "generate-icons.draw_signal_technical_debt": {
       "id": "generate-icons.draw_signal_technical_debt",
@@ -1585,16 +1333,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 997
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 25.52449914861799,
-      "y": 485.4164413608417,
-      "label_at": "below"
+      "x": -72.2596771386955,
+      "y": 29.527718878689036,
+      "label_at": "left",
+      "dot_scale": 2.498695158311656
      },
      "generate-icons.draw_signal_throughput": {
       "id": "generate-icons.draw_signal_throughput",
@@ -1606,16 +1356,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 579
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -33.47762193945847,
-      "y": 333.7134905888834,
-      "label_at": "left"
+      "x": -69.7682700602273,
+      "y": -0.6577417563100632,
+      "label_at": "above",
+      "dot_scale": 2.2626785637274365
      },
      "generate-icons.draw_signal_utilization": {
       "id": "generate-icons.draw_signal_utilization",
@@ -1627,16 +1379,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 458
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 115.00067801962675,
-      "y": 406.972171824683,
-      "label_at": "right"
+      "x": -82.91557508661911,
+      "y": 34.102278317763364,
+      "label_at": "left",
+      "dot_scale": 2.160865478003869
      },
      "generate-icons.main": {
       "id": "generate-icons.main",
@@ -1648,142 +1402,18 @@
       "line": 0,
       "meta": {
        "module": "generate-icons",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2305
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -46.61181598692605,
-      "y": 454.00027437652363,
-      "label_at": "left"
-     },
-     "generate-sprites.Image": {
-      "id": "generate-sprites.Image",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Image",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -159.10097172955733,
-      "y": 138.05323440976375,
-      "label_at": "right"
-     },
-     "generate-sprites.ImageDraw": {
-      "id": "generate-sprites.ImageDraw",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ImageDraw",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -225.3374024509843,
-      "y": 129.20449800613613,
-      "label_at": "left"
-     },
-     "generate-sprites.ImageFilter": {
-      "id": "generate-sprites.ImageFilter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ImageFilter",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -164.9982431156562,
-      "y": 87.44317795536244,
-      "label_at": "right"
-     },
-     "generate-sprites.PIL.Image": {
-      "id": "generate-sprites.PIL.Image",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.Image",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -182.80242449352016,
-      "y": 164.81624082489094,
-      "label_at": "below"
-     },
-     "generate-sprites.PIL.ImageDraw": {
-      "id": "generate-sprites.PIL.ImageDraw",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.ImageDraw",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -224.5600074286653,
-      "y": 90.80047557219997,
-      "label_at": "left"
-     },
-     "generate-sprites.PIL.ImageFilter": {
-      "id": "generate-sprites.PIL.ImageFilter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.ImageFilter",
-      "file": "generate-sprites.py",
-      "line": 0,
-      "meta": {
-       "module": "generate-sprites",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -138.82917789371746,
-      "y": 118.91630656513065,
-      "label_at": "right"
+      "x": -62.47722311660125,
+      "y": 24.027417904968296,
+      "label_at": "below",
+      "dot_scale": 2.862670929725667
      },
      "generate-sprites.add_shadow_layer": {
       "id": "generate-sprites.add_shadow_layer",
@@ -1795,16 +1425,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 851
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -225.59196291196986,
-      "y": 158.03917012431793,
-      "label_at": "left"
+      "x": -90.44564177360749,
+      "y": -33.48000185650474,
+      "label_at": "right",
+      "dot_scale": 2.429929560084588
      },
      "generate-sprites.create_base_sprite": {
       "id": "generate-sprites.create_base_sprite",
@@ -1816,16 +1448,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 141
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -186.10299442451588,
-      "y": 66.29494711291692,
-      "label_at": "above"
+      "x": -134.1025319461509,
+      "y": -29.242797841183265,
+      "label_at": "left",
+      "dot_scale": 1.64921911265538
      },
      "generate-sprites.darken": {
       "id": "generate-sprites.darken",
@@ -1837,16 +1471,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 162
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -151.84465432948795,
-      "y": 164.88841781026287,
-      "label_at": "right"
+      "x": -128.87684650957175,
+      "y": -34.221156980612506,
+      "label_at": "left",
+      "dot_scale": 1.709515014542631
      },
      "generate-sprites.draw_advanced_server_sprite": {
       "id": "generate-sprites.draw_advanced_server_sprite",
@@ -1858,16 +1494,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 3073
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -247.46321661141172,
-      "y": 113.22350273808395,
-      "label_at": "left"
+      "x": -101.6872418745061,
+      "y": -34.931998725642046,
+      "label_at": "right",
+      "dot_scale": 2.9875625602563782
      },
      "generate-sprites.draw_basic_server_sprite": {
       "id": "generate-sprites.draw_basic_server_sprite",
@@ -1879,16 +1517,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 3325
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -138.02449643379003,
-      "y": 85.77974148408697,
-      "label_at": "right"
+      "x": -108.6148859744615,
+      "y": -24.50483191369838,
+      "label_at": "below",
+      "dot_scale": 3.0217916496391233
      },
      "generate-sprites.draw_circuit_bridge_sprite": {
       "id": "generate-sprites.draw_circuit_bridge_sprite",
@@ -1900,16 +1540,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2674
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -202.43084916209034,
-      "y": 183.24562859461207,
-      "label_at": "below"
+      "x": -96.2330100766796,
+      "y": -23.874573995420416,
+      "label_at": "right",
+      "dot_scale": 2.9271614029259654
      },
      "generate-sprites.draw_dashboard_terminal_sprite": {
       "id": "generate-sprites.draw_dashboard_terminal_sprite",
@@ -1921,16 +1563,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2975
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -221.33459770973496,
-      "y": 64.04755863959004,
-      "label_at": "left"
+      "x": -119.05385237636341,
+      "y": -17.646114787961608,
+      "label_at": "left",
+      "dot_scale": 2.9734869700645685
      },
      "generate-sprites.draw_data_sensor_sprite": {
       "id": "generate-sprites.draw_data_sensor_sprite",
@@ -1942,16 +1586,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2414
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -123.97629500928709,
-      "y": 141.5370559822279,
-      "label_at": "right"
+      "x": -102.77268921983772,
+      "y": -13.670551053287536,
+      "label_at": "right",
+      "dot_scale": 2.8827372657613304
      },
      "generate-sprites.draw_hp_server_sprite": {
       "id": "generate-sprites.draw_hp_server_sprite",
@@ -1963,16 +1609,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 3182
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -251.73731255123383,
-      "y": 150.37408403599653,
-      "label_at": "left"
+      "x": -119.86123806805841,
+      "y": -30.072286918661568,
+      "label_at": "left",
+      "dot_scale": 3.002700175310563
      },
      "generate-sprites.draw_network_cable_corner_sprite": {
       "id": "generate-sprites.draw_network_cable_corner_sprite",
@@ -1984,16 +1632,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1467
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -161.03715396210728,
-      "y": 55.02134860945536,
-      "label_at": "right"
+      "x": -112.72334386905428,
+      "y": -7.71187324368028,
+      "label_at": "below",
+      "dot_scale": 2.6664301138432824
      },
      "generate-sprites.draw_network_cable_sprite": {
       "id": "generate-sprites.draw_network_cable_sprite",
@@ -2005,16 +1655,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2457
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -163.6063566119362,
-      "y": 190.0389024494033,
-      "label_at": "below"
+      "x": -123.01249535097101,
+      "y": -41.947494285557895,
+      "label_at": "left",
+      "dot_scale": 2.890405156480081
      },
      "generate-sprites.generate_hr_version": {
       "id": "generate-sprites.generate_hr_version",
@@ -2026,16 +1678,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 399
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -255.11008344913986,
-      "y": 86.20695212019315,
-      "label_at": "left"
+      "x": -100.69279403170137,
+      "y": -45.562658006485776,
+      "label_at": "right",
+      "dot_scale": 2.1009728956867484
      },
      "generate-sprites.generate_shadow": {
       "id": "generate-sprites.generate_shadow",
@@ -2047,16 +1701,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 542
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -114.24600488293196,
-      "y": 101.33876823686762,
-      "label_at": "right"
+      "x": -128.43572220960894,
+      "y": -23.224389018947207,
+      "label_at": "left",
+      "dot_scale": 2.2339992865383866
      },
      "generate-sprites.lighten": {
       "id": "generate-sprites.lighten",
@@ -2068,16 +1724,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 174
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -230.93173881657728,
-      "y": 187.20928248170267,
-      "label_at": "left"
+      "x": -93.06702804630729,
+      "y": -14.562642403135154,
+      "label_at": "right",
+      "dot_scale": 1.7405492482825997
      },
      "generate-sprites.main": {
       "id": "generate-sprites.main",
@@ -2089,37 +1747,18 @@
       "line": 0,
       "meta": {
        "module": "generate-sprites",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2643
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -202.26386780756812,
-      "y": 42.00220286391688,
-      "label_at": "above"
-     },
-     "install-mod.Path": {
-      "id": "install-mod.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Path",
-      "file": "install-mod.py",
-      "line": 0,
-      "meta": {
-       "module": "install-mod",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -422.5436330571279,
-      "y": 178.8383897670872,
-      "label_at": "right"
+      "x": -110.93921706833454,
+      "y": -43.066283368098354,
+      "label_at": "above",
+      "dot_scale": 2.9220971631317103
      },
      "install-mod.cmd_install": {
       "id": "install-mod.cmd_install",
@@ -2131,16 +1770,18 @@
       "line": 0,
       "meta": {
        "module": "install-mod",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 678
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -488.78006377855485,
-      "y": 169.98965336345955,
-      "label_at": "left"
+      "x": -33.8762707958705,
+      "y": -20.859251871219477,
+      "label_at": "left",
+      "dot_scale": 2.3312296938670634
      },
      "install-mod.cmd_locate": {
       "id": "install-mod.cmd_locate",
@@ -2152,16 +1793,18 @@
       "line": 0,
       "meta": {
        "module": "install-mod",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 311
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -428.4409044432267,
-      "y": 128.22833331268586,
-      "label_at": "right"
+      "x": -32.52163336160437,
+      "y": -11.812125336494102,
+      "label_at": "left",
+      "dot_scale": 1.9927603890268375
      },
      "install-mod.get_factorio_paths": {
       "id": "install-mod.get_factorio_paths",
@@ -2173,16 +1816,18 @@
       "line": 0,
       "meta": {
        "module": "install-mod",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 863
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -446.2450858210907,
-      "y": 205.6013961822144,
-      "label_at": "below"
+      "x": -24.660797810374063,
+      "y": -16.888626457660482,
+      "label_at": "below",
+      "dot_scale": 2.4360107957152097
      },
      "install-mod.get_mods_folder": {
       "id": "install-mod.get_mods_folder",
@@ -2194,16 +1839,18 @@
       "line": 0,
       "meta": {
        "module": "install-mod",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 133
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -488.00266875623583,
-      "y": 131.58563092952343,
-      "label_at": "left"
+      "x": -16.04368696928015,
+      "y": -17.100894318633227,
+      "label_at": "right",
+      "dot_scale": 1.6238516409670858
      },
      "install-mod.main": {
       "id": "install-mod.main",
@@ -2215,37 +1862,18 @@
       "line": 0,
       "meta": {
        "module": "install-mod",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 555
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -402.271839221288,
-      "y": 159.70146192245411,
-      "label_at": "right"
-     },
-     "install-mod.pathlib.Path": {
-      "id": "install-mod.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "install-mod.py",
-      "line": 0,
-      "meta": {
-       "module": "install-mod",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -489.03462423954034,
-      "y": 198.8243254816413,
-      "label_at": "left"
+      "x": -18.840067023510674,
+      "y": -24.847940153787377,
+      "label_at": "right",
+      "dot_scale": 2.2442929831226763
      },
      "lua::alerts.lua::function::Alerts.check_backlog::38": {
       "id": "lua::alerts.lua::function::Alerts.check_backlog::38",
@@ -2256,9 +1884,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 38,
       "meta": {},
-      "x": 298.03945259515285,
-      "y": 293.0898175697919,
-      "label_at": "right"
+      "x": -55.47276370088119,
+      "y": -69.8014157402707,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::alerts.lua::function::Alerts.check_emergency::71": {
       "id": "lua::alerts.lua::function::Alerts.check_emergency::71",
@@ -2269,9 +1898,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 71,
       "meta": {},
-      "x": 231.80302187372598,
-      "y": 284.24108116616435,
-      "label_at": "left"
+      "x": -59.915531277726785,
+      "y": -70.5168290880143,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::alerts.lua::function::Alerts.init::21": {
       "id": "lua::alerts.lua::function::Alerts.init::21",
@@ -2282,9 +1912,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 21,
       "meta": {},
-      "x": 292.142181209054,
-      "y": 242.47976111539066,
-      "label_at": "right"
+      "x": -51.98292079009492,
+      "y": -72.64236566204592,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::alerts.lua::function::Alerts.send::29": {
       "id": "lua::alerts.lua::function::Alerts.send::29",
@@ -2295,9 +1926,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 29,
       "meta": {},
-      "x": 274.33799983119013,
-      "y": 319.85282398491916,
-      "label_at": "below"
+      "x": -51.782178378208286,
+      "y": -77.13788593049873,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::alerts.lua::function::Alerts.tick::87": {
       "id": "lua::alerts.lua::function::Alerts.tick::87",
@@ -2308,9 +1940,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 87,
       "meta": {},
-      "x": 232.58041689604488,
-      "y": 245.8370587322281,
-      "label_at": "left"
+      "x": -62.337139440263925,
+      "y": -74.30969263777898,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.get_assembler_display_state::152": {
       "id": "lua::circuit-control.lua::function::CircuitControl.get_assembler_display_state::152",
@@ -2321,9 +1954,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 152,
       "meta": {},
-      "x": -116.67437783131567,
-      "y": 639.6298978396973,
-      "label_at": "right"
+      "x": -114.17186059096576,
+      "y": 21.86059246388904,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.get_sensor_state::25": {
       "id": "lua::circuit-control.lua::function::CircuitControl.get_sensor_state::25",
@@ -2334,9 +1968,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 25,
       "meta": {},
-      "x": -182.91080855274254,
-      "y": 630.7811614360697,
-      "label_at": "left"
+      "x": -118.6146281678113,
+      "y": 21.145179116145414,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.init::18": {
       "id": "lua::circuit-control.lua::function::CircuitControl.init::18",
@@ -2347,9 +1982,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 18,
       "meta": {},
-      "x": -122.57164921741455,
-      "y": 589.019841385296,
-      "label_at": "right"
+      "x": -110.68201768017944,
+      "y": 19.0196425421138,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.on_emergency_stop_changed::208": {
       "id": "lua::circuit-control.lua::function::CircuitControl.on_emergency_stop_changed::208",
@@ -2360,9 +1996,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 208,
       "meta": {},
-      "x": -140.3758305952784,
-      "y": 666.3929042548245,
-      "label_at": "below"
+      "x": -110.48127526829286,
+      "y": 14.524122273661016,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.on_sensor_removed::185": {
       "id": "lua::circuit-control.lua::function::CircuitControl.on_sensor_removed::185",
@@ -2373,9 +2010,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 185,
       "meta": {},
-      "x": -182.1334135304235,
-      "y": 592.3771390021337,
-      "label_at": "left"
+      "x": -121.03623633034847,
+      "y": 17.352315566380767,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.restore_normal_state::191": {
       "id": "lua::circuit-control.lua::function::CircuitControl.restore_normal_state::191",
@@ -2386,9 +2024,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 191,
       "meta": {},
-      "x": -96.40258399547577,
-      "y": 620.4929699950642,
-      "label_at": "right"
+      "x": -109.96660433243584,
+      "y": 23.46241011895938,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::CircuitControl.update::86": {
       "id": "lua::circuit-control.lua::function::CircuitControl.update::86",
@@ -2399,9 +2038,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 86,
       "meta": {},
-      "x": -183.16536901372797,
-      "y": 659.6158335542516,
-      "label_at": "left"
+      "x": -117.01281051274096,
+      "y": 25.350435374675317,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::apply_assembler_control::69": {
       "id": "lua::circuit-control.lua::function::apply_assembler_control::69",
@@ -2412,9 +2052,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 69,
       "meta": {},
-      "x": -143.67640052627405,
-      "y": 567.8716105428506,
-      "label_at": "above"
+      "x": -119.8156085400193,
+      "y": 13.021026174354859,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-control.lua::function::read_sensor_control_signal::33": {
       "id": "lua::circuit-control.lua::function::read_sensor_control_signal::33",
@@ -2425,9 +2066,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 33,
       "meta": {},
-      "x": -109.41806043124622,
-      "y": 666.4650812401964,
-      "label_at": "right"
+      "x": -113.70401463929612,
+      "y": 11.383429524189111,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::CircuitInterface.on_entity_built::25": {
       "id": "lua::circuit-interface.lua::function::CircuitInterface.on_entity_built::25",
@@ -2438,9 +2080,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 25,
       "meta": {},
-      "x": -3.313978499048876,
-      "y": -75.07534590395726,
-      "label_at": "right"
+      "x": -25.266415309635722,
+      "y": -49.54251309672319,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::CircuitInterface.on_entity_removed::33": {
       "id": "lua::circuit-interface.lua::function::CircuitInterface.on_entity_removed::33",
@@ -2451,9 +2094,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 33,
       "meta": {},
-      "x": -69.55040922047574,
-      "y": -83.92408230758481,
-      "label_at": "left"
+      "x": -29.70918288648129,
+      "y": -50.25792644446682,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::CircuitInterface.read_circuit_conditions::204": {
       "id": "lua::circuit-interface.lua::function::CircuitInterface.read_circuit_conditions::204",
@@ -2464,9 +2108,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 204,
       "meta": {},
-      "x": -9.211249885147744,
-      "y": -125.68540235835852,
-      "label_at": "right"
+      "x": -21.77657239884943,
+      "y": -52.383463018498425,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::CircuitInterface.update_sensor_signals::126": {
       "id": "lua::circuit-interface.lua::function::CircuitInterface.update_sensor_signals::126",
@@ -2477,9 +2122,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 126,
       "meta": {},
-      "x": -27.015431263011603,
-      "y": -48.31233948882999,
-      "label_at": "below"
+      "x": -21.575829986962823,
+      "y": -56.878983286951204,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::CircuitInterface.update_signals::40": {
       "id": "lua::circuit-interface.lua::function::CircuitInterface.update_signals::40",
@@ -2490,9 +2136,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 40,
       "meta": {},
-      "x": -68.77301419815689,
-      "y": -122.32810474152099,
-      "label_at": "left"
+      "x": -32.13079104901845,
+      "y": -54.050789994231465,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::circuit-interface.lua::function::get_circuit_control::17": {
       "id": "lua::circuit-interface.lua::function::get_circuit_control::17",
@@ -2503,9 +2150,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 17,
       "meta": {},
-      "x": 16.957815336791015,
-      "y": -94.21227374859032,
-      "label_at": "right"
+      "x": -21.061159051105804,
+      "y": -47.94069544165285,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::control.lua::function::on_entity_built::102": {
       "id": "lua::control.lua::function::on_entity_built::102",
@@ -2516,9 +2164,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/control.lua",
       "line": 102,
       "meta": {},
-      "x": 548.8431177549577,
-      "y": 512.1765490411403,
-      "label_at": "right"
+      "x": -10.872685051980675,
+      "y": 67.15204820333855,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::control.lua::function::on_entity_removed::116": {
       "id": "lua::control.lua::function::on_entity_removed::116",
@@ -2529,9 +2178,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/control.lua",
       "line": 116,
       "meta": {},
-      "x": 482.6066870335309,
-      "y": 503.32781263751264,
-      "label_at": "left"
+      "x": -15.315452628826243,
+      "y": 66.43663485559495,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.add_metric_row::114": {
       "id": "lua::dashboard.lua::function::Dashboard.add_metric_row::114",
@@ -2542,9 +2192,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 114,
       "meta": {},
-      "x": 413.1671747938773,
-      "y": -267.2925264138389,
-      "label_at": "right"
+      "x": 47.960758952490586,
+      "y": -20.303963051609138,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.create::13": {
       "id": "lua::dashboard.lua::function::Dashboard.create::13",
@@ -2555,9 +2206,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 13,
       "meta": {},
-      "x": 346.93074407245047,
-      "y": -276.14126281746644,
-      "label_at": "left"
+      "x": 43.51799137564501,
+      "y": -21.01937639935276,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.destroy::210": {
       "id": "lua::dashboard.lua::function::Dashboard.destroy::210",
@@ -2568,9 +2220,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 210,
       "meta": {},
-      "x": 407.2699034077785,
-      "y": -317.9025828682402,
-      "label_at": "right"
+      "x": 51.450601863276866,
+      "y": -23.144912973384372,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.is_open::218": {
       "id": "lua::dashboard.lua::function::Dashboard.is_open::218",
@@ -2581,9 +2234,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 218,
       "meta": {},
-      "x": 389.46572202991456,
-      "y": -240.5295199987116,
-      "label_at": "below"
+      "x": 51.65134427516347,
+      "y": -27.64043324183718,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.on_gui_click::223": {
       "id": "lua::dashboard.lua::function::Dashboard.on_gui_click::223",
@@ -2594,9 +2248,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 223,
       "meta": {},
-      "x": 347.7081390947693,
-      "y": -314.5452852514026,
-      "label_at": "left"
+      "x": 41.09638321310785,
+      "y": -24.812239949117426,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.update::130": {
       "id": "lua::dashboard.lua::function::Dashboard.update::130",
@@ -2607,9 +2262,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 130,
       "meta": {},
-      "x": 433.4389686297173,
-      "y": -286.429454258472,
-      "label_at": "right"
+      "x": 52.166015211020486,
+      "y": -18.702145396538796,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::dashboard.lua::function::Dashboard.update_all::233": {
       "id": "lua::dashboard.lua::function::Dashboard.update_all::233",
@@ -2620,9 +2276,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 233,
       "meta": {},
-      "x": 346.67618361146504,
-      "y": -247.30659069928458,
-      "label_at": "left"
+      "x": 45.11980903071536,
+      "y": -16.81412014082285,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.auto_transfer::502": {
       "id": "lua::data-system.lua::function::DataSystem.auto_transfer::502",
@@ -2633,9 +2290,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 502,
       "meta": {},
-      "x": -281.7220013703084,
-      "y": 414.37753172300813,
-      "label_at": "right"
+      "x": -58.58834625333509,
+      "y": -36.73488020187262,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.check_assembler_coverage::225": {
       "id": "lua::data-system.lua::function::DataSystem.check_assembler_coverage::225",
@@ -2646,9 +2304,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 225,
       "meta": {},
-      "x": -347.95843209173535,
-      "y": 405.5287953193805,
-      "label_at": "left"
+      "x": -63.031113830180615,
+      "y": -37.45029354961622,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.get_backlog_status::380": {
       "id": "lua::data-system.lua::function::DataSystem.get_backlog_status::380",
@@ -2659,9 +2318,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 380,
       "meta": {},
-      "x": -287.6192727564073,
-      "y": 363.76747526860686,
-      "label_at": "right"
+      "x": -55.09850334254877,
+      "y": -39.57583012364783,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.get_coverage_bonus::401": {
       "id": "lua::data-system.lua::function::DataSystem.get_coverage_bonus::401",
@@ -2672,9 +2332,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 401,
       "meta": {},
-      "x": -305.4234541342711,
-      "y": 441.14053813813535,
-      "label_at": "below"
+      "x": -54.8977609306622,
+      "y": -44.07135039210063,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.get_sensor_metrics::357": {
       "id": "lua::data-system.lua::function::DataSystem.get_sensor_metrics::357",
@@ -2685,9 +2346,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 357,
       "meta": {},
-      "x": -347.1810370694164,
-      "y": 367.1247728854443,
-      "label_at": "left"
+      "x": -65.45272199271781,
+      "y": -41.24315709938089,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.get_storage_metrics::370": {
       "id": "lua::data-system.lua::function::DataSystem.get_storage_metrics::370",
@@ -2698,9 +2360,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 370,
       "meta": {},
-      "x": -261.4502075344685,
-      "y": 395.240603878375,
-      "label_at": "right"
+      "x": -54.383089994805154,
+      "y": -35.13306254680225,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.link_assembler_to_sensor::204": {
       "id": "lua::data-system.lua::function::DataSystem.link_assembler_to_sensor::204",
@@ -2711,9 +2374,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 204,
       "meta": {},
-      "x": -348.21299255272083,
-      "y": 434.36346743756246,
-      "label_at": "left"
+      "x": -61.42929617511032,
+      "y": -33.245037291086334,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.on_entity_built::75": {
       "id": "lua::data-system.lua::function::DataSystem.on_entity_built::75",
@@ -2724,9 +2388,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 75,
       "meta": {},
-      "x": -308.7240240652669,
-      "y": 342.61924442616134,
-      "label_at": "above"
+      "x": -64.23209420238862,
+      "y": -45.5744464914068,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.on_entity_removed::92": {
       "id": "lua::data-system.lua::function::DataSystem.on_entity_removed::92",
@@ -2737,9 +2402,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 92,
       "meta": {},
-      "x": -274.465683970239,
-      "y": 441.2127151235072,
-      "label_at": "right"
+      "x": -58.120500301665466,
+      "y": -47.21204314157254,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.register_sensor::107": {
       "id": "lua::data-system.lua::function::DataSystem.register_sensor::107",
@@ -2750,9 +2416,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 107,
       "meta": {},
-      "x": -370.08424625216276,
-      "y": 389.5478000513283,
-      "label_at": "left"
+      "x": -51.1048973808975,
+      "y": -41.64974222956349,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.register_server::188": {
       "id": "lua::data-system.lua::function::DataSystem.register_server::188",
@@ -2763,9 +2430,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 188,
       "meta": {},
-      "x": -260.645526074541,
-      "y": 362.1040387973314,
-      "label_at": "right"
+      "x": -67.52663409863344,
+      "y": -37.24955113772963,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.set_emergency_stop::375": {
       "id": "lua::data-system.lua::function::DataSystem.set_emergency_stop::375",
@@ -2776,9 +2444,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 375,
       "meta": {},
-      "x": -325.05187880284143,
-      "y": 459.5699259078565,
-      "label_at": "below"
+      "x": -57.2240399165804,
+      "y": -31.643219636015985,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.tick::262": {
       "id": "lua::data-system.lua::function::DataSystem.tick::262",
@@ -2789,9 +2458,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 262,
       "meta": {},
-      "x": -343.9556273504861,
-      "y": 340.37185595283444,
-      "label_at": "left"
+      "x": -62.00458590311679,
+      "y": -49.48446014568925,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.unregister_assembler::245": {
       "id": "lua::data-system.lua::function::DataSystem.unregister_assembler::245",
@@ -2802,9 +2472,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 245,
       "meta": {},
-      "x": -246.59732465003813,
-      "y": 417.86135329547227,
-      "label_at": "right"
+      "x": -50.3894840331539,
+      "y": -37.20697465271792,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.unregister_sensor::163": {
       "id": "lua::data-system.lua::function::DataSystem.unregister_sensor::163",
@@ -2815,9 +2486,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 163,
       "meta": {},
-      "x": -374.35834219198483,
-      "y": 426.6983813492409,
-      "label_at": "left"
+      "x": -65.9248164435631,
+      "y": -33.044294879199725,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.unregister_server::198": {
       "id": "lua::data-system.lua::function::DataSystem.unregister_server::198",
@@ -2828,9 +2500,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 198,
       "meta": {},
-      "x": -283.65818360285834,
-      "y": 331.3456459226997,
-      "label_at": "right"
+      "x": -68.59341474218968,
+      "y": -44.46589647038419,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::DataSystem.update_metrics::352": {
       "id": "lua::data-system.lua::function::DataSystem.update_metrics::352",
@@ -2841,9 +2514,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 352,
       "meta": {},
-      "x": -286.22738625268727,
-      "y": 466.36319976264764,
-      "label_at": "below"
+      "x": -53.78921090963957,
+      "y": -48.432670931901725,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::find_nearby_entities::410": {
       "id": "lua::data-system.lua::function::find_nearby_entities::410",
@@ -2854,9 +2528,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 410,
       "meta": {},
-      "x": -377.73111308989087,
-      "y": 362.5312494334375,
-      "label_at": "left"
+      "x": -49.99634735987492,
+      "y": -46.01106276936457,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::get_sensor_range::10": {
       "id": "lua::data-system.lua::function::get_sensor_range::10",
@@ -2867,9 +2542,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 10,
       "meta": {},
-      "x": -236.86703452368306,
-      "y": 377.663065550112,
-      "label_at": "right"
+      "x": -70.66732684810533,
+      "y": -40.47229050873293,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::is_cable::42": {
       "id": "lua::data-system.lua::function::is_cable::42",
@@ -2880,9 +2556,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 42,
       "meta": {},
-      "x": -353.5527684573284,
-      "y": 463.53357979494695,
-      "label_at": "left"
+      "x": -60.713882827366675,
+      "y": -28.802269714240765,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::is_server::37": {
       "id": "lua::data-system.lua::function::is_server::37",
@@ -2893,9 +2570,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 37,
       "meta": {},
-      "x": -324.8848974483192,
-      "y": 318.3265001771612,
-      "label_at": "above"
+      "x": -52.781272339734805,
+      "y": -30.92780628827238,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::register_cable::47": {
       "id": "lua::data-system.lua::function::register_cable::47",
@@ -2906,9 +2584,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 47,
       "meta": {},
-      "x": -246.36380963567638,
-      "y": 447.3962932292677,
-      "label_at": "right"
+      "x": -65.20940309581947,
+      "y": -28.601527302354153,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::register_dashboard::63": {
       "id": "lua::data-system.lua::function::register_dashboard::63",
@@ -2919,9 +2598,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 63,
       "meta": {},
-      "x": -394.32941663791075,
-      "y": 404.4035563126723,
-      "label_at": "left"
+      "x": -48.78766637808354,
+      "y": -33.00171839418801,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::remove_disallowed_from_line::450": {
       "id": "lua::data-system.lua::function::remove_disallowed_from_line::450",
@@ -2932,9 +2612,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 450,
       "meta": {},
-      "x": -253.5289661224578,
-      "y": 334.8690514857452,
-      "label_at": "right"
+      "x": -66.50451120650533,
+      "y": -49.45853209285811,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::unregister_cable::55": {
       "id": "lua::data-system.lua::function::unregister_cable::55",
@@ -2945,9 +2626,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 55,
       "meta": {},
-      "x": -311.4483911089819,
-      "y": 483.94207840989185,
-      "label_at": "below"
+      "x": -58.09457224883435,
+      "y": -51.71196844496109,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "lua::data-system.lua::function::unregister_dashboard::68": {
       "id": "lua::data-system.lua::function::unregister_dashboard::68",
@@ -2958,9 +2640,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 68,
       "meta": {},
-      "x": -370.4505121970584,
-      "y": 332.23912763793373,
-      "label_at": "left"
+      "x": -53.76328285680846,
+      "y": -52.93259623529026,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.cleanup_radius_indicators::211": {
       "id": "lua::indicators.lua::function::Indicators.cleanup_radius_indicators::211",
@@ -2971,9 +2654,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 211,
       "meta": {},
-      "x": 114.56656067649658,
-      "y": 137.64373961577007,
-      "label_at": "right"
+      "x": -84.44979377642358,
+      "y": -63.841302374550324,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.init::10": {
       "id": "lua::indicators.lua::function::Indicators.init::10",
@@ -2984,9 +2668,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 10,
       "meta": {},
-      "x": 48.3301299550696,
-      "y": 128.79500321214252,
-      "label_at": "left"
+      "x": -88.89256135326912,
+      "y": -64.55671572229397,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.on_assembler_added::106": {
       "id": "lua::indicators.lua::function::Indicators.on_assembler_added::106",
@@ -2997,9 +2682,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 106,
       "meta": {},
-      "x": 108.66928929039771,
-      "y": 87.03368316136878,
-      "label_at": "right"
+      "x": -80.95995086563727,
+      "y": -66.68225229632557,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.on_assembler_removed::111": {
       "id": "lua::indicators.lua::function::Indicators.on_assembler_removed::111",
@@ -3010,9 +2696,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 111,
       "meta": {},
-      "x": 90.86510791253383,
-      "y": 164.40674603089738,
-      "label_at": "below"
+      "x": -80.75920845375069,
+      "y": -71.17777256477838,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.on_selected_entity_changed::200": {
       "id": "lua::indicators.lua::function::Indicators.on_selected_entity_changed::200",
@@ -3023,9 +2710,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 200,
       "meta": {},
-      "x": 49.10752497738859,
-      "y": 90.39098077820637,
-      "label_at": "left"
+      "x": -91.31416951580631,
+      "y": -68.34957927205863,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.remove_indicator::79": {
       "id": "lua::indicators.lua::function::Indicators.remove_indicator::79",
@@ -3036,9 +2724,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 79,
       "meta": {},
-      "x": 134.83835451233648,
-      "y": 118.506811771137,
-      "label_at": "right"
+      "x": -80.24453751789366,
+      "y": -62.23948471948,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.remove_radius_indicator::121": {
       "id": "lua::indicators.lua::function::Indicators.remove_radius_indicator::121",
@@ -3049,9 +2738,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 121,
       "meta": {},
-      "x": 48.07556949408407,
-      "y": 157.62967533032426,
-      "label_at": "left"
+      "x": -87.2907436981988,
+      "y": -60.35145946376406,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.show_sensor_radius::135": {
       "id": "lua::indicators.lua::function::Indicators.show_sensor_radius::135",
@@ -3062,9 +2752,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 135,
       "meta": {},
-      "x": 87.56453798153814,
-      "y": 65.8854523189233,
-      "label_at": "above"
+      "x": -90.09354172547711,
+      "y": -72.68086866408454,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.update_all::91": {
       "id": "lua::indicators.lua::function::Indicators.update_all::91",
@@ -3075,9 +2766,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 91,
       "meta": {},
-      "x": 121.82287807656597,
-      "y": 164.4789230162692,
-      "label_at": "right"
+      "x": -83.98194782475397,
+      "y": -74.31846531425029,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "lua::indicators.lua::function::Indicators.update_indicator::16": {
       "id": "lua::indicators.lua::function::Indicators.update_indicator::16",
@@ -3088,9 +2780,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 16,
       "meta": {},
-      "x": 26.204315794642174,
-      "y": 112.8140079440903,
-      "label_at": "left"
+      "x": -76.966344903986,
+      "y": -68.75616440224123,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::technical-debt.lua::function::TechnicalDebt.get_level::71": {
       "id": "lua::technical-debt.lua::function::TechnicalDebt.get_level::71",
@@ -3101,9 +2794,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 71,
       "meta": {},
-      "x": -352.38017886113005,
-      "y": 674.0474541112716,
-      "label_at": "right"
+      "x": -111.07255673430596,
+      "y": -68.22296663799722,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "lua::technical-debt.lua::function::TechnicalDebt.get_penalty::67": {
       "id": "lua::technical-debt.lua::function::TechnicalDebt.get_penalty::67",
@@ -3114,9 +2808,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 67,
       "meta": {},
-      "x": -418.6166095825571,
-      "y": 665.198717707644,
-      "label_at": "left"
+      "x": -115.51532431115152,
+      "y": -68.93837998574081,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "lua::technical-debt.lua::function::TechnicalDebt.get_total::61": {
       "id": "lua::technical-debt.lua::function::TechnicalDebt.get_total::61",
@@ -3127,9 +2822,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 61,
       "meta": {},
-      "x": -358.2774502472289,
-      "y": 623.4373976568703,
-      "label_at": "right"
+      "x": -107.58271382351965,
+      "y": -71.06391655977242,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::technical-debt.lua::function::TechnicalDebt.init::33": {
       "id": "lua::technical-debt.lua::function::TechnicalDebt.init::33",
@@ -3140,9 +2836,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 33,
       "meta": {},
-      "x": -376.0816316250929,
-      "y": 700.8104605263987,
-      "label_at": "below"
+      "x": -107.38197141163309,
+      "y": -75.55943682822523,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "lua::technical-debt.lua::function::TechnicalDebt.tick::42": {
       "id": "lua::technical-debt.lua::function::TechnicalDebt.tick::42",
@@ -3153,9 +2850,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 42,
       "meta": {},
-      "x": -417.839214560238,
-      "y": 626.7946952737078,
-      "label_at": "left"
+      "x": -117.9369324736887,
+      "y": -72.73124353550548,
+      "label_at": "left",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -3202,150 +2900,6 @@
      {
       "source": "dir::quaternionmedia/factorio-sysops/.github",
       "target": "dir::quaternionmedia/factorio-sysops/.github/workflows",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/01-OVERVIEW.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/02-RESOURCES-RECIPES.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/03-ENTITIES.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/04-TECHNOLOGY-TREE.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/05-MECHANICS.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/06-SPACE-AGE.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/07-ROADMAP.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/ARCHITECTURE.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/DATAFACTORIO-INTEGRATION.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/DEMO-LOOP.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/HANDOFF-MULTI-REPO.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/MILESTONES.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/NEXT-PHASE.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/POC-CHECKLIST.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/POC-QUICKSTART.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/README.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/network-cable-refactor.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/factorio-sysops/docs",
-      "target": "file::quaternionmedia/factorio-sysops/docs/sysadmin-gdd.md",
       "metadata": {
        "kind": "contains",
        "weight": 1
@@ -3576,37 +3130,6 @@
       }
      },
      {
-      "source": "create_icons.create_png",
-      "target": "create_icons.make_chunk",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
-      "target": "create_icons.create_png",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
-      "target": "create_icons.make_chunk",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
-      "target": "create_icons.main",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua",
-      "target": "lua::control.lua::function::on_entity_built::102",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua",
-      "target": "lua::control.lua::function::on_entity_removed::116",
-      "kind": "contains"
-     },
-     {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/gui/dashboard.lua",
       "target": "lua::dashboard.lua::function::Dashboard.create::13",
       "kind": "contains"
@@ -3642,6 +3165,68 @@
       "kind": "contains"
      },
      {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua",
+      "target": "lua::control.lua::function::on_entity_built::102",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua",
+      "target": "lua::control.lua::function::on_entity_removed::116",
+      "kind": "contains"
+     },
+     {
+      "source": "create_icons.create_png",
+      "target": "create_icons.make_chunk",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "create_icons.main",
+      "target": "create_icons.create_png",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
+      "target": "create_icons.create_png",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
+      "target": "create_icons.make_chunk",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py",
+      "target": "create_icons.main",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
+      "target": "lua::alerts.lua::function::Alerts.init::21",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
+      "target": "lua::alerts.lua::function::Alerts.send::29",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
+      "target": "lua::alerts.lua::function::Alerts.check_backlog::38",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
+      "target": "lua::alerts.lua::function::Alerts.check_emergency::71",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
+      "target": "lua::alerts.lua::function::Alerts.tick::87",
+      "kind": "contains"
+     },
+     {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-interface.lua",
       "target": "lua::circuit-interface.lua::function::get_circuit_control::17",
       "kind": "contains"
@@ -3669,31 +3254,6 @@
      {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-interface.lua",
       "target": "lua::circuit-interface.lua::function::CircuitInterface.read_circuit_conditions::204",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
-      "target": "lua::alerts.lua::function::Alerts.init::21",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
-      "target": "lua::alerts.lua::function::Alerts.send::29",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
-      "target": "lua::alerts.lua::function::Alerts.check_backlog::38",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
-      "target": "lua::alerts.lua::function::Alerts.check_emergency::71",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua",
-      "target": "lua::alerts.lua::function::Alerts.tick::87",
       "kind": "contains"
      },
      {
@@ -3742,53 +3302,46 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.init::10",
+      "source": "install-mod.get_mods_folder",
+      "target": "install-mod.get_factorio_paths",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "install-mod.cmd_locate",
+      "target": "install-mod.get_factorio_paths",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "install-mod.cmd_install",
+      "target": "install-mod.get_mods_folder",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
+      "target": "install-mod.get_factorio_paths",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.update_indicator::16",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
+      "target": "install-mod.get_mods_folder",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.remove_indicator::79",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
+      "target": "install-mod.cmd_locate",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.update_all::91",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
+      "target": "install-mod.cmd_install",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.on_assembler_added::106",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.on_assembler_removed::111",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.remove_radius_indicator::121",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.show_sensor_radius::135",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.on_selected_entity_changed::200",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
-      "target": "lua::indicators.lua::function::Indicators.cleanup_radius_indicators::211",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
+      "target": "install-mod.main",
       "kind": "contains"
      },
      {
@@ -3922,204 +3475,192 @@
       "kind": "contains"
      },
      {
-      "source": "install-mod.get_mods_folder",
-      "target": "install-mod.get_factorio_paths",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "install-mod.cmd_locate",
-      "target": "install-mod.get_factorio_paths",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "install-mod.cmd_install",
-      "target": "install-mod.get_mods_folder",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.pathlib.Path",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.init::10",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.get_factorio_paths",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.update_indicator::16",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.get_mods_folder",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.remove_indicator::79",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.cmd_locate",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.update_all::91",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.cmd_install",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.on_assembler_added::106",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.main",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.on_assembler_removed::111",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py",
-      "target": "install-mod.Path",
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.remove_radius_indicator::121",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.show_sensor_radius::135",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.on_selected_entity_changed::200",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua",
+      "target": "lua::indicators.lua::function::Indicators.cleanup_radius_indicators::211",
       "kind": "contains"
      },
      {
       "source": "generate-sprites.draw_data_sensor_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_data_sensor_sprite",
       "target": "generate-sprites.lighten",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_basic_server_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_advanced_server_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_advanced_server_sprite",
       "target": "generate-sprites.lighten",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_hp_server_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_hp_server_sprite",
       "target": "generate-sprites.lighten",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_circuit_bridge_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_dashboard_terminal_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_dashboard_terminal_sprite",
       "target": "generate-sprites.lighten",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_network_cable_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_network_cable_sprite",
       "target": "generate-sprites.lighten",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.draw_network_cable_corner_sprite",
       "target": "generate-sprites.darken",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.generate_hr_version",
       "target": "generate-sprites.create_base_sprite",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_data_sensor_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_basic_server_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_advanced_server_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_hp_server_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_circuit_bridge_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.draw_dashboard_terminal_sprite",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.create_base_sprite",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "generate-sprites.main",
       "target": "generate-sprites.generate_shadow",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.PIL.Image",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.PIL.ImageDraw",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.PIL.ImageFilter",
-      "kind": "contains"
+      "source": "generate-sprites.main",
+      "target": "generate-sprites.draw_network_cable_sprite",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
@@ -4197,155 +3738,136 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.Image",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.ImageDraw",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py",
-      "target": "generate-sprites.ImageFilter",
-      "kind": "contains"
-     },
-     {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_data_packet",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_data_sensor",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_network_cable",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_network_cable_underground",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_network_cable_splitter",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_basic_server",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_advanced_server",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_hp_server",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_circuit_bridge",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_dashboard_terminal",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_throughput",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_data_rate",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_utilization",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_monitored_count",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_data_backlog",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_it_control",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_sensor_id",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_sensor_entities",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_sensor_backlog",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_sensor_data_rate",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "generate-icons.main",
       "target": "generate-icons.draw_signal_technical_debt",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
-      "target": "generate-icons.PIL.Image",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
-      "target": "generate-icons.PIL.ImageDraw",
-      "kind": "contains"
+      "source": "generate-icons.main",
+      "target": "generate-icons.create_base_icon",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
@@ -4465,16 +3987,6 @@
      {
       "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
       "target": "generate-icons.main",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
-      "target": "generate-icons.Image",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py",
-      "target": "generate-icons.ImageDraw",
       "kind": "contains"
      },
      {

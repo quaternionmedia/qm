@@ -930,22 +930,28 @@ def test_a_detail_page_shows_its_showgraph_too(tmp_path, monkeypatch):
     assert "](../show/project/synth/estate.svg)" in page
 
 
-def test_the_families_index_shows_the_whole_corpus_beside_every_family(tmp_path, monkeypatch):
-    """The index's code view is the whole corpus: every family, with each
-    project's code in it. It is named for what it is, not as one project's code.
+def test_the_families_index_shows_every_family_and_a_family_page_its_projects_code(tmp_path, monkeypatch):
+    """The index is every family, named for what it is, not where one subject
+    sits. The whole corpus is drawn a family at a time: a family's code view is
+    the family with each of its projects' code in it.
 
-    Mutation: title every view by its name alone -- the whole corpus is
-    captioned "Its code", and this fails."""
+    Mutation: title the index's view by its name alone -- it is captioned
+    "Where it sits", and this fails. Mutation: say nothing of a family's code
+    view -- it is captioned "Code", and this fails."""
     monkeypatch.setattr(cookbook, "SHOW", tmp_path)
-    _show(tmp_path, "index", {"estate": DRAWN, "code": DRAWN}, {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
     families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
     index = cookbook.site_index({"families": families, "unstated": []},
                                 [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
                                 {f["name"]: f for f in families})
-    assert "](../show/index/code.svg)" in index
-    assert "<figcaption><strong>The whole corpus.</strong> Every family, with each project's code in it.</figcaption>" in index
     assert "<figcaption><strong>Every family.</strong>" in index
-    assert "Its code" not in index and "Where it sits" not in index
+    assert "Where it sits" not in index and "whole corpus" not in index.lower()
+    _show(tmp_path, "family/instruments", {"estate": DRAWN, "code": FAMILY_CODE},
+          {"estate": "estate.svg", "code": "code.svg"})
+    family = "\n".join(cookbook.showgraph("family", "instruments"))
+    assert "](../show/family/instruments/code.svg)" in family
+    assert ("<figcaption><strong>Its code.</strong> Each of its projects with its code in it."
+            "</figcaption>") in family
 
 
 def _under_showcase(page: str) -> list[str]:
@@ -1004,6 +1010,12 @@ def test_a_family_page_and_the_families_index_show_theirs(tmp_path, monkeypatch)
     assert "](../show/index/estate.svg)" in index
 
 
+# A family's code view as the export writes it: the commits of the code maps
+# it drew, and none of their graphs again.
+FAMILY_CODE = {"graph": "each project's code view's",
+               "metadata": {"code": {"synth": "c" * 40, "stomp": "d" * 40}}}
+
+
 def _code(depth: int, nodes: int) -> dict:
     return {"graph": {"nodes": {f"n{i}": {} for i in range(nodes)}, "edges": []}, "metadata": {"depth": depth}}
 
@@ -1040,23 +1052,28 @@ def test_a_project_page_steps_to_the_same_graph_of_the_projects_beside_it(tmp_pa
 
 def test_the_drawer_s_page_shows_every_showgraph_and_no_other_page_does(tmp_path, monkeypatch):
     """The page of the project that draws the showgraphs is their showcase:
-    the whole corpus with every node and no name, then each view of every
-    project and every family, each opening its page.
+    the whole corpus a family at a time, each family with its projects' code,
+    then each view of every project and every family, each opening its page.
 
-    Mutation: give every project page the galleries, or none -- and this fails."""
+    Mutation: give every project page the galleries, or none -- and this fails.
+    Mutation: leave the families' code out -- the corpus is on no page, and
+    this fails."""
     monkeypatch.setattr(cookbook, "SHOW", tmp_path)
     for name, depth, nodes in (("alpha", 3, 104), ("codecartographer", 1, 521)):
         _show(tmp_path, f"project/{name}", {"estate": DRAWN, "code": _code(depth, nodes)},
               {"estate": "estate.svg", "code": "code.svg"})
-    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
-    _show(tmp_path, "index", {"estate": DRAWN, "code": _code(1, 4030), "full": {"graph": "the code view's"}},
-          {"estate": "estate.svg", "code": "code.svg", "full": "full.svg"})
+    _show(tmp_path, "family/instruments", {"estate": DRAWN, "code": FAMILY_CODE},
+          {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
     projects = {n: _project(n) for n in ("alpha", "codecartographer")}
     drawer = cookbook.project_page(projects["codecartographer"], {"instruments": {}}, projects)
     showcase = _under_showcase(drawer)
     assert "### Every showgraph { #every-showgraph }" in showcase
-    assert "#### The whole corpus, every node { #the-whole-corpus-every-node }" in showcase
-    assert "](../show/index/full.svg)" in drawer and "4,030 nodes" in drawer
+    assert "#### Every family's code { #every-familys-code }" in showcase
+    assert ("](../show/family/instruments/code.svg){ loading=lazy }](../families/instruments.md#showgraph-code)"
+            in drawer)
+    assert "[instruments](../families/instruments.md#showgraph-code), 2 projects' code" in drawer
+    assert "every-node" not in drawer
     assert "](../show/project/alpha/code.svg){ loading=lazy }](alpha.md#showgraph-code)" in drawer
     assert "[alpha](alpha.md#showgraph-code), 104 nodes, to its members" in drawer
     assert "](../families/instruments.md#showgraph-estate)" in drawer
@@ -1072,20 +1089,6 @@ def test_a_code_map_says_how_deep_it_was_drawn(tmp_path, monkeypatch):
     _show(tmp_path, "project/synth", {"code": _code(2, 281)}, {"code": "code.svg"})
     page = cookbook.project_page(_project("synth"), {"instruments": {}})
     assert "<strong>Its code.</strong> Its default branch, by directory, file and symbol." in page
-
-
-def test_the_families_index_shows_the_whole_corpus_with_every_node_and_no_name(tmp_path, monkeypatch):
-    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
-    _show(tmp_path, "index", {"estate": DRAWN, "code": DRAWN, "full": {"graph": "the code view's"}},
-          {"estate": "estate.svg", "code": "code.svg", "full": "full.svg"})
-    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
-    index = cookbook.site_index({"families": families, "unstated": []},
-                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
-                                {f["name"]: f for f in families})
-    # Mutation: give the full view no title of its own -- it is captioned "full", and this fails.
-    assert "](../show/index/full.svg)" in index
-    assert ("<figcaption><strong>Every node.</strong> The whole corpus again, every node drawn and "
-            "nothing written on it.</figcaption>") in index
 
 
 def test_a_stale_page_names_the_command_that_writes_it(tmp_path, monkeypatch, capsys):

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:929ac91051a251c0d7de20adb45fc976a3e3c52263a63f9a092ca61d74c6cabd"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "51f8b13c14d3aeeb026981f42798c6abe83adde5"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:ShowStopper",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -359.75412770826017,
+      "x": -30.273100938132817,
       "y": 0,
       "size": 70
      },
@@ -232,8 +233,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/README.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -305.75412770826017,
+      "x": -22.773100938132817,
       "y": 0,
       "size": 30
      },
@@ -246,9 +248,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -359.75412770826017,
-      "y": 194.03456176047567,
+      "x": -43.023100938132814,
+      "y": 22.083647796503186,
       "size": 30
      },
      "file::quaternionmedia/ShowStopper/stopwatch.py": {
@@ -260,73 +263,11 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/stopwatch.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 84.41343199301338,
-      "y": -3.040201702777864,
+      "x": 10.524325691648915,
+      "y": -0.36175052343652236,
       "size": 30
-     },
-     "stopwatch.App": {
-      "id": "stopwatch.App",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "App",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 229.0362366833707,
-      "y": 149.9617865879205,
-      "label_at": "none"
-     },
-     "stopwatch.Digits": {
-      "id": "stopwatch.Digits",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Digits",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 140.20437306970786,
-      "y": -220.99373507414808,
-      "label_at": "none"
-     },
-     "stopwatch.HorizontalGroup": {
-      "id": "stopwatch.HorizontalGroup",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "HorizontalGroup",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -64.8181383042608,
-      "y": 182.91088820253466,
-      "label_at": "none"
      },
      "stopwatch.Stopwatch": {
       "id": "stopwatch.Stopwatch",
@@ -338,16 +279,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 835
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 56.62663213043584,
-      "y": 22.41478314100197,
-      "label_at": "left"
+      "x": 22.72119257200273,
+      "y": -17.446156812342597,
+      "label_at": "right",
+      "dot_scale": 2.421686475483602
      },
      "stopwatch.StopwatchApp": {
       "id": "stopwatch.StopwatchApp",
@@ -359,16 +302,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 1078
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -47.270714080698326,
-      "y": 72.98767548088558,
-      "label_at": "none"
+      "x": 19.764045124510897,
+      "y": -0.5002904356911975,
+      "label_at": "right",
+      "dot_scale": 2.53261876085072
      },
      "stopwatch.TimeDisplay": {
       "id": "stopwatch.TimeDisplay",
@@ -380,16 +325,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 1232
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -38.70032286777439,
-      "y": -74.11996121259922,
-      "label_at": "none"
+      "x": 7.766282845946382,
+      "y": -12.297917529616344,
+      "label_at": "above",
+      "dot_scale": 2.590610707828407
      },
      "stopwatch.action_add_stopwatch": {
       "id": "stopwatch.action_add_stopwatch",
@@ -401,16 +348,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 209
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 84.41343199301338,
-      "y": -141.16953668208077,
-      "label_at": "none"
+      "x": -3.5950124225192925,
+      "y": -0.5592912281646906,
+      "label_at": "left",
+      "dot_scale": 1.820146286111054
      },
      "stopwatch.action_remove_stopwatch": {
       "id": "stopwatch.action_remove_stopwatch",
@@ -422,16 +371,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 177
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 186.9058802962968,
-      "y": -138.09318933246024,
-      "label_at": "none"
+      "x": 33.82560773538634,
+      "y": -10.255636672961844,
+      "label_at": "right",
+      "dot_scale": 1.7479732663618066
      },
      "stopwatch.action_toggle_dark": {
       "id": "stopwatch.action_toggle_dark",
@@ -443,16 +394,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 196
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -122.67300114426702,
-      "y": -12.54647860448474,
-      "label_at": "none"
+      "x": 13.777266918927136,
+      "y": -26.246377155974372,
+      "label_at": "above",
+      "dot_scale": 1.7922560713564761
      },
      "stopwatch.compose": {
       "id": "stopwatch.compose",
@@ -464,37 +417,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 274
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 126.40085651281503,
-      "y": -29.749164284539827,
-      "label_at": "right"
-     },
-     "stopwatch.monotonic": {
-      "id": "stopwatch.monotonic",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "monotonic",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 70.82351236351423,
-      "y": 47.51362193563502,
-      "label_at": "below"
+      "x": 39.755225588446436,
+      "y": 17.218765999280876,
+      "label_at": "right",
+      "dot_scale": 1.937750562820388
      },
      "stopwatch.on_button_pressed": {
       "id": "stopwatch.on_button_pressed",
@@ -506,16 +440,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 486
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 43.413431993013376,
-      "y": 186.9878224209126,
-      "label_at": "none"
+      "x": 6.202773459190542,
+      "y": 11.935338711747644,
+      "label_at": "below",
+      "dot_scale": 2.1866362692622934
      },
      "stopwatch.on_mount": {
       "id": "stopwatch.on_mount",
@@ -527,37 +463,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 179
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -11.592634155904136,
-      "y": -177.18343864821662,
-      "label_at": "none"
-     },
-     "stopwatch.reactive": {
-      "id": "stopwatch.reactive",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "reactive",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 59.149850737192025,
-      "y": -51.683690086430126,
-      "label_at": "left"
+      "x": 12.78684730941175,
+      "y": 26.29426728764523,
+      "label_at": "below",
+      "dot_scale": 1.752853030979893
      },
      "stopwatch.reset": {
       "id": "stopwatch.reset",
@@ -569,16 +486,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 117
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -103.40798578540489,
-      "y": -152.21400800480896,
-      "label_at": "none"
+      "x": 35.25740438111862,
+      "y": -20.6757232786747,
+      "label_at": "right",
+      "dot_scale": 1.5681858617461617
      },
      "stopwatch.start": {
       "id": "stopwatch.start",
@@ -590,16 +509,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 154
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 53.82813797091234,
-      "y": -246.27507226500097,
-      "label_at": "none"
+      "x": 42.024628264548156,
+      "y": -1.4872552755304878,
+      "label_at": "right",
+      "dot_scale": 1.687520720836463
      },
      "stopwatch.stop": {
       "id": "stopwatch.stop",
@@ -611,226 +532,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 188
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 277.4956039955697,
-      "y": -167.19702450231767,
-      "label_at": "none"
-     },
-     "stopwatch.textual.app.App": {
-      "id": "stopwatch.textual.app.App",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.app.App",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -158.5856764220906,
-      "y": 72.92481957415674,
-      "label_at": "none"
-     },
-     "stopwatch.textual.app.ComposeResult": {
-      "id": "stopwatch.textual.app.ComposeResult",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.app.ComposeResult",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 138.11517889964614,
-      "y": 16.57159013723414,
-      "label_at": "right"
-     },
-     "stopwatch.textual.containers.HorizontalGroup": {
-      "id": "stopwatch.textual.containers.HorizontalGroup",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.containers.HorizontalGroup",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -170.34968100579619,
-      "y": -92.05746687235813,
-      "label_at": "none"
-     },
-     "stopwatch.textual.containers.VerticalScroll": {
-      "id": "stopwatch.textual.containers.VerticalScroll",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.containers.VerticalScroll",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 29.47461735406614,
-      "y": 19.637742341323577,
-      "label_at": "left"
-     },
-     "stopwatch.textual.reactive.reactive": {
-      "id": "stopwatch.textual.reactive.reactive",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.reactive.reactive",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 227.68146805995082,
-      "y": -242.15402458228138,
-      "label_at": "none"
-     },
-     "stopwatch.textual.widgets.Button": {
-      "id": "stopwatch.textual.widgets.Button",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.widgets.Button",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 224.03841655592575,
-      "y": 239.82291163080936,
-      "label_at": "none"
-     },
-     "stopwatch.textual.widgets.Digits": {
-      "id": "stopwatch.textual.widgets.Digits",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.widgets.Digits",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 110.52944855854474,
-      "y": -58.84861216884374,
-      "label_at": "right"
-     },
-     "stopwatch.textual.widgets.Footer": {
-      "id": "stopwatch.textual.widgets.Footer",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.widgets.Footer",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 103.48485448599799,
-      "y": 57.76249843540745,
-      "label_at": "below"
-     },
-     "stopwatch.textual.widgets.Header": {
-      "id": "stopwatch.textual.widgets.Header",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "textual.widgets.Header",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 27.51469303947346,
-      "y": -36.01418395389396,
-      "label_at": "left"
-     },
-     "stopwatch.time.monotonic": {
-      "id": "stopwatch.time.monotonic",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "time.monotonic",
-      "file": "stopwatch.py",
-      "line": 0,
-      "meta": {
-       "module": "stopwatch",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 318.5777799706493,
-      "y": 159.0343841064056,
-      "label_at": "none"
+      "x": 34.972128645742,
+      "y": 7.6321869110357206,
+      "label_at": "right",
+      "dot_scale": 1.7741578492636798
      },
      "stopwatch.update_time": {
       "id": "stopwatch.update_time",
@@ -842,16 +555,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 143
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 150.57420511871538,
-      "y": -17.585462078906744,
-      "label_at": "right"
+      "x": -3.308531536927159,
+      "y": -10.367345817706447,
+      "label_at": "left",
+      "dot_scale": 1.6553360374650619
      },
      "stopwatch.watch_time": {
       "id": "stopwatch.watch_time",
@@ -863,16 +578,18 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 256
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 222.54276697231626,
-      "y": -3.040201702777864,
-      "label_at": "none"
+      "x": 24.36870337597856,
+      "y": 18.307859331130256,
+      "label_at": "right",
+      "dot_scale": 1.9082399653118496
      },
      "toml::pyproject.toml::section::build-system::11": {
       "id": "toml::pyproject.toml::section::build-system::11",
@@ -883,9 +600,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 11,
       "meta": {},
-      "x": -325.75412770826017,
-      "y": 194.03456176047567,
-      "label_at": "right"
+      "x": -37.523100938132814,
+      "y": 22.083647796503186,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::dependency-groups::19": {
       "id": "toml::pyproject.toml::section::dependency-groups::19",
@@ -896,9 +614,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 19,
       "meta": {},
-      "x": -387.5409275708377,
-      "y": 219.4895466042555,
-      "label_at": "left"
+      "x": -39.3640100290419,
+      "y": 26.189869139661425,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project::1": {
       "id": "toml::pyproject.toml::section::project::1",
@@ -909,9 +628,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 1,
       "meta": {},
-      "x": -356.1663427688335,
-      "y": 153.15360287704897,
-      "label_at": "above"
+      "x": -39.3640100290419,
+      "y": 17.977426453344947,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pdm.scripts::22": {
       "id": "toml::pyproject.toml::section::tool.pdm.scripts::22",
@@ -922,9 +642,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 22,
       "meta": {},
-      "x": -406.06969494970195,
-      "y": 185.84199005779982,
-      "label_at": "left"
+      "x": -43.65439319959036,
+      "y": 27.54729768285424,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pdm::16": {
       "id": "toml::pyproject.toml::section::tool.pdm::16",
@@ -935,9 +656,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 16,
       "meta": {},
-      "x": -332.8986847008852,
-      "y": 229.06273157960317,
-      "label_at": "right"
+      "x": -43.65439319959036,
+      "y": 16.619997910152136,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "stopwatch.BINDINGS": {
       "id": "stopwatch.BINDINGS",
@@ -949,11 +671,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 152
       },
-      "x": -25.270714080698326,
-      "y": 72.98767548088558,
-      "label_at": "right"
+      "x": 28.692969822101883,
+      "y": -0.5002904356911975,
+      "label_at": "right",
+      "dot_scale": 1.6818435879447726
      },
      "stopwatch.CSS_PATH": {
       "id": "stopwatch.CSS_PATH",
@@ -965,11 +689,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 27
       },
-      "x": -65.49077677333884,
-      "y": 89.67874541292561,
-      "label_at": "left"
+      "x": 25.481896889043355,
+      "y": -5.241686430874789,
+      "label_at": "right",
+      "dot_scale": 0.9313637641589874
      },
      "stopwatch.Const: ':'": {
       "id": "stopwatch.Const: ':'",
@@ -981,11 +707,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 1
       },
-      "x": 365.15778521914456,
-      "y": -3.040201702777864,
-      "label_at": "right"
+      "x": 21.470412396174073,
+      "y": 13.850857171706446,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'Add'": {
       "id": "stopwatch.Const: 'Add'",
@@ -997,11 +725,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 5
       },
-      "x": -44.89710162951087,
-      "y": 45.941585857216,
-      "label_at": "above"
+      "x": 18.92831909811345,
+      "y": 6.011537704328962,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'Remove'": {
       "id": "stopwatch.Const: 'Remove'",
@@ -1013,11 +743,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": -29.3895716827642,
-      "y": 96.31045933154977,
-      "label_at": "right"
+      "x": 24.806805321165807,
+      "y": -8.535952328565525,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'Stopwatch'": {
       "id": "stopwatch.Const: 'Stopwatch'",
@@ -1029,11 +761,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 11
       },
-      "x": 208.90588029629683,
-      "y": -138.09318933246024,
-      "label_at": "right"
+      "x": 37.90121906384749,
+      "y": -13.285968344953575,
+      "label_at": "right",
+      "dot_scale": 0.541392685158225
      },
      "stopwatch.Const: 'Toggle dark mode'": {
       "id": "stopwatch.Const: 'Toggle dark mode'",
@@ -1045,11 +779,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 18
       },
-      "x": -78.257912354219,
-      "y": 67.50647641886266,
-      "label_at": "left"
+      "x": 22.123403214635108,
+      "y": -7.17113204986707,
+      "label_at": "above",
+      "dot_scale": 0.755272505103306
      },
      "stopwatch.Const: '__main__'": {
       "id": "stopwatch.Const: '__main__'",
@@ -1061,11 +797,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 10
       },
-      "x": 118.41343199301338,
-      "y": -3.040201702777864,
-      "label_at": "right"
+      "x": 43.15769959180716,
+      "y": -8.3774865510786,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'a'": {
       "id": "stopwatch.Const: 'a'",
@@ -1077,11 +815,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -19.07347126030504,
-      "y": 55.05089769534736,
-      "label_at": "right"
+      "x": 24.51521264318168,
+      "y": 7.779264303444315,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'add_stopwatch'": {
       "id": "stopwatch.Const: 'add_stopwatch'",
@@ -1093,11 +833,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 15
       },
-      "x": -56.42475723312771,
-      "y": 107.0402597288316,
-      "label_at": "below"
+      "x": 29.352070420398253,
+      "y": 4.673768229044107,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "stopwatch.Const: 'd'": {
       "id": "stopwatch.Const: 'd'",
@@ -1109,11 +851,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -64.33011218948104,
-      "y": 40.14084251077931,
-      "label_at": "left"
+      "x": 27.392416294306987,
+      "y": -8.008968858061902,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'r'": {
       "id": "stopwatch.Const: 'r'",
@@ -1125,11 +869,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -10.933424544328375,
-      "y": 86.257995339503,
-      "label_at": "right"
+      "x": 27.8010172094201,
+      "y": 7.067338585924062,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'remove_stopwatch'": {
       "id": "stopwatch.Const: 'remove_stopwatch'",
@@ -1141,11 +887,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 18
       },
-      "x": -84.51005444309493,
-      "y": 88.35953383872838,
-      "label_at": "left"
+      "x": 21.9305094731796,
+      "y": 6.235667600460945,
+      "label_at": "below",
+      "dot_scale": 0.755272505103306
      },
      "stopwatch.Const: 'reset'": {
       "id": "stopwatch.Const: 'reset'",
@@ -1157,11 +905,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 65.41343199301338,
-      "y": 186.9878224209126,
-      "label_at": "right"
+      "x": 4.73370878560851,
+      "y": 6.2487598371851565,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'start'": {
       "id": "stopwatch.Const: 'start'",
@@ -1173,11 +923,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 25.193369300372918,
-      "y": 203.67889235295263,
-      "label_at": "left"
+      "x": 10.826473613235304,
+      "y": 19.522287402909676,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'started'": {
       "id": "stopwatch.Const: 'started'",
@@ -1189,11 +941,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 9
       },
-      "x": 156.7006818371018,
-      "y": 186.9878224209126,
-      "label_at": "right"
+      "x": 11.04463997123921,
+      "y": 4.383123126355168,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'stop'": {
       "id": "stopwatch.Const: 'stop'",
@@ -1205,11 +959,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": 45.78704444420089,
-      "y": 159.94173279724302,
-      "label_at": "above"
+      "x": 2.501717188134858,
+      "y": 7.374909697908433,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 'stopwatch.tcss'": {
       "id": "stopwatch.Const: 'stopwatch.tcss'",
@@ -1221,11 +977,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 16
       },
-      "x": -29.541863832544944,
-      "y": 35.1021522711086,
-      "label_at": "right"
+      "x": 29.219002219164903,
+      "y": -5.745908197154193,
+      "label_at": "right",
+      "dot_scale": 0.7041199826559248
      },
      "stopwatch.Const: 'textual-dark'": {
       "id": "stopwatch.Const: 'textual-dark'",
@@ -1237,11 +995,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 14
       },
-      "x": -100.673001144267,
-      "y": -12.54647860448474,
-      "label_at": "right"
+      "x": 18.245035871447524,
+      "y": -23.254943216419257,
+      "label_at": "right",
+      "dot_scale": 0.646128035678238
      },
      "stopwatch.Const: 'textual-light'": {
       "id": "stopwatch.Const: 'textual-light'",
@@ -1253,11 +1013,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 15
       },
-      "x": -140.89306383690752,
-      "y": 4.144591327555283,
-      "label_at": "left"
+      "x": 19.21396157975145,
+      "y": -26.246377155974372,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "stopwatch.Const: 'toggle_dark'": {
       "id": "stopwatch.Const: 'toggle_dark'",
@@ -1269,11 +1031,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 13
       },
-      "x": -34.307239451691316,
-      "y": 114.31727535244363,
-      "label_at": "below"
+      "x": 18.88562890320441,
+      "y": -7.236381416096298,
+      "label_at": "above",
+      "dot_scale": 0.6139433523068368
      },
      "stopwatch.Const: 0": {
       "id": "stopwatch.Const: 0",
@@ -1285,11 +1049,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 1
       },
-      "x": -81.40798578540489,
-      "y": -152.21400800480896,
-      "label_at": "right"
+      "x": 39.893776104610936,
+      "y": -20.6757232786747,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 0.0": {
       "id": "stopwatch.Const: 0.0",
@@ -1301,11 +1067,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -16.70032286777439,
-      "y": -74.11996121259922,
-      "label_at": "right"
+      "x": 7.592871585636981,
+      "y": -5.618946939785218,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 1": {
       "id": "stopwatch.Const: 1",
@@ -1317,11 +1085,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 1
       },
-      "x": 10.407365844095864,
-      "y": -177.18343864821662,
-      "label_at": "right"
+      "x": 17.1682658160658,
+      "y": 28.715065719628026,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: 60": {
       "id": "stopwatch.Const: 60",
@@ -1333,11 +1103,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 2
       },
-      "x": -29.812696848544647,
-      "y": -160.4923687161766,
-      "label_at": "left"
+      "x": 17.1682658160658,
+      "y": 23.873468855662423,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.Const: True": {
       "id": "stopwatch.Const: True",
@@ -1349,11 +1121,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 4
       },
-      "x": -9.219021704716624,
-      "y": -204.22952827188624,
-      "label_at": "above"
+      "x": 15.451119425489376,
+      "y": 22.056491070071647,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.FormattedValue": {
       "id": "stopwatch.FormattedValue",
@@ -1365,11 +1139,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "FormattedValue"
+       "ast_type": "FormattedValue",
+       "chars": 15
       },
-      "x": 331.5060560320421,
-      "y": 11.29806435186094,
-      "label_at": "left"
+      "x": 32.79742572720886,
+      "y": 14.142101867198658,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "stopwatch.JoinedStr": {
       "id": "stopwatch.JoinedStr",
@@ -1381,11 +1157,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "JoinedStr"
+       "ast_type": "JoinedStr",
+       "chars": 49
       },
-      "x": 347.15778521914456,
-      "y": -3.040201702777864,
-      "label_at": "none"
+      "x": 28.904640101339123,
+      "y": 23.234660912528042,
+      "label_at": "left",
+      "dot_scale": 1.1901960800285138
      },
      "stopwatch.__name__": {
       "id": "stopwatch.__name__",
@@ -1397,11 +1175,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 8
       },
-      "x": 88.00121693244006,
-      "y": -43.92116058620455,
-      "label_at": "above"
+      "x": 43.77138702560421,
+      "y": 5.459747372691691,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.app": {
       "id": "stopwatch.app",
@@ -1413,11 +1193,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 20
       },
-      "x": 111.26887500038833,
-      "y": 31.98796811634963,
-      "label_at": "right"
+      "x": -1.3859453338156094,
+      "y": 8.044189707287444,
+      "label_at": "left",
+      "dot_scale": 0.8010299956639813
      },
      "stopwatch.app.run": {
       "id": "stopwatch.app.run",
@@ -1429,13 +1211,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 9
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 38.09786475157159,
-      "y": -11.232773405453706,
-      "label_at": "left"
+      "x": 9.288184020637065,
+      "y": -23.079840304322,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "stopwatch.button_id": {
       "id": "stopwatch.button_id",
@@ -1447,11 +1231,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 27
       },
-      "x": 61.294574390947496,
-      "y": 210.3106062715768,
-      "label_at": "right"
+      "x": 11.457146887294325,
+      "y": 7.720453567578245,
+      "label_at": "right",
+      "dot_scale": 0.9313637641589874
      },
      "stopwatch.divmod": {
       "id": "stopwatch.divmod",
@@ -1463,11 +1249,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 6
       },
-      "x": 244.54276697231626,
-      "y": -3.040201702777864,
-      "label_at": "right"
+      "x": 32.63284166055429,
+      "y": 22.15857706370507,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.event": {
       "id": "stopwatch.event",
@@ -1479,11 +1267,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 21
       },
-      "x": 12.426233719492757,
-      "y": 181.50662335888967,
-      "label_at": "left"
+      "x": 7.969387870919473,
+      "y": 18.20906422919164,
+      "label_at": "below",
+      "dot_scale": 0.8222192947339193
      },
      "stopwatch.hours": {
       "id": "stopwatch.hours",
@@ -1495,11 +1285,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 36
       },
-      "x": 204.3227042796758,
-      "y": 13.650868229262159,
-      "label_at": "left"
+      "x": 28.856847037239923,
+      "y": 13.704632252136218,
+      "label_at": "right",
+      "dot_scale": 1.0563025007672873
      },
      "stopwatch.minutes": {
       "id": "stopwatch.minutes",
@@ -1511,11 +1303,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 36
       },
-      "x": 224.91637942350386,
-      "y": -30.086291326447444,
-      "label_at": "above"
+      "x": 24.4981078639553,
+      "y": 11.880076856326365,
+      "label_at": "above",
+      "dot_scale": 1.0563025007672873
      },
      "stopwatch.mount": {
       "id": "stopwatch.mount",
@@ -1527,13 +1321,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 46
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 106.41343199301339,
-      "y": -141.16953668208077,
-      "label_at": "right"
+      "x": 2.870795813065964,
+      "y": -0.5592912281646906,
+      "label_at": "right",
+      "dot_scale": 1.162757831681574
      },
      "stopwatch.new_stopwatch": {
       "id": "stopwatch.new_stopwatch",
@@ -1545,11 +1341,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 27
       },
-      "x": 66.19336930037286,
-      "y": -124.47846675004075,
-      "label_at": "left"
+      "x": 0.7248885246706074,
+      "y": -4.727588978320751,
+      "label_at": "right",
+      "dot_scale": 0.9313637641589874
      },
      "stopwatch.new_stopwatch.scroll_visible": {
       "id": "stopwatch.new_stopwatch.scroll_visible",
@@ -1561,13 +1359,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 30
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 86.78704444420083,
-      "y": -168.21562630575036,
-      "label_at": "above"
+      "x": 0.7434974563940706,
+      "y": 3.7209762742436694,
+      "label_at": "right",
+      "dot_scale": 0.9771212547196624
      },
      "stopwatch.pause": {
       "id": "stopwatch.pause",
@@ -1579,13 +1379,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 25
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 299.4956039955697,
-      "y": -167.19702450231767,
-      "label_at": "right"
+      "x": 40.81632436161344,
+      "y": 7.6321869110357206,
+      "label_at": "right",
+      "dot_scale": 0.8979400086720376
      },
      "stopwatch.remove": {
       "id": "stopwatch.remove",
@@ -1597,13 +1399,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 22
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 168.68581760365635,
-      "y": -121.40211940042023,
-      "label_at": "left"
+      "x": 38.050138753756556,
+      "y": -6.457645859130738,
+      "label_at": "right",
+      "dot_scale": 0.8424226808222063
      },
      "stopwatch.resume": {
       "id": "stopwatch.resume",
@@ -1615,13 +1419,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 26
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 75.82813797091234,
-      "y": -246.27507226500097,
-      "label_at": "right"
+      "x": 47.72961640216272,
+      "y": -1.4872552755304878,
+      "label_at": "right",
+      "dot_scale": 0.914973347970818
      },
      "stopwatch.seconds": {
       "id": "stopwatch.seconds",
@@ -1633,11 +1439,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 35
       },
-      "x": 240.42390937025039,
-      "y": 20.28258214788632,
-      "label_at": "right"
+      "x": 24.15991809920398,
+      "y": 24.709071330680572,
+      "label_at": "below",
+      "dot_scale": 1.0440680443502757
      },
      "stopwatch.self": {
       "id": "stopwatch.self",
@@ -1649,11 +1457,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 4
       },
-      "x": 102.29457439094752,
-      "y": -117.8467528314166,
-      "label_at": "right"
+      "x": 17.792553371371543,
+      "y": 26.29426728764523,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "stopwatch.self.add_class": {
       "id": "stopwatch.self.add_class",
@@ -1665,13 +1475,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 25
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 138.7006818371018,
-      "y": 186.9878224209126,
-      "label_at": "none"
+      "x": 7.942747531210979,
+      "y": 5.497164588430839,
+      "label_at": "above",
+      "dot_scale": 0.8979400086720376
      },
      "stopwatch.self.remove_class": {
       "id": "stopwatch.self.remove_class",
@@ -1683,13 +1495,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 28
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 71.61067481340672,
-      "y": 169.05104463537438,
-      "label_at": "right"
+      "x": 11.466582818748794,
+      "y": 16.188874476431096,
+      "label_at": "right",
+      "dot_scale": 0.9471580313422192
      },
      "stopwatch.self.update": {
       "id": "stopwatch.self.update",
@@ -1701,13 +1515,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 62
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 288.9313276720171,
-      "y": -3.040201702777864,
-      "label_at": "none"
+      "x": 31.26996668559877,
+      "y": 18.307859331130256,
+      "label_at": "right",
+      "dot_scale": 1.292391689498254
      },
      "stopwatch.start_time": {
       "id": "stopwatch.start_time",
@@ -1719,11 +1535,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 32
       },
-      "x": -56.92038556041484,
-      "y": -57.4288912805592,
-      "label_at": "left"
+      "x": 15.457804218243009,
+      "y": -12.297917529616344,
+      "label_at": "right",
+      "dot_scale": 1.005149978319906
      },
      "stopwatch.time": {
       "id": "stopwatch.time",
@@ -1735,11 +1553,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 20
       },
-      "x": -20.819180469840262,
-      "y": -50.79717736193504,
-      "label_at": "right"
+      "x": 6.518435202469572,
+      "y": -19.473505610881848,
+      "label_at": "above",
+      "dot_scale": 0.8010299956639813
      },
      "stopwatch.time_display": {
       "id": "stopwatch.time_display",
@@ -1751,11 +1571,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 42
       },
-      "x": 34.25938884058405,
-      "y": 221.04040666885862,
-      "label_at": "below"
+      "x": 13.322544578510925,
+      "y": 11.935338711747644,
+      "label_at": "right",
+      "dot_scale": 1.1232492903979003
      },
      "stopwatch.time_display.reset": {
       "id": "stopwatch.time_display.reset",
@@ -1767,13 +1589,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 20
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 26.35403388423066,
-      "y": 154.14098945080633,
-      "label_at": "left"
+      "x": 15.4021273200221,
+      "y": 8.11626850076697,
+      "label_at": "right",
+      "dot_scale": 0.8010299956639813
      },
      "stopwatch.time_display.start": {
       "id": "stopwatch.time_display.start",
@@ -1785,13 +1609,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 20
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 79.75072152938338,
-      "y": 200.25814227953003,
-      "label_at": "right"
+      "x": 15.43711836261419,
+      "y": 15.735146518305005,
+      "label_at": "right",
+      "dot_scale": 0.8010299956639813
      },
      "stopwatch.time_display.stop": {
       "id": "stopwatch.time_display.stop",
@@ -1803,13 +1629,15 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 19
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 6.174091630616829,
-      "y": 202.3596807787554,
-      "label_at": "left"
+      "x": 4.270099207834146,
+      "y": 18.068828608052364,
+      "label_at": "below",
+      "dot_scale": 0.7787536009528289
      },
      "stopwatch.timers": {
       "id": "stopwatch.timers",
@@ -1821,11 +1649,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 32
       },
-      "x": 189.27949274748437,
-      "y": -165.13927895612983,
-      "label_at": "above"
+      "x": 39.831854224749776,
+      "y": -10.255636672961844,
+      "label_at": "right",
+      "dot_scale": 1.005149978319906
      },
      "stopwatch.total": {
       "id": "stopwatch.total",
@@ -1837,11 +1667,13 @@
       "line": 0,
       "meta": {
        "module": "stopwatch",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 21
       },
-      "x": -10.503080047381104,
-      "y": -92.05673899813745,
-      "label_at": "right"
+      "x": 10.737263186150042,
+      "y": -5.601756664702311,
+      "label_at": "right",
+      "dot_scale": 0.8222192947339193
      },
      "textual.app.App": {
       "id": "textual.app.App",
@@ -1855,25 +1687,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 251.0362366833707,
-      "y": 149.9617865879205,
-      "label_at": "right"
-     },
-     "textual.app.textual.app": {
-      "id": "textual.app.textual.app",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "textual.app.textual.app",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -136.5856764220906,
-      "y": 72.92481957415674,
-      "label_at": "right"
+      "x": 25.50805636844002,
+      "y": 4.423037055891621,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "textual.containers.HorizontalGroup": {
       "id": "textual.containers.HorizontalGroup",
@@ -1887,25 +1704,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": -42.8181383042608,
-      "y": 182.91088820253466,
-      "label_at": "right"
-     },
-     "textual.containers.textual.containers": {
-      "id": "textual.containers.textual.containers",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "textual.containers.textual.containers",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -148.34968100579616,
-      "y": -92.05746687235813,
-      "label_at": "right"
+      "x": 30.06456552296994,
+      "y": -17.446156812342597,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "textual.reactive.reactive": {
       "id": "textual.reactive.reactive",
@@ -1919,25 +1721,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": -36.32671041658688,
-      "y": -101.16605083626882,
-      "label_at": "above"
-     },
-     "textual.reactive.textual.reactive": {
-      "id": "textual.reactive.textual.reactive",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "textual.reactive.textual.reactive",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 249.6814680599508,
-      "y": -242.15402458228138,
-      "label_at": "right"
+      "x": 14.12509360803414,
+      "y": -7.989009532420095,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "textual.widgets.Digits": {
       "id": "textual.widgets.Digits",
@@ -1951,25 +1738,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 162.2043730697078,
-      "y": -220.99373507414808,
-      "label_at": "right"
-     },
-     "textual.widgets.textual.widgets": {
-      "id": "textual.widgets.textual.widgets",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "textual.widgets.textual.widgets",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 246.03841655592578,
-      "y": 239.82291163080936,
-      "label_at": "right"
+      "x": 14.12509360803414,
+      "y": -16.606825526812592,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "time.monotonic": {
       "id": "time.monotonic",
@@ -1983,25 +1755,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": -69.68752114129501,
-      "y": -79.60116027462215,
-      "label_at": "left"
-     },
-     "time.time": {
-      "id": "time.time",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "time.time",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 340.5777799706493,
-      "y": 159.0343841064056,
-      "label_at": "right"
+      "x": 10.620256529115007,
+      "y": -19.429256580041994,
+      "label_at": "right",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -2028,91 +1785,6 @@
        "kind": "contains",
        "weight": 1
       }
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project::1",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
-      "target": "toml::pyproject.toml::section::build-system::11",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
-      "target": "toml::pyproject.toml::section::tool.pdm::16",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
-      "target": "toml::pyproject.toml::section::dependency-groups::19",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
-      "target": "toml::pyproject.toml::section::tool.pdm.scripts::22",
-      "kind": "contains"
-     },
-     {
-      "source": "stopwatch.time.monotonic",
-      "target": "time.time",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.app.App",
-      "target": "textual.app.textual.app",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.app.ComposeResult",
-      "target": "textual.app.textual.app",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.containers.HorizontalGroup",
-      "target": "textual.containers.textual.containers",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.containers.VerticalScroll",
-      "target": "textual.containers.textual.containers",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.reactive.reactive",
-      "target": "textual.reactive.textual.reactive",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.widgets.Button",
-      "target": "textual.widgets.textual.widgets",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.widgets.Digits",
-      "target": "textual.widgets.textual.widgets",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.widgets.Footer",
-      "target": "textual.widgets.textual.widgets",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.textual.widgets.Header",
-      "target": "textual.widgets.textual.widgets",
-      "kind": "contains",
-      "weight": 1
      },
      {
       "source": "stopwatch.TimeDisplay",
@@ -2193,6 +1865,24 @@
       "weight": 1
      },
      {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.time_display",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.time",
+      "target": "stopwatch.minutes",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.time",
+      "target": "stopwatch.seconds",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "stopwatch.on_mount",
       "target": "stopwatch.self",
       "kind": "contains",
@@ -2217,27 +1907,39 @@
       "weight": 1
      },
      {
+      "source": "stopwatch.self",
+      "target": "stopwatch.time_display",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.self",
+      "target": "stopwatch.timers",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "stopwatch.update_time",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.update_time",
       "target": "time.monotonic",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.watch_time",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.watch_time",
       "target": "stopwatch.time",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2261,7 +1963,7 @@
      {
       "source": "stopwatch.watch_time",
       "target": "stopwatch.Const: 60",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2274,6 +1976,30 @@
       "source": "stopwatch.watch_time",
       "target": "stopwatch.self.update",
       "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.minutes",
+      "target": "stopwatch.hours",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.divmod",
+      "target": "stopwatch.seconds",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.divmod",
+      "target": "stopwatch.minutes",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.divmod",
+      "target": "stopwatch.hours",
+      "kind": "flows",
       "weight": 1
      },
      {
@@ -2297,31 +2023,31 @@
      {
       "source": "stopwatch.FormattedValue",
       "target": "stopwatch.hours",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.FormattedValue",
       "target": "stopwatch.minutes",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.FormattedValue",
       "target": "stopwatch.seconds",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.start",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.start",
       "target": "time.monotonic",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2333,7 +2059,7 @@
      {
       "source": "stopwatch.stop",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2345,13 +2071,13 @@
      {
       "source": "stopwatch.stop",
       "target": "time.monotonic",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.reset",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2379,9 +2105,15 @@
       "weight": 1
      },
      {
+      "source": "stopwatch.Stopwatch",
+      "target": "stopwatch.new_stopwatch",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "stopwatch.on_button_pressed",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2405,7 +2137,7 @@
      {
       "source": "stopwatch.on_button_pressed",
       "target": "stopwatch.TimeDisplay",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2457,6 +2189,12 @@
       "weight": 1
      },
      {
+      "source": "stopwatch.event",
+      "target": "stopwatch.button_id",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "stopwatch.self.add_class",
       "target": "stopwatch.Const: 'started'",
       "kind": "contains",
@@ -2465,13 +2203,19 @@
      {
       "source": "stopwatch.self.remove_class",
       "target": "stopwatch.Const: 'started'",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.compose",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.compose",
+      "target": "stopwatch.TimeDisplay",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -2555,7 +2299,7 @@
      {
       "source": "stopwatch.StopwatchApp",
       "target": "stopwatch.compose",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2577,9 +2321,15 @@
       "weight": 1
      },
      {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.app",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "stopwatch.action_add_stopwatch",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2591,7 +2341,7 @@
      {
       "source": "stopwatch.action_add_stopwatch",
       "target": "stopwatch.Stopwatch",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -2609,13 +2359,13 @@
      {
       "source": "stopwatch.mount",
       "target": "stopwatch.new_stopwatch",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "stopwatch.action_remove_stopwatch",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2639,7 +2389,7 @@
      {
       "source": "stopwatch.action_toggle_dark",
       "target": "stopwatch.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -2653,86 +2403,6 @@
       "target": "stopwatch.Const: 'textual-dark'",
       "kind": "contains",
       "weight": 1
-     },
-     {
-      "source": "stopwatch.monotonic",
-      "target": "time.monotonic",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.App",
-      "target": "textual.app.App",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.HorizontalGroup",
-      "target": "textual.containers.HorizontalGroup",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.reactive",
-      "target": "textual.reactive.reactive",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "stopwatch.Digits",
-      "target": "textual.widgets.Digits",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.time.monotonic",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.app.App",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.app.ComposeResult",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.containers.HorizontalGroup",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.containers.VerticalScroll",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.reactive.reactive",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.widgets.Button",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.widgets.Digits",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.widgets.Footer",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.textual.widgets.Header",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
@@ -2825,28 +2495,28 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.monotonic",
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.App",
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::11",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.HorizontalGroup",
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm::16",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.reactive",
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::dependency-groups::19",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
-      "target": "stopwatch.Digits",
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm.scripts::22",
       "kind": "contains"
      }
     ]

@@ -44,33 +44,101 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/codecartographer/code.svg)](../show/project/codecartographer/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/codecartographer/code.svg)](../show/project/codecartographer/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← cesar](cesar.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [Cuelist-python →](Cuelist-python.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← cesar](cesar.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [Cuelist-python →](Cuelist-python.md#showgraph-code)</figcaption>
 
 </figure>
 
 </div>
 
-**Its system:** not drawn. codecartographer's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, c7a61fd.
+**Its system:** not drawn. codecartographer's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, 7c175d6.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and codecartographer's default branch at `c7a61fd`, on 2026-10-27. [The show document](../show/project/codecartographer/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and codecartographer's default branch at `7c175d6`, on 2026-10-29. [The show document](../show/project/codecartographer/show.json) holds each graph as drawn.
 { .qm-caption }
 
 ### Every showgraph { #every-showgraph }
 
-Every graph codecartographer draws for these pages, in one place: the whole corpus with every node and nothing written on it, then each view of every project and every family. Each picture opens the page it is on, and each page steps to the same graph of the projects beside it.
+Every graph codecartographer draws for these pages, in one place: the whole corpus a family at a time, each family with its projects' code, then each view of every project and every family. Each picture opens the page it is on, and each page steps to the same graph of the projects beside it.
 
-#### The whole corpus, every node { #the-whole-corpus-every-node }
+#### Every family's code { #every-familys-code }
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 
-[![The whole corpus, every node, with no names](../show/index/full.svg)](../show/index/full.svg)
+[![commons: its projects' code](../show/family/commons/code.svg){ loading=lazy }](../families/commons.md#showgraph-code)
 
-<figcaption><strong>The whole corpus.</strong> Every family with each project's code in it, 12,084 nodes, every one drawn and nothing written on it.</figcaption>
+<figcaption markdown="span">[commons](../families/commons.md#showgraph-code), 1 project's code</figcaption>
 
 </figure>
+
+<figure class="qm-shot" markdown>
+
+[![core: its projects' code](../show/family/core/code.svg){ loading=lazy }](../families/core.md#showgraph-code)
+
+<figcaption markdown="span">[core](../families/core.md#showgraph-code), 7 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![games: its projects' code](../show/family/games/code.svg){ loading=lazy }](../families/games.md#showgraph-code)
+
+<figcaption markdown="span">[games](../families/games.md#showgraph-code), 3 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![infra: its projects' code](../show/family/infra/code.svg){ loading=lazy }](../families/infra.md#showgraph-code)
+
+<figcaption markdown="span">[infra](../families/infra.md#showgraph-code), 2 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![instruments: its projects' code](../show/family/instruments/code.svg){ loading=lazy }](../families/instruments.md#showgraph-code)
+
+<figcaption markdown="span">[instruments](../families/instruments.md#showgraph-code), 9 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![irl: its projects' code](../show/family/irl/code.svg){ loading=lazy }](../families/irl.md#showgraph-code)
+
+<figcaption markdown="span">[irl](../families/irl.md#showgraph-code), 6 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![performer-display: its projects' code](../show/family/performer-display/code.svg){ loading=lazy }](../families/performer-display.md#showgraph-code)
+
+<figcaption markdown="span">[performer-display](../families/performer-display.md#showgraph-code), 2 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![performing: its projects' code](../show/family/performing/code.svg){ loading=lazy }](../families/performing.md#showgraph-code)
+
+<figcaption markdown="span">[performing](../families/performing.md#showgraph-code), 21 projects' code</figcaption>
+
+</figure>
+
+<figure class="qm-shot" markdown>
+
+[![show-control: its projects' code](../show/family/show-control/code.svg){ loading=lazy }](../families/show-control.md#showgraph-code)
+
+<figcaption markdown="span">[show-control](../families/show-control.md#showgraph-code), 8 projects' code</figcaption>
+
+</figure>
+
+</div>
 
 #### Every project's code { #every-projects-code }
 
@@ -88,7 +156,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![alfred: every project's code](../show/project/alfred/code.svg){ loading=lazy }](alfred.md#showgraph-code)
 
-<figcaption markdown="span">[alfred](alfred.md#showgraph-code), 153 nodes, to its files</figcaption>
+<figcaption markdown="span">[alfred](alfred.md#showgraph-code), 390 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -96,7 +164,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![apothecary: every project's code](../show/project/apothecary/code.svg){ loading=lazy }](apothecary.md#showgraph-code)
 
-<figcaption markdown="span">[apothecary](apothecary.md#showgraph-code), 654 nodes, to its files</figcaption>
+<figcaption markdown="span">[apothecary](apothecary.md#showgraph-code), 8,869 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -104,7 +172,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![benchmark: every project's code](../show/project/benchmark/code.svg){ loading=lazy }](benchmark.md#showgraph-code)
 
-<figcaption markdown="span">[benchmark](benchmark.md#showgraph-code), 336 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[benchmark](benchmark.md#showgraph-code), 327 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -112,7 +180,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![carlos: every project's code](../show/project/carlos/code.svg){ loading=lazy }](carlos.md#showgraph-code)
 
-<figcaption markdown="span">[carlos](carlos.md#showgraph-code), 1,485 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[carlos](carlos.md#showgraph-code), 1,232 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -120,7 +188,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![cesar: every project's code](../show/project/cesar/code.svg){ loading=lazy }](cesar.md#showgraph-code)
 
-<figcaption markdown="span">[cesar](cesar.md#showgraph-code), 281 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[cesar](cesar.md#showgraph-code), 183 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -128,7 +196,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![codecartographer: every project's code](../show/project/codecartographer/code.svg){ loading=lazy }](codecartographer.md#showgraph-code)
 
-<figcaption markdown="span">[codecartographer](codecartographer.md#showgraph-code), 545 nodes, to its files</figcaption>
+<figcaption markdown="span">[codecartographer](codecartographer.md#showgraph-code), 4,121 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -136,7 +204,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![Cuelist-python: every project's code](../show/project/Cuelist-python/code.svg){ loading=lazy }](Cuelist-python.md#showgraph-code)
 
-<figcaption markdown="span">[Cuelist-python](Cuelist-python.md#showgraph-code), 191 nodes, to its members</figcaption>
+<figcaption markdown="span">[Cuelist-python](Cuelist-python.md#showgraph-code), 138 nodes, to its members</figcaption>
 
 </figure>
 
@@ -144,7 +212,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![datum: every project's code](../show/project/datum/code.svg){ loading=lazy }](datum.md#showgraph-code)
 
-<figcaption markdown="span">[datum](datum.md#showgraph-code), 221 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[datum](datum.md#showgraph-code), 437 nodes, to its members</figcaption>
 
 </figure>
 
@@ -152,7 +220,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![dossier: every project's code](../show/project/dossier/code.svg){ loading=lazy }](dossier.md#showgraph-code)
 
-<figcaption markdown="span">[dossier](dossier.md#showgraph-code), 241 nodes, to its files</figcaption>
+<figcaption markdown="span">[dossier](dossier.md#showgraph-code), 3,069 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -160,7 +228,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![factorio-sysops: every project's code](../show/project/factorio-sysops/code.svg){ loading=lazy }](factorio-sysops.md#showgraph-code)
 
-<figcaption markdown="span">[factorio-sysops](factorio-sysops.md#showgraph-code), 182 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[factorio-sysops](factorio-sysops.md#showgraph-code), 152 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -168,7 +236,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![golfvs: every project's code](../show/project/golfvs/code.svg){ loading=lazy }](golfvs.md#showgraph-code)
 
-<figcaption markdown="span">[golfvs](golfvs.md#showgraph-code), 143 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[golfvs](golfvs.md#showgraph-code), 132 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -176,7 +244,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![holophonor: every project's code](../show/project/holophonor/code.svg){ loading=lazy }](holophonor.md#showgraph-code)
 
-<figcaption markdown="span">[holophonor](holophonor.md#showgraph-code), 191 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[holophonor](holophonor.md#showgraph-code), 110 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -184,7 +252,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![ira: every project's code](../show/project/ira/code.svg){ loading=lazy }](ira.md#showgraph-code)
 
-<figcaption markdown="span">[ira](ira.md#showgraph-code), 149 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[ira](ira.md#showgraph-code), 373 nodes, to its members</figcaption>
 
 </figure>
 
@@ -192,7 +260,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![joe: every project's code](../show/project/joe/code.svg){ loading=lazy }](joe.md#showgraph-code)
 
-<figcaption markdown="span">[joe](joe.md#showgraph-code), 966 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[joe](joe.md#showgraph-code), 661 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -200,7 +268,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![leo: every project's code](../show/project/leo/code.svg){ loading=lazy }](leo.md#showgraph-code)
 
-<figcaption markdown="span">[leo](leo.md#showgraph-code), 409 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[leo](leo.md#showgraph-code), 371 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -208,7 +276,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![looksatwords: every project's code](../show/project/looksatwords/code.svg){ loading=lazy }](looksatwords.md#showgraph-code)
 
-<figcaption markdown="span">[looksatwords](looksatwords.md#showgraph-code), 1,508 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[looksatwords](looksatwords.md#showgraph-code), 951 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -216,7 +284,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![ludwig: every project's code](../show/project/ludwig/code.svg){ loading=lazy }](ludwig.md#showgraph-code)
 
-<figcaption markdown="span">[ludwig](ludwig.md#showgraph-code), 190 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[ludwig](ludwig.md#showgraph-code), 342 nodes, to its members</figcaption>
 
 </figure>
 
@@ -232,7 +300,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![moat: every project's code](../show/project/moat/code.svg){ loading=lazy }](moat.md#showgraph-code)
 
-<figcaption markdown="span">[moat](moat.md#showgraph-code), 46 nodes, to its members</figcaption>
+<figcaption markdown="span">[moat](moat.md#showgraph-code), 39 nodes, to its members</figcaption>
 
 </figure>
 
@@ -240,7 +308,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![otto: every project's code](../show/project/otto/code.svg){ loading=lazy }](otto.md#showgraph-code)
 
-<figcaption markdown="span">[otto](otto.md#showgraph-code), 238 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[otto](otto.md#showgraph-code), 109 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -248,7 +316,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![QLab-python: every project's code](../show/project/QLab-python/code.svg){ loading=lazy }](QLab-python.md#showgraph-code)
 
-<figcaption markdown="span">[QLab-python](QLab-python.md#showgraph-code), 365 nodes, to its members</figcaption>
+<figcaption markdown="span">[QLab-python](QLab-python.md#showgraph-code), 319 nodes, to its members</figcaption>
 
 </figure>
 
@@ -256,7 +324,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![qm: every project's code](../show/project/qm/code.svg){ loading=lazy }](qm.md#showgraph-code)
 
-<figcaption markdown="span">[qm](qm.md#showgraph-code), 586 nodes, to its files</figcaption>
+<figcaption markdown="span">[qm](qm.md#showgraph-code), 3,453 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -264,7 +332,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![qmcp: every project's code](../show/project/qmcp/code.svg){ loading=lazy }](qmcp.md#showgraph-code)
 
-<figcaption markdown="span">[qmcp](qmcp.md#showgraph-code), 338 nodes, to its files</figcaption>
+<figcaption markdown="span">[qmcp](qmcp.md#showgraph-code), 3,751 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -272,7 +340,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![qmetronome: every project's code](../show/project/qmetronome/code.svg){ loading=lazy }](qmetronome.md#showgraph-code)
 
-<figcaption markdown="span">[qmetronome](qmetronome.md#showgraph-code), 251 nodes, to its files</figcaption>
+<figcaption markdown="span">[qmetronome](qmetronome.md#showgraph-code), 764 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -280,7 +348,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![rad: every project's code](../show/project/rad/code.svg){ loading=lazy }](rad.md#showgraph-code)
 
-<figcaption markdown="span">[rad](rad.md#showgraph-code), 182 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[rad](rad.md#showgraph-code), 153 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -288,7 +356,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![rad-godot: every project's code](../show/project/rad-godot/code.svg){ loading=lazy }](rad-godot.md#showgraph-code)
 
-<figcaption markdown="span">[rad-godot](rad-godot.md#showgraph-code), 158 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[rad-godot](rad-godot.md#showgraph-code), 123 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -304,7 +372,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![ShowRunner: every project's code](../show/project/ShowRunner/code.svg){ loading=lazy }](ShowRunner.md#showgraph-code)
 
-<figcaption markdown="span">[ShowRunner](ShowRunner.md#showgraph-code), 114 nodes, to its files</figcaption>
+<figcaption markdown="span">[ShowRunner](ShowRunner.md#showgraph-code), 945 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -312,7 +380,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![ShowStopper: every project's code](../show/project/ShowStopper/code.svg){ loading=lazy }](ShowStopper.md#showgraph-code)
 
-<figcaption markdown="span">[ShowStopper](ShowStopper.md#showgraph-code), 103 nodes, to its members</figcaption>
+<figcaption markdown="span">[ShowStopper](ShowStopper.md#showgraph-code), 83 nodes, to its members</figcaption>
 
 </figure>
 
@@ -328,7 +396,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![TheatreMix-python: every project's code](../show/project/TheatreMix-python/code.svg){ loading=lazy }](TheatreMix-python.md#showgraph-code)
 
-<figcaption markdown="span">[TheatreMix-python](TheatreMix-python.md#showgraph-code), 657 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[TheatreMix-python](TheatreMix-python.md#showgraph-code), 365 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -344,7 +412,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![vox: every project's code](../show/project/vox/code.svg){ loading=lazy }](vox.md#showgraph-code)
 
-<figcaption markdown="span">[vox](vox.md#showgraph-code), 440 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[vox](vox.md#showgraph-code), 264 nodes, to its symbols</figcaption>
 
 </figure>
 
@@ -360,7 +428,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![wolf: every project's code](../show/project/wolf/code.svg){ loading=lazy }](wolf.md#showgraph-code)
 
-<figcaption markdown="span">[wolf](wolf.md#showgraph-code), 133 nodes, to its symbols</figcaption>
+<figcaption markdown="span">[wolf](wolf.md#showgraph-code), 608 nodes, to its members</figcaption>
 
 </figure>
 
@@ -368,7 +436,7 @@ Every graph codecartographer draws for these pages, in one place: the whole corp
 
 [![ztgui: every project's code](../show/project/ztgui/code.svg){ loading=lazy }](ztgui.md#showgraph-code)
 
-<figcaption markdown="span">[ztgui](ztgui.md#showgraph-code), 56 nodes, to its members</figcaption>
+<figcaption markdown="span">[ztgui](ztgui.md#showgraph-code), 39 nodes, to its members</figcaption>
 
 </figure>
 

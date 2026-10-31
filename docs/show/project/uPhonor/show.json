@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:9cf48b78cdbba79e6363cb043b19a202ff5268ab9cd5cea7ad8142e27e69235d"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "150f7a770cade664896c403ff27ccc5cf408f08d"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -205,10 +205,10 @@
     "subject": "project:uPhonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -256,9 +256,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -243.86115546365767,
-      "y": -123.12135932582858,
+      "x": -36.51050811964882,
+      "y": 4.407449895233974,
       "size": 480
      },
      "dir::quaternionmedia/uPhonor/.github": {
@@ -270,9 +271,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -289.9213888762407,
-      "y": 322.5626431330846,
+      "x": -62.25822232550608,
+      "y": -40.188899288073706,
       "size": 60
      },
      "dir::quaternionmedia/uPhonor/.github/workflows": {
@@ -284,9 +286,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -232.76371222646773,
-      "y": 355.5626431330846,
+      "x": -53.758222325506075,
+      "y": -40.188899288073706,
       "size": 50
      },
      "dir::quaternionmedia/uPhonor/app": {
@@ -298,9 +301,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -716.1324645890375,
-      "y": 4.174089521594965,
+      "x": -42.50292880218953,
+      "y": 63.818681706479964,
       "size": 80
      },
      "dir::quaternionmedia/uPhonor/configs": {
@@ -312,9 +316,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -88.76312305053551,
-      "y": -73.91858662369205,
+      "x": -16.043509767657582,
+      "y": -0.0921622780080611,
       "size": 50
      },
      "dir::quaternionmedia/uPhonor/examples": {
@@ -326,9 +331,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 445.71346754797673,
-      "y": 277.1332055549986,
+      "x": 70.30447547598841,
+      "y": 11.626401296744078,
       "size": 140
      },
      "file::quaternionmedia/uPhonor/CONFIG_SYSTEM.md": {
@@ -340,9 +346,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/CONFIG_SYSTEM.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -186.70347881388471,
-      "y": -90.12135932582858,
+      "x": -28.01050811964882,
+      "y": 4.407449895233974,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/MODULAR_STRUCTURE.md": {
@@ -354,9 +361,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/MODULAR_STRUCTURE.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -319.8488918908406,
-      "y": -106.28608645387958,
+      "x": -43.90160245800272,
+      "y": 11.178297754368966,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/README.md": {
@@ -368,9 +376,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -193.31760784570392,
-      "y": -195.26340527818314,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -35.51871610910257,
+      "y": -6.893508520219852,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/RT_OPTIMIZATION_REPORT.md": {
@@ -382,9 +391,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/RT_OPTIMIZATION_REPORT.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -231.20459012803076,
-      "y": -26.68226531357125,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -28.888782968933178,
+      "y": 14.348640692967846,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/SAVE_FUNCTION_DOCS.md": {
@@ -396,9 +406,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/SAVE_FUNCTION_DOCS.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -324.7581160232981,
-      "y": -191.0767253553923,
+      "x": -49.90914903724299,
+      "y": 2.0374189753151444,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/STATE_PRESERVATION_FIX.md": {
@@ -410,9 +421,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/STATE_PRESERVATION_FIX.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -130.54703056918962,
-      "y": -127.99184178662186,
+      "x": -24.185808255187748,
+      "y": -3.432515315208816,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/SYNC_CUTOFF_IMPLEMENTATION.md": {
@@ -424,9 +436,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/SYNC_CUTOFF_IMPLEMENTATION.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -329.2691753707949,
-      "y": -37.85210850501943,
+      "dot_scale": 1.5,
+      "label_at": "below",
+      "x": -40.54554692096516,
+      "y": 19.41759311146851,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/app/index.html": {
@@ -438,9 +451,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -556.1916743112163,
-      "y": 96.51594784289648,
+      "x": -21.29029526827778,
+      "y": 62.82462324544058,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/app/index.ts": {
@@ -452,9 +466,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.ts",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -806.6324645890373,
-      "y": 160.92468760657835,
+      "x": -56.37792880218952,
+      "y": 83.95377234446818,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/app/uphonor.tsx": {
@@ -466,9 +481,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/uphonor.tsx",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -669.3670927846778,
-      "y": 31.174089521594965,
+      "x": -35.00292880218953,
+      "y": 63.818681706479964,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_buffer_rt.c": {
@@ -480,9 +496,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_buffer_rt.c",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -238.17699252713987,
-      "y": -250.53653813789597,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -44.08129841028449,
+      "y": -10.169646116153777,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_buffer_rt.h": {
@@ -494,9 +511,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_buffer_rt.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -504.9920185163593,
-      "y": 489.6505822297696,
+      "x": -129.36397808654934,
+      "y": -12.455886323953997,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_processing.c": {
@@ -508,9 +526,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -157.80900886603465,
-      "y": -20.342333907501157,
+      "x": -20.294458262685982,
+      "y": 10.32952529466073,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_processing.h": {
@@ -522,9 +541,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -311.33829197001324,
-      "y": -775.2230792438303,
+      "x": -88.18406928795764,
+      "y": -68.60721017374229,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_processing_rt.c": {
@@ -536,9 +556,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing_rt.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -382.88886798001835,
-      "y": -141.59722608406653,
+      "x": -53.20649972738792,
+      "y": 11.29931252331251,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/audio_processing_rt.h": {
@@ -550,9 +571,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing_rt.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -27.812089804985874,
-      "y": -702.4372510694727,
+      "x": -45.2925150377168,
+      "y": -76.51687251196441,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/buffer_manager.c": {
@@ -564,9 +586,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/buffer_manager.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -123.99549750024153,
-      "y": -206.81036123765284,
+      "x": -28.530527316697103,
+      "y": -12.645305567872922,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/buffer_manager.h": {
@@ -578,9 +601,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/buffer_manager.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -197.85999278316515,
-      "y": 570.1383461951904,
+      "x": -14.485984265948812,
+      "y": -90.91835957815732,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/cli.c": {
@@ -592,9 +616,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/cli.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -516.5972571447163,
-      "y": -876.4315053330289,
+      "x": -68.29977441564708,
+      "y": 30.97617247493783,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/cli_rubberband.c": {
@@ -606,9 +631,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/cli_rubberband.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -731.0184772263957,
-      "y": 514.4849069575636,
+      "x": -128.77881377500643,
+      "y": 56.134088902418085,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/config.c": {
@@ -620,9 +646,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "below",
-      "x": -276.9590468208078,
-      "y": 25.127475704030207,
+      "x": -30.655707760595945,
+      "y": 23.073476025764123,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/config.h": {
@@ -634,9 +661,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -540.3475799470492,
-      "y": -620.82271913749,
+      "x": -107.2734859526125,
+      "y": -38.77301522566247,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/config_file_loader.c": {
@@ -648,9 +676,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_file_loader.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -772.2686301194217,
-      "y": -730.8797766145807,
+      "x": -141.33061873533882,
+      "y": 8.612685386621685,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/config_utils.c": {
@@ -662,9 +691,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_utils.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -322.33937824103555,
-      "y": -259.5615240490664,
+      "x": -54.049384542539755,
+      "y": -5.75668749180287,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/config_utils.h": {
@@ -676,9 +706,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_utils.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 355.2428211269941,
-      "y": -431.4992898435757,
+      "x": 14.111648519752123,
+      "y": 79.67879006023892,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/dsp.c": {
@@ -690,9 +721,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/dsp.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 750.2871801916782,
-      "y": 588.2067842913675,
+      "x": 117.720499824684,
+      "y": 32.69149503221462,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/filter.c": {
@@ -704,9 +736,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/filter.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 54.442961741580156,
-      "y": 354.25755672432746,
+      "x": 112.41302757679858,
+      "y": -15.660214532499097,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/midi.c": {
@@ -718,9 +751,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/midi.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 219.25607216805977,
-      "y": 146.38796737242205,
+      "x": 80.13672714270734,
+      "y": -21.721270417923435,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/play-file.c": {
@@ -732,9 +766,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/play-file.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 493.6029675456085,
-      "y": 622.0950800086237,
+      "x": 23.901899956313613,
+      "y": 20.71486136729515,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/ring1.c": {
@@ -746,9 +781,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/ring1.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 601.7137680281589,
-      "y": 367.20002103089433,
+      "x": 56.7831656130034,
+      "y": 33.01662168476567,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/ring2.c": {
@@ -760,9 +796,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/ring2.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 494.78206999309225,
-      "y": 103.81154720279093,
+      "x": 92.60456275571048,
+      "y": 12.335128401675238,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/stream.c": {
@@ -774,9 +811,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/stream.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 770.4763318231668,
-      "y": 145.28444227789953,
+      "x": 88.78606586085412,
+      "y": 46.94304707839724,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/tone1.c": {
@@ -788,9 +826,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/tone1.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 315.6608108485303,
-      "y": -107.31640166875151,
+      "x": 50.500256775232145,
+      "y": -37.78652189982064,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/examples/tone2.c": {
@@ -802,9 +841,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/tone2.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 320.1468096114753,
-      "y": 406.28869097677176,
+      "x": 50.11005319570776,
+      "y": -2.6259409128066586,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/holo.c": {
@@ -816,9 +856,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/holo.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -256.43254625406746,
-      "y": -499.9103144506359,
+      "x": -20.117770528826885,
+      "y": -42.858139153683716,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/main.c": {
@@ -830,9 +871,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/main.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -788.4692087872755,
-      "y": -504.9634416719949,
+      "x": -124.18314292988171,
+      "y": 29.530069229814725,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/midi_processing.c": {
@@ -844,9 +886,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/midi_processing.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -396.130708770707,
-      "y": -52.4682763380942,
+      "x": -48.94404537858887,
+      "y": 22.09287719373455,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/midi_processing.h": {
@@ -858,9 +901,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/midi_processing.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -865.7676812795539,
-      "y": -252.58943772815758,
+      "x": 7.92246021289568,
+      "y": -69.35683762377369,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/multi_loop_functions.c": {
@@ -872,9 +916,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/multi_loop_functions.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -141.77955587423656,
-      "y": -928.9248141385464,
+      "x": -113.57422599901095,
+      "y": 76.42300426282893,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/pipe.c": {
@@ -886,9 +931,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/pipe.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 180.4545119242118,
-      "y": -840.4800492227868,
+      "x": -137.7830119679574,
+      "y": -36.00922697130899,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/play.c": {
@@ -900,9 +946,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/play.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 439.9602627024853,
-      "y": -632.107086715011,
+      "x": -77.72305624199166,
+      "y": 105.55866970798394,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/process.c": {
@@ -914,9 +961,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/process.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1060.9942205681984,
-      "y": 152.81183802109052,
+      "x": -34.73557665555439,
+      "y": -105.55866970798394,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/quick_functions.c": {
@@ -928,9 +976,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/quick_functions.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -384.49565208992664,
-      "y": 678.5185271877116,
+      "x": -114.56077393594354,
+      "y": -70.05110626338512,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/record.c": {
@@ -942,9 +991,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/record.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1009.0546691485649,
-      "y": -453.55620657554203,
+      "x": 3.0035659357630493,
+      "y": 101.21439297046652,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/rt_nonrt_bridge.c": {
@@ -956,9 +1006,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rt_nonrt_bridge.c",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -177.38729097295868,
-      "y": -282.6853365878415,
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -39.37139346816189,
+      "y": -17.66980488820011,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/rt_nonrt_bridge.h": {
@@ -970,9 +1021,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rt_nonrt_bridge.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -571.6178598805745,
-      "y": -312.35178084964,
+      "x": -94.21908383701587,
+      "y": 50.751087262634066,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/rubberband_processing.c": {
@@ -984,9 +1036,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rubberband_processing.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 224.93510297031315,
-      "y": -630.0962576139526,
+      "x": -88.08382654154998,
+      "y": 84.84560686223904,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/test_config.sh": {
@@ -998,9 +1051,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/test_config.sh",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -183.44281158393767,
-      "y": 44.003216134610255,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -19.010024464051117,
+      "y": 19.156876047466405,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/tone.c": {
@@ -1012,9 +1066,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/tone.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 572.8684487828009,
-      "y": -423.77793891748314,
+      "x": 35.10063829541366,
+      "y": -78.61759131142082,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/uphonor.h": {
@@ -1026,9 +1081,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/uphonor.h",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 61.012468554065116,
-      "y": -384.56518754122516,
+      "x": -92.42840178436134,
+      "y": 4.407449895233979,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/utils.c": {
@@ -1040,9 +1096,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/utils.c",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1025.9603578646913,
-      "y": -56.4135835922599,
+      "x": -71.97236781623822,
+      "y": -90.97067522315169,
       "size": 30
      },
      "file::quaternionmedia/uPhonor/vite.config.js": {
@@ -1054,9 +1111,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/vite.config.js",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -405.48857182615114,
-      "y": -207.73306525346706,
+      "x": -59.98587270442394,
+      "y": 5.378229922782067,
       "size": 30
      },
      "audio_buffer_rt::audio_buffer_rt_cleanup": {
@@ -1079,9 +1137,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -541.7835855091153,
-      "y": 497.801845826142,
-      "label_at": "left"
+      "x": -123.86397808654934,
+      "y": -12.455886323953997,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_buffer_rt::audio_buffer_rt_fill": {
       "id": "audio_buffer_rt::audio_buffer_rt_fill",
@@ -1103,9 +1162,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -481.44442617378724,
-      "y": 456.04052577536834,
-      "label_at": "right"
+      "x": -125.70488717745843,
+      "y": -8.349664980795756,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_buffer_rt::audio_buffer_rt_init": {
       "id": "audio_buffer_rt::audio_buffer_rt_init",
@@ -1127,9 +1187,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -499.2486075516511,
-      "y": 533.4135886448969,
-      "label_at": "below"
+      "x": -125.70488717745843,
+      "y": -16.562107667112237,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_buffer_rt::audio_buffer_rt_needs_refill": {
       "id": "audio_buffer_rt::audio_buffer_rt_needs_refill",
@@ -1151,9 +1212,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -541.0061904867963,
-      "y": 459.39782339220596,
-      "label_at": "left"
+      "x": -129.9952703480069,
+      "y": -17.919536210305047,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "audio_buffer_rt::audio_buffer_rt_read": {
       "id": "audio_buffer_rt::audio_buffer_rt_read",
@@ -1175,9 +1237,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -455.2753609518485,
-      "y": 487.5136543851367,
-      "label_at": "right"
+      "x": -129.9952703480069,
+      "y": -6.9922364376029496,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "audio_buffer_rt::audio_buffer_rt_reset": {
       "id": "audio_buffer_rt::audio_buffer_rt_reset",
@@ -1199,9 +1262,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -542.0381459701007,
-      "y": 526.6365179443239,
-      "label_at": "left"
+      "x": -121.22834063526699,
+      "y": -16.103271034318105,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_buffer_rt::struct audio_buffer_rt": {
       "id": "audio_buffer_rt::struct audio_buffer_rt",
@@ -1223,9 +1287,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -475.5471547876883,
-      "y": 506.6505822297696,
-      "label_at": "right"
+      "x": -121.22834063526699,
+      "y": -8.808501613589886,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::apply_volume": {
       "id": "audio_processing::apply_volume",
@@ -1247,9 +1312,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -281.8934282413423,
-      "y": -758.2230792438303,
-      "label_at": "right"
+      "x": -82.68406928795764,
+      "y": -68.60721017374229,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::handle_audio_input": {
       "id": "audio_processing::handle_audio_input",
@@ -1271,9 +1337,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -348.12985896276905,
-      "y": -767.0718156474579,
-      "label_at": "left"
+      "x": -84.52497837886673,
+      "y": -64.50098883058405,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::handle_end_of_file": {
       "id": "audio_processing::handle_end_of_file",
@@ -1295,9 +1362,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -287.79069962744114,
-      "y": -808.8331356982316,
-      "label_at": "right"
+      "x": -84.52497837886673,
+      "y": -72.71343151690053,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::process_audio_output": {
       "id": "audio_processing::process_audio_output",
@@ -1319,9 +1387,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -305.59488100530496,
-      "y": -731.460072828703,
-      "label_at": "below"
+      "x": -88.81536154941519,
+      "y": -74.07086006009334,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "audio_processing::read_audio_frames": {
       "id": "audio_processing::read_audio_frames",
@@ -1343,9 +1412,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -261.6216344055024,
-      "y": -777.3600070884634,
-      "label_at": "right"
+      "x": -88.81536154941519,
+      "y": -63.143560287391246,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "audio_processing::start_playing": {
       "id": "audio_processing::start_playing",
@@ -1367,9 +1437,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -348.3844194237547,
-      "y": -738.237143529276,
-      "label_at": "left"
+      "x": -80.04843183667529,
+      "y": -72.25459488410641,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::start_recording": {
       "id": "audio_processing::start_recording",
@@ -1391,9 +1462,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -308.89545093630073,
-      "y": -829.981366540677,
-      "label_at": "above"
+      "x": -80.04843183667529,
+      "y": -64.9598254633782,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing::stop_recording": {
       "id": "audio_processing::stop_recording",
@@ -1415,9 +1487,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -274.63711084127283,
-      "y": -731.3878958433312,
-      "label_at": "right"
+      "x": -92.68314411518628,
+      "y": -65.4436163788632,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing::struct pw_buffer": {
       "id": "audio_processing::struct pw_buffer",
@@ -1439,9 +1512,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -347.35246394045026,
-      "y": -805.475838081394,
-      "label_at": "left"
+      "x": -92.68314411518628,
+      "y": -71.77080396862141,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::apply_volume_rt": {
       "id": "audio_processing_rt::apply_volume_rt",
@@ -1463,9 +1537,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 1.632773923685079,
-      "y": -685.4372510694727,
-      "label_at": "right"
+      "x": -39.7925150377168,
+      "y": -76.51687251196441,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::calculate_rms_rt": {
       "id": "audio_processing_rt::calculate_rms_rt",
@@ -1487,9 +1562,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -64.60365679774185,
-      "y": -694.2859874731004,
-      "label_at": "left"
+      "x": -41.63342412862588,
+      "y": -72.41065116880617,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::handle_audio_input_rt": {
       "id": "audio_processing_rt::handle_audio_input_rt",
@@ -1511,9 +1587,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -4.2644974624138285,
-      "y": -736.0473075238741,
-      "label_at": "right"
+      "x": -41.63342412862588,
+      "y": -80.62309385512265,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::mix_all_active_loops_rt": {
       "id": "audio_processing_rt::mix_all_active_loops_rt",
@@ -1535,9 +1612,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -22.0686788402777,
-      "y": -658.6742446543456,
-      "label_at": "below"
+      "x": -45.92380729917434,
+      "y": -81.98052239831546,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "audio_processing_rt::process_audio_output_rt": {
       "id": "audio_processing_rt::process_audio_output_rt",
@@ -1559,9 +1637,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -63.826261775422886,
-      "y": -732.6900099070365,
-      "label_at": "left"
+      "x": -45.92380729917434,
+      "y": -71.05322262561336,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_buffered_rt": {
       "id": "audio_processing_rt::read_audio_frames_buffered_rt",
@@ -1583,9 +1662,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -64.85821725872734,
-      "y": -665.4513153549185,
-      "label_at": "left"
+      "x": -37.15687758643444,
+      "y": -80.16425722232853,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_from_memory_loop_basic_rt": {
       "id": "audio_processing_rt::read_audio_frames_from_memory_loop_basic_rt",
@@ -1607,9 +1687,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -25.369248771273362,
-      "y": -757.1955383663196,
-      "label_at": "above"
+      "x": -37.15687758643445,
+      "y": -72.86948780160031,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_from_memory_loop_rt": {
       "id": "audio_processing_rt::read_audio_frames_from_memory_loop_rt",
@@ -1631,9 +1712,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 8.889091323754485,
-      "y": -658.6020676689736,
-      "label_at": "right"
+      "x": -49.791589864945436,
+      "y": -73.35327871708532,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_from_memory_loop_variable_speed_rt": {
       "id": "audio_processing_rt::read_audio_frames_from_memory_loop_variable_speed_rt",
@@ -1655,9 +1737,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -86.72947095816932,
-      "y": -710.2669827411526,
-      "label_at": "left"
+      "x": -49.791589864945436,
+      "y": -79.68046630684353,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_memory_loop_rubberband_rt": {
       "id": "audio_processing_rt::read_audio_frames_memory_loop_rubberband_rt",
@@ -1679,9 +1762,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 22.709249219452488,
-      "y": -737.7107439951495,
-      "label_at": "right"
+      "x": -42.60304811167304,
+      "y": -85.01738894438324,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_rt": {
       "id": "audio_processing_rt::read_audio_frames_rt",
@@ -1703,9 +1787,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -41.697103508847874,
-      "y": -640.2448568846244,
-      "label_at": "below"
+      "x": -42.60304811167304,
+      "y": -68.01635607954557,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_rubberband_rt": {
       "id": "audio_processing_rt::read_audio_frames_rubberband_rt",
@@ -1727,9 +1812,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -60.60085205649256,
-      "y": -759.4429268396465,
-      "label_at": "left"
+      "x": -34.5212401351521,
+      "y": -76.51687251196441,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_variable_speed_buffered_rt": {
       "id": "audio_processing_rt::read_audio_frames_variable_speed_buffered_rt",
@@ -1751,9 +1837,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 36.75745064395534,
-      "y": -681.9534294970085,
-      "label_at": "right"
+      "x": -52.99185146378426,
+      "y": -76.51687251196441,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::read_audio_frames_variable_speed_rt": {
       "id": "audio_processing_rt::read_audio_frames_variable_speed_rt",
@@ -1775,9 +1862,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -91.00356689799145,
-      "y": -673.1164014432399,
-      "label_at": "left"
+      "x": -38.1265015694816,
+      "y": -84.55855231158912,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::reset_memory_loop_playback_rt": {
       "id": "audio_processing_rt::reset_memory_loop_playback_rt",
@@ -1799,9 +1887,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -0.3034083088648458,
-      "y": -768.4691368697811,
-      "label_at": "right"
+      "x": -38.126501569481604,
+      "y": -68.47519271233972,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::start_loop_recording_rt": {
       "id": "audio_processing_rt::start_loop_recording_rt",
@@ -1823,9 +1912,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -2.8726109586938264,
-      "y": -633.4515830298332,
-      "label_at": "below"
+      "x": -49.84960558740374,
+      "y": -68.85365271307703,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::start_recording_rt": {
       "id": "audio_processing_rt::start_recording_rt",
@@ -1847,9 +1937,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -94.37633779589737,
-      "y": -737.2835333590433,
-      "label_at": "left"
+      "x": -49.84960558740374,
+      "y": -84.18009231085182,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "audio_processing_rt::stop_loop_recording_rt": {
       "id": "audio_processing_rt::stop_loop_recording_rt",
@@ -1871,9 +1962,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 46.48774077031044,
-      "y": -722.1517172423689,
-      "label_at": "right"
+      "x": -46.528846399902434,
+      "y": -87.2169588569196,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "audio_processing_rt::stop_recording_rt": {
       "id": "audio_processing_rt::stop_recording_rt",
@@ -1895,9 +1987,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -70.1979931633349,
-      "y": -636.2812029975338,
-      "label_at": "left"
+      "x": -46.528846399902434,
+      "y": -65.81678616700924,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "audio_processing_rt::store_audio_in_memory_loop_rt": {
       "id": "audio_processing_rt::store_audio_in_memory_loop_rt",
@@ -1919,9 +2012,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -41.53012215432568,
-      "y": -781.4882826153196,
-      "label_at": "above"
+      "x": -32.680331044243005,
+      "y": -72.41065116880617,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::struct pw_buffer": {
       "id": "audio_processing_rt::struct pw_buffer",
@@ -1943,9 +2037,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 21.904567759524923,
-      "y": -704.5741789141059,
-      "label_at": "right"
+      "x": -32.680331044243005,
+      "y": -80.62309385512265,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "audio_processing_rt::struct tm": {
       "id": "audio_processing_rt::struct tm",
@@ -1967,9 +2062,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 36.990965658317094,
-      "y": -652.4184895632131,
-      "label_at": "right"
+      "x": -33.64995502729016,
+      "y": -68.01635607954557,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "buffer_manager::calculate_rms": {
       "id": "buffer_manager::calculate_rms",
@@ -1991,9 +2087,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -234.65155977592116,
-      "y": 578.2896097915627,
-      "label_at": "left"
+      "x": -8.985984265948812,
+      "y": -90.91835957815732,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "buffer_manager::cleanup_audio_buffers": {
       "id": "buffer_manager::cleanup_audio_buffers",
@@ -2015,9 +2112,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -174.31240044059308,
-      "y": 536.5282897407891,
-      "label_at": "right"
+      "x": -10.826893356857902,
+      "y": -86.81213823499908,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "buffer_manager::initialize_audio_buffers": {
       "id": "buffer_manager::initialize_audio_buffers",
@@ -2039,9 +2137,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -192.116581818457,
-      "y": 613.9013526103175,
-      "label_at": "below"
+      "x": -10.826893356857902,
+      "y": -95.02458092131556,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "buffer_manager::struct audio_buffers": {
       "id": "buffer_manager::struct audio_buffers",
@@ -2063,9 +2162,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -168.41512905449423,
-      "y": 587.1383461951904,
-      "label_at": "right"
+      "x": -15.117276527406363,
+      "y": -96.38200946450837,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "cli::cli": {
       "id": "cli::cli",
@@ -2087,9 +2187,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -487.15239341604536,
-      "y": -859.4315053330289,
-      "label_at": "right"
+      "x": -62.79977441564708,
+      "y": 30.97617247493783,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "cli::print_usage": {
       "id": "cli::print_usage",
@@ -2116,9 +2217,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -553.3888241374723,
-      "y": -868.2802417366565,
-      "label_at": "left"
+      "x": -64.64068350655617,
+      "y": 35.082393818096065,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "cli_rubberband::cli": {
       "id": "cli_rubberband::cli",
@@ -2140,9 +2242,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -701.5736134977249,
-      "y": 531.4849069575636,
-      "label_at": "right"
+      "x": -123.27881377500643,
+      "y": 56.134088902418085,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "cli_rubberband::parse_rubberband_args": {
       "id": "cli_rubberband::parse_rubberband_args",
@@ -2164,9 +2267,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -767.8100442191518,
-      "y": 522.636170553936,
-      "label_at": "left"
+      "x": -125.11972286591553,
+      "y": 60.24031024557633,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "cli_rubberband::print_usage": {
       "id": "cli_rubberband::print_usage",
@@ -2188,9 +2292,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -707.4708848838236,
-      "y": 480.8748505031623,
-      "label_at": "right"
+      "x": -125.11972286591553,
+      "y": 52.02786755925985,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_create_backup": {
       "id": "config::config_create_backup",
@@ -2212,9 +2317,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -510.9027162183784,
-      "y": -603.82271913749,
-      "label_at": "right"
+      "x": -101.7734859526125,
+      "y": -38.77301522566247,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_generate_backup_filename": {
       "id": "config::config_generate_backup_filename",
@@ -2236,9 +2342,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -577.1391469398052,
-      "y": -612.6714555411177,
-      "label_at": "left"
+      "x": -103.6143950435216,
+      "y": -34.66679388250423,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_get_config_dir": {
       "id": "config::config_get_config_dir",
@@ -2260,9 +2367,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -516.7999876044771,
-      "y": -654.4327755918914,
-      "label_at": "right"
+      "x": -103.6143950435216,
+      "y": -42.87923656882071,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_get_error_message": {
       "id": "config::config_get_error_message",
@@ -2284,9 +2392,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -534.6041689823411,
-      "y": -577.0597127223627,
-      "label_at": "below"
+      "x": -107.90477821407005,
+      "y": -44.23666511201352,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "config::config_load_audio_files": {
       "id": "config::config_load_audio_files",
@@ -2308,9 +2417,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -576.3617519174863,
-      "y": -651.0754779750538,
-      "label_at": "left"
+      "x": -107.90477821407005,
+      "y": -33.30936533931142,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "config::config_load_state": {
       "id": "config::config_load_state",
@@ -2332,9 +2442,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -490.6309223825384,
-      "y": -622.9596469821231,
-      "label_at": "right"
+      "x": -99.13784850133015,
+      "y": -42.42039993602658,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_reset_to_defaults": {
       "id": "config::config_reset_to_defaults",
@@ -2356,9 +2467,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -577.3937074007906,
-      "y": -583.8367834229357,
-      "label_at": "left"
+      "x": -99.13784850133015,
+      "y": -35.12563051529836,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::config_result_t": {
       "id": "config::config_result_t",
@@ -2378,9 +2490,10 @@
       "construct": "type.alias",
       "construct_color": "#22d3ee",
       "construct_name": "Type alias",
-      "x": -503.64639881830897,
-      "y": -576.9875357369909,
-      "label_at": "right"
+      "x": -116.11244417288067,
+      "y": -34.41971048487269,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::config_save_active_loops_only": {
       "id": "config::config_save_active_loops_only",
@@ -2402,9 +2515,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -599.2649611002327,
-      "y": -628.6524508091697,
-      "label_at": "left"
+      "x": -111.77256077984114,
+      "y": -35.609421430783364,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::config_save_state": {
       "id": "config::config_save_state",
@@ -2426,9 +2540,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -489.8262409226109,
-      "y": -656.0962120631667,
-      "label_at": "right"
+      "x": -111.77256077984114,
+      "y": -41.936609020541574,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::config_validate_file": {
       "id": "config::config_validate_file",
@@ -2450,9 +2565,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -554.2325936509112,
-      "y": -558.6303249526417,
-      "label_at": "below"
+      "x": -104.58401902656875,
+      "y": -47.2735316580813,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "config::create_global_state_json": {
       "id": "config::create_global_state_json",
@@ -2479,9 +2595,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -573.1363421985558,
-      "y": -677.8283949076638,
-      "label_at": "left"
+      "x": -104.58401902656875,
+      "y": -30.272498793243635,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "config::create_memory_loops_json": {
       "id": "config::create_memory_loops_json",
@@ -2508,9 +2625,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -475.7780394981081,
-      "y": -600.338897565026,
-      "label_at": "right"
+      "x": -96.5022110500478,
+      "y": -38.77301522566247,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::enum config_result_t": {
       "id": "config::enum config_result_t",
@@ -2531,9 +2649,10 @@
       "construct": "type.enumeration",
       "construct_color": "#a855f7",
       "construct_name": "Enumeration",
-      "x": -537.9047389133367,
-      "y": -675.5810064343368,
-      "label_at": "above"
+      "x": -95.63092594218587,
+      "y": -47.2735316580813,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::holo_state_to_string": {
       "id": "config::holo_state_to_string",
@@ -2560,9 +2679,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -603.5390570400547,
-      "y": -591.5018695112572,
-      "label_at": "left"
+      "x": -114.97282237867996,
+      "y": -38.77301522566247,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::load_audio_file_into_loop": {
       "id": "config::load_audio_file_into_loop",
@@ -2584,9 +2704,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -512.8388984509282,
-      "y": -686.8546049377985,
-      "label_at": "right"
+      "x": -100.1074724843773,
+      "y": -46.81469502528717,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::loop_state_to_string": {
       "id": "config::loop_state_to_string",
@@ -2613,9 +2734,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -515.4081011007572,
-      "y": -551.8370510978505,
-      "label_at": "below"
+      "x": -100.1074724843773,
+      "y": -30.731335426037766,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::parse_global_state_json": {
       "id": "config::parse_global_state_json",
@@ -2642,9 +2764,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -606.9118279379605,
-      "y": -655.6690014270605,
-      "label_at": "left"
+      "x": -111.83057650229946,
+      "y": -31.109795426775072,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::parse_memory_loops_json": {
       "id": "config::parse_memory_loops_json",
@@ -2671,9 +2794,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -466.04774937175296,
-      "y": -640.5371853103861,
-      "label_at": "right"
+      "x": -111.83057650229946,
+      "y": -46.436235024549866,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "config::playback_mode_to_string": {
       "id": "config::playback_mode_to_string",
@@ -2700,9 +2824,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -582.7334833053982,
-      "y": -554.6666710655511,
-      "label_at": "left"
+      "x": -108.50981731479814,
+      "y": -49.47310157061765,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "config::string_to_holo_state": {
       "id": "config::string_to_holo_state",
@@ -2729,9 +2854,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -554.0656122963888,
-      "y": -699.8737506833368,
-      "label_at": "above"
+      "x": -108.50981731479814,
+      "y": -28.072928880707288,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "config::string_to_loop_state": {
       "id": "config::string_to_loop_state",
@@ -2758,9 +2884,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -475.54452448374616,
-      "y": -570.8039576312304,
-      "label_at": "right"
+      "x": -94.66130195913871,
+      "y": -34.66679388250423,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::string_to_playback_mode": {
       "id": "config::string_to_playback_mode",
@@ -2787,9 +2914,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -623.5101314859807,
-      "y": -613.7966945478257,
-      "label_at": "left"
+      "x": -94.66130195913871,
+      "y": -42.87923656882071,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config::struct tm": {
       "id": "config::struct tm",
@@ -2811,9 +2939,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -482.7096809705274,
-      "y": -683.3311993747529,
-      "label_at": "right"
+      "x": -95.63092594218587,
+      "y": -30.272498793243635,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_file_loader::config_load_audio_files": {
       "id": "config_file_loader::config_load_audio_files",
@@ -2835,9 +2964,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -742.8237663907507,
-      "y": -713.8797766145807,
-      "label_at": "right"
+      "x": -135.83061873533882,
+      "y": 8.612685386621685,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_file_loader::load_audio_file_into_loop": {
       "id": "config_file_loader::load_audio_file_into_loop",
@@ -2859,9 +2989,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -809.0601971121777,
-      "y": -722.7285130182082,
-      "label_at": "left"
+      "x": -137.67152782624788,
+      "y": 12.718906729779924,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_utils::list_available_sessions": {
       "id": "config_utils::list_available_sessions",
@@ -2883,9 +3014,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 384.687684855665,
-      "y": -414.4992898435757,
-      "label_at": "right"
+      "x": 19.611648519752123,
+      "y": 79.67879006023892,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_utils::load_session": {
       "id": "config_utils::load_session",
@@ -2907,9 +3039,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 318.45125413423807,
-      "y": -423.34802624720334,
-      "label_at": "left"
+      "x": 17.77073942884303,
+      "y": 83.78501140339716,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_utils::print_config_status": {
       "id": "config_utils::print_config_status",
@@ -2931,9 +3064,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 378.7904134695662,
-      "y": -465.109346297977,
-      "label_at": "right"
+      "x": 17.77073942884303,
+      "y": 75.57256871708069,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "config_utils::reset_to_defaults": {
       "id": "config_utils::reset_to_defaults",
@@ -2955,9 +3089,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 360.9862320917023,
-      "y": -387.7362834284485,
-      "label_at": "below"
+      "x": 13.48035625829457,
+      "y": 74.21514017388787,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "config_utils::save_active_loops": {
       "id": "config_utils::save_active_loops",
@@ -2979,9 +3114,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 319.2286491565571,
-      "y": -461.75204868113946,
-      "label_at": "left"
+      "x": 13.48035625829457,
+      "y": 85.14243994658997,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "config_utils::save_current_session": {
       "id": "config_utils::save_current_session",
@@ -3003,9 +3139,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 404.95947869150496,
-      "y": -433.6362176882088,
-      "label_at": "right"
+      "x": 22.247285971034472,
+      "y": 76.03140534987483,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::do_quit": {
       "id": "dsp::do_quit",
@@ -3032,9 +3169,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 713.495613198922,
-      "y": 596.3580478877398,
-      "label_at": "left"
+      "x": 121.37959073377493,
+      "y": 36.797716375372865,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::filter_events": {
       "id": "dsp::filter_events",
@@ -3060,9 +3198,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 773.8347725342501,
-      "y": 554.596727836966,
-      "label_at": "right"
+      "x": 123.220499824684,
+      "y": 32.69149503221462,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::main": {
       "id": "dsp::main",
@@ -3084,9 +3223,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 756.0305911563862,
-      "y": 631.9697907064947,
-      "label_at": "below"
+      "x": 121.37959073377493,
+      "y": 28.585273689056383,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::on_process": {
       "id": "dsp::on_process",
@@ -3113,9 +3253,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 714.2730082212411,
-      "y": 557.9540254538038,
-      "label_at": "left"
+      "x": 117.08920756322647,
+      "y": 27.227845145863576,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "dsp::struct data": {
       "id": "dsp::struct data",
@@ -3137,9 +3278,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 779.732043920349,
-      "y": 605.2067842913675,
-      "label_at": "right"
+      "x": 117.08920756322647,
+      "y": 38.155144918565675,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "dsp::struct port": {
       "id": "dsp::struct port",
@@ -3161,9 +3303,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 800.0038377561889,
-      "y": 586.0698564467344,
-      "label_at": "right"
+      "x": 125.85613727596639,
+      "y": 29.044110321850514,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::struct pw_filter": {
       "id": "dsp::struct pw_filter",
@@ -3185,9 +3328,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 713.2410527379366,
-      "y": 625.1927200059217,
-      "label_at": "left"
+      "x": 125.85613727596639,
+      "y": 36.33887974257873,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "dsp::struct pw_filter_events": {
       "id": "dsp::struct pw_filter_events",
@@ -3209,9 +3353,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 752.7300212253906,
-      "y": 533.4484969945206,
-      "label_at": "above"
+      "x": 113.22142499745536,
+      "y": 35.855088827093724,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "dsp::struct pw_main_loop": {
       "id": "dsp::struct pw_main_loop",
@@ -3233,9 +3378,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 786.9883613204186,
-      "y": 632.0419676918666,
-      "label_at": "right"
+      "x": 113.22142499745536,
+      "y": 29.52790123733552,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "filter::do_quit": {
       "id": "filter::do_quit",
@@ -3262,9 +3408,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 17.651394748824146,
-      "y": 362.4088203206999,
-      "label_at": "left"
+      "x": 116.07211848588952,
+      "y": -11.553993189340858,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "filter::filter_events": {
       "id": "filter::filter_events",
@@ -3290,9 +3437,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 77.9905540841522,
-      "y": 320.6475002699262,
-      "label_at": "right"
+      "x": 117.91302757679858,
+      "y": -15.660214532499097,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "filter::main": {
       "id": "filter::main",
@@ -3314,9 +3462,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 60.186372706288296,
-      "y": 398.0205631394547,
-      "label_at": "below"
+      "x": 116.07211848588952,
+      "y": -19.766435875657336,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "filter::on_process": {
       "id": "filter::on_process",
@@ -3343,9 +3492,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 18.42878977114313,
-      "y": 324.00479788676375,
-      "label_at": "left"
+      "x": 111.78173531534105,
+      "y": -21.123864418850147,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "filter::struct data": {
       "id": "filter::struct data",
@@ -3367,9 +3517,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 83.88782547025102,
-      "y": 371.2575567243274,
-      "label_at": "right"
+      "x": 111.78173531534105,
+      "y": -10.196564646148047,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "filter::struct port": {
       "id": "filter::struct port",
@@ -3391,9 +3542,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 104.15961930609102,
-      "y": 352.12062887969444,
-      "label_at": "right"
+      "x": 120.54866502808098,
+      "y": -19.307599242863205,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "filter::struct pw_filter": {
       "id": "filter::struct pw_filter",
@@ -3415,9 +3567,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 17.396834287838658,
-      "y": 391.2434924388817,
-      "label_at": "left"
+      "x": 120.54866502808098,
+      "y": -12.012829822134986,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "filter::struct pw_filter_events": {
       "id": "filter::struct pw_filter_events",
@@ -3439,9 +3592,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 56.8858027752926,
-      "y": 299.49926942748067,
-      "label_at": "above"
+      "x": 107.91395274956994,
+      "y": -12.496620737619992,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "filter::struct pw_main_loop": {
       "id": "filter::struct pw_main_loop",
@@ -3463,9 +3617,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 91.14414287032054,
-      "y": 398.09274012482655,
-      "label_at": "right"
+      "x": 107.91395274956994,
+      "y": -18.823808327378202,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "filter::struct spa_pod": {
       "id": "filter::struct spa_pod",
@@ -3487,9 +3642,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -4.474419411603293,
-      "y": 346.4278250526477,
-      "label_at": "left"
+      "x": 115.10249450284236,
+      "y": -24.16073096491793,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "filter::struct spa_pod_builder": {
       "id": "filter::struct spa_pod_builder",
@@ -3511,9 +3667,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 104.96430076601851,
-      "y": 318.98406379865077,
-      "label_at": "right"
+      "x": 115.10249450284236,
+      "y": -7.159698100080263,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "holo::can_start_recording_sync": {
       "id": "holo::can_start_recording_sync",
@@ -3535,9 +3692,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -226.9876825253965,
-      "y": -482.9103144506359,
-      "label_at": "right"
+      "x": -14.617770528826885,
+      "y": -42.858139153683716,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::check_sync_pending_recordings": {
       "id": "holo::check_sync_pending_recordings",
@@ -3559,9 +3717,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -293.22411324682344,
-      "y": -491.7590508542634,
-      "label_at": "left"
+      "x": -16.458679619735975,
+      "y": -38.75191781052548,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::check_sync_playback_reset": {
       "id": "holo::check_sync_playback_reset",
@@ -3583,9 +3742,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -232.8849539114954,
-      "y": -533.5203709050371,
-      "label_at": "right"
+      "x": -16.458679619735975,
+      "y": -46.964360496841955,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::check_sync_recording_target_length": {
       "id": "holo::check_sync_recording_target_length",
@@ -3607,9 +3767,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -250.68913528935929,
-      "y": -456.1473080355087,
-      "label_at": "below"
+      "x": -20.749062790284434,
+      "y": -48.321789040034766,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "holo::cleanup_all_memory_loops": {
       "id": "holo::cleanup_all_memory_loops",
@@ -3631,9 +3792,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -292.44671822450454,
-      "y": -530.1630732881996,
-      "label_at": "left"
+      "x": -20.749062790284434,
+      "y": -37.394489267332666,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "holo::disable_sync_mode": {
       "id": "holo::disable_sync_mode",
@@ -3655,9 +3817,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -206.7158886895567,
-      "y": -502.047242295269,
-      "label_at": "right"
+      "x": -11.982133077544532,
+      "y": -46.505523864047824,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::enable_sync_mode": {
       "id": "holo::enable_sync_mode",
@@ -3679,9 +3842,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -293.478673707809,
-      "y": -462.9243787360816,
-      "label_at": "left"
+      "x": -11.982133077544535,
+      "y": -39.21075444331961,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::get_longest_loop_duration": {
       "id": "holo::get_longest_loop_duration",
@@ -3703,9 +3867,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -253.98970522035503,
-      "y": -554.6686017474826,
-      "label_at": "above"
+      "x": -24.616845356055528,
+      "y": -39.69454535880461,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::get_loop_by_note": {
       "id": "holo::get_loop_by_note",
@@ -3727,9 +3892,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -219.73136512532716,
-      "y": -456.07513105013675,
-      "label_at": "right"
+      "x": -24.616845356055528,
+      "y": -46.02173294856282,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::get_playback_mode_name": {
       "id": "holo::get_playback_mode_name",
@@ -3751,9 +3917,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -315.3499274072509,
-      "y": -507.7400461223157,
-      "label_at": "left"
+      "x": -17.42830360278313,
+      "y": -51.35865558610255,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "holo::init_all_memory_loops": {
       "id": "holo::init_all_memory_loops",
@@ -3775,9 +3942,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -205.91120722962916,
-      "y": -535.1838073763126,
-      "label_at": "right"
+      "x": -17.42830360278313,
+      "y": -34.35762272126488,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "holo::init_sync_mode": {
       "id": "holo::init_sync_mode",
@@ -3799,9 +3967,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -270.3175599579294,
-      "y": -437.7179202657874,
-      "label_at": "below"
+      "x": -9.346495626262186,
+      "y": -42.858139153683716,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::is_sync_mode_enabled": {
       "id": "holo::is_sync_mode_enabled",
@@ -3823,9 +3992,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -289.22130850557414,
-      "y": -556.9159902208096,
-      "label_at": "left"
+      "x": -27.81710695489435,
+      "y": -42.858139153683716,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::process_loops": {
       "id": "holo::process_loops",
@@ -3847,9 +4017,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -191.86300580512628,
-      "y": -479.42649287817176,
-      "label_at": "right"
+      "x": -12.95175706059169,
+      "y": -50.89981895330842,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::set_playback_mode_normal": {
       "id": "holo::set_playback_mode_normal",
@@ -3871,9 +4042,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -319.624023347073,
-      "y": -470.58946482440297,
-      "label_at": "left"
+      "x": -12.951757060591692,
+      "y": -34.81645935405901,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::set_playback_mode_trigger": {
       "id": "holo::set_playback_mode_trigger",
@@ -3895,9 +4067,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -228.92386475794652,
-      "y": -565.9422002509443,
-      "label_at": "right"
+      "x": -24.67486107851383,
+      "y": -35.19491935479632,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::set_pulse_loop": {
       "id": "holo::set_pulse_loop",
@@ -3919,9 +4092,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -231.49306740777544,
-      "y": -430.9246464109963,
-      "label_at": "below"
+      "x": -24.67486107851383,
+      "y": -50.52135895257111,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::start_sync_pending_playback_on_pulse_reset": {
       "id": "holo::start_sync_pending_playback_on_pulse_reset",
@@ -3943,9 +4117,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -322.996794244979,
-      "y": -534.7565967402065,
-      "label_at": "left"
+      "x": -21.354101891012526,
+      "y": -53.5582254986389,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "holo::start_sync_pending_recordings_on_pulse_reset": {
       "id": "holo::start_sync_pending_recordings_on_pulse_reset",
@@ -3967,9 +4142,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -182.13271567877118,
-      "y": -519.6247806235319,
-      "label_at": "right"
+      "x": -21.354101891012526,
+      "y": -32.158052808728534,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "holo::start_sync_recording_with_backfill": {
       "id": "holo::start_sync_recording_with_backfill",
@@ -3991,9 +4167,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -298.81844961241643,
-      "y": -433.7542663786969,
-      "label_at": "left"
+      "x": -7.505586535353097,
+      "y": -38.75191781052548,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::stop_all_playback": {
       "id": "holo::stop_all_playback",
@@ -4015,9 +4192,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -270.1505786034072,
-      "y": -578.9613459964827,
-      "label_at": "above"
+      "x": -7.505586535353093,
+      "y": -46.964360496841955,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::stop_all_recordings": {
       "id": "holo::stop_all_recordings",
@@ -4039,9 +4217,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -191.62949079076446,
-      "y": -449.89155294437626,
-      "label_at": "right"
+      "x": -8.475210518400253,
+      "y": -34.35762272126488,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::stop_sync_pending_recordings_on_pulse_reset": {
       "id": "holo::stop_sync_pending_recordings_on_pulse_reset",
@@ -4063,9 +4242,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -339.5950977929989,
-      "y": -492.8842898609716,
-      "label_at": "left"
+      "x": -8.47521051840025,
+      "y": -51.35865558610255,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "holo::store_audio_in_backfill_buffer": {
       "id": "holo::store_audio_in_backfill_buffer",
@@ -4087,9 +4267,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -198.7946472775458,
-      "y": -562.4187946878988,
-      "label_at": "right"
+      "x": -28.956728749095063,
+      "y": -38.504834412893935,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::struct tm": {
       "id": "holo::struct tm",
@@ -4111,9 +4292,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -256.71407226406996,
-      "y": -413.345767763752,
-      "label_at": "below"
+      "x": -29.01474447155336,
+      "y": -34.00520840888564,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::toggle_playback_mode": {
       "id": "holo::toggle_playback_mode",
@@ -4135,9 +4317,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -315.71619335214655,
-      "y": -565.0487185357102,
-      "label_at": "left"
+      "x": -28.956728749095063,
+      "y": -47.2114438944735,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "holo::toggle_sync_mode": {
       "id": "holo::toggle_sync_mode",
@@ -4159,9 +4342,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -167.23789339306123,
-      "y": -491.79003729991047,
-      "label_at": "right"
+      "x": -29.01474447155336,
+      "y": -51.71106989848179,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "html::index.html::anchor::app::12": {
       "id": "html::index.html::anchor::app::12",
@@ -4172,9 +4356,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.html",
       "line": 12,
       "meta": {},
-      "x": -526.7468105825453,
-      "y": 113.51594784289647,
-      "label_at": "right"
+      "x": -15.790295268277783,
+      "y": 62.82462324544058,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::index.html::anchor::tracer::13": {
       "id": "html::index.html::anchor::tracer::13",
@@ -4185,9 +4370,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.html",
       "line": 13,
       "meta": {},
-      "x": -592.9832413039724,
-      "y": 104.66721143926891,
-      "label_at": "left"
+      "x": -17.63120435918687,
+      "y": 66.93084458859883,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::do_quit": {
       "id": "main::do_quit",
@@ -4209,9 +4395,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -759.0243450586046,
-      "y": -487.9634416719949,
-      "label_at": "right"
+      "x": -120.52405202079079,
+      "y": 33.63629057297297,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::filter_events": {
       "id": "main::filter_events",
@@ -4231,9 +4418,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": -825.2607757800314,
-      "y": -496.8121780756224,
-      "label_at": "left"
+      "x": -118.6831429298817,
+      "y": 29.530069229814725,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::main": {
       "id": "main::main",
@@ -4255,9 +4443,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -764.9216164447035,
-      "y": -538.5734981263961,
-      "label_at": "right"
+      "x": -120.52405202079079,
+      "y": 25.423847886656485,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::state_changed": {
       "id": "main::state_changed",
@@ -4279,9 +4468,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -786.0263677535632,
-      "y": -559.7217289688417,
-      "label_at": "above"
+      "x": -124.81443519133926,
+      "y": 24.06641934346368,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "main::struct pw_context": {
       "id": "main::struct pw_context",
@@ -4303,9 +4493,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -782.7257978225673,
-      "y": -461.20043525686754,
-      "label_at": "below"
+      "x": -124.81443519133926,
+      "y": 34.99371911616578,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "main::struct pw_filter_events": {
       "id": "main::struct pw_filter_events",
@@ -4327,9 +4518,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -824.4833807577127,
-      "y": -535.2162005095586,
-      "label_at": "left"
+      "x": -116.04750547859935,
+      "y": 25.882684519450617,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::struct spa_pod": {
       "id": "main::struct spa_pod",
@@ -4351,9 +4543,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -738.7525512227647,
-      "y": -507.10036951662795,
-      "label_at": "right"
+      "x": -116.04750547859935,
+      "y": 33.177453940178836,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "main::struct spa_pod_builder": {
       "id": "main::struct spa_pod_builder",
@@ -4375,9 +4568,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -825.5153362410172,
-      "y": -467.9775059574407,
-      "label_at": "left"
+      "x": -128.68221775711032,
+      "y": 32.693663024693834,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi::do_quit": {
       "id": "midi::do_quit",
@@ -4404,9 +4598,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 182.46450517530369,
-      "y": 154.53923096879447,
-      "label_at": "left"
+      "x": 83.79581805179826,
+      "y": -17.615049074765196,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::filter_events": {
       "id": "midi::filter_events",
@@ -4432,9 +4627,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 242.80366451063182,
-      "y": 112.77791091802078,
-      "label_at": "right"
+      "x": 85.63672714270734,
+      "y": -21.721270417923435,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::main": {
       "id": "midi::main",
@@ -4456,9 +4652,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 224.99948313276784,
-      "y": 190.15097378754928,
-      "label_at": "below"
+      "x": 83.79581805179826,
+      "y": -25.82749176108167,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::on_process": {
       "id": "midi::on_process",
@@ -4485,9 +4682,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 183.2419001976227,
-      "y": 116.13520853485835,
-      "label_at": "left"
+      "x": 79.5054348812498,
+      "y": -27.184920304274485,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "midi::state_changed": {
       "id": "midi::state_changed",
@@ -4514,9 +4712,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 156.06459507505417,
-      "y": 175.70881699865487,
-      "label_at": "left"
+      "x": 79.5054348812498,
+      "y": -16.257620531572385,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "midi::struct data": {
       "id": "midi::struct data",
@@ -4538,9 +4737,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 248.7009358967307,
-      "y": 163.38796737242205,
-      "label_at": "right"
+      "x": 88.27236459398969,
+      "y": -25.368655128287543,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::struct port": {
       "id": "midi::struct port",
@@ -4562,9 +4762,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 268.9727297325706,
-      "y": 144.251039527789,
-      "label_at": "right"
+      "x": 88.27236459398969,
+      "y": -18.073885707559324,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::struct pw_buffer": {
       "id": "midi::struct pw_buffer",
@@ -4586,9 +4787,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 182.20994471431814,
-      "y": 183.37390308697627,
-      "label_at": "left"
+      "x": 75.6376523154787,
+      "y": -18.55767662304433,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi::struct pw_filter": {
       "id": "midi::struct pw_filter",
@@ -4610,9 +4812,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 221.69891320177214,
-      "y": 91.62968007557527,
-      "label_at": "above"
+      "x": 75.6376523154787,
+      "y": -24.88486421280254,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi::struct pw_filter_events": {
       "id": "midi::struct pw_filter_events",
@@ -4634,9 +4837,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 255.95725329680005,
-      "y": 190.22315077292117,
-      "label_at": "right"
+      "x": 82.82619406875111,
+      "y": -30.22178685034227,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "midi::struct pw_main_loop": {
       "id": "midi::struct pw_main_loop",
@@ -4658,9 +4862,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 160.33869101487628,
-      "y": 138.55823570074227,
-      "label_at": "left"
+      "x": 82.82619406875111,
+      "y": -13.220753985504603,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "midi::struct spa_data": {
       "id": "midi::struct spa_data",
@@ -4682,9 +4887,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 269.7774111924981,
-      "y": 111.11447444674536,
-      "label_at": "right"
+      "x": 90.90800204527204,
+      "y": -21.721270417923435,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::struct spa_pod": {
       "id": "midi::struct spa_pod",
@@ -4706,9 +4912,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 205.3710584641977,
-      "y": 208.5803615572704,
-      "label_at": "below"
+      "x": 72.43739071663988,
+      "y": -21.721270417923435,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi::struct spa_pod_builder": {
       "id": "midi::struct spa_pod_builder",
@@ -4730,9 +4937,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 186.46730991655298,
-      "y": 89.38229160224836,
-      "label_at": "left"
+      "x": 87.30274061094255,
+      "y": -29.76295021754814,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi::struct spa_pod_frame": {
       "id": "midi::struct spa_pod_frame",
@@ -4754,9 +4962,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 283.82561261700096,
-      "y": 166.87178894488625,
-      "label_at": "right"
+      "x": 87.30274061094255,
+      "y": -13.679590618298732,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::check_theoretical_pulse_reset": {
       "id": "midi_processing::check_theoretical_pulse_reset",
@@ -4778,9 +4987,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -836.3228175508832,
-      "y": -235.58943772815758,
-      "label_at": "right"
+      "x": 13.422460212895679,
+      "y": -69.35683762377369,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::get_theoretical_pulse_position": {
       "id": "midi_processing::get_theoretical_pulse_position",
@@ -4802,9 +5012,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -902.55924827231,
-      "y": -244.43817413178516,
-      "label_at": "left"
+      "x": 11.581551121986585,
+      "y": -65.25061628061545,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::handle_control_change": {
       "id": "midi_processing::handle_control_change",
@@ -4826,9 +5037,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -842.220088936982,
-      "y": -286.19949418255885,
-      "label_at": "right"
+      "x": 11.581551121986585,
+      "y": -73.46305896693192,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::handle_midi_message": {
       "id": "midi_processing::handle_midi_message",
@@ -4850,9 +5062,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -860.024270314846,
-      "y": -208.82643131303033,
-      "label_at": "below"
+      "x": 7.291167951438126,
+      "y": -74.82048751012474,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "midi_processing::handle_note_off": {
       "id": "midi_processing::handle_note_off",
@@ -4874,9 +5087,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -901.7818532499911,
-      "y": -282.84219656572134,
-      "label_at": "left"
+      "x": 7.291167951438126,
+      "y": -63.89318773742263,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "midi_processing::handle_note_on": {
       "id": "midi_processing::handle_note_on",
@@ -4898,9 +5112,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -816.0510237150434,
-      "y": -254.72636557279066,
-      "label_at": "right"
+      "x": 16.058097664178028,
+      "y": -73.00422233413778,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::parse_midi_sequence": {
       "id": "midi_processing::parse_midi_sequence",
@@ -4922,9 +5137,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -902.8138087332956,
-      "y": -215.60350201360325,
-      "label_at": "left"
+      "x": 16.058097664178028,
+      "y": -65.70945291340956,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::process_midi_input": {
       "id": "midi_processing::process_midi_input",
@@ -4946,9 +5162,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -863.3248402458416,
-      "y": -307.3477250250043,
-      "label_at": "above"
+      "x": 3.4233853856670318,
+      "y": -66.19324382889457,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi_processing::process_midi_output": {
       "id": "midi_processing::process_midi_output",
@@ -4970,9 +5187,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -829.0665001508138,
-      "y": -208.75425432765851,
-      "label_at": "right"
+      "x": 3.4233853856670318,
+      "y": -72.52043141865278,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi_processing::struct pw_buffer": {
       "id": "midi_processing::struct pw_buffer",
@@ -4994,9 +5212,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -924.6850624327376,
-      "y": -260.4191693998373,
-      "label_at": "left"
+      "x": 10.611927138939429,
+      "y": -60.856321191354844,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_data": {
       "id": "midi_processing::struct spa_data",
@@ -5018,9 +5237,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -815.2463422551158,
-      "y": -287.86293065383427,
-      "label_at": "right"
+      "x": 18.693735115460377,
+      "y": -69.35683762377369,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_pod": {
       "id": "midi_processing::struct spa_pod",
@@ -5042,9 +5262,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -879.652694983416,
-      "y": -190.39704354330914,
-      "label_at": "below"
+      "x": 0.22312378682821077,
+      "y": -69.35683762377369,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_pod_builder": {
       "id": "midi_processing::struct spa_pod_builder",
@@ -5066,9 +5287,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -898.5564435310607,
-      "y": -309.5951134983312,
-      "label_at": "left"
+      "x": 15.088473681130871,
+      "y": -77.39851742339837,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_pod_control": {
       "id": "midi_processing::struct spa_pod_control",
@@ -5090,9 +5312,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -801.198140830613,
-      "y": -232.1056161556934,
-      "label_at": "right"
+      "x": 15.088473681130871,
+      "y": -61.31515782414898,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_pod_frame": {
       "id": "midi_processing::struct spa_pod_frame",
@@ -5114,9 +5337,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -928.9591583725596,
-      "y": -223.2685881019248,
-      "label_at": "left"
+      "x": 3.3653696632087318,
+      "y": -61.69361782488628,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi_processing::struct spa_pod_sequence": {
       "id": "midi_processing::struct spa_pod_sequence",
@@ -5138,9 +5362,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -838.258999783433,
-      "y": -318.621323528466,
-      "label_at": "right"
+      "x": 3.3653696632087318,
+      "y": -77.02005742266107,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "midi_processing::struct tm": {
       "id": "midi_processing::struct tm",
@@ -5162,9 +5387,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -840.828202433262,
-      "y": -183.603769688518,
-      "label_at": "below"
+      "x": 6.686128850710034,
+      "y": -80.05692396872885,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "midi_processing::update_pulse_timeline": {
       "id": "midi_processing::update_pulse_timeline",
@@ -5186,9 +5412,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -932.3319292704655,
-      "y": -287.43572001772804,
-      "label_at": "left"
+      "x": 10.611927138939429,
+      "y": -77.85735405619252,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "multi_loop_functions::mix_all_active_loops_rt": {
       "id": "multi_loop_functions::mix_all_active_loops_rt",
@@ -5210,9 +5437,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -112.33469214556567,
-      "y": -911.9248141385464,
-      "label_at": "right"
+      "x": -108.07422599901095,
+      "y": 76.42300426282893,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "multi_loop_functions::read_audio_frames_from_memory_loop_basic_rt": {
       "id": "multi_loop_functions::read_audio_frames_from_memory_loop_basic_rt",
@@ -5234,9 +5462,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -178.57112286699265,
-      "y": -920.773550542174,
-      "label_at": "left"
+      "x": -109.91513508992003,
+      "y": 80.52922560598716,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "pipe::on_param_changed": {
       "id": "pipe::on_param_changed",
@@ -5263,9 +5492,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 209.89937565288267,
-      "y": -823.4800492227868,
-      "label_at": "right"
+      "x": -132.2830119679574,
+      "y": -36.00922697130899,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::do_quit": {
       "id": "play-file::do_quit",
@@ -5292,9 +5522,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 456.8114005528523,
-      "y": 630.2463436049959,
-      "label_at": "left"
+      "x": 27.560990865404523,
+      "y": 24.82108271045339,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::main": {
       "id": "play-file::main",
@@ -5316,9 +5547,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 517.1505598881804,
-      "y": 588.4850235542223,
-      "label_at": "right"
+      "x": 27.560990865404523,
+      "y": 16.608640024136907,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::on_process": {
       "id": "play-file::on_process",
@@ -5345,9 +5577,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 499.34637851031647,
-      "y": 665.8580864237508,
-      "label_at": "below"
+      "x": 23.270607694856068,
+      "y": 15.251211480944098,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "play-file::stream_events": {
       "id": "play-file::stream_events",
@@ -5373,9 +5606,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 558.1725079945496,
-      "y": 642.5789015810877,
-      "label_at": "right"
+      "x": 29.401899956313613,
+      "y": 20.71486136729515,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::struct data": {
       "id": "play-file::struct data",
@@ -5397,9 +5631,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 523.0478312742792,
-      "y": 639.0950800086234,
-      "label_at": "right"
+      "x": 23.270607694856068,
+      "y": 26.178511253646196,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "play-file::struct pw_buffer": {
       "id": "play-file::struct pw_buffer",
@@ -5421,9 +5656,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 457.5887955751714,
-      "y": 591.8423211710599,
-      "label_at": "left"
+      "x": 32.03753740759596,
+      "y": 17.06747665693104,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::struct pw_context": {
       "id": "play-file::struct pw_context",
@@ -5445,9 +5681,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 543.3196251101192,
-      "y": 619.9581521639905,
-      "label_at": "right"
+      "x": 32.03753740759596,
+      "y": 24.362246077659258,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::struct pw_core": {
       "id": "play-file::struct pw_core",
@@ -5469,9 +5706,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 456.5568400918669,
-      "y": 659.0810157231779,
-      "label_at": "left"
+      "x": 19.402825129084974,
+      "y": 23.87845516217425,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "play-file::struct pw_main_loop": {
       "id": "play-file::struct pw_main_loop",
@@ -5493,9 +5731,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 496.0458085793209,
-      "y": 567.3367927117768,
-      "label_at": "above"
+      "x": 19.402825129084974,
+      "y": 17.551267572416045,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "play-file::struct pw_stream": {
       "id": "play-file::struct pw_stream",
@@ -5517,9 +5756,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 530.3041486743485,
-      "y": 665.9302634091226,
-      "label_at": "right"
+      "x": 26.591366882357377,
+      "y": 12.214344934876314,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "play-file::struct pw_stream_events": {
       "id": "play-file::struct pw_stream_events",
@@ -5541,9 +5781,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 434.68558639242485,
-      "y": 614.2653483369438,
-      "label_at": "left"
+      "x": 26.591366882357363,
+      "y": 29.21537779971398,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "play-file::struct spa_hook": {
       "id": "play-file::struct spa_hook",
@@ -5565,9 +5806,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 544.1243065700467,
-      "y": 586.8215870829468,
-      "label_at": "right"
+      "x": 34.67317485887831,
+      "y": 20.71486136729515,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play-file::struct spa_pod": {
       "id": "play-file::struct spa_pod",
@@ -5589,9 +5831,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 479.7179538417464,
-      "y": 684.287474193472,
-      "label_at": "below"
+      "x": 16.202563530246152,
+      "y": 20.71486136729515,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "play-file::struct spa_pod_builder": {
       "id": "play-file::struct spa_pod_builder",
@@ -5613,9 +5856,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 460.81420529410167,
-      "y": 565.0894042384499,
-      "label_at": "left"
+      "x": 31.067913424548806,
+      "y": 12.673181567670444,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "play::start_playing": {
       "id": "play::start_playing",
@@ -5637,9 +5881,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 469.4051264311563,
-      "y": -615.107086715011,
-      "label_at": "right"
+      "x": -72.22305624199166,
+      "y": 105.55866970798394,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "process::on_process": {
       "id": "process::on_process",
@@ -5661,9 +5906,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1031.5493568395277,
-      "y": 169.81183802109052,
-      "label_at": "right"
+      "x": -29.23557665555439,
+      "y": -105.55866970798394,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "quick_functions::mix_all_active_loops_rt": {
       "id": "quick_functions::mix_all_active_loops_rt",
@@ -5685,9 +5931,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -355.0507883612557,
-      "y": 695.5185271877116,
-      "label_at": "right"
+      "x": -109.06077393594356,
+      "y": -70.05110626338512,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "quick_functions::read_audio_frames_from_memory_loop_basic_rt": {
       "id": "quick_functions::read_audio_frames_from_memory_loop_basic_rt",
@@ -5709,9 +5956,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -421.2872190826826,
-      "y": 686.6697907840841,
-      "label_at": "left"
+      "x": -110.90168302685267,
+      "y": -65.94488492022688,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "record::start_recording": {
       "id": "record::start_recording",
@@ -5733,9 +5981,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -979.6098054198941,
-      "y": -436.55620657554203,
-      "label_at": "right"
+      "x": 8.50356593576305,
+      "y": 101.21439297046652,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "record::stop_recording": {
       "id": "record::stop_recording",
@@ -5757,9 +6006,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1045.8462361413208,
-      "y": -445.4049429791696,
-      "label_at": "left"
+      "x": 6.662656844853963,
+      "y": 105.32061431362476,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::do_quit": {
       "id": "ring1::do_quit",
@@ -5786,9 +6036,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 564.9222010354028,
-      "y": 375.3512846272667,
-      "label_at": "left"
+      "x": 60.4422565220943,
+      "y": 37.122843027923906,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::do_refill": {
       "id": "ring1::do_refill",
@@ -5815,9 +6066,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 625.261360370731,
-      "y": 333.58996457649306,
-      "label_at": "right"
+      "x": 60.4422565220943,
+      "y": 28.910400341607428,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::fill_f32": {
       "id": "ring1::fill_f32",
@@ -5844,9 +6096,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 607.457178992867,
-      "y": 410.96302744602144,
-      "label_at": "below"
+      "x": 56.15187335154583,
+      "y": 27.552971798414617,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "ring1::main": {
       "id": "ring1::main",
@@ -5868,9 +6121,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 565.6995960577219,
-      "y": 336.94726219333063,
-      "label_at": "left"
+      "x": 56.15187335154583,
+      "y": 38.48027157111672,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "ring1::on_process": {
       "id": "ring1::on_process",
@@ -5897,9 +6151,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 651.4304255926698,
-      "y": 365.06309318626126,
-      "label_at": "right"
+      "x": 64.91880306428574,
+      "y": 29.36923697440156,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::stream_events": {
       "id": "ring1::stream_events",
@@ -5925,9 +6180,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 535.1495200372475,
-      "y": 332.35373874132375,
-      "label_at": "left"
+      "x": 62.28316561300339,
+      "y": 33.01662168476567,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::struct data": {
       "id": "ring1::struct data",
@@ -5949,9 +6205,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 631.1586317568299,
-      "y": 384.20002103089433,
-      "label_at": "right"
+      "x": 64.91880306428574,
+      "y": 36.66400639512978,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::struct pw_buffer": {
       "id": "ring1::struct pw_buffer",
@@ -5973,9 +6230,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 564.6676405744174,
-      "y": 404.18595674544855,
-      "label_at": "left"
+      "x": 52.28409078577475,
+      "y": 36.18021547964477,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring1::struct pw_loop": {
       "id": "ring1::struct pw_loop",
@@ -5997,9 +6255,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 604.1566090618713,
-      "y": 312.4417337340475,
-      "label_at": "above"
+      "x": 52.28409078577475,
+      "y": 29.85302788988656,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring1::struct pw_main_loop": {
       "id": "ring1::struct pw_main_loop",
@@ -6021,9 +6280,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 638.4149491568994,
-      "y": 411.0352044313935,
-      "label_at": "right"
+      "x": 59.47263253904714,
+      "y": 24.516105252346833,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "ring1::struct pw_properties": {
       "id": "ring1::struct pw_properties",
@@ -6045,9 +6305,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 542.7963868749754,
-      "y": 359.3702893592145,
-      "label_at": "left"
+      "x": 59.47263253904714,
+      "y": 41.5171381171845,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "ring1::struct pw_stream": {
       "id": "ring1::struct pw_stream",
@@ -6069,9 +6330,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 652.2351070525972,
-      "y": 331.9265281052176,
-      "label_at": "right"
+      "x": 67.55444051556809,
+      "y": 33.01662168476567,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::struct pw_stream_events": {
       "id": "ring1::struct pw_stream_events",
@@ -6093,9 +6355,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 587.8287543242969,
-      "y": 429.3924152157427,
-      "label_at": "below"
+      "x": 49.083829186935915,
+      "y": 33.01662168476567,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring1::struct spa_buffer": {
       "id": "ring1::struct spa_buffer",
@@ -6117,9 +6380,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 568.9250057766523,
-      "y": 310.1943452607206,
-      "label_at": "left"
+      "x": 63.94917908123858,
+      "y": 24.974941885140964,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::struct spa_pod": {
       "id": "ring1::struct spa_pod",
@@ -6141,9 +6405,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 666.2833084770999,
-      "y": 387.6838426033584,
-      "label_at": "right"
+      "x": 63.94917908123858,
+      "y": 41.05830148439037,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring1::struct spa_pod_builder": {
       "id": "ring1::struct spa_pod_builder",
@@ -6165,9 +6430,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 538.5222909351534,
-      "y": 396.5208706571271,
-      "label_at": "left"
+      "x": 52.22607506331644,
+      "y": 40.679841483653064,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring1::struct spa_ringbuffer": {
       "id": "ring1::struct spa_ringbuffer",
@@ -6189,9 +6455,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 629.2224495242799,
-      "y": 301.16813523058596,
-      "label_at": "right"
+      "x": 52.22607506331644,
+      "y": 25.35340188587827,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring1::struct spa_source": {
       "id": "ring1::struct spa_source",
@@ -6213,9 +6480,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 626.653246874451,
-      "y": 436.1856890705339,
-      "label_at": "below"
+      "x": 55.54683425081773,
+      "y": 22.316535339810486,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "ring2::do_quit": {
       "id": "ring2::do_quit",
@@ -6242,9 +6510,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 457.99050300033616,
-      "y": 111.96281079916332,
-      "label_at": "left"
+      "x": 96.26365366480138,
+      "y": 8.228907058516997,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::fill_f32": {
       "id": "ring2::fill_f32",
@@ -6271,9 +6540,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 518.3296623356641,
-      "y": 70.2014907483896,
-      "label_at": "right"
+      "x": 91.97327049425292,
+      "y": 6.87147851532419,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "ring2::main": {
       "id": "ring2::main",
@@ -6295,9 +6565,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 500.52548095780026,
-      "y": 147.57455361791818,
-      "label_at": "below"
+      "x": 91.97327049425292,
+      "y": 17.798778288026284,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "ring2::on_process": {
       "id": "ring2::on_process",
@@ -6324,9 +6595,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 458.7678980226552,
-      "y": 73.5587883652272,
-      "label_at": "left"
+      "x": 100.74020020699281,
+      "y": 8.687743691311129,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::push_samples": {
       "id": "ring2::push_samples",
@@ -6353,9 +6625,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 544.498727557603,
-      "y": 101.6746193581578,
-      "label_at": "right"
+      "x": 100.74020020699281,
+      "y": 15.982513112039348,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::samples": {
       "id": "ring2::samples",
@@ -6380,9 +6653,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 461.9933077415854,
-      "y": 46.80587143261718,
-      "label_at": "left"
+      "x": 98.10456275571048,
+      "y": 12.335128401675238,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::stream_events": {
       "id": "ring2::stream_events",
@@ -6408,9 +6682,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 428.2178220021807,
-      "y": 68.96526491322035,
-      "label_at": "left"
+      "x": 96.26365366480138,
+      "y": 16.44134974483348,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::struct data": {
       "id": "ring2::struct data",
@@ -6432,9 +6707,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 524.2269337217631,
-      "y": 120.81154720279088,
-      "label_at": "right"
+      "x": 88.10548792848184,
+      "y": 15.49872219655434,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring2::struct pw_buffer": {
       "id": "ring2::struct pw_buffer",
@@ -6456,9 +6732,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 457.7359425393507,
-      "y": 140.79748291734512,
-      "label_at": "left"
+      "x": 88.10548792848184,
+      "y": 9.171534606796135,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring2::struct pw_loop": {
       "id": "ring2::struct pw_loop",
@@ -6480,9 +6757,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 497.2249110268047,
-      "y": 49.053259905944174,
-      "label_at": "above"
+      "x": 95.29402968175421,
+      "y": 3.834611969256404,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "ring2::struct pw_properties": {
       "id": "ring2::struct pw_properties",
@@ -6504,9 +6782,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 531.4832511218325,
-      "y": 147.64673060329,
-      "label_at": "right"
+      "x": 95.29402968175421,
+      "y": 20.835644834094072,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "ring2::struct pw_stream": {
       "id": "ring2::struct pw_stream",
@@ -6528,9 +6807,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 435.8646888399088,
-      "y": 95.98181553111115,
-      "label_at": "left"
+      "x": 103.37583765827519,
+      "y": 12.335128401675238,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::struct pw_stream_events": {
       "id": "ring2::struct pw_stream_events",
@@ -6552,9 +6832,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 545.3034090175306,
-      "y": 68.53805427711421,
-      "label_at": "right"
+      "x": 84.905226329643,
+      "y": 12.335128401675238,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring2::struct pw_thread_loop": {
       "id": "ring2::struct pw_thread_loop",
@@ -6576,9 +6857,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 480.89705628923014,
-      "y": 166.0039413876393,
-      "label_at": "below"
+      "x": 99.77057622394565,
+      "y": 4.293448602050535,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::struct spa_buffer": {
       "id": "ring2::struct spa_buffer",
@@ -6600,9 +6882,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 559.3516104420333,
-      "y": 124.29536877525507,
-      "label_at": "right"
+      "x": 99.77057622394565,
+      "y": 20.376808201299944,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "ring2::struct spa_pod": {
       "id": "ring2::struct spa_pod",
@@ -6624,9 +6907,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 431.5905929000866,
-      "y": 133.13239682902372,
-      "label_at": "left"
+      "x": 88.04747220602353,
+      "y": 19.998348200562635,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring2::struct spa_pod_builder": {
       "id": "ring2::struct spa_pod_builder",
@@ -6648,9 +6932,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 522.2907514892132,
-      "y": 37.77966140248253,
-      "label_at": "right"
+      "x": 88.04747220602353,
+      "y": 4.671908602787841,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "ring2::struct spa_ringbuffer": {
       "id": "ring2::struct spa_ringbuffer",
@@ -6672,9 +6957,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 519.7215488393842,
-      "y": 172.79721524243047,
-      "label_at": "below"
+      "x": 91.36823139352484,
+      "y": 1.6350420567200548,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_destroy": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_destroy",
@@ -6696,9 +6982,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -608.4094268733305,
-      "y": -304.20051725326755,
-      "label_at": "left"
+      "x": -88.71908383701587,
+      "y": 50.751087262634066,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_init": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_init",
@@ -6720,9 +7007,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -548.0702675380024,
-      "y": -345.9618373040413,
-      "label_at": "right"
+      "x": -90.55999292792497,
+      "y": 54.85730860579231,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_read": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_read",
@@ -6744,9 +7032,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -565.8744489158663,
-      "y": -268.58877443451274,
-      "label_at": "below"
+      "x": -90.55999292792497,
+      "y": 46.644865919475826,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_read_space": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_read_space",
@@ -6768,9 +7057,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -607.6320318510114,
-      "y": -342.6045396872037,
-      "label_at": "left"
+      "x": -94.85037609847342,
+      "y": 45.287437376283016,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_write": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_write",
@@ -6792,9 +7082,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -521.9012023160637,
-      "y": -314.4887086942731,
-      "label_at": "right"
+      "x": -94.85037609847342,
+      "y": 56.214737148985115,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::audio_ring_buffer_write_space": {
       "id": "rt_nonrt_bridge::audio_ring_buffer_write_space",
@@ -6816,9 +7107,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -608.663987334316,
-      "y": -275.36584513508575,
-      "label_at": "left"
+      "x": -86.08344638573352,
+      "y": 47.10370255226996,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::enum rt_message_type": {
       "id": "rt_nonrt_bridge::enum rt_message_type",
@@ -6839,9 +7131,10 @@
       "construct": "type.enumeration",
       "construct_color": "#a855f7",
       "construct_name": "Enumeration",
-      "x": -654.7804114195059,
-      "y": -305.3257562599757,
-      "label_at": "left"
+      "x": -88.89397945968977,
+      "y": 62.898988405417015,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::message_queue_destroy": {
       "id": "rt_nonrt_bridge::message_queue_destroy",
@@ -6863,9 +7156,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -534.9166787518343,
-      "y": -268.51659744914093,
-      "label_at": "right"
+      "x": -86.08344638573352,
+      "y": 54.39847197299817,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::message_queue_init": {
       "id": "rt_nonrt_bridge::message_queue_init",
@@ -6887,9 +7181,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -630.5352410337579,
-      "y": -320.18151252131975,
-      "label_at": "left"
+      "x": -98.71815866424453,
+      "y": 53.91468105751317,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::message_queue_pop": {
       "id": "rt_nonrt_bridge::message_queue_pop",
@@ -6911,9 +7206,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -521.0965208561361,
-      "y": -347.6252737753167,
-      "label_at": "right"
+      "x": -98.71815866424453,
+      "y": 47.58749346775496,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::message_queue_push": {
       "id": "rt_nonrt_bridge::message_queue_push",
@@ -6935,9 +7231,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -585.5028735844365,
-      "y": -250.15938666479164,
-      "label_at": "below"
+      "x": -91.52961691097212,
+      "y": 42.25057083021523,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::next_power_of_2": {
       "id": "rt_nonrt_bridge::next_power_of_2",
@@ -6964,9 +7261,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -604.4066221320812,
-      "y": -369.35745661981366,
-      "label_at": "left"
+      "x": -91.52961691097212,
+      "y": 59.2516036950529,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::nonrt_worker_thread": {
       "id": "rt_nonrt_bridge::nonrt_worker_thread",
@@ -6988,9 +7286,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -634.8093369735801,
-      "y": -283.0309312234072,
-      "label_at": "left"
+      "x": -83.44780893445117,
+      "y": 50.751087262634066,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_get_current_filename": {
       "id": "rt_nonrt_bridge::rt_bridge_get_current_filename",
@@ -7012,9 +7311,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -544.1091783844535,
-      "y": -378.3836666499484,
-      "label_at": "right"
+      "x": -101.91842026308335,
+      "y": 50.751087262634066,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_is_recording_active": {
       "id": "rt_nonrt_bridge::rt_bridge_is_recording_active",
@@ -7036,9 +7336,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -546.6783810342824,
-      "y": -243.36611281000043,
-      "label_at": "below"
+      "x": -87.05307036878068,
+      "y": 42.70940746300936,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_is_recording_enabled": {
       "id": "rt_nonrt_bridge::rt_bridge_is_recording_enabled",
@@ -7060,9 +7361,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -638.182107871486,
-      "y": -347.19806313921055,
-      "label_at": "left"
+      "x": -87.05307036878068,
+      "y": 58.79276706225877,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_push_audio": {
       "id": "rt_nonrt_bridge::rt_bridge_push_audio",
@@ -7084,9 +7386,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -497.3180293052783,
-      "y": -332.0662470225361,
-      "label_at": "right"
+      "x": -98.77617438670282,
+      "y": 58.41430706152146,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_send_message": {
       "id": "rt_nonrt_bridge::rt_bridge_send_message",
@@ -7108,9 +7411,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -614.0037632389236,
-      "y": -246.19573277770104,
-      "label_at": "left"
+      "x": -98.77617438670282,
+      "y": 43.08786746374667,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_bridge_set_recording_enabled": {
       "id": "rt_nonrt_bridge::rt_bridge_set_recording_enabled",
@@ -7132,9 +7436,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -585.3358922299143,
-      "y": -391.40281239548676,
-      "label_at": "above"
+      "x": -95.45541519920152,
+      "y": 40.051000917678884,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_nonrt_bridge_cleanup": {
       "id": "rt_nonrt_bridge::rt_nonrt_bridge_cleanup",
@@ -7156,9 +7461,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -571.8993858905769,
-      "y": -225.78723416275614,
-      "label_at": "below"
+      "x": -95.45541519920152,
+      "y": 61.45117360758925,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_nonrt_bridge_destroy": {
       "id": "rt_nonrt_bridge::rt_nonrt_bridge_destroy",
@@ -7180,9 +7486,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -630.9015069786535,
-      "y": -377.49018493471436,
-      "label_at": "left"
+      "x": -81.6068998435421,
+      "y": 54.85730860579231,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::rt_nonrt_bridge_init": {
       "id": "rt_nonrt_bridge::rt_nonrt_bridge_init",
@@ -7204,9 +7511,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -482.4232070195682,
-      "y": -304.2315036989146,
-      "label_at": "right"
+      "x": -81.60689984354208,
+      "y": 46.644865919475826,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct audio_ring_buffer": {
       "id": "rt_nonrt_bridge::struct audio_ring_buffer",
@@ -7228,9 +7536,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -542.1729961519036,
-      "y": -295.35178084964,
-      "label_at": "right"
+      "x": -82.57652382658924,
+      "y": 59.2516036950529,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct message_queue": {
       "id": "rt_nonrt_bridge::struct message_queue",
@@ -7252,9 +7561,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -569.1750188468619,
-      "y": -367.11006814648675,
-      "label_at": "above"
+      "x": -82.57652382658924,
+      "y": 42.25057083021523,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct nonrt_worker": {
       "id": "rt_nonrt_bridge::struct nonrt_worker",
@@ -7276,9 +7586,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -507.0483194316335,
-      "y": -291.8679592771758,
-      "label_at": "right"
+      "x": -103.05804205728406,
+      "y": 55.104392003423854,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct rt_message": {
       "id": "rt_nonrt_bridge::struct rt_message",
@@ -7300,9 +7611,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -506.8148044172715,
-      "y": -262.3330193433804,
-      "label_at": "right"
+      "x": -103.05804205728406,
+      "y": 46.397782521844285,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct rt_nonrt_bridge": {
       "id": "rt_nonrt_bridge::struct rt_nonrt_bridge",
@@ -7324,9 +7636,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -513.9799609040529,
-      "y": -374.8602610869029,
-      "label_at": "right"
+      "x": -103.11605777974235,
+      "y": 41.89815651783599,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rt_nonrt_bridge::struct tm": {
       "id": "rt_nonrt_bridge::struct tm",
@@ -7348,9 +7661,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -644.0357010261213,
-      "y": -257.2034011470742,
-      "label_at": "left"
+      "x": -103.11605777974235,
+      "y": 59.60401800743214,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "rubberband_processing::cleanup_rubberband": {
       "id": "rubberband_processing::cleanup_rubberband",
@@ -7372,9 +7686,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 254.37996669898405,
-      "y": -613.0962576139526,
-      "label_at": "right"
+      "x": -82.58382654154998,
+      "y": 84.84560686223904,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rubberband_processing::init_rubberband": {
       "id": "rubberband_processing::init_rubberband",
@@ -7396,9 +7711,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 188.14353597755712,
-      "y": -621.9449940175803,
-      "label_at": "left"
+      "x": -84.42473563245908,
+      "y": 88.95182820539728,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rubberband_processing::rubberband_reset_data": {
       "id": "rubberband_processing::rubberband_reset_data",
@@ -7420,9 +7736,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 248.48269531288517,
-      "y": -663.706314068354,
-      "label_at": "right"
+      "x": -84.42473563245908,
+      "y": 80.7393855190808,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "rubberband_processing::set_pitch_shift": {
       "id": "rubberband_processing::set_pitch_shift",
@@ -7444,9 +7761,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 230.67851393502127,
-      "y": -586.3332511988253,
-      "label_at": "below"
+      "x": -88.71511880300753,
+      "y": 79.38195697588799,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "rubberband_processing::set_rubberband_enabled": {
       "id": "rubberband_processing::set_rubberband_enabled",
@@ -7468,9 +7786,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 188.92093099987613,
-      "y": -660.3490164515164,
-      "label_at": "left"
+      "x": -88.71511880300753,
+      "y": 90.30925674859009,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "stream::do_quit": {
       "id": "stream::do_quit",
@@ -7492,9 +7811,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 733.6847648304108,
-      "y": 153.43570587427197,
-      "label_at": "left"
+      "x": 92.44515676994504,
+      "y": 51.04926842155548,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::main": {
       "id": "stream::main",
@@ -7516,9 +7836,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 794.0239241657389,
-      "y": 111.6743858234982,
-      "label_at": "right"
+      "x": 92.44515676994504,
+      "y": 42.836825735239,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::stream_events": {
       "id": "stream::stream_events",
@@ -7538,9 +7859,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 835.0458722721079,
-      "y": 165.7682638503637,
-      "label_at": "right"
+      "x": 94.28606586085414,
+      "y": 46.94304707839724,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::stream_process": {
       "id": "stream::stream_process",
@@ -7562,9 +7884,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 707.2848547301614,
-      "y": 174.60529190413234,
-      "label_at": "left"
+      "x": 88.15477359939658,
+      "y": 41.47939719204619,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "stream::struct data": {
       "id": "stream::struct data",
@@ -7586,9 +7909,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 799.9211955518377,
-      "y": 162.28444227789953,
-      "label_at": "right"
+      "x": 88.15477359939658,
+      "y": 52.40669696474829,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "stream::struct port": {
       "id": "stream::struct port",
@@ -7610,9 +7934,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 776.219742787875,
-      "y": 189.04744869302678,
-      "label_at": "below"
+      "x": 96.92170331213649,
+      "y": 43.295662368033135,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::struct pw_buffer": {
       "id": "stream::struct pw_buffer",
@@ -7634,9 +7959,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 734.4621598527298,
-      "y": 115.03168344033577,
-      "label_at": "left"
+      "x": 96.92170331213649,
+      "y": 50.59043178876135,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::struct pw_context": {
       "id": "stream::struct pw_context",
@@ -7658,9 +7984,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 820.1929893876777,
-      "y": 143.14751443326645,
-      "label_at": "right"
+      "x": 84.28699103362548,
+      "y": 50.10664087327634,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "stream::struct pw_core": {
       "id": "stream::struct pw_core",
@@ -7682,9 +8009,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 733.4302043694255,
-      "y": 182.2703779924538,
-      "label_at": "left"
+      "x": 84.28699103362548,
+      "y": 43.77945328351814,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "stream::struct pw_main_loop": {
       "id": "stream::struct pw_main_loop",
@@ -7706,9 +8034,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 772.9191728568794,
-      "y": 90.52615498105274,
-      "label_at": "above"
+      "x": 91.47553278689787,
+      "y": 38.44253064597841,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "stream::struct pw_stream": {
       "id": "stream::struct pw_stream",
@@ -7730,9 +8059,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 807.1775129519074,
-      "y": 189.11962567839862,
-      "label_at": "right"
+      "x": 91.47553278689787,
+      "y": 55.44356351081608,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "stream::struct pw_stream_events": {
       "id": "stream::struct pw_stream_events",
@@ -7754,9 +8084,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 711.5589506699835,
-      "y": 137.45471060621978,
-      "label_at": "left"
+      "x": 99.55734076341884,
+      "y": 46.94304707839724,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::struct spa_hook": {
       "id": "stream::struct spa_hook",
@@ -7778,9 +8109,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 820.9976708476053,
-      "y": 110.01094935222288,
-      "label_at": "right"
+      "x": 81.08672943478666,
+      "y": 46.94304707839724,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "stream::struct spa_pod": {
       "id": "stream::struct spa_pod",
@@ -7802,9 +8134,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 756.5913181193048,
-      "y": 207.47683646274785,
-      "label_at": "below"
+      "x": 95.95207932908932,
+      "y": 38.90136727877254,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "stream::struct spa_pod_builder": {
       "id": "stream::struct spa_pod_builder",
@@ -7826,9 +8159,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 737.6875695716602,
-      "y": 88.27876650772586,
-      "label_at": "left"
+      "x": 95.95207932908932,
+      "y": 54.98472687802195,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::actual_channels": {
       "id": "tone1::actual_channels",
@@ -7853,9 +8187,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 345.10567457720117,
-      "y": -90.31640166875151,
-      "label_at": "right"
+      "x": 56.000256775232145,
+      "y": -37.78652189982064,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::actual_rate": {
       "id": "tone1::actual_rate",
@@ -7880,9 +8215,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 278.86924385577424,
-      "y": -99.1651380723791,
-      "label_at": "left"
+      "x": 54.15934768432306,
+      "y": -33.6803005566624,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::do_quit": {
       "id": "tone1::do_quit",
@@ -7904,9 +8240,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 339.2084031911023,
-      "y": -140.92645812315283,
-      "label_at": "right"
+      "x": 49.868964513774586,
+      "y": -43.25017178617169,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "tone1::main": {
       "id": "tone1::main",
@@ -7928,9 +8265,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 321.40422181323834,
-      "y": -63.55339525362431,
-      "label_at": "below"
+      "x": 49.868964513774586,
+      "y": -32.32287201346959,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "tone1::on_param_changed": {
       "id": "tone1::on_param_changed",
@@ -7957,9 +8295,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 279.6466388780932,
-      "y": -137.56916050631526,
-      "label_at": "left"
+      "x": 58.635894226514495,
+      "y": -41.43390661018475,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::phase": {
       "id": "tone1::phase",
@@ -7984,9 +8323,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 365.377468413041,
-      "y": -109.4533295133846,
-      "label_at": "right"
+      "x": 54.15934768432306,
+      "y": -41.89274324297888,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::simple_process": {
       "id": "tone1::simple_process",
@@ -8008,9 +8348,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 256.74342969534683,
-      "y": -115.14613334043129,
-      "label_at": "left"
+      "x": 58.635894226514495,
+      "y": -34.139137189456534,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::state_changed": {
       "id": "tone1::state_changed",
@@ -8032,9 +8373,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 380.23035129747143,
-      "y": -86.83258009628736,
-      "label_at": "right"
+      "x": 46.001181948003506,
+      "y": -34.622928104941536,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone1::struct pw_buffer": {
       "id": "tone1::struct pw_buffer",
@@ -8056,9 +8398,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 278.61468339478876,
-      "y": -70.3304659541973,
-      "label_at": "left"
+      "x": 46.001181948003506,
+      "y": -40.95011569469975,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone1::struct pw_context": {
       "id": "tone1::struct pw_context",
@@ -8080,9 +8423,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 318.10365188224273,
-      "y": -162.07468896559834,
-      "label_at": "above"
+      "x": 53.189723701275895,
+      "y": -46.287038332239476,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "tone1::struct pw_filter_events": {
       "id": "tone1::struct pw_filter_events",
@@ -8104,9 +8448,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 352.3619919772706,
-      "y": -63.481218268252434,
-      "label_at": "right"
+      "x": 53.189723701275895,
+      "y": -29.28600546740181,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "tone1::struct spa_hook": {
       "id": "tone1::struct spa_hook",
@@ -8128,9 +8473,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 366.1821498729686,
-      "y": -142.58989459442824,
-      "label_at": "right"
+      "x": 61.271531677796844,
+      "y": -37.78652189982064,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone1::struct spa_pod": {
       "id": "tone1::struct spa_pod",
@@ -8152,9 +8498,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 301.7757971446682,
-      "y": -45.124007483903156,
-      "label_at": "below"
+      "x": 42.80092034916467,
+      "y": -37.78652189982064,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone1::struct spa_pod_builder": {
       "id": "tone1::struct spa_pod_builder",
@@ -8176,9 +8523,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 282.87204859702354,
-      "y": -164.32207743892525,
-      "label_at": "left"
+      "x": 57.66627024346733,
+      "y": -45.828201699445344,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::do_quit": {
       "id": "tone2::do_quit",
@@ -8205,9 +8553,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 283.3552426187193,
-      "y": 414.43995457314423,
-      "label_at": "left"
+      "x": 53.76914410479867,
+      "y": 1.4802804303515824,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::filter_events": {
       "id": "tone2::filter_events",
@@ -8233,9 +8582,10 @@
       "construct": "storage.static",
       "construct_color": "#607090",
       "construct_name": "Static storage",
-      "x": 343.6944019540473,
-      "y": 372.67863452237043,
-      "label_at": "right"
+      "x": 55.61005319570776,
+      "y": -2.6259409128066586,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::main": {
       "id": "tone2::main",
@@ -8257,9 +8607,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 325.8902205761834,
-      "y": 450.051697391899,
-      "label_at": "below"
+      "x": 53.76914410479867,
+      "y": -6.7321622559649015,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::on_param_changed": {
       "id": "tone2::on_param_changed",
@@ -8286,9 +8637,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 284.1326376410383,
-      "y": 376.035932139208,
-      "label_at": "left"
+      "x": 49.478760934250204,
+      "y": -8.089590799157705,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "tone2::on_process": {
       "id": "tone2::on_process",
@@ -8315,9 +8667,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 369.8634671759861,
-      "y": 404.1517631321386,
-      "label_at": "right"
+      "x": 49.478760934250204,
+      "y": 2.8377089735443892,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "tone2::on_state_changed": {
       "id": "tone2::on_state_changed",
@@ -8344,9 +8697,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 283.1006821577337,
-      "y": 443.2746266913259,
-      "label_at": "left"
+      "x": 58.24569064699011,
+      "y": -6.27332562317077,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::struct data": {
       "id": "tone2::struct data",
@@ -8368,9 +8722,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 349.5916733401462,
-      "y": 423.2886909767717,
-      "label_at": "right"
+      "x": 58.24569064699011,
+      "y": 1.0214437975574526,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::struct pw_buffer": {
       "id": "tone2::struct pw_buffer",
@@ -8392,9 +8747,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 322.5896506451878,
-      "y": 351.530403679925,
-      "label_at": "above"
+      "x": 45.610978368479124,
+      "y": 0.5376528820724449,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone2::struct pw_context": {
       "id": "tone2::struct pw_context",
@@ -8416,9 +8772,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 356.84799074021555,
-      "y": 450.1238743772708,
-      "label_at": "right"
+      "x": 45.610978368479124,
+      "y": -5.789534707685764,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone2::struct pw_core": {
       "id": "tone2::struct pw_core",
@@ -8440,9 +8797,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 261.22942845829186,
-      "y": 398.458959305092,
-      "label_at": "left"
+      "x": 52.799520121751506,
+      "y": -11.126457345225493,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "tone2::struct pw_filter": {
       "id": "tone2::struct pw_filter",
@@ -8464,9 +8822,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 370.66814863591367,
-      "y": 371.015198051095,
-      "label_at": "right"
+      "x": 52.799520121751506,
+      "y": 5.874575519612176,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "tone2::struct pw_filter_events": {
       "id": "tone2::struct pw_filter_events",
@@ -8488,9 +8847,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 306.26179590761325,
-      "y": 468.4810851616201,
-      "label_at": "below"
+      "x": 60.881328098272455,
+      "y": -2.6259409128066586,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::struct pw_filter_port": {
       "id": "tone2::struct pw_filter_port",
@@ -8512,9 +8872,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 287.3580473599685,
-      "y": 349.283015206598,
-      "label_at": "left"
+      "x": 42.41071676964029,
+      "y": -2.6259409128066586,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone2::struct pw_main_loop": {
       "id": "tone2::struct pw_main_loop",
@@ -8536,9 +8897,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 384.71635006041646,
-      "y": 426.7725125492359,
-      "label_at": "right"
+      "x": 57.276066663942956,
+      "y": -10.667620712431361,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::struct spa_audio_info": {
       "id": "tone2::struct spa_audio_info",
@@ -8560,9 +8922,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 256.95533251846973,
-      "y": 435.6095406030045,
-      "label_at": "left"
+      "x": 57.276066663942956,
+      "y": 5.415738886818046,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "tone2::struct spa_hook": {
       "id": "tone2::struct spa_hook",
@@ -8584,9 +8947,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 347.6554911075963,
-      "y": 340.25680517646333,
-      "label_at": "right"
+      "x": 45.552962646020816,
+      "y": 5.037278886080738,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone2::struct spa_pod": {
       "id": "tone2::struct spa_pod",
@@ -8608,9 +8972,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 345.0862884577673,
-      "y": 475.27435901641127,
-      "label_at": "below"
+      "x": 45.552962646020816,
+      "y": -10.289160711694056,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "tone2::struct spa_pod_builder": {
       "id": "tone2::struct spa_pod_builder",
@@ -8632,9 +8997,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 253.58256162056375,
-      "y": 371.4424086872011,
-      "label_at": "left"
+      "x": 48.873721833522126,
+      "y": -13.326027257761844,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "tone::tone": {
       "id": "tone::tone",
@@ -8661,9 +9027,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 602.3133125114718,
-      "y": -406.7779389174832,
-      "label_at": "right"
+      "x": 40.60063829541366,
+      "y": -78.61759131142082,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "typescript::index.ts::interface::State::5": {
       "id": "typescript::index.ts::interface::State::5",
@@ -8674,9 +9041,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.ts",
       "line": 5,
       "meta": {},
-      "x": -777.1876008603665,
-      "y": 177.92468760657835,
-      "label_at": "right"
+      "x": -50.87792880218953,
+      "y": 83.95377234446818,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::check_sync_pending_recordings": {
       "id": "uphonor::check_sync_pending_recordings",
@@ -8698,9 +9066,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 90.45733228273602,
-      "y": -367.56518754122516,
-      "label_at": "right"
+      "x": -86.92840178436134,
+      "y": 4.407449895233979,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::check_sync_recording_target_length": {
       "id": "uphonor::check_sync_recording_target_length",
@@ -8722,9 +9091,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 24.22090156130909,
-      "y": -376.41392394485274,
-      "label_at": "left"
+      "x": -88.76931087527043,
+      "y": 8.51367123839222,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::cleanup_all_memory_loops": {
       "id": "uphonor::cleanup_all_memory_loops",
@@ -8746,9 +9116,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 84.56006089663714,
-      "y": -418.1752439956265,
-      "label_at": "right"
+      "x": -88.76931087527043,
+      "y": 0.30122855207573807,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::cleanup_rubberband": {
       "id": "uphonor::cleanup_rubberband",
@@ -8770,9 +9141,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 66.75587951877326,
-      "y": -340.8021811260979,
-      "label_at": "below"
+      "x": -93.05969404581889,
+      "y": -1.0561999911170687,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "uphonor::cli": {
       "id": "uphonor::cli",
@@ -8794,9 +9166,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 24.998296583628075,
-      "y": -414.8179463787888,
-      "label_at": "left"
+      "x": -93.05969404581889,
+      "y": 9.871099781585027,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "uphonor::disable_sync_mode": {
       "id": "uphonor::disable_sync_mode",
@@ -8818,9 +9191,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 23.966341100323604,
-      "y": -347.5792518266709,
-      "label_at": "left"
+      "x": -84.29276433307899,
+      "y": 0.7600651848698692,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::do_quit": {
       "id": "uphonor::do_quit",
@@ -8842,9 +9216,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 63.45530958777758,
-      "y": -439.32347483807195,
-      "label_at": "above"
+      "x": -84.29276433307899,
+      "y": 8.054834605598089,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::enable_sync_mode": {
       "id": "uphonor::enable_sync_mode",
@@ -8866,9 +9241,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 97.71364968280545,
-      "y": -340.730004140726,
-      "label_at": "right"
+      "x": -96.92747661158998,
+      "y": 7.571043690113083,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::enum holo_state": {
       "id": "uphonor::enum holo_state",
@@ -8889,9 +9265,10 @@
       "construct": "type.enumeration",
       "construct_color": "#a855f7",
       "construct_name": "Enumeration",
-      "x": 47.12745485020311,
-      "y": -322.37279335637675,
-      "label_at": "below"
+      "x": -102.29499971013496,
+      "y": -8.839775938824685,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::enum loop_state": {
       "id": "uphonor::enum loop_state",
@@ -8912,9 +9289,10 @@
       "construct": "type.enumeration",
       "construct_color": "#a855f7",
       "construct_name": "Enumeration",
-      "x": 85.95194740035716,
-      "y": -315.5795195015856,
-      "label_at": "below"
+      "x": -95.31947886581308,
+      "y": -11.297449703278119,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "uphonor::enum playback_mode": {
       "id": "uphonor::enum playback_mode",
@@ -8935,9 +9313,10 @@
       "construct": "type.enumeration",
       "construct_color": "#a855f7",
       "construct_name": "Enumeration",
-      "x": 18.626565195716097,
-      "y": -318.4091394692862,
-      "label_at": "left"
+      "x": -95.31947886581308,
+      "y": 20.11234949374608,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "uphonor::get_loop_by_note": {
       "id": "uphonor::get_loop_by_note",
@@ -8959,9 +9338,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2.095087400881681,
-      "y": -392.3949192129049,
-      "label_at": "left"
+      "x": -96.92747661158998,
+      "y": 1.2438561003548747,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::get_playback_mode_name": {
       "id": "uphonor::get_playback_mode_name",
@@ -8983,9 +9363,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 111.53380757850346,
-      "y": -419.83868046690185,
-      "label_at": "right"
+      "x": -89.73893485831758,
+      "y": -4.093066537184855,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "uphonor::init_all_memory_loops": {
       "id": "uphonor::init_all_memory_loops",
@@ -9007,9 +9388,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 28.223706302558384,
-      "y": -441.57086331139885,
-      "label_at": "left"
+      "x": -89.73893485831758,
+      "y": 12.907966327652815,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "uphonor::init_rubberband": {
       "id": "uphonor::init_rubberband",
@@ -9031,9 +9413,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 125.58200900300626,
-      "y": -364.08136596876096,
-      "label_at": "right"
+      "x": -81.65712688179664,
+      "y": 4.407449895233979,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::is_sync_mode_enabled": {
       "id": "uphonor::is_sync_mode_enabled",
@@ -9055,9 +9438,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -2.179008538940451,
-      "y": -355.24433791499234,
-      "label_at": "left"
+      "x": -100.1277382104288,
+      "y": 4.407449895233979,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::linear_to_db_volume": {
       "id": "uphonor::linear_to_db_volume",
@@ -9079,9 +9463,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 88.52115005018615,
-      "y": -450.59707334153353,
-      "label_at": "right"
+      "x": -85.26238831612613,
+      "y": -3.6342299043907236,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::on_process": {
       "id": "uphonor::on_process",
@@ -9103,9 +9488,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 135.3122991293614,
-      "y": -404.27965371412125,
-      "label_at": "right"
+      "x": -85.26238831612613,
+      "y": 12.449129694858684,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::process_loops": {
       "id": "uphonor::process_loops",
@@ -9127,9 +9513,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 125.81552401736809,
-      "y": -334.5464260349656,
-      "label_at": "right"
+      "x": -96.98549233404827,
+      "y": 12.070669694121376,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::rubberband_reset_data": {
       "id": "uphonor::rubberband_reset_data",
@@ -9151,9 +9538,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -11.405372591481523,
-      "y": -329.4168078386593,
-      "label_at": "left"
+      "x": -96.98549233404827,
+      "y": -3.2557699036534182,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::set_pitch_shift": {
       "id": "uphonor::set_pitch_shift",
@@ -9175,9 +9563,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 77.41420932766147,
-      "y": -475.56371994475217,
-      "label_at": "above"
+      "x": -93.66473314654698,
+      "y": -6.292636449721205,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "uphonor::set_playback_mode_normal": {
       "id": "uphonor::set_playback_mode_normal",
@@ -9199,9 +9588,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 111.14363826778457,
-      "y": -305.1883752902015,
-      "label_at": "right"
+      "x": -93.66473314654698,
+      "y": 15.107536240189162,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "uphonor::set_playback_mode_trigger": {
       "id": "uphonor::set_playback_mode_trigger",
@@ -9223,9 +9613,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -30.91789127834062,
-      "y": -409.59884370816184,
-      "label_at": "left"
+      "x": -79.81621779088755,
+      "y": 8.51367123839222,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::set_playback_speed": {
       "id": "uphonor::set_playback_speed",
@@ -9247,9 +9638,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 146.93206800619788,
-      "y": -428.834363386107,
-      "label_at": "right"
+      "x": -79.81621779088755,
+      "y": 0.30122855207573984,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::set_record_player_mode": {
       "id": "uphonor::set_record_player_mode",
@@ -9271,9 +9663,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 27.09195353979082,
-      "y": -292.61194583019903,
-      "label_at": "below"
+      "x": -80.78584177393469,
+      "y": 12.907966327652815,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::set_rubberband_enabled": {
       "id": "uphonor::set_rubberband_enabled",
@@ -9295,9 +9688,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 23.40438661344885,
-      "y": -476.5200388148142,
-      "label_at": "left"
+      "x": -80.78584177393469,
+      "y": -4.093066537184853,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::set_volume": {
       "id": "uphonor::set_volume",
@@ -9319,9 +9713,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 152.05203431464642,
-      "y": -341.60098772178486,
-      "label_at": "right"
+      "x": -101.26736000462951,
+      "y": 8.760754636023758,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::start_sync_pending_playback_on_pulse_reset": {
       "id": "uphonor::start_sync_pending_playback_on_pulse_reset",
@@ -9343,9 +9738,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 113.07717605276022,
-      "y": -473.7364622493693,
-      "label_at": "right"
+      "x": -101.26736000462951,
+      "y": 0.054145154444200656,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::start_sync_pending_recordings_on_pulse_reset": {
       "id": "uphonor::start_sync_pending_recordings_on_pulse_reset",
@@ -9367,9 +9763,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 83.12473838564966,
-      "y": -282.40178889525606,
-      "label_at": "below"
+      "x": -101.32537572708782,
+      "y": -4.445480849564092,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::start_sync_recording_with_backfill": {
       "id": "uphonor::start_sync_recording_with_backfill",
@@ -9391,9 +9788,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -25.32759247615121,
-      "y": -445.6861238993873,
-      "label_at": "left"
+      "x": -101.32537572708782,
+      "y": 13.260380640032048,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::state_changed": {
       "id": "uphonor::state_changed",
@@ -9415,9 +9813,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 167.19460204194468,
-      "y": -397.9738425059158,
-      "label_at": "right"
+      "x": -87.10329740703523,
+      "y": 16.555351038016923,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::stop_all_playback": {
       "id": "uphonor::stop_all_playback",
@@ -9439,9 +9838,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -9.019050221658858,
-      "y": -302.0177080038982,
-      "label_at": "left"
+      "x": -87.10329740703523,
+      "y": -7.740451247548965,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::stop_all_recordings": {
       "id": "uphonor::stop_all_recordings",
@@ -9463,9 +9863,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 56.84533793849346,
-      "y": -493.95073284970164,
-      "label_at": "above"
+      "x": -77.1805803396052,
+      "y": 4.86628652802811,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::stop_sync_pending_recordings_on_pulse_reset": {
       "id": "uphonor::stop_sync_pending_recordings_on_pulse_reset",
@@ -9487,9 +9888,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 138.81744413882996,
-      "y": -305.86950294382075,
-      "label_at": "right"
+      "x": -75.3396712486961,
+      "y": 0.7600651848698696,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::store_audio_in_backfill_buffer": {
       "id": "uphonor::store_audio_in_backfill_buffer",
@@ -9511,9 +9913,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -50.70193317016094,
-      "y": -390.0951014101962,
-      "label_at": "left"
+      "x": -91.02909569526463,
+      "y": -9.940021160085314,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "uphonor::struct data": {
       "id": "uphonor::struct data",
@@ -9535,9 +9938,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 110.72912611857595,
-      "y": -386.70211538585824,
-      "label_at": "right"
+      "x": -97.95511631709543,
+      "y": -7.650064992914009,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::struct memory_loop": {
       "id": "uphonor::struct memory_loop",
@@ -9559,9 +9963,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -5.551779436846374,
-      "y": -419.41146983079574,
-      "label_at": "left"
+      "x": -104.46762160346834,
+      "y": 5.597160841144652,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::struct port": {
       "id": "uphonor::struct port",
@@ -9583,9 +9988,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 47.29443620472534,
-      "y": -463.61621908707195,
-      "label_at": "above"
+      "x": -105.60724339766905,
+      "y": 1.2438561003548738,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::struct pw_core": {
       "id": "uphonor::struct pw_core",
@@ -9607,9 +10013,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -22.150082984866373,
-      "y": -377.5391629515609,
-      "label_at": "left"
+      "x": -82.62675086484379,
+      "y": -8.199287880343094,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::struct pw_filter": {
       "id": "uphonor::struct pw_filter",
@@ -9631,9 +10038,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 118.65036753058675,
-      "y": -447.07366777848813,
-      "label_at": "right"
+      "x": -82.62675086484379,
+      "y": 17.01418767081105,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::struct pw_filter_port": {
       "id": "uphonor::struct pw_filter_port",
@@ -9655,9 +10063,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 60.73094254406263,
-      "y": -298.00064085434127,
-      "label_at": "below"
+      "x": -76.49545860338624,
+      "y": 11.550537784460005,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::struct pw_main_loop": {
       "id": "uphonor::struct pw_main_loop",
@@ -9679,9 +10088,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 1.7288214559860933,
-      "y": -449.7035916262995,
-      "label_at": "left"
+      "x": -76.30929523174325,
+      "y": -3.6342299043907236,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::struct pw_stream": {
       "id": "uphonor::struct pw_stream",
@@ -9703,9 +10113,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": 150.20712141507136,
-      "y": -376.4449103904998,
-      "label_at": "right"
+      "x": -73.85982115210389,
+      "y": 7.903153074095895,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "uphonor::struct spa_audio_info": {
       "id": "uphonor::struct spa_audio_info",
@@ -9727,9 +10138,10 @@
       "construct": "type.product",
       "construct_color": "#4a9eff",
       "construct_name": "Product type",
-      "x": -36.383818487987554,
-      "y": -354.363353649521,
-      "label_at": "left"
+      "x": -102.29499971013499,
+      "y": 17.65467572929264,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "uphonor::toggle_playback_mode": {
       "id": "uphonor::toggle_playback_mode",
@@ -9751,9 +10163,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 148.02661063645058,
-      "y": -456.6990150957535,
-      "label_at": "right"
+      "x": -91.02909569526463,
+      "y": 18.75492095055327,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "uphonor::toggle_sync_mode": {
       "id": "uphonor::toggle_sync_mode",
@@ -9775,9 +10188,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 45.41793035403501,
-      "y": -271.4474485330227,
-      "label_at": "below"
+      "x": -97.95511631709543,
+      "y": 16.464964783381973,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "utils::linear_to_db_volume": {
       "id": "utils::linear_to_db_volume",
@@ -9799,9 +10213,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -996.5154941360204,
-      "y": -39.4135835922599,
-      "label_at": "right"
+      "x": -66.47236781623822,
+      "y": -90.97067522315169,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "utils::set_playback_speed": {
       "id": "utils::set_playback_speed",
@@ -9823,9 +10238,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1062.7519248574474,
-      "y": -48.26231999588748,
-      "label_at": "left"
+      "x": -68.31327690714731,
+      "y": -86.86445387999345,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "utils::set_record_player_mode": {
       "id": "utils::set_record_player_mode",
@@ -9847,9 +10263,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1002.4127655221193,
-      "y": -90.02364004666117,
-      "label_at": "right"
+      "x": -68.31327690714731,
+      "y": -95.07689656630993,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "utils::set_volume": {
       "id": "utils::set_volume",
@@ -9871,9 +10288,10 @@
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1020.2169468999832,
-      "y": -12.650577177132618,
-      "label_at": "below"
+      "x": -72.60366007769576,
+      "y": -96.43432510950274,
+      "label_at": "above",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -10334,6 +10752,11 @@
       }
      },
      {
+      "source": "file::quaternionmedia/uPhonor/app/index.ts",
+      "target": "typescript::index.ts::interface::State::5",
+      "kind": "contains"
+     },
+     {
       "source": "file::quaternionmedia/uPhonor/app/index.html",
       "target": "html::index.html::anchor::app::12",
       "kind": "contains"
@@ -10341,11 +10764,6 @@
      {
       "source": "file::quaternionmedia/uPhonor/app/index.html",
       "target": "html::index.html::anchor::tracer::13",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/uPhonor/app/index.ts",
-      "target": "typescript::index.ts::interface::State::5",
       "kind": "contains"
      },
      {

@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-31T15:33:53Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-31T18:42:17Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **296**, unfiltered.
+Every governed document in this corpus: **300**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 91 |
 | [G] `generated` | 55 |
-| [S] `standing` | 84 |
+| [S] `standing` | 88 |
 | [T] `transient` | 23 |
 
 ## Documents
@@ -266,6 +266,10 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
+| [S] | `standing` | `docs/journeys/bring-your-set-up.md` | reference | — |
+| [S] | `standing` | `docs/journeys/clone-to-first-demo.md` | reference | — |
+| [S] | `standing` | `docs/journeys/index.md` | reference | — |
+| [S] | `standing` | `docs/journeys/use-a-model-with-an-application.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/docs-tooling.md` | reference | — |

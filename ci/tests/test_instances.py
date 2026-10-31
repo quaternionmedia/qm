@@ -279,6 +279,18 @@ def test_a_stack_its_owner_starts_is_one_this_corpus_says_how_to_start():
     assert known["joe"] == "uv run qm dashboard --start speech"
 
 
+def test_a_registered_terminal_front_end_says_how_to_open_it():
+    """dossier draws in a terminal and serves nothing, so it is never
+    `missing`; but "nothing here starts it", beside a dashboard that prints
+    how, reads as a contradiction. Mutation: drop `opens`, and it says that."""
+    assert instances.terminals()["dossier"] == "cd dossier && uv run dossier dashboard"
+    [row] = instances.judge_registered({"dossier": "family core"}, [], {},
+                                       {"dossier": "cd dossier && uv run dossier dashboard"})
+    assert row["state"] == "unjudged"
+    assert row["why"] == ("a terminal front end, not a server: "
+                          "cd dossier && uv run dossier dashboard")
+
+
 def test_a_process_that_exited_is_not_alive_before_its_parent_collects_it():
     import subprocess
     import time
