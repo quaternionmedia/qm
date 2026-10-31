@@ -108,6 +108,7 @@ uv run qm dashboard                  # what is listening, and what to run
 uv run qm dashboard --start harness  # detach the harness into its own process
 uv run qm dashboard --start web
 uv run qm dashboard --stop harness   # stop what --start launched, by its pid
+uv run qm dashboard --start-registered  # every surface this machine registered, not yet up
 ```
 
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
@@ -126,13 +127,26 @@ speech engine it hears its captions with.
   off into its own process under its repository's own environment and records
   its pid. `dossier dashboard` draws in the terminal it is run from, so the
   dashboard prints that command rather than launching it into a pipe.
+- **Started means the port answered.** `--start` waits, up to `--wait`
+  seconds (60 by default), for the server's port. A server that exits first is
+  reported as not running, with the end of its log, and its record and
+  run-file are dropped. One still silent at the deadline is reported, and kept
+  so `--stop` can end it.
 - **A stack its owner starts is never started here.** alfred's editor runs in
   containers, with joe beside it, and one session starts it for every other,
   as [running several repositories](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md)
   says. The dashboard prints `./al family up` and the advice to ask that
   session first, and `--start editor` refuses.
 - **`--stop` acts on the recorded pid, never the port**, so it never stops a
-  process it did not start.
+  process it did not start. It also refuses a pid that has since been handed
+  to another process: it records each process's start time and compares it.
+  After the stop it withdraws every run-file naming the freed port whose
+  process is gone. That includes qmcp's own, which a process ended outright
+  cannot withdraw.
+- **`--start-registered` starts what this machine is registered to run**
+  (`uv run qm instances register`), the harness first, skipping a surface whose
+  port already answers. For a stack its owner starts it prints what the report
+  does, and starts nothing.
 - **A busy port is "something is listening"**, not "the harness is up": any
   process may hold a port, and the ordinary cause of a surprise is a stale
   process from an earlier session.
@@ -156,6 +170,9 @@ uv run qm instances                       # every declared server, and its state
 uv run qm instances --port 8000           # also look at a port nothing declares
 uv run qm instances run --repo dossier --session mine -- uv run dossier serve --port {port}
 uv run qm instances prune                 # run-files whose process is gone; --yes removes them
+uv run qm instances register --family core            # this machine runs the core family
+uv run qm instances register --repo qmcp --repo apothecary --name bench
+uv run qm instances register              # what is registered; --clear registers nothing
 ```
 
 - **A server is found by its run-file, never by its port.** qmcp writes its
@@ -166,3 +183,10 @@ uv run qm instances prune                 # run-files whose process is gone; --y
   write to it, so nothing else is in reach.
 - **A server that states no pid is `answering`, never `identified`.** Only
   qmcp says which process it is today.
+- **A registration says what this machine should be running.** It is a family,
+  whose members `families.json` resolves when it is read, or a selection named
+  repository by repository, or both. It is kept in `~/.qm/registered.json` and
+  never committed. Each registered repository then reads as `up`, `silent`,
+  `missing` (nothing declares it, and this [corpus](../../ref/glossary.md#corpus){ .glossary-term } says how it starts) or
+  `unjudged` (nothing in this corpus says how, as for `qm` itself).
+  `--check` fails on `missing`.
