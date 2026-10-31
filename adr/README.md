@@ -251,5 +251,6 @@ together.
 | — | [Unify parser/cache architecture around `ParserRegistry` + `batch_whole_tree`](DRAFT-parser-cache-unification.md) | Proposed | 2026-06-30 |
 | — | [Verify a file's actual consumption path before editing it to fix a flagged issue](DRAFT-verify-actual-consumption-before-editing.md) | Proposed | 2026-07-21 |
 | — | [adopting rad as this project's radial menu](DRAFT-rad-integration.md) | Draft | 2026-08-09 |
+| — | [One page without a server draws the graphs and addresses other apps hand it](DRAFT-a-page-without-a-server.md) | Proposed | 2026-10-30 |
 
 Drafts in flight (numberless, by title): —
