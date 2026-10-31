@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T19:05:33Z",
+  "generated_at": "2026-10-31T19:17:11Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-31T19:05:31Z"
+        "generated_at": "2026-10-31T19:17:10Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 292,
+    "loose_ends": 293,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 41,
-      "document-unreviewed": 93,
+      "document-unreviewed": 94,
       "stalled-thread": 138
     },
-    "open": 292,
+    "open": 293,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1134,6 +1134,14 @@
       "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-cathy-read-against-quaternion-media",
+      "title": "perspectives/2026-10-25-cathy-read-against-quaternion-media.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-cathy-read-against-quaternion-media",
       "address_parses": true
     },
     {
