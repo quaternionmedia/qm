@@ -82,6 +82,21 @@ policies:
       consolidation runbook's Step 3, and the record says so rather than
       implying coverage the pattern does not have.
 
+  - id: work-is-delivered-into-a-repository
+    invariant: "A report, a demo, a preview or a handoff is a committed file, never a page an assistant's host keeps outside the repositories"
+    source: records/DRAFT-work-is-delivered-into-a-repository.md
+    detectable: true
+    detector: project-seed/ci/check_leaks.py
+    detector_reads: >
+      every tracked file, for a link to a page on a host its `hosted-page`
+      pattern lists, and reports each finding redacted
+    preventers: []
+    note: >
+      The detector sees the trace a hosted page leaves in a committed file and
+      nothing else. A page published and never linked, a link in a pull
+      request body, and a host the pattern does not list all pass; for those
+      the reader is the check, as the record says.
+
   - id: no-private-name-in-a-public-artifact
     invariant: "A committable document never carries a private repository name or an operator's path"
     source: status/ledger.yaml 2026-08-16-003

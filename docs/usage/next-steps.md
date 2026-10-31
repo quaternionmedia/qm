@@ -57,8 +57,9 @@ Every project sits in a family by what its output drives, and a public one gets 
 - **Its family** is the `family:` of its entry in `ci/workspace.yaml`: one name, or a list when the project drives two things. [The family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md) decides which.
 - **Its page** appears once the repository is public on the host and a family claims it. It shows the repository's own description, its families, its version, and a button to the repository.
 - **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture. A listed picture shows once the project's default branch holds it, so one still on a pull request waits, and a page with none says so.
+- **Its detail page**, where a person has written one, comes from a block under its name in `details:` in the same file: what the project is and the command to try it beside a picture, the steps a user goes through, a section per feature with its pictures, and how it is built, each part with a page linking to it. The block's pictures are the project's own and wait for its default branch like the others; its text is timeless, with no dates, pull request numbers or measured counts. A project with no block keeps the page its pictures make. The file's header lists every key.
 
-`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it.
+`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it. To see a page with pictures its default branch does not hold yet, [preview it from a branch](build-these-docs.md#preview-a-projects-pictures-from-a-branch).
 
 ## Related
 

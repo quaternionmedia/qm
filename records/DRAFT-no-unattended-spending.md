@@ -1,25 +1,33 @@
-# QM-XXXX — Nothing Unattended Spends Money
+# QM-XXXX — Nothing Unattended Spends
 
 | | |
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
-| **Pends on** | Nothing — ready for ratification |
+| **Pends on** | A mechanism by which a pull request a bot opens starts no cloud CI job until a person starts it (Enforcement); until there is one, it is a declared gap |
 | **Principle** | `interrupted-only-by-a-decision` — a person is interrupted only by a decision; `ownership-is-the-deliverable` — ownership is the deliverable; `systems-over-heroics` — systems over heroics |
 | **Restated in** | Nothing. The qmPM standardisations page cites it, which is a citation rather than a restatement: that page decides nothing and says so |
 
 ## Context
 
-Everything this organisation's tooling does today is free and local. It reads
+Most of what this organisation's tooling does is free and local. It reads
 git, it reads a SQLite file, it calls a host API with a credential that costs
-nothing per call. The worst outcome of a loop that runs too often is a warm
-laptop.
+nothing per call. The worst outcome of a local loop that runs too often is a
+warm laptop, and the bound on its time is what stops it
+(`DRAFT-shrink-the-black-box.md`).
 
 Wiring a metered API in changes that, and it changes it in a direction that is
 easy to miss: **the failure mode of automation stops being a wrong answer and
 starts being a bill.** A retry loop that was a nuisance becomes an expense. A
 scheduled job somebody forgot becomes a standing charge. A detector that fires
 once per row becomes a function of how many rows exist.
+
+Cloud CI is the metered service already in use. A hosted runner's time comes
+out of an allocation the organisation pays for and every repository shares,
+and every push spends it. On 2026-10-24 one project's pushes started 825
+workflow runs and some thirty-five runner-hours of jobs (`gh api
+repos/quaternionmedia/apothecary/actions/runs`, each run's jobs summed from
+start to completion), a number nobody stated before the pushes were made.
 
 The organisation already has the ingredients for this to go wrong quietly. It
 has a harness that runs things on command. It has a self-check that runs a suite
@@ -40,22 +48,34 @@ what keeps the dependency a tool rather than a subscription to a behaviour.
 **No unattended process may call a paid service. Every paid call is a direct,
 deterministic, human-issued command.**
 
+**A cloud CI runner's time is a paid service**, whatever the plan bills for it
+in money. The push, the tag or the dispatch that starts a run is the command,
+and the jobs the run starts are the calls. A run on the contributor's machine
+spends nothing this record counts; it is bounded in time instead, as every
+guard is.
+
 1. **Direct.** A person issues the command that causes the call. Not a schedule,
    not a watcher, not a hook, not a retry, not a background refresh, and not a
-   second call the first one decided to make.
+   second call the first one decided to make. In CI: not a scheduled workflow,
+   not a run a bot's pull request starts, and not a run that starts itself
+   again.
 
 2. **Deterministic.** The command determines what is called and how many times.
    A command whose call count depends on what it finds is not deterministic, and
    the person issuing it cannot consent to a number nobody can state in advance.
    Where a count depends on input, the count is shown and confirmed before the
-   first call rather than reported after the last.
+   first call rather than reported after the last. A push's count is the jobs
+   its workflows start, stated from their recorded minutes before it is made. A
+   run that splits and runs again on what it finds, as a merge queue bisecting a
+   failed batch does, shows each further run and has it confirmed.
 
 3. **Zero is a valid declared count, and it is the default.** A command may be
    issued with a budget of zero paid calls. It then does every free thing it
    can, establishes what the paid work would cost, and stops. That is how a
    count gets stated in advance without spending to find it out: the first pass
    is always free, and the number it produces is what the second pass is issued
-   against.
+   against. In CI the free pass is the contributor's machine: the workflows run
+   there first, and what the push would start is the number it is made against.
 
    **Zero is a fact here, never a sentinel.** Zero calls were authorised and
    zero were made, and both are known precisely. What may be unknown is *how
@@ -75,7 +95,8 @@ deterministic, human-issued command.**
 5. **Human-issued, every time.** Consent does not carry forward. A person
    approving a run has approved that run. There is no remembered permission, no
    `--yes` that persists, and no session-level grant, because the thing being
-   consented to is an amount rather than a category.
+   consented to is an amount rather than a category. A person who authorised a
+   push has authorised that push's runs, and the next push is asked again.
 
 6. **A paid dependency is declared where it is used.** A module that can cause a
    paid call says so, at the top, in the plainest available words. A reader
@@ -99,6 +120,14 @@ declared**, which is why clause 6 is a rule about writing rather than a
 derivation, and why a paid surface added without declaring it is the failure
 this depends on people not committing.
 
+For CI the registry is each workflow's triggers. A check that no workflow runs
+on a schedule or starts itself again, and that a bot's pull request starts no
+job until a person starts it, is not built: it arrives as a declared gap. The
+host names the person who re-runs a run (`github.triggering_actor`, which on a
+re-run differs from the `github.actor` who started the first), so a job
+conditioned on it waits for a person; that is the documented behaviour, not one
+any workflow here uses.
+
 ## Consequences
 
 **Some obvious features become impossible**, and deliberately. Nightly
@@ -119,12 +148,28 @@ to configure or monitor.
 that states it will make a hundred calls, rather than a loop that discovers it.
 That is more work to build and it is the clause that will be argued with first.
 
-**A test suite may not call a paid service.** CI is unattended by definition.
-Anything exercising a paid integration does so against a recorded response or a
-local substitute, which is a constraint on how those integrations are designed
-rather than an afterthought.
+**A test suite may not call a paid service.** A CI run, once a push has
+started it, runs unattended. Anything exercising a paid integration does so
+against a recorded response or a local substitute, which is a constraint on how
+those integrations are designed rather than an afterthought.
+
+**Every push is priced before it is made.** Its jobs and their recorded minutes
+are stated, and the person pushing authorises that number. A project keeps its
+long suites on the contributor's machine and in CI at a version tag, and its
+pull requests' CI to what is cheap and must be seen on the host.
+
+**A bot's pull requests are unattended spend.** Dependency updates a bot opens
+start CI that nobody issued. Grouping them (one pull request per ecosystem per
+interval) bounds how often, which this record does not count as consent; until
+a job waits for a person, the runs they start are the declared gap above.
 
 ## Alternatives considered
+
+**Count only money.** A free plan bills runner time on a public repository at
+nothing. Rejected: the allocation is the organisation's, shared by every
+repository and every person in it, and spent at a rate nobody sees until a
+day's runs are summed. The harm is the one this record refuses, a spend nobody
+decided, and it does not change with the currency.
 
 **A spending cap.** Rejected as the wrong axis. A cap makes an unattended call
 acceptable below a number, and the harm being prevented is not the amount — it
@@ -155,6 +200,8 @@ control as well as the service.
   clause 6 needs a mechanism rather than a rule.
 - Anybody proposing a remembered approval, which is the signal that clause 5 is
   being felt and is the moment to check whether the workflow is wrong instead.
+- A CI host that bills nothing and shares nothing, which would make a push a
+  free call again.
 
 ## Amendments
 

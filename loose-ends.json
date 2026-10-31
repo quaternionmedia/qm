@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T17:20:28Z",
+  "generated_at": "2026-10-31T19:41:12Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-24T17:20:26Z"
+        "generated_at": "2026-10-31T19:41:10Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-18T16:48:17Z"
+        "generated_at": "2026-10-28T17:02:24Z"
       }
     }
   },
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 276,
+    "loose_ends": 294,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 38,
-      "document-unreviewed": 80,
+      "document-proposed": 41,
+      "document-unreviewed": 95,
       "stalled-thread": 138
     },
-    "open": 276,
+    "open": 294,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -84,7 +84,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
       "address_parses": true
     },
@@ -116,7 +116,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-leak-check",
       "title": "leak-check cannot see",
-      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.",
+      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists. Of a hosted page it sees only a link a file carries: a page never linked, a link in a pull request body, and a host its pattern does not list all pass.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-leak-check",
       "address_parses": true
     },
@@ -266,6 +266,14 @@
     },
     {
       "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "title": "records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
       "address": "quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
       "title": "records/DRAFT-a-route-is-an-address.md",
       "detail": "awaiting a human's ratification",
@@ -286,6 +294,14 @@
       "title": "records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-shared-allowance-is-drawn-on-politely",
+      "title": "records/DRAFT-a-shared-allowance-is-drawn-on-politely.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-shared-allowance-is-drawn-on-politely",
       "address_parses": true
     },
     {
@@ -518,6 +534,14 @@
       "title": "records/DRAFT-what-is-not-the-organisation.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
+      "title": "records/DRAFT-work-is-delivered-into-a-repository.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
       "address_parses": true
     },
     {
@@ -970,6 +994,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
+      "title": "perspectives/2026-10-09-a-comment-in-someone-elses-voice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
       "title": "perspectives/2026-10-10-what-joe-and-vox-remembered.md",
       "detail": "written, and no maintainer has looked at it",
@@ -1006,6 +1038,14 @@
       "title": "perspectives/2026-10-10-what-the-topology-docstrings-remembered.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
+      "title": "perspectives/2026-10-11-what-the-harness-was-reading.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
       "address_parses": true
     },
     {
@@ -1090,6 +1130,102 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-cathy-read-against-quaternion-media",
+      "title": "perspectives/2026-10-25-cathy-read-against-quaternion-media.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-cathy-read-against-quaternion-media",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "title": "perspectives/2026-10-25-the-label-was-not-the-content.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-two-sessions-one-checkout",
+      "title": "perspectives/2026-10-25-two-sessions-one-checkout.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-two-sessions-one-checkout",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-what-qmcp-said-it-was",
+      "title": "perspectives/2026-10-25-what-qmcp-said-it-was.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-qmcp-said-it-was",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
+      "title": "perspectives/2026-10-25-what-whisper-heard.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-a-branch-name-is-not-its-commits",
+      "title": "perspectives/2026-10-26-a-branch-name-is-not-its-commits.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-a-branch-name-is-not-its-commits",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "title": "perspectives/2026-10-26-landing-what-was-held-local.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
+      "title": "perspectives/2026-10-26-the-graphs-reach-the-pages.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-28-an-allowance-read-as-free",
+      "title": "perspectives/2026-10-28-an-allowance-read-as-free.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-28-an-allowance-read-as-free",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-29-several-repositories-one-workstation",
+      "title": "perspectives/2026-10-29-several-repositories-one-workstation.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-29-several-repositories-one-workstation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-31-a-red-on-main-read-as-the-disk",
+      "title": "perspectives/2026-10-31-a-red-on-main-read-as-the-disk.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-31-a-red-on-main-read-as-the-disk",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -1110,6 +1246,14 @@
       "title": "perspectives/claude-fable-5-2026-06-09_philosophy.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09_philosophy",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
+      "title": "perspectives/claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
       "address_parses": true
     },
     {

@@ -108,6 +108,8 @@ uv run qm dashboard                  # what is listening, and what to run
 uv run qm dashboard --start harness  # detach the harness into its own process
 uv run qm dashboard --start web
 uv run qm dashboard --stop harness   # stop what --start launched, by its pid
+uv run qm dashboard --start-registered  # every surface this machine registered, not yet up
+uv run qm journey-pictures          # the journeys' pictures, from the surfaces that are up
 ```
 
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
@@ -116,18 +118,85 @@ anything: both read the same harness, and a figure that differs between them is
 a defect rather than a point of view, which is why there are two. `looksatwords`
 reads the conversations the harness archived and reports their topics; it is
 listed because it is one more server on the same workstation, and a port
-collision between any two surfaces is what the table prevents.
+collision between any two surfaces is what the table prevents. `apothecary`'s
+viewer is listed for the same reason, started as its demo, which touches no
+real board. So are `alfred`, a video editor in the browser, and `joe`, the
+speech engine it hears its captions with.
 
 - **Reporting is the default.** Nothing starts unless `--start` names it.
 - **Servers detach; the terminal front end does not.** `--start` backs a server
   off into its own process under its repository's own environment and records
   its pid. `dossier dashboard` draws in the terminal it is run from, so the
   dashboard prints that command rather than launching it into a pipe.
+- **Started means the port answered.** `--start` waits, up to `--wait`
+  seconds (60 by default), for the server's port. A server that exits first is
+  reported as not running, with the end of its log, and its record and
+  run-file are dropped. One still silent at the deadline is reported, and kept
+  so `--stop` can end it.
+- **A fresh clone is refused, with what to run in it.** `--start` runs a
+  server with `uv run --no-sync`, so a repository with no environment yet is
+  not started, and the report names the command it needs once, such as
+  `uv sync`, then in `web/`, `npm install && npm run build` for the web
+  front end.
+- **The report says where to look.** For each surface that is up it names
+  the place in the application that answers "is my set up": the web front
+  end's Estate tab, the prose reader's Harness tab. The terminal front end
+  opens no port, so its row says that rather than "nothing listening".
+- **A stack its owner starts is never started here.** alfred's editor runs in
+  containers, with joe beside it, and one session starts it for every other,
+  as [running several repositories](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md)
+  says. The dashboard prints `./al family up` and the advice to ask that
+  session first, and `--start editor` refuses.
 - **`--stop` acts on the recorded pid, never the port**, so it never stops a
-  process it did not start.
+  process it did not start. It also refuses a pid that has since been handed
+  to another process: it records each process's start time and compares it.
+  After the stop it withdraws every run-file naming the freed port whose
+  process is gone. That includes qmcp's own, which a process ended outright
+  cannot withdraw.
+- **`--start-registered` starts what this machine is registered to run**
+  (`uv run qm instances register`), the harness first, skipping a surface whose
+  port already answers. For a stack its owner starts it prints what the report
+  does, and starts nothing.
 - **A busy port is "something is listening"**, not "the harness is up": any
   process may hold a port, and the ordinary cause of a surprise is a stale
   process from an earlier session.
 - **The ports are defaults, each overridable**, chosen as a memory aid: pi
   (3141) for the harness, e (2718) for the web front end, phi for the terminal
-  one, and root two for the prose reader.
+  one, root two for the prose reader, tau for apothecary's viewer, root three
+  (1732) for alfred's editor, and the twelfth root of two (1059), a semitone,
+  for joe. Each is its constant's first four digits, and no two surfaces share
+  one. A repository that joins the table takes a constant nobody holds; vox, a
+  client of joe's, and otto, a library, serve nothing and hold none.
+
+## Which server is which
+
+`uv run qm instances` reports every server this machine declares, and whether
+each is the server its declaration names. The source is `ci/instances.py`; the
+procedure, for a person and for several sessions at once, is
+[handbook/running-several-repositories.md](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md).
+
+```sh
+uv run qm instances                       # every declared server, and its state
+uv run qm instances --port 8000           # also look at a port nothing declares
+uv run qm instances run --repo dossier --session mine -- uv run dossier serve --port {port}
+uv run qm instances prune                 # run-files whose process is gone; --yes removes them
+uv run qm instances register --family core            # this machine runs the core family
+uv run qm instances register --repo qmcp --repo apothecary --name bench
+uv run qm instances register              # what is registered; --clear registers nothing
+```
+
+- **A server is found by its run-file, never by its port.** qmcp writes its
+  own; `qm dashboard --start` writes one for every other surface it starts;
+  `qm instances run` writes one for any command and withdraws it when the
+  server exits.
+- **Only the declared health path is requested.** A read of qmcp's queue can
+  write to it, so nothing else is in reach.
+- **A server that states no pid is `answering`, never `identified`.** Only
+  qmcp says which process it is today.
+- **A registration says what this machine should be running.** It is a family,
+  whose members `families.json` resolves when it is read, or a selection named
+  repository by repository, or both. It is kept in `~/.qm/registered.json` and
+  never committed. Each registered repository then reads as `up`, `silent`,
+  `missing` (nothing declares it, and this [corpus](../../ref/glossary.md#corpus){ .glossary-term } says how it starts) or
+  `unjudged` (nothing in this corpus says how, as for `qm` itself).
+  `--check` fails on `missing`.

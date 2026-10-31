@@ -24,6 +24,11 @@ initialised the brief will say so — initialise it before continuing, because
 every governance file is otherwise absent rather than unreadable, and a check
 that looks for one will report the project as ungoverned.
 
+The builder refuses an `--out` path inside the repository that git does not
+ignore, and exits 2 after printing the brief. A project that has not ignored
+`.harness/` gets the brief on standard output only; read it there, and add
+`.harness/` to the project's `.gitignore` in a pull request of its own.
+
 Add `--offline` only if `gh` is unavailable. Then say in your first message
 that your open pull requests are **unread**, not that there are none.
 
@@ -34,8 +39,9 @@ In this order, in full:
 1. `AGENTS.md` at this repository's root (or `governance/qm/AGENTS.md`).
 2. `handbook/async-contract.md` in the corpus — the rules that exist only
    because other sessions are running right now.
-3. `handbook/handoffs/README.md`, then **exactly one** handoff if you are
-   picking one up.
+3. `handbook/handoffs/README.md`, then, in the corpus,
+   `handbook/handoffs/qm-queue.md` with `uv run qm queue`'s report beside it,
+   then **at most one** other handoff if you are picking one up.
 
 ## 3. Re-derive anything you are about to rely on
 

@@ -924,7 +924,7 @@ def org_census(hub: Hub, governed: list[str], name_private: bool, listed=None) -
     # committed to a public repository, so listing them publishes the shape of
     # unreleased work as a side effect of measuring governance. Whether that is
     # acceptable is a decision for a human, not a default for a generator --
-    # see handbook/handoffs/governance-status-generator.md.
+    # see handbook/handoffs/qm-queue.md, section 3.
     listable = [n for n in unmanaged if name_private or n not in private]
     return {
         "repositories": {

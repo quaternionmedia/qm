@@ -176,6 +176,21 @@ quoting a figure.
     `check_leaks.py` on the mechanical part — a home path, a personal folder,
     a scratch path, a shared link; the rest is yours to read for before you
     push.
+15. **Work is delivered into a repository, never to a hosted page** — record
+    `governance/qm/records/DRAFT-work-is-delivered-into-a-repository.md`. A
+    report, a demo, a preview or a handoff is a committed file, and reaches a
+    reviewer as a pull request or as a page the reviewer builds and serves
+    locally. Nothing goes to a page an assistant's host keeps outside the
+    org's repositories, such as a chat product's shareable artifact or canvas:
+    it is not versioned with the code, cannot be reviewed as a diff, and goes
+    stale unseen. `check_leaks.py` refuses a committed link to one.
+16. **A shared allowance is drawn on politely** — record
+    `governance/qm/records/DRAFT-a-shared-allowance-is-drawn-on-politely.md`.
+    Before many calls to one service, read what remains of its allowance and
+    state the count; past a tenth, ask first. Sample for an estimate, keep each
+    response as it arrives, send a few at a time, and stop at the first refusal
+    that names a limit, saying when it resets. The allowance belongs to every
+    caller on the credential.
 
 ## One-time setup on a fresh clone (Windows)
 

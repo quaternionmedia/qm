@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T17:20:26Z'
+generated_at: '2026-10-31T19:41:10Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,17 +39,17 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 273
+    lines: 293
   - path: PRINCIPLES.md
     lines: 493
   - path: handbook/async-contract.md
     lines: 271
   - path: handbook/handoffs/README.md
-    lines: 156
-  total_lines: 1193
+    lines: 150
+  total_lines: 1207
   budget_lines: 1200
-  within_budget: true
-  headroom_lines: 7
+  within_budget: false
+  headroom_lines: -7
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -104,12 +104,12 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 41
+      total: 44
       ratified: 0
-      proposed: 38
+      proposed: 41
     documents_in_unknown_state: 0
-    reading_within_budget: true
-    reading_total_lines: 1193
+    reading_within_budget: false
+    reading_total_lines: 1207
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 294
+  documents: 309
   by_state:
     draft: 3
-    generated: 7
-    proposed: 38
-    standing: 131
-    transient: 35
-    unreviewed: 80
+    generated: 55
+    proposed: 41
+    standing: 90
+    transient: 25
+    unreviewed: 95
   disagreements: 0
   unknown: 0
 documents:
@@ -196,95 +196,95 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/families/commons.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/core.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/games.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/index.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/infra.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/instruments.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/irl.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/performer-display.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/performing.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/families/show-control.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/index.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
@@ -294,348 +294,384 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: docs/journeys/bring-your-set-up.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/journeys/clone-to-first-demo.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/journeys/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/journeys/use-a-model-with-an-application.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: docs/projects/Cuelist-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/QLab-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/ShowRunner.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/ShowStopper.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/TheatreMix-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/aes.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/alfred.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/apothecary.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/benchmark.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/carlos.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/cesar.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/codecartographer.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/datum.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/dossier.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/factorio-sysops.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/golfvs.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/holophonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/index.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/ira.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/joe.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/leo.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/looksatwords.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/ludwig.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/midiphonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/moat.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/otto.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/qm.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/qmcp.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/qmetronome.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/rad-godot.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/rad.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/scad-chess.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/stomp.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/uPhonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/vox.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/waveofhormuz.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/wolf.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/projects/ztgui.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
+  class: generated
+  class_reason: a tool writes it
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
 - path: docs/ref/addresses.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
@@ -987,7 +1023,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: handbook/handoffs/apply-the-main-ruleset.md
+- path: handbook/handoffs/apothecary-merge-queue.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1008,56 +1044,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/disk-tooling.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/dossier-delta-review.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/enact-the-stages.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/families-delineated.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/governance-loop-poc.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/governance-status-generator.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/harness-next-test.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/hil-review-2026-08-25.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1071,7 +1058,21 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/hil-review-2026-10-31.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/holophonor-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/joe-open-set.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1127,28 +1128,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/qmcp-flows-as-deltas.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/semantic-review-of-the-records.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/semantic-review-session.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/session-2026-08-12.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1176,14 +1156,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/six-branches-reached-origin.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-performing-estate-refreshed.md
+- path: handbook/handoffs/the-triplet.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1198,13 +1171,6 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/the-web-window.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/two-views-one-dataset.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1259,6 +1225,24 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: handbook/research-workspaces.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: handbook/running-several-repositories.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: handbook/style-guide.md
   class: handbook
   class_reason: policy binding on QM's own conduct
@@ -1286,16 +1270,6 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: inventory.json
-  class: generated
-  class_reason: a tool writes it
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: generated
-  refresh: uv run qm inventory --write inventory.json
-  present: false
-  why_absent: declared generated, and not on disk. Run its refresh command.
 - path: perspectives/2026-07-05-on-human-only-contributorship.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
@@ -1744,6 +1718,14 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-10-09-a-comment-in-someone-elses-voice.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/2026-10-10-what-joe-and-vox-remembered.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
@@ -1777,6 +1759,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-10-what-the-topology-docstrings-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-11-what-the-harness-was-reading.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
@@ -1864,6 +1854,102 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-10-24-the-corpus-read-whole-and-landed.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-cathy-read-against-quaternion-media.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-the-label-was-not-the-content.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-two-sessions-one-checkout.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-what-qmcp-said-it-was.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-what-whisper-heard.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-26-a-branch-name-is-not-its-commits.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-26-landing-what-was-held-local.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-26-the-graphs-reach-the-pages.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-28-an-allowance-read-as-free.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-29-several-repositories-one-workstation.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-31-a-red-on-main-read-as-the-disk.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/README.md
   class: index
   class_reason: the index for its directory, not a member of it
@@ -1890,6 +1976,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/claude-fable-5-2026-06-09_philosophy.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
@@ -2000,6 +2094,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: plans/open-work.md
+  class: other
+  class_reason: not in a governed directory
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: plans/org-standards.md
   class: other
   class_reason: not in a governed directory
   declared_status: null
@@ -2255,6 +2358,13 @@ documents:
   state_from_status_row: proposed
   state_from_filename: draft
   state: proposed
+- path: records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
 - path: records/DRAFT-a-route-is-an-address.md
   class: record
   class_reason: an org decision record
@@ -2270,6 +2380,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-a-shared-allowance-is-drawn-on-politely.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed
@@ -2493,6 +2610,13 @@ documents:
   state_from_status_row: proposed
   state_from_filename: draft
   state: proposed
+- path: records/DRAFT-work-is-delivered-into-a-repository.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
 - path: status/documents.yaml
   class: generated
   class_reason: a tool writes it
@@ -2528,6 +2652,15 @@ documents:
   state_from_filename: null
   state: generated
   refresh: python ci/harness_status.py --no-local --write status/harness.yaml
+  present: true
+- path: status/inventory.yaml
+  class: generated
+  class_reason: a tool writes it
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: generated
+  refresh: uv run qm inventory --write
   present: true
 - path: walkthrough/01-two-views-one-dataset.md
   class: walkthrough

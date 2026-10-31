@@ -61,7 +61,7 @@ asked for them after D4.
 |---|---|---|
 | qm | `main` `df1cb51` → `evolve/performing-estate-refresh` `39269ec` → `evolve/performing-family-demo` `4f8df09` | #138 ready, green; #139 draft on it, green |
 | qm | `evolve/preflight-reports-environment` `9b03372`, from `main` | #161 ready, green |
-| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `00f1256`, both from `main` | none |
+| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `651dcf7`, both from `main` | #255 |
 | ShowStopper | `tests` `0b72bc4` → `feat/family-demo-contract` `d4668f1` → `feat/family-control` `c71b0d2` | #1 → #2 draft → #3 draft |
 | carlos | `they` `a5540e7` → `fix/dials-cable-ends-and-scroll` `3e8800f` → `deps/they-batch-2026-10-09` `7750927` → `feat/family-demo-contract` `137f88c` → `feat/family-control` `91678af` | #17; the three above it have none |
 | joe | #23's tip with `feat/transcript-lane` merged in, `restack/instruct-by-voice` `e15c83f` → `docs/walkthrough` `ed6e612` → `feat/family-demo-contract` `7c2923c` → `feat/family-control` `dad2a86` | none; #23 and #26 to #33 open unchanged |
@@ -129,9 +129,6 @@ ShowMixer for Ardour), and ShowOSC. Which one cues go through is undecided.
   new `main` as their own pull request. Done when `qm docs check` is clean and
   `status/harness.yaml` is inside its budget. A stash in the corpus clone holds
   the stopped session's regeneration; it is superseded by that pull request.
-- **`the-performing-estate-refreshed.md`** arrives with #138, stamped
-  2026-09-20, and this page replaces it. Done when it is deleted after #138
-  merges. Its open residue is folded below.
 - **carlos:** draft pull requests for the three layers above #17, each based
   on the one beneath it.
 - **joe:** a base for `docs/walkthrough` once #23's stack lands. Then its
@@ -149,7 +146,13 @@ From the 2026-09-20 estate page, still open: Cuelist-python #1, qmetronome
 #15, carlos #17, leo #61, ShowRunner #30. ShowStopper's
 `fix/textual-containers` is on origin, waiting to be deleted (D6). dossier and
 looksatwords each keep a `feat/loose-ends` branch with no pull request, by
-decision. The eighteen synthesis questions still gate the first stubs.
+decision. The estate synthesis that page drew on was never filed in `plans/`,
+and its questions still gate the first stubs; these six gate the next round:
+cue numbering as `int` or `str | None`;
+which ShowStopper is canonical; the path-dependency policy for the three plugin
+repositories; whether the performer-display hub is a ShowRunner plugin over
+WebSocket, which needs CORS; where the estate's tempo master lives; and whether
+wolf, cesar and aes are archived.
 
 ## Blocked, and on whom
 

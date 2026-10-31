@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T17:20:26Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-31T19:41:10Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,8 +9,8 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 41**; 38 proposed |
-| Mandatory reading | under budget | 1193 of 1200 lines |
+| Records ratified | every requirement below | **0 of 44**; 41 proposed |
+| Mandatory reading | under budget | 1207 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **294**, unfiltered.
+Every governed document in this corpus: **309**, unfiltered.
 
 | | |
 |---|---|
@@ -58,12 +58,12 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 38 |
+| [P] `proposed` | 41 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 80 |
-| [G] `generated` | 7 |
-| [S] `standing` | 131 |
-| [T] `transient` | 35 |
+| [-] `unreviewed` | 95 |
+| [G] `generated` | 55 |
+| [S] `standing` | 90 |
+| [T] `transient` | 25 |
 
 ## Documents
 
@@ -75,9 +75,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-principle-is-addressed-by-its-name.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-route-is-an-address.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-semantic-index-is-a-recorded-document.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-shared-allowance-is-drawn-on-politely.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-shared-tag-asserts-interoperability.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-acts-that-are-a-persons-by-constitution.md` | record | Proposed |
@@ -107,6 +109,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-the-read-document-governs.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-what-is-not-the-organisation.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-work-is-delivered-into-a-repository.md` | record | Proposed |
 | [D] | `draft` | `records/DRAFT-a-loose-end-is-carried-or-dismissed.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-going-private-is-an-act-with-obligations.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-the-base-is-the-deliverable.md` | record | Draft |
@@ -166,11 +169,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-09-27-the-voice-loop.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-loop-lands-its-remains.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-09-a-comment-in-someone-elses-voice.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-joe-and-vox-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-pages-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-tooling-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-11-what-the-harness-was-reading.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-11-what-was-left-on-the-disk.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-12-what-the-push-found.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-package-remembered.md` | perspective | — |
@@ -181,22 +186,83 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-15-the-voice-set-landing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-18-clearing-the-qm-queue.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-19-a-rename-closed-a-pull-request.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-24-the-corpus-read-whole-and-landed.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-cathy-read-against-quaternion-media.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-the-label-was-not-the-content.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-two-sessions-one-checkout.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-what-qmcp-said-it-was.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-what-whisper-heard.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-26-a-branch-name-is-not-its-commits.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-26-landing-what-was-held-local.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-26-the-graphs-reach-the-pages.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-28-an-allowance-read-as-free.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-29-several-repositories-one-workstation.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-31-a-red-on-main-read-as-the-disk.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-09-first-beat-timing-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/session-transcript-2026-06-09.md` | perspective | — |
+| [G] | `generated` | `docs/families/commons.md` | generated | — |
+| [G] | `generated` | `docs/families/core.md` | generated | — |
+| [G] | `generated` | `docs/families/games.md` | generated | — |
+| [G] | `generated` | `docs/families/index.md` | generated | — |
+| [G] | `generated` | `docs/families/infra.md` | generated | — |
+| [G] | `generated` | `docs/families/instruments.md` | generated | — |
+| [G] | `generated` | `docs/families/irl.md` | generated | — |
+| [G] | `generated` | `docs/families/performer-display.md` | generated | — |
+| [G] | `generated` | `docs/families/performing.md` | generated | — |
+| [G] | `generated` | `docs/families/show-control.md` | generated | — |
+| [G] | `generated` | `docs/projects/Cuelist-python.md` | generated | — |
+| [G] | `generated` | `docs/projects/QLab-python.md` | generated | — |
+| [G] | `generated` | `docs/projects/ShowRunner.md` | generated | — |
+| [G] | `generated` | `docs/projects/ShowStopper.md` | generated | — |
+| [G] | `generated` | `docs/projects/TheatreMix-python.md` | generated | — |
+| [G] | `generated` | `docs/projects/aes.md` | generated | — |
+| [G] | `generated` | `docs/projects/alfred.md` | generated | — |
+| [G] | `generated` | `docs/projects/apothecary.md` | generated | — |
+| [G] | `generated` | `docs/projects/benchmark.md` | generated | — |
+| [G] | `generated` | `docs/projects/carlos.md` | generated | — |
+| [G] | `generated` | `docs/projects/cesar.md` | generated | — |
+| [G] | `generated` | `docs/projects/codecartographer.md` | generated | — |
+| [G] | `generated` | `docs/projects/datum.md` | generated | — |
+| [G] | `generated` | `docs/projects/dossier.md` | generated | — |
+| [G] | `generated` | `docs/projects/factorio-sysops.md` | generated | — |
+| [G] | `generated` | `docs/projects/golfvs.md` | generated | — |
+| [G] | `generated` | `docs/projects/holophonor.md` | generated | — |
+| [G] | `generated` | `docs/projects/index.md` | generated | — |
+| [G] | `generated` | `docs/projects/ira.md` | generated | — |
+| [G] | `generated` | `docs/projects/joe.md` | generated | — |
+| [G] | `generated` | `docs/projects/leo.md` | generated | — |
+| [G] | `generated` | `docs/projects/looksatwords.md` | generated | — |
+| [G] | `generated` | `docs/projects/ludwig.md` | generated | — |
+| [G] | `generated` | `docs/projects/midiphonor.md` | generated | — |
+| [G] | `generated` | `docs/projects/moat.md` | generated | — |
+| [G] | `generated` | `docs/projects/otto.md` | generated | — |
+| [G] | `generated` | `docs/projects/qm.md` | generated | — |
+| [G] | `generated` | `docs/projects/qmcp.md` | generated | — |
+| [G] | `generated` | `docs/projects/qmetronome.md` | generated | — |
+| [G] | `generated` | `docs/projects/rad-godot.md` | generated | — |
+| [G] | `generated` | `docs/projects/rad.md` | generated | — |
+| [G] | `generated` | `docs/projects/scad-chess.md` | generated | — |
+| [G] | `generated` | `docs/projects/stomp.md` | generated | — |
+| [G] | `generated` | `docs/projects/uPhonor.md` | generated | — |
+| [G] | `generated` | `docs/projects/vox.md` | generated | — |
+| [G] | `generated` | `docs/projects/waveofhormuz.md` | generated | — |
+| [G] | `generated` | `docs/projects/wolf.md` | generated | — |
+| [G] | `generated` | `docs/projects/ztgui.md` | generated | — |
 | [G] | `generated` | `handbook/document-states.md` | generated | — |
 | [G] | `generated` | `handbook/gates.md` | generated | — |
-| [G] | `generated` | `inventory.json` | generated | — |
 | [G] | `generated` | `status/documents.yaml` | generated | — |
 | [G] | `generated` | `status/gates.yaml` | generated | — |
 | [G] | `generated` | `status/governance.yaml` | generated | — |
 | [G] | `generated` | `status/harness.yaml` | generated | — |
+| [G] | `generated` | `status/inventory.yaml` | generated | — |
 | [S] | `standing` | `AGENTS.md` | entry | — |
 | [S] | `standing` | `PRINCIPLES.md` | entry | — |
 | [S] | `standing` | `README.md` | entry | — |
@@ -204,55 +270,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/history.md` | reference | — |
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
-| [S] | `standing` | `docs/families/commons.md` | reference | — |
-| [S] | `standing` | `docs/families/core.md` | reference | — |
-| [S] | `standing` | `docs/families/games.md` | reference | — |
-| [S] | `standing` | `docs/families/index.md` | reference | — |
-| [S] | `standing` | `docs/families/infra.md` | reference | — |
-| [S] | `standing` | `docs/families/instruments.md` | reference | — |
-| [S] | `standing` | `docs/families/irl.md` | reference | — |
-| [S] | `standing` | `docs/families/performer-display.md` | reference | — |
-| [S] | `standing` | `docs/families/performing.md` | reference | — |
-| [S] | `standing` | `docs/families/show-control.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
-| [S] | `standing` | `docs/projects/Cuelist-python.md` | reference | — |
-| [S] | `standing` | `docs/projects/QLab-python.md` | reference | — |
-| [S] | `standing` | `docs/projects/ShowRunner.md` | reference | — |
-| [S] | `standing` | `docs/projects/ShowStopper.md` | reference | — |
-| [S] | `standing` | `docs/projects/TheatreMix-python.md` | reference | — |
-| [S] | `standing` | `docs/projects/aes.md` | reference | — |
-| [S] | `standing` | `docs/projects/alfred.md` | reference | — |
-| [S] | `standing` | `docs/projects/apothecary.md` | reference | — |
-| [S] | `standing` | `docs/projects/benchmark.md` | reference | — |
-| [S] | `standing` | `docs/projects/carlos.md` | reference | — |
-| [S] | `standing` | `docs/projects/cesar.md` | reference | — |
-| [S] | `standing` | `docs/projects/codecartographer.md` | reference | — |
-| [S] | `standing` | `docs/projects/datum.md` | reference | — |
-| [S] | `standing` | `docs/projects/dossier.md` | reference | — |
-| [S] | `standing` | `docs/projects/factorio-sysops.md` | reference | — |
-| [S] | `standing` | `docs/projects/golfvs.md` | reference | — |
-| [S] | `standing` | `docs/projects/holophonor.md` | reference | — |
-| [S] | `standing` | `docs/projects/index.md` | reference | — |
-| [S] | `standing` | `docs/projects/ira.md` | reference | — |
-| [S] | `standing` | `docs/projects/joe.md` | reference | — |
-| [S] | `standing` | `docs/projects/leo.md` | reference | — |
-| [S] | `standing` | `docs/projects/looksatwords.md` | reference | — |
-| [S] | `standing` | `docs/projects/ludwig.md` | reference | — |
-| [S] | `standing` | `docs/projects/midiphonor.md` | reference | — |
-| [S] | `standing` | `docs/projects/moat.md` | reference | — |
-| [S] | `standing` | `docs/projects/otto.md` | reference | — |
-| [S] | `standing` | `docs/projects/qm.md` | reference | — |
-| [S] | `standing` | `docs/projects/qmcp.md` | reference | — |
-| [S] | `standing` | `docs/projects/qmetronome.md` | reference | — |
-| [S] | `standing` | `docs/projects/rad-godot.md` | reference | — |
-| [S] | `standing` | `docs/projects/rad.md` | reference | — |
-| [S] | `standing` | `docs/projects/scad-chess.md` | reference | — |
-| [S] | `standing` | `docs/projects/stomp.md` | reference | — |
-| [S] | `standing` | `docs/projects/uPhonor.md` | reference | — |
-| [S] | `standing` | `docs/projects/vox.md` | reference | — |
-| [S] | `standing` | `docs/projects/waveofhormuz.md` | reference | — |
-| [S] | `standing` | `docs/projects/wolf.md` | reference | — |
-| [S] | `standing` | `docs/projects/ztgui.md` | reference | — |
+| [S] | `standing` | `docs/journeys/bring-your-set-up.md` | reference | — |
+| [S] | `standing` | `docs/journeys/clone-to-first-demo.md` | reference | — |
+| [S] | `standing` | `docs/journeys/index.md` | reference | — |
+| [S] | `standing` | `docs/journeys/use-a-model-with-an-application.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/docs-tooling.md` | reference | — |
@@ -293,6 +315,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/merge-review.md` | handbook | — |
 | [S] | `standing` | `handbook/propagation-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/public-by-default.md` | handbook | — |
+| [S] | `standing` | `handbook/research-workspaces.md` | handbook | — |
+| [S] | `standing` | `handbook/running-several-repositories.md` | handbook | — |
 | [S] | `standing` | `handbook/style-guide.md` | handbook | — |
 | [S] | `standing` | `handbook/test-posture.md` | handbook | — |
 | [S] | `standing` | `handbook/what-is-not-the-organisation.md` | handbook | — |
@@ -304,6 +328,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/hil-testing-session.md` | other | — |
 | [S] | `standing` | `plans/moat-remediation.md` | other | — |
 | [S] | `standing` | `plans/open-work.md` | other | — |
+| [S] | `standing` | `plans/org-standards.md` | other | — |
 | [S] | `standing` | `plans/qmpm-standardisations.md` | other | — |
 | [S] | `standing` | `plans/readme-onramp.md` | other | — |
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
@@ -328,19 +353,14 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `protocols/security-review.md` | protocol | — |
 | [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
 | [S] | `standing` | `walkthrough/02-rollout-by-family.md` | walkthrough | — |
-| [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/apothecary-merge-queue.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/carlos-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/design-review-of-the-estate.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/families-delineated.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/governance-loop-poc.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/hil-review-2026-10-31.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/joe-open-set.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/ludwig-simultaneous-run.md` | handoff | — |
@@ -348,18 +368,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/performing-family-consolidation.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/private-34-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qm-queue.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/session-2026-08-12.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/showrunner-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/showstopper-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/simultaneous-performing-family-plan-2026-09-21.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-performing-estate-refreshed.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-triplet.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-voice-loop.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/wolf-simultaneous-run.md` | handoff | — |
