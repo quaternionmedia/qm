@@ -1,9 +1,10 @@
-# Handoff — landing the voice set, paused at joe #33 for manual testing
+# Handoff — landing the voice set, and the steps after it
 
 **Stamped 2026-10-18.** `vox` `main` at `1721e6f`; `qmcp` `main` at
 `df42315`; `joe` `main` at `d72b65b`; `qm` `main` at `03670b8`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
-with `gh` before acting on it.
+with `gh` before acting on it. `joe` #33 and #34 were re-derived on
+2026-10-26 at `joe` `474307f`; nothing else here was.
 
 [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
 set and §5 there is the order it lands in;
@@ -30,7 +31,8 @@ when the set and the steps after it have landed.
    or documents make, the claim is made true in code on that pull request --
    one commit, its tests, each mutation seen red -- and the overview says so.
    Applied on #68, #73 and #74.
-5. **The landing pauses at `joe` #33** until a person has tested it by hand.
+5. **The landing paused at `joe` #33** until a person had tested it by hand.
+   #33 merged on 2026-10-26; whether the test ran is in §5.
 6. **Decided 2026-10-17, while `qm`'s part landed**, each asked on its own:
    - a finding in a pull request's own text is fixed on that pull request,
      one commit, before its merge is asked;
@@ -85,20 +87,20 @@ each stated in its pull request's body:
 
 ## 3. What is left, in order
 
-### `joe` — paused here
+### `joe`
 
 | Pull request | State at the stamp | Done when |
 |---|---|---|
-| #33, the transcript lane | ready, base `main`, head `c51f8f3`, five checks green, `CLEAN` | tested by hand, then merged by `qm merge` |
-| #34, `joe`'s timeless text | draft, stacked on #33's branch | `main` merged in, its body's Branch block and stacking line rewritten, checks green, ready, merged |
+| #33, the transcript lane | merged 2026-10-26 as `c7dccf4` | done |
+| #34, `joe`'s timeless text | merged 2026-10-26 as `474307f` | done |
 | README | not opened | one pull request from `joe`'s `main` after #34, carrying the demo branch's README content as facts |
 | cookbook | not opened | the same, for the cookbook |
 
 The host refused to merge `main` into #27 and #32 and they were merged by
-hand (§6, step 3); #34 may need the same.
+hand (§6, step 3).
 
-What `main` holds to test: the whole loop except #33's transcript lane on the
-visualiser and #34's documentation. `qmcp`'s `docs/voice-loop-demo.md` is the
+What `main` holds to test, since 2026-10-26: the whole loop, #33's transcript
+lane on the visualiser among it. `qmcp`'s `docs/voice-loop-demo.md` is the
 onboarding and the three tiers -- nothing real, the local model, a person at
 the microphone.
 
@@ -111,14 +113,15 @@ together having landed. Nothing of the set is left in `qm`.
 
 ### After the set (review page §5)
 
-- `qm` #134 reaches `qmcp` through a governance pin bump (`qmcp`'s
-  `governance/qm` is at `235708c`, on `project/qmcp`); the bump retires the
-  `AGENTS.md` paragraph `qmcp` #56 added, copies again the six seed workflows
-  `qmcp` carries (`adr-lint`, `leak-check`, `one-pr-check`, `reuse-lint`,
-  `submodule-check`, `tag-claims`), each equal to the seed at the pin and each
-  changed since by `qm` #134 or #140, and adds `qm` #136's
-  `timeless-check.yml`, a seed file.
-- Phase 10's boxes are ticked on `qmcp`'s `docs/ROADMAP.md`.
+- `qm` #134 has reached `qmcp`. `qmcp` #117 (2026-10-25) pins `project/qmcp`
+  at `f4786fe` and copies again the six seed workflows `qmcp` carries
+  (`adr-lint`, `leak-check`, `one-pr-check`, `reuse-lint`, `submodule-check`,
+  `tag-claims`). It adds `timeless-check.yml` and `signature-check.yml`, and
+  retires the sentences of the `AGENTS.md` paragraph `qmcp` #56 added that
+  warned of a `pip` step.
+- Phase 10's boxes are ticked on `qmcp`'s `docs/ROADMAP.md`. At `qmcp`
+  `82b2d58` (2026-10-25) every box is ticked but one: an instruction spoken
+  at joe's page appearing in `/v1/instructions`, which needs work in `joe`.
 - #58's and #61's read-back helpers become one. Decision 4 has already given
   the open question the instruction read-back's hint, options, repeat,
   `ask_over` and vocabulary. Left: its wording ("I heard: ...", "I didn't
@@ -131,12 +134,12 @@ together having landed. Nothing of the set is left in `qm`.
 - The demo branches are deleted by a person: `demo/voice-loop-2026-10-04` in
   `vox`, `qmcp`, `joe` and `qm`, and `joe`'s branches that share commits with
   the set and carry no open pull request (`check_pr_base.py --base main
-  --head <branch>` lists them).
+  --head <branch>` lists them). `qmcp`'s was deleted on 2026-10-25; at that
+  date the branch remains in `vox`, `joe` and `qm`.
 - `qmcp`'s `vendor/vox` can move to `vox`'s `main` to take #15 and #9.
 
 ## 4. Blocked on a person
 
-- **`joe` #33's merge**, on the manual test.
 - **Two decisions carried from the 2026-09-27 review page**, which this page
   retires:
   - whether `joe` carries the corpus -- at the stamp it has no
@@ -157,6 +160,8 @@ together having landed. Nothing of the set is left in `qm`.
 
 - Tiers 2 and 3 of the demonstration -- the local model, a microphone -- were
   not run on any `main` during the landing.
+- That `joe` #33 was tested by hand before it merged on 2026-10-26: its pull
+  request carries no comment or review saying so.
 - Pull requests with no commit made by hand during the landing were checked
   by the hosted workflows only: `vox` #10 to #15; `qmcp` #54 to #56, #58,
   #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31, #33.

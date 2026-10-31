@@ -1,0 +1,6571 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "cesar"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
+   "digest": "sha256:25b0031a9fb713cd7978c242043d6d45f2d5e2540c49eb14a42dbaa5c6bf3698"
+  },
+  "source": {
+   "repo": "quaternionmedia/cesar",
+   "commit": "25926322d8f04ab1736ab3d9993772d804fe9da3"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
+  },
+  "drawn_at": "2026-10-29T19:28:44Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::cesar": {
+      "label": "cesar",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "cesar — n/a · not adopted",
+       "click": "<p><b>cesar</b> — A unified lighting / sound / video controller for theatrical applications</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:cesar",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::show-control": {
+      "label": "show-control",
+      "metadata": {
+       "kind": "family",
+       "family": "show-control",
+       "drives": "the room — cues, lighting, sound and video playback, audio transport",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
+       "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
+       "show": "family:show-control",
+       "color": "#a9d05c",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::cesar",
+      "target": "family::show-control",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::cesar",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::cesar",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::cesar",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:cesar",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:cesar",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/cesar": {
+      "id": "dir::quaternionmedia/cesar",
+      "label": "quaternionmedia/cesar",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": -28.53409031551838,
+      "y": -12.151667683653242,
+      "size": 190
+     },
+     "dir::quaternionmedia/cesar/Cesar": {
+      "id": "dir::quaternionmedia/cesar/Cesar",
+      "label": "Cesar",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": 59.10602856069116,
+      "y": -12.680562184843389,
+      "size": 80
+     },
+     "dir::quaternionmedia/cesar/Cesar/configs": {
+      "id": "dir::quaternionmedia/cesar/Cesar/configs",
+      "label": "configs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 67.31639808414823,
+      "y": -10.480600301471963,
+      "size": 50
+     },
+     "file::quaternionmedia/cesar/Cesar/cr.py": {
+      "id": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "label": "cr.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/Cesar/cr.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 21.24548201666639,
+      "y": 18.322947322873258,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/Cesar/osc.py": {
+      "id": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "label": "osc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/Cesar/osc.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 92.40325612639123,
+      "y": -2.4165036189893456,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/README.md": {
+      "id": "file::quaternionmedia/cesar/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/README.md",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -21.289646618350364,
+      "y": -10.210524845384336,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/core.py": {
+      "id": "file::quaternionmedia/cesar/core.py",
+      "label": "core.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/core.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -118.79881787708437,
+      "y": -2.251583151289285,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/dmx.py": {
+      "id": "file::quaternionmedia/cesar/dmx.py",
+      "label": "dmx.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmx.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -36.10046271684067,
+      "y": -8.214166580858674,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/dmxftdi.py": {
+      "id": "file::quaternionmedia/cesar/dmxftdi.py",
+      "label": "dmxftdi.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmxftdi.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 22.543293166787798,
+      "y": -79.54176278381111,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/dmxpy.py": {
+      "id": "file::quaternionmedia/cesar/dmxpy.py",
+      "label": "dmxpy.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmxpy.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -84.7166150047944,
+      "y": -81.00611432340467,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/editor.py": {
+      "id": "file::quaternionmedia/cesar/editor.py",
+      "label": "editor.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/editor.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -29.905637725657147,
+      "y": 61.86837316084873,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/gcore.py": {
+      "id": "file::quaternionmedia/cesar/gcore.py",
+      "label": "gcore.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/gcore.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -30.476265652350094,
+      "y": -63.44351413647915,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/glog.py": {
+      "id": "file::quaternionmedia/cesar/glog.py",
+      "label": "glog.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/glog.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -103.83056627232708,
+      "y": -58.67236331833826,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/k.py": {
+      "id": "file::quaternionmedia/cesar/k.py",
+      "label": "k.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/k.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -69.23090997645599,
+      "y": 67.05486692420808,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/opencv.sh": {
+      "id": "file::quaternionmedia/cesar/opencv.sh",
+      "label": "opencv.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/opencv.sh",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "above",
+      "x": -25.300402809689505,
+      "y": -21.0286647893555,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/q.py": {
+      "id": "file::quaternionmedia/cesar/q.py",
+      "label": "q.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/q.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -109.97537809961379,
+      "y": 38.04466084684301,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/text.py": {
+      "id": "file::quaternionmedia/cesar/text.py",
+      "label": "text.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/text.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -24.602416931607554,
+      "y": -2.6488437269418896,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/tktest.py": {
+      "id": "file::quaternionmedia/cesar/tktest.py",
+      "label": "tktest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/tktest.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -66.75147063170144,
+      "y": 18.025602131452764,
+      "size": 30
+     },
+     "file::quaternionmedia/cesar/video.py": {
+      "id": "file::quaternionmedia/cesar/video.py",
+      "label": "video.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/video.py",
+      "line": 0,
+      "meta": {},
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -81.85997212064959,
+      "y": -34.74226325296942,
+      "size": 30
+     },
+     "core.George": {
+      "id": "core.George",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "George",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Class",
+       "chars": 1556
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -115.00256427559108,
+      "y": -10.283659811659135,
+      "label_at": "right",
+      "dot_scale": 2.6920095926536702
+     },
+     "core.Ion": {
+      "id": "core.Ion",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Ion",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Class",
+       "chars": 2290
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -109.89329958241277,
+      "y": 0.13464328394856295,
+      "label_at": "right",
+      "dot_scale": 2.859835482339888
+     },
+     "core.__init__": {
+      "id": "core.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 127
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -100.98877124494506,
+      "y": -2.9609912620895393,
+      "label_at": "right",
+      "dot_scale": 1.6038037209559568
+     },
+     "core.action": {
+      "id": "core.action",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "action",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 70
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -107.97660612341026,
+      "y": -15.19823807028136,
+      "label_at": "right",
+      "dot_scale": 1.345098040014257
+     },
+     "core.cesar": {
+      "id": "core.cesar",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cesar",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 858
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -109.57530421189281,
+      "y": 11.21672739670883,
+      "label_at": "right",
+      "dot_scale": 2.4334872878487053
+     },
+     "core.cmagic": {
+      "id": "core.cmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cmagic",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 67
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -116.60567438058092,
+      "y": 15.074219836508057,
+      "label_at": "below",
+      "dot_scale": 1.3260748027008264
+     },
+     "core.drag": {
+      "id": "core.drag",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "drag",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 134
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -125.99232748072701,
+      "y": -0.09576216838589602,
+      "label_at": "left",
+      "dot_scale": 1.6271047983648077
+     },
+     "core.lcmagic": {
+      "id": "core.lcmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lcmagic",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 219
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -105.55872736190753,
+      "y": -8.766623818338097,
+      "label_at": "right",
+      "dot_scale": 1.8404441148401183
+     },
+     "core.lmagic": {
+      "id": "core.lmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lmagic",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 195
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -123.92689123153966,
+      "y": -7.133206228699546,
+      "label_at": "left",
+      "dot_scale": 1.790034611362518
+     },
+     "core.osc": {
+      "id": "core.osc",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "osc",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 112
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -102.78579787633618,
+      "y": 6.160465862510332,
+      "label_at": "right",
+      "dot_scale": 1.5492180226701815
+     },
+     "core.printIon": {
+      "id": "core.printIon",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "printIon",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 71
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -97.64954338263517,
+      "y": 2.5106856989025843,
+      "label_at": "right",
+      "dot_scale": 1.3512583487190752
+     },
+     "core.showIon": {
+      "id": "core.showIon",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "showIon",
+      "file": "core.py",
+      "line": 0,
+      "meta": {
+       "module": "core",
+       "ast_type": "Function",
+       "chars": 2072
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -119.6667667235716,
+      "y": 6.839859321426843,
+      "label_at": "below",
+      "dot_scale": 2.8163897510731952
+     },
+     "cr.Lights": {
+      "id": "cr.Lights",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Lights",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Class",
+       "chars": 396
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 34.5126002816853,
+      "y": 10.845531283818516,
+      "label_at": "right",
+      "dot_scale": 2.097695185925512
+     },
+     "cr.Qlab": {
+      "id": "cr.Qlab",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Qlab",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Class",
+       "chars": 1256
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 20.489294639175053,
+      "y": 26.987993438422663,
+      "label_at": "below",
+      "dot_scale": 2.5989896394011773
+     },
+     "cr.Sound": {
+      "id": "cr.Sound",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Sound",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Class",
+       "chars": 3328
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 30.464632245213856,
+      "y": 20.793211181513755,
+      "label_at": "right",
+      "dot_scale": 3.0221833176186865
+     },
+     "cr.__init__": {
+      "id": "cr.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 876
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 24.932351324381948,
+      "y": 10.79198739542909,
+      "label_at": "right",
+      "dot_scale": 2.442504106168081
+     },
+     "cr._get_message": {
+      "id": "cr._get_message",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_get_message",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 144
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 36.120307383763745,
+      "y": 35.91004436593804,
+      "label_at": "right",
+      "dot_scale": 1.6583624920952498
+     },
+     "cr.count_cues_in_list": {
+      "id": "cr.count_cues_in_list",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "count_cues_in_list",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 104
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 23.59758075529161,
+      "y": 1.2190359357111014,
+      "label_at": "above",
+      "dot_scale": 1.5170333392987803
+     },
+     "cr.count_lists": {
+      "id": "cr.count_lists",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "count_lists",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 75
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 9.313826807460826,
+      "y": 34.671312369224225,
+      "label_at": "left",
+      "dot_scale": 1.3750612633917
+     },
+     "cr.cue": {
+      "id": "cr.cue",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cue",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 72
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 43.6132617755987,
+      "y": 31.075314299718514,
+      "label_at": "right",
+      "dot_scale": 1.3573324964312685
+     },
+     "cr.get_cmd": {
+      "id": "cr.get_cmd",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_cmd",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 61
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 11.622459669481232,
+      "y": 7.417719963608498,
+      "label_at": "left",
+      "dot_scale": 1.2853298350107671
+     },
+     "cr.get_cue_property": {
+      "id": "cr.get_cue_property",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_cue_property",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 196
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 22.35534351408225,
+      "y": 36.080985717478164,
+      "label_at": "below",
+      "dot_scale": 1.7922560713564761
+     },
+     "cr.get_cue_text": {
+      "id": "cr.get_cue_text",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_cue_text",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 78
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 28.559756414710165,
+      "y": 39.027902541521385,
+      "label_at": "below",
+      "dot_scale": 1.3920946026904804
+     },
+     "cr.get_message": {
+      "id": "cr.get_message",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_message",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 153
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 42.526921866240755,
+      "y": 9.94485551147629,
+      "label_at": "right",
+      "dot_scale": 1.6846914308175989
+     },
+     "cr.go": {
+      "id": "cr.go",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "go",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 27
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 47.27052106710378,
+      "y": 13.162829430603173,
+      "label_at": "right",
+      "dot_scale": 0.9313637641589874
+     },
+     "cr.meters": {
+      "id": "cr.meters",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "meters",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 100
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.541459846557878,
+      "y": 34.1415781621428,
+      "label_at": "below",
+      "dot_scale": 1.5
+     },
+     "cr.mix": {
+      "id": "cr.mix",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mix",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 182
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 17.88140299510347,
+      "y": 5.35270051364228,
+      "label_at": "above",
+      "dot_scale": 1.7600713879850747
+     },
+     "cr.mute": {
+      "id": "cr.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 239
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 40.11061816998545,
+      "y": 17.178117393612567,
+      "label_at": "right",
+      "dot_scale": 1.8783979009481377
+     },
+     "cr.name": {
+      "id": "cr.name",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "name",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 321
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.826901890285319,
+      "y": 13.118688523781822,
+      "label_at": "left",
+      "dot_scale": 2.0065050324048723
+     },
+     "cr.nrpn": {
+      "id": "cr.nrpn",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "nrpn",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 423
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 29.341980720487022,
+      "y": 31.53173461184539,
+      "label_at": "right",
+      "dot_scale": 2.1263403673750423
+     },
+     "cr.pan": {
+      "id": "cr.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 64
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 43.31683029439702,
+      "y": 3.511424504232372,
+      "label_at": "right",
+      "dot_scale": 1.306179973983887
+     },
+     "cr.patch": {
+      "id": "cr.patch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "patch",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 154
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 11.531320843222893,
+      "y": 28.42827482246129,
+      "label_at": "left",
+      "dot_scale": 1.687520720836463
+     },
+     "cr.scene": {
+      "id": "cr.scene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "scene",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 216
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 43.79726133106319,
+      "y": 24.194201420265607,
+      "label_at": "right",
+      "dot_scale": 1.834453751150931
+     },
+     "cr.select": {
+      "id": "cr.select",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "select",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 60
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 33.69790036472259,
+      "y": 41.80473889221568,
+      "label_at": "right",
+      "dot_scale": 1.2781512503836436
+     },
+     "cr.select_next_cue": {
+      "id": "cr.select_next_cue",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "select_next_cue",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 213
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 30.3889557490466,
+      "y": 3.582339261443394,
+      "label_at": "right",
+      "dot_scale": 1.8283796034387378
+     },
+     "cr.select_previous_cue": {
+      "id": "cr.select_previous_cue",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "select_previous_cue",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 221
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 37.21433087171478,
+      "y": 28.484696836282588,
+      "label_at": "right",
+      "dot_scale": 1.8443922736851108
+     },
+     "cr.send": {
+      "id": "cr.send",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "send",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 66
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 46.93716878773769,
+      "y": 18.153524126488062,
+      "label_at": "right",
+      "dot_scale": 1.3195439355418688
+     },
+     "cr.set_cue_property": {
+      "id": "cr.set_cue_property",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "set_cue_property",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 131
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 8.368488088925094,
+      "y": 15.215504139674444,
+      "label_at": "left",
+      "dot_scale": 1.6172712956557642
+     },
+     "cr.unmute": {
+      "id": "cr.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 242
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 13.18566411806121,
+      "y": 20.966801356540945,
+      "label_at": "left",
+      "dot_scale": 1.8838153659804313
+     },
+     "cr.z": {
+      "id": "cr.z",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "z",
+      "file": "cr.py",
+      "line": 0,
+      "meta": {
+       "module": "cr",
+       "ast_type": "Function",
+       "chars": 83
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 37.3776183515901,
+      "y": 3.878035666336831,
+      "label_at": "right",
+      "dot_scale": 1.419078092376074
+     },
+     "dmxftdi.OpenDmxUsb": {
+      "id": "dmxftdi.OpenDmxUsb",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "OpenDmxUsb",
+      "file": "dmxftdi.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxftdi",
+       "ast_type": "Class",
+       "chars": 1114
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 30.844237923646144,
+      "y": -77.31753133979555,
+      "label_at": "right",
+      "dot_scale": 2.54688519083771
+     },
+     "dmxftdi.__init__": {
+      "id": "dmxftdi.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "dmxftdi.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxftdi",
+       "ast_type": "Function",
+       "chars": 211
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 30.263441886793068,
+      "y": -68.09346295223845,
+      "label_at": "right",
+      "dot_scale": 1.8242824552976926
+     },
+     "dmxftdi._init_dmx": {
+      "id": "dmxftdi._init_dmx",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_init_dmx",
+      "file": "dmxftdi.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxftdi",
+       "ast_type": "Function",
+       "chars": 434
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 22.68363253712105,
+      "y": -71.76804999972941,
+      "label_at": "below",
+      "dot_scale": 2.1374897295125104
+     },
+     "dmxftdi.send_dmx": {
+      "id": "dmxftdi.send_dmx",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "send_dmx",
+      "file": "dmxftdi.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxftdi",
+       "ast_type": "Function",
+       "chars": 383
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 26.54597118446565,
+      "y": -86.08028096837074,
+      "label_at": "right",
+      "dot_scale": 2.083198773968623
+     },
+     "dmxpy.DMXConnection": {
+      "id": "dmxpy.DMXConnection",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "DMXConnection",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Class",
+       "chars": 2267
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -75.81956587476952,
+      "y": -78.62215719399448,
+      "label_at": "right",
+      "dot_scale": 2.8554515201265174
+     },
+     "dmxpy.__init__": {
+      "id": "dmxpy.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Function",
+       "chars": 811
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -85.12234347170514,
+      "y": -72.69797360034326,
+      "label_at": "below",
+      "dot_scale": 2.409020854211156
+     },
+     "dmxpy.clear": {
+      "id": "dmxpy.clear",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clear",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Function",
+       "chars": 287
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -72.04752274461904,
+      "y": -88.02008631617187,
+      "label_at": "right",
+      "dot_scale": 1.9578818967339924
+     },
+     "dmxpy.close": {
+      "id": "dmxpy.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Function",
+       "chars": 44
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -87.83676474902354,
+      "y": -85.87981303566083,
+      "label_at": "left",
+      "dot_scale": 1.1434526764861874
+     },
+     "dmxpy.render": {
+      "id": "dmxpy.render",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "render",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Function",
+       "chars": 510
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -76.58500360173564,
+      "y": -68.02371847575188,
+      "label_at": "right",
+      "dot_scale": 2.2075701760979363
+     },
+     "dmxpy.setChannel": {
+      "id": "dmxpy.setChannel",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setChannel",
+      "file": "dmxpy.py",
+      "line": 0,
+      "meta": {
+       "module": "dmxpy",
+       "ast_type": "Function",
+       "chars": 531
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -80.91341607330958,
+      "y": -87.98760296793316,
+      "label_at": "right",
+      "dot_scale": 2.225094521081469
+     },
+     "editor.Timeline": {
+      "id": "editor.Timeline",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Timeline",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Class",
+       "chars": 2377
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -20.96883560606088,
+      "y": 64.2629820717113,
+      "label_at": "right",
+      "dot_scale": 2.8760291817281805
+     },
+     "editor.__init__": {
+      "id": "editor.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 535
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -26.115789730928963,
+      "y": 54.87221368321066,
+      "label_at": "right",
+      "dot_scale": 2.2283537820212285
+     },
+     "editor.addVido": {
+      "id": "editor.addVido",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "addVido",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 49
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -28.21126320616839,
+      "y": 77.16811011649729,
+      "label_at": "below",
+      "dot_scale": 1.1901960800285138
+     },
+     "editor.assignWindow": {
+      "id": "editor.assignWindow",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "assignWindow",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 102
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -10.980771105900098,
+      "y": 66.9176815644913,
+      "label_at": "right",
+      "dot_scale": 1.5086001717619175
+     },
+     "editor.bufMan": {
+      "id": "editor.bufMan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "bufMan",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 212
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -22.468410806409718,
+      "y": 74.05353630941512,
+      "label_at": "right",
+      "dot_scale": 1.8263358609287514
+     },
+     "editor.bufferFrame": {
+      "id": "editor.bufferFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "bufferFrame",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 124
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -15.446499824740304,
+      "y": 71.91782847502452,
+      "label_at": "right",
+      "dot_scale": 1.5934216851622351
+     },
+     "editor.getClip": {
+      "id": "editor.getClip",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "getClip",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 146
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -12.29285922946652,
+      "y": 60.1986894919293,
+      "label_at": "right",
+      "dot_scale": 1.6643528557844371
+     },
+     "editor.getLength": {
+      "id": "editor.getLength",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "getLength",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 94
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -40.861994430922714,
+      "y": 58.88314552048561,
+      "label_at": "left",
+      "dot_scale": 1.4731278535996988
+     },
+     "editor.getPos": {
+      "id": "editor.getPos",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "getPos",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 192
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -17.59418038980374,
+      "y": 55.04247218957639,
+      "label_at": "right",
+      "dot_scale": 1.7833012287035497
+     },
+     "editor.loadVideo": {
+      "id": "editor.loadVideo",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "loadVideo",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 53
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.01893835639257,
+      "y": 49.500065936343596,
+      "label_at": "right",
+      "dot_scale": 1.2242758696007892
+     },
+     "editor.play": {
+      "id": "editor.play",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "play",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 164
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -36.44730174191161,
+      "y": 64.15468098436186,
+      "label_at": "left",
+      "dot_scale": 1.7148438480476977
+     },
+     "editor.playClip": {
+      "id": "editor.playClip",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playClip",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 170
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -34.3691543029544,
+      "y": 56.52692031153093,
+      "label_at": "left",
+      "dot_scale": 1.7304489213782739
+     },
+     "editor.playNextFrame": {
+      "id": "editor.playNextFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNextFrame",
+      "file": "editor.py",
+      "line": 0,
+      "meta": {
+       "module": "editor",
+       "ast_type": "Function",
+       "chars": 629
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -30.201912882530934,
+      "y": 69.96025237564655,
+      "label_at": "below",
+      "dot_scale": 2.298650645445269
+     },
+     "gcore.AAAAA": {
+      "id": "gcore.AAAAA",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "AAAAA",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 38
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -35.32291155910271,
+      "y": -83.89687573879888,
+      "label_at": "above",
+      "dot_scale": 1.0797835966168101
+     },
+     "gcore.George": {
+      "id": "gcore.George",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "George",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Class",
+       "chars": 4662
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -20.974313685800908,
+      "y": -60.89747378052298,
+      "label_at": "right",
+      "dot_scale": 3.168572269184558
+     },
+     "gcore.Ion": {
+      "id": "gcore.Ion",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Ion",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Class",
+       "chars": 776
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -16.17799352998683,
+      "y": -71.47797162553266,
+      "label_at": "right",
+      "dot_scale": 2.389861721258188
+     },
+     "gcore.JobQueueManager": {
+      "id": "gcore.JobQueueManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "JobQueueManager",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Class",
+       "chars": 42
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -23.758253026539236,
+      "y": -86.62902020252321,
+      "label_at": "above",
+      "dot_scale": 1.1232492903979003
+     },
+     "gcore.QueueManager": {
+      "id": "gcore.QueueManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "QueueManager",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Class",
+       "chars": 37
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -40.570442117086984,
+      "y": -80.8603506349409,
+      "label_at": "left",
+      "dot_scale": 1.068201724066995
+     },
+     "gcore.ServerQueueManager": {
+      "id": "gcore.ServerQueueManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "ServerQueueManager",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Class",
+       "chars": 45
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -15.465501391760458,
+      "y": -85.04856080541799,
+      "label_at": "right",
+      "dot_scale": 1.1532125137753437
+     },
+     "gcore.__init__": {
+      "id": "gcore.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 253
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -13.82693245082313,
+      "y": -44.40563097244332,
+      "label_at": "right",
+      "dot_scale": 1.903120521175818
+     },
+     "gcore.action": {
+      "id": "gcore.action",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "action",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 53
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -29.254514781077802,
+      "y": -37.52421272359332,
+      "label_at": "below",
+      "dot_scale": 1.2242758696007892
+     },
+     "gcore.activateSoundBoard": {
+      "id": "gcore.activateSoundBoard",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "activateSoundBoard",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 543
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -3.8226266343610984,
+      "y": -56.356346279775124,
+      "label_at": "right",
+      "dot_scale": 2.234799829588847
+     },
+     "gcore.background": {
+      "id": "gcore.background",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "background",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 660
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -9.876036222756987,
+      "y": -63.81845780462639,
+      "label_at": "right",
+      "dot_scale": 2.3195439355418688
+     },
+     "gcore.board": {
+      "id": "gcore.board",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "board",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 26
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -0.7898257714164741,
+      "y": -71.77273160334961,
+      "label_at": "right",
+      "dot_scale": 0.914973347970818
+     },
+     "gcore.buf": {
+      "id": "gcore.buf",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "buf",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 94
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -2.331922755378276,
+      "y": -66.72691663538188,
+      "label_at": "right",
+      "dot_scale": 1.4731278535996988
+     },
+     "gcore.callback": {
+      "id": "gcore.callback",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "callback",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 33
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -34.22934337613565,
+      "y": -37.851450537358424,
+      "label_at": "below",
+      "dot_scale": 1.0185139398778875
+     },
+     "gcore.cesar": {
+      "id": "gcore.cesar",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cesar",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 1694
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -26.913957145208013,
+      "y": -71.66255418343957,
+      "label_at": "right",
+      "dot_scale": 2.728913405994688
+     },
+     "gcore.cmagic": {
+      "id": "gcore.cmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cmagic",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 67
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1.402204247879947,
+      "y": -61.90541864406233,
+      "label_at": "right",
+      "dot_scale": 1.3260748027008264
+     },
+     "gcore.do": {
+      "id": "gcore.do",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "do",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 60
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -48.831542471626804,
+      "y": -72.89706345661035,
+      "label_at": "left",
+      "dot_scale": 1.2781512503836436
+     },
+     "gcore.drawicons": {
+      "id": "gcore.drawicons",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "drawicons",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 195
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -23.2712713985348,
+      "y": -40.13643214197359,
+      "label_at": "below",
+      "dot_scale": 1.790034611362518
+     },
+     "gcore.ger": {
+      "id": "gcore.ger",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ger",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 156
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -16.422093051539214,
+      "y": -37.16411541735867,
+      "label_at": "right",
+      "dot_scale": 1.6931245983544616
+     },
+     "gcore.get": {
+      "id": "gcore.get",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 294
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -35.04081077005651,
+      "y": -77.30664891477231,
+      "label_at": "above",
+      "dot_scale": 1.9683473304121573
+     },
+     "gcore.ggui": {
+      "id": "gcore.ggui",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ggui",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 43
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -48.449096275947774,
+      "y": -60.900713787495306,
+      "label_at": "left",
+      "dot_scale": 1.1334684555795866
+     },
+     "gcore.gui": {
+      "id": "gcore.gui",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "gui",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 1976
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -31.58123582138808,
+      "y": -54.41933791090685,
+      "label_at": "below",
+      "dot_scale": 2.795786940251609
+     },
+     "gcore.ksp": {
+      "id": "gcore.ksp",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ksp",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 252
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -40.601946418851725,
+      "y": -50.35418893371403,
+      "label_at": "left",
+      "dot_scale": 1.9014005407815442
+     },
+     "gcore.lcmagic": {
+      "id": "gcore.lcmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lcmagic",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 219
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -12.141150867510223,
+      "y": -79.47775055112272,
+      "label_at": "right",
+      "dot_scale": 1.8404441148401183
+     },
+     "gcore.lmagic": {
+      "id": "gcore.lmagic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lmagic",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 234
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -29.01437814547697,
+      "y": -82.83066928757718,
+      "label_at": "above",
+      "dot_scale": 1.8692158574101427
+     },
+     "gcore.loadin": {
+      "id": "gcore.loadin",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "loadin",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 292
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -7.016393584582041,
+      "y": -72.42570404459072,
+      "label_at": "right",
+      "dot_scale": 1.9653828514484182
+     },
+     "gcore.make_client_manager": {
+      "id": "gcore.make_client_manager",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "make_client_manager",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 558
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -12.720417639600502,
+      "y": -53.13529255587171,
+      "label_at": "right",
+      "dot_scale": 2.2466341989375787
+     },
+     "gcore.make_server_manager": {
+      "id": "gcore.make_server_manager",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "make_server_manager",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 691
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -41.1734147929828,
+      "y": -59.317747706410884,
+      "label_at": "left",
+      "dot_scale": 2.3394780473741985
+     },
+     "gcore.makeentry": {
+      "id": "gcore.makeentry",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "makeentry",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 221
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -45.889594501167394,
+      "y": -66.8273730669725,
+      "label_at": "left",
+      "dot_scale": 1.8443922736851108
+     },
+     "gcore.mana": {
+      "id": "gcore.mana",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mana",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 66
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -46.65840895023334,
+      "y": -53.7466929995702,
+      "label_at": "left",
+      "dot_scale": 1.3195439355418688
+     },
+     "gcore.manag": {
+      "id": "gcore.manag",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "manag",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 229
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -38.17410025191188,
+      "y": -42.70790743729867,
+      "label_at": "below",
+      "dot_scale": 1.859835482339888
+     },
+     "gcore.reflow": {
+      "id": "gcore.reflow",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "reflow",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 177
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -42.65877409736501,
+      "y": -75.09453882498106,
+      "label_at": "left",
+      "dot_scale": 1.7479732663618066
+     },
+     "gcore.reloadin": {
+      "id": "gcore.reloadin",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "reloadin",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 538
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -20.763100545735824,
+      "y": -80.07270753963955,
+      "label_at": "right",
+      "dot_scale": 2.230782275666389
+     },
+     "gcore.resize": {
+      "id": "gcore.resize",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "resize",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 154
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -6.714907250968539,
+      "y": -47.307561046724196,
+      "label_at": "right",
+      "dot_scale": 1.687520720836463
+     },
+     "gcore.run": {
+      "id": "gcore.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "run",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 319
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -30.128086962833052,
+      "y": -44.425274918801804,
+      "label_at": "below",
+      "dot_scale": 2.003790683057181
+     },
+     "gcore.showFrame": {
+      "id": "gcore.showFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "showFrame",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 79
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -0.3800900402873424,
+      "y": -49.39632494486989,
+      "label_at": "right",
+      "dot_scale": 1.3976270912904414
+     },
+     "gcore.tentry": {
+      "id": "gcore.tentry",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tentry",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 743
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -37.091314707632876,
+      "y": -68.35994792620536,
+      "label_at": "left",
+      "dot_scale": 2.370988813760575
+     },
+     "gcore.test": {
+      "id": "gcore.test",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "test",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 184
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -4.445697371271887,
+      "y": -79.95959484647356,
+      "label_at": "right",
+      "dot_scale": 1.7648178230095364
+     },
+     "gcore.timeline": {
+      "id": "gcore.timeline",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "timeline",
+      "file": "gcore.py",
+      "line": 0,
+      "meta": {
+       "module": "gcore",
+       "ast_type": "Function",
+       "chars": 993
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.85575320639842,
+      "y": -49.09931105592615,
+      "label_at": "right",
+      "dot_scale": 2.4969492484953815
+     },
+     "glog.glog": {
+      "id": "glog.glog",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "glog",
+      "file": "glog.py",
+      "line": 0,
+      "meta": {
+       "module": "glog",
+       "ast_type": "Function",
+       "chars": 29
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -98.59061571763637,
+      "y": -57.26832279882987,
+      "label_at": "right",
+      "dot_scale": 0.9623979978989561
+     },
+     "k.__init__": {
+      "id": "k.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "k.py",
+      "line": 0,
+      "meta": {
+       "module": "k",
+       "ast_type": "Function",
+       "chars": 270
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -65.29268986807809,
+      "y": 60.833920128565246,
+      "label_at": "right",
+      "dot_scale": 1.9313637641589874
+     },
+     "k.mainWindow": {
+      "id": "k.mainWindow",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "mainWindow",
+      "file": "k.py",
+      "line": 0,
+      "meta": {
+       "module": "k",
+       "ast_type": "Class",
+       "chars": 1327
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -60.783172057609455,
+      "y": 69.31843147743278,
+      "label_at": "right",
+      "dot_scale": 2.6228709228644354
+     },
+     "k.start": {
+      "id": "k.start",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "start",
+      "file": "k.py",
+      "line": 0,
+      "meta": {
+       "module": "k",
+       "ast_type": "Function",
+       "chars": 627
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -69.32291487117436,
+      "y": 75.14887911147316,
+      "label_at": "below",
+      "dot_scale": 2.2972675408307164
+     },
+     "osc.Client": {
+      "id": "osc.Client",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Client",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Class",
+       "chars": 345
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 92.81416074268495,
+      "y": 5.14798257534768,
+      "label_at": "below",
+      "dot_scale": 2.0378190950732744
+     },
+     "osc.Osc": {
+      "id": "osc.Osc",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Osc",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Class",
+       "chars": 291
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 100.48021270076389,
+      "y": 8.827638803716564,
+      "label_at": "right",
+      "dot_scale": 1.9638929889859074
+     },
+     "osc.Server": {
+      "id": "osc.Server",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Server",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Class",
+       "chars": 145
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 81.28309245122256,
+      "y": -4.976002580981277,
+      "label_at": "left",
+      "dot_scale": 1.6613680022349748
+     },
+     "osc.__init__": {
+      "id": "osc.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 158
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 108.85083583685733,
+      "y": -1.3354867006931563,
+      "label_at": "right",
+      "dot_scale": 1.6986570869544226
+     },
+     "osc._get_message": {
+      "id": "osc._get_message",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_get_message",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 131
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 85.50693519340251,
+      "y": 7.905405033182449,
+      "label_at": "left",
+      "dot_scale": 1.6172712956557642
+     },
+     "osc.build": {
+      "id": "osc.build",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "build",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 188
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 86.05364146829818,
+      "y": 0.6430956815461002,
+      "label_at": "left",
+      "dot_scale": 1.7741578492636798
+     },
+     "osc.get_message": {
+      "id": "osc.get_message",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_message",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 144
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 101.35570893129307,
+      "y": -14.952927145862391,
+      "label_at": "right",
+      "dot_scale": 1.6583624920952498
+     },
+     "osc.oscParse": {
+      "id": "osc.oscParse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "oscParse",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 705
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 100.32034954462881,
+      "y": -0.29512483117082766,
+      "label_at": "right",
+      "dot_scale": 2.3481891169913984
+     },
+     "osc.parseNumbers": {
+      "id": "osc.parseNumbers",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "parseNumbers",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 156
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 107.70789964892809,
+      "y": 5.857843004257575,
+      "label_at": "right",
+      "dot_scale": 1.6931245983544616
+     },
+     "osc.send_message": {
+      "id": "osc.send_message",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "send_message",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 134
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 93.9622203111265,
+      "y": 12.89320533476263,
+      "label_at": "below",
+      "dot_scale": 1.6271047983648077
+     },
+     "osc.slip": {
+      "id": "osc.slip",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "slip",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 287
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 104.98296699325826,
+      "y": -8.12399006542866,
+      "label_at": "right",
+      "dot_scale": 1.9578818967339924
+     },
+     "osc.tcpParse": {
+      "id": "osc.tcpParse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tcpParse",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 335
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 96.53905246480531,
+      "y": -8.73307245243873,
+      "label_at": "right",
+      "dot_scale": 2.025044807036845
+     },
+     "osc.unPadBack": {
+      "id": "osc.unPadBack",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unPadBack",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 101
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 91.92562445497111,
+      "y": -14.720619271710003,
+      "label_at": "above",
+      "dot_scale": 1.5043213737826426
+     },
+     "osc.unPadFront": {
+      "id": "osc.unPadFront",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unPadFront",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 86
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 112.21004217479478,
+      "y": -7.209045959074725,
+      "label_at": "right",
+      "dot_scale": 1.4344984512435677
+     },
+     "osc.unSlip": {
+      "id": "osc.unSlip",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unSlip",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function",
+       "chars": 266
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 88.14551586429596,
+      "y": -8.407385693736416,
+      "label_at": "left",
+      "dot_scale": 1.924881636631067
+     },
+     "q.cue": {
+      "id": "q.cue",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cue",
+      "file": "q.py",
+      "line": 0,
+      "meta": {
+       "module": "q",
+       "ast_type": "Function",
+       "chars": 59
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -103.50913092629341,
+      "y": 48.0608432448917,
+      "label_at": "right",
+      "dot_scale": 1.2708520116421442
+     },
+     "q.draw": {
+      "id": "q.draw",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "draw",
+      "file": "q.py",
+      "line": 0,
+      "meta": {
+       "module": "q",
+       "ast_type": "Function",
+       "chars": 193
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -109.41898104537941,
+      "y": 45.093851173338145,
+      "label_at": "below",
+      "dot_scale": 1.7855573090077739
+     },
+     "q.get_edges": {
+      "id": "q.get_edges",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_edges",
+      "file": "q.py",
+      "line": 0,
+      "meta": {
+       "module": "q",
+       "ast_type": "Function",
+       "chars": 964
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -101.79576938452549,
+      "y": 40.2363803964535,
+      "label_at": "right",
+      "dot_scale": 2.484077033902831
+     },
+     "q.show": {
+      "id": "q.show",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "show",
+      "file": "q.py",
+      "line": 0,
+      "meta": {
+       "module": "q",
+       "ast_type": "Function",
+       "chars": 50
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -100.4145052140712,
+      "y": 32.492508928549555,
+      "label_at": "right",
+      "dot_scale": 1.1989700043360187
+     },
+     "q.walk": {
+      "id": "q.walk",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "walk",
+      "file": "q.py",
+      "line": 0,
+      "meta": {
+       "module": "q",
+       "ast_type": "Function",
+       "chars": 76
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -106.03207843577435,
+      "y": 33.180674543449,
+      "label_at": "right",
+      "dot_scale": 1.3808135922807914
+     },
+     "tktest.DndHandler": {
+      "id": "tktest.DndHandler",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "DndHandler",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Class",
+       "chars": 2075
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -57.92866916583738,
+      "y": 20.389664659211164,
+      "label_at": "right",
+      "dot_scale": 2.8170181010481117
+     },
+     "tktest.Icon": {
+      "id": "tktest.Icon",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Icon",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Class",
+       "chars": 1894
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -67.53689754735217,
+      "y": 27.046233057294017,
+      "label_at": "below",
+      "dot_scale": 2.7773799746672547
+     },
+     "tktest.Tester": {
+      "id": "tktest.Tester",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Tester",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Class",
+       "chars": 1135
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -62.92090006003072,
+      "y": 10.314656238335477,
+      "label_at": "right",
+      "dot_scale": 2.5549958615291417
+     },
+     "tktest.__del__": {
+      "id": "tktest.__del__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__del__",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 129
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -42.065064393328235,
+      "y": 24.280837279040846,
+      "label_at": "right",
+      "dot_scale": 1.610589710299249
+     },
+     "tktest.__init__": {
+      "id": "tktest.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 598
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -52.7822166458185,
+      "y": 11.02294860456979,
+      "label_at": "right",
+      "dot_scale": 2.276701183988411
+     },
+     "tktest.attach": {
+      "id": "tktest.attach",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "attach",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 522
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -72.66931279221025,
+      "y": 12.738941460965084,
+      "label_at": "left",
+      "dot_scale": 2.217670503002262
+     },
+     "tktest.cancel": {
+      "id": "tktest.cancel",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "cancel",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 53
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -58.343690025144554,
+      "y": 38.7619030784917,
+      "label_at": "right",
+      "dot_scale": 1.2242758696007892
+     },
+     "tktest.detach": {
+      "id": "tktest.detach",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detach",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 185
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -70.11107080884408,
+      "y": 4.664850004081707,
+      "label_at": "above",
+      "dot_scale": 1.7671717284030137
+     },
+     "tktest.dnd_accept": {
+      "id": "tktest.dnd_accept",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_accept",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 50
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -44.167943561826256,
+      "y": 5.036167298430758,
+      "label_at": "right",
+      "dot_scale": 1.1989700043360187
+     },
+     "tktest.dnd_commit": {
+      "id": "tktest.dnd_commit",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_commit",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 145
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -76.56083699757177,
+      "y": 29.59690888193135,
+      "label_at": "left",
+      "dot_scale": 1.6613680022349748
+     },
+     "tktest.dnd_end": {
+      "id": "tktest.dnd_end",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_end",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 40
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -41.15855727524603,
+      "y": 16.698790030522215,
+      "label_at": "right",
+      "dot_scale": 1.1020599913279625
+     },
+     "tktest.dnd_enter": {
+      "id": "tktest.dnd_enter",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_enter",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 295
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -56.805443418840184,
+      "y": 2.980030608954511,
+      "label_at": "right",
+      "dot_scale": 1.969822015978163
+     },
+     "tktest.dnd_leave": {
+      "id": "tktest.dnd_leave",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_leave",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 135
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -50.23753071909366,
+      "y": 35.18299876631316,
+      "label_at": "right",
+      "dot_scale": 1.630333768495006
+     },
+     "tktest.dnd_motion": {
+      "id": "tktest.dnd_motion",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_motion",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 169
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -44.28091266941669,
+      "y": 11.388876340841314,
+      "label_at": "right",
+      "dot_scale": 1.7278867046136734
+     },
+     "tktest.dnd_start": {
+      "id": "tktest.dnd_start",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dnd_start",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 104
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -80.43490480930606,
+      "y": 14.529762353017844,
+      "label_at": "left",
+      "dot_scale": 1.5170333392987803
+     },
+     "tktest.finish": {
+      "id": "tktest.finish",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "finish",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 516
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -76.33501999889305,
+      "y": 21.35196529387796,
+      "label_at": "left",
+      "dot_scale": 2.2126497016272113
+     },
+     "tktest.fire": {
+      "id": "tktest.fire",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fire",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 129
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -64.09171599835327,
+      "y": 0.613926666130002,
+      "label_at": "above",
+      "dot_scale": 1.610589710299249
+     },
+     "tktest.move": {
+      "id": "tktest.move",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "move",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 98
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -72.07974206422713,
+      "y": 34.858644096716496,
+      "label_at": "below",
+      "dot_scale": 1.4912260756924949
+     },
+     "tktest.on_motion": {
+      "id": "tktest.on_motion",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "on_motion",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 678
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -57.65006035010577,
+      "y": 31.182564832427946,
+      "label_at": "right",
+      "dot_scale": 2.3312296938670634
+     },
+     "tktest.on_release": {
+      "id": "tktest.on_release",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "on_release",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 52
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -76.35182829662588,
+      "y": 6.357962571066602,
+      "label_at": "left",
+      "dot_scale": 1.2160033436347992
+     },
+     "tktest.press": {
+      "id": "tktest.press",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "press",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 291
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -64.89501522237524,
+      "y": 36.67284621934403,
+      "label_at": "below",
+      "dot_scale": 1.9638929889859074
+     },
+     "tktest.putback": {
+      "id": "tktest.putback",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "putback",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 74
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -49.68320534925128,
+      "y": 3.8738716190504583,
+      "label_at": "right",
+      "dot_scale": 1.3692317197309762
+     },
+     "tktest.release": {
+      "id": "tktest.release",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "release",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 53
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -77.94894055941013,
+      "y": 35.712644198762554,
+      "label_at": "left",
+      "dot_scale": 1.2242758696007892
+     },
+     "tktest.test": {
+      "id": "tktest.test",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "test",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 393
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -47.73450635358598,
+      "y": 18.764954159514623,
+      "label_at": "right",
+      "dot_scale": 2.0943925503754266
+     },
+     "tktest.where": {
+      "id": "tktest.where",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "where",
+      "file": "tktest.py",
+      "line": 0,
+      "meta": {
+       "module": "tktest",
+       "ast_type": "Function",
+       "chars": 347
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -49.212329860570954,
+      "y": 27.40898022577081,
+      "label_at": "right",
+      "dot_scale": 2.040329474790874
+     },
+     "video.Video": {
+      "id": "video.Video",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Video",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Class",
+       "chars": 3767
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -72.53686450642505,
+      "y": -32.244144096789505,
+      "label_at": "right",
+      "dot_scale": 3.0759956202032677
+     },
+     "video.__init__": {
+      "id": "video.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 900
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -78.2096587769464,
+      "y": -42.31707894745923,
+      "label_at": "right",
+      "dot_scale": 2.454242509439325
+     },
+     "video._bufferFrame": {
+      "id": "video._bufferFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_bufferFrame",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 166
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -88.9181271479031,
+      "y": -32.68057530235518,
+      "label_at": "left",
+      "dot_scale": 1.7201080880400552
+     },
+     "video.assignWindow": {
+      "id": "video.assignWindow",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "assignWindow",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 100
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -80.48734186007908,
+      "y": -17.764203982236523,
+      "label_at": "below",
+      "dot_scale": 1.5
+     },
+     "video.bufferFrame": {
+      "id": "video.bufferFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "bufferFrame",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 116
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -72.2239420219706,
+      "y": -48.40464091580548,
+      "label_at": "right",
+      "dot_scale": 1.5644579892269184
+     },
+     "video.convertImage": {
+      "id": "video.convertImage",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "convertImage",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 328
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -74.04596666546878,
+      "y": -21.66752421368898,
+      "label_at": "right",
+      "dot_scale": 2.015873843711679
+     },
+     "video.getNextFrame": {
+      "id": "video.getNextFrame",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "getNextFrame",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 162
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -63.66760951133435,
+      "y": -37.01507537303053,
+      "label_at": "right",
+      "dot_scale": 1.709515014542631
+     },
+     "video.loadImage": {
+      "id": "video.loadImage",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "loadImage",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 52
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -90.68469954514707,
+      "y": -26.558121040746325,
+      "label_at": "left",
+      "dot_scale": 1.2160033436347992
+     },
+     "video.loadVideo": {
+      "id": "video.loadVideo",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "loadVideo",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 58
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -85.20398160390458,
+      "y": -46.0652898638657,
+      "label_at": "above",
+      "dot_scale": 1.2634279935629373
+     },
+     "video.pause": {
+      "id": "video.pause",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pause",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 158
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -66.52846077841204,
+      "y": -24.18885863000512,
+      "label_at": "right",
+      "dot_scale": 1.6986570869544226
+     },
+     "video.play": {
+      "id": "video.play",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "play",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 154
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -62.03417800864076,
+      "y": -29.90625126868411,
+      "label_at": "right",
+      "dot_scale": 1.687520720836463
+     },
+     "video.playNext": {
+      "id": "video.playNext",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNext",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 1175
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -82.62366162426979,
+      "y": -26.136004657170663,
+      "label_at": "below",
+      "dot_scale": 2.570037866607755
+     },
+     "video.seek": {
+      "id": "video.seek",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "seek",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 171
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -86.70417793242883,
+      "y": -39.7481315765624,
+      "label_at": "left",
+      "dot_scale": 1.7329961103921538
+     },
+     "video.timeUntilNext": {
+      "id": "video.timeUntilNext",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "timeUntilNext",
+      "file": "video.py",
+      "line": 0,
+      "meta": {
+       "module": "video",
+       "ast_type": "Function",
+       "chars": 182
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -69.29150723198127,
+      "y": -41.88468176894983,
+      "label_at": "right",
+      "dot_scale": 1.7600713879850747
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/core.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/dmx.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/dmxftdi.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/dmxpy.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/editor.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/gcore.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/glog.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/k.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/q.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/text.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/tktest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/video.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "file::quaternionmedia/cesar/opencv.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar",
+      "target": "dir::quaternionmedia/cesar/Cesar",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar/Cesar",
+      "target": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar/Cesar",
+      "target": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/cesar/Cesar",
+      "target": "dir::quaternionmedia/cesar/Cesar/configs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "core.Ion",
+      "target": "core.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.Ion",
+      "target": "core.printIon",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.Ion",
+      "target": "core.showIon",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.showIon",
+      "target": "core.drag",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.George",
+      "target": "core.cesar",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.George",
+      "target": "core.lmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.George",
+      "target": "core.cmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.George",
+      "target": "core.lcmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.George",
+      "target": "core.osc",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.cesar",
+      "target": "core.Ion",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "core.cesar",
+      "target": "core.action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "core.osc",
+      "target": "core.osc",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.Ion",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.printIon",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.showIon",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.drag",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.George",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.cesar",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.lmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.cmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.lcmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "core.osc",
+      "kind": "contains"
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.addVido",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.loadVideo",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.playNextFrame",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.play",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.playClip",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.bufferFrame",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.bufMan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.assignWindow",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.getPos",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.Timeline",
+      "target": "editor.getLength",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.__init__",
+      "target": "video.Video",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "editor.__init__",
+      "target": "editor.getLength",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "editor.addVido",
+      "target": "video.Video",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "editor.playNextFrame",
+      "target": "editor.bufferFrame",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "editor.play",
+      "target": "editor.playNextFrame",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "editor.playClip",
+      "target": "editor.getClip",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "editor.playClip",
+      "target": "editor.loadVideo",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "editor.bufferFrame",
+      "target": "editor.getPos",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.Timeline",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.addVido",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.loadVideo",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.playNextFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.play",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.playClip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.getClip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.bufferFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.bufMan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.assignWindow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.getPos",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "editor.getLength",
+      "kind": "contains"
+     },
+     {
+      "source": "dmxpy.DMXConnection",
+      "target": "dmxpy.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.DMXConnection",
+      "target": "dmxpy.setChannel",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.DMXConnection",
+      "target": "dmxpy.clear",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.DMXConnection",
+      "target": "dmxpy.render",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.DMXConnection",
+      "target": "dmxpy.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.setChannel",
+      "target": "dmxpy.render",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "dmxpy.close",
+      "target": "dmxpy.close",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.DMXConnection",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.setChannel",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.clear",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.render",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxpy.py",
+      "target": "dmxpy.close",
+      "kind": "contains"
+     },
+     {
+      "source": "gcore.Ion",
+      "target": "gcore.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.Ion",
+      "target": "gcore.test",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.Ion",
+      "target": "gcore.run",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.background",
+      "target": "gcore.do",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.background",
+      "target": "gcore.get",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.activateSoundBoard",
+      "target": "gcore.do",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.activateSoundBoard",
+      "target": "gcore.get",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.board",
+      "target": "gcore.background",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.gui",
+      "target": "gcore.gui",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.gui",
+      "target": "gcore.loadin",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.gui",
+      "target": "gcore.reloadin",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.gui",
+      "target": "gcore.reflow",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.gui",
+      "target": "gcore.drawicons",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.cesar",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.lmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.cmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.lcmagic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.ksp",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.tentry",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.timeline",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.ggui",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.mana",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.George",
+      "target": "gcore.ger",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "gcore.Ion",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "cr.Qlab",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "video.Video",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "cr.Sound",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "cr.Lights",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.cesar",
+      "target": "gcore.action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.ksp",
+      "target": "gcore.Ion",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.tentry",
+      "target": "gcore.callback",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.tentry",
+      "target": "gcore.makeentry",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gcore.timeline",
+      "target": "gcore.background",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.timeline",
+      "target": "gcore.buf",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.ggui",
+      "target": "gcore.gui",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.mana",
+      "target": "gcore.Ion",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.mana",
+      "target": "gcore.manag",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.manag",
+      "target": "gcore.QueueManager",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.ger",
+      "target": "gcore.make_server_manager",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.ger",
+      "target": "gcore.make_client_manager",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "gcore.make_server_manager",
+      "target": "gcore.JobQueueManager",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "gcore.make_client_manager",
+      "target": "gcore.ServerQueueManager",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.AAAAA",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.Ion",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.test",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.buf",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.showFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.background",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.do",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.get",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.activateSoundBoard",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.board",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.resize",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.gui",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.reflow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.loadin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.reloadin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.drawicons",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.George",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.cesar",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.lmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.cmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.lcmagic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.ksp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.tentry",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.callback",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.makeentry",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.timeline",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.ggui",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.mana",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.manag",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.ger",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.make_server_manager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.make_client_manager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.QueueManager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.JobQueueManager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "gcore.ServerQueueManager",
+      "kind": "contains"
+     },
+     {
+      "source": "glog.glog",
+      "target": "glog.glog",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/glog.py",
+      "target": "glog.glog",
+      "kind": "contains"
+     },
+     {
+      "source": "dmxftdi.OpenDmxUsb",
+      "target": "dmxftdi.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxftdi.OpenDmxUsb",
+      "target": "dmxftdi._init_dmx",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxftdi.OpenDmxUsb",
+      "target": "dmxftdi.send_dmx",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "dmxftdi.__init__",
+      "target": "dmxftdi._init_dmx",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxftdi.py",
+      "target": "dmxftdi.OpenDmxUsb",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxftdi.py",
+      "target": "dmxftdi.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxftdi.py",
+      "target": "dmxftdi._init_dmx",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/dmxftdi.py",
+      "target": "dmxftdi.send_dmx",
+      "kind": "contains"
+     },
+     {
+      "source": "k.mainWindow",
+      "target": "k.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "k.mainWindow",
+      "target": "k.start",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/k.py",
+      "target": "k.mainWindow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/k.py",
+      "target": "k.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/k.py",
+      "target": "k.start",
+      "kind": "contains"
+     },
+     {
+      "source": "video.Video",
+      "target": "video.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.loadVideo",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.loadImage",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.convertImage",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.getNextFrame",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.timeUntilNext",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.bufferFrame",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video._bufferFrame",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.assignWindow",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.playNext",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.play",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.pause",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.Video",
+      "target": "video.seek",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "video.__init__",
+      "target": "video.loadVideo",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.bufferFrame",
+      "target": "video.convertImage",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video._bufferFrame",
+      "target": "video.convertImage",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video._bufferFrame",
+      "target": "video.seek",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.playNext",
+      "target": "video.timeUntilNext",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.playNext",
+      "target": "video.bufferFrame",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.play",
+      "target": "video.playNext",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.play",
+      "target": "video.bufferFrame",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "video.pause",
+      "target": "video.playNext",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.Video",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.loadVideo",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.loadImage",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.convertImage",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.getNextFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.timeUntilNext",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.bufferFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video._bufferFrame",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.assignWindow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.playNext",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.play",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.pause",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/video.py",
+      "target": "video.seek",
+      "kind": "contains"
+     },
+     {
+      "source": "tktest.dnd_start",
+      "target": "tktest.DndHandler",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.__del__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.on_motion",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.on_release",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.cancel",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.DndHandler",
+      "target": "tktest.finish",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.__init__",
+      "target": "gcore.Ion",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.on_release",
+      "target": "tktest.finish",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.cancel",
+      "target": "tktest.finish",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "gcore.Ion",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.attach",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.fire",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.detach",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.press",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.release",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.move",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.putback",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.where",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Icon",
+      "target": "tktest.dnd_end",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.attach",
+      "target": "tktest.detach",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.press",
+      "target": "tktest.dnd_start",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.move",
+      "target": "tktest.where",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.dnd_accept",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.dnd_enter",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.dnd_motion",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.dnd_leave",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.Tester",
+      "target": "tktest.dnd_commit",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "tktest.dnd_enter",
+      "target": "tktest.dnd_motion",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.dnd_motion",
+      "target": "tktest.move",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "tktest.dnd_commit",
+      "target": "tktest.dnd_leave",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.test",
+      "target": "tktest.Tester",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "tktest.test",
+      "target": "tktest.Icon",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_start",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.DndHandler",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.__del__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.on_motion",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.on_release",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.cancel",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.finish",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.Icon",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.attach",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.fire",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.detach",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.press",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.release",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.move",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.putback",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.where",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_end",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.Tester",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_accept",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_enter",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_motion",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_leave",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.dnd_commit",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "tktest.test",
+      "kind": "contains"
+     },
+     {
+      "source": "osc.oscParse",
+      "target": "osc.unPadBack",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.oscParse",
+      "target": "osc.parseNumbers",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.tcpParse",
+      "target": "osc.unSlip",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.build",
+      "target": "osc.slip",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.Osc",
+      "target": "osc._get_message",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "osc.Osc",
+      "target": "osc.get_message",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "osc._get_message",
+      "target": "osc.get_message",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.get_message",
+      "target": "osc.tcpParse",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.Client",
+      "target": "osc.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "osc.Client",
+      "target": "osc.send_message",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "osc.send_message",
+      "target": "osc.build",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "osc.Server",
+      "target": "osc.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.oscParse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.unPadBack",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.parseNumbers",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.tcpParse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.unSlip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.slip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.unPadFront",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.build",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.Osc",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc._get_message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.get_message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.Client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.send_message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "target": "osc.Server",
+      "kind": "contains"
+     },
+     {
+      "source": "q.cue",
+      "target": "q.get_edges",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "q.get_edges",
+      "target": "q.get_edges",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "q.show",
+      "target": "q.cue",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "q.show",
+      "target": "q.get_edges",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "q.show",
+      "target": "q.draw",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/q.py",
+      "target": "q.walk",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/q.py",
+      "target": "q.cue",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/q.py",
+      "target": "q.get_edges",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/q.py",
+      "target": "q.draw",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/q.py",
+      "target": "q.show",
+      "kind": "contains"
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.send",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.cue",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.select",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.get_cue_text",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.get_cue_property",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.set_cue_property",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.select_next_cue",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.select_previous_cue",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Qlab",
+      "target": "cr.go",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.__init__",
+      "target": "osc.Client",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.__init__",
+      "target": "osc.Server",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.cue",
+      "target": "cr.cue",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.cue",
+      "target": "cr.send",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.select",
+      "target": "cr.select",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.select",
+      "target": "cr.send",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.get_cue_text",
+      "target": "cr.get_cue_property",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.get_cue_property",
+      "target": "cr.name",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.name",
+      "target": "cr.name",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.name",
+      "target": "cr.send",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.name",
+      "target": "cr.get_message",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.set_cue_property",
+      "target": "cr.name",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.select_next_cue",
+      "target": "cr.get_cue_property",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.select_previous_cue",
+      "target": "cr.get_cue_property",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.go",
+      "target": "cr.send",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.patch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.nrpn",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.mix",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.scene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.meters",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.name",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr._get_message",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.get_message",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Sound",
+      "target": "cr.z",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.mute",
+      "target": "cr.patch",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.unmute",
+      "target": "cr.patch",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.mix",
+      "target": "cr.patch",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.mix",
+      "target": "cr.nrpn",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.pan",
+      "target": "cr.nrpn",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "cr.scene",
+      "target": "cr.scene",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.scene",
+      "target": "cr.send",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.Lights",
+      "target": "cr.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.Lights",
+      "target": "cr.cue",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "cr.Lights",
+      "target": "cr.get_cmd",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Lights",
+      "target": "cr.count_lists",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cr.Lights",
+      "target": "cr.count_cues_in_list",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.Qlab",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.send",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.cue",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.select",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.get_cue_text",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.get_cue_property",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.name",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.set_cue_property",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.select_next_cue",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.select_previous_cue",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.go",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.Sound",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.patch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.nrpn",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.mix",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.scene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.meters",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr._get_message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.get_message",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.z",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.Lights",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.get_cmd",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.count_lists",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "cr.count_cues_in_list",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/core.py",
+      "target": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/editor.py",
+      "target": "file::quaternionmedia/cesar/video.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/editor.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/tktest.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/glog.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/video.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/gcore.py",
+      "target": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/tktest.py",
+      "target": "file::quaternionmedia/cesar/gcore.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/cesar/Cesar/cr.py",
+      "target": "file::quaternionmedia/cesar/Cesar/osc.py",
+      "kind": "depends_on"
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/cesar",
+    "depth": 2,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "cesar declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/cesar/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

@@ -32,8 +32,16 @@ passes, not when its command exits zero.
    nobody is running.
    *Verify:* `git log --oneline -1` and `git status -sb` in each; the project
    repo is on its default branch unless there is a stated reason otherwise.
-1. **Add this repo as a submodule** at `governance/qm` in the new project.
-   *Verify:* `git submodule status` lists `governance/qm`.
+1. **Add this repo as a submodule** at `governance/qm` in the new project,
+   by its HTTPS URL:
+   `git submodule add https://github.com/quaternionmedia/qm.git governance/qm`.
+   The seed workflows that run a corpus script clone the submodule on a runner
+   with `git submodule update`, by the URL `.gitmodules` records, after a
+   checkout that rewrites no SSH URL, and a runner holds no SSH key. An SSH URL
+   fails each of them at the clone, and a local run, which has a key, passes.
+   *Verify:* `git submodule status` lists `governance/qm`, and
+   `git config -f .gitmodules --get submodule.governance/qm.url` returns
+   `https://github.com/quaternionmedia/qm.git`.
 2. **Create branch `project/<name>`** off `main` in this repo. On that
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
@@ -67,8 +75,8 @@ passes, not when its command exits zero.
    Reading
    the parenthesis as the configured branch makes a stale pin look right and a
    correct one look broken.
-   Also check the recorded URL is the canonical remote and not a local path used
-   while setting it up.
+   Also check the recorded URL is still step 1's HTTPS URL and not a local path
+   used while setting it up.
 
    **Fixing the URL is half the job; the refs the local clone left behind are
    the other half.** Cloning the submodule from a path on disk — the

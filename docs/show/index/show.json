@@ -1,0 +1,2107 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "index",
+  "name": ""
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
+   "digest": "sha256:96374578f2b45d1918f844e858733c626ccad8735877d6e4a2362535d4861bd8"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
+  },
+  "drawn_at": "2026-10-29T19:28:44Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "family::commons": {
+      "label": "commons",
+      "metadata": {
+       "kind": "family",
+       "family": "commons",
+       "drives": "the public — open information a community reads and adds to: maps, records, public data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "commons — drives the public — open information a community reads and adds to: maps, records, public data",
+       "click": "<p>The <b>commons</b> family drives the public — open information a community reads and adds to: maps, records, public data.</p><p>1 member(s) in all.</p>",
+       "show": "family:commons",
+       "color": "#e0bd4f",
+       "depth": 0,
+       "x": -408,
+       "y": 424.4994282133388,
+       "size": 50,
+       "label_at": "none"
+      }
+     },
+     "family::core": {
+      "label": "core",
+      "metadata": {
+       "kind": "family",
+       "family": "core",
+       "drives": "the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "core — drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
+       "show": "family:core",
+       "color": "#74a8f6",
+       "depth": 0,
+       "x": 213.52789285868926,
+       "y": -204,
+       "size": 110,
+       "label_at": "none"
+      }
+     },
+     "family::games": {
+      "label": "games",
+      "metadata": {
+       "kind": "family",
+       "family": "games",
+       "drives": "play — a game somebody plays: its rules, its world, its loop, and the server it is played on",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "games — drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on",
+       "click": "<p>The <b>games</b> family drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on.</p><p>7 member(s) in all.</p>",
+       "show": "family:games",
+       "color": "#73c886",
+       "depth": 0,
+       "x": 635.4709635679883,
+       "y": -204,
+       "size": 110,
+       "label_at": "none"
+      }
+     },
+     "family::infra": {
+      "label": "infra",
+      "metadata": {
+       "kind": "family",
+       "family": "infra",
+       "drives": "where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "infra — drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "click": "<p>The <b>infra</b> family drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path.</p><p>5 member(s) in all.</p>",
+       "show": "family:infra",
+       "color": "#98a7bc",
+       "depth": 0,
+       "x": 0,
+       "y": 424.4994282133388,
+       "size": 90,
+       "label_at": "none"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "depth": 1,
+       "x": -257.50942879372235,
+       "y": -320.5120981119268,
+       "size": 130,
+       "label_at": "none"
+      }
+     },
+     "family::irl": {
+      "label": "irl",
+      "metadata": {
+       "kind": "family",
+       "family": "irl",
+       "drives": "matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "irl — drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
+       "show": "family:irl",
+       "color": "#dd9b63",
+       "depth": 0,
+       "x": 408,
+       "y": 424.4994282133388,
+       "size": 130,
+       "label_at": "none"
+      }
+     },
+     "family::performer-display": {
+      "label": "performer-display",
+      "metadata": {
+       "kind": "family",
+       "family": "performer-display",
+       "drives": "the performer — what a player reads while playing",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performer-display — drives the performer — what a player reads while playing",
+       "click": "<p>The <b>performer-display</b> family drives the performer — what a player reads while playing.</p><p>Within <b>performing</b>.</p><p>3 member(s) in all.</p>",
+       "show": "family:performer-display",
+       "color": "#a693f3",
+       "depth": 1,
+       "x": -341.7833430386356,
+       "y": -19.100271336520308,
+       "size": 60,
+       "label_at": "none"
+      }
+     },
+     "family::performing": {
+      "label": "performing",
+      "metadata": {
+       "kind": "family",
+       "family": "performing",
+       "drives": "a show — what an audience sees and hears, and the video made before and after it",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performing — drives a show — what an audience sees and hears, and the video made before and after it",
+       "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
+       "show": "family:performing",
+       "color": "#f2aa4c",
+       "depth": 0,
+       "x": -421.94307070929904,
+       "y": -204,
+       "size": 90,
+       "label_at": "none"
+      }
+     },
+     "family::show-control": {
+      "label": "show-control",
+      "metadata": {
+       "kind": "family",
+       "family": "show-control",
+       "drives": "the room — cues, lighting, sound and video playback, audio transport",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
+       "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
+       "show": "family:show-control",
+       "color": "#a9d05c",
+       "depth": 1,
+       "x": -619.3856257683174,
+       "y": -163.62762018619836,
+       "size": 110,
+       "label_at": "none"
+      }
+     },
+     "repo::benchmark": {
+      "label": "benchmark",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "benchmark — v0.0.2 · not adopted",
+       "click": "<p><b>benchmark</b> — A place to keep track of benches</p><p>not adopted. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:benchmark",
+       "shape": "circle",
+       "color": "#e0bd4f",
+       "depth": 1,
+       "x": -408,
+       "y": 500.4994282133388,
+       "size": 30,
+       "label_at": "below"
+      }
+     },
+     "repo::qm": {
+      "label": "qm",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "n/a",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qm — n/a · governed",
+       "click": "<p><b>qm</b> — The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from.</p><p>governed. Phase <b>n/a</b> (n/a); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:qm",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 249.52789285868926,
+       "y": -278.7547702766041,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::dossier": {
+      "label": "dossier",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "dossier — v0.0.1 · governed",
+       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:dossier",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 294.4191585925181,
+       "y": -222.46290353890598,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "repo::qmcp": {
+      "label": "qmcp",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qmcp — v0.0.1 · governed",
+       "click": "<p><b>qmcp</b> — Quaternion MCP</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:qmcp",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 278.39765134766344,
+       "y": -152.26809386181466,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "repo::vox": {
+      "label": "vox",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "vox — v0.0.0 · not adopted",
+       "click": "<p><b>vox</b> — The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:vox",
+       "shape": "circle",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 213.52789285868926,
+       "y": -121.02846464535048,
+       "size": 40,
+       "label_at": "below"
+      }
+     },
+     "repo::rad": {
+      "label": "rad",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "rad — v0.0.1 · governed",
+       "click": "<p><b>rad</b> — QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p><p>governed. Phase <b>v0.0.1</b> (stated); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 148.65813436971507,
+       "y": -152.26809386181466,
+       "size": 50,
+       "label_at": "left"
+      }
+     },
+     "repo::codecartographer": {
+      "label": "codecartographer",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "codecartographer — v0.0.2 · governed",
+       "click": "<p><b>codecartographer</b> — Project for mapping code</p><p>governed. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:codecartographer",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 132.63662712486044,
+       "y": -222.46290353890595,
+       "size": 40,
+       "label_at": "left"
+      }
+     },
+     "repo::looksatwords": {
+      "label": "looksatwords",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "looksatwords — v0.0.1 · governed",
+       "click": "<p><b>looksatwords</b> — A python module to make, gather, analyze, and visualize language data.</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:looksatwords",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 177.52789285868926,
+       "y": -278.7547702766041,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::factorio-sysops": {
+      "label": "factorio-sysops",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "factorio-sysops — v0.0.1 · governed",
+       "click": "<p><b>factorio-sysops</b> — Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, technical debt) -- monitor and automate your factory's IT layer</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:factorio-sysops",
+       "shape": "square",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 671.4709635679883,
+       "y": -278.7547702766041,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::golfvs": {
+      "label": "golfvs",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "golfvs — n/a · not adopted",
+       "click": "<p><b>golfvs</b> — Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Arcade physics golf with asymmetric defence, built in Godot.</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:golfvs",
+       "shape": "circle",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 716.3622293018171,
+       "y": -222.46290353890598,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::rad-godot": {
+      "label": "rad-godot",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "rad-godot — n/a · not adopted",
+       "click": "<p><b>rad-godot</b> — rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript.</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad-godot",
+       "shape": "circle",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 700.3407220569625,
+       "y": -152.26809386181466,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::qmcli-godot": {
+      "label": "qmcli-godot",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "unknown",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qmcli-godot — n/a · not adopted",
+       "click": "<p><b>qmcli-godot</b></p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>unknown</b> (measured).</p>",
+       "show": "project:qmcli-godot",
+       "shape": "circle",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 635.4709635679883,
+       "y": -121.02846464535048,
+       "size": 30,
+       "label_at": "below"
+      }
+     },
+     "repo::streaming-infrastructure": {
+      "label": "streaming-infrastructure",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "unknown",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "streaming-infrastructure — v0.0.1 · governed",
+       "click": "<p><b>streaming-infrastructure</b></p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>unknown</b> (measured).</p>",
+       "show": "project:streaming-infrastructure",
+       "shape": "square",
+       "color": "#98a7bc",
+       "depth": 1,
+       "x": 44.67167917422796,
+       "y": 363.01413664084276,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::moat": {
+      "label": "moat",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "moat — v0.0.0 · not adopted",
+       "click": "<p><b>moat</b> — simple reverse proxy with Traefik</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:moat",
+       "shape": "circle",
+       "color": "#98a7bc",
+       "depth": 1,
+       "x": 72.28029523843166,
+       "y": 447.9847197858348,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::ztgui": {
+      "label": "ztgui",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ztgui — n/a · not adopted",
+       "click": "<p><b>ztgui</b> — Zeroteir Gui</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:ztgui",
+       "shape": "circle",
+       "color": "#98a7bc",
+       "depth": 1,
+       "x": 4.653657836759942e-15,
+       "y": 500.4994282133388,
+       "size": 30,
+       "label_at": "below"
+      }
+     },
+     "repo::carlos": {
+      "label": "carlos",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "carlos — v0.0.1 · governed",
+       "click": "<p><b>carlos</b> — Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on</p><p>governed. Phase <b>v0.0.1</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:carlos",
+       "shape": "square",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -221.50942879372238,
+       "y": -395.26686838853084,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::qmetronome": {
+      "label": "qmetronome",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.3",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qmetronome — v0.0.3 · governed",
+       "click": "<p><b>qmetronome</b> — Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix</p><p>governed. Phase <b>v0.0.3</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:qmetronome",
+       "shape": "square",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -176.61816305989356,
+       "y": -338.9750016508327,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::holophonor": {
+      "label": "holophonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "holophonor — n/a · not adopted",
+       "click": "<p><b>holophonor</b> — Live looping, unlimited!</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:holophonor",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -192.6396703047482,
+       "y": -268.7801919737414,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::midiphonor": {
+      "label": "midiphonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "midiphonor — n/a · not adopted",
+       "click": "<p><b>midiphonor</b> — A Holophonor implementation, using Tone.js</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:midiphonor",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -257.50942879372235,
+       "y": -237.54056275727723,
+       "size": 20,
+       "label_at": "below"
+      }
+     },
+     "repo::uPhonor": {
+      "label": "uPhonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "instruments",
+        "irl"
+       ],
+       "hover": "uPhonor — n/a · not adopted · also in instruments, irl",
+       "click": "<p><b>uPhonor</b> — Micro-Holophonor</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments, irl.</p>",
+       "show": "project:uPhonor",
+       "shape": "circle",
+       "x": 147.24528560313883,
+       "y": 51.993665050706,
+       "size": 21,
+       "label_at": "below"
+      }
+     },
+     "repo::stomp": {
+      "label": "stomp",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "instruments",
+        "irl"
+       ],
+       "hover": "stomp — n/a · not adopted · also in instruments, irl",
+       "click": "<p><b>stomp</b> — a midi foot controller for Arduino / Teensy</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments, irl.</p>",
+       "show": "project:stomp",
+       "shape": "circle",
+       "x": 75.24528560313883,
+       "y": 51.993665050706,
+       "size": 21,
+       "label_at": "below"
+      }
+     },
+     "repo::wolf": {
+      "label": "wolf",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "wolf — n/a · not adopted",
+       "click": "<p><b>wolf</b> — remote midi controller</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:wolf",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -322.37918728269653,
+       "y": -268.7801919737414,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::ludwig": {
+      "label": "ludwig",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ludwig — n/a · not adopted",
+       "click": "<p><b>ludwig</b> — remote mixing</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:ludwig",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -338.4006945275512,
+       "y": -338.9750016508327,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::waveofhormuz": {
+      "label": "waveofhormuz",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "waveofhormuz — n/a · not adopted",
+       "click": "<p><b>waveofhormuz</b> — VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:waveofhormuz",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "depth": 2,
+       "x": -293.5094287937224,
+       "y": -395.26686838853084,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::apothecary": {
+      "label": "apothecary",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "apothecary — v0.0.2 · governed",
+       "click": "<p><b>apothecary</b> — OpenSCAD generation toolkit and curated printable parts, composed from Python</p><p>governed. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:apothecary",
+       "shape": "square",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 446,
+       "y": 358.6814975257214,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::datum": {
+      "label": "datum",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "datum — v0.0.1 · governed",
+       "click": "<p><b>datum</b> — A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:datum",
+       "shape": "square",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 484,
+       "y": 424.4994282133388,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::ira": {
+      "label": "ira",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "irl",
+        "show-control"
+       ],
+       "hover": "ira — n/a · not adopted · also in irl, show-control",
+       "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in irl, show-control.</p>",
+       "show": "project:ira",
+       "shape": "circle",
+       "x": -105.69281288415868,
+       "y": 130.43590401357022,
+       "size": 21,
+       "label_at": "below"
+      }
+     },
+     "repo::scad-chess": {
+      "label": "scad-chess",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "scad-chess — n/a · not adopted",
+       "click": "<p><b>scad-chess</b> — Chess set, designed in openSCAD</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:scad-chess",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 446,
+       "y": 490.31735890095615,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::joe": {
+      "label": "joe",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "joe — n/a · not adopted",
+       "click": "<p><b>joe</b> — Realtime sheet music visualization</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:joe",
+       "shape": "circle",
+       "color": "#a693f3",
+       "depth": 2,
+       "x": -281.7833430386356,
+       "y": -19.100271336520308,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::leo": {
+      "label": "leo",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "leo — n/a · not adopted",
+       "click": "<p><b>leo</b> — Web pdf viewer, annotator, collaborator</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:leo",
+       "shape": "circle",
+       "color": "#a693f3",
+       "depth": 2,
+       "x": -401.7833430386356,
+       "y": -19.100271336520308,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::alfred": {
+      "label": "alfred",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "alfred — v0.0.1 · governed",
+       "click": "<p><b>alfred</b> — serverless video editing</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:alfred",
+       "shape": "square",
+       "color": "#f2aa4c",
+       "depth": 1,
+       "x": -537.9875775208809,
+       "y": -368.7639646249145,
+       "size": 40,
+       "label_at": "left"
+      }
+     },
+     "repo::otto": {
+      "label": "otto",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "otto — v0.0.0 · not adopted",
+       "click": "<p><b>otto</b> — automatic video generation</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:otto",
+       "shape": "circle",
+       "color": "#f2aa4c",
+       "depth": 1,
+       "x": -462.8761801219059,
+       "y": -401.3270689841586,
+       "size": 40,
+       "label_at": "above"
+      }
+     },
+     "repo::ShowRunner": {
+      "label": "ShowRunner",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ShowRunner — n/a · not adopted",
+       "click": "<p><b>ShowRunner</b> — Show control for live performances</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:ShowRunner",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -583.3856257683174,
+       "y": -238.38239046280248,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::Cuelist-python": {
+      "label": "Cuelist-python",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "Cuelist-python — n/a · not adopted",
+       "click": "<p><b>Cuelist-python</b> — Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:Cuelist-python",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -538.4943600344885,
+       "y": -182.09052372510433,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::QLab-python": {
+      "label": "QLab-python",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "QLab-python — n/a · not adopted",
+       "click": "<p><b>QLab-python</b> — QLab interface for Python</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:QLab-python",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -554.5158672793432,
+       "y": -111.89571404801302,
+       "size": 20,
+       "label_at": "right"
+      }
+     },
+     "repo::TheatreMix-python": {
+      "label": "TheatreMix-python",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "TheatreMix-python — n/a · not adopted",
+       "click": "<p><b>TheatreMix-python</b> — Python components for interacting with TheatreMix</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:TheatreMix-python",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -619.3856257683174,
+       "y": -80.65608483154884,
+       "size": 20,
+       "label_at": "below"
+      }
+     },
+     "repo::cesar": {
+      "label": "cesar",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "cesar — n/a · not adopted",
+       "click": "<p><b>cesar</b> — A unified lighting / sound / video controller for theatrical applications</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:cesar",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -684.2553842572916,
+       "y": -111.89571404801302,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::ShowStopper": {
+      "label": "ShowStopper",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ShowStopper — n/a · not adopted",
+       "click": "<p><b>ShowStopper</b> — Stopwatch geared towards tracking need for the performing arts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:ShowStopper",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -700.2768915021461,
+       "y": -182.09052372510433,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::aes": {
+      "label": "aes",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "aes — n/a · not adopted",
+       "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:aes",
+       "shape": "circle",
+       "color": "#a9d05c",
+       "depth": 2,
+       "x": -655.3856257683174,
+       "y": -238.38239046280245,
+       "size": 20,
+       "label_at": "left"
+      }
+     },
+     "repo::private-32": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 570.6012050790141,
+       "y": -152.26809386181466,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-33": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 554.5796978341594,
+       "y": -222.46290353890595,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-38": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#73c886",
+       "depth": 1,
+       "x": 599.4709635679883,
+       "y": -278.7547702766041,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-23": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#98a7bc",
+       "depth": 1,
+       "x": -72.28029523843166,
+       "y": 447.9847197858348,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-26": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#98a7bc",
+       "depth": 1,
+       "x": -44.67167917422797,
+       "y": 363.01413664084276,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-34": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "x": -26.605576493296212,
+       "y": -93.46472856825292,
+       "size": 21,
+       "label_at": "below"
+      }
+     },
+     "repo::private-03": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 370,
+       "y": 490.3173589009561,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-05": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 332,
+       "y": 424.4994282133388,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-07": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 370,
+       "y": 358.6814975257214,
+       "size": 30,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "family::commons",
+      "target": "repo::benchmark",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::qm",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::dossier",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::qmcp",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::vox",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::rad",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::codecartographer",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::looksatwords",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::factorio-sysops",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::golfvs",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::rad-godot",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::qmcli-godot",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::private-32",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::private-33",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::games",
+      "target": "repo::private-38",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::infra",
+      "target": "repo::streaming-infrastructure",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::infra",
+      "target": "repo::moat",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::infra",
+      "target": "repo::ztgui",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::infra",
+      "target": "repo::private-23",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::infra",
+      "target": "repo::private-26",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::carlos",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::qmetronome",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::holophonor",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::midiphonor",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::wolf",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::ludwig",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::instruments",
+      "target": "repo::waveofhormuz",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::apothecary",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::datum",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::scad-chess",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-03",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-05",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-07",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performer-display",
+      "target": "repo::joe",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performer-display",
+      "target": "repo::leo",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performing",
+      "target": "family::instruments",
+      "label": "within",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "within (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performing",
+      "target": "family::performer-display",
+      "label": "within",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "within (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performing",
+      "target": "family::show-control",
+      "label": "within",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "within (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performing",
+      "target": "repo::alfred",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::performing",
+      "target": "repo::otto",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::ShowRunner",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::Cuelist-python",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::QLab-python",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::TheatreMix-python",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::cesar",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::ShowStopper",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::show-control",
+      "target": "repo::aes",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "dossier implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "repo::qmcp",
+      "target": "repo::vox",
+      "label": "measured from .gitmodules",
+      "metadata": {
+       "kind": "depends_on",
+       "basis": "measured",
+       "stated": false,
+       "hover": "qmcp's .gitmodules names vox",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::codecartographer",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "codecartographer implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::stomp",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::stomp",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "family::show-control",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "repo::otto",
+      "label": "measured from .gitmodules",
+      "metadata": {
+       "kind": "depends_on",
+       "basis": "measured",
+       "stated": false,
+       "hover": "alfred's .gitmodules names otto",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::private-34",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::private-34",
+      "target": "family::performer-display",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "index",
+     "declared": 2,
+     "measured": 2,
+     "unread": [
+      "benchmark",
+      "factorio-sysops",
+      "holophonor",
+      "joe",
+      "leo",
+      "otto",
+      "qmcli-godot",
+      "qmetronome",
+      "scad-chess",
+      "streaming-infrastructure",
+      "uPhonor",
+      "ztgui"
+     ],
+     "undeclared": [
+      {
+       "source": "qmcp",
+       "target": "vox"
+      },
+      {
+       "source": "alfred",
+       "target": "otto"
+      }
+     ]
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "index",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": 2,
+    "measured": 2,
+    "unread": [
+     "benchmark",
+     "factorio-sysops",
+     "holophonor",
+     "joe",
+     "leo",
+     "otto",
+     "qmcli-godot",
+     "qmetronome",
+     "scad-chess",
+     "streaming-infrastructure",
+     "uPhonor",
+     "ztgui"
+    ],
+    "undeclared": [
+     {
+      "source": "qmcp",
+      "target": "vox"
+     },
+     {
+      "source": "alfred",
+      "target": "otto"
+     }
+    ],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 12 member(s) had no clone this export could read, so nothing was measured for them: benchmark, factorio-sysops, holophonor, joe, leo, otto, qmcli-godot, qmetronome, scad-chess, streaming-infrastructure, uPhonor, ztgui. 2 measured link(s) have no declared seam: qmcp → vox, alfred → otto. Each is a seam nobody has stated, not a fault."
+   }
+  }
+ },
+ "files": {
+  "estate": "estate.svg"
+ }
+}

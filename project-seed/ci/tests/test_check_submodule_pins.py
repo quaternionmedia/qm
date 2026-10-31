@@ -21,7 +21,7 @@ CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
 from check_submodule_pins import (  # noqa: E402
-    OK, UNPUSHED, UNREADABLE, LOCAL_URL, as_https, is_remote_url, main,
+    OK, UNPUSHED, UNREADABLE, LOCAL_URL, NOT_HTTPS, as_https, is_remote_url, main,
 )
 
 TOOL = CI_DIR / "check_submodule_pins.py"
@@ -80,11 +80,11 @@ def world(tmp_path: Path):
     return parent, sub, remote.as_uri()
 
 
-def verdicts(parent: Path) -> dict[str, str]:
+def verdicts(parent: Path, **kwargs) -> dict[str, str]:
     import check_submodule_pins as mod
     return {
         row["path"]: row["verdict"]
-        for row in (mod.inspect(parent, sha, path)
+        for row in (mod.inspect(parent, sha, path, **kwargs)
                     for sha, path in mod.submodules(parent))
     }
 
@@ -219,9 +219,49 @@ def test_a_filesystem_url_is_a_failure(world):
     assert main(["--root", str(parent)]) == 1
 
 
+def test_a_governance_submodule_named_over_ssh_is_a_failure(world):
+    """The seed workflows clone the governance submodule by its recorded URL
+    on a runner with no SSH key, so an SSH URL fails each of them at the clone
+    while a local run, which has a key, passes. The verdict is decided from the
+    URL's form, before any fetch, so it is the same here as on the runner.
+
+    Mutations: drop `NOT_HTTPS` from `FAILING`, or delete the check in
+    `inspect`, and this fails."""
+    parent, _, _ = world
+    git("config", "-f", ".gitmodules", "submodule.child.url",
+        "git@github.com:o/r.git", cwd=parent)
+
+    assert verdicts(parent, governance="child") == {"child": NOT_HTTPS}
+    assert main(["--root", str(parent), "--governance", "child"]) == 1
+
+
+def test_only_the_governance_submodule_is_held_to_https(world):
+    """Any other submodule is fetched over https by this script when its URL is
+    SSH, and no seed workflow clones it, so its URL form is not a defect.
+
+    Mutation: drop `path == governance` from the check in `inspect` and this
+    fails as `not-https`."""
+    parent, _, _ = world
+
+    assert verdicts(parent, governance="child") == {"child": NOT_HTTPS}
+    assert verdicts(parent, governance="governance/qm") == {"child": OK}
+
+
+def test_a_governance_submodule_named_over_https_is_judged_on_its_pin(world):
+    """The control for the two above: an HTTPS URL passes the form check and
+    goes on to the fetch, which here reaches nothing and reads `unreadable`.
+
+    Mutation: refuse every governance URL and this fails as `not-https`."""
+    parent, _, _ = world
+    git("config", "-f", ".gitmodules", "submodule.child.url",
+        "https://127.0.0.1:9/r.git", cwd=parent)
+
+    assert verdicts(parent, governance="child") == {"child": UNREADABLE}
+
+
 def test_an_ssh_url_is_tried_as_https_too():
-    """A runner has no SSH key, so the canonical SSH remote -- which is what the
-    fork procedure writes -- would read as unpushed for every project.
+    """A runner has no SSH key, so a submodule whose `.gitmodules` names an SSH
+    remote would otherwise read as unpushed there.
 
     Mutation: stop translating and this fails.
     """

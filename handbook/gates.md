@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-10-25T01:05:55Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
+**Generated `2026-10-28T17:02:24Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -30,7 +30,7 @@
 | [ok] | `governance-status` | main, push | pull_request, push | no | A committed `status/governance.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
 | [ok] | `reuse-lint` | main, push | pull_request, push | yes | A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file. |
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
-| [ok] | `docs-audit` | pull_request | pull_request | no | A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check. |
+| [ok] | `docs-audit` | pull_request | pull_request | no | A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check -- and a generated family page, project page or front-page snippet that no longer matches its sources. |
 | [ok] | `docs-draft` | pull_request | pull_request, workflow_dispatch | no | Nothing. It builds a preview of the site for the change under review, so a documentation change can be looked at rather than imagined. |
 | [ok] | `docs-deploy` | push | push | no | Nothing. It publishes the site from the default branch. A failure here means the published site is older than `main`, which is a fact worth seeing and not a rule anybody violated. |
 | [ok] | `tag-claims` | tag | push, workflow_dispatch | yes | A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`. |
@@ -55,7 +55,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`governance-status`** — Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.
 - **`reuse-lint`** — Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.
 - **`symlink-integrity`** — A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.
-- **`docs-audit`** — Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.
+- **`docs-audit`** — Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.
 - **`docs-draft`** — Anything -- it is a build, not a check, and it is listed here because a workflow nobody declared is a workflow nobody can rely on. Declaring it says plainly that it refuses nothing.
 - **`docs-deploy`** — Whether what it published is correct, or whether anybody reads it. It is a deployment, and it is declared for the same reason the draft build is.
 - **`tag-claims`** — Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.
@@ -80,7 +80,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `governance-status` | `handbook/generated-documents.md` |
 | `reuse-lint` | `records/DRAFT-outbound-licensing.md`, `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` |
 | `symlink-integrity` | `records/DRAFT-ide-integrated-governance-discovery.md` |
-| `docs-audit` | `records/DRAFT-the-read-document-governs.md` |
+| `docs-audit` | `records/DRAFT-the-read-document-governs.md`, `records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md` |
 | `docs-draft` | *nothing stated — it guards a habit rather than a decision* |
 | `docs-deploy` | *nothing stated — it guards a habit rather than a decision* |
 | `tag-claims` | `records/DRAFT-version-tags-are-claims.md` |

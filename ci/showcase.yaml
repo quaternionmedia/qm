@@ -11,8 +11,34 @@
 # request -- is not shown: `uv run qm inventory --write` records which listed
 # files each default branch holds, and the page shows only those.
 #
+# A project may also have a detail page, written here under `details:` by a
+# person, the way captions are. Every section of a block is optional; within
+# one, a `title`, a `name` and a `text` are required where they appear, and an
+# unknown key is refused rather than dropped:
+#
+#   lede      what the project is, a sentence or two, in place of the host's
+#             one-line description
+#   try       `run`: the command, or commands, to try it; `then`: what to do next
+#   picture   the one the page opens with: a path and a caption
+#   steps     `eyebrow`, `title`, and `items`, each a `name` and one line of
+#             `text`, with an optional `picture`: the steps a user goes through
+#   features  each an `eyebrow`, a `title`, a paragraph of `text`, and `pictures`
+#   built     `eyebrow`, `title`, `text`, and `parts` and `beside`, each a `name`,
+#             how it connects (`via`) and a line of `text`: how it is built. A
+#             part named as a project with a page links to that page.
+#
+# Text is markdown, set as written, and states what is true of the project at
+# any commit: no dates, pull request numbers or measured counts, which belong in
+# the project's own changelog. Its pictures are the project's own, held back
+# like the ones above until its default branch holds them, and the inventory
+# asks about every path a block names. A project with no block keeps the page
+# its pictures above make. The detail page shows the block's pictures; the
+# pictures above stay the project's cards on the family pages and the front page.
+#
 # `uv run qm cookbook docs/families --site --write` reads this file;
-# ci/tests/test_cookbook.py holds its shape.
+# ci/tests/test_cookbook.py holds its shape. `uv run qm cookbook --preview <dir>
+# --ref <project>=<ref>` builds the site outside the committed one, with a
+# project's pictures from a branch it names: docs/usage/build-these-docs.md.
 projects:
   alfred:
     - path: docs/assets/screens/edit.png
@@ -61,5 +87,202 @@ projects:
     - path: docs/media/chord-input.png
       caption: The demo after chord input, with its latency readouts filled in.
   apothecary:
-    - path: docs/assets/fractal-viewer-walkthrough.gif
-      caption: The fractal viewer walking a garage layout and what it holds.
+    - path: walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png
+      caption: The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.
+    - path: walkthrough/screenshots/04-03-apply-draws-the-variant-marked-as-not-saved.png
+      caption: A calibration cube's size moved and applied, drawn as a variant not yet saved, its SCAD beside it.
+    - path: walkthrough/screenshots/03-10-turned-by-its-ring-the-camera-takes-a-second-pictu.png
+      caption: A camera over the bench, its picture on the workbench with the shapes found in it.
+details:
+  alfred:
+    lede: >-
+      A video editor in the browser. Every preview frame and every render is
+      drawn on the server, by a stack its user runs.
+    try:
+      run: ./al dev
+      then: Then open `127.0.0.1:8000`.
+    picture:
+      path: docs/assets/screens/edit.png
+      caption: The editor at Edit, projects and media on the left, the viewer over the timeline, and the selected title's settings on the right.
+    steps:
+      eyebrow: four stages, left to right
+      title: How a video gets made
+      items:
+        - name: Source
+          text: Choose a project and the media and templates for its timeline, or generate the demo clips.
+        - name: Edit
+          text: Arrange, trim and cut the clips on the timeline, and set a title's text, length and colours.
+        - name: Render
+          text: Choose the output's size and queue a render, which the server makes.
+          picture:
+            path: docs/assets/screens/render.png
+            caption: The output's size and Queue render, beside a frame the server drew.
+        - name: Deliver
+          text: Follow the render until it is finished, then download it or send it to a destination.
+          picture:
+            path: docs/assets/screens/deliver.png
+            caption: The rendered demo reel, ready to download or to deliver to a destination.
+    features:
+      - eyebrow: captions · heard by joe
+        title: Captions heard by joe, through vox
+        text: >-
+          **Transcribe timeline** sends the project's saved sound to the audio
+          engine, and the captions come back as text to correct; they can also
+          be typed, or imported from a subtitle file. Once **Draw into renders**
+          is ticked, every render carries them. alfred never handles the sound
+          itself: it reaches joe over HTTP through vox, the contract between
+          them, and without an engine the panel says so and Transcribe stays off.
+        pictures:
+          - path: docs/assets/screens/captions.png
+            caption: The Captions tab with Transcribe timeline, and a caption drawn over the colour bars in the viewer.
+      - eyebrow: on a phone
+        title: The same editor, one stage at a time
+        text: >-
+          On a phone the editor shows one stage at a time, above the viewer and
+          the timeline, with the four stages on the rail along its top.
+        pictures:
+          - path: docs/assets/screens/phone-edit.png
+            caption: Edit on a phone, the captions above the viewer and the timeline.
+          - path: docs/assets/screens/phone-render.png
+            caption: Render on a phone, the output's size and Queue render above the viewer.
+      - eyebrow: the workspace
+        title: The Panels menu
+        text: >-
+          On a wider screen the editor is a workspace of panels docked with
+          Golden Layout, the shell codecartographer uses. A tab drags to move
+          its panel, the gaps drag to resize, and the arrangement is kept in
+          that browser. The Panels menu brings a closed panel back in its place,
+          and Reset layout restores the default.
+        pictures:
+          - path: docs/assets/screens/panels-menu.png
+            caption: The Panels menu, every panel listed with Template settings closed, and Reset layout.
+    built:
+      title: A control plane, two engines
+      text: >-
+        alfred owns accounts, projects, renders and captions, and decides what
+        happens when. The media work belongs to two engines it vendors side by
+        side: otto draws the picture, and vox carries the sound to an audio
+        engine such as joe. alfred imports no media library; what an engine
+        lacks is a change to that engine, which alfred then pins.
+      parts:
+        - name: the browser
+          via: over HTTP, to alfred
+          text: A Mithril app in Golden Layout panels. It edits the timeline and shows the frames the server draws.
+        - name: alfred
+          via: the control plane
+          text: FastAPI, MongoDB and a Celery render worker, holding the state and the orchestration.
+        - name: otto
+          via: vendored by alfred, for the picture
+          text: Every preview frame and render, and the timeline's sound mixed for it.
+        - name: vox
+          via: vendored by alfred, for the sound
+          text: The contract and the client for an audio engine.
+        - name: joe
+          via: over HTTP from vox, with a schema
+          text: The audio engine. It hears the timeline's sound and transcribes it into captions.
+      beside:
+        - name: qmcp
+          text: QM's tool server, which calls alfred's API as tools.
+        - name: codecartographer
+          text: The Golden Layout panel shell alfred's editor shares.
+        - name: the org's .github workflows
+          text: The reusable CI workflows alfred's own CI calls.
+  apothecary:
+    lede: >-
+      Parts written as OpenSCAD from Python, and a viewer in the browser that
+      zooms from a site down to any part in it. The printer, the boards, the
+      slicer and the camera that make a part real work from the same page, on
+      this machine.
+    try:
+      run:
+        - git clone --recurse-submodules https://github.com/quaternionmedia/apothecary.git
+        - cd apothecary && uv sync
+        - uv run apothecary serve --demo
+      then: Then open `127.0.0.1:6283/viewer`. The demo's printer and devkit are simulated, so nothing real is touched.
+    picture:
+      path: walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png
+      caption: The garage, the world on the left with the workbench, printer_1 and a board, and the site's tree, Selected and Pictures as windows beside it.
+    steps:
+      eyebrow: four loops, each round twice
+      title: How a part gets made
+      items:
+        - name: Design
+          text: Move a part's sizes in Parameters; each is checked once the slider rests, and Apply draws the variant.
+          picture:
+            path: walkthrough/screenshots/04-02-a-size-dragged-is-checked-once-the-slider-rests.png
+            caption: A size dragged in Parameters and checked once the slider rests, the part's SCAD beside it.
+        - name: Edit its SCAD
+          text: Change the part's OpenSCAD in its SCAD window; a failing line is marked once typing stops, and Save keeps the change as a variant in git.
+          picture:
+            path: walkthrough/screenshots/06-02-a-failing-line-is-checked-once-typing-stops-and-ma.png
+            caption: A failing assertion marked on its line in the SCAD window, the part not drawn again until it reads.
+        - name: A picture to a print
+          text: Stand a camera over the bench and take its picture, find the shapes in it, make one a piece, then slice it for printer_1 and print it.
+          picture:
+            path: walkthrough/screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png
+            caption: The Print card in printer_1's Machine, the piece sliced by OrcaSlicer and ready to stream.
+        - name: Firmware
+          text: Choose a sketch on the Bench, build and flash it to an ESP32 devkit, and hear it say hello in the board's Machine, in Arduino or in Rust.
+          picture:
+            path: walkthrough/screenshots/05-04-the-board-s-machine-hears-it-say-hello.png
+            caption: esp32_blink flashed to the devkit, its hello heard in the board's Machine.
+    features:
+      - eyebrow: the workspace
+        title: Windows, and a ring for every verb
+        text: >-
+          Every section of the page is a window docked with Golden Layout, the
+          shell alfred's editor and codecartographer use: a tab drags to move
+          it, ⊞ Windows opens a closed one, and a view lays several out
+          together. On anything in the world, `m` or Ctrl and right-click opens
+          the ring, which holds every verb of what it opens on, each at an
+          address the digits reach.
+        pictures:
+          - path: walkthrough/screenshots/06-01-part-edit-and-the-part-view-lays-the-part-out.png
+            caption: Part view, Selected and Parameters beside the part's SCAD, with the world on the left.
+      - eyebrow: photographs
+        title: Photographs into pieces
+        text: >-
+          `apothecary photo view` finds the shapes in a photograph and stands
+          them in the viewer as named pieces, sized from the picture's width in
+          the world.
+        pictures:
+          - path: walkthrough/screenshots/01-12-the-arrangement-opens-in-the-viewer.png
+            caption: Four shapes found in a photograph, standing in the viewer as named pieces.
+      - eyebrow: on this machine
+        title: Personal data stays on the device
+        text: >-
+          The server answers this machine only, and the process connects to
+          nothing but a tool's publisher, when that tool is installed. A
+          lighting console's levels may arrive, each on one UDP port, and are
+          never answered. Under `serve --demo` the printer and the devkit are
+          simulated and no real serial port is opened.
+    built:
+      title: A library, a server and a page
+      text: >-
+        apothecary describes parts and scenes as Pydantic models and writes
+        them as OpenSCAD; a part may also be OpenSCAD of its own, its
+        customizer's parameters read as its parameters. The server renders,
+        slices and drives the boards, and the page draws all of it.
+      parts:
+        - name: the browser
+          via: over HTTP, to apothecary
+          text: A three.js world and Golden Layout windows, with the ring for every verb.
+        - name: apothecary
+          via: the server and the command line
+          text: FastAPI and Click over the parts library and the scene models, with each site's state kept on this machine.
+        - name: OpenSCAD
+          via: run by apothecary, a snapshot with Manifold
+          text: Every part's STL, and every check of its SCAD.
+        - name: OrcaSlicer
+          via: run by apothecary, at a pinned release
+          text: Slices a part or a made piece for the printer it is pinned to.
+        - name: the printer and the boards
+          via: over serial, or simulated under the demo
+          text: An Ender 3 on Marlin, streamed G-code a line at a time; an ESP32 devkit, flashed with arduino-cli or espflash.
+      beside:
+        - name: datum
+          text: A project whose parts library extends apothecary's.
+        - name: codecartographer
+          text: Draws apothecary's estate and code on this page.
+        - name: qm
+          text: The constitution apothecary is governed by, pinned as its governance submodule.
