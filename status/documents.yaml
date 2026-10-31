@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T19:09:09Z'
+generated_at: '2026-10-31T19:17:30Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -45,11 +45,11 @@ reading_load:
   - path: handbook/async-contract.md
     lines: 271
   - path: handbook/handoffs/README.md
-    lines: 149
-  total_lines: 1206
+    lines: 150
+  total_lines: 1207
   budget_lines: 1200
   within_budget: false
-  headroom_lines: -6
+  headroom_lines: -7
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 41
     documents_in_unknown_state: 0
     reading_within_budget: false
-    reading_total_lines: 1206
+    reading_total_lines: 1207
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 305
+  documents: 307
   by_state:
     draft: 3
     generated: 55
     proposed: 41
     standing: 88
-    transient: 24
-    unreviewed: 94
+    transient: 25
+    unreviewed: 95
   disagreements: 0
   unknown: 0
 documents:
@@ -1058,6 +1058,13 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/hil-review-2026-10-31.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/holophonor-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -1928,6 +1935,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-29-several-repositories-one-workstation.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-31-a-red-on-main-read-as-the-disk.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
