@@ -246,15 +246,20 @@ each pull request into it is behind its base until brought level.
   private repository's name. Done is the check clean, by redaction in the
   show generator or by an allowance with a stated reason. (2026-10-26)
 
-- **The families page check reads the disk it runs on.** `docs-audit.yml`'s
-  *generated pages match their sources* step runs `ci/cookbook.py docs/families
-  --site --check`, which compares the committed page with the clones on the
-  machine running it, so a local run is red on any workstation whose clones
-  differ from the one that generated the page: red on `main` at `b67d90b` with no
-  `docs/families` change on the branch, where the host's run of the same step is
-  green. A local red that is not a defect teaches a session to read past reds.
-  Done is the check comparing the page with its committed inputs, or the runner
-  naming the step as disk-dependent so a red is read as such. (2026-10-31)
+- **Two green pull requests left a generated page on `main` stale, and no gate
+  saw it.** #248 moved the roster and #285 carried `docs/families/index.md`
+  as generated before it; each passed `docs-audit.yml` at its own tip, and
+  merged in that order they left `main`'s page one rostered repository
+  behind. The audit runs on `pull_request` alone, filtered to `docs/**` and
+  the generator's inputs, so `main` was never checked after either merge and
+  the red surfaced on the next pull request that touched `docs/`, as a
+  failure its branch did not cause. Three local runs the same day read the
+  step's wording, *no longer describe this disk*, as an environment
+  difference; the host's run and a regeneration from `main` showed the same
+  one-line drift. Done is the audit running on every push to `main` as well,
+  so a stale generated page is `main`'s red and not the next contributor's,
+  and the step saying *stale against its committed inputs* rather than
+  naming a disk. (2026-10-31)
 
 ### Carried from retired pages
 
@@ -464,10 +469,9 @@ re-checked and is re-derived before anyone acts on it.
   2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
   its pull request carries no comment or review saying so. The session that
   asked for its merge records Peter's test (`joe-open-set.md` §2).
-- That the host's `docs-audit` families step is green for a branch whose local
-  run is red (§4): read from the host's check list on #285, where it ran and
-  passed, and absent from the checks the host ran on #295, #277 and #272, whose
-  paths did not trigger it.
+- That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
+  on `main`: every local run on 2026-10-31 skipped it, because the families
+  step before it failed first (§4).
 
 ## 6. Standing constraints
 
