@@ -6,8 +6,8 @@ on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` before acting on it. `joe` #33 and #34 were re-derived on
 2026-10-26 at `joe` `474307f`; nothing else here was.
 
-[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
-set and §5 there is the order it lands in;
+The set's review page is gone with its work, its decisions closed in
+[`qm-queue.md`](qm-queue.md) §1, and §5 below is the order the set landed in;
 [`the-voice-loop.md`](the-voice-loop.md) is the loop itself;
 [`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after the
 set. This page is how far that order has got, what is left, and how each step
@@ -144,22 +144,13 @@ together having landed. Nothing of the set is left in `qm`.
 
 ## 4. Blocked on a person
 
-- **Whether `joe` #56 and #52 stand for §3's README and cookbook rows.**
-- **Two decisions carried from the 2026-09-27 review page**, which this page
-  retires:
-  - whether `joe` carries the corpus -- at the stamp it has no
-    `governance/qm` submodule, so no gate, slot check or session tooling
-    reaches it, and it deploys to Pages on every push to `main`;
-  - what the torch subtree is worth -- `openai-whisper` is a core dependency
-    of `joe` at the stamp, with no optional `voice` extra.
-
-  The third, which lockfile `joe` keeps, is settled by the tree: of the three
-  files describing its Python dependencies (`pdm.lock`, `uv.lock`,
-  `requirements.txt`), `main` carries `uv.lock` alone.
-- **The review page's §3 decisions**, not re-read for this page. Decision 14,
-  the durable-text record, is `Proposed` on `main` and its gate runs there.
-- **Where a decision is recorded.** No location in the repositories is
-  chosen; decisions 1 to 6 above are stated here and go when this page does.
+Nothing. What this section carried is decided and recorded in
+[`qm-queue.md`](qm-queue.md) §1: `joe` #56 and #52 stand for §3's README and
+cookbook rows (decision 12); `joe` adopts the corpus after its open set has
+landed (decision 12); `openai-whisper` becomes an optional `voice` extra
+(decision 13); and a decision is recorded in the standing queue's §1, dated,
+as its keeping rules say. The review page's §3 decisions are closed the same
+way, and that page is gone.
 
 ## 5. Not verified
 
