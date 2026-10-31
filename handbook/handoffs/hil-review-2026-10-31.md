@@ -1,6 +1,6 @@
 # Handoff — the estate reviewed by hand, 2026-10-31
 
-**Stamped 2026-10-31.** `qm` `main` at `91ed0ae`. Every figure on this page
+**Stamped 2026-10-31.** `qm` `main` at `2e6820d`. Every figure on this page
 was true at that commit and nowhere else; re-derive one before acting on it.
 
 **Nothing on this page is a task.** It is what a person starts, what they look
@@ -45,6 +45,8 @@ address above is built from `main` at the stamp.
 | #296 | the families page is regenerated after the roster gained a member | the families index's count of rostered repositories that state no family, against `ci/workspace.yaml` and `families.json`; that the page and `families.svg` agree |
 | #243 | `qm assigned` reports every open review request, assigned pull request and assigned issue in the organisation | `uv run qm assigned` against the host's own lists; its entry in `docs/ref/ci/gates-and-checks.md` |
 | #297 | a plan for the organisation's protection, CI and repository standards | `plans/org-standards.md`: that it proposes and decides nothing, and that every figure in it names its reading |
+| #222 | the triplet planned: every family and project shown as pictures, graphs and a terminal view | `plans/the-triplet.md` against `handbook/handoffs/the-triplet.md`: which phases the site shows, and which the plan still describes as ahead |
+| #299 | the generated documents regenerated from `main` | `status/governance.yaml` and `status/harness.yaml` at their `generated_at`; `uv run qm harness` renders the second |
 
 What the site cannot show is whether a repository works. Every page reports
 what the organisation claimed and what the generating disk held; a figure that
@@ -60,10 +62,6 @@ walked through; walk it with the surfaces up and write what differs in §5.
 
 ## 4. Decisions only a person takes
 
-- **#222**, the triplet plan, is a draft against `main`. A draft is unfinished
-  or stacked, and this one is neither; it is either made ready and merged,
-  once `handbook/handoffs/the-triplet.md` says which of its phases are done,
-  or closed.
 - **alfred's `feat/ui-journeys`** and the five branches folded into it exist
   on this disk alone, above alfred's open stack; `uv run qm estate` lists
   them. Pushing them is the owner's act.

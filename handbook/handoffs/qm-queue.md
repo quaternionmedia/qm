@@ -9,7 +9,7 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. Entries that name 2026-10-31 were re-derived at `qm` `91ed0ae`. The rest of the page holds at the stamp, which those entries do not
+day. Entries that name 2026-10-31 were re-derived at `qm` `2e6820d`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
@@ -106,8 +106,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
-it. The codecartographer propagation (#174) showed both. #222, a draft into
-`main`, is another session's and outside this page. On 2026-10-26
+it. The codecartographer propagation (#174) showed both. On 2026-10-26
 `project/codecartographer` took `main` at `2c4cb11` again, at merge `4084965`, so
 each pull request into it is behind its base until brought level.
 
@@ -161,9 +160,9 @@ each pull request into it is behind its base until brought level.
   who refreshes the document; how a committed generated artifact squares with
   refusing to commit what a gate generated; and the stale copy every project
   vendors with the corpus.
-- **The decisions in `hil-review-2026-10-31.md` §4**: #222, a plan left in
-  draft against `main`; alfred's and titanharvest's branches that exist on one
-  disk alone; the worktrees only a person may remove.
+- **The decisions in `hil-review-2026-10-31.md` §4**: alfred's and
+  titanharvest's branches that exist on one disk alone; the worktrees only a
+  person may remove.
 
 ## 4. Unfinished, and what done looks like
 
