@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-28T19:52:39Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-31T18:55:40Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **294**, unfiltered.
+Every governed document in this corpus: **300**, unfiltered.
 
 | | |
 |---|---|
@@ -60,9 +60,9 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 40 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 90 |
+| [-] `unreviewed` | 91 |
 | [G] `generated` | 55 |
-| [S] `standing` | 84 |
+| [S] `standing` | 89 |
 | [T] `transient` | 22 |
 
 ## Documents
@@ -192,6 +192,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-25-what-whisper-heard.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-26-a-branch-name-is-not-its-commits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-26-landing-what-was-held-local.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-29-several-repositories-one-workstation.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -265,6 +266,10 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
+| [S] | `standing` | `docs/journeys/bring-your-set-up.md` | reference | — |
+| [S] | `standing` | `docs/journeys/clone-to-first-demo.md` | reference | — |
+| [S] | `standing` | `docs/journeys/index.md` | reference | — |
+| [S] | `standing` | `docs/journeys/use-a-model-with-an-application.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/docs-tooling.md` | reference | — |
@@ -306,6 +311,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/propagation-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/public-by-default.md` | handbook | — |
 | [S] | `standing` | `handbook/research-workspaces.md` | handbook | — |
+| [S] | `standing` | `handbook/running-several-repositories.md` | handbook | — |
 | [S] | `standing` | `handbook/style-guide.md` | handbook | — |
 | [S] | `standing` | `handbook/test-posture.md` | handbook | — |
 | [S] | `standing` | `handbook/what-is-not-the-organisation.md` | handbook | — |

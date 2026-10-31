@@ -7,6 +7,7 @@ status, or run somewhere that is not the corpus.
 
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 import sys
@@ -130,6 +131,23 @@ def test_outside_the_corpus_it_refuses_rather_than_writing_somewhere_else(tmp_pa
     result = run("docs", "check", cwd=tmp_path)
     assert result.returncode == 2
     assert "not inside the QM corpus" in result.stderr
+
+
+def test_a_machine_scoped_command_runs_from_another_repository_and_stays_there(tmp_path: Path):
+    """`qm instances run` is called from the checkout of the repository it serves,
+    and starts its command there. Mutation: drop `instances` from `ANYWHERE`,
+    and it is refused; route it through the corpus `chdir`, and the command
+    runs in the corpus."""
+    seen = tmp_path / "cwd.txt"
+    env = {**os.environ, "QM_RUN_DIR": str(tmp_path / "run"), "QMCP_RUN_DIR": str(tmp_path / "qmcp")}
+    child = f"import os, pathlib; pathlib.Path({str(seen)!r}).write_text(os.getcwd())"
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "cli.py"), "instances", "run", "--repo", "probe",
+         "--port", "4321", "--", sys.executable, "-c", child],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+        cwd=str(tmp_path), env=env)
+    assert result.returncode == 0, result.stderr
+    assert Path(seen.read_text()).resolve() == tmp_path.resolve()
 
 
 def test_a_directory_with_only_one_marker_is_not_the_corpus(tmp_path: Path):
@@ -263,6 +281,40 @@ def test_a_terminal_front_end_is_never_detached():
     assert "run it" in detail or "yourself" in detail
 
 
+def test_a_stack_its_owner_starts_is_never_started_here():
+    """alfred's editor is a container stack that one session starts for every
+    other (`handbook/running-several-repositories.md`). A second start would
+    collide with it, so this names who starts it rather than starting one.
+
+    Mutation: drop `owner_starts` from the editor and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    editor = dashboard.BY_NAME["editor"]
+    assert editor.owner_starts is True
+    ok, detail = dashboard.start(editor, CORPUS)
+    assert ok is False
+    assert "owns it" in detail and "./al family up" in detail
+
+
+def test_a_surface_started_with_a_port_is_started_on_its_own():
+    """A command that names a port other than its surface's would start the
+    server where nobody looks for it.
+
+    Mutation: start the speech engine with `--port 8000` and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    for surface in dashboard.SURFACES:
+        command = list(surface.command)
+        if "--port" in command:
+            named = command[command.index("--port") + 1]
+            assert named == str(surface.port), (
+                f"{surface.name} starts on {named}, not its {surface.port}")
+
+
 def test_each_surface_sits_on_its_own_constant():
     """The table exists so that no two servers on one workstation collide, and
     its ports are a memory aid: each is its constant's first four digits, read
@@ -278,7 +330,8 @@ def test_each_surface_sits_on_its_own_constant():
     from ci import dashboard
 
     constants = {"pi": math.pi, "e": math.e, "phi": (1 + math.sqrt(5)) / 2,
-                 "root two": math.sqrt(2), "tau": math.tau}
+                 "root two": math.sqrt(2), "tau": math.tau,
+                 "root three": math.sqrt(3), "twelfth root of two": 2 ** (1 / 12)}
     for surface in dashboard.SURFACES:
         assert surface.constant in constants, (
             f"{surface.name}: name its constant's value here, beside the others")

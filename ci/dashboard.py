@@ -5,20 +5,33 @@
     uv run qm dashboard --start harness
     uv run qm dashboard --start web
     uv run qm dashboard --stop harness
+    uv run qm dashboard --start-registered
+
+`--start-registered` starts every surface whose repository this machine has
+registered (`uv run qm instances register`) and that is not already up.
 
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
 on the web and `dossier` its front end in a terminal; neither owns anything,
 and a figure that differs between them is a defect. `looksatwords` reads the
 conversations the harness archived and reports their topics. `apothecary`
-serves its parts and the bench that makes them, in the browser.
+serves its parts and the bench that makes them, in the browser. `alfred` is a
+video editor in the browser, and `joe` the speech engine it hears with.
 
 Reporting is the default: nothing starts unless `--start` names it. `--start`
-detaches a server into its own process and records its pid; the terminal front
-end draws where it is run, so for it this prints the command instead.
+detaches a server into its own process, records its pid, and waits until its
+port answers; a server that exits first, or does not answer within `--wait`
+seconds, is reported as not started, with the end of its log. The terminal
+front end draws where it is run, so for it this prints the command instead.
+alfred's editor is a container stack that one session starts and every other
+shares, so for it this prints who starts it. `--stop` ends only a pid this
+command started, and only while that pid is still the process it started;
+then it withdraws every run-file naming the port it freed whose process is
+gone, the server's own among them.
 
 The ports are defaults, each overridable: pi for the harness, e for the web
-front end, phi for the terminal one, root two for the prose reader, and tau
-for apothecary's viewer. Each is its constant's first four digits.
+front end, phi for the terminal one, root two for the prose reader, tau for
+apothecary's viewer, root three for alfred's editor, and the twelfth root of
+two, a semitone, for joe. Each is its constant's first four digits.
 `docs/ref/ci/demos.md` describes the surfaces.
 """
 
@@ -30,8 +43,12 @@ import os
 import socket
 import subprocess
 import sys
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import instances  # noqa: E402
 
 HERE = Path(__file__).resolve().parent.parent
 SIBLINGS = HERE.parent
@@ -41,6 +58,16 @@ SIBLINGS = HERE.parent
 # port would let this command stop a process it never started.
 STATE = Path(os.environ.get("QM_DASHBOARD_STATE")
              or Path.home() / ".qm" / "dashboard.json")
+
+# How long `--start` waits for a server's port to answer, and `--stop` for the
+# process it ended to be gone. A first start under `uv run` resolves the
+# environment before the server imports anything.
+WAIT = 60.0
+GONE = 15.0
+
+# Every surface runs under its own repository's environment, because each has
+# its own dependencies and this corpus's interpreter has none of them.
+RUNNER = ("uv", "run", "--no-sync")
 
 
 @dataclass(frozen=True)
@@ -69,7 +96,32 @@ class Surface:
     "what does this server offer", which are different questions and should not
     be guessed at either."""
 
+    look: str = ""
+    """Where in the application a person looks first, in words: the tab or
+    window that answers "is my set up", which an application opened cold does
+    not point at."""
+
+    prepare: str = "uv sync"
+    """What a fresh clone of its repository runs once, in that repository,
+    before this can start. `--start` runs it with `uv run --no-sync`, so it
+    refuses a repository that has no environment yet rather than build one."""
+
     note: str = ""
+
+    declares_itself: bool = False
+    """Whether the server writes its own run-file (`ci/instances.py`). One that
+    does is not declared again here, so `qm instances` reads one declaration of
+    it rather than two."""
+
+    health: str = "/health"
+    """The path its health answer is on, the only one `qm instances` asks."""
+
+    owner_starts: bool = False
+    """Whether one session owns starting it: a stack in containers, brought up
+    once and used by every other session, per
+    `handbook/running-several-repositories.md`. This command starts and stops
+    none of it, and `command` runs in its repository as written, not under
+    `uv run`."""
 
 
 SURFACES: tuple[Surface, ...] = (
@@ -77,6 +129,7 @@ SURFACES: tuple[Surface, ...] = (
         name="harness", repo="qmcp", role="the work, and the only source of it",
         port=3141, constant="pi",
         command=("qmcp", "serve", "--port", "3141"), detachable=True,
+        declares_itself=True,
         dataview="/v1/topology",
         also={"/v1/topology/relations/codecartographer":
               "what the archive says about one project",
@@ -87,16 +140,22 @@ SURFACES: tuple[Surface, ...] = (
         name="web", repo="codecartographer",
         role="front end on the web", port=2718, constant="e",
         command=("codecarto", "serve", "--port", "2718"), detachable=True,
+        health="/docs",
         dataview="/app",
         also={"/topology/gjgf": "the same graph, as data",
               "/topology/available": "whether the harness answered, without "
                                      "drawing anything"},
+        look="the Estate tab says which seams answered; + then Topology "
+             "draws the harness's flows",
+        prepare="uv sync, then in web/: npm install && npm run build",
         note="draws the harness's topology as a graph"),
     Surface(
         name="terminal", repo="dossier",
         role="front end in a terminal", port=1618, constant="phi",
         command=("dossier", "dashboard"), detachable=False,
-        note="run this in the terminal you want to watch. `dossier serve "
+        look="Seams, then Harness, says whether the harness answers",
+        note="run this in the terminal you want to watch; in it, Seams then "
+             "Harness says whether the harness answers. `dossier serve "
              "--port 1618` is its API, which is a different thing"),
     Surface(
         name="prose", repo="looksatwords",
@@ -106,6 +165,7 @@ SURFACES: tuple[Surface, ...] = (
         also={"/api/harness/threads": "the harness's archive, as this window "
                                       "lists it",
               "/docs": "every route this reader serves"},
+        look="the Harness tab at the foot of the page lists the archive",
         note="reads the harness's thread archive on loopback, so it has "
              "nothing to list until the harness is up"),
     Surface(
@@ -118,6 +178,27 @@ SURFACES: tuple[Surface, ...] = (
               "/openapi.json": "every route this server serves"},
         note="the demo touches no real board; `apothecary serve` without "
              "--demo drives the boards plugged into this machine"),
+    Surface(
+        name="editor", repo="alfred",
+        role="a video editor in the browser", port=1732, constant="root three",
+        command=("./al", "family", "up"), detachable=False, owner_starts=True,
+        health="/healthz",
+        dataview="/",
+        also={"/api": "every route its API serves"},
+        note="a container stack, with joe beside it: the session that owns "
+             "alfred starts it once and the others use it. Ask that session "
+             "before starting a second"),
+    Surface(
+        name="speech", repo="joe",
+        role="the speech engine alfred hears with", port=1059,
+        constant="twelfth root of two",
+        command=("uvicorn", "api:app", "--host", "127.0.0.1", "--port", "1059"),
+        detachable=True,
+        health="/api/health",
+        dataview="/docs",
+        also={"/api/health": "whether it is up"},
+        note="alfred's editor reaches it for captions, and `./al family up` "
+             "starts it beside the editor"),
 )
 
 BY_NAME = {s.name: s for s in SURFACES}
@@ -130,6 +211,12 @@ def repo_of(surface: Surface) -> Path | None:
         if (found / "pyproject.toml").is_file():
             return found
     return None
+
+
+def unprepared(repo: Path) -> bool:
+    """Whether a repository has no environment of its own yet: a fresh clone
+    that `uv sync` has not been run in."""
+    return not (repo / ".venv").is_dir()
 
 
 def listening(port: int, host: str = "127.0.0.1") -> bool:
@@ -160,47 +247,139 @@ def _remember(found: dict[str, dict]) -> None:
     STATE.write_text(json.dumps(found, indent=2), encoding="utf-8")
 
 
-def start(surface: Surface, repo: Path) -> tuple[bool, str]:
-    """Back one server off into its own process.
+def await_port(child: subprocess.Popen, port: int, wait: float,
+               poll: float = 0.25) -> str:
+    """"listening", "exited" or "timeout": whichever comes first.
+
+    Exit is asked before the port, so a server that died while something else
+    took its port is not reported as up."""
+    deadline = time.monotonic() + wait
+    while True:
+        if child.poll() is not None:
+            return "exited"
+        if listening(port):
+            return "listening"
+        if time.monotonic() >= deadline:
+            return "timeout"
+        time.sleep(poll)
+
+
+def tail(log: Path, offset: int, lines: int = 6) -> str:
+    """The last lines this start wrote to its log, indented."""
+    try:
+        with log.open("rb") as handle:
+            handle.seek(offset)
+            text = handle.read().decode("utf-8", errors="replace")
+    except OSError:
+        return "    (the log could not be read)"
+    kept = [line for line in text.splitlines() if line.strip()][-lines:]
+    return "\n".join(f"    {line}" for line in kept) or "    (it wrote nothing)"
+
+
+def start(surface: Surface, repo: Path, wait: float = WAIT) -> tuple[bool, str]:
+    """Back one server off into its own process, and wait for its port.
 
     The command runs under the repository's own environment via `uv run`,
     because each has its own dependencies and this corpus's interpreter has
-    none of them.
+    none of them. Started is said only of a server whose port answers: a pid
+    alone is a process that may already have exited.
     """
+    if surface.owner_starts:
+        return False, (f"{surface.name} is {surface.repo}'s stack, which the "
+                       f"session that owns it starts once for everyone. Ask "
+                       f"it; if none has, run `{' '.join(surface.command)}` "
+                       f"in {surface.repo} yourself")
     if not surface.detachable:
         return False, (f"{surface.name} draws in the terminal it is run from. "
                        f"Run `{' '.join(surface.command)}` there yourself")
     if listening(surface.port):
         return False, (f"something is already listening on {surface.port}. "
                        f"Stop it, or it is already what you wanted")
+    if RUNNER and unprepared(repo):
+        return False, (f"{surface.repo} has no environment yet, so nothing "
+                       f"was started. Run `{surface.prepare}` once in {repo}, "
+                       f"then start {surface.name} again")
 
     log = STATE.parent / f"{surface.name}.log"
     log.parent.mkdir(parents=True, exist_ok=True)
-    handle = log.open("a", encoding="utf-8")
-    child = subprocess.Popen(
-        ["uv", "run", "--no-sync", *surface.command],
-        cwd=repo, stdout=handle, stderr=subprocess.STDOUT,
-        stdin=subprocess.DEVNULL,
-        # Detached, so closing this terminal does not take the server with it.
-        creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0),
-    )
+    with log.open("a", encoding="utf-8") as handle:
+        offset = handle.tell()
+        child = subprocess.Popen(
+            [*RUNNER, *surface.command],
+            cwd=repo, stdout=handle, stderr=subprocess.STDOUT,
+            stdin=subprocess.DEVNULL,
+            # Detached, so closing this terminal does not take the server with it.
+            creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0),
+        )
     found = running()
     found[surface.name] = {"pid": child.pid, "port": surface.port,
-                           "repo": str(repo), "log": str(log)}
+                           "repo": str(repo), "log": str(log),
+                           "created": instances.created(child.pid)}
     _remember(found)
-    return True, f"started as pid {child.pid}; output goes to {log}"
+    if not surface.declares_itself:
+        # So `qm instances` finds it by its declaration, not by its port.
+        instances.declare(surface.repo, child.pid, surface.port,
+                          [*RUNNER, *surface.command],
+                          session="dashboard", health=surface.health,
+                          checkout=repo)
+
+    outcome = await_port(child, surface.port, wait)
+    if outcome == "listening":
+        return True, (f"pid {child.pid} answers on {surface.port}; "
+                      f"output goes to {log}")
+    if outcome == "exited":
+        forget(surface.name, found[surface.name])
+        return False, (f"exited with status {child.returncode} before "
+                       f"{surface.port} answered, so it is not running. "
+                       f"The end of {log}:\n{tail(log, offset)}")
+    return False, (f"pid {child.pid} is running and {surface.port} did not "
+                   f"answer within {wait:g}s. Read {log}, or stop it with "
+                   f"`uv run qm dashboard --stop {surface.name}`")
 
 
-def stop(name: str) -> tuple[bool, str]:
+def forget(name: str, record: dict) -> int:
+    """Drop what this command recorded of one server, and withdraw the
+    run-files it leaves: its own declaration, and every run-file naming the
+    port it held whose process is gone. A process ended outright runs no
+    cleanup, so qmcp's own run-file survives the stop that ended it.
+
+    Returns how many run-files went."""
+    found = running()
+    found.pop(name, None)
+    _remember(found)
+    own = instances.run_dirs()[0] / (
+        f"{BY_NAME[name].repo if name in BY_NAME else name}-{record['pid']}.json")
+    gone = int(own.is_file())
+    own.unlink(missing_ok=True)
+    for declared in instances.read_run_files(instances.run_dirs()):
+        if (int(declared.get("port") or 0) == record.get("port")
+                and not instances.alive(int(declared.get("pid") or 0))):
+            Path(declared["run_file"]).unlink(missing_ok=True)
+            gone += 1
+    return gone
+
+
+def stop(name: str, wait: float = GONE) -> tuple[bool, str]:
     """Stop what this command started, by the pid it recorded.
 
     By recorded pid, never by port, so this never stops a process it did not
-    start.
+    start; and only while that pid is still the process it started, because a
+    pid recorded before a restart may since have been handed to another.
     """
     found = running()
     if name not in found:
         return False, f"this command did not start {name}, so it will not stop it"
-    pid = found[name]["pid"]
+    record = found[name]
+    pid = record["pid"]
+    if not instances.alive(pid):
+        gone = forget(name, record)
+        return True, (f"pid {pid} had already exited, so nothing was stopped; "
+                      f"{gone} run-file(s) withdrawn")
+    if record.get("created") is not None and instances.created(pid) != record["created"]:
+        forget(name, record)
+        return False, (f"pid {pid} is now another process, started after this "
+                       f"command's had gone. Nothing was stopped, and the record "
+                       f"of {name} is dropped")
     try:
         if sys.platform == "win32":
             subprocess.run(["taskkill", "/F", "/T", "/PID", str(pid)],
@@ -209,14 +388,70 @@ def stop(name: str) -> tuple[bool, str]:
             os.kill(pid, 15)
     except Exception as error:                     # noqa: BLE001
         return False, f"could not stop pid {pid}: {error}"
-    found.pop(name)
-    _remember(found)
-    return True, f"stopped pid {pid}"
+    deadline = time.monotonic() + wait
+    while time.monotonic() < deadline and (
+            instances.alive(pid) or listening(record.get("port") or 0)):
+        time.sleep(0.25)
+    if instances.alive(pid):
+        return False, (f"pid {pid} is still running {wait:g}s after it was "
+                       f"told to stop; its record is kept")
+    gone = forget(name, record)
+    return True, f"stopped pid {pid}; {gone} run-file(s) withdrawn"
+
+
+def registered() -> set[str]:
+    """The repositories this machine is registered to run, or none."""
+    document = instances.read_registration()
+    if not document:
+        return set()
+    try:
+        known = instances.families()
+    except (OSError, ValueError, KeyError):
+        known = {}
+    return set(instances.expected(document, known)[0])
+
+
+def start_registered(wait: float = WAIT) -> int:
+    """Start every registered surface that is not up, the harness first."""
+    if instances.read_registration() is None:
+        print("start-registered: nothing is registered on this machine. "
+              "`uv run qm instances register --family NAME` or `--repo NAME` "
+              "says what it should be running")
+        return 1
+    wanted = registered()
+    status = 0
+    for surface in SURFACES:
+        if surface.repo not in wanted:
+            continue
+        repo = repo_of(surface)
+        if repo is None:
+            print(f"{surface.name}: {surface.repo} is not beside this clone")
+            status = 1
+        elif not surface.detachable and not surface.owner_starts:
+            print(f"{surface.name}: draws in a terminal; run "
+                  f"`cd {surface.repo} && uv run {' '.join(surface.command)}` "
+                  f"where you will watch it")
+        elif listening(surface.port):
+            print(f"{surface.name}: {surface.port} already answers; left as it is")
+        elif surface.owner_starts:
+            print(f"{surface.name}: cd {surface.repo} && "
+                  f"{' '.join(surface.command)}")
+            print(f"{'':<{len(surface.name) + 2}}({surface.note})")
+        else:
+            ok, detail = start(surface, repo, wait)
+            print(f"{surface.name}: {detail}")
+            status = status or (0 if ok else 1)
+    others = sorted(wanted - {s.repo for s in SURFACES})
+    if others:
+        print(f"Registered and not a surface here: {', '.join(others)}. "
+              f"`uv run qm instances` says which of them is up")
+    return status
 
 
 def report() -> int:
     """The status table, and what to run for anything not up."""
     started = running()
+    wanted = registered()
     print("THE SURFACES")
     print("=" * 74)
     print(f"{'':<10} {'repository':<20} {'port':<7} {'state'}")
@@ -228,6 +463,10 @@ def report() -> int:
         if repo is None:
             state = "not beside this clone"
             missing.append(surface)
+        elif not surface.detachable and not surface.owner_starts:
+            # It draws in a terminal and opens no port; its port is its API's.
+            state = "a terminal application; no port says whether it runs"
+            missing.append(surface)
         elif listening(surface.port):
             state = "something is listening"
             if surface.name in started:
@@ -235,9 +474,15 @@ def report() -> int:
         else:
             state = "nothing listening"
             missing.append(surface)
-        print(f"{surface.name:<10} {surface.repo:<20} "
+        mark = "*" if surface.repo in wanted else ""
+        print(f"{surface.name:<10} {surface.repo + mark:<20} "
               f"{surface.port:<7} {state}")
 
+    if wanted:
+        print()
+        print(f"* registered on this machine ({instances.tilde(instances.registration_path())}).")
+        if any(s.repo in wanted and s.detachable for s in missing):
+            print("  uv run qm dashboard --start-registered   starts those not up")
     print()
     print("Each front end reads the harness. A figure that differs between them")
     print("is a defect, not a point of view -- which is why there are two.")
@@ -251,6 +496,8 @@ def report() -> int:
         for surface in live:
             print(f"  {surface.name:<10} http://127.0.0.1:{surface.port}"
                   f"{surface.dataview}")
+            if surface.look:
+                print(f"  {'':<10} ({surface.look})")
             for extra, what in surface.also.items():
                 print(f"  {'':<10} http://127.0.0.1:{surface.port}{extra}"
                       f"  ({what})")
@@ -268,6 +515,14 @@ def report() -> int:
                 print(f"  {surface.name:<10} {surface.repo} is not beside this "
                       f"clone. Nothing here can start it")
                 continue
+            if surface.owner_starts:
+                print(f"  {surface.name:<10} cd {surface.repo} && "
+                      f"{' '.join(surface.command)}")
+                print(f"  {'':<10} ({surface.note})")
+                continue
+            if unprepared(repo):
+                print(f"  {surface.name:<10} first, once, in {surface.repo}: "
+                      f"{surface.prepare}")
             if surface.detachable:
                 print(f"  {surface.name:<10} uv run qm dashboard --start "
                       f"{surface.name}")
@@ -304,6 +559,14 @@ def build_parser() -> argparse.ArgumentParser:
         choices=[s.name for s in SURFACES],
         help="stop a surface this command started, by the pid it recorded")
     parser.add_argument(
+        "--start-registered", action="store_true",
+        help=("start every surface whose repository this machine has "
+              "registered (`qm instances register`) and is not already up"))
+    parser.add_argument(
+        "--wait", type=float, default=WAIT, metavar="SECONDS",
+        help=(f"how long a start waits for its port to answer before saying "
+              f"it did not (default {WAIT:g})"))
+    parser.add_argument(
         "--json", action="store_true", dest="as_json",
         help="the status table as one JSON document")
     return parser
@@ -314,12 +577,15 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.as_json:
         started = running()
+        wanted = registered()
         print(json.dumps({
             s.name: {"repository": s.repo, "role": s.role, "port": s.port,
                      "constant": s.constant, "detachable": s.detachable,
+                     "owner_starts": s.owner_starts, "health": s.health,
                      "present": repo_of(s) is not None,
                      "listening": listening(s.port),
-                     "started_here": s.name in started}
+                     "started_here": s.name in started,
+                     "registered": s.repo in wanted}
             for s in SURFACES}, indent=2))
         return 0
 
@@ -336,11 +602,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{name}: {surface.repo} is not beside this clone")
             status = 1
             continue
-        ok, detail = start(surface, repo)
+        ok, detail = start(surface, repo, args.wait)
         print(f"{name}: {detail}")
         status = status or (0 if ok else 1)
 
-    if args.to_start or args.to_stop:
+    if args.start_registered:
+        status = start_registered(args.wait) or status
+
+    if args.to_start or args.to_stop or args.start_registered:
         print()
 
     report()

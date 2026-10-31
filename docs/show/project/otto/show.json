@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:6aaa8e3f0badfa15017656e874cb2a30130373318236c2e7455e74737d48da63"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "c57b2ad70afa9af629efd0b58f8c2585db501a78"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:otto",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,9 +222,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -436.699361545741,
-      "y": 5.270392609393696,
+      "x": 65.7457966177174,
+      "y": -10.952204320322679,
       "size": 120
      },
      "dir::quaternionmedia/otto/.github": {
@@ -236,9 +237,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -335.8325494525039,
-      "y": 405.83493645729334,
+      "x": 69.17488664292189,
+      "y": -50.14688265928734,
       "size": 60
      },
      "dir::quaternionmedia/otto/.github/workflows": {
@@ -250,9 +252,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -276.016235508085,
-      "y": 433.72774173217954,
+      "x": 72.76714186771784,
+      "y": -42.443266469475816,
       "size": 50
      },
      "dir::quaternionmedia/otto/.vscode": {
@@ -264,9 +267,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -376.8830476013221,
-      "y": 33.16319788427987,
+      "x": 69.33805184251335,
+      "y": -3.248588130511152,
       "size": 50
      },
      "dir::quaternionmedia/otto/docs": {
@@ -277,25 +281,15 @@
       "kind": "directory",
       "file": "",
       "line": 0,
-      "meta": {},
-      "label_at": "none",
-      "x": -425.07617015962353,
-      "y": -458.4994928450924,
+      "meta": {
+       "lines": 38,
+       "pages": 5
+      },
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 76.40709264612592,
+      "y": -14.829326899586903,
       "size": 70
-     },
-     "dir::quaternionmedia/otto/docs/reference": {
-      "id": "dir::quaternionmedia/otto/docs/reference",
-      "label": "reference",
-      "depth": 0,
-      "language": "unknown",
-      "kind": "directory",
-      "file": "",
-      "line": 0,
-      "meta": {},
-      "label_at": "none",
-      "x": -609.8700688564469,
-      "y": -329.1054119624152,
-      "size": 90
      },
      "dir::quaternionmedia/otto/otto": {
       "id": "dir::quaternionmedia/otto/otto",
@@ -306,9 +300,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 444.3710538478999,
-      "y": -15.706110878908278,
+      "x": -53.59668346107181,
+      "y": -22.873031241725652,
       "size": 230
      },
      "dir::quaternionmedia/otto/otto/examples": {
@@ -320,9 +315,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 488.4346744093399,
-      "y": -91.9787949998794,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": -57.11121631711321,
+      "y": -36.01794218869695,
       "size": 50
      },
      "dir::quaternionmedia/otto/otto/templates": {
@@ -334,9 +330,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 71.79401597296382,
-      "y": 115.34708428764064,
+      "x": -71.15352870684981,
+      "y": -60.523807373611895,
       "size": 60
      },
      "dir::quaternionmedia/otto/tests": {
@@ -348,9 +345,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -778.4124837482012,
-      "y": 171.2914319955098,
+      "x": 108.48687153849727,
+      "y": 42.804151701367296,
       "size": 70
      },
      "file::quaternionmedia/otto/README.md": {
@@ -362,79 +360,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/README.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -510.9306509829794,
-      "y": 28.664369793381468,
-      "size": 30
-     },
-     "file::quaternionmedia/otto/docs/index.md": {
-      "id": "file::quaternionmedia/otto/docs/index.md",
-      "label": "index.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/index.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -376.13554965964437,
-      "y": -435.6781067110947,
-      "size": 30
-     },
-     "file::quaternionmedia/otto/docs/reference/index.md": {
-      "id": "file::quaternionmedia/otto/docs/reference/index.md",
-      "label": "index.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/index.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -560.9294483564678,
-      "y": -306.2840258284174,
-      "size": 30
-     },
-     "file::quaternionmedia/otto/docs/reference/main.md": {
-      "id": "file::quaternionmedia/otto/docs/reference/main.md",
-      "label": "main.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/main.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": -667.1357527795001,
-      "y": -311.0581422291575,
-      "size": 30
-     },
-     "file::quaternionmedia/otto/docs/reference/models.md": {
-      "id": "file::quaternionmedia/otto/docs/reference/models.md",
-      "label": "models.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/models.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "right",
-      "x": -577.0899030622605,
-      "y": -385.8468054111635,
-      "size": 30
-     },
-     "file::quaternionmedia/otto/docs/reference/templates.md": {
-      "id": "file::quaternionmedia/otto/docs/reference/templates.md",
-      "label": "templates.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/templates.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "below",
-      "x": -594.619247785123,
-      "y": -260.18081579638414,
+      "x": 56.48571303650628,
+      "y": -14.78932672115695,
       "size": 30
      },
      "file::quaternionmedia/otto/noxfile.py": {
@@ -446,9 +375,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/noxfile.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -508.29228506701753,
-      "y": 601.7903525563999,
+      "x": 96.75932446772285,
+      "y": -17.673791176400798,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/__init__.py": {
@@ -460,9 +390,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "none",
-      "x": 390.74359721787624,
-      "y": 491.2567327867982,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -50.00442823627588,
+      "y": -15.169415051914129,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/_version.py": {
@@ -474,9 +405,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/_version.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 504.1873677923187,
-      "y": 12.186694395977867,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -62.85676704228295,
+      "y": -26.71015364255993,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/chartransitions.py": {
@@ -488,9 +420,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/chartransitions.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 787.2959340513848,
-      "y": -410.04891134268064,
+      "x": -32.5452439908802,
+      "y": -59.66652844673198,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/cliparse.py": {
@@ -502,9 +435,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/cliparse.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 370.13976441066137,
-      "y": 7.6878663050794955,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -42.93538743266329,
+      "y": -26.75015382098988,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/colortransitions.py": {
@@ -516,9 +450,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/colortransitions.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 711.4879850781922,
-      "y": 108.8525597766392,
+      "x": -33.46172443683305,
+      "y": 21.632890396728484,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/config.py": {
@@ -530,9 +465,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/config.py",
       "line": 0,
       "meta": {},
-      "label_at": "none",
-      "x": 85.30259112069722,
-      "y": 348.64002850451664,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -59.3853818588143,
+      "y": -11.764073612408058,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/exceptions.py": {
@@ -544,9 +480,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/exceptions.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 63.09516232855641,
-      "y": -357.52870688711306,
+      "x": -47.707407496221,
+      "y": -86.93904036456013,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/export.sh": {
@@ -558,9 +495,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/export.sh",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 465.38467799985267,
-      "y": 79.26291091241302,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -41.28261870755672,
+      "y": -15.016372251019936,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/getdata.py": {
@@ -572,9 +510,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/getdata.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 562.3394047774791,
-      "y": -268.6900558484914,
+      "x": -15.892246379964735,
+      "y": -26.222477523030413,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/log.py": {
@@ -586,9 +525,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/log.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -67.80107992889229,
-      "y": -83.597650275147,
+      "x": -101.3761526706928,
+      "y": -75.03232122964513,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/main.py": {
@@ -600,9 +540,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/main.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 577.4540749794876,
-      "y": 361.38740493945625,
+      "x": 5.334574233415449,
+      "y": -3.187695865695348,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/models.py": {
@@ -614,9 +555,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/models.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 308.42642431107805,
-      "y": -396.4112091806999,
+      "x": -107.73156466713631,
+      "y": -49.6038875445604,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/preview.py": {
@@ -628,9 +570,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/preview.py",
       "line": 0,
       "meta": {},
-      "label_at": "none",
-      "x": 812.6013761030656,
-      "y": -160.90121752087987,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -68.90577422674912,
+      "y": -20.186457693829702,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/render.py": {
@@ -642,9 +585,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/render.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 188.34042700829207,
-      "y": -135.09515289644204,
+      "x": -78.72180073893175,
+      "y": 26.06269906430384,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/templates.py": {
@@ -656,9 +600,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 322.30576911309504,
-      "y": 246.06373698885037,
+      "x": -97.32220442159246,
+      "y": -11.906208116972849,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/templates/VideoForm.html": {
@@ -670,9 +615,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates/VideoForm.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 120.73463647294291,
-      "y": 138.1684704216384,
+      "x": -67.98389174379457,
+      "y": -53.726498970837014,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/utils.py": {
@@ -684,9 +630,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/utils.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 532.3966061358091,
-      "y": -532.6809551217298,
+      "x": 1.4912563991869163,
+      "y": -57.132781137219816,
       "size": 30
      },
      "file::quaternionmedia/otto/pyproject.toml": {
@@ -698,9 +645,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -917.1706852693483,
-      "y": -182.12242683502507,
+      "x": 103.70601952217609,
+      "y": -45.392810356556026,
       "size": 30
      },
      "file::quaternionmedia/otto/tests/test_otto.py": {
@@ -712,9 +660,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_otto.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -638.1499693652594,
-      "y": 236.69691660435123,
+      "x": 117.90495312710192,
+      "y": 55.471645060842945,
       "size": 30
      },
      "file::quaternionmedia/otto/tests/test_preview.py": {
@@ -726,31 +675,11 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_preview.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -936.5719242594664,
-      "y": 282.0358644805279,
+      "x": 78.10168797959412,
+      "y": 34.7110784952106,
       "size": 30
-     },
-     "__init__._version.__version__": {
-      "id": "__init__._version.__version__",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "_version.__version__",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 421.5580619771224,
-      "y": 505.62575368598203,
-      "label_at": "right"
      },
      "chartransitions.arrive": {
       "id": "chartransitions.arrive",
@@ -762,16 +691,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 158
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 818.1103988106308,
-      "y": -395.6798904434968,
-      "label_at": "right"
+      "x": -21.493757944429273,
+      "y": -53.66347724292102,
+      "label_at": "right",
+      "dot_scale": 1.6986570869544226
      },
      "chartransitions.cascade": {
       "id": "chartransitions.cascade",
@@ -783,16 +714,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 187
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 751.3547995117879,
-      "y": -398.72206941712216,
-      "label_at": "left"
+      "x": -25.506481716523393,
+      "y": -59.929775196413274,
+      "label_at": "right",
+      "dot_scale": 1.771841606536499
      },
      "chartransitions.d": {
       "id": "chartransitions.d",
@@ -804,16 +737,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 69
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 807.8246112618069,
-      "y": -445.5833792856554,
-      "label_at": "right"
+      "x": -38.504115071946636,
+      "y": -61.29619413656645,
+      "label_at": "left",
+      "dot_scale": 1.3388490907372552
      },
      "chartransitions.damping": {
       "id": "chartransitions.damping",
@@ -825,16 +760,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 45
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 796.8316869323701,
-      "y": -366.9530076279099,
-      "label_at": "below"
+      "x": -24.393918755910242,
+      "y": -48.17936862371262,
+      "label_at": "right",
+      "dot_scale": 1.1532125137753437
      },
      "chartransitions.moveLetters": {
       "id": "chartransitions.moveLetters",
@@ -846,16 +783,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 164
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 748.7821052116175,
-      "y": -437.04770739178434,
-      "label_at": "left"
+      "x": -34.82815970352829,
+      "y": -47.07699062397324,
+      "label_at": "below",
+      "dot_scale": 1.7148438480476977
      },
      "chartransitions.rotMatrix": {
       "id": "chartransitions.rotMatrix",
@@ -867,16 +806,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 88
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 836.6371591904963,
-      "y": -416.5107997486746,
-      "label_at": "right"
+      "x": -29.750297146156413,
+      "y": -65.4117134138013,
+      "label_at": "right",
+      "dot_scale": 1.4444826721501687
      },
      "chartransitions.vortex": {
       "id": "chartransitions.vortex",
@@ -888,16 +829,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 263
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 753.6143149955557,
-      "y": -369.97493552572416,
-      "label_at": "left"
+      "x": -37.593091702290494,
+      "y": -54.337970080165846,
+      "label_at": "left",
+      "dot_scale": 1.9199557484897578
      },
      "chartransitions.vortexout": {
       "id": "chartransitions.vortexout",
@@ -909,58 +852,18 @@
       "line": 0,
       "meta": {
        "module": "chartransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 323
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 784.956980136504,
-      "y": -464.8117344490916,
-      "label_at": "above"
-     },
-     "colortransitions.PIL.ImageColor.getcolor": {
-      "id": "colortransitions.PIL.ImageColor.getcolor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.ImageColor.getcolor",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 742.3024498374383,
-      "y": 123.22158067582293,
-      "label_at": "right"
-     },
-     "colortransitions.Surface": {
-      "id": "colortransitions.Surface",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Surface",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 675.5468505385952,
-      "y": 120.17940170219754,
-      "label_at": "left"
+      "x": -29.36782871984256,
+      "y": -52.85253940865899,
+      "label_at": "right",
+      "dot_scale": 2.009202522331103
      },
      "colortransitions.bez": {
       "id": "colortransitions.bez",
@@ -972,16 +875,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 385
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 732.0166622886143,
-      "y": 73.3180918336644,
-      "label_at": "right"
+      "x": -40.3555419207077,
+      "y": 6.906493911249484,
+      "label_at": "left",
+      "dot_scale": 2.0854607295085006
      },
      "colortransitions.bezier2": {
       "id": "colortransitions.bezier2",
@@ -993,16 +898,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 241
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 721.0237379591775,
-      "y": 151.94846349140983,
-      "label_at": "below"
+      "x": -9.724412328562375,
+      "y": 25.73016779206813,
+      "label_at": "right",
+      "dot_scale": 1.8820170425748683
      },
      "colortransitions.boxReveal": {
       "id": "colortransitions.boxReveal",
@@ -1014,16 +921,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 652
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 672.9741562384248,
-      "y": 81.85376372753535,
-      "label_at": "left"
+      "x": -14.822711454914378,
+      "y": 18.444262017652157,
+      "label_at": "right",
+      "dot_scale": 2.31424759573192
      },
      "colortransitions.boxShrink": {
       "id": "colortransitions.boxShrink",
@@ -1035,16 +944,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1216
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 760.8292102173036,
-      "y": 102.39067137064517,
-      "label_at": "right"
+      "x": -25.072259800953084,
+      "y": 19.44577368293062,
+      "label_at": "right",
+      "dot_scale": 2.584933574936716
      },
      "colortransitions.br": {
       "id": "colortransitions.br",
@@ -1056,16 +967,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 414
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 677.8063660223631,
-      "y": 148.92653559359553,
-      "label_at": "left"
+      "x": -50.60132023612841,
+      "y": 21.71011016528795,
+      "label_at": "left",
+      "dot_scale": 2.1170003411208986
      },
      "colortransitions.bs": {
       "id": "colortransitions.bs",
@@ -1077,37 +990,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 699
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 709.1490311633113,
-      "y": 54.08973667022817,
-      "label_at": "above"
-     },
-     "colortransitions.circle": {
-      "id": "colortransitions.circle",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "circle",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 751.8699951000984,
-      "y": 149.322218369104,
-      "label_at": "right"
+      "x": -20.91392926485422,
+      "y": 37.29262100328284,
+      "label_at": "right",
+      "dot_scale": 2.3444771757456815
      },
      "colortransitions.circleShrink": {
       "id": "colortransitions.circleShrink",
@@ -1119,16 +1013,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 640
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 652.1123962685804,
-      "y": 106.18761071298334,
-      "label_at": "left"
+      "x": -47.98614089675866,
+      "y": 35.46655061631115,
+      "label_at": "left",
+      "dot_scale": 2.306179973983887
      },
      "colortransitions.cs": {
       "id": "colortransitions.cs",
@@ -1140,16 +1036,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 408
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 758.7427876795917,
-      "y": 69.31006831362222,
-      "label_at": "right"
+      "x": -37.34279265976264,
+      "y": 47.38375763490089,
+      "label_at": "below",
+      "dot_scale": 2.11066016308988
      },
      "colortransitions.dbo": {
       "id": "colortransitions.dbo",
@@ -1161,16 +1059,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2702
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 703.0762323519094,
-      "y": 172.01845180763854,
-      "label_at": "below"
+      "x": -41.289993925495395,
+      "y": 26.770098537291737,
+      "label_at": "left",
+      "dot_scale": 2.9316853446860116
      },
      "colortransitions.drawBoxOutline": {
       "id": "colortransitions.drawBoxOutline",
@@ -1182,16 +1082,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2940
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 673.8556219536689,
-      "y": 54.921536741061516,
-      "label_at": "left"
+      "x": -29.473604942697744,
+      "y": 30.185440251720742,
+      "label_at": "right",
+      "dot_scale": 2.9683473304121573
      },
      "colortransitions.fiag": {
       "id": "colortransitions.fiag",
@@ -1203,16 +1105,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 770
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 777.5971016151066,
-      "y": 123.63082796708287,
-      "label_at": "right"
+      "x": -18.563328469617904,
+      "y": 27.611978420202792,
+      "label_at": "right",
+      "dot_scale": 2.386490725172482
      },
      "colortransitions.flyInAndGrow": {
       "id": "colortransitions.flyInAndGrow",
@@ -1224,16 +1128,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1007
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 651.0924510607209,
-      "y": 143.56933483920017,
-      "label_at": "left"
+      "x": -38.1143688291923,
+      "y": 37.68702738061346,
+      "label_at": "below",
+      "dot_scale": 2.503029470553618
      },
      "colortransitions.gb": {
       "id": "colortransitions.gb",
@@ -1245,100 +1151,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 399
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 733.1369296841681,
-      "y": 40.674405669569126,
-      "label_at": "above"
-     },
-     "colortransitions.getcolor": {
-      "id": "colortransitions.getcolor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "getcolor",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 742.3450588149778,
-      "y": 175.4020977194572,
-      "label_at": "right"
-     },
-     "colortransitions.gizeh.Surface": {
-      "id": "colortransitions.gizeh.Surface",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "gizeh.Surface",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 642.1399805322401,
-      "y": 79.94033458564797,
-      "label_at": "left"
-     },
-     "colortransitions.gizeh.circle": {
-      "id": "colortransitions.gizeh.circle",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "gizeh.circle",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 783.7868534242451,
-      "y": 82.73745617967592,
-      "label_at": "right"
-     },
-     "colortransitions.gizeh.rectangle": {
-      "id": "colortransitions.gizeh.rectangle",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "gizeh.rectangle",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 675.0292523857355,
-      "y": 178.45103900183483,
-      "label_at": "left"
+      "x": -15.50075786355682,
+      "y": 9.13849058257287,
+      "label_at": "right",
+      "dot_scale": 2.1009728956867484
      },
      "colortransitions.growBox": {
       "id": "colortransitions.growBox",
@@ -1350,16 +1174,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 698
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 690.932402614182,
-      "y": 31.297946570426287,
-      "label_at": "above"
+      "x": -29.21079928051615,
+      "y": 42.65083557080992,
+      "label_at": "below",
+      "dot_scale": 2.343855422623161
      },
      "colortransitions.makeBezier": {
       "id": "colortransitions.makeBezier",
@@ -1371,16 +1197,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 720
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 780.4038676612761,
-      "y": 153.03302636306864,
-      "label_at": "right"
+      "x": -43.18516531737243,
+      "y": 15.85537453838673,
+      "label_at": "left",
+      "dot_scale": 2.3573324964312685
      },
      "colortransitions.makeClip": {
       "id": "colortransitions.makeClip",
@@ -1392,16 +1220,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 188
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 629.2542505470028,
-      "y": 123.099942169691,
-      "label_at": "left"
+      "x": -54.02018852378486,
+      "y": 29.253856201761746,
+      "label_at": "left",
+      "dot_scale": 1.7741578492636798
      },
      "colortransitions.makeColor": {
       "id": "colortransitions.makeColor",
@@ -1413,16 +1243,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 567
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 763.4585814246449,
-      "y": 41.55846928279203,
-      "label_at": "right"
+      "x": -24.708854532856222,
+      "y": 9.275230789743333,
+      "label_at": "right",
+      "dot_scale": 2.2535830588929064
      },
      "colortransitions.maprange": {
       "id": "colortransitions.maprange",
@@ -1434,37 +1266,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 103
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 718.7521277217627,
-      "y": 195.11223883733282,
-      "label_at": "below"
-     },
-     "colortransitions.rectangle": {
-      "id": "colortransitions.rectangle",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rectangle",
-      "file": "colortransitions.py",
-      "line": 0,
-      "meta": {
-       "module": "colortransitions",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 646.7527441661122,
-      "y": 49.12893728055363,
-      "label_at": "left"
+      "x": -44.81913767265377,
+      "y": 42.963062767399734,
+      "label_at": "left",
+      "dot_scale": 1.5128372247051722
      },
      "colortransitions.translate": {
       "id": "colortransitions.translate",
@@ -1476,16 +1289,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 394
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 801.0509541428488,
-      "y": 109.16811060200683,
-      "label_at": "right"
+      "x": -20.737363707516376,
+      "y": 46.67090584027016,
+      "label_at": "right",
+      "dot_scale": 2.095496221825574
      },
      "colortransitions.zfc": {
       "id": "colortransitions.zfc",
@@ -1497,16 +1312,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 502
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 644.1522136760555,
-      "y": 170.10271397790774,
-      "label_at": "left"
+      "x": -11.746334071836316,
+      "y": 34.47655325567249,
+      "label_at": "right",
+      "dot_scale": 2.2007037171450197
      },
      "colortransitions.zoomFromCenter": {
       "id": "colortransitions.zoomFromCenter",
@@ -1518,58 +1335,18 @@
       "line": 0,
       "meta": {
        "module": "colortransitions",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 740
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 719.8962675957479,
-      "y": 16.770798362638345,
-      "label_at": "above"
-     },
-     "config.environ": {
-      "id": "config.environ",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "environ",
-      "file": "config.py",
-      "line": 0,
-      "meta": {
-       "module": "config",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 116.11705587994332,
-      "y": 363.00904940370043,
-      "label_at": "right"
-     },
-     "config.os.environ": {
-      "id": "config.os.environ",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "os.environ",
-      "file": "config.py",
-      "line": 0,
-      "meta": {
-       "module": "config",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 49.36145658110027,
-      "y": 359.966870430075,
-      "label_at": "left"
+      "x": -33.54097646181333,
+      "y": 13.394808158738394,
+      "label_at": "above",
+      "dot_scale": 2.3692317197309762
      },
      "exceptions.EdlException": {
       "id": "exceptions.EdlException",
@@ -1581,16 +1358,18 @@
       "line": 0,
       "meta": {
        "module": "exceptions",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 78
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 93.9096270878025,
-      "y": -343.15968598792927,
-      "label_at": "right"
+      "x": -51.200520500635434,
+      "y": -81.71513421040522,
+      "label_at": "left",
+      "dot_scale": 1.3920946026904804
      },
      "exceptions.EmptyClipsException": {
       "id": "exceptions.EmptyClipsException",
@@ -1602,16 +1381,18 @@
       "line": 0,
       "meta": {
        "module": "exceptions",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 98
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 27.154027788959457,
-      "y": -346.2018649615547,
-      "label_at": "left"
+      "x": -44.967804836185415,
+      "y": -81.06394350066742,
+      "label_at": "right",
+      "dot_scale": 1.4912260756924949
      },
      "exceptions.OttoException": {
       "id": "exceptions.OttoException",
@@ -1623,37 +1404,18 @@
       "line": 0,
       "meta": {
        "module": "exceptions",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 76
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 83.62383953897839,
-      "y": -393.0631748300877,
-      "label_at": "right"
-     },
-     "getdata.csv.reader": {
-      "id": "getdata.csv.reader",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "csv.reader",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 593.1538695367251,
-      "y": -254.32103494930766,
-      "label_at": "right"
+      "x": -41.48425480309399,
+      "y": -86.24597070250105,
+      "label_at": "right",
+      "dot_scale": 1.3808135922807914
      },
      "getdata.download": {
       "id": "getdata.download",
@@ -1665,16 +1427,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1185
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 526.3982702378821,
-      "y": -257.363213922933,
-      "label_at": "left"
+      "x": -12.237681713005449,
+      "y": -18.385238303286513,
+      "label_at": "right",
+      "dot_scale": 2.5737183503461227
      },
      "getdata.hash": {
       "id": "getdata.hash",
@@ -1686,100 +1450,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 54
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 582.8680819879011,
-      "y": -304.224523791466,
-      "label_at": "right"
-     },
-     "getdata.hashlib.sha256": {
-      "id": "getdata.hashlib.sha256",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "hashlib.sha256",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 571.8751576584643,
-      "y": -225.59415213372077,
-      "label_at": "below"
-     },
-     "getdata.head": {
-      "id": "getdata.head",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "head",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 523.8255759377117,
-      "y": -295.6888518975951,
-      "label_at": "left"
-     },
-     "getdata.json.loads": {
-      "id": "getdata.json.loads",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "json.loads",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 611.6806299165905,
-      "y": -275.15194425448533,
-      "label_at": "right"
-     },
-     "getdata.loads": {
-      "id": "getdata.loads",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "loads",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 528.6577857216499,
-      "y": -228.61608003153506,
-      "label_at": "left"
+      "x": -21.51047929999436,
+      "y": -28.226011653216197,
+      "label_at": "left",
+      "dot_scale": 1.2323937598229686
      },
      "getdata.openCsv": {
       "id": "getdata.openCsv",
@@ -1791,16 +1473,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 144
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 560.0004508625981,
-      "y": -323.45287895490225,
-      "label_at": "above"
+      "x": -9.098504378679571,
+      "y": -26.781770943393056,
+      "label_at": "right",
+      "dot_scale": 1.6583624920952498
      },
      "getdata.openJson": {
       "id": "getdata.openJson",
@@ -1812,100 +1496,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 81
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 602.7214147993855,
-      "y": -228.22039725602656,
-      "label_at": "right"
-     },
-     "getdata.os.path": {
-      "id": "getdata.os.path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "os.path",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 502.96381596786716,
-      "y": -271.35500491214714,
-      "label_at": "left"
-     },
-     "getdata.otto.utils.download_url": {
-      "id": "getdata.otto.utils.download_url",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.utils.download_url",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 609.5942073788785,
-      "y": -308.2325473115083,
-      "label_at": "right"
-     },
-     "getdata.reader": {
-      "id": "getdata.reader",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "reader",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 553.9276520511961,
-      "y": -205.52416381749202,
-      "label_at": "below"
-     },
-     "getdata.requests.head": {
-      "id": "getdata.requests.head",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "requests.head",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 524.7070416529557,
-      "y": -322.621078884069,
-      "label_at": "left"
+      "x": -19.52096880919754,
+      "y": -14.072476947918968,
+      "label_at": "below",
+      "dot_scale": 1.4084850188786497
      },
      "getdata.scale": {
       "id": "getdata.scale",
@@ -1917,79 +1519,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 78
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 628.4485213143934,
-      "y": -253.91178765804761,
-      "label_at": "right"
-     },
-     "getdata.sha256": {
-      "id": "getdata.sha256",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "sha256",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 501.9438707600077,
-      "y": -233.97328078593046,
-      "label_at": "left"
-     },
-     "getdata.strftime": {
-      "id": "getdata.strftime",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "strftime",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 583.988349383455,
-      "y": -336.8682099555614,
-      "label_at": "above"
-     },
-     "getdata.time.strftime": {
-      "id": "getdata.time.strftime",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "time.strftime",
-      "file": "getdata.py",
-      "line": 0,
-      "meta": {
-       "module": "getdata",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 593.1964785142645,
-      "y": -202.14051790567336,
-      "label_at": "right"
+      "x": -4.598044488719089,
+      "y": -21.952906799834796,
+      "label_at": "right",
+      "dot_scale": 1.3920946026904804
      },
      "getdata.timestr": {
       "id": "getdata.timestr",
@@ -2001,16 +1542,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 64
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 492.9914002315269,
-      "y": -297.60228103948265,
-      "label_at": "left"
+      "x": -13.21714299053279,
+      "y": -31.718363801818427,
+      "label_at": "right",
+      "dot_scale": 1.306179973983887
      },
      "getdata.urlToJson": {
       "id": "getdata.urlToJson",
@@ -2022,100 +1565,18 @@
       "line": 0,
       "meta": {
        "module": "getdata",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 346
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 634.6382731235318,
-      "y": -294.80515944545465,
-      "label_at": "right"
-     },
-     "log.LOG_DIR": {
-      "id": "log.LOG_DIR",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "LOG_DIR",
-      "file": "log.py",
-      "line": 0,
-      "meta": {
-       "module": "log",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -36.986615169646186,
-      "y": -69.22862937596322,
-      "label_at": "right"
-     },
-     "log.otto.config.LOG_DIR": {
-      "id": "log.otto.config.LOG_DIR",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.config.LOG_DIR",
-      "file": "log.py",
-      "line": 0,
-      "meta": {
-       "module": "log",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -103.74221446848925,
-      "y": -72.27080834958863,
-      "label_at": "left"
-     },
-     "log.strftime": {
-      "id": "log.strftime",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "strftime",
-      "file": "log.py",
-      "line": 0,
-      "meta": {
-       "module": "log",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -47.27240271847026,
-      "y": -119.13211821812175,
-      "label_at": "right"
-     },
-     "log.time.strftime": {
-      "id": "log.time.strftime",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "time.strftime",
-      "file": "log.py",
-      "line": 0,
-      "meta": {
-       "module": "log",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -58.2653270479071,
-      "y": -40.50174656037636,
-      "label_at": "below"
+      "x": -21.552106975713023,
+      "y": -21.183194958372372,
+      "label_at": "left",
+      "dot_scale": 2.0390760987927767
      },
      "log.ts": {
       "id": "log.ts",
@@ -2127,205 +1588,18 @@
       "line": 0,
       "meta": {
        "module": "log",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 46
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -106.31490876865959,
-      "y": -110.59644632425083,
-      "label_at": "left"
-     },
-     "main.FastAPI": {
-      "id": "main.FastAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "FastAPI",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 608.2685397387338,
-      "y": 375.75642583864,
-      "label_at": "right"
-     },
-     "main.__version__": {
-      "id": "main.__version__",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "__version__",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 541.5129404398907,
-      "y": 372.71424686501456,
-      "label_at": "left"
-     },
-     "main.fastapi.FastAPI": {
-      "id": "main.fastapi.FastAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.FastAPI",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 597.9827521899097,
-      "y": 325.85293699648145,
-      "label_at": "right"
-     },
-     "main.otto.__version__": {
-      "id": "main.otto.__version__",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.__version__",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 586.9898278604729,
-      "y": 404.4833086542269,
-      "label_at": "below"
-     },
-     "main.otto.preview.previewAPI": {
-      "id": "main.otto.preview.previewAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.preview.previewAPI",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 538.9402461397203,
-      "y": 334.38860889035243,
-      "label_at": "left"
-     },
-     "main.otto.templates": {
-      "id": "main.otto.templates",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.templates",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 626.7953001185991,
-      "y": 354.92551653346226,
-      "label_at": "right"
-     },
-     "main.previewAPI": {
-      "id": "main.previewAPI",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "previewAPI",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 543.7724559236585,
-      "y": 401.46138075641267,
-      "label_at": "left"
-     },
-     "main.templates": {
-      "id": "main.templates",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "templates",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 575.1151210646066,
-      "y": 306.62458183304517,
-      "label_at": "above"
-     },
-     "main.uvicorn.run": {
-      "id": "main.uvicorn.run",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "uvicorn.run",
-      "file": "main.py",
-      "line": 0,
-      "meta": {
-       "module": "main",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 617.8360850013939,
-      "y": 401.8570635319211,
-      "label_at": "right"
+      "x": -98.91418336729905,
+      "y": -69.75261102043514,
+      "label_at": "right",
+      "dot_scale": 1.162757831681574
      },
      "main.version": {
       "id": "main.version",
@@ -2337,37 +1611,18 @@
       "line": 0,
       "meta": {
        "module": "main",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 275
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 518.0784861698758,
-      "y": 358.7224558758004,
-      "label_at": "left"
-     },
-     "models.BaseModel": {
-      "id": "models.BaseModel",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "BaseModel",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 339.2408890703242,
-      "y": -382.04218828151613,
-      "label_at": "right"
+      "x": 8.452932973514804,
+      "y": 3.499646033079187,
+      "label_at": "right",
+      "dot_scale": 1.9393326938302626
      },
      "models.Clip": {
       "id": "models.Clip",
@@ -2379,16 +1634,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 1185
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 272.485289771481,
-      "y": -385.0843672551416,
-      "label_at": "left"
+      "x": -104.07700000017705,
+      "y": -41.76664832481651,
+      "label_at": "right",
+      "dot_scale": 2.5737183503461227
      },
      "models.Edl": {
       "id": "models.Edl",
@@ -2400,16 +1657,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 260
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 328.95510152150007,
-      "y": -431.9456771236747,
-      "label_at": "right"
+      "x": -100.45993288030172,
+      "y": -50.52664955182033,
+      "label_at": "right",
+      "dot_scale": 1.914973347970818
      },
      "models.FX": {
       "id": "models.FX",
@@ -2421,79 +1680,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 81
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 317.9621771920632,
-      "y": -353.3153054659293,
-      "label_at": "below"
-     },
-     "models.List": {
-      "id": "models.List",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "List",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 269.91259547131074,
-      "y": -423.41000522980374,
-      "label_at": "left"
-     },
-     "models.Literal": {
-      "id": "models.Literal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Literal",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 357.76764945018954,
-      "y": -402.873097586694,
-      "label_at": "right"
-     },
-     "models.Optional": {
-      "id": "models.Optional",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Optional",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 274.7448052552488,
-      "y": -356.3372333637437,
-      "label_at": "left"
+      "x": -96.17683574407698,
+      "y": -44.80532997325375,
+      "label_at": "right",
+      "dot_scale": 1.4084850188786497
      },
      "models.Render": {
       "id": "models.Render",
@@ -2505,16 +1703,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 134
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 306.0874703961971,
-      "y": -451.174032287111,
-      "label_at": "above"
+      "x": -111.51280361169485,
+      "y": -36.87296551374846,
+      "label_at": "below",
+      "dot_scale": 1.6271047983648077
      },
      "models.TemplateData": {
       "id": "models.TemplateData",
@@ -2526,184 +1726,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 383
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 348.80843433298435,
-      "y": -355.94155058823515,
-      "label_at": "right"
-     },
-     "models.Tuple": {
-      "id": "models.Tuple",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Tuple",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 249.05083550146608,
-      "y": -399.0761582443558,
-      "label_at": "left"
-     },
-     "models.Union": {
-      "id": "models.Union",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Union",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 355.6812269124774,
-      "y": -435.95370064371696,
-      "label_at": "right"
-     },
-     "models.pydantic.BaseModel": {
-      "id": "models.pydantic.BaseModel",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pydantic.BaseModel",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 300.0146715847951,
-      "y": -333.24531714970055,
-      "label_at": "below"
-     },
-     "models.typing.List": {
-      "id": "models.typing.List",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing.List",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 270.79406118655464,
-      "y": -450.3422322162776,
-      "label_at": "left"
-     },
-     "models.typing.Literal": {
-      "id": "models.typing.Literal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing.Literal",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 374.5355408479925,
-      "y": -381.6329409902562,
-      "label_at": "right"
-     },
-     "models.typing.Optional": {
-      "id": "models.typing.Optional",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing.Optional",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 248.0308902936067,
-      "y": -361.694434118139,
-      "label_at": "left"
-     },
-     "models.typing.Tuple": {
-      "id": "models.typing.Tuple",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing.Tuple",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 330.07536891705394,
-      "y": -464.58936328776986,
-      "label_at": "above"
-     },
-     "models.typing.Union": {
-      "id": "models.typing.Union",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing.Union",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 339.28349804786365,
-      "y": -329.86167123788186,
-      "label_at": "right"
+      "x": -113.48997864374348,
+      "y": -44.54282838297834,
+      "label_at": "left",
+      "dot_scale": 2.083198773968623
      },
      "noxfile.blacken": {
       "id": "noxfile.blacken",
@@ -2715,16 +1749,18 @@
       "line": 0,
       "meta": {
        "module": "noxfile",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 221
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -477.4778203077713,
-      "y": 616.1593734555836,
-      "label_at": "right"
+      "x": 99.79743609716085,
+      "y": -11.15853976179043,
+      "label_at": "right",
+      "dot_scale": 1.8443922736851108
      },
      "noxfile.coverage": {
       "id": "noxfile.coverage",
@@ -2736,16 +1772,18 @@
       "line": 0,
       "meta": {
        "module": "noxfile",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 161
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -544.2334196066145,
-      "y": 613.1171944819582,
-      "label_at": "left"
+      "x": 92.29603543776211,
+      "y": -12.3938639435835,
+      "label_at": "left",
+      "dot_scale": 1.7068258760318498
      },
      "noxfile.lint": {
       "id": "noxfile.lint",
@@ -2757,415 +1795,18 @@
       "line": 0,
       "meta": {
        "module": "noxfile",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 85
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -487.7636078565955,
-      "y": 566.255884613425,
-      "label_at": "right"
-     },
-     "preview.APIRouter": {
-      "id": "preview.APIRouter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "APIRouter",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 843.4158408623116,
-      "y": -146.53219662169607,
-      "label_at": "right"
-     },
-     "preview.Edl": {
-      "id": "preview.Edl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Edl",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 776.6602415634686,
-      "y": -149.5743755953215,
-      "label_at": "left"
-     },
-     "preview.fastapi.APIRouter": {
-      "id": "preview.fastapi.APIRouter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.APIRouter",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 833.1300533134876,
-      "y": -196.43568546385467,
-      "label_at": "right"
-     },
-     "preview.generateEdl": {
-      "id": "preview.generateEdl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "generateEdl",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 822.1371289840508,
-      "y": -117.80531380610921,
-      "label_at": "below"
-     },
-     "preview.join": {
-      "id": "preview.join",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "join",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 774.0875472632981,
-      "y": -187.90001356998374,
-      "label_at": "left"
-     },
-     "preview.os.path.join": {
-      "id": "preview.os.path.join",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "os.path.join",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 861.9426012421771,
-      "y": -167.36310592687386,
-      "label_at": "right"
-     },
-     "preview.otto.getdata.timestr": {
-      "id": "preview.otto.getdata.timestr",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.getdata.timestr",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 778.9197570472362,
-      "y": -120.82724170392352,
-      "label_at": "left"
-     },
-     "preview.otto.models.Edl": {
-      "id": "preview.otto.models.Edl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.Edl",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 810.2624221881847,
-      "y": -215.6640406272908,
-      "label_at": "above"
-     },
-     "preview.otto.models.Render": {
-      "id": "preview.otto.models.Render",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.Render",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 852.9833861249717,
-      "y": -120.43155892841497,
-      "label_at": "right"
-     },
-     "preview.otto.render.generateEdl": {
-      "id": "preview.otto.render.generateEdl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.render.generateEdl",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 753.2257872934535,
-      "y": -163.56616658453567,
-      "label_at": "left"
-     },
-     "preview.timestr": {
-      "id": "preview.timestr",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "timestr",
-      "file": "preview.py",
-      "line": 0,
-      "meta": {
-       "module": "preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 859.856178704465,
-      "y": -200.4437089838969,
-      "label_at": "right"
-     },
-     "render.AudioFileClip": {
-      "id": "render.AudioFileClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "AudioFileClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 219.15489176753815,
-      "y": -120.72613199725828,
-      "label_at": "right"
-     },
-     "render.CompositeAudioClip": {
-      "id": "render.CompositeAudioClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CompositeAudioClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 152.39929246869502,
-      "y": -123.76831097088376,
-      "label_at": "left"
-     },
-     "render.CompositeVideoClip": {
-      "id": "render.CompositeVideoClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CompositeVideoClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 208.86910421871409,
-      "y": -170.62962083941687,
-      "label_at": "right"
-     },
-     "render.EdlException": {
-      "id": "render.EdlException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "EdlException",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 197.8761798892772,
-      "y": -91.99924918167147,
-      "label_at": "below"
-     },
-     "render.EmptyClipsException": {
-      "id": "render.EmptyClipsException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "EmptyClipsException",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 149.82659816852473,
-      "y": -162.09394894554595,
-      "label_at": "left"
-     },
-     "render.ImageClip": {
-      "id": "render.ImageClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ImageClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 237.6816521474035,
-      "y": -141.55704130243606,
-      "label_at": "right"
-     },
-     "render.VideoFileClip": {
-      "id": "render.VideoFileClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "VideoFileClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 154.65880795246284,
-      "y": -95.02117707948572,
-      "label_at": "left"
-     },
-     "render.download": {
-      "id": "render.download",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "download",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 186.00147309341105,
-      "y": -189.85797600285306,
-      "label_at": "above"
+      "x": 103.1112999573018,
+      "y": -17.378450355400467,
+      "label_at": "right",
+      "dot_scale": 1.4294189257142929
      },
      "render.generateEdl": {
       "id": "render.generateEdl",
@@ -3177,226 +1818,18 @@
       "line": 0,
       "meta": {
        "module": "render",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2393
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 228.72243703019834,
-      "y": -94.6254943039773,
-      "label_at": "right"
-     },
-     "render.moviepy.audio.AudioClip.CompositeAudioClip": {
-      "id": "render.moviepy.audio.AudioClip.CompositeAudioClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.audio.AudioClip.CompositeAudioClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 128.9648381986801,
-      "y": -137.7601019600979,
-      "label_at": "left"
-     },
-     "render.moviepy.editor.AudioFileClip": {
-      "id": "render.moviepy.editor.AudioFileClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.editor.AudioFileClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 235.59522960969147,
-      "y": -174.63764435945907,
-      "label_at": "right"
-     },
-     "render.moviepy.editor.ImageClip": {
-      "id": "render.moviepy.editor.ImageClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.editor.ImageClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 179.92867428200913,
-      "y": -71.9292608654427,
-      "label_at": "below"
-     },
-     "render.moviepy.editor.VideoFileClip": {
-      "id": "render.moviepy.editor.VideoFileClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.editor.VideoFileClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 150.70806388376863,
-      "y": -189.02617593201975,
-      "label_at": "left"
-     },
-     "render.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip": {
-      "id": "render.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 254.44954354520638,
-      "y": -120.31688470599838,
-      "label_at": "right"
-     },
-     "render.otto.exceptions.EdlException": {
-      "id": "render.otto.exceptions.EdlException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.exceptions.EdlException",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 127.94489299082066,
-      "y": -100.37837783388109,
-      "label_at": "left"
-     },
-     "render.otto.exceptions.EmptyClipsException": {
-      "id": "render.otto.exceptions.EmptyClipsException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.exceptions.EmptyClipsException",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 209.98937161426795,
-      "y": -203.27330700351212,
-      "label_at": "above"
-     },
-     "render.otto.getdata.download": {
-      "id": "render.otto.getdata.download",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.getdata.download",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 219.19750074507763,
-      "y": -68.54561495362404,
-      "label_at": "right"
-     },
-     "render.otto.models.Edl": {
-      "id": "render.otto.models.Edl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.Edl",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 118.99242246233987,
-      "y": -164.00737808743332,
-      "label_at": "left"
-     },
-     "render.otto.templates": {
-      "id": "render.otto.templates",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.templates",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 260.6392953543449,
-      "y": -161.21025649340538,
-      "label_at": "right"
+      "x": -74.80924930496113,
+      "y": 34.45319269130344,
+      "label_at": "right",
+      "dot_scale": 2.878942698613437
      },
      "render.renderMultitrack": {
       "id": "render.renderMultitrack",
@@ -3408,142 +1841,18 @@
       "line": 0,
       "meta": {
        "module": "render",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 642
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 151.8816943158353,
-      "y": -65.49667367124653,
-      "label_at": "left"
-     },
-     "render.templates": {
-      "id": "render.templates",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "templates",
-      "file": "render.py",
-      "line": 0,
-      "meta": {
-       "module": "render",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 167.78484454428192,
-      "y": -212.64976610265487,
-      "label_at": "above"
-     },
-     "templates.ColorClip": {
-      "id": "templates.ColorClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ColorClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 353.12023387234115,
-      "y": 260.4327578880341,
-      "label_at": "right"
-     },
-     "templates.CompositeVideoClip": {
-      "id": "templates.CompositeVideoClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CompositeVideoClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 286.3646345734981,
-      "y": 257.3905789144087,
-      "label_at": "left"
-     },
-     "templates.TextClip": {
-      "id": "templates.TextClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "TextClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 342.83444632351706,
-      "y": 210.5292690458756,
-      "label_at": "right"
-     },
-     "templates.boxReveal": {
-      "id": "templates.boxReveal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "boxReveal",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 331.84152199408027,
-      "y": 289.159640703621,
-      "label_at": "below"
-     },
-     "templates.boxShrink": {
-      "id": "templates.boxShrink",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "boxShrink",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 283.7919402733277,
-      "y": 219.06494093974652,
-      "label_at": "left"
+      "x": -85.13218206037634,
+      "y": 31.038779181192748,
+      "label_at": "left",
+      "dot_scale": 2.3075350280688536
      },
      "templates.bullets": {
       "id": "templates.bullets",
@@ -3555,79 +1864,41 @@
       "line": 0,
       "meta": {
        "module": "templates",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2693
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 371.64699425220647,
-      "y": 239.60184858285635,
-      "label_at": "right"
+      "x": -105.13474090021641,
+      "y": -6.750364532713505,
+      "label_at": "left",
+      "dot_scale": 2.9302363534115106
      },
-     "templates.concatenate_videoclips": {
-      "id": "templates.concatenate_videoclips",
+     "templates.final": {
+      "id": "templates.final",
       "depth": 2,
       "language": "python",
-      "kind": "import",
-      "label": "concatenate_videoclips",
+      "kind": "function",
+      "label": "final",
       "file": "templates.py",
       "line": 0,
       "meta": {
        "module": "templates",
-       "ast_type": "Import"
+       "ast_type": "Function",
+       "chars": 2774
       },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 288.6241500572658,
-      "y": 286.13771280580664,
-      "label_at": "left"
-     },
-     "templates.defaults": {
-      "id": "templates.defaults",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "defaults",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 319.9668151982141,
-      "y": 191.30091388243935,
-      "label_at": "above"
-     },
-     "templates.drawBoxOutline": {
-      "id": "templates.drawBoxOutline",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "drawBoxOutline",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 362.6877791350014,
-      "y": 286.5333955813152,
-      "label_at": "right"
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -93.35541943577175,
+      "y": -3.3994102627069154,
+      "label_at": "right",
+      "dot_scale": 2.943106456737266
      },
      "templates.initial": {
       "id": "templates.initial",
@@ -3639,289 +1910,18 @@
       "line": 0,
       "meta": {
        "module": "templates",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2307
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 262.93018030348316,
-      "y": 243.39878792519448,
-      "label_at": "left"
-     },
-     "templates.makeColor": {
-      "id": "templates.makeColor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "makeColor",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 369.56057171449453,
-      "y": 206.5212455258333,
-      "label_at": "right"
-     },
-     "templates.moviepy.editor.ColorClip": {
-      "id": "templates.moviepy.editor.ColorClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.editor.ColorClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 313.8940163868121,
-      "y": 309.22962901984977,
-      "label_at": "below"
-     },
-     "templates.moviepy.editor.TextClip": {
-      "id": "templates.moviepy.editor.TextClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.editor.TextClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 284.67340598857163,
-      "y": 192.13271395327268,
-      "label_at": "left"
-     },
-     "templates.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip": {
-      "id": "templates.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 388.41488565000935,
-      "y": 260.842005179294,
-      "label_at": "right"
-     },
-     "templates.moviepy.video.compositing.concatenate.concatenate_videoclips": {
-      "id": "templates.moviepy.video.compositing.concatenate.concatenate_videoclips",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "moviepy.video.compositing.concatenate.concatenate_videoclips",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 261.91023509562376,
-      "y": 280.78051205141134,
-      "label_at": "left"
-     },
-     "templates.otto.colortransitions": {
-      "id": "templates.otto.colortransitions",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.colortransitions",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 343.954713719071,
-      "y": 177.88558288178035,
-      "label_at": "above"
-     },
-     "templates.otto.colortransitions.boxReveal": {
-      "id": "templates.otto.colortransitions.boxReveal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.colortransitions.boxReveal",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 353.1628428498806,
-      "y": 312.6132749316684,
-      "label_at": "right"
-     },
-     "templates.otto.colortransitions.boxShrink": {
-      "id": "templates.otto.colortransitions.boxShrink",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.colortransitions.boxShrink",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 252.95776456714285,
-      "y": 217.1515117978591,
-      "label_at": "left"
-     },
-     "templates.otto.colortransitions.drawBoxOutline": {
-      "id": "templates.otto.colortransitions.drawBoxOutline",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.colortransitions.drawBoxOutline",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 394.60463745914785,
-      "y": 219.9486333918871,
-      "label_at": "right"
-     },
-     "templates.otto.colortransitions.makeColor": {
-      "id": "templates.otto.colortransitions.makeColor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.colortransitions.makeColor",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 285.84703642063835,
-      "y": 315.662216214046,
-      "label_at": "left"
-     },
-     "templates.otto.config.defaults": {
-      "id": "templates.otto.config.defaults",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.config.defaults",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 301.7501866490849,
-      "y": 168.50912378263752,
-      "label_at": "above"
-     },
-     "templates.otto.utils.rgbToDec": {
-      "id": "templates.otto.utils.rgbToDec",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.utils.rgbToDec",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 391.2216516961788,
-      "y": 290.24420357527976,
-      "label_at": "right"
-     },
-     "templates.rgbToDec": {
-      "id": "templates.rgbToDec",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "rgbToDec",
-      "file": "templates.py",
-      "line": 0,
-      "meta": {
-       "module": "templates",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 240.07203458190548,
-      "y": 260.3111193819021,
-      "label_at": "left"
+      "x": -88.46218403013727,
+      "y": -14.479313458824528,
+      "label_at": "right",
+      "dot_scale": 2.8630475945210936
      },
      "templates.textBox": {
       "id": "templates.textBox",
@@ -3933,16 +1933,18 @@
       "line": 0,
       "meta": {
        "module": "templates",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 2080
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 374.2763654595476,
-      "y": 178.76964649500314,
-      "label_at": "right"
+      "x": -102.09616680465395,
+      "y": 4.855042141418174,
+      "label_at": "below",
+      "dot_scale": 2.8180633349627615
      },
      "templates.title": {
       "id": "templates.title",
@@ -3954,100 +1956,18 @@
       "line": 0,
       "meta": {
        "module": "templates",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1402
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 329.56991175666536,
-      "y": 332.32341604954394,
-      "label_at": "below"
-     },
-     "test_otto.TestClient": {
-      "id": "test_otto.TestClient",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "TestClient",
-      "file": "test_otto.py",
-      "line": 0,
-      "meta": {
-       "module": "test_otto",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -607.3355046060133,
-      "y": 251.06593750353503,
-      "label_at": "right"
-     },
-     "test_otto.app": {
-      "id": "test_otto.app",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "app",
-      "file": "test_otto.py",
-      "line": 0,
-      "meta": {
-       "module": "test_otto",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -674.0911039048564,
-      "y": 248.02375852990951,
-      "label_at": "left"
-     },
-     "test_otto.fastapi.testclient.TestClient": {
-      "id": "test_otto.fastapi.testclient.TestClient",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.testclient.TestClient",
-      "file": "test_otto.py",
-      "line": 0,
-      "meta": {
-       "module": "test_otto",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -617.6212921548373,
-      "y": 201.16244866137643,
-      "label_at": "right"
-     },
-     "test_otto.otto.main.app": {
-      "id": "test_otto.otto.main.app",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.main.app",
-      "file": "test_otto.py",
-      "line": 0,
-      "meta": {
-       "module": "test_otto",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -628.6142164842742,
-      "y": 279.79282031912186,
-      "label_at": "below"
+      "x": -81.79772591436885,
+      "y": -5.083251527679952,
+      "label_at": "right",
+      "dot_scale": 2.64674801363064
      },
      "test_otto.test_get_home": {
       "id": "test_otto.test_get_home",
@@ -4059,16 +1979,18 @@
       "line": 0,
       "meta": {
        "module": "test_otto",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 365
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -676.6637982050268,
-      "y": 209.69812055524736,
-      "label_at": "left"
+      "x": 112.43482498469919,
+      "y": 60.783142556204915,
+      "label_at": "left",
+      "dot_scale": 2.0622928644564746
      },
      "test_otto.test_get_templates": {
       "id": "test_otto.test_get_templates",
@@ -4080,142 +2002,18 @@
       "line": 0,
       "meta": {
        "module": "test_otto",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 468
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -588.808744226148,
-      "y": 230.23502819835727,
-      "label_at": "right"
-     },
-     "test_preview.Clip": {
-      "id": "test_preview.Clip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Clip",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -905.7574595002201,
-      "y": 296.4048853797117,
-      "label_at": "right"
-     },
-     "test_preview.Edl": {
-      "id": "test_preview.Edl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Edl",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -972.5130587990634,
-      "y": 293.36270640608615,
-      "label_at": "left"
-     },
-     "test_preview.EmptyClipsException": {
-      "id": "test_preview.EmptyClipsException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "EmptyClipsException",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -916.0432470490445,
-      "y": 246.50139653755318,
-      "label_at": "right"
-     },
-     "test_preview.TemplateData": {
-      "id": "test_preview.TemplateData",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "TemplateData",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -927.0361713784812,
-      "y": 325.13176819529855,
-      "label_at": "below"
-     },
-     "test_preview.TestClient": {
-      "id": "test_preview.TestClient",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "TestClient",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -975.0857530992337,
-      "y": 255.03706843142407,
-      "label_at": "left"
-     },
-     "test_preview.app": {
-      "id": "test_preview.app",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "app",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -887.230699120355,
-      "y": 275.57397607453385,
-      "label_at": "right"
+      "x": 121.21848810314665,
+      "y": 62.577543748321375,
+      "label_at": "right",
+      "dot_scale": 2.1702458530741238
      },
      "test_preview.check_rendered_image": {
       "id": "test_preview.check_rendered_image",
@@ -4227,247 +2025,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 339
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -970.2535433152956,
-      "y": 322.10984029748414,
-      "label_at": "left"
-     },
-     "test_preview.fastapi.testclient.TestClient": {
-      "id": "test_preview.fastapi.testclient.TestClient",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.testclient.TestClient",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -938.9108781743473,
-      "y": 227.27304137411699,
-      "label_at": "above"
-     },
-     "test_preview.os.path": {
-      "id": "test_preview.os.path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "os.path",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -896.1899142375601,
-      "y": 322.5055230729926,
-      "label_at": "right"
-     },
-     "test_preview.otto.exceptions.EmptyClipsException": {
-      "id": "test_preview.otto.exceptions.EmptyClipsException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.exceptions.EmptyClipsException",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -995.9475130690784,
-      "y": 279.37091541687204,
-      "label_at": "left"
-     },
-     "test_preview.otto.main.app": {
-      "id": "test_preview.otto.main.app",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.main.app",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -889.3171216580671,
-      "y": 242.49337301751092,
-      "label_at": "right"
-     },
-     "test_preview.otto.models.Clip": {
-      "id": "test_preview.otto.models.Clip",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.Clip",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -944.9836769857494,
-      "y": 345.20175651152726,
-      "label_at": "below"
-     },
-     "test_preview.otto.models.Edl": {
-      "id": "test_preview.otto.models.Edl",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.Edl",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -974.2042873839898,
-      "y": 228.1048414449502,
-      "label_at": "left"
-     },
-     "test_preview.otto.models.TemplateData": {
-      "id": "test_preview.otto.models.TemplateData",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "otto.models.TemplateData",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -870.4628077225519,
-      "y": 296.8141326709717,
-      "label_at": "right"
-     },
-     "test_preview.path": {
-      "id": "test_preview.path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "path",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -996.9674582769379,
-      "y": 316.7526395430888,
-      "label_at": "left"
-     },
-     "test_preview.pytest.mark": {
-      "id": "test_preview.pytest.mark",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pytest.mark",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -914.9229796534905,
-      "y": 213.85771037345788,
-      "label_at": "above"
-     },
-     "test_preview.pytest.raises": {
-      "id": "test_preview.pytest.raises",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pytest.raises",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -905.7148505226808,
-      "y": 348.5854024233459,
-      "label_at": "right"
-     },
-     "test_preview.raises": {
-      "id": "test_preview.raises",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "raises",
-      "file": "test_preview.py",
-      "line": 0,
-      "meta": {
-       "module": "test_preview",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -1005.9199288054184,
-      "y": 253.12363928953664,
-      "label_at": "left"
+      "x": 72.69943350590577,
+      "y": 40.00024531378354,
+      "label_at": "left",
+      "dot_scale": 2.030199698203082
      },
      "test_preview.test_color_clip": {
       "id": "test_preview.test_color_clip",
@@ -4479,16 +2048,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 259
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -864.2730559134135,
-      "y": 255.92076088356467,
-      "label_at": "right"
+      "x": 80.1474947993373,
+      "y": 27.675900096451738,
+      "label_at": "above",
+      "dot_scale": 1.913299764081252
      },
      "test_preview.test_empty_edl": {
       "id": "test_preview.test_empty_edl",
@@ -4500,16 +2071,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 252
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -973.0306569519231,
-      "y": 351.63434370572355,
-      "label_at": "left"
+      "x": 71.43352620741678,
+      "y": 31.733407892717512,
+      "label_at": "left",
+      "dot_scale": 1.9014005407815442
      },
      "test_preview.test_empty_post": {
       "id": "test_preview.test_empty_post",
@@ -4521,16 +2094,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 218
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -957.1275067234765,
-      "y": 204.4812512743151,
-      "label_at": "above"
+      "x": 86.83793209406403,
+      "y": 48.39927248122068,
+      "label_at": "right",
+      "dot_scale": 1.8384564936046048
      },
      "test_preview.test_get_preview": {
       "id": "test_preview.test_get_preview",
@@ -4542,16 +2117,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 176
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -867.6560416763828,
-      "y": 326.21633106695737,
-      "label_at": "right"
+      "x": 81.01094379574036,
+      "y": 53.383596456850555,
+      "label_at": "below",
+      "dot_scale": 1.74551266781415
      },
      "test_preview.test_image_clip": {
       "id": "test_preview.test_image_clip",
@@ -4563,16 +2140,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 268
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1018.805658790656,
-      "y": 296.2832468735797,
-      "label_at": "left"
+      "x": 75.29537357422035,
+      "y": 48.00658105216927,
+      "label_at": "below",
+      "dot_scale": 1.9281347940287887
      },
      "test_preview.test_text_clip": {
       "id": "test_preview.test_text_clip",
@@ -4584,16 +2163,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 321
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -884.6013279130138,
-      "y": 214.74177398668064,
-      "label_at": "right"
+      "x": 85.58119508285168,
+      "y": 34.00235166049064,
+      "label_at": "right",
+      "dot_scale": 2.0065050324048723
      },
      "test_preview.test_video_clip": {
       "id": "test_preview.test_video_clip",
@@ -4605,16 +2186,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 267
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -929.3077816158961,
-      "y": 368.29554354122155,
-      "label_at": "below"
+      "x": 90.08267343726361,
+      "y": 41.05410278205779,
+      "label_at": "right",
+      "dot_scale": 1.9265112613645752
      },
      "test_preview.test_without_t": {
       "id": "test_preview.test_without_t",
@@ -4626,16 +2209,18 @@
       "line": 0,
       "meta": {
        "module": "test_preview",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 471
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -1001.3071651715466,
-      "y": 222.31224198444232,
-      "label_at": "left"
+      "x": 81.4175685326806,
+      "y": 41.82200728888761,
+      "label_at": "right",
+      "dot_scale": 2.173020907128896
      },
      "toml::pyproject.toml::section::build-system::1": {
       "id": "toml::pyproject.toml::section::build-system::1",
@@ -4646,9 +2231,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 1,
       "meta": {},
-      "x": -886.3562205101023,
-      "y": -167.75340593584127,
-      "label_at": "right"
+      "x": 106.03041996174993,
+      "y": -40.40811752785445,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project.optional-dependencies::27": {
       "id": "toml::pyproject.toml::section::project.optional-dependencies::27",
@@ -4659,9 +2245,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 27,
       "meta": {},
-      "x": -896.6420080589263,
-      "y": -217.6568947779998,
-      "label_at": "right"
+      "x": 108.97391854032767,
+      "y": -43.81191189854002,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project.urls::22": {
       "id": "toml::pyproject.toml::section::project.urls::22",
@@ -4672,9 +2259,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 22,
       "meta": {},
-      "x": -907.6349323883629,
-      "y": -139.02652312025447,
-      "label_at": "below"
+      "x": 108.3909723216304,
+      "y": -48.27399366674043,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project::6": {
       "id": "toml::pyproject.toml::section::project::6",
@@ -4685,9 +2273,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 6,
       "meta": {},
-      "x": -953.1118198089451,
-      "y": -170.7955849094667,
-      "label_at": "left"
+      "x": 101.53091778312687,
+      "y": -40.341183645803824,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pdm.dev-dependencies::48": {
       "id": "toml::pyproject.toml::section::tool.pdm.dev-dependencies::48",
@@ -4698,9 +2287,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 48,
       "meta": {},
-      "x": -867.8294601302368,
-      "y": -188.58431524101908,
-      "label_at": "right"
+      "x": 110.44994164531097,
+      "y": -39.56087016814551,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pdm::59": {
       "id": "toml::pyproject.toml::section::tool.pdm::59",
@@ -4711,9 +2301,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 59,
       "meta": {},
-      "x": -955.6845141091155,
-      "y": -209.1212228841289,
-      "label_at": "left"
+      "x": 98.48747544634666,
+      "y": -43.65591723128153,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.pytest.ini_options::62": {
       "id": "toml::pyproject.toml::section::tool.pytest.ini_options::62",
@@ -4724,9 +2315,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 62,
       "meta": {},
-      "x": -950.8523043251776,
-      "y": -142.04845101806882,
-      "label_at": "left"
+      "x": 103.83863531466815,
+      "y": -36.47796739575814,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "utils.DownloadProgressBar": {
       "id": "utils.DownloadProgressBar",
@@ -4738,37 +2330,18 @@
       "line": 0,
       "meta": {
        "module": "utils",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 184
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 563.2110708950552,
-      "y": -518.311934222546,
-      "label_at": "right"
-     },
-     "utils.PIL.ImageColor.getcolor": {
-      "id": "utils.PIL.ImageColor.getcolor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "PIL.ImageColor.getcolor",
-      "file": "utils.py",
-      "line": 0,
-      "meta": {
-       "module": "utils",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 496.455471596212,
-      "y": -521.3541131961714,
-      "label_at": "left"
+      "x": -3.1162943772632588,
+      "y": -51.823708416092764,
+      "label_at": "left",
+      "dot_scale": 1.7648178230095364
      },
      "utils.download_url": {
       "id": "utils.download_url",
@@ -4780,37 +2353,18 @@
       "line": 0,
       "meta": {
        "module": "utils",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 234
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 552.9252833462311,
-      "y": -568.2154230647045,
-      "label_at": "right"
-     },
-     "utils.getcolor": {
-      "id": "utils.getcolor",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "getcolor",
-      "file": "utils.py",
-      "line": 0,
-      "meta": {
-       "module": "utils",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 541.9323590167944,
-      "y": -489.58505140695905,
-      "label_at": "below"
+      "x": 4.5503498282330135,
+      "y": -50.57253410814514,
+      "label_at": "right",
+      "dot_scale": 1.8692158574101427
      },
      "utils.rgbToDec": {
       "id": "utils.rgbToDec",
@@ -4822,58 +2376,18 @@
       "line": 0,
       "meta": {
        "module": "utils",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 110
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 493.8827772960418,
-      "y": -559.6797511708336,
-      "label_at": "left"
-     },
-     "utils.tqdm": {
-      "id": "utils.tqdm",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "tqdm",
-      "file": "utils.py",
-      "line": 0,
-      "meta": {
-       "module": "utils",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 581.7378312749205,
-      "y": -539.1428435277237,
-      "label_at": "right"
-     },
-     "utils.tqdm.tqdm": {
-      "id": "utils.tqdm.tqdm",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "tqdm.tqdm",
-      "file": "utils.py",
-      "line": 0,
-      "meta": {
-       "module": "utils",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 498.7149870799799,
-      "y": -492.6069793047735,
-      "label_at": "left"
+      "x": -0.45375033139549714,
+      "y": -45.22845315814972,
+      "label_at": "below",
+      "dot_scale": 1.5413926851582251
      },
      "utils.update_to": {
       "id": "utils.update_to",
@@ -4885,16 +2399,18 @@
       "line": 0,
       "meta": {
        "module": "utils",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 147
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 530.0576522209282,
-      "y": -587.4437782281408,
-      "label_at": "above"
+      "x": 8.32588955038808,
+      "y": -57.13733679121915,
+      "label_at": "right",
+      "dot_scale": 1.667317334748176
      }
     },
     "edges": [
@@ -4965,54 +2481,6 @@
      {
       "source": "dir::quaternionmedia/otto/.github",
       "target": "dir::quaternionmedia/otto/.github/workflows",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs",
-      "target": "file::quaternionmedia/otto/docs/index.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs",
-      "target": "dir::quaternionmedia/otto/docs/reference",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs/reference",
-      "target": "file::quaternionmedia/otto/docs/reference/index.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs/reference",
-      "target": "file::quaternionmedia/otto/docs/reference/main.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs/reference",
-      "target": "file::quaternionmedia/otto/docs/reference/models.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/otto/docs/reference",
-      "target": "file::quaternionmedia/otto/docs/reference/templates.md",
       "metadata": {
        "kind": "contains",
        "weight": 1
@@ -5187,6 +2655,21 @@
       }
      },
      {
+      "source": "file::quaternionmedia/otto/noxfile.py",
+      "target": "noxfile.blacken",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/noxfile.py",
+      "target": "noxfile.lint",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/noxfile.py",
+      "target": "noxfile.coverage",
+      "kind": "contains"
+     },
+     {
       "source": "file::quaternionmedia/otto/pyproject.toml",
       "target": "toml::pyproject.toml::section::build-system::1",
       "kind": "contains"
@@ -5222,37 +2705,95 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/noxfile.py",
-      "target": "noxfile.blacken",
+      "source": "file::quaternionmedia/otto/otto/exceptions.py",
+      "target": "exceptions.OttoException",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/noxfile.py",
-      "target": "noxfile.lint",
+      "source": "file::quaternionmedia/otto/otto/exceptions.py",
+      "target": "exceptions.EdlException",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/noxfile.py",
-      "target": "noxfile.coverage",
+      "source": "file::quaternionmedia/otto/otto/exceptions.py",
+      "target": "exceptions.EmptyClipsException",
       "kind": "contains"
      },
      {
-      "source": "colortransitions.makeColor",
-      "target": "colortransitions.PIL.ImageColor.getcolor",
-      "kind": "imports",
+      "source": "chartransitions.vortex",
+      "target": "chartransitions.rotMatrix",
+      "kind": "calls",
       "weight": 1
      },
      {
-      "source": "colortransitions.growBox",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
+      "source": "chartransitions.vortex",
+      "target": "chartransitions.damping",
+      "kind": "calls",
       "weight": 1
      },
      {
-      "source": "colortransitions.growBox",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "source": "chartransitions.cascade",
+      "target": "chartransitions.d",
+      "kind": "contains",
       "weight": 1
+     },
+     {
+      "source": "chartransitions.arrive",
+      "target": "chartransitions.d",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "chartransitions.vortexout",
+      "target": "chartransitions.d",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "chartransitions.vortexout",
+      "target": "chartransitions.rotMatrix",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.rotMatrix",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.damping",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.vortex",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.cascade",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.d",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.arrive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.vortexout",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "target": "chartransitions.moveLetters",
+      "kind": "contains"
      },
      {
       "source": "colortransitions.growBox",
@@ -5263,19 +2804,7 @@
      {
       "source": "colortransitions.growBox",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.boxReveal",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.boxReveal",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5287,19 +2816,7 @@
      {
       "source": "colortransitions.boxReveal",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.flyInAndGrow",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.flyInAndGrow",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5311,25 +2828,13 @@
      {
       "source": "colortransitions.flyInAndGrow",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.makeBezier",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.makeBezier",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "colortransitions.makeBezier",
       "target": "colortransitions.bezier2",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5341,19 +2846,7 @@
      {
       "source": "colortransitions.makeBezier",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.zoomFromCenter",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.zoomFromCenter",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5365,19 +2858,7 @@
      {
       "source": "colortransitions.zoomFromCenter",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.circleShrink",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.circleShrink",
-      "target": "colortransitions.gizeh.circle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5389,19 +2870,7 @@
      {
       "source": "colortransitions.circleShrink",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.boxShrink",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.boxShrink",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5413,25 +2882,19 @@
      {
       "source": "colortransitions.boxShrink",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "colortransitions.boxShrink",
+      "target": "colortransitions.translate",
+      "kind": "calls",
       "weight": 1
      },
      {
       "source": "colortransitions.bs",
       "target": "colortransitions.translate",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.drawBoxOutline",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "imports",
-      "weight": 1
-     },
-     {
-      "source": "colortransitions.drawBoxOutline",
-      "target": "colortransitions.gizeh.rectangle",
-      "kind": "imports",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5443,7 +2906,7 @@
      {
       "source": "colortransitions.drawBoxOutline",
       "target": "colortransitions.makeClip",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
      },
      {
@@ -5468,22 +2931,7 @@
      },
      {
       "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.PIL.ImageColor.getcolor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
       "target": "colortransitions.growBox",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.gizeh.Surface",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.gizeh.rectangle",
       "kind": "contains"
      },
      {
@@ -5543,11 +2991,6 @@
      },
      {
       "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.gizeh.circle",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
       "target": "colortransitions.cs",
       "kind": "contains"
      },
@@ -5572,165 +3015,10 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.getcolor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.Surface",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.rectangle",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "target": "colortransitions.circle",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/config.py",
-      "target": "config.os.environ",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/config.py",
-      "target": "config.environ",
-      "kind": "contains"
-     },
-     {
-      "source": "chartransitions.vortex",
-      "target": "chartransitions.rotMatrix",
-      "kind": "contains",
+      "source": "getdata.download",
+      "target": "getdata.hash",
+      "kind": "calls",
       "weight": 1
-     },
-     {
-      "source": "chartransitions.vortex",
-      "target": "chartransitions.damping",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "chartransitions.cascade",
-      "target": "chartransitions.d",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "chartransitions.arrive",
-      "target": "chartransitions.d",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "chartransitions.vortexout",
-      "target": "chartransitions.d",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "chartransitions.vortexout",
-      "target": "chartransitions.rotMatrix",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.rotMatrix",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.damping",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.vortex",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.cascade",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.d",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.arrive",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.vortexout",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/chartransitions.py",
-      "target": "chartransitions.moveLetters",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/exceptions.py",
-      "target": "exceptions.OttoException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/exceptions.py",
-      "target": "exceptions.EdlException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/exceptions.py",
-      "target": "exceptions.EmptyClipsException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/__init__.py",
-      "target": "__init__._version.__version__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.os.path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.csv.reader",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.json.loads",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.time.strftime",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.requests.head",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.hashlib.sha256",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.otto.utils.download_url",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/otto/otto/getdata.py",
@@ -5768,83 +3056,33 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.reader",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.loads",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.strftime",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.head",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/getdata.py",
-      "target": "getdata.sha256",
+      "source": "file::quaternionmedia/otto/otto/log.py",
+      "target": "log.ts",
       "kind": "contains"
      },
      {
       "source": "models.TemplateData",
       "target": "models.FX",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "models.Clip",
       "target": "models.TemplateData",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "models.Edl",
       "target": "models.Clip",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "models.Render",
       "target": "models.Edl",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.pydantic.BaseModel",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.typing.List",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.typing.Tuple",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.typing.Optional",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.typing.Union",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.typing.Literal",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/otto/otto/models.py",
@@ -5872,89 +3110,26 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.BaseModel",
+      "source": "render.renderMultitrack",
+      "target": "render.generateEdl",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/render.py",
+      "target": "render.generateEdl",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.List",
+      "source": "file::quaternionmedia/otto/otto/render.py",
+      "target": "render.renderMultitrack",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.Tuple",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.Optional",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.Union",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/models.py",
-      "target": "models.Literal",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.moviepy.editor.TextClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.moviepy.editor.ColorClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.moviepy.video.compositing.concatenate.concatenate_videoclips",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.colortransitions.makeColor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.colortransitions.boxReveal",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.colortransitions.boxShrink",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.colortransitions.drawBoxOutline",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.colortransitions",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.config.defaults",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.otto.utils.rgbToDec",
-      "kind": "contains"
+      "source": "templates.bullets",
+      "target": "templates.final",
+      "kind": "uses",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/otto/otto/templates.py",
@@ -5973,298 +3148,12 @@
      },
      {
       "source": "file::quaternionmedia/otto/otto/templates.py",
+      "target": "templates.final",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/templates.py",
       "target": "templates.textBox",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.TextClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.ColorClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.CompositeVideoClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.concatenate_videoclips",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.makeColor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.boxReveal",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.boxShrink",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.drawBoxOutline",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.defaults",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "templates.rgbToDec",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.fastapi.APIRouter",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.otto.models.Edl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.otto.models.Render",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.otto.render.generateEdl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.otto.getdata.timestr",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.os.path.join",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.APIRouter",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.Edl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.generateEdl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.timestr",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/preview.py",
-      "target": "preview.join",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.fastapi.FastAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.otto.preview.previewAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.otto.templates",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.otto.__version__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.version",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.uvicorn.run",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.FastAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.previewAPI",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.templates",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "main.__version__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "log.otto.config.LOG_DIR",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "log.time.strftime",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "log.ts",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "log.LOG_DIR",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "log.strftime",
-      "kind": "contains"
-     },
-     {
-      "source": "render.renderMultitrack",
-      "target": "render.generateEdl",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.moviepy.editor.VideoFileClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.moviepy.editor.AudioFileClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.moviepy.editor.ImageClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.moviepy.video.compositing.CompositeVideoClip.CompositeVideoClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.moviepy.audio.AudioClip.CompositeAudioClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.otto.templates",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.otto.getdata.download",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.otto.models.Edl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.otto.exceptions.EmptyClipsException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.otto.exceptions.EdlException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.generateEdl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.renderMultitrack",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.VideoFileClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.AudioFileClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.ImageClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.CompositeVideoClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.CompositeAudioClip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.templates",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.download",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.EmptyClipsException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/render.py",
-      "target": "render.EdlException",
       "kind": "contains"
      },
      {
@@ -6276,18 +3165,8 @@
      {
       "source": "utils.download_url",
       "target": "utils.DownloadProgressBar",
-      "kind": "contains",
+      "kind": "calls",
       "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/utils.py",
-      "target": "utils.PIL.ImageColor.getcolor",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/utils.py",
-      "target": "utils.tqdm.tqdm",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/otto/otto/utils.py",
@@ -6310,89 +3189,33 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/utils.py",
-      "target": "utils.getcolor",
+      "source": "file::quaternionmedia/otto/otto/main.py",
+      "target": "main.version",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/utils.py",
-      "target": "utils.tqdm",
-      "kind": "contains"
+      "source": "test_preview.test_color_clip",
+      "target": "test_preview.check_rendered_image",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.fastapi.testclient.TestClient",
-      "kind": "contains"
+      "source": "test_preview.test_text_clip",
+      "target": "test_preview.check_rendered_image",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.otto.main.app",
-      "kind": "contains"
+      "source": "test_preview.test_image_clip",
+      "target": "test_preview.check_rendered_image",
+      "kind": "calls",
+      "weight": 1
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.test_get_home",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.test_get_templates",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.TestClient",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "test_otto.app",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.fastapi.testclient.TestClient",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.otto.main.app",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.otto.models.Edl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.otto.models.Clip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.otto.models.TemplateData",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.otto.exceptions.EmptyClipsException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.pytest.raises",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.os.path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.pytest.mark",
-      "kind": "contains"
+      "source": "test_preview.test_video_clip",
+      "target": "test_preview.check_rendered_image",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/otto/tests/test_preview.py",
@@ -6440,43 +3263,13 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.TestClient",
+      "source": "file::quaternionmedia/otto/tests/test_otto.py",
+      "target": "test_otto.test_get_home",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.app",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.Edl",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.Clip",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.TemplateData",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.EmptyClipsException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.raises",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/otto/tests/test_preview.py",
-      "target": "test_preview.path",
+      "source": "file::quaternionmedia/otto/tests/test_otto.py",
+      "target": "test_otto.test_get_templates",
       "kind": "contains"
      },
      {
@@ -6485,18 +3278,8 @@
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "file::quaternionmedia/otto/otto/colortransitions.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
+      "source": "file::quaternionmedia/otto/otto/log.py",
       "target": "file::quaternionmedia/otto/otto/config.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/templates.py",
-      "target": "file::quaternionmedia/otto/otto/utils.py",
       "kind": "depends_on"
      },
      {
@@ -6515,16 +3298,6 @@
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/otto/otto/main.py",
-      "target": "file::quaternionmedia/otto/otto/preview.py",
-      "kind": "depends_on"
-     },
-     {
-      "source": "file::quaternionmedia/otto/otto/log.py",
-      "target": "file::quaternionmedia/otto/otto/config.py",
-      "kind": "depends_on"
-     },
-     {
       "source": "file::quaternionmedia/otto/otto/render.py",
       "target": "file::quaternionmedia/otto/otto/getdata.py",
       "kind": "depends_on"
@@ -6540,8 +3313,23 @@
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/otto/tests/test_otto.py",
-      "target": "file::quaternionmedia/otto/otto/main.py",
+      "source": "file::quaternionmedia/otto/otto/templates.py",
+      "target": "file::quaternionmedia/otto/otto/colortransitions.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/templates.py",
+      "target": "file::quaternionmedia/otto/otto/config.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/templates.py",
+      "target": "file::quaternionmedia/otto/otto/utils.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/otto/otto/main.py",
+      "target": "file::quaternionmedia/otto/otto/preview.py",
       "kind": "depends_on"
      },
      {
@@ -6557,6 +3345,11 @@
      {
       "source": "file::quaternionmedia/otto/tests/test_preview.py",
       "target": "file::quaternionmedia/otto/otto/exceptions.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/otto/tests/test_otto.py",
+      "target": "file::quaternionmedia/otto/otto/main.py",
       "kind": "depends_on"
      }
     ]

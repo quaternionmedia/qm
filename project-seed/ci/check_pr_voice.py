@@ -36,6 +36,10 @@ What it leaves alone
     on the migration" are statements, and the tool cannot tell a statement about
     a person from one addressed to them without the pronoun. That is the
     documented blind spot.
+  - a body an automation account posts, `dependabot[bot]` among them. Its body
+    is not posted under a person's account, so it is no person's statement, and
+    the rule has nobody for it to speak as. The login's `[bot]` suffix decides,
+    as it does for `check_one_pr.py`, the other step in the same job.
 
 What this cannot see: whether the body is honest, complete, or about the diff.
 It reads for one voice, and a body that addresses the contributor in the third
@@ -65,6 +69,13 @@ HANDLING = (
 
 FENCE = re.compile(r"^\s*(```|~~~)")
 INLINE_CODE = re.compile(r"`[^`]*`")
+
+# GitHub App logins end so; `check_one_pr.py` reads the same suffix.
+BOT_LOGIN_SUFFIXES = ("[bot]",)
+
+
+def is_automation(login: str | None) -> bool:
+    return bool(login) and login.endswith(BOT_LOGIN_SUFFIXES)
 
 
 def offending_lines(body: str, contributor: str | None = None) -> list[tuple[int, str, str]]:
@@ -99,6 +110,11 @@ def main(argv: list[str] | None = None) -> int:
     source.add_argument("--body", help="the body itself")
     parser.add_argument("--contributor", help="the login the pull request is posted under")
     args = parser.parse_args(argv)
+
+    if is_automation(args.contributor):
+        print(f"voice check: {args.contributor} is an automation account; its body is "
+              "no person's statement, so it is not judged.")
+        return 0
 
     body = Path(args.body_file).read_text(encoding="utf-8") if args.body_file else args.body
     found = offending_lines(body, args.contributor)
