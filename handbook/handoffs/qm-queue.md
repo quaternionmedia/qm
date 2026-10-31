@@ -161,6 +161,9 @@ each pull request into it is behind its base until brought level.
   who refreshes the document; how a committed generated artifact squares with
   refusing to commit what a gate generated; and the stale copy every project
   vendors with the corpus.
+- **The decisions in `hil-review-2026-10-31.md` §4**: #222, a plan left in
+  draft against `main`; alfred's and titanharvest's branches that exist on one
+  disk alone; the worktrees only a person may remove.
 
 ## 4. Unfinished, and what done looks like
 
@@ -243,6 +246,16 @@ each pull request into it is behind its base until brought level.
   private repository's name. Done is the check clean, by redaction in the
   show generator or by an allowance with a stated reason. (2026-10-26)
 
+- **The families page check reads the disk it runs on.** `docs-audit.yml`'s
+  *generated pages match their sources* step runs `ci/cookbook.py docs/families
+  --site --check`, which compares the committed page with the clones on the
+  machine running it, so a local run is red on any workstation whose clones
+  differ from the one that generated the page: red on `main` at `b67d90b` with no
+  `docs/families` change on the branch, where the host's run of the same step is
+  green. A local red that is not a defect teaches a session to read past reds.
+  Done is the check comparing the page with its committed inputs, or the runner
+  naming the step as disk-dependent so a red is read as such. (2026-10-31)
+
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
@@ -323,7 +336,13 @@ re-checked and is re-derived before anyone acts on it.
   and `loose-ends.json` regenerated; the full generator also rewrites the
   host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
   that mode, or `handbook/consolidation-runbook.md` Step 8 naming
-  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
+  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it. Until then the three steps are
+  `ci/doc_status.py --write status/documents.yaml`,
+  `ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md`
+  and `ci/loose_ends.py --write loose-ends.json`, run after taking `main`'s
+  copy of each conflicting file; every pull request that lands re-conflicts
+  every other open one on those three files, and each is brought level the
+  same way, once per landing.
 - **Only qmcp says which server it is.** `qm instances` identifies a server
   whose health answer names its pid and port; on 2026-10-29 qmcp's did, and
   codecartographer's checkout served no health route, and looksatwords'
@@ -445,6 +464,10 @@ re-checked and is re-derived before anyone acts on it.
   2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
   its pull request carries no comment or review saying so. The session that
   asked for its merge records Peter's test (`joe-open-set.md` §2).
+- That the host's `docs-audit` families step is green for a branch whose local
+  run is red (§4): read from the host's check list on #285, where it ran and
+  passed, and absent from the checks the host ran on #295, #277 and #272, whose
+  paths did not trigger it.
 
 ## 6. Standing constraints
 
