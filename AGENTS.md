@@ -265,6 +265,12 @@ since its stamp. Its first section says how a session keeps it.
     chat product's shareable artifact or canvas: it is not versioned with the
     code, cannot be reviewed as a diff, and goes stale unseen.
 
+20. **A shared allowance is drawn on politely** — record
+    `records/DRAFT-a-shared-allowance-is-drawn-on-politely.md`. Before many calls to one
+    service, read what remains of its allowance and state the count; past a tenth, ask
+    first. Sample for an estimate, keep each response as it arrives, send a few at a
+    time, and stop at the first refusal that names a limit, saying when it resets.
+
 ## If you're forking this corpus into a new project
 
 See `docs/usage/first-project.md` and `handbook/forking-a-project.md` — do not improvise a lighter
