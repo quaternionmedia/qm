@@ -4,7 +4,6 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-10-30 |
-| **Pends on** | The origin the page is published from: this repository's GitHub Pages, which its owner enables, or the corpus's site, which the corpus decides (§8) |
 | **Principle** | `seams-on-standard-protocols`; `public-by-default`; `minimal-legible-deliverables` |
 
 ## Context
@@ -51,9 +50,9 @@ What already holds, read on 2026-10-30 at `evolve/shared-imports`:
 
 ### §1 The page
 
-**`view.html` is a second page of the window's build**: the canvas, its
-legend, the producer's caveat and the breadcrumb, drawn by the window's one
-renderer, and nothing that asks a route. It asks no codecarto route at all,
+**`view.html` is a second page of the frontend, built on its own**: the
+canvas, its legend, the producer's caveat and the breadcrumb, drawn by the
+window's one renderer, and nothing that asks a route. It asks no codecarto route at all,
 holds no credential, writes nothing, and stores no graph. The dock stays the
 window of a person running codecarto; this page is the window of every other
 reader, and of other apps.
@@ -134,13 +133,23 @@ when they differ, as `tests/test_docs_routes.py` holds the routes.
 
 ### §8 Where it is published
 
-*Pends on the origin.* The build serves the page from any folder of any static
-host: it names its assets relative to itself. Two origins are open: this
-repository's GitHub Pages
-(`https://quaternionmedia.github.io/codecartographer/view.html`), published by
-a workflow from `main` once its owner enables Pages; or the corpus's site,
-which already serves the documents. Both are `quaternionmedia.github.io`, so
-either reads the documents as its own origin's.
+**This repository's GitHub Pages**,
+`https://quaternionmedia.github.io/codecartographer/view.html`, published by a
+workflow from `main`, with GitHub Actions as Pages's source, set by the
+repository's owner. The page's own build writes a folder that names its
+assets relative to itself, with the same page as its `index.html`, so any
+folder of any static host serves it. It shares `quaternionmedia.github.io`
+with the corpus's site, so it reads the corpus's show documents as its own
+origin's, and a relative `?doc=` reaches them.
+
+The service, as the open-license record's §6 asks it to be written down:
+
+| | |
+|---|---|
+| **Service** | GitHub Pages, in the path of every reader of the page |
+| **Seam** | HTTPS, serving static files |
+| **Withdrawn, re-priced or refused** | A configuration change: any static host serves the same folder (the corpus's site, an object store, a reader's own machine), and the links to the page follow it |
+| **Residual exposure** | The address the corpus's pages link is on GitHub's domain, so every link to the page moves with the host |
 
 ## Consequences
 
@@ -163,12 +172,11 @@ either reads the documents as its own origin's.
 - **It is a second page to keep building**, and its boot must stay free of
   routes as the window grows. A browser test holds that (below).
 - Obligations created:
-  - the service inventory in this project's adoption record names the static
-    host, with its ownability answer: any static host serves the same files;
+  - this project's service inventory carries §8's entry for GitHub Pages;
   - a workflow builds and publishes the page, beside the three governance
     workflows and never one of them;
-  - the build's `base` moves to where Vite reads it, relative to the page, and
-    a test opens the built page from a subfolder of a plain static server;
+  - the page is built on its own, naming its assets relative to itself, and a
+    test opens the built page from a subfolder of a plain static server;
   - a browser test opens `view.html` with every codecarto route refused, and
     counts the requests made to them: none;
   - a host page among the browser tests' fixtures embeds the page, drives
@@ -201,16 +209,23 @@ either reads the documents as its own origin's.
 6. **`BroadcastChannel`, or a socket.** A `BroadcastChannel` reaches only
    pages of the same origin, and a socket needs a server. `postMessage` is the
    channel between origins that every browser has.
+7. **The corpus's site as the page's origin.** It already serves the
+   documents, from the same origin. Lost because the corpus's workflow would
+   then build another repository's frontend, at a pin the corpus chooses, and
+   a fix to the page would reach readers only at the corpus's next pin bump
+   and deploy. Published from here, the page changes when its code does, and
+   still shares the corpus's origin.
 
 ## Revision triggers
 
 - An app hands the page graphs without positions, as its `drawn` events
   report: the layout in the browser (alternative 3) reopens.
 - A view the corpus's pages link has no positioned document the page can read.
-- The page's script, gzipped, grows past a fifth of the window's.
+- The page's script, gzipped, doubles from the 34.5 KB it is first built
+  at, d3 included.
 - A browser restricts `window.opener` or `postMessage` between origins in a
   way that closes one of the four ways in.
-- The chosen host stops serving the page, or changes its terms.
+- GitHub Pages stops serving the page, or changes its terms.
 - A second version of the messages is needed.
 
 ## Amendments
