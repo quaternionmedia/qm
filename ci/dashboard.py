@@ -96,6 +96,16 @@ class Surface:
     "what does this server offer", which are different questions and should not
     be guessed at either."""
 
+    look: str = ""
+    """Where in the application a person looks first, in words: the tab or
+    window that answers "is my set up", which an application opened cold does
+    not point at."""
+
+    prepare: str = "uv sync"
+    """What a fresh clone of its repository runs once, in that repository,
+    before this can start. `--start` runs it with `uv run --no-sync`, so it
+    refuses a repository that has no environment yet rather than build one."""
+
     note: str = ""
 
     declares_itself: bool = False
@@ -130,16 +140,22 @@ SURFACES: tuple[Surface, ...] = (
         name="web", repo="codecartographer",
         role="front end on the web", port=2718, constant="e",
         command=("codecarto", "serve", "--port", "2718"), detachable=True,
+        health="/docs",
         dataview="/app",
         also={"/topology/gjgf": "the same graph, as data",
               "/topology/available": "whether the harness answered, without "
                                      "drawing anything"},
+        look="the Estate tab says which seams answered; + then Topology "
+             "draws the harness's flows",
+        prepare="uv sync, then in web/: npm install && npm run build",
         note="draws the harness's topology as a graph"),
     Surface(
         name="terminal", repo="dossier",
         role="front end in a terminal", port=1618, constant="phi",
         command=("dossier", "dashboard"), detachable=False,
-        note="run this in the terminal you want to watch. `dossier serve "
+        look="Seams, then Harness, says whether the harness answers",
+        note="run this in the terminal you want to watch; in it, Seams then "
+             "Harness says whether the harness answers. `dossier serve "
              "--port 1618` is its API, which is a different thing"),
     Surface(
         name="prose", repo="looksatwords",
@@ -149,6 +165,7 @@ SURFACES: tuple[Surface, ...] = (
         also={"/api/harness/threads": "the harness's archive, as this window "
                                       "lists it",
               "/docs": "every route this reader serves"},
+        look="the Harness tab at the foot of the page lists the archive",
         note="reads the harness's thread archive on loopback, so it has "
              "nothing to list until the harness is up"),
     Surface(
@@ -194,6 +211,12 @@ def repo_of(surface: Surface) -> Path | None:
         if (found / "pyproject.toml").is_file():
             return found
     return None
+
+
+def unprepared(repo: Path) -> bool:
+    """Whether a repository has no environment of its own yet: a fresh clone
+    that `uv sync` has not been run in."""
+    return not (repo / ".venv").is_dir()
 
 
 def listening(port: int, host: str = "127.0.0.1") -> bool:
@@ -272,6 +295,10 @@ def start(surface: Surface, repo: Path, wait: float = WAIT) -> tuple[bool, str]:
     if listening(surface.port):
         return False, (f"something is already listening on {surface.port}. "
                        f"Stop it, or it is already what you wanted")
+    if RUNNER and unprepared(repo):
+        return False, (f"{surface.repo} has no environment yet, so nothing "
+                       f"was started. Run `{surface.prepare}` once in {repo}, "
+                       f"then start {surface.name} again")
 
     log = STATE.parent / f"{surface.name}.log"
     log.parent.mkdir(parents=True, exist_ok=True)
@@ -436,6 +463,10 @@ def report() -> int:
         if repo is None:
             state = "not beside this clone"
             missing.append(surface)
+        elif not surface.detachable and not surface.owner_starts:
+            # It draws in a terminal and opens no port; its port is its API's.
+            state = "a terminal application; no port says whether it runs"
+            missing.append(surface)
         elif listening(surface.port):
             state = "something is listening"
             if surface.name in started:
@@ -465,6 +496,8 @@ def report() -> int:
         for surface in live:
             print(f"  {surface.name:<10} http://127.0.0.1:{surface.port}"
                   f"{surface.dataview}")
+            if surface.look:
+                print(f"  {'':<10} ({surface.look})")
             for extra, what in surface.also.items():
                 print(f"  {'':<10} http://127.0.0.1:{surface.port}{extra}"
                       f"  ({what})")
@@ -486,7 +519,11 @@ def report() -> int:
                 print(f"  {surface.name:<10} cd {surface.repo} && "
                       f"{' '.join(surface.command)}")
                 print(f"  {'':<10} ({surface.note})")
-            elif surface.detachable:
+                continue
+            if unprepared(repo):
+                print(f"  {surface.name:<10} first, once, in {surface.repo}: "
+                      f"{surface.prepare}")
+            if surface.detachable:
                 print(f"  {surface.name:<10} uv run qm dashboard --start "
                       f"{surface.name}")
                 print(f"  {'':<10} or, in its own terminal: "

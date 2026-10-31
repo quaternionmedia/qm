@@ -338,6 +338,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "journey-pictures", help="take the journeys' pictures from the surfaces that are up",
+        add_help=False,
+    )
+    sub.add_parser(
         "mathematics", help="every mathematical mapping states what it has not earned",
         add_help=False,
     )
@@ -412,6 +416,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "dashboard": ("dashboard", False, []),
     "instances": ("instances", False, []),
     "demo": ("trio_demo", False, []),
+    "journey-pictures": ("journey_pictures", False, []),
     "mathematics": ("check_mathematics", False, []),
     "patterns": ("check_pattern_coverage", False, []),
     "session": ("session_record", False, []),

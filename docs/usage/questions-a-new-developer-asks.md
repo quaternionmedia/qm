@@ -84,6 +84,8 @@ To say once which repositories your machine runs, name a family or a selection
 of your own: `uv run qm instances register --family core`, or `--repo` once
 for each repository. `uv run qm dashboard --start-registered` then brings up
 the surfaces in it, and `uv run qm instances` says which of them is up.
+[Bring your set up](../journeys/bring-your-set-up.md) walks it, with where
+to look in each front end.
 
 **"How do I see the same data in both front ends, side by side?"**
 

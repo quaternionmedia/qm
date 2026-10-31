@@ -287,6 +287,20 @@ def servers() -> dict[str, str]:
     return known
 
 
+def terminals() -> dict[str, str]:
+    """repo -> the command that opens it, for the dashboard's front ends that
+    draw in a terminal. Not servers, so never `missing`; but a reading that
+    says nothing starts one, beside a dashboard that says how, reads as a
+    contradiction."""
+    sys.path.insert(0, str(ROOT / "ci"))
+    try:
+        import dashboard
+        return {s.repo: f"cd {s.repo} && uv run {' '.join(s.command)}"
+                for s in dashboard.SURFACES if not s.detachable and not s.owner_starts}
+    except Exception:                                # noqa: BLE001
+        return {}
+
+
 def registration(named_families: list[str], repos: list[str], name: str | None,
                  known_families: dict[str, list[str]], known_repos: set[str]) -> dict:
     """The document `register` writes, refusing a name nothing resolves."""
@@ -333,8 +347,12 @@ def expected(registered: dict, known_families: dict[str, list[str]]
 
 
 def judge_registered(members: dict[str, str], rows: list[dict],
-                     starts: dict[str, str]) -> list[dict]:
-    """One row per registered repository: up, silent, missing or unjudged."""
+                     starts: dict[str, str],
+                     opens: dict[str, str] | None = None) -> list[dict]:
+    """One row per registered repository: up, silent, missing or unjudged.
+    `opens` names the terminal front ends, which are unjudged and say how to
+    open them."""
+    opens = opens or {}
     judged = []
     for repo, via in members.items():
         mine = [row for row in rows if row["repo"] == repo]
@@ -349,6 +367,9 @@ def judge_registered(members: dict[str, str], rows: list[dict],
                 f"pid {r['pid']} is alive and {r['port']} does not answer" for r in silent)}
         elif repo in starts:
             row |= {"state": "missing", "why": f"nothing declares it running; {starts[repo]}"}
+        elif repo in opens:
+            row |= {"state": "unjudged",
+                    "why": f"a terminal front end, not a server: {opens[repo]}"}
         else:
             row |= {"state": "unjudged",
                     "why": "nothing declares it running, and nothing here starts it"}
@@ -416,7 +437,8 @@ def collect(directories: list[Path] | None = None, world: World | None = None,
                    ("name", "families", "repos", "registered_at")}
         machine["unresolved"] = gone
         machine["repositories"] = judge_registered(
-            members, rows, servers() if starts is None else starts)
+            members, rows, servers() if starts is None else starts,
+            terminals() if starts is None else {})
     declared_live = {row["port"] for row in rows if row["state"] != "stale"}
     candidates = sorted(port for port in reserved if port not in declared_live)
     with ThreadPoolExecutor(max_workers=32) as pool:

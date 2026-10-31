@@ -31,6 +31,9 @@ session rather than starting a second.
 
 ## Saying what this machine runs
 
+[Bring your set up](https://github.com/quaternionmedia/qm/blob/main/docs/journeys/bring-your-set-up.md)
+walks this section through the front ends, step by step.
+
 A person registers which repositories this machine should be running, once,
 and every reading after that is judged against it:
 
