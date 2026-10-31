@@ -20,9 +20,9 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 
 <figure class="qm-hero-shot" markdown>
 
-[![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)](../projects/scad-chess.md)
+[![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png)](../projects/apothecary.md)
 
-<figcaption><strong>scad-chess.</strong> The chess set, modelled in OpenSCAD.</figcaption>
+<figcaption><strong>apothecary.</strong> The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.</figcaption>
 
 </figure>
 
@@ -33,6 +33,8 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 <div class="grid" markdown>
 
 <div class="card qm-f-irl" markdown>
+
+![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png){ .qm-thumb loading=lazy }
 
 [apothecary](../projects/apothecary.md){ .qm-card-link }
 
@@ -102,14 +104,19 @@ Start in [`apothecary`](../projects/apothecary.md): its records and its `AGENTS.
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its members, the families within it and the seams between them](../show/family/irl/estate.svg)](../show/family/irl/estate.svg)
 
@@ -117,9 +124,17 @@ the graphs codecarto draws
 
 </figure>
 
+<figure class="qm-shot" id="showgraph-code" markdown>
+
+[![Its code: each of its projects with its code in it](../show/family/irl/code.svg)](../show/family/irl/code.svg)
+
+<figcaption><strong>Its code.</strong> Each of its projects with its code in it.</figcaption>
+
+</figure>
+
 </div>
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11`, on 2026-10-26. [The show document](../show/family/irl/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/family/irl/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

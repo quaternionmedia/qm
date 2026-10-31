@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:35d8a3b49438dc5d39e2f3725df15b83cb91ca0226fd7a4d49de1a65d5fc3212"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -30,10 +30,10 @@
        "hover": "commons — drives the public — open information a community reads and adds to: maps, records, public data",
        "click": "<p>The <b>commons</b> family drives the public — open information a community reads and adds to: maps, records, public data.</p><p>1 member(s) in all.</p>",
        "show": "family:commons",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 0,
        "x": 0,
-       "y": 1.4210854715202004e-14,
+       "y": 0,
        "size": 50,
        "label_at": "none"
       }
@@ -52,10 +52,10 @@
        "click": "<p><b>benchmark</b> — A place to keep track of benches</p><p>not adopted. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:benchmark",
        "shape": "circle",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 1,
-       "x": 3.67394039744206e-15,
-       "y": 60.000000000000014,
+       "x": 4.653657836759942e-15,
+       "y": 76,
        "size": 30,
        "label_at": "below"
       }
@@ -94,10 +94,10 @@
     "subject": "family:commons",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -132,9 +132,64 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: benchmark."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:commons",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "benchmark"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "benchmark": "dfae9d207ad3dd237f0605b807fb270b76a7abda"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: benchmark. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 1 project(s)."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

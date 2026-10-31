@@ -22,26 +22,31 @@ No pictures are listed for uPhonor yet. A project's own screenshots are picked i
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/uPhonor/estate.svg)](../show/project/uPhonor/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← TheatreMix-python](TheatreMix-python.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [vox →](vox.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/uPhonor/code.svg)](../show/project/uPhonor/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/uPhonor/code.svg)](../show/project/uPhonor/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← TheatreMix-python](TheatreMix-python.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [vox →](vox.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -50,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. uPhonor's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and uPhonor's default branch at `150f7a7`, on 2026-10-26. [The show document](../show/project/uPhonor/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and uPhonor's default branch at `150f7a7`, on 2026-10-29. [The show document](../show/project/uPhonor/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

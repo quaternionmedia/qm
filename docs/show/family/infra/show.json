@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:ebd4ba15e366342af1e74e61e184a8ceabfdc75f3aae843cf81a0d3298e800ae"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -33,7 +33,7 @@
        "color": "#98a7bc",
        "depth": 0,
        "x": 0,
-       "y": 1.4210854715202004e-14,
+       "y": 0,
        "size": 90,
        "label_at": "none"
       }
@@ -54,8 +54,8 @@
        "shape": "square",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 36,
-       "y": -49.549749136962234,
+       "x": 44.67167917422796,
+       "y": -61.48529157249601,
        "size": 30,
        "label_at": "right"
       }
@@ -76,8 +76,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 58.24922359499621,
-       "y": 18.92632003628882,
+       "x": 72.28029523843166,
+       "y": 23.485291572496003,
        "size": 30,
        "label_at": "right"
       }
@@ -98,8 +98,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 3.750288442705563e-15,
-       "y": 61.24685820134689,
+       "x": 4.653657836759942e-15,
+       "y": 76,
        "size": 30,
        "label_at": "below"
       }
@@ -112,8 +112,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -58.24922359499621,
-       "y": 18.92632003628883,
+       "x": -72.28029523843166,
+       "y": 23.48529157249601,
        "size": 30,
        "label_at": "left"
       }
@@ -126,8 +126,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -36.00000000000001,
-       "y": -49.54974913696223,
+       "x": -44.67167917422797,
+       "y": -61.485291572495996,
        "size": 30,
        "label_at": "left"
       }
@@ -223,10 +223,10 @@
     "subject": "family:infra",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -262,9 +262,66 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: streaming-infrastructure, ztgui."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:infra",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "streaming-infrastructure",
+     "ztgui"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "moat": "16a595a3598c02ba521fc42617fc130030f9b57f",
+     "ztgui": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: streaming-infrastructure, ztgui. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 2 project(s); 1 with no code map drawn yet are drawn alone: streaming-infrastructure."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

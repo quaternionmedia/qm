@@ -33,6 +33,13 @@ hide:
 
 </div>
 
+<section class="qm-section" markdown>
+
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 <div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
@@ -45,28 +52,26 @@ hide:
 
 </div>
 
-<section class="qm-section" markdown>
-
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/waveofhormuz/estate.svg)](../show/project/waveofhormuz/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← vox](vox.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [wolf →](wolf.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/waveofhormuz/code.svg)](../show/project/waveofhormuz/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/waveofhormuz/code.svg)](../show/project/waveofhormuz/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← vox](vox.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [wolf →](wolf.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -75,7 +80,7 @@ the graphs codecarto draws
 **Its system:** not drawn. waveofhormuz declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and waveofhormuz's default branch at `83746f7`, on 2026-10-26. [The show document](../show/project/waveofhormuz/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and waveofhormuz's default branch at `83746f7`, on 2026-10-29. [The show document](../show/project/waveofhormuz/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

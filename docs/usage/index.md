@@ -2,7 +2,7 @@
 
 # Usage
 
-How to start working with the [corpus](../ref/glossary.md#corpus){ .glossary-term }, how to bring a project into it, and the recipes for the tasks that come up after.
+To go from a clone to something running, start with [the journeys](../journeys/index.md). This section is how to start working with the [corpus](../ref/glossary.md#corpus){ .glossary-term }, how to bring a project into it, and the recipes for the tasks that come up after.
 { .qm-lede }
 
 <div class="grid" markdown>

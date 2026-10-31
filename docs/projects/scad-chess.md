@@ -33,6 +33,13 @@ hide:
 
 </div>
 
+<section class="qm-section" markdown>
+
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 <div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
@@ -45,28 +52,26 @@ hide:
 
 </div>
 
-<section class="qm-section" markdown>
-
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/scad-chess/estate.svg)](../show/project/scad-chess/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← rad-godot](rad-godot.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [ShowRunner →](ShowRunner.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
 [![Its code: its default branch, by directory and file](../show/project/scad-chess/code.svg)](../show/project/scad-chess/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← rad-godot](rad-godot.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [ShowRunner →](ShowRunner.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -75,7 +80,7 @@ the graphs codecarto draws
 **Its system:** not drawn. scad-chess's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and scad-chess's default branch at `ff6c626`, on 2026-10-26. [The show document](../show/project/scad-chess/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and scad-chess's default branch at `ff6c626`, on 2026-10-29. [The show document](../show/project/scad-chess/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

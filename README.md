@@ -136,7 +136,7 @@ qm/
 | — | [Deltas compose, and a tangle is a fact](records/DRAFT-deltas-compose.md) | Proposed | 2026-08-20 |
 | — | [Acts that are a person's by constitution](records/DRAFT-acts-that-are-a-persons-by-constitution.md) | Proposed | 2026-08-20 |
 | — | [Whether something is a delta is a perspective](records/DRAFT-granularity-is-a-perspective.md) | Proposed | 2026-08-20 |
-| — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
+| — | [Nothing unattended spends](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
 | — | [A check is evidence only after it has been seen to fail](records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md) | Proposed | 2026-08-22 |
@@ -153,6 +153,7 @@ qm/
 | — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
 | — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
 | — | [Work is delivered into a repository, never to a hosted page](records/DRAFT-work-is-delivered-into-a-repository.md) | Proposed | 2026-10-24 |
+| — | [A project page shows what a person picked and what a tool drew, and is never written by hand](records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md) | Proposed | 2026-10-28 |
 
 No record is ratified, because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

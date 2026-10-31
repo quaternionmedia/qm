@@ -22,26 +22,31 @@ No pictures are listed for ira yet. A project's own screenshots are picked in th
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/ira/estate.svg)](../show/project/ira/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← holophonor](holophonor.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [joe →](joe.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/ira/code.svg)](../show/project/ira/code.svg)
+[![Its code: its default branch, by directory, file, symbol and member](../show/project/ira/code.svg)](../show/project/ira/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file, symbol and member.<br>[← holophonor](holophonor.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [joe →](joe.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -50,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. ira declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and ira's default branch at `a04467f`, on 2026-10-26. [The show document](../show/project/ira/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and ira's default branch at `a04467f`, on 2026-10-29. [The show document](../show/project/ira/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

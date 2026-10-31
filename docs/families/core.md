@@ -114,14 +114,19 @@ Start in [`qm`](../projects/qm.md): its records and its `AGENTS.md` say how work
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its members, the families within it and the seams between them](../show/family/core/estate.svg)](../show/family/core/estate.svg)
 
@@ -129,9 +134,17 @@ the graphs codecarto draws
 
 </figure>
 
+<figure class="qm-shot" id="showgraph-code" markdown>
+
+[![Its code: each of its projects with its code in it](../show/family/core/code.svg)](../show/family/core/code.svg)
+
+<figcaption><strong>Its code.</strong> Each of its projects with its code in it.</figcaption>
+
+</figure>
+
 </div>
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11`, on 2026-10-26. [The show document](../show/family/core/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/family/core/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

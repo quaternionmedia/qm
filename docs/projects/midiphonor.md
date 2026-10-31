@@ -22,26 +22,31 @@ No pictures are listed for midiphonor yet. A project's own screenshots are picke
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/midiphonor/estate.svg)](../show/project/midiphonor/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← ludwig](ludwig.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [moat →](moat.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/midiphonor/code.svg)](../show/project/midiphonor/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/midiphonor/code.svg)](../show/project/midiphonor/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← ludwig](ludwig.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [moat →](moat.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -50,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. midiphonor declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and midiphonor's default branch at `407e6c3`, on 2026-10-26. [The show document](../show/project/midiphonor/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and midiphonor's default branch at `407e6c3`, on 2026-10-29. [The show document](../show/project/midiphonor/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

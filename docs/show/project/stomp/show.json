@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:3e08eed7da1dd11fba49df1d7caaa00ae2645fe393ff589d049b85a848aa4769"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6d30a6f47303e2378587f1e5870d1461d1443244"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -203,10 +203,10 @@
     "subject": "project:stomp",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -252,8 +252,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -977.5044143122827,
-      "y": 421.2000067076384,
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": 0,
+      "y": 0,
       "size": 60
      },
      "dir::quaternionmedia/stomp/stomp": {
@@ -265,8 +267,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 977.5044143122835,
-      "y": -421.20000670763835,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -9.785711416707596,
+      "y": -2.1708312506776357,
       "size": 50
      },
      "file::quaternionmedia/stomp/README.md": {
@@ -278,8 +282,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/stomp/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -782.648698460784,
-      "y": 533.7000067076384,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 4.875399708983892,
+      "y": 6.96279237645643,
       "size": 30
      }
     },
@@ -305,6 +311,7 @@
    "metadata": {
     "url": "https://github.com/quaternionmedia/stomp",
     "depth": 1,
+    "floor": 100,
     "truncated": 0
    }
   },

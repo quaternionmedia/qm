@@ -6,13 +6,18 @@ on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
 sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `7072174` and `qmcp` `82b2d58`, and every `qmcp` entry was read again at `qm`
-`222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. The rest of the
-page holds at the stamp, which those entries do not move.
+`222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
+2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
+`474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
+day. The rest of the page holds at the stamp, which those entries do not
+move.
 
-[`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
-for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop;
-[`the-triplet.md`](the-triplet.md) is the triplet's graph leg, from the pages on.
-This page is everything else open in `qm`.
+[`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
+two `joe` pull requests merged on 2026-10-26, and the steps after it;
+[`the-voice-loop.md`](the-voice-loop.md) is the loop;
+[`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
+landed on its `main`, and how it keeps landing;
+[`the-triplet.md`](the-triplet.md) is the triplet's graph leg, from the pages on. This page is everything else open in `qm`.
 
 ## How this page is kept
 
@@ -42,11 +47,16 @@ pick up alone; that page is then listed in the index and named here.
 
 ## 1. Decisions in force
 
-1. **Mechanical or minor reversible items in `qm` are closed without a
-   question per pull request**: a green pull request brought level with its
-   base, generated documents re-run rather than hand-merged, a propagation of
-   `main` into a project branch. Anything that changes what a page, a record
-   or a check says is asked, one question at a time. (2026-10-18)
+1. **A question to a person concerns what a change says or does**: what a
+   page, a record, a check or a tool should state, and which of two readings
+   of a rule is meant, one question at a time. How the change is delivered
+   follows the corpus rules without a question: its branch and base, one pull
+   request or two, landing it once every gate is green (`AGENTS.md` item 3),
+   generated documents re-run rather than hand-merged, a propagation of `main`
+   into a project branch, and deleting a branch whose every commit another
+   branch holds. A step that would destroy work nothing else holds, such as
+   unpushed commits or a ref `docs/ref/namespaces.md` names, is asked first,
+   in terms of the work. (2026-10-18; widened 2026-10-26)
 2. **A finding in a pull request's own text is fixed on that pull request**,
    one commit, before its merge is asked. (2026-10-17)
 3. **Unsigned commits are rebuilt signed as new pull requests**, cut from the
@@ -87,7 +97,8 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
-| #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #147, #148, #149, #150, #151, #153, #156 | seven project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-29 | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -100,7 +111,6 @@ each pull request into it is behind its base until brought level.
 
 ## 3. Blocked on a person
 
-- **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
 - **A private name in `main`'s history.** Two commit messages that name the
   private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
   with the performing family's pull requests. `performing-family-consolidation.md`
@@ -161,9 +171,9 @@ each pull request into it is behind its base until brought level.
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
   open. At `qmcp` `82b2d58`, `qmcp` has no `dependabot.yml`, no open
-  Dependabot pull request and no open alert. Its one Dependabot branch,
-  `dependabot/uv/protobuf-6.33.5`, outlived its pull request. That pull request
-  was closed on 2026-10-25 because `main` already locks the version it set.
+  Dependabot pull request and no open alert. Its one leftover Dependabot
+  branch, whose pull request was closed on 2026-10-25 because `main` already
+  locks the version it set, was deleted on 2026-10-27 at the person's word.
 - **The signature gate reads an SSH signature as none.** `check_signatures`
   runs `git` with no allowed-signers file, so a commit the host verifies by an
   SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
@@ -189,8 +199,9 @@ each pull request into it is behind its base until brought level.
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
 - **alfred's detail page shows its pictures.** Its seven screenshots are on
-  alfred's stack, up to `feat/close-gaps`, and not on its `main`, so its page
-  on the site shows each as waiting. Done is alfred's stack merged, then
+  alfred's stack from alfred #126, `integrate/wave-6`, up, and not on its
+  `main` (2026-10-29), so its page on the site shows each as waiting. Done is
+  alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
 - **The namespaces are declared by hand, in several places.**
@@ -208,6 +219,27 @@ each pull request into it is behind its base until brought level.
   Done is a check that fails when a discipline rule in the root page has no
   counterpart in the seed's. `ci/check_discipline_parity.py` on
   `evolve/exploration-branch-namespace` at `22d7319` is a draft of one.
+- **`qm references` overstates what retiring a merged branch loses.** For a
+  branch whose tip is on `main`, it says a reference left behind points at
+  nothing; the cited commit and pull request survive, and only the name stops
+  resolving. Done is the report saying so when the tip is an ancestor of the
+  base. (2026-10-26)
+- **A pushed branch ahead of its copy is not checked for a holder.** `qm
+  estate`'s *ahead* and the census's *stranded* count unpushed commits against
+  the branch's own remote copy only, so commits another remote branch holds
+  read as on this disk alone. Done is the held reading, confirmed by the host,
+  applied to those classes too, with a fixture case for each. (2026-10-26)
+- **`qm estate` run from a worktree surveys a different estate.** Its default
+  search root is two directories above the module, and the private companion
+  is read beside the module; from a sibling worktree the first is a level too
+  deep and the second is absent, and on 2026-10-26 it found 22 of the 39
+  clones a run from the clone finds. Done is a run from a worktree finding the
+  same clones as a run from the clone.
+- **The private-name check fails on `main`.** At `fa376e0`, `uv run qm
+  private-names --source host --strict` finds 25 occurrences, most of them in
+  `docs/show/`, where a file path or a word in a public repository equals a
+  private repository's name. Done is the check clean, by redaction in the
+  show generator or by an allowance with a stated reason. (2026-10-26)
 
 ### Carried from retired pages
 
@@ -218,12 +250,21 @@ re-checked and is re-derived before anyone acts on it.
   branches; absent on alfred, apothecary, datum, dossier, factorio-sysops,
   qmetronome and rad, and not read for the private projects. Done is the
   workflow on every project's default branch, which follows the propagations
-  in §2 and a copy in each project.
-- **Unsubstituted placeholders.** Seven project branches' `adr/README.md`
-  still reads `project/<name>`: alfred, apothecary, factorio-sysops,
-  qmetronome, `private-32`, `private-33` and `private-34`.
+  in §2 and a copy in each project. alfred's copy is the seed's file
+  verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
+  pull request is a draft, and alfred #117, the bottom one, is ready on
+  `main`. alfred's `main` has no governance submodule yet, and its stack
+  pins `e76827d`, where neither script the workflow runs exists;
+  `project/alfred` carries both since its propagation of 2026-10-29, voice
+  step exempting automation accounts included. The copy
+  goes onto alfred's stack with a pin bump, and reaches its `main` when the
+  stack lands.
+- **Unsubstituted placeholders.** Six project branches' `adr/README.md`
+  still reads `project/<name>`: apothecary, factorio-sysops, qmetronome,
+  `private-32`, `private-33` and `private-34`.
   `project-seed/ci/check_placeholders.py` refuses it at each branch's next
-  propagation. Done is that check clean on every project branch.
+  propagation, so the propagation substitutes it, as alfred's did on
+  2026-10-29. Done is that check clean on every project branch.
 - **`handbook/async-contract.md` names an adapter's command** (`/cowork`), where
   a governance page names no tool. Done is the page stating the rule and
   pointing at `adapters/` for any mechanism.
@@ -259,6 +300,40 @@ re-checked and is re-derived before anyone acts on it.
   `signature-check.yml` reports a signed commit the host has not seen as
   unverifiable, where `check_signatures.py --source git` reports it good.
   Done is the runner saying which source answered. (2026-10-25)
+- **The local runner says nothing of an uncommitted tree.** It runs in the
+  checkout, and on 2026-10-25 a run over edits not yet committed measured the
+  commit before them; the same run after the commit measured the edits. The
+  inference is that the steps reading what a change adds read `git diff`
+  against the base, which sees commits only, while the steps reading files
+  see the tree. Done is the runner refusing, or naming the dirty paths, when
+  the tree has uncommitted changes, seen to fire. (2026-10-26)
+- **`qm branches` read landed work as held by this clone alone.** On
+  2026-10-25 it listed `adr/qmcp-control-plane`,
+  `fix/qmcp-seed-refresh-2026-10-25` and `propagate/qmcp-2026-10-25` so, and
+  `git merge-base --is-ancestor` then found each tip in `project/qmcp`. Which
+  path through `project-seed/ci/branch_census.py` produced it was not traced:
+  its patch comparison reads the default branch alone, which fits, and its
+  holder search reads every remote branch, which should have found
+  `project/qmcp`. Done is the case reproduced in a test and the census
+  reading it as held. (2026-10-26)
+- **`qm docs generate` has no mode for a page's own indexes.** A pull request
+  that adds a page needs `status/documents.yaml`, `handbook/document-states.md`
+  and `loose-ends.json` regenerated; the full generator also rewrites the
+  host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
+  that mode, or `handbook/consolidation-runbook.md` Step 8 naming
+  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
+- **Only qmcp says which server it is.** `qm instances` identifies a server
+  whose health answer names its pid and port; on 2026-10-29 qmcp's did, and
+  codecartographer's checkout served no health route, and looksatwords'
+  health named no pid. Every other server reads as `answering`, attributed by
+  its run-file alone. Done is each serving repository's health route naming
+  its pid and port, as `qmcp/instance.py` does, and `qm instances` reading it
+  as `identified`. (2026-10-29)
+- **The family demo declares nothing.** `qm family-demo` keeps its members in
+  a manifest, so while it runs every member reads as a listener nobody
+  declared in its range, and a member this machine registers reads as
+  `missing`. Done is the demo writing a run-file for each member it starts,
+  with the run's name as its session. (2026-10-29)
 - **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
   planes, and the instruction loop appears in it only as a departure it names;
   the archive and speech do not appear. `qmcp tools list` lists the built-in
@@ -327,11 +402,15 @@ re-checked and is re-derived before anyone acts on it.
   topology runtime execution, a CI pipeline, the human-in-the-loop API, an
   async runner, authentication, webhooks, storage backends, Kubernetes
   manifests, and the cookbook and runner.
-- *Carried.* **Branches across the estate**: each repository's leftover
-  one-copy branches landed or retired, and merged branches pruned, until
-  `uv run qm estate` reports none. `qmcp`'s were pruned on 2026-10-25 at the
-  person's word, and its remote holds `main` and the one Dependabot branch
-  above.
+- **Branches across the estate**: each repository's leftover one-copy
+  branches landed or retired, and merged branches pruned, until `uv run qm
+  estate` reports none. On 2026-10-26 `uv run qm estate --offline` reports
+  one-copy work in codecartographer (one branch, one commit) and `private-38`
+  (one branch, 60 commits), each checked out by a session at work that day.
+  alfred's seven feature branches are *held*, every commit on a pushed
+  branch, so deleting them loses only the names. `qmcp`'s were pruned on
+  2026-10-25 at the person's word, and the one Dependabot branch above on
+  2026-10-27; its remote holds `main` alone.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
@@ -357,6 +436,12 @@ re-checked and is re-derived before anyone acts on it.
   tests and the preflight passed.
 - The figures in `perspectives/2026-10-25-what-whisper-heard.md` on a
   person's voice: they come from synthesized speech only.
+- A holder the host has deleted or moved, as `qm estate` and the branch census
+  read it online: exercised against a local bare remote only. Against the
+  host, only holders whose tip equals the tracking ref have been read.
+- That `joe`'s transcript lane was tested by hand before it merged on
+  2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
+  its pull request carries no comment or review saying so.
 
 ## 6. Standing constraints
 
@@ -376,3 +461,7 @@ re-checked and is re-derived before anyone acts on it.
   gates never ran, and a push to its branch starts them.
 - `uv run qm docs check` runs in no workflow and no preflight step; run it
   before a pull request is ready.
+- A propagation pull request goes red on `namespace` once `main` moves past
+  the commit it merged: the guard compares every file the merge brings with
+  `main`'s tip. Merging `main` into the `propagate/*` branch again clears it;
+  alfred's propagation took it so on 2026-10-29.

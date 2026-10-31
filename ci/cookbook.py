@@ -988,7 +988,7 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         lines += [f"{private} private "
                   f"{'repository is' if private == 1 else 'repositories are'} "
                   "counted here and not named.", ""]
-    lines += [*entry_point(states, projects), "", *showgraph("family", family["name"]),
+    lines += [*entry_point(states, projects), "", *showcase_section("family", family["name"]),
               SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 
@@ -999,27 +999,120 @@ SHOW_SAYS = {
     "project": {"estate": "its families, its phase, its records and the seams it is on",
                 "code": "its default branch, by directory and file",
                 "system": "the system its own declarations describe"},
-    "family": {"estate": "its members, the families within it and the seams between them"},
+    "family": {"estate": "its members, the families within it and the seams between them",
+               "code": "each of its projects with its code in it"},
     "index": {"estate": "every family at once, each member drawn once, and the seams between them"},
 }
+# How deep a project's code map was drawn. codecarto holds a code map to a
+# floor of nodes: a large project's is its files, a small one's its symbols
+# too, or its members (the document's `metadata.depth`).
+CODE_DEPTH = {1: ("its default branch, by directory and file", "to its files"),
+              2: ("its default branch, by directory, file and symbol", "to its symbols"),
+              3: ("its default branch, by directory, file, symbol and member", "to its members")}
+# A view named for what it is where its name alone would mislead: the index is
+# every family, not where one subject sits.
+SHOW_TITLES = {"index": {"estate": "Every family"}}
+# The galleries on the page of the project that draws the showgraphs, each
+# view of every project in one place, by the anchor a project page links to.
+GALLERIES = {"code": ("Every project's code", "every-projects-code"),
+             "estate": ("Every project's estate", "every-projects-estate"),
+             "system": ("Every project's system", "every-projects-system")}
 
 
-def showgraph(kind: str, name: str) -> list[str]:
-    """The subject's showgraph: each view codecartographer drew of it, from
-    its show document in docs/show/, and the window's reason for a view it did
-    not draw. A subject with no document, and a picture a document names and
-    its folder does not hold, are said so, never shown as a broken image."""
+def showcase_section(kind: str, name: str, pictures: list[str] | None = None,
+                     pages: list[str] | None = None, families: list[str] | None = None) -> list[str]:
+    """The page's Showcase: what its subject looks like. A project's pictures
+    past the first, which opens its page, and then its showgraph, each view
+    codecartographer drew of it, as a subsection. `pages` are the projects with
+    a page, which a project's views step to; the page of the project that drew
+    the showgraphs shows every one of them too."""
+    body = [*(pictures or []), *showgraph(kind, name, pages)]
+    if kind == "project" and pages and name == _drawer(name):
+        body += showgraph_gallery(name, pages, families or [])
+    return _section("what it looks like", "Showcase", body)
+
+
+_DOCUMENTS: dict[tuple[str, int], dict] = {}
+
+
+def _document(folder: str) -> dict | None:
+    """A subject's show document, read once however many pages step to it."""
+    path = SHOW / folder / "show.json"
+    if not path.is_file():
+        return None
+    key = (str(path), path.stat().st_mtime_ns)
+    if key not in _DOCUMENTS:
+        _DOCUMENTS[key] = json.loads(path.read_text(encoding="utf-8"))
+    return _DOCUMENTS[key]
+
+
+def _drawer(name: str) -> str:
+    """The project that drew `name`'s showgraph, as its document names it
+    (`codecartographer@<commit>`), or the empty string."""
+    document = _document(f"project/{name}") or {}
+    return str(document.get("provenance", {}).get("drawn_by", {}).get("graph", "")).partition("@")[0]
+
+
+def _drawn(folder: str, view: str) -> str | None:
+    """The picture of `view` that `folder`'s document names and its folder
+    holds, or None: a view the window could not draw, or one not drawn yet."""
+    document = _document(folder) or {}
+    drawn = document.get("views", {}).get(view)
+    picture = document.get("files", {}).get(view)
+    if not isinstance(drawn, dict) or drawn.get("absent") or not picture:
+        return None
+    return picture if (SHOW / folder / picture).is_file() else None
+
+
+def _code_drawn(document: dict) -> tuple[int, int]:
+    """How deep a code view was drawn, and how many nodes it holds."""
+    code = document.get("views", {}).get("code") or {}
+    depth = (code.get("metadata") or {}).get("depth")
+    nodes = (code.get("graph") or {}).get("nodes") if isinstance(code.get("graph"), dict) else None
+    return (depth if depth in CODE_DEPTH else 1), len(nodes or {})
+
+
+def _neighbours(name: str, view: str, pages: list[str] | None) -> str:
+    """Links to the same view of the projects before and after `name`, in
+    alphabetical order and round from the last to the first, and to that view
+    of every project on the page of the project that draws them: a reader
+    steps from one code map to the next. Only projects whose picture of the
+    view is drawn are stepped to."""
+    if not pages:
+        return ""
+    drawn = [page for page in pages if _drawn(f"project/{page}", view)]
+    if name not in drawn or len(drawn) < 2:
+        return ""
+    at = drawn.index(name)
+    before, after = drawn[at - 1], drawn[(at + 1) % len(drawn)]
+    anchor = f"#showgraph-{view}"
+    links = [f"[← {before}]({before}.md{anchor})"]
+    drawer = _drawer(name)
+    if view in GALLERIES and drawer in pages:
+        links.append(f"[{GALLERIES[view][0].lower()}]({drawer}.md#{GALLERIES[view][1]})")
+    links.append(f"[{after} →]({after}.md{anchor})")
+    return " · ".join(links)
+
+
+def showgraph(kind: str, name: str, pages: list[str] | None = None) -> list[str]:
+    """The subject's showgraph, a subsection of its showcase: each view
+    codecartographer drew of it, from its show document in docs/show/, and the
+    window's reason for a view it did not draw. A subject with no document, and
+    a picture a document names and its folder does not hold, are said so, never
+    shown as a broken image. A project's view links to the same view of the
+    projects beside it (`_neighbours`)."""
+    heading = ["the graphs codecarto draws", "{ .qm-eyebrow }", "", "### Showgraph", ""]
     folder = "index" if kind == "index" else f"{kind}/{name}"
     path = SHOW / folder / "show.json"
     if not path.is_file():
-        return [f"No showgraph has been drawn for {name or 'the estate'} yet.",
+        return [*heading, f"No showgraph has been drawn for {name or 'the estate'} yet.",
                 "{ .qm-caption }", ""]
     document = json.loads(path.read_text(encoding="utf-8"))
     files = document.get("files", {})
     shots: list[str] = []
     notes: list[str] = []
     for view, drawn in document.get("views", {}).items():
-        title = SHOW_VIEWS.get(view, view)
+        title = SHOW_TITLES.get(kind, {}).get(view) or SHOW_VIEWS.get(view, view)
         if drawn.get("absent"):
             # The window's sentence, as it wrote it, with its full stop.
             problem = str(drawn.get("problem", "")).strip().rstrip(".")
@@ -1031,9 +1124,14 @@ def showgraph(kind: str, name: str) -> list[str]:
             continue
         href = f"../show/{folder}/{picture}"
         says = SHOW_SAYS.get(kind, {}).get(view, view)
-        shots += ['<figure class="qm-shot" markdown>', "",
+        if kind == "project" and view == "code":
+            says = CODE_DEPTH[_code_drawn(document)[0]][0]
+        caption = f"<strong>{title}.</strong> {_esc(says[0].upper() + says[1:])}."
+        nav = _neighbours(name, view, pages) if kind == "project" else ""
+        shots += [f'<figure class="qm-shot" id="showgraph-{view}" markdown>', "",
                   f"[![{title}: {says}]({href})]({href})", "",
-                  f"<figcaption><strong>{title}.</strong> {_esc(says[0].upper() + says[1:])}.</figcaption>",
+                  f'<figcaption markdown="span">{caption}<br>{nav}</figcaption>' if nav
+                  else f"<figcaption>{caption}</figcaption>",
                   "", "</figure>", ""]
     body = ['<div class="grid" markdown>', "", *shots, "</div>", ""] if shots else []
     for note in notes:
@@ -1050,7 +1148,59 @@ def showgraph(kind: str, name: str) -> list[str]:
     body += [f"{said}{f', on {drawn_at}' if drawn_at else ''}. "
              f"[The show document](../show/{folder}/show.json) holds each graph as drawn.",
              "{ .qm-caption }", ""]
-    return _section("the graphs codecarto draws", "Showgraph", body)
+    return [*heading, *body]
+
+
+def showgraph_gallery(drawer: str, pages: list[str], families: list[str]) -> list[str]:
+    """Every showgraph on these pages, on the page of the project that draws
+    them: the whole corpus a family at a time, each family with its projects'
+    code, then each view of every project and every family, each opening the
+    page it is on. A view nothing has drawn is left out rather than shown
+    empty."""
+    lines = ["### Every showgraph { #every-showgraph }", "",
+             f"Every graph {drawer} draws for these pages, in one place: the whole corpus a family "
+             "at a time, each family with its projects' code, then each view of every project and "
+             "every family. Each picture opens the page it is on, and each page steps to the same "
+             "graph of the projects beside it.", ""]
+    family_code = [(f, picture) for f in families if (picture := _drawn(f"family/{f}", "code"))]
+    if family_code:
+        lines += ["#### Every family's code { #every-familys-code }", "", '<div class="grid" markdown>', ""]
+        for f, picture in family_code:
+            drawn = len(((_document(f"family/{f}") or {}).get("views", {}).get("code", {})
+                         .get("metadata") or {}).get("code") or {})
+            whose = "project's" if drawn == 1 else "projects'"
+            link = f"../families/{f}.md#showgraph-code"
+            lines += ['<figure class="qm-shot" markdown>', "",
+                      f"[![{f}: its projects' code](../show/family/{f}/{picture}){{ loading=lazy }}]({link})", "",
+                      f'<figcaption markdown="span">[{f}]({link}), {drawn} {whose} code</figcaption>', "",
+                      "</figure>", ""]
+        lines += ["</div>", ""]
+    for view, (title, anchor) in GALLERIES.items():
+        drawn = [(page, picture) for page in pages if (picture := _drawn(f"project/{page}", view))]
+        if not drawn:
+            continue
+        lines += [f"#### {title} {{ #{anchor} }}", "", '<div class="grid" markdown>', ""]
+        for page, picture in drawn:
+            said = ""
+            if view == "code":
+                depth, nodes = _code_drawn(_document(f"project/{page}") or {})
+                said = f", {nodes:,} nodes, {CODE_DEPTH[depth][1]}"
+            link = f"{page}.md#showgraph-{view}"
+            lines += ['<figure class="qm-shot" markdown>', "",
+                      f"[![{page}: {title.lower()}](../show/project/{page}/{picture}){{ loading=lazy }}]({link})", "",
+                      f'<figcaption markdown="span">[{page}]({link}){said}</figcaption>', "",
+                      "</figure>", ""]
+        lines += ["</div>", ""]
+    drawn_families = [(f, picture) for f in families if (picture := _drawn(f"family/{f}", "estate"))]
+    if drawn_families:
+        lines += ["#### Every family { #every-family }", "", '<div class="grid" markdown>', ""]
+        for f, picture in drawn_families:
+            link = f"../families/{f}.md#showgraph-estate"
+            lines += ['<figure class="qm-shot" markdown>', "",
+                      f"[![{f}: its members](../show/family/{f}/{picture}){{ loading=lazy }}]({link})", "",
+                      f'<figcaption markdown="span">[{f}]({link})</figcaption>', "", "</figure>", ""]
+        lines += ["</div>", ""]
+    return lines
 
 
 def _project_title(project: dict, by_name: dict[str, dict]) -> list[str]:
@@ -1112,17 +1262,23 @@ def project_page(project: dict, by_name: dict[str, dict],
     elif not project["pictures"]:
         lines += [f"No pictures are listed for {name} yet. A project's own screenshots "
                   "are picked in the corpus's `ci/showcase.yaml`.", "{ .qm-caption }", ""]
+    further: list[str] = []
     if len(project["pictures"]) > 1:
-        lines += ['<div class="grid" markdown>', ""]
+        further += ['<div class="grid" markdown>', ""]
         for picture in project["pictures"][1:]:
-            lines += ['<figure class="qm-shot" markdown>', "",
-                      f"![{picture['caption']}]({picture['url']})", "",
-                      f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
-                      "</figure>", ""]
-        lines += ["</div>", ""]
-    lines += showgraph("project", name)
+            further += ['<figure class="qm-shot" markdown>', "",
+                        f"![{picture['caption']}]({picture['url']})", "",
+                        f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
+                        "</figure>", ""]
+        further += ["</div>", ""]
+    lines += showcase_section("project", name, further, _pages(projects), sorted(by_name))
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
+
+
+def _pages(projects: dict[str, dict] | None) -> list[str]:
+    """The projects with a page, in the order a reader steps through them."""
+    return sorted(projects or {}, key=str.lower)
 
 
 def _shot(picture: dict, owner: str, lead: str | None = None) -> list[str]:
@@ -1239,7 +1395,7 @@ def detail_page(project: dict, by_name: dict[str, dict], projects: dict[str, dic
             body += ["</div>", ""]
         lines += _section(built["eyebrow"] or "how it is built", built["title"], body)
 
-    lines += showgraph("project", name)
+    lines += showcase_section("project", name, None, _pages(projects), sorted(by_name))
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 
@@ -1399,7 +1555,7 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         "</div>", "",
         f"{unstated} rostered {verb} no family yet. That is *unstated*, not *none*: "
         "nobody has answered the question.", "",
-        *showgraph("index", ""),
+        *showcase_section("index", ""),
         SITE_NOTE, "{ .qm-caption }", "",
     ]
     return "\n".join(lines)
@@ -1533,8 +1689,12 @@ def main(argv: list[str] | None = None) -> int:
         for problem in stale:
             print(f"  {problem}", file=sys.stderr)
         if stale:
+            # The command that wrote these pages, so a site page is not sent to
+            # the walkthrough's default directory.
+            again = " ".join(["uv run qm cookbook", out.as_posix(),
+                              *(["--site"] if args.site else []), "--write"])
             print(f"\ncookbook: {len(stale)} page(s) no longer describe this disk. "
-                  f"Regenerate with `uv run qm cookbook --write`.", file=sys.stderr)
+                  f"Regenerate with `{again}`.", file=sys.stderr)
             return 1
         print(f"cookbook: {len(files)} page(s) still describe this disk.")
         return 0

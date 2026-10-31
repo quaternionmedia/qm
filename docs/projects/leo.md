@@ -22,26 +22,31 @@ No pictures are listed for leo yet. A project's own screenshots are picked in th
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/leo/estate.svg)](../show/project/leo/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← joe](joe.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [looksatwords →](looksatwords.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/leo/code.svg)](../show/project/leo/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/leo/code.svg)](../show/project/leo/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← joe](joe.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [looksatwords →](looksatwords.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -50,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. leo's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and leo's default branch at `9305c59`, on 2026-10-26. [The show document](../show/project/leo/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and leo's default branch at `9305c59`, on 2026-10-29. [The show document](../show/project/leo/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

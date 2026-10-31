@@ -33,6 +33,13 @@ hide:
 
 </div>
 
+<section class="qm-section" markdown>
+
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 <div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
@@ -53,28 +60,26 @@ hide:
 
 </div>
 
-<section class="qm-section" markdown>
-
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/qmetronome/estate.svg)](../show/project/qmetronome/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← qmcp](qmcp.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [rad →](rad.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/qmetronome/code.svg)](../show/project/qmetronome/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/qmetronome/code.svg)](../show/project/qmetronome/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← qmcp](qmcp.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [rad →](rad.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -83,7 +88,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qmetronome's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and qmetronome's default branch at `1abf5e9`, on 2026-10-26. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and qmetronome's default branch at `1abf5e9`, on 2026-10-29. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

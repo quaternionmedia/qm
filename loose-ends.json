@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T20:40:05Z",
+  "generated_at": "2026-10-31T18:42:41Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T20:36:25Z"
+        "generated_at": "2026-10-31T18:42:39Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-25T01:05:55Z"
+        "generated_at": "2026-10-28T17:02:24Z"
       }
     }
   },
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 285,
+    "loose_ends": 290,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 39,
-      "document-unreviewed": 88,
+      "document-proposed": 40,
+      "document-unreviewed": 92,
       "stalled-thread": 138
     },
-    "open": 285,
+    "open": 290,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -84,7 +84,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
       "address_parses": true
     },
@@ -262,6 +262,14 @@
       "title": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "title": "records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
       "address_parses": true
     },
     {
@@ -1154,10 +1162,34 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-a-branch-name-is-not-its-commits",
+      "title": "perspectives/2026-10-26-a-branch-name-is-not-its-commits.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-a-branch-name-is-not-its-commits",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "title": "perspectives/2026-10-26-landing-what-was-held-local.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
       "title": "perspectives/2026-10-26-the-graphs-reach-the-pages.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-29-several-repositories-one-workstation",
+      "title": "perspectives/2026-10-29-several-repositories-one-workstation.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-29-several-repositories-one-workstation",
       "address_parses": true
     },
     {
@@ -1182,6 +1214,14 @@
       "title": "perspectives/claude-fable-5-2026-06-09_philosophy.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09_philosophy",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
+      "title": "perspectives/claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
       "address_parses": true
     },
     {

@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:135b3d18a41a9af4dafca5c486339cda0997bd8eb11cda154920841f2019e9b2"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -30,7 +30,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 0,
        "x": 0,
        "y": 0,
@@ -52,7 +52,7 @@
        "click": "<p><b>ShowRunner</b> — Show control for live performances</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:ShowRunner",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 36.00000000000001,
        "y": -86.91168824543142,
@@ -74,7 +74,7 @@
        "click": "<p><b>Cuelist-python</b> — Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:Cuelist-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 86.91168824543142,
        "y": -36,
@@ -96,7 +96,7 @@
        "click": "<p><b>QLab-python</b> — QLab interface for Python</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:QLab-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 86.91168824543142,
        "y": 36,
@@ -118,7 +118,7 @@
        "click": "<p><b>TheatreMix-python</b> — Python components for interacting with TheatreMix</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:TheatreMix-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 36.00000000000001,
        "y": 86.91168824543142,
@@ -140,7 +140,7 @@
        "click": "<p><b>cesar</b> — A unified lighting / sound / video controller for theatrical applications</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:cesar",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -35.99999999999999,
        "y": 86.91168824543142,
@@ -164,7 +164,7 @@
        "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in irl.</p>",
        "show": "project:ira",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -86.91168824543142,
        "y": 35.99999999999997,
@@ -184,8 +184,8 @@
        "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
        "show": "family:irl",
        "color": "#dd9b63",
-       "x": -182.25605600059626,
-       "y": 75.49293022007723,
+       "x": -192.23395495171818,
+       "y": 79.62591128962019,
        "size": 11,
        "label_at": "below"
       }
@@ -204,7 +204,7 @@
        "click": "<p><b>ShowStopper</b> — Stopwatch geared towards tracking need for the performing arts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:ShowStopper",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -86.9116882454314,
        "y": -36.00000000000003,
@@ -226,7 +226,7 @@
        "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:aes",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -36.00000000000005,
        "y": -86.91168824543139,
@@ -246,8 +246,8 @@
        "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
        "show": "family:performing",
        "color": "#f2aa4c",
-       "x": 106.58680471888464,
-       "y": 165.9991130154745,
+       "x": 112.42206962226055,
+       "y": 175.0869996513998,
        "size": 11,
        "label_at": "below"
       }
@@ -410,10 +410,10 @@
     "subject": "family:show-control",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -446,9 +446,69 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:show-control",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "ShowRunner": "f37a60b9196ff7f1583cc3426046cc7c7f0fd910",
+     "Cuelist-python": "e891a76ff342f2ffa5c5deb19144013ec13f942c",
+     "QLab-python": "ea8028ed94c9d5f52a688127fe0b8dfb3a8e130c",
+     "TheatreMix-python": "5d3fc153aeb2bedb559da92d243247b62bed2289",
+     "cesar": "25926322d8f04ab1736ab3d9993772d804fe9da3",
+     "ira": "a04467f835d3399d0f450a9a9abc2ccd9d5f7bb5",
+     "ShowStopper": "51f8b13c14d3aeeb026981f42798c6abe83adde5",
+     "aes": "d602645755ff6d57c94cf9c289d0a505ce1d69e2"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 8 project(s)."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

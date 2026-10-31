@@ -102,6 +102,16 @@ changes a submodule's path and keeps its name. SSH URLs are tried over https,
 because a runner has no SSH key, and a filesystem path is reported as
 resolvable nowhere else.
 
+The governance submodule is the exception to that translation. The seed
+workflows that run a corpus script clone it on a runner with
+`git submodule update`, by the URL `.gitmodules` records and with no SSH key,
+so any URL but HTTPS fails each of them at the clone, and a local run, which
+has a key, passes. A checkout with `submodules: true` rewrites a GitHub SSH URL
+to HTTPS; the seed's checkouts do not. So the governance URL's form is judged
+before any fetch: anything but `https://` is `not-https`, a hard failure, and
+the local run goes red as the runner does. The path is `$QM_SUBMODULE`, else
+`governance/qm`, and `--governance` names another.
+
 Locally it also lists branches inside each submodule's clone that are on no
 remote: work committed inside a submodule is invisible to every check the
 parent runs. That list is empty in CI, where submodules are cloned fresh, and
@@ -158,13 +168,18 @@ tree, and never deletes anything.
 | Class | Meaning |
 |---|---|
 | stranded | The local ref is ahead of its own remote: commits on one disk |
-| local | A local branch with no remote at all |
-| gone | A remote branch whose local ref is gone; nothing to lose |
+| local | A local branch with no remote of its name, contained in no remote branch |
 | ahead | Unmerged work that is pushed and reachable |
+| held | A local branch with no remote of its name, whose tip another remote branch contains; deleting it loses the name |
+| gone | A remote branch whose local ref is gone; nothing to lose |
 | merged | Every commit is on the default branch; deleting loses nothing |
 
 The classes sort by what it costs to be wrong, so what would be lost comes
-first. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
+first. A branch is read as held only once the host confirms its holder: one
+`git ls-remote --heads` says which branches the host holds now, and a holder
+the host has deleted, or moved to a commit the clone never fetched, does not
+count. `--offline` asks the host nothing and reads holders from the tracking
+refs, as of the last fetch. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
 patch is already upstream (squashed, cherry-picked, rebased) as landed, so a
 branch ahead by one can hold nothing. It errs toward reporting loss, since a
 commit that landed in a different shape still reads as unique. The default

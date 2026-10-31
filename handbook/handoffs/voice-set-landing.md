@@ -1,9 +1,10 @@
-# Handoff — landing the voice set, paused at joe #33 for manual testing
+# Handoff — landing the voice set, and the steps after it
 
 **Stamped 2026-10-18.** `vox` `main` at `1721e6f`; `qmcp` `main` at
 `df42315`; `joe` `main` at `d72b65b`; `qm` `main` at `03670b8`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
-with `gh` before acting on it.
+with `gh` before acting on it. `joe` #33 and #34 were re-derived on
+2026-10-26 at `joe` `474307f`; nothing else here was.
 
 [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
 set and §5 there is the order it lands in;
@@ -30,7 +31,8 @@ when the set and the steps after it have landed.
    or documents make, the claim is made true in code on that pull request --
    one commit, its tests, each mutation seen red -- and the overview says so.
    Applied on #68, #73 and #74.
-5. **The landing pauses at `joe` #33** until a person has tested it by hand.
+5. **The landing paused at `joe` #33** until a person had tested it by hand.
+   #33 merged on 2026-10-26; whether the test ran is in §5.
 6. **Decided 2026-10-17, while `qm`'s part landed**, each asked on its own:
    - a finding in a pull request's own text is fixed on that pull request,
      one commit, before its merge is asked;
@@ -85,20 +87,20 @@ each stated in its pull request's body:
 
 ## 3. What is left, in order
 
-### `joe` — paused here
+### `joe`
 
 | Pull request | State at the stamp | Done when |
 |---|---|---|
-| #33, the transcript lane | ready, base `main`, head `c51f8f3`, five checks green, `CLEAN` | tested by hand, then merged by `qm merge` |
-| #34, `joe`'s timeless text | draft, stacked on #33's branch | `main` merged in, its body's Branch block and stacking line rewritten, checks green, ready, merged |
+| #33, the transcript lane | merged 2026-10-26 as `c7dccf4` | done |
+| #34, `joe`'s timeless text | merged 2026-10-26 as `474307f` | done |
 | README | not opened | one pull request from `joe`'s `main` after #34, carrying the demo branch's README content as facts |
 | cookbook | not opened | the same, for the cookbook |
 
 The host refused to merge `main` into #27 and #32 and they were merged by
-hand (§6, step 3); #34 may need the same.
+hand (§6, step 3).
 
-What `main` holds to test: the whole loop except #33's transcript lane on the
-visualiser and #34's documentation. `qmcp`'s `docs/voice-loop-demo.md` is the
+What `main` holds to test, since 2026-10-26: the whole loop, #33's transcript
+lane on the visualiser among it. `qmcp`'s `docs/voice-loop-demo.md` is the
 onboarding and the three tiers -- nothing real, the local model, a person at
 the microphone.
 
@@ -138,7 +140,6 @@ together having landed. Nothing of the set is left in `qm`.
 
 ## 4. Blocked on a person
 
-- **`joe` #33's merge**, on the manual test.
 - **Two decisions carried from the 2026-09-27 review page**, which this page
   retires:
   - whether `joe` carries the corpus -- at the stamp it has no
@@ -159,6 +160,8 @@ together having landed. Nothing of the set is left in `qm`.
 
 - Tiers 2 and 3 of the demonstration -- the local model, a microphone -- were
   not run on any `main` during the landing.
+- That `joe` #33 was tested by hand before it merged on 2026-10-26: its pull
+  request carries no comment or review saying so.
 - Pull requests with no commit made by hand during the landing were checked
   by the hosted workflows only: `vox` #10 to #15; `qmcp` #54 to #56, #58,
   #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31, #33.

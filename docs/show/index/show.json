@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:96374578f2b45d1918f844e858733c626ccad8735877d6e4a2362535d4861bd8"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -30,10 +30,10 @@
        "hover": "commons — drives the public — open information a community reads and adds to: maps, records, public data",
        "click": "<p>The <b>commons</b> family drives the public — open information a community reads and adds to: maps, records, public data.</p><p>1 member(s) in all.</p>",
        "show": "family:commons",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 0,
-       "x": 367.64685820134684,
-       "y": 411.61549919025106,
+       "x": -408,
+       "y": 424.4994282133388,
        "size": 50,
        "label_at": "none"
       }
@@ -51,8 +51,8 @@
        "show": "family:core",
        "color": "#74a8f6",
        "depth": 0,
-       "x": 211.44396383560155,
-       "y": -189.2,
+       "x": 213.52789285868926,
+       "y": -204,
        "size": 110,
        "label_at": "none"
       }
@@ -70,8 +70,8 @@
        "show": "family:games",
        "color": "#73c886",
        "depth": 0,
-       "x": 611.7870345449005,
-       "y": -189.2,
+       "x": 635.4709635679883,
+       "y": -204,
        "size": 110,
        "label_at": "none"
       }
@@ -89,8 +89,8 @@
        "show": "family:infra",
        "color": "#98a7bc",
        "depth": 0,
-       "x": 12.000000000000014,
-       "y": 411.61549919025106,
+       "x": 0,
+       "y": 424.4994282133388,
        "size": 90,
        "label_at": "none"
       }
@@ -108,8 +108,8 @@
        "show": "family:instruments",
        "color": "#43c6bf",
        "depth": 1,
-       "x": -241.8786327324615,
-       "y": -302.2278485786577,
+       "x": -257.50942879372235,
+       "y": -320.5120981119268,
        "size": 130,
        "label_at": "none"
       }
@@ -127,8 +127,8 @@
        "show": "family:irl",
        "color": "#dd9b63",
        "depth": 0,
-       "x": -355.64685820134684,
-       "y": 411.61549919025106,
+       "x": 408,
+       "y": 424.4994282133388,
        "size": 130,
        "label_at": "none"
       }
@@ -146,8 +146,8 @@
        "show": "family:performer-display",
        "color": "#a693f3",
        "depth": 1,
-       "x": -320.47075318056727,
-       "y": -11.698773102199624,
+       "x": -341.7833430386356,
+       "y": -19.100271336520308,
        "size": 60,
        "label_at": "none"
       }
@@ -165,8 +165,8 @@
        "show": "family:performing",
        "color": "#f2aa4c",
        "depth": 0,
-       "x": -400.34307070929896,
-       "y": -189.2,
+       "x": -421.94307070929904,
+       "y": -204,
        "size": 90,
        "label_at": "none"
       }
@@ -182,10 +182,10 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
-       "x": -590.0329197223616,
-       "y": -145.5647637907572,
+       "x": -619.3856257683174,
+       "y": -163.62762018619836,
        "size": 110,
        "label_at": "none"
       }
@@ -204,10 +204,10 @@
        "click": "<p><b>benchmark</b> — A place to keep track of benches</p><p>not adopted. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:benchmark",
        "shape": "circle",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 1,
-       "x": 367.64685820134684,
-       "y": 471.61549919025106,
+       "x": -408,
+       "y": 500.4994282133388,
        "size": 30,
        "label_at": "below"
       }
@@ -228,8 +228,8 @@
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 247.44396383560155,
-       "y": -263.9547702766041,
+       "x": 249.52789285868926,
+       "y": -278.7547702766041,
        "size": 30,
        "label_at": "right"
       }
@@ -241,17 +241,17 @@
        "governed": true,
        "phase": "v0.0.1",
        "attention": "active",
-       "recency": "live",
+       "recency": "quiet",
        "elsewhere": false,
        "also_in": [],
        "hover": "dossier — v0.0.1 · governed",
-       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:dossier",
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 292.33522956943034,
-       "y": -207.66290353890597,
+       "x": 294.4191585925181,
+       "y": -222.46290353890598,
        "size": 40,
        "label_at": "right"
       }
@@ -272,8 +272,8 @@
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 276.31372232457574,
-       "y": -137.46809386181465,
+       "x": 278.39765134766344,
+       "y": -152.26809386181466,
        "size": 40,
        "label_at": "right"
       }
@@ -294,8 +294,8 @@
        "shape": "circle",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 211.44396383560155,
-       "y": -106.22846464535047,
+       "x": 213.52789285868926,
+       "y": -121.02846464535048,
        "size": 40,
        "label_at": "below"
       }
@@ -316,8 +316,8 @@
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 146.57420534662737,
-       "y": -137.46809386181465,
+       "x": 148.65813436971507,
+       "y": -152.26809386181466,
        "size": 50,
        "label_at": "left"
       }
@@ -338,8 +338,8 @@
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 130.55269810177273,
-       "y": -207.66290353890594,
+       "x": 132.63662712486044,
+       "y": -222.46290353890595,
        "size": 40,
        "label_at": "left"
       }
@@ -360,8 +360,8 @@
        "shape": "square",
        "color": "#74a8f6",
        "depth": 1,
-       "x": 175.44396383560155,
-       "y": -263.9547702766041,
+       "x": 177.52789285868926,
+       "y": -278.7547702766041,
        "size": 30,
        "label_at": "left"
       }
@@ -382,8 +382,8 @@
        "shape": "square",
        "color": "#73c886",
        "depth": 1,
-       "x": 647.7870345449005,
-       "y": -263.9547702766041,
+       "x": 671.4709635679883,
+       "y": -278.7547702766041,
        "size": 30,
        "label_at": "right"
       }
@@ -404,8 +404,8 @@
        "shape": "circle",
        "color": "#73c886",
        "depth": 1,
-       "x": 692.6783002787294,
-       "y": -207.66290353890597,
+       "x": 716.3622293018171,
+       "y": -222.46290353890598,
        "size": 30,
        "label_at": "right"
       }
@@ -426,8 +426,8 @@
        "shape": "circle",
        "color": "#73c886",
        "depth": 1,
-       "x": 676.6567930338747,
-       "y": -137.46809386181465,
+       "x": 700.3407220569625,
+       "y": -152.26809386181466,
        "size": 30,
        "label_at": "right"
       }
@@ -448,8 +448,8 @@
        "shape": "circle",
        "color": "#73c886",
        "depth": 1,
-       "x": 611.7870345449005,
-       "y": -106.22846464535047,
+       "x": 635.4709635679883,
+       "y": -121.02846464535048,
        "size": 30,
        "label_at": "below"
       }
@@ -470,8 +470,8 @@
        "shape": "square",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 48.000000000000014,
-       "y": 362.0657500532888,
+       "x": 44.67167917422796,
+       "y": 363.01413664084276,
        "size": 30,
        "label_at": "right"
       }
@@ -492,8 +492,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 70.24922359499622,
-       "y": 430.5418192265399,
+       "x": 72.28029523843166,
+       "y": 447.9847197858348,
        "size": 30,
        "label_at": "right"
       }
@@ -514,8 +514,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 12.000000000000018,
-       "y": 472.8623573915979,
+       "x": 4.653657836759942e-15,
+       "y": 500.4994282133388,
        "size": 30,
        "label_at": "below"
       }
@@ -536,8 +536,8 @@
        "shape": "square",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -205.8786327324615,
-       "y": -376.9826188552618,
+       "x": -221.50942879372238,
+       "y": -395.26686838853084,
        "size": 20,
        "label_at": "right"
       }
@@ -558,8 +558,8 @@
        "shape": "square",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -160.9873669986327,
-       "y": -320.69075211756365,
+       "x": -176.61816305989356,
+       "y": -338.9750016508327,
        "size": 20,
        "label_at": "right"
       }
@@ -580,8 +580,8 @@
        "shape": "circle",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -177.00887424348733,
-       "y": -250.4959424404724,
+       "x": -192.6396703047482,
+       "y": -268.7801919737414,
        "size": 20,
        "label_at": "right"
       }
@@ -602,8 +602,8 @@
        "shape": "circle",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -241.8786327324615,
-       "y": -219.25631322400818,
+       "x": -257.50942879372235,
+       "y": -237.54056275727723,
        "size": 20,
        "label_at": "below"
       }
@@ -625,8 +625,8 @@
        "click": "<p><b>uPhonor</b> — Micro-Holophonor</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments, irl.</p>",
        "show": "project:uPhonor",
        "shape": "circle",
-       "x": -175.46802320258223,
-       "y": 177.85218300145226,
+       "x": 147.24528560313883,
+       "y": 51.993665050706,
        "size": 21,
        "label_at": "below"
       }
@@ -648,8 +648,8 @@
        "click": "<p><b>stomp</b> — a midi foot controller for Arduino / Teensy</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments, irl.</p>",
        "show": "project:stomp",
        "shape": "circle",
-       "x": -247.46802320258223,
-       "y": 177.85218300145226,
+       "x": 75.24528560313883,
+       "y": 51.993665050706,
        "size": 21,
        "label_at": "below"
       }
@@ -670,8 +670,8 @@
        "shape": "circle",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -306.74839122143567,
-       "y": -250.4959424404724,
+       "x": -322.37918728269653,
+       "y": -268.7801919737414,
        "size": 20,
        "label_at": "left"
       }
@@ -692,8 +692,8 @@
        "shape": "circle",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -322.76989846629033,
-       "y": -320.69075211756365,
+       "x": -338.4006945275512,
+       "y": -338.9750016508327,
        "size": 20,
        "label_at": "left"
       }
@@ -714,8 +714,8 @@
        "shape": "circle",
        "color": "#43c6bf",
        "depth": 2,
-       "x": -277.87863273246154,
-       "y": -376.9826188552618,
+       "x": -293.5094287937224,
+       "y": -395.26686838853084,
        "size": 20,
        "label_at": "left"
       }
@@ -736,8 +736,8 @@
        "shape": "square",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -319.64685820134684,
-       "y": 349.2616701177715,
+       "x": 446,
+       "y": 358.6814975257214,
        "size": 30,
        "label_at": "right"
       }
@@ -758,8 +758,8 @@
        "shape": "square",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -283.64685820134684,
-       "y": 411.61549919025106,
+       "x": 484,
+       "y": 424.4994282133388,
        "size": 30,
        "label_at": "right"
       }
@@ -781,8 +781,8 @@
        "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in irl, show-control.</p>",
        "show": "project:ira",
        "shape": "circle",
-       "x": -487.6200649300287,
-       "y": 198.71856294344462,
+       "x": -105.69281288415868,
+       "y": 130.43590401357022,
        "size": 21,
        "label_at": "below"
       }
@@ -803,8 +803,8 @@
        "shape": "circle",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -319.64685820134684,
-       "y": 473.96932826273064,
+       "x": 446,
+       "y": 490.31735890095615,
        "size": 30,
        "label_at": "right"
       }
@@ -825,8 +825,8 @@
        "shape": "circle",
        "color": "#a693f3",
        "depth": 2,
-       "x": -260.47075318056727,
-       "y": -11.698773102199624,
+       "x": -281.7833430386356,
+       "y": -19.100271336520308,
        "size": 20,
        "label_at": "right"
       }
@@ -847,8 +847,8 @@
        "shape": "circle",
        "color": "#a693f3",
        "depth": 2,
-       "x": -380.47075318056727,
-       "y": -11.698773102199624,
+       "x": -401.7833430386356,
+       "y": -19.100271336520308,
        "size": 20,
        "label_at": "left"
       }
@@ -869,8 +869,8 @@
        "shape": "square",
        "color": "#f2aa4c",
        "depth": 1,
-       "x": -515.6852131982926,
-       "y": -345.98795497002834,
+       "x": -537.9875775208809,
+       "y": -368.7639646249145,
        "size": 40,
        "label_at": "left"
       }
@@ -891,8 +891,8 @@
        "shape": "circle",
        "color": "#f2aa4c",
        "depth": 1,
-       "x": -441.1886963536968,
-       "y": -379.5100300124842,
+       "x": -462.8761801219059,
+       "y": -401.3270689841586,
        "size": 40,
        "label_at": "above"
       }
@@ -911,10 +911,10 @@
        "click": "<p><b>ShowRunner</b> — Show control for live performances</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:ShowRunner",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -554.0329197223616,
-       "y": -220.31953406736133,
+       "x": -583.3856257683174,
+       "y": -238.38239046280248,
        "size": 20,
        "label_at": "right"
       }
@@ -933,10 +933,10 @@
        "click": "<p><b>Cuelist-python</b> — Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:Cuelist-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -509.1416539885329,
-       "y": -164.0276673296632,
+       "x": -538.4943600344885,
+       "y": -182.09052372510433,
        "size": 20,
        "label_at": "right"
       }
@@ -955,10 +955,10 @@
        "click": "<p><b>QLab-python</b> — QLab interface for Python</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:QLab-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -525.1631612333874,
-       "y": -93.83285765257189,
+       "x": -554.5158672793432,
+       "y": -111.89571404801302,
        "size": 20,
        "label_at": "right"
       }
@@ -977,10 +977,10 @@
        "click": "<p><b>TheatreMix-python</b> — Python components for interacting with TheatreMix</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:TheatreMix-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -590.0329197223616,
-       "y": -62.593228436107694,
+       "x": -619.3856257683174,
+       "y": -80.65608483154884,
        "size": 20,
        "label_at": "below"
       }
@@ -999,10 +999,10 @@
        "click": "<p><b>cesar</b> — A unified lighting / sound / video controller for theatrical applications</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:cesar",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -654.9026782113358,
-       "y": -93.83285765257187,
+       "x": -684.2553842572916,
+       "y": -111.89571404801302,
        "size": 20,
        "label_at": "left"
       }
@@ -1021,10 +1021,10 @@
        "click": "<p><b>ShowStopper</b> — Stopwatch geared towards tracking need for the performing arts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:ShowStopper",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -670.9241854561906,
-       "y": -164.0276673296632,
+       "x": -700.2768915021461,
+       "y": -182.09052372510433,
        "size": 20,
        "label_at": "left"
       }
@@ -1043,10 +1043,10 @@
        "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:aes",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 2,
-       "x": -626.0329197223616,
-       "y": -220.31953406736133,
+       "x": -655.3856257683174,
+       "y": -238.38239046280245,
        "size": 20,
        "label_at": "left"
       }
@@ -1059,8 +1059,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#73c886",
        "depth": 1,
-       "x": 546.9172760559263,
-       "y": -137.46809386181465,
+       "x": 570.6012050790141,
+       "y": -152.26809386181466,
        "size": 30,
        "label_at": "left"
       }
@@ -1073,8 +1073,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#73c886",
        "depth": 1,
-       "x": 530.8957688110717,
-       "y": -207.66290353890594,
+       "x": 554.5796978341594,
+       "y": -222.46290353890595,
        "size": 30,
        "label_at": "left"
       }
@@ -1087,8 +1087,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#73c886",
        "depth": 1,
-       "x": 575.7870345449005,
-       "y": -263.9547702766041,
+       "x": 599.4709635679883,
+       "y": -278.7547702766041,
        "size": 30,
        "label_at": "left"
       }
@@ -1101,8 +1101,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -46.249223594996195,
-       "y": 430.5418192265399,
+       "x": -72.28029523843166,
+       "y": 447.9847197858348,
        "size": 30,
        "label_at": "left"
       }
@@ -1115,8 +1115,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -23.999999999999993,
-       "y": 362.0657500532888,
+       "x": -44.67167917422797,
+       "y": 363.01413664084276,
        "size": 30,
        "label_at": "left"
       }
@@ -1127,8 +1127,8 @@
        "kind": "private",
        "hover": "a private member, counted and not named",
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
-       "x": -16.523174788801157,
-       "y": -85.37142641887661,
+       "x": -26.605576493296212,
+       "y": -93.46472856825292,
        "size": 21,
        "label_at": "below"
       }
@@ -1141,8 +1141,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -391.64685820134684,
-       "y": 473.96932826273064,
+       "x": 370,
+       "y": 490.3173589009561,
        "size": 30,
        "label_at": "left"
       }
@@ -1155,8 +1155,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -427.64685820134684,
-       "y": 411.61549919025106,
+       "x": 332,
+       "y": 424.4994282133388,
        "size": 30,
        "label_at": "left"
       }
@@ -1169,8 +1169,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#dd9b63",
        "depth": 1,
-       "x": -391.64685820134684,
-       "y": 349.2616701177715,
+       "x": 370,
+       "y": 358.6814975257214,
        "size": 30,
        "label_at": "left"
       }
@@ -2041,10 +2041,10 @@
     "subject": "index",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

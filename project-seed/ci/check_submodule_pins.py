@@ -20,9 +20,20 @@ Run locally, where credentials exist, every remote is readable, so an unpushed
 pin is a hard failure there. `docs/ref/ci/gates-and-checks.md` describes the
 verdicts.
 
+The governance submodule's URL is also judged by its form. The seed workflows
+that run a corpus script clone it on a runner with `git submodule update`, by
+the URL `.gitmodules` records, after an `actions/checkout` with
+`submodules: false`, which configures no SSH-to-HTTPS rewrite, and with no SSH
+key. Any URL but HTTPS fails each of them at the clone, before this script runs
+there. A checkout with `submodules: true` adds that rewrite and clones a GitHub
+SSH URL; the seed's checkouts do not. Locally, where a key exists, the clone
+succeeds, and this verdict is the one place a local run goes red as the runner
+does.
+
 What this cannot do: tell a private remote from a deleted one (both are
-unreadable, and it says so rather than guessing), or tell that the pin is the
-commit somebody meant. It reads `git submodule status`, so a submodule that is
+unreadable, and it says so rather than guessing), tell that the pin is the
+commit somebody meant, or tell that an HTTPS governance URL is one a runner can
+read without credentials. It reads `git submodule status`, so a submodule that is
 not initialised is reported as such rather than skipped.
 
 Do not "fix" this with `git ls-remote <url> <sha>`: `ls-remote` matches ref
@@ -34,6 +45,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -44,11 +56,15 @@ OK = "ok"
 UNPUSHED = "unpushed"
 UNREADABLE = "unreadable"
 LOCAL_URL = "local-url"
+NOT_HTTPS = "not-https"
 NO_URL = "no-url"
 
 # A verdict that means the tree is wrong, as opposed to one that means this
 # machine cannot see far enough to say.
-FAILING = (UNPUSHED, LOCAL_URL)
+FAILING = (UNPUSHED, LOCAL_URL, NOT_HTTPS)
+
+# The submodule the seed workflows clone, named as they name it.
+GOVERNANCE = os.environ.get("QM_SUBMODULE") or "governance/qm"
 
 # `git submodule status` emits " <sha> <path> (<describe>)", optionally prefixed
 # with `-` (uninitialised), `+` (checked-out sha differs from the index) or `U`
@@ -105,9 +121,10 @@ def as_https(url: str) -> str:
     """The https form of an ssh URL, or the url unchanged.
 
     A runner has no SSH key, so `git@host:owner/repo` cannot be fetched there
-    even when the commit is present -- and reading that as "not pushed" is a
-    false alarm for every project whose `.gitmodules` names the canonical SSH
-    remote, which is what the fork procedure produces.
+    even when the commit is present, and reading that as "not pushed" would be
+    a false alarm for every submodule whose `.gitmodules` names an SSH remote.
+    The governance submodule is the exception: the seed workflows clone it by
+    its recorded URL, so its form is a verdict of its own in `inspect`.
     """
     swapped = re.sub(r"^ssh://[^@]+@([^/]+)/", r"https://\1/", url)
     swapped = re.sub(r"^[^@/]+@([^:/]+):", r"https://\1/", swapped)
@@ -179,7 +196,7 @@ def stranded(root: Path, path: str) -> list[str]:
     return at_risk
 
 
-def inspect(root: Path, sha: str, path: str) -> dict:
+def inspect(root: Path, sha: str, path: str, governance: str = GOVERNANCE) -> dict:
     url = url_for(root, path)
     if not url:
         return {"path": path, "sha": sha, "url": "", "verdict": NO_URL,
@@ -189,6 +206,14 @@ def inspect(root: Path, sha: str, path: str) -> dict:
                 "detail": ("a filesystem URL resolves on the machine that set it "
                            "up and nowhere else. Set the canonical remote, then "
                            f"run: git submodule sync {path}")}
+    if path == governance and not url.startswith("https://"):
+        https = as_https(url)
+        target = https if https.startswith("https://") else "its HTTPS URL"
+        return {"path": path, "sha": sha, "url": url, "verdict": NOT_HTTPS,
+                "detail": ("the seed workflows clone this submodule on a "
+                           "runner by this URL, with no SSH key, and fail at "
+                           f"the clone. Set the URL to {target}, then run: "
+                           f"git submodule sync {path}")}
 
     at_risk = stranded(root, path)
 
@@ -220,11 +245,14 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--root", default=".")
     parser.add_argument("--json", action="store_true", dest="as_json")
+    parser.add_argument("--governance", default=GOVERNANCE,
+                        help="path of the submodule the seed workflows clone "
+                             "(default: $QM_SUBMODULE, else governance/qm)")
     args = parser.parse_args(argv)
 
     root = Path(args.root).resolve()
     found = submodules(root)
-    results = [inspect(root, sha, path) for sha, path in found]
+    results = [inspect(root, sha, path, args.governance) for sha, path in found]
 
     if args.as_json:
         print(json.dumps({"submodules": results}, indent=2))

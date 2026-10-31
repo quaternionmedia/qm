@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:78bb64f80fce84f815a4ef8b7eb7c2d2b337a4ff4696a4d450de01bdfa5803d8"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -33,7 +33,7 @@
        "color": "#a693f3",
        "depth": 0,
        "x": 0,
-       "y": 1.4210854715202004e-14,
+       "y": 0,
        "size": 80,
        "label_at": "none"
       }
@@ -46,8 +46,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#a693f3",
        "depth": 1,
-       "x": 51.96152422706631,
-       "y": -29.999999999999986,
+       "x": 65.81793068761733,
+       "y": -38,
        "size": 40,
        "label_at": "right"
       }
@@ -64,8 +64,8 @@
        "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
        "show": "family:instruments",
        "color": "#43c6bf",
-       "x": 141.33534589762039,
-       "y": -81.6,
+       "x": 164.54482671904333,
+       "y": -95,
        "size": 11,
        "label_at": "below"
       }
@@ -86,8 +86,8 @@
        "shape": "circle",
        "color": "#a693f3",
        "depth": 1,
-       "x": 3.67394039744206e-15,
-       "y": 60.000000000000014,
+       "x": 4.653657836759942e-15,
+       "y": 76,
        "size": 30,
        "label_at": "below"
       }
@@ -108,8 +108,8 @@
        "shape": "circle",
        "color": "#a693f3",
        "depth": 1,
-       "x": -51.96152422706631,
-       "y": -29.999999999999993,
+       "x": -65.81793068761733,
+       "y": -38.00000000000001,
        "size": 30,
        "label_at": "left"
       }
@@ -126,8 +126,8 @@
        "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
        "show": "family:performing",
        "color": "#f2aa4c",
-       "x": 88.1773363176804,
-       "y": 137.32806472064874,
+       "x": 102.65743811494656,
+       "y": 159.87948711350035,
        "size": 11,
        "label_at": "below"
       }
@@ -223,10 +223,10 @@
     "subject": "family:performer-display",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -262,9 +262,66 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: joe, leo."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:performer-display",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "joe",
+     "leo"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "joe": "474307fc49c20e7efa7393883c9eb5b97a4dbfac",
+     "leo": "9305c59e7287eaccc5a3ced59a58d053ec66d30e"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: joe, leo. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 2 project(s)."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

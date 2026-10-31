@@ -130,24 +130,29 @@ A thing somebody builds, holds or installs: parts, boards, enclosures, and the f
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
-[![Where it sits: every family at once, each member drawn once, and the seams between them](../show/index/estate.svg)](../show/index/estate.svg)
+[![Every family: every family at once, each member drawn once, and the seams between them](../show/index/estate.svg)](../show/index/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Every family at once, each member drawn once, and the seams between them.</figcaption>
+<figcaption><strong>Every family.</strong> Every family at once, each member drawn once, and the seams between them.</figcaption>
 
 </figure>
 
 </div>
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11`, on 2026-10-26. [The show document](../show/index/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/index/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:67fbbcda3a73978b4bb44cb847dde115e242d446cbb34a12702931e5c13ad3c7"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "d602645755ff6d57c94cf9c289d0a505ce1d69e2"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -37,7 +37,7 @@
        "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:aes",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 0,
        "y": 0,
        "size": 41,
@@ -55,7 +55,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 42.42640687119285,
        "y": -42.42640687119285,
        "size": 11,
@@ -169,10 +169,10 @@
     "subject": "project:aes",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,6 +218,8 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
+      "label_at": "none",
       "x": 0,
       "y": 0,
       "size": 70
@@ -231,8 +233,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 194.8557158514987,
-      "y": 112.49999999999997,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 3.7500000000000004,
+      "y": 6.495190528383289,
       "size": 30
      },
      "file::quaternionmedia/aes/recv.sh": {
@@ -244,8 +248,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/recv.sh",
       "line": 0,
       "meta": {},
-      "x": -194.85571585149864,
-      "y": 112.50000000000007,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -8.13446696467328,
+      "y": -2.5659995032421783,
       "size": 30
      },
      "file::quaternionmedia/aes/send.sh": {
@@ -257,8 +263,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/send.sh",
       "line": 0,
       "meta": {},
-      "x": -4.133182947122317e-14,
-      "y": -225,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 8.563547213625233,
+      "y": -3.990422486405612,
       "size": 30
      }
     },
@@ -292,6 +300,7 @@
    "metadata": {
     "url": "https://github.com/quaternionmedia/aes",
     "depth": 1,
+    "floor": 100,
     "truncated": 0
    }
   },

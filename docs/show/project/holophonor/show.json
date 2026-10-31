@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:173afb001a222f7b1b0745447b9c65d7262540dd70ec137f9befec1ad86af988"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "dd8d9dbf1c7e9571adc99616330ba56de05f5029"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:holophonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,8 +222,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 383.1136747254698,
-      "y": 290.45197387445,
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": -66.79109004976772,
+      "y": -31.145196786726814,
       "size": 80
      },
      "dir::quaternionmedia/holophonor/.github": {
@@ -235,8 +237,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -109.42011703058812,
-      "y": -181.36004084361375,
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": -95.05183557773793,
+      "y": -11.356809732615716,
       "size": 60
      },
      "dir::quaternionmedia/holophonor/.github/workflows": {
@@ -248,8 +252,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -315.67472310688413,
-      "y": -240.52974216426134,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -87.3482193879264,
+      "y": -7.764554507819773,
       "size": 50
      },
      "dir::quaternionmedia/holophonor/holophonor": {
@@ -261,8 +267,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1057.4667606971134,
-      "y": 1132.073156433952,
+      "dot_scale": 2,
+      "label_at": "none",
+      "x": 17.812588511924602,
+      "y": 8.363558875985456,
       "size": 160
      },
      "file::quaternionmedia/holophonor/README.md": {
@@ -274,8 +282,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 577.9693905769685,
-      "y": 402.95197387445,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -59.993781646992836,
+      "y": -27.97555982367157,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/__init__.py": {
@@ -287,8 +297,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 1354.9432229616243,
-      "y": 1303.821271999945,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 24.60989691469948,
+      "y": 11.533195839040701,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/_version.py": {
@@ -300,8 +312,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/_version.py",
       "line": 0,
       "meta": {},
-      "x": 1214.8658439151977,
-      "y": 1437.384783143426,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": 9.677426417863007,
+      "y": 10.92735371047269,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/constants.py": {
@@ -313,8 +327,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/constants.py",
       "line": 0,
       "meta": {},
-      "x": 1024.8153680758076,
-      "y": 1474.0140100355188,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": 22.538623409043403,
+      "y": 0.1829472453544465,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/daw.py": {
@@ -326,8 +342,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/daw.py",
       "line": 0,
       "meta": {},
-      "x": 845.1314786899662,
-      "y": 1402.0794319477334,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 44.98924806801266,
+      "y": -44.47627087951366,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/freewheeling.py": {
@@ -339,8 +357,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/freewheeling.py",
       "line": 0,
       "meta": {},
-      "x": 732.8625410519836,
-      "y": 1244.419769157501,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 15.626487711257436,
+      "y": 45.59481652000314,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/holospecs.py": {
@@ -352,8 +372,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/holospecs.py",
       "line": 0,
       "meta": {},
-      "x": 723.6531496075122,
-      "y": 1051.0908506307749,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -25.11625146802072,
+      "y": 15.939959467463435,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py": {
@@ -365,8 +387,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadMK2.py",
       "line": 0,
       "meta": {},
-      "x": 820.4272210697212,
-      "y": 883.4732420029272,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 56.076060604001476,
+      "y": 49.80043046674438,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadS.py": {
@@ -378,8 +402,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadS.py",
       "line": 0,
       "meta": {},
-      "x": 992.4596715222738,
-      "y": 794.7843496838713,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 10.249536655136271,
+      "y": -29.521986152625175,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadX.py": {
@@ -391,8 +417,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadX.py",
       "line": 0,
       "meta": {},
-      "x": 1185.1314134696947,
-      "y": 813.1822703391389,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": 57.65974642905445,
+      "y": 0.017746977326154934,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/main.py": {
@@ -404,8 +432,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/main.py",
       "line": 0,
       "meta": {},
-      "x": 1337.2705301971528,
-      "y": 932.8257941541781,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -20.70665715237309,
+      "y": 53.667735468591694,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/qsynth.py": {
@@ -417,8 +447,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/qsynth.py",
       "line": 0,
       "meta": {},
-      "x": 1400.5739271073116,
-      "y": 1115.7289476784572,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -26.83034626222373,
+      "y": -26.10457979332375,
       "size": 30
      },
      "file::quaternionmedia/holophonor/pyproject.toml": {
@@ -430,9 +462,2105 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 188.2579588739711,
-      "y": 177.9519738744501,
+      "dot_scale": 1.5,
+      "label_at": "none",
+      "x": -87.4876553419992,
+      "y": -46.04157839785636,
       "size": 30
+     },
+     "daw.Bitwig": {
+      "id": "daw.Bitwig",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Bitwig",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Class",
+       "chars": 425
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 52.01927624493534,
+      "y": -41.19811490356919,
+      "label_at": "right",
+      "dot_scale": 2.1283889300503116
+     },
+     "daw.__init__": {
+      "id": "daw.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Function",
+       "chars": 237
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 44.48782510435216,
+      "y": -37.244135835204425,
+      "label_at": "below",
+      "dot_scale": 1.8747483460101038
+     },
+     "daw.toggleFX": {
+      "id": "daw.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Function",
+       "chars": 150
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 50.07341256859402,
+      "y": -49.070144690638564,
+      "label_at": "right",
+      "dot_scale": 1.6760912590556813
+     },
+     "freewheeling.Fweelin": {
+      "id": "freewheeling.Fweelin",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Fweelin",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Class",
+       "chars": 3974
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 24.4162736575514,
+      "y": 49.6935610203032,
+      "label_at": "right",
+      "dot_scale": 3.0992278627737964
+     },
+     "freewheeling.deletePulse": {
+      "id": "freewheeling.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 201
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 34.208455753783625,
+      "y": 46.48372320387228,
+      "label_at": "right",
+      "dot_scale": 1.8031960574204888
+     },
+     "freewheeling.eraseLoop": {
+      "id": "freewheeling.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 207
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 8.379143264156347,
+      "y": 46.29467042456686,
+      "label_at": "left",
+      "dot_scale": 1.8159703454569178
+     },
+     "freewheeling.eraseScene": {
+      "id": "freewheeling.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 67
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 26.169373055782664,
+      "y": 64.89216720573737,
+      "label_at": "right",
+      "dot_scale": 1.3260748027008264
+     },
+     "freewheeling.overdubLoop": {
+      "id": "freewheeling.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 174
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 28.884495992526034,
+      "y": 58.84005287927121,
+      "label_at": "right",
+      "dot_scale": 1.7405492482825997
+     },
+     "freewheeling.playLoop": {
+      "id": "freewheeling.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 329
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 29.18452472188426,
+      "y": 40.07806323255809,
+      "label_at": "right",
+      "dot_scale": 2.017195897949974
+     },
+     "freewheeling.recallScene": {
+      "id": "freewheeling.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 924
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 13.52012845950171,
+      "y": 53.75881133738674,
+      "label_at": "below",
+      "dot_scale": 2.4656719712201065
+     },
+     "freewheeling.recordLoop": {
+      "id": "freewheeling.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 140
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 25.432642270723864,
+      "y": 33.2093082572584,
+      "label_at": "right",
+      "dot_scale": 1.646128035678238
+     },
+     "freewheeling.stopAllLoops": {
+      "id": "freewheeling.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 117
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 5.013583984071595,
+      "y": 52.73682659200383,
+      "label_at": "left",
+      "dot_scale": 1.5681858617461617
+     },
+     "freewheeling.stopLoop": {
+      "id": "freewheeling.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 370
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 20.839278725204128,
+      "y": 59.92093998890869,
+      "label_at": "below",
+      "dot_scale": 2.068201724066995
+     },
+     "freewheeling.storeScene": {
+      "id": "freewheeling.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 423
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 20.41655475204299,
+      "y": 39.4989723356637,
+      "label_at": "right",
+      "dot_scale": 2.1263403673750423
+     },
+     "freewheeling.tapPulse": {
+      "id": "freewheeling.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 77
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 36.491416760042256,
+      "y": 39.99420321443688,
+      "label_at": "right",
+      "dot_scale": 1.3864907251724818
+     },
+     "freewheeling.toggleCut": {
+      "id": "freewheeling.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 129
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.713353867771204,
+      "y": 33.05984605803559,
+      "label_at": "above",
+      "dot_scale": 1.610589710299249
+     },
+     "freewheeling.toggleMute": {
+      "id": "freewheeling.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 209
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 12.023864801572289,
+      "y": 39.430006207630015,
+      "label_at": "left",
+      "dot_scale": 1.820146286111054
+     },
+     "freewheeling.toggleOverdub": {
+      "id": "freewheeling.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 145
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 34.275755507909935,
+      "y": 53.912546485942656,
+      "label_at": "right",
+      "dot_scale": 1.6613680022349748
+     },
+     "freewheeling.toggleShift": {
+      "id": "freewheeling.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function",
+       "chars": 137
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 13.34867634044036,
+      "y": 62.46190776356354,
+      "label_at": "below",
+      "dot_scale": 1.6367205671564067
+     },
+     "holospecs.Holophonor": {
+      "id": "holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Holophonor",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Class",
+       "chars": 2534
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -16.68068912701719,
+      "y": 19.87352678791729,
+      "label_at": "right",
+      "dot_scale": 2.9038066105474227
+     },
+     "holospecs.__init__": {
+      "id": "holospecs.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 544
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -26.74066333529775,
+      "y": 23.743886712290287,
+      "label_at": "below",
+      "dot_scale": 2.23559889969818
+     },
+     "holospecs.clearLoop": {
+      "id": "holospecs.clearLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 95
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -20.495202793978137,
+      "y": 11.432331727655644,
+      "label_at": "right",
+      "dot_scale": 1.4777236052888476
+     },
+     "holospecs.clearNote": {
+      "id": "holospecs.clearNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearNote",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 70
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -9.451369146352643,
+      "y": 14.51652157636985,
+      "label_at": "right",
+      "dot_scale": 1.345098040014257
+     },
+     "holospecs.clearPulse": {
+      "id": "holospecs.clearPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearPulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 56
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -17.660843066827226,
+      "y": 33.252191317583865,
+      "label_at": "right",
+      "dot_scale": 1.2481880270062002
+     },
+     "holospecs.clearScene": {
+      "id": "holospecs.clearScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 72
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -26.465141427837196,
+      "y": 9.873448373777258,
+      "label_at": "above",
+      "dot_scale": 1.3573324964312685
+     },
+     "holospecs.close": {
+      "id": "holospecs.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 51
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -30.746885642004223,
+      "y": 29.94938218960025,
+      "label_at": "left",
+      "dot_scale": 1.2075701760979363
+     },
+     "holospecs.deletePulse": {
+      "id": "holospecs.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 49
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -28.49873574321086,
+      "y": 4.66104406243338,
+      "label_at": "above",
+      "dot_scale": 1.1901960800285138
+     },
+     "holospecs.eraseLoop": {
+      "id": "holospecs.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 69
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -14.44623287303653,
+      "y": 28.57657374000191,
+      "label_at": "right",
+      "dot_scale": 1.3388490907372552
+     },
+     "holospecs.eraseScene": {
+      "id": "holospecs.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 61
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -25.397507611594584,
+      "y": 31.165176815156364,
+      "label_at": "below",
+      "dot_scale": 1.2853298350107671
+     },
+     "holospecs.overdubLoop": {
+      "id": "holospecs.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 73
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -14.319409772381178,
+      "y": 11.15330922019142,
+      "label_at": "right",
+      "dot_scale": 1.363322860120456
+     },
+     "holospecs.playLoop": {
+      "id": "holospecs.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 77
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -20.382678849676665,
+      "y": 28.165237810396576,
+      "label_at": "right",
+      "dot_scale": 1.3864907251724818
+     },
+     "holospecs.playNote": {
+      "id": "holospecs.playNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNote",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 64
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -32.00432117653114,
+      "y": 11.682234533807605,
+      "label_at": "left",
+      "dot_scale": 1.306179973983887
+     },
+     "holospecs.recallScene": {
+      "id": "holospecs.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 63
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -9.549748658763361,
+      "y": 25.51209989769286,
+      "label_at": "right",
+      "dot_scale": 1.2993405494535817
+     },
+     "holospecs.recordLoop": {
+      "id": "holospecs.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 58
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -9.063551849704437,
+      "y": 8.81263850577884,
+      "label_at": "right",
+      "dot_scale": 1.2634279935629373
+     },
+     "holospecs.setDrumBank": {
+      "id": "holospecs.setDrumBank",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumBank",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 65
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -7.749589595667859,
+      "y": 20.07800226888526,
+      "label_at": "right",
+      "dot_scale": 1.3129133566428557
+     },
+     "holospecs.setDrumPatch": {
+      "id": "holospecs.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 68
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -17.41750833298881,
+      "y": 6.141973605413473,
+      "label_at": "right",
+      "dot_scale": 1.3325089127062362
+     },
+     "holospecs.stopAllLoops": {
+      "id": "holospecs.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 52
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -9.406819707388081,
+      "y": 31.040940526886608,
+      "label_at": "right",
+      "dot_scale": 1.2160033436347992
+     },
+     "holospecs.stopLoop": {
+      "id": "holospecs.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 55
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -12.107918325454746,
+      "y": 4.222945131957688,
+      "label_at": "right",
+      "dot_scale": 1.2403626894942439
+     },
+     "holospecs.storeScene": {
+      "id": "holospecs.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 61
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -23.073104123737515,
+      "y": 5.186864929244256,
+      "label_at": "above",
+      "dot_scale": 1.2853298350107671
+     },
+     "holospecs.tapPulse": {
+      "id": "holospecs.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 43
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -33.31918565173467,
+      "y": 6.466108949577406,
+      "label_at": "left",
+      "dot_scale": 1.1334684555795866
+     },
+     "holospecs.toggleCut": {
+      "id": "holospecs.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 50
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -4.1883266667526104,
+      "y": 24.3004902972569,
+      "label_at": "right",
+      "dot_scale": 1.1989700043360187
+     },
+     "holospecs.toggleFX": {
+      "id": "holospecs.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 52
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -22.448400123428655,
+      "y": 35.81083092011374,
+      "label_at": "below",
+      "dot_scale": 1.2160033436347992
+     },
+     "holospecs.toggleMute": {
+      "id": "holospecs.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 72
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -31.145755899312043,
+      "y": 17.445661060259745,
+      "label_at": "left",
+      "dot_scale": 1.3573324964312685
+     },
+     "holospecs.toggleOverdub": {
+      "id": "holospecs.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 58
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -34.11038436935134,
+      "y": 22.362574848224668,
+      "label_at": "left",
+      "dot_scale": 1.2634279935629373
+     },
+     "holospecs.toggleShift": {
+      "id": "holospecs.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function",
+       "chars": 54
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -3.98075596954064,
+      "y": 15.948733495841939,
+      "label_at": "right",
+      "dot_scale": 1.2323937598229686
+     },
+     "launchpadMK2.LaunchpadMK2": {
+      "id": "launchpadMK2.LaunchpadMK2",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadMK2",
+      "file": "launchpadMK2.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadMK2",
+       "ast_type": "Class",
+       "chars": 253
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 62.69776375465154,
+      "y": 52.888181355921596,
+      "label_at": "right",
+      "dot_scale": 1.903120521175818
+     },
+     "launchpadS.LaunchpadS": {
+      "id": "launchpadS.LaunchpadS",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadS",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Class",
+       "chars": 3499
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 18.93911410651514,
+      "y": -25.46996964091621,
+      "label_at": "right",
+      "dot_scale": 3.0439439424829065
+     },
+     "launchpadS.__init__": {
+      "id": "launchpadS.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 601
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.120272966284102,
+      "y": -35.94096160295114,
+      "label_at": "right",
+      "dot_scale": 2.2788744720027396
+     },
+     "launchpadS.close": {
+      "id": "launchpadS.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 106
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 7.042789393131027,
+      "y": -35.234016093178106,
+      "label_at": "left",
+      "dot_scale": 1.5253058652647702
+     },
+     "launchpadS.playLoop": {
+      "id": "launchpadS.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 293
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.786124398014605,
+      "y": -15.431881720559648,
+      "label_at": "right",
+      "dot_scale": 1.9668676203541096
+     },
+     "launchpadS.recallScene": {
+      "id": "launchpadS.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 1300
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 7.96139007418713,
+      "y": -21.099374232759526,
+      "label_at": "below",
+      "dot_scale": 2.613943352306837
+     },
+     "launchpadS.recordLoop": {
+      "id": "launchpadS.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 130
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 23.240399193694973,
+      "y": -34.29314239181703,
+      "label_at": "right",
+      "dot_scale": 1.6139433523068367
+     },
+     "launchpadS.setLayout": {
+      "id": "launchpadS.setLayout",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setLayout",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function",
+       "chars": 88
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 3.9129010792183774,
+      "y": -28.70594219015598,
+      "label_at": "left",
+      "dot_scale": 1.4444826721501687
+     },
+     "launchpadX.LaunchpadX": {
+      "id": "launchpadX.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadX",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Class",
+       "chars": 18717
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 67.66943784202489,
+      "y": 4.6853427389626106,
+      "label_at": "right",
+      "dot_scale": 3.7722362403500256
+     },
+     "launchpadX.__call__": {
+      "id": "launchpadX.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 7982
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 53.6223171751677,
+      "y": 9.498052133987573,
+      "label_at": "left",
+      "dot_scale": 3.4021117234480043
+     },
+     "launchpadX.__init__": {
+      "id": "launchpadX.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 676
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 51.86586522963864,
+      "y": -5.7281037702965705,
+      "label_at": "left",
+      "dot_scale": 2.329946695941636
+     },
+     "launchpadX.clear": {
+      "id": "launchpadX.clear",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clear",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 1544
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 62.23758321559666,
+      "y": -7.588156626383469,
+      "label_at": "right",
+      "dot_scale": 2.688647295999717
+     },
+     "launchpadX.clearLoop": {
+      "id": "launchpadX.clearLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 133
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 77.72863368190609,
+      "y": 23.74124374089869,
+      "label_at": "right",
+      "dot_scale": 1.6238516409670858
+     },
+     "launchpadX.clearPulse": {
+      "id": "launchpadX.clearPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearPulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 136
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 47.427845030462834,
+      "y": -12.891749522473347,
+      "label_at": "left",
+      "dot_scale": 1.6335389083702174
+     },
+     "launchpadX.clearScene": {
+      "id": "launchpadX.clearScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 146
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 87.37091279686257,
+      "y": -2.6402293471073364,
+      "label_at": "right",
+      "dot_scale": 1.6643528557844371
+     },
+     "launchpadX.close": {
+      "id": "launchpadX.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 175
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 46.98295203965761,
+      "y": 18.003896880537805,
+      "label_at": "left",
+      "dot_scale": 1.7430380486862944
+     },
+     "launchpadX.deletePulse": {
+      "id": "launchpadX.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 330
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 54.50112173942245,
+      "y": 20.805204038517996,
+      "label_at": "below",
+      "dot_scale": 2.0185139398778875
+     },
+     "launchpadX.eraseLoop": {
+      "id": "launchpadX.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 164
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 84.36507134965939,
+      "y": -15.351255135570153,
+      "label_at": "right",
+      "dot_scale": 1.7148438480476977
+     },
+     "launchpadX.eraseScene": {
+      "id": "launchpadX.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 257
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 81.91395633364118,
+      "y": -7.999546389301305,
+      "label_at": "right",
+      "dot_scale": 1.9099331233312946
+     },
+     "launchpadX.lightButton": {
+      "id": "launchpadX.lightButton",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lightButton",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 65
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 85.84597438119175,
+      "y": 11.806384070544983,
+      "label_at": "right",
+      "dot_scale": 1.3129133566428557
+     },
+     "launchpadX.lightDrums": {
+      "id": "launchpadX.lightDrums",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lightDrums",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 460
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 45.431923444223564,
+      "y": 1.2416435742806087,
+      "label_at": "left",
+      "dot_scale": 2.1627578316815743
+     },
+     "launchpadX.overdubLoop": {
+      "id": "launchpadX.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 220
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 61.351786058795746,
+      "y": -19.41607065178992,
+      "label_at": "above",
+      "dot_scale": 1.8424226808222062
+     },
+     "launchpadX.playLoop": {
+      "id": "launchpadX.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 454
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 79.1817363314683,
+      "y": 0.19072522657658553,
+      "label_at": "right",
+      "dot_scale": 2.1570558528571038
+     },
+     "launchpadX.recallScene": {
+      "id": "launchpadX.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 1125
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 63.409339078905866,
+      "y": 17.122758782335794,
+      "label_at": "below",
+      "dot_scale": 2.5511525224473814
+     },
+     "launchpadX.recordLoop": {
+      "id": "launchpadX.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 175
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 60.765418840880336,
+      "y": 25.818065422246754,
+      "label_at": "below",
+      "dot_scale": 1.7430380486862944
+     },
+     "launchpadX.setDrumBank": {
+      "id": "launchpadX.setDrumBank",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumBank",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 135
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 66.50136815926291,
+      "y": 30.246855180083738,
+      "label_at": "below",
+      "dot_scale": 1.630333768495006
+     },
+     "launchpadX.setDrumPatch": {
+      "id": "launchpadX.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 372
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 79.08379173290325,
+      "y": 9.145387177234632,
+      "label_at": "right",
+      "dot_scale": 2.0705429398818973
+     },
+     "launchpadX.stopAllLoops": {
+      "id": "launchpadX.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 399
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 73.10384867189762,
+      "y": 15.659947033730528,
+      "label_at": "right",
+      "dot_scale": 2.1009728956867484
+     },
+     "launchpadX.stopLoop": {
+      "id": "launchpadX.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 163
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 43.34132240663848,
+      "y": -6.738963339004854,
+      "label_at": "left",
+      "dot_scale": 1.712187604403958
+     },
+     "launchpadX.storeScene": {
+      "id": "launchpadX.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 770
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 72.87313233607736,
+      "y": -7.0282685268695175,
+      "label_at": "right",
+      "dot_scale": 2.386490725172482
+     },
+     "launchpadX.tapPulse": {
+      "id": "launchpadX.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 347
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 68.5252379085584,
+      "y": -15.309959343260255,
+      "label_at": "right",
+      "dot_scale": 2.040329474790874
+     },
+     "launchpadX.toggleCut": {
+      "id": "launchpadX.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 216
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 76.77147609252113,
+      "y": -15.075646609081339,
+      "label_at": "right",
+      "dot_scale": 1.834453751150931
+     },
+     "launchpadX.toggleFX": {
+      "id": "launchpadX.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 251
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 70.18221679886,
+      "y": 23.643433355796258,
+      "label_at": "right",
+      "dot_scale": 1.8996737214810382
+     },
+     "launchpadX.toggleLive": {
+      "id": "launchpadX.toggleLive",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleLive",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 194
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 42.74651874568943,
+      "y": 9.20200814681647,
+      "label_at": "left",
+      "dot_scale": 1.787801729930226
+     },
+     "launchpadX.toggleMute": {
+      "id": "launchpadX.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 302
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 55.02885142984895,
+      "y": -14.281946594016459,
+      "label_at": "above",
+      "dot_scale": 1.9800069429571505
+     },
+     "launchpadX.toggleOverdub": {
+      "id": "launchpadX.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 248
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 86.37361923983232,
+      "y": 4.9118149823129755,
+      "label_at": "right",
+      "dot_scale": 1.8944516808262162
+     },
+     "launchpadX.toggleShift": {
+      "id": "launchpadX.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function",
+       "chars": 238
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 81.41580040671602,
+      "y": 17.20919504091585,
+      "label_at": "right",
+      "dot_scale": 1.876576957056512
+     },
+     "main.get_plugin_manager": {
+      "id": "main.get_plugin_manager",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "get_plugin_manager",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Function",
+       "chars": 497
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -13.553430101311392,
+      "y": 57.00334002302326,
+      "label_at": "right",
+      "dot_scale": 2.1963563887333324
+     },
+     "main.main": {
+      "id": "main.main",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "main",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Function",
+       "chars": 302
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.403795428880194,
+      "y": 61.095104141376346,
+      "label_at": "below",
+      "dot_scale": 1.9800069429571505
+     },
+     "qsynth.Qsynth": {
+      "id": "qsynth.Qsynth",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Qsynth",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Class",
+       "chars": 497
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -19.677119211162037,
+      "y": -22.768975238892182,
+      "label_at": "right",
+      "dot_scale": 2.1963563887333324
+     },
+     "qsynth.__init__": {
+      "id": "qsynth.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function",
+       "chars": 207
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -27.318063908256907,
+      "y": -18.98933492638766,
+      "label_at": "below",
+      "dot_scale": 1.8159703454569178
+     },
+     "qsynth.playNote": {
+      "id": "qsynth.playNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNote",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function",
+       "chars": 69
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.515637369401073,
+      "y": -15.425204200176312,
+      "label_at": "right",
+      "dot_scale": 1.3388490907372552
+     },
+     "qsynth.setDrumPatch": {
+      "id": "qsynth.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function",
+       "chars": 121
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -21.84578275039081,
+      "y": -30.529956601561132,
+      "label_at": "right",
+      "dot_scale": 1.58278537031645
+     },
+     "toml::pyproject.toml::section::build-system::17": {
+      "id": "toml::pyproject.toml::section::build-system::17",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "build-system",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 17,
+      "meta": {},
+      "x": -82.50296251329763,
+      "y": -43.71717795828252,
+      "label_at": "right",
+      "dot_scale": 1
+     },
+     "toml::pyproject.toml::section::project.scripts::14": {
+      "id": "toml::pyproject.toml::section::project.scripts::14",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project.scripts",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 14,
+      "meta": {},
+      "x": -82.43602863124701,
+      "y": -48.21668013690558,
+      "label_at": "right",
+      "dot_scale": 1
+     },
+     "toml::pyproject.toml::section::project::1": {
+      "id": "toml::pyproject.toml::section::project::1",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 1,
+      "meta": {},
+      "x": -85.9067568839832,
+      "y": -40.77367937970477,
+      "label_at": "below",
+      "dot_scale": 1
+     },
+     "toml::pyproject.toml::section::tool.pdm::11": {
+      "id": "toml::pyproject.toml::section::tool.pdm::11",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.pdm",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 11,
+      "meta": {},
+      "x": -85.75076221672471,
+      "y": -51.26012247368577,
+      "label_at": "above",
+      "dot_scale": 1
+     },
+     "toml::pyproject.toml::section::tool.ruff::21": {
+      "id": "toml::pyproject.toml::section::tool.ruff::21",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.ruff",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 21,
+      "meta": {},
+      "x": -90.36883865218361,
+      "y": -41.35662559840205,
+      "label_at": "left",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -563,12 +2691,1269 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "daw.Bitwig",
+      "target": "daw.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "daw.Bitwig",
+      "target": "daw.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.Bitwig",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.setDrumBank",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.playNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.setDrumBank",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.playNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.close",
+      "kind": "contains"
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.playLoop",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.recordLoop",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.eraseLoop",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.eraseLoop",
+      "target": "freewheeling.toggleShift",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.overdubLoop",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.recallScene",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.recallScene",
+      "target": "freewheeling.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.stopAllLoops",
+      "target": "freewheeling.stopLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.Fweelin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm::11",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.scripts::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::17",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.ruff::21",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "launchpadMK2.LaunchpadMK2",
+      "kind": "contains"
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleLive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clear",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.lightDrums",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.lightButton",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.setDrumBank",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.__init__",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.clear",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.toggleLive",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.lightDrums",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.recallScene",
+      "target": "launchpadX.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.recallScene",
+      "target": "launchpadX.stopLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.deletePulse",
+      "target": "launchpadX.clear",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.setDrumBank",
+      "target": "launchpadX.lightDrums",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.recordLoop",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.playLoop",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.overdubLoop",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.stopLoop",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.eraseLoop",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleFX",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleMute",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.eraseScene",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.storeScene",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.recallScene",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearScene",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.deletePulse",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearPulse",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.tapPulse",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleShift",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.lightButton",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleCut",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.setDrumBank",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleLive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clear",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.lightDrums",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.lightButton",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.close",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.setDrumBank",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.setLayout",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.__init__",
+      "target": "launchpadS.setLayout",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.recallScene",
+      "target": "launchpadS.playLoop",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.LaunchpadS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.setLayout",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.close",
+      "kind": "contains"
+     },
+     {
+      "source": "main.main",
+      "target": "main.main",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "main.main",
+      "target": "main.get_plugin_manager",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.main",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.get_plugin_manager",
+      "kind": "contains"
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.playNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.Qsynth",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.playNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "kind": "depends_on"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/holophonor",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

@@ -2,8 +2,8 @@
 
 **Stamped 2026-10-18.** `qm` `main` at `157cbf6`; `vox` `main` at
 `1721e6f`; `joe` `main` at `d72b65b`; `qmcp` `main` at `df42315`; `dossier`
-`main` at `414be1c`. The voice set has landed apart from `joe` #33 and #34
-(§1). Every figure here was true at those commits and nowhere else.
+`main` at `414be1c`. The voice set has landed, `joe` #33 and #34 last, on
+2026-10-26 (§1). Every figure here was true at those commits and nowhere else.
 Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
@@ -69,10 +69,10 @@ onboarding.
 
 ## 1. What remains, and what done looks like
 
-- **`joe` #33 and #34.** #33, the transcript lane, waits on a test by hand;
-  #34 is stacked on it. The README and cookbook pull requests that replace
-  the closed #24 and #25 follow #34. `voice-set-landing.md` §3 says what done
-  is for each.
+- **`joe`'s README and cookbook.** `joe` #33, the transcript lane, and #34
+  merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
+  pull requests that replace the closed #24 and #25 follow them.
+  `voice-set-landing.md` §3 says what done is for each.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
@@ -109,8 +109,8 @@ onboarding.
   and a standing worker needs one.
 - **Merged branches in every repository above.** Some remain and some are
   gone, and `uv run qm branches` says what deleting one would cost. `qmcp`'s
-  were deleted on 2026-10-25 at the person's word. Its remote holds `main` and
-  one Dependabot branch whose pull request is closed. `handbook/handoffs/README.md`
+  were deleted on 2026-10-25 at the person's word, and its last Dependabot
+  branch on 2026-10-27; its remote holds `main` alone. `handbook/handoffs/README.md`
   now forbids deleting a branch only when another pull request is based on
   it.
 
@@ -129,12 +129,13 @@ other. `dossier dev doctor` is the preflight, landed as `dossier` #58;
 | harness | `qmcp` | 3141 | `DOSSIER_HARNESS_PORT` |
 | panel | `dossier` | 1618 | `DOSSIER_PORT` |
 | maps | `codecartographer` | 2718 | `CODECARTO_PORT` |
-| speech | `joe` | 8000 | `JOE_PORT` |
+| speech | `joe` | 1059 | `JOE_PORT` |
 
-The allocation is declared once in `dossier/src/dossier/threads.py`. Only
-the harness is required. 8000 is the one to move first when two loops run
-at once: it is the port anything grabs, and the one `dossier`'s `seam-port`
-diagnostic exists because of.
+Every port is the dashboard's allocation, owned by `ci/dashboard.py`;
+`dossier/src/dossier/threads.py` and `loop.py` carry the panel's copy. Only
+the harness is required. joe sat on 8000, the port anything grabs and the one
+`dossier`'s `seam-port` diagnostic exists because of, until it took the twelfth
+root of two, 1059, beside alfred's editor on root three, 1732.
 
 **Set `DOSSIER_DATABASE_URL` before running `dossier`'s suite.**
 `pytest_configure` shells `dossier dev purge` against whatever database the
