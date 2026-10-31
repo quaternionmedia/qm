@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T16:43:12Z",
+  "generated_at": "2026-10-31T19:02:15Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-31T16:41:53Z"
+        "generated_at": "2026-10-31T19:02:13Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 289,
+    "loose_ends": 292,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 40,
-      "document-unreviewed": 91,
+      "document-proposed": 41,
+      "document-unreviewed": 93,
       "stalled-thread": 138
     },
-    "open": 289,
+    "open": 292,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -294,6 +294,14 @@
       "title": "records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-shared-allowance-is-drawn-on-politely",
+      "title": "records/DRAFT-a-shared-allowance-is-drawn-on-politely.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-shared-allowance-is-drawn-on-politely",
       "address_parses": true
     },
     {
@@ -1174,6 +1182,22 @@
       "title": "perspectives/2026-10-26-landing-what-was-held-local.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
+      "title": "perspectives/2026-10-26-the-graphs-reach-the-pages.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-the-graphs-reach-the-pages",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-28-an-allowance-read-as-free",
+      "title": "perspectives/2026-10-28-an-allowance-read-as-free.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-28-an-allowance-read-as-free",
       "address_parses": true
     },
     {
