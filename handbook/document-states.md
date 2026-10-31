@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-31T19:36:31Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-31T19:43:43Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **308**, unfiltered.
+Every governed document in this corpus: **309**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 95 |
 | [G] `generated` | 55 |
-| [S] `standing` | 89 |
+| [S] `standing` | 90 |
 | [T] `transient` | 25 |
 
 ## Documents
@@ -334,6 +334,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
 | [S] | `standing` | `plans/the-active-set-and-the-pair.md` | other | — |
 | [S] | `standing` | `plans/the-third-side.md` | other | — |
+| [S] | `standing` | `plans/the-triplet.md` | other | — |
 | [S] | `standing` | `plans/the-web-window.md` | other | — |
 | [S] | `standing` | `plans/thread-archive-access.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-blockers.md` | other | — |

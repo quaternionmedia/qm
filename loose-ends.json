@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T19:36:32Z",
+  "generated_at": "2026-10-31T19:43:44Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-31T19:36:31Z"
+        "generated_at": "2026-10-31T19:43:43Z"
       },
       "gates": {
         "document": "status/gates.yaml",
