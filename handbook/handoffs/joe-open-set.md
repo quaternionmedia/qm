@@ -72,7 +72,8 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 API from 8000 to 1059, the twelfth root of two, qm's allocation for joe since
 qm #292 (`docs/ref/ci/demos.md`). #35 to #38, #53's `vite.config.js` and #55
 add lines naming 8000 as joe's address: whichever of #59 and each of them
-lands second takes 1059.
+lands second takes 1059. #60, from `main`, lets the suite run where no audio
+server does (§6).
 
 ## 4. Recorded against each, to fix as it is readied
 
@@ -126,7 +127,11 @@ lands second takes 1059.
   sounddevice` then fails in `Pa_Initialize` with no PulseAudio server: #59's
   run `41155201708`, `PulseAudio_Initialize: Can't connect to server`. Every
   run of `tests.yml` through 2026-10-28 passed, #51's, #52's and #58's last
-  among them. Nothing in the set fixes it.
+  among them. #60, from `main`, fixes it: `capture.py` imports sounddevice
+  where it records, the runners run `pytest -m "not local"` with no audio
+  library, and opening the machine's own audio is a `local` check run on a
+  person's machine. Each open pull request passes the Linux job again once
+  #60 is merged into it; #36's `ffmpeg` keeps an install step of its own.
 - A take once shown plays from the browser's cache after its recording is
   deleted: `GET /api/voice/takes/{take}/audio` sends no `Cache-Control`. Left
   as it is: `joe` deletes no take's recording -- what `Modules/Media.py` and
