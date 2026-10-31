@@ -187,8 +187,14 @@ since its stamp. Its first section says how a session keeps it.
     thing it forbids. A guard with a hole is worse than none — a green check
     standing where a reader believes something is enforced.
 
-    **This item, item 10 and item 12 are one rule**: charter `a-check-is-evidence-after-it-fails`,
-    record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
+    **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
+    it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
+    A check is evidence only after it has been seen to fail. The tool
+    answering a different question, the setup describing itself, and the
+    guard with a hole are three faces of one fact: reading a check tells you
+    what its author meant rather than what it checks. Break it, watch it go
+    red, restore it, and write the mutation down beside the guard. A skip is
+    not a pass and an empty assertion is not a pass; both report green.
 
 14. **Durable text carries as few integers as it can** — record
     `records/DRAFT-few-integers-in-durable-text.md`. A number in prose is a

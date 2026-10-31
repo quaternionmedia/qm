@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:2c9369d4f0ebacdfe01362f2ebde2cee36ec4dfc99fca46aa3b1068e5be032f9"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "ff6c62667eeac390546839dc1c5c92d0f5788b0a"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:scad-chess",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,6 +222,7 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
       "x": 0,
       "y": 0,
@@ -236,9 +237,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": 27.89280527488616,
-      "y": 59.816313944418894,
+      "x": 3.5922552247959456,
+      "y": 7.703616189811524,
       "size": 50
      },
      "dir::quaternionmedia/scad-chess/images": {
@@ -250,9 +252,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": 82.78182798528977,
-      "y": -30.10471649781632,
+      "x": 10.661296028408533,
+      "y": -3.877122579264224,
       "size": 50
      },
      "dir::quaternionmedia/scad-chess/profiles": {
@@ -264,9 +267,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "left",
-      "x": -44.94754050011807,
-      "y": 86.25778865117192,
+      "x": -5.788698397742479,
+      "y": 11.108957629317597,
       "size": 50
      },
      "file::quaternionmedia/scad-chess/README.md": {
@@ -278,9 +282,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/scad-chess/main/README.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -71.90182545410991,
-      "y": -29.794126877066123,
+      "x": -9.260083581211125,
+      "y": -3.8371224008342724,
       "size": 30
      }
     },

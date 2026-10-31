@@ -277,9 +277,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/alfred/code.svg)](../show/project/alfred/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/alfred/code.svg)](../show/project/alfred/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← aes](aes.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [apothecary →](apothecary.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← aes](aes.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [apothecary →](apothecary.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -288,7 +288,7 @@ the graphs codecarto draws
 **Its system:** not drawn. alfred's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, 7fff7ae.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and alfred's default branch at `7fff7ae`, on 2026-10-27. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and alfred's default branch at `7fff7ae`, on 2026-10-29. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

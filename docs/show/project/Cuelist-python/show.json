@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:afd5f969768a82856d2c371b08a570d8605d4ed9328098bd0a785f1ffc873225"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "e891a76ff342f2ffa5c5deb19144013ec13f942c"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:Cuelist-python",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,9 +218,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -641.9223378644821,
-      "y": -538.6367969465442,
+      "x": 82.35500636572596,
+      "y": -6.4514334020909985,
       "size": 70
      },
      "dir::quaternionmedia/Cuelist-python/src": {
@@ -232,9 +233,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -692.6122877908754,
-      "y": -48.24078689380633,
+      "x": -43.911332772899634,
+      "y": -50.98648136311594,
       "size": 60
      },
      "dir::quaternionmedia/Cuelist-python/src/cuelist": {
@@ -246,9 +248,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 250.9063409812923,
-      "y": 37.55507913739274,
+      "x": -12.792400339381906,
+      "y": -7.649792265180526,
       "size": 90
      },
      "file::quaternionmedia/Cuelist-python/README.md": {
@@ -260,9 +263,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/README.md",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": -600.5559379360573,
-      "y": -503.9262660234711,
+      "x": 86.6568296383588,
+      "y": -0.30779306992356226,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/pyproject.toml": {
@@ -274,9 +278,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -824.2551837282286,
-      "y": -472.273068323093,
+      "x": 96.98120549267762,
+      "y": 14.43694372727829,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py": {
@@ -288,9 +293,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/__init__.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 23.712757261434888,
-      "y": -452.0753277343761,
+      "x": 12.357523616575685,
+      "y": -22.046147022628524,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py": {
@@ -302,9 +308,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/cues.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 423.1609237193295,
-      "y": 259.92839809893724,
+      "x": -15.775332141716374,
+      "y": -34.92203602796786,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/models.py": {
@@ -316,9 +323,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/models.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 456.18374654094225,
-      "y": -207.08500641673925,
+      "x": -43.54522474777268,
+      "y": -13.891353885559935,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py": {
@@ -330,241 +338,11 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/plugin.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -245.26360667471033,
-      "y": 166.84577496650792,
+      "x": 0.0653920583101062,
+      "y": 10.905561618381572,
       "size": 30
-     },
-     "__init__.cues.open_csv": {
-      "id": "__init__.cues.open_csv",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "cues.open_csv",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -93.38869167593558,
-      "y": -409.45388593172953,
-      "label_at": "none"
-     },
-     "__init__.models.CUE_TYPES": {
-      "id": "__init__.models.CUE_TYPES",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.CUE_TYPES",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 119.174733077132,
-      "y": -371.97321903597026,
-      "label_at": "none"
-     },
-     "__init__.models.Cue": {
-      "id": "__init__.models.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.Cue",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 35.62716285207097,
-      "y": -505.5775187121466,
-      "label_at": "above"
-     },
-     "__init__.models.LAYERS": {
-      "id": "__init__.models.LAYERS",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.LAYERS",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 52.24446526653128,
-      "y": -402.53300604562287,
-      "label_at": "right"
-     },
-     "__init__.models.LAYER_IDS": {
-      "id": "__init__.models.LAYER_IDS",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.LAYER_IDS",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -32.9499178489873,
-      "y": -470.0170040588099,
-      "label_at": "left"
-     },
-     "__init__.plugin": {
-      "id": "__init__.plugin",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "plugin",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 2.0732841397615402,
-      "y": -329.3517772333239,
-      "label_at": "none"
-     },
-     "__init__.plugin.plugin": {
-      "id": "__init__.plugin.plugin",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "plugin.plugin",
-      "file": "__init__.py",
-      "line": 0,
-      "meta": {
-       "module": "__init__",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 79.5917413917511,
-      "y": -478.03999858851694,
-      "label_at": "right"
-     },
-     "cues.Cue": {
-      "id": "cues.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Cue",
-      "file": "cues.py",
-      "line": 0,
-      "meta": {
-       "module": "cues",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 449.20643478537477,
-      "y": 281.7831768282796,
-      "label_at": "right"
-     },
-     "cues.DictReader": {
-      "id": "cues.DictReader",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "DictReader",
-      "file": "cues.py",
-      "line": 0,
-      "meta": {
-       "module": "cues",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 519.6361497793077,
-      "y": 231.12316326837026,
-      "label_at": "none"
-     },
-     "cues.csv.DictReader": {
-      "id": "cues.csv.DictReader",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "csv.DictReader",
-      "file": "cues.py",
-      "line": 0,
-      "meta": {
-       "module": "cues",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 411.5460523261703,
-      "y": 359.9399252320051,
-      "label_at": "none"
-     },
-     "cues.models.Cue": {
-      "id": "cues.models.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.Cue",
-      "file": "cues.py",
-      "line": 0,
-      "meta": {
-       "module": "cues",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 385.51285123020256,
-      "y": 261.5670371236881,
-      "label_at": "left"
      },
      "cues.open_csv": {
       "id": "cues.open_csv",
@@ -576,58 +354,18 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 355
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 509.0363913214637,
-      "y": 331.9864712910645,
-      "label_at": "none"
-     },
-     "cues.pathlib.Path": {
-      "id": "cues.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "cues.py",
-      "line": 0,
-      "meta": {
-       "module": "cues",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 328.5491781569761,
-      "y": 294.36425729560136,
-      "label_at": "none"
-     },
-     "models.BaseModel": {
-      "id": "models.BaseModel",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "BaseModel",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 557.8091784724504,
-      "y": -121.81114396477895,
-      "label_at": "none"
+      "x": -11.840469117981087,
+      "y": -28.326821115991198,
+      "label_at": "right",
+      "dot_scale": 2.050228353055094
      },
      "models.Cue": {
       "id": "models.Cue",
@@ -639,205 +377,18 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 605
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": 307.56324705004624,
-      "y": -152.99156840027769,
-      "label_at": "none"
-     },
-     "models.Field": {
-      "id": "models.Field",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Field",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 431.7100814797559,
-      "y": -148.24856177166524,
-      "label_at": "left"
-     },
-     "models.Literal": {
-      "id": "models.Literal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Literal",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 433.14713134447896,
-      "y": -76.43786946750674,
-      "label_at": "none"
-     },
-     "models.pydantic.BaseModel": {
-      "id": "models.pydantic.BaseModel",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pydantic.BaseModel",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 354.55831460943415,
-      "y": -292.35886886869946,
-      "label_at": "none"
-     },
-     "models.pydantic.Field": {
-      "id": "models.pydantic.Field",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pydantic.Field",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 388.86077787021577,
-      "y": -189.182691221202,
-      "label_at": "left"
-     },
-     "models.typing_extensions.Literal": {
-      "id": "models.typing_extensions.Literal",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "typing_extensions.Literal",
-      "file": "models.py",
-      "line": 0,
-      "meta": {
-       "module": "models",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 479.2203617374058,
-      "y": -337.7321433659717,
-      "label_at": "none"
-     },
-     "plugin.APIRouter": {
-      "id": "plugin.APIRouter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "APIRouter",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -90.10227173078339,
-      "y": 143.67482449079984,
-      "label_at": "none"
-     },
-     "plugin.CUE_TYPES": {
-      "id": "plugin.CUE_TYPES",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CUE_TYPES",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -219.21809560866512,
-      "y": 188.70055369585026,
-      "label_at": "right"
-     },
-     "plugin.Cue": {
-      "id": "plugin.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Cue",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -267.6553022375056,
-      "y": 105.01243468941229,
-      "label_at": "above"
-     },
-     "plugin.CueList": {
-      "id": "plugin.CueList",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "CueList",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -442.46804288612145,
-      "y": 130.81000952521225,
-      "label_at": "none"
+      "x": -37.750790863317405,
+      "y": -5.500849204610979,
+      "label_at": "right",
+      "dot_scale": 2.2817553746524686
      },
      "plugin.Cuelist": {
       "id": "plugin.Cuelist",
@@ -849,79 +400,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 885
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -185.2320009198707,
-      "y": 198.23078429413914,
-      "label_at": "right"
-     },
-     "plugin.HTTPException": {
-      "id": "plugin.HTTPException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "HTTPException",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -199.2453549983665,
-      "y": -28.86207566412635,
-      "label_at": "none"
-     },
-     "plugin.Path": {
-      "id": "plugin.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Path",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -379.29089298816797,
-      "y": 322.91592672211016,
-      "label_at": "none"
-     },
-     "plugin.Query": {
-      "id": "plugin.Query",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Query",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -51.67573122870009,
-      "y": 62.29054477388058,
-      "label_at": "none"
+      "x": 18.48527999659374,
+      "y": 8.4065668546691,
+      "label_at": "right",
+      "dot_scale": 2.446943270697825
      },
      "plugin._CuelistState": {
       "id": "plugin._CuelistState",
@@ -933,16 +423,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Class"
+       "ast_type": "Class",
+       "chars": 128
       },
       "shape": "square",
       "color": "#00d4ff",
       "construct": "type.class",
       "construct_color": "#4a9eff",
       "construct_name": "Class",
-      "x": -312.58657534543704,
-      "y": 184.74809016204506,
-      "label_at": "left"
+      "x": -2.205583734212418,
+      "y": 4.586850984795889,
+      "label_at": "above",
+      "dot_scale": 1.6072099696478683
      },
      "plugin.__init__": {
       "id": "plugin.__init__",
@@ -954,16 +446,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 53
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -282.6169052470941,
-      "y": 11.687248215274195,
-      "label_at": "none"
+      "x": -3.9897718417194845,
+      "y": 34.7494523665044,
+      "label_at": "below",
+      "dot_scale": 1.2242758696007892
      },
      "plugin._import_to_db": {
       "id": "plugin._import_to_db",
@@ -975,16 +469,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1032
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -43.938045395086334,
-      "y": 287.79705213540547,
-      "label_at": "none"
+      "x": 6.597941948256772,
+      "y": 20.63363853287955,
+      "label_at": "right",
+      "dot_scale": 2.5136796972911926
      },
      "plugin._parse_cue_number": {
       "id": "plugin._parse_cue_number",
@@ -996,289 +492,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 249
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -403.4144873786794,
-      "y": 224.4079880657377,
-      "label_at": "none"
-     },
-     "plugin.cues.open_csv": {
-      "id": "plugin.cues.open_csv",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "cues.open_csv",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -206.70652722505253,
-      "y": 106.59389429616888,
-      "label_at": "right"
-     },
-     "plugin.fastapi.APIRouter": {
-      "id": "plugin.fastapi.APIRouter",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.APIRouter",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -360.3830981876387,
-      "y": -38.78534131098883,
-      "label_at": "none"
-     },
-     "plugin.fastapi.HTTPException": {
-      "id": "plugin.fastapi.HTTPException",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.HTTPException",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -232.68225009101718,
-      "y": 239.114090752293,
-      "label_at": "below"
-     },
-     "plugin.fastapi.Query": {
-      "id": "plugin.fastapi.Query",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.Query",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -304.7656007515359,
-      "y": 120.97012564269541,
-      "label_at": "left"
-     },
-     "plugin.fastapi.UploadFile": {
-      "id": "plugin.fastapi.UploadFile",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "fastapi.UploadFile",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -168.66917635206528,
-      "y": 160.33284601330476,
-      "label_at": "right"
-     },
-     "plugin.get_db": {
-      "id": "plugin.get_db",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "get_db",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -245.0461637177851,
-      "y": 86.61359489790651,
-      "label_at": "above"
-     },
-     "plugin.models.CUE_TYPES": {
-      "id": "plugin.models.CUE_TYPES",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.CUE_TYPES",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -190.13072202028823,
-      "y": 227.35757158239252,
-      "label_at": "right"
-     },
-     "plugin.models.Cue": {
-      "id": "plugin.models.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "models.Cue",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -328.38278855676566,
-      "y": 159.3240329303961,
-      "label_at": "left"
-     },
-     "plugin.open_csv": {
-      "id": "plugin.open_csv",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "open_csv",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -177.64687321336737,
-      "y": 115.29565512166462,
-      "label_at": "right"
-     },
-     "plugin.pathlib.Path": {
-      "id": "plugin.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -260.5726314547767,
-      "y": 252.04632520113557,
-      "label_at": "below"
-     },
-     "plugin.showrunner.models.Cue": {
-      "id": "plugin.showrunner.models.Cue",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "showrunner.models.Cue",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -0.17229707701517327,
-      "y": 140.12522468622902,
-      "label_at": "none"
-     },
-     "plugin.showrunner.models.CueList": {
-      "id": "plugin.showrunner.models.CueList",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "showrunner.models.CueList",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -292.335436798233,
-      "y": 92.40247232065376,
-      "label_at": "left"
-     },
-     "plugin.showrunner.plugins.db.get_db": {
-      "id": "plugin.showrunner.plugins.db.get_db",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "showrunner.plugins.db.get_db",
-      "file": "plugin.py",
-      "line": 0,
-      "meta": {
-       "module": "plugin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": -272.9462041963532,
-      "y": -80.51655105102415,
-      "label_at": "none"
+      "x": -9.514124103790216,
+      "y": 14.688819147834934,
+      "label_at": "left",
+      "dot_scale": 1.8961993470957363
      },
      "plugin.showrunner_get_commands": {
       "id": "plugin.showrunner_get_commands",
@@ -1290,16 +515,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 52
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -158.83409233933276,
-      "y": 190.3311757880983,
-      "label_at": "right"
+      "x": 25.047524881883763,
+      "y": 27.372214841652916,
+      "label_at": "right",
+      "dot_scale": 1.2160033436347992
      },
      "plugin.showrunner_get_nav": {
       "id": "plugin.showrunner_get_nav",
@@ -1311,16 +538,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 114
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -275.1127861925403,
-      "y": 336.1288840964824,
-      "label_at": "none"
+      "x": -9.812639726821157,
+      "y": 27.419558056708794,
+      "label_at": "left",
+      "dot_scale": 1.5569048513364727
      },
      "plugin.showrunner_get_routes": {
       "id": "plugin.showrunner_get_routes",
@@ -1332,16 +561,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 54
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -110.24821186580792,
-      "y": -42.26015441605471,
-      "label_at": "none"
+      "x": 2.702514781286702,
+      "y": 38.72223759441428,
+      "label_at": "below",
+      "dot_scale": 1.2323937598229686
      },
      "plugin.showrunner_get_status": {
       "id": "plugin.showrunner_get_status",
@@ -1353,16 +584,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 52
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -471.11144727989773,
-      "y": 45.48969901983139,
-      "label_at": "none"
+      "x": 7.912042851892037,
+      "y": 40.13156544604146,
+      "label_at": "below",
+      "dot_scale": 1.2160033436347992
      },
      "plugin.showrunner_register": {
       "id": "plugin.showrunner_register",
@@ -1374,16 +607,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 191
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -372.6952109848263,
-      "y": 59.91796278956056,
-      "label_at": "none"
+      "x": 6.127853495774755,
+      "y": 2.9275718236057413,
+      "label_at": "right",
+      "dot_scale": 1.7810333672477277
      },
      "plugin.showrunner_shutdown": {
       "id": "plugin.showrunner_shutdown",
@@ -1395,16 +630,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 60
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -142.68018706430004,
-      "y": 44.59161610520189,
-      "label_at": "none"
+      "x": -8.08384823772024,
+      "y": 6.770418329099703,
+      "label_at": "left",
+      "dot_scale": 1.2781512503836436
      },
      "plugin.showrunner_startup": {
       "id": "plugin.showrunner_startup",
@@ -1416,16 +653,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 47
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": -326.15767372788565,
-      "y": 208.58110071815844,
-      "label_at": "left"
+      "x": 23.293042227068646,
+      "y": 14.472263631906856,
+      "label_at": "right",
+      "dot_scale": 1.1720978579357175
      },
      "toml::pyproject.toml::section::build-system::16": {
       "id": "toml::pyproject.toml::section::build-system::16",
@@ -1436,9 +675,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 16,
       "meta": {},
-      "x": -798.2096726621834,
-      "y": -450.41828959375067,
-      "label_at": "right"
+      "x": 100.13587589260837,
+      "y": 18.942279970867745,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project.entry-points.\"showrunner\"::13": {
       "id": "toml::pyproject.toml::section::project.entry-points.\"showrunner\"::13",
@@ -1449,9 +689,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 13,
       "meta": {},
-      "x": -795.2290071699033,
-      "y": -501.28351599983387,
-      "label_at": "right"
+      "x": 102.44359342414965,
+      "y": 15.07906372082207,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project.scripts::10": {
       "id": "toml::pyproject.toml::section::project.scripts::10",
@@ -1462,9 +703,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 10,
       "meta": {},
-      "x": -826.1983943946618,
-      "y": -428.1775874627388,
-      "label_at": "below"
+      "x": 101.0946711007386,
+      "y": 10.785998549478492,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::project::1": {
       "id": "toml::pyproject.toml::section::project::1",
@@ -1475,9 +717,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 1,
       "meta": {},
-      "x": -861.9032562173556,
-      "y": -470.634429298342,
-      "label_at": "left"
+      "x": 95.71635420904732,
+      "y": 19.78952733057669,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "toml::pyproject.toml::section::tool.uv.sources::20": {
       "id": "toml::pyproject.toml::section::tool.uv.sources::20",
@@ -1488,9 +731,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 20,
       "meta": {},
-      "x": -854.4688830614898,
-      "y": -508.3200151091841,
-      "label_at": "left"
+      "x": 92.14355115337104,
+      "y": 17.053640212044556,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "__init__.Const: 'CUE_TYPES'": {
       "id": "__init__.Const: 'CUE_TYPES'",
@@ -1502,11 +746,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 11
       },
-      "x": 49.75826832748015,
-      "y": -430.2205490050338,
-      "label_at": "right"
+      "x": 11.650162486090816,
+      "y": -17.518281964848466,
+      "label_at": "below",
+      "dot_scale": 0.541392685158225
      },
      "__init__.Const: 'Cue'": {
       "id": "__init__.Const: 'Cue'",
@@ -1518,11 +764,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 5
       },
-      "x": -13.935315227692172,
-      "y": -450.43668870962523,
-      "label_at": "left"
+      "x": 16.532657726793232,
+      "y": -23.724912986572846,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "__init__.Const: 'LAYERS'": {
       "id": "__init__.Const: 'LAYERS'",
@@ -1534,11 +782,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": 52.738933819760234,
-      "y": -481.08577541111714,
-      "label_at": "right"
+      "x": 9.352019661450168,
+      "y": -18.696976084064048,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "__init__.Const: 'LAYER_IDS'": {
       "id": "__init__.Const: 'LAYER_IDS'",
@@ -1550,11 +800,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 11
       },
-      "x": 21.7695465950018,
-      "y": -407.9798468740219,
-      "label_at": "below"
+      "x": 16.854256754517415,
+      "y": -21.162228001154713,
+      "label_at": "right",
+      "dot_scale": 0.541392685158225
      },
      "__init__.Const: 'open_csv'": {
       "id": "__init__.Const: 'open_csv'",
@@ -1566,11 +818,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 10
       },
-      "x": -6.500942071826302,
-      "y": -488.1222745204672,
-      "label_at": "left"
+      "x": 19.05870029362119,
+      "y": -19.81641636796667,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "__init__.Const: 'plugin'": {
       "id": "__init__.Const: 'plugin'",
@@ -1582,11 +836,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": 73.04518071084442,
-      "y": -445.5465838576303,
-      "label_at": "right"
+      "x": 12.160847651567826,
+      "y": -14.986487950541145,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "__init__.__all__": {
       "id": "__init__.__all__",
@@ -1598,11 +854,13 @@
       "line": 0,
       "meta": {
        "module": "__init__",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 75
       },
-      "x": -19.193096610226803,
-      "y": -422.0842840122311,
-      "label_at": "left"
+      "x": 15.942446622245503,
+      "y": -16.926346377757223,
+      "label_at": "right",
+      "dot_scale": 1.3750612633917
      },
      "csv.DictReader": {
       "id": "csv.DictReader",
@@ -1616,25 +874,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 536.4891275279252,
-      "y": 245.26449068147414,
-      "label_at": "right"
-     },
-     "csv.csv": {
-      "id": "csv.csv",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "csv.csv",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 428.39903007478773,
-      "y": 374.081252645109,
-      "label_at": "right"
+      "x": -8.054602682201043,
+      "y": -22.920043511940055,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "cues.Const: 'r'": {
       "id": "cues.Const: 'r'",
@@ -1646,11 +889,13 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 525.8893690700813,
-      "y": 346.12779870416836,
-      "label_at": "right"
+      "x": -7.221305776757453,
+      "y": -31.493593186114072,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "cues.csv": {
       "id": "cues.csv",
@@ -1662,27 +907,13 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 15
       },
-      "x": 484.35020059776014,
-      "y": 333.0609421156727,
-      "label_at": "left"
-     },
-     "cues.cues": {
-      "id": "cues.cues",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "cues.cues",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -76.53571392731803,
-      "y": -395.3125585186257,
-      "label_at": "right"
+      "x": -6.23748756452412,
+      "y": -26.316718769004353,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "cues.f": {
       "id": "cues.f",
@@ -1694,11 +925,13 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 1
       },
-      "x": 528.2395752503804,
-      "y": 312.7936933005755,
-      "label_at": "right"
+      "x": -6.303565201078416,
+      "y": -29.16813576105717,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "cues.open": {
       "id": "cues.open",
@@ -1710,11 +943,13 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 4
       },
-      "x": 507.7425446094161,
-      "y": 361.3465370383635,
-      "label_at": "below"
+      "x": -14.90664178142895,
+      "y": -23.640276491756886,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "cues.reader": {
       "id": "cues.reader",
@@ -1726,11 +961,13 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 22
       },
-      "x": 488.8220671195012,
-      "y": 307.8694420988537,
-      "label_at": "left"
+      "x": -12.147801798937396,
+      "y": -22.049037374404016,
+      "label_at": "below",
+      "dot_scale": 0.8424226808222063
      },
      "cues.row": {
       "id": "cues.row",
@@ -1742,91 +979,31 @@
       "line": 0,
       "meta": {
        "module": "cues",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": 542.1662710135473,
-      "y": 336.37094065326454,
-      "label_at": "right"
-     },
-     "fastapi.APIRouter": {
-      "id": "fastapi.APIRouter",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.APIRouter",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -73.24929398216588,
-      "y": 157.81615190390372,
-      "label_at": "right"
-     },
-     "fastapi.HTTPException": {
-      "id": "fastapi.HTTPException",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.HTTPException",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -182.392377249749,
-      "y": -14.720748251022487,
-      "label_at": "right"
-     },
-     "fastapi.Query": {
-      "id": "fastapi.Query",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.Query",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -34.82275348008257,
-      "y": 76.43187218698445,
-      "label_at": "right"
-     },
-     "fastapi.fastapi": {
-      "id": "fastapi.fastapi",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "fastapi.fastapi",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -343.5301204390212,
-      "y": -24.644013897884946,
-      "label_at": "right"
+      "x": -4.699014041914598,
+      "y": -23.91504345022176,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.CUE_TYPES": {
       "id": "models.CUE_TYPES",
       "depth": 3,
       "language": "python",
-      "kind": "symbol",
-      "label": "models.CUE_TYPES",
-      "file": "",
+      "kind": "name",
+      "label": "CUE_TYPES",
+      "file": "models.py",
       "line": 0,
       "meta": {
-       "module": "",
-       "ast_type": ""
+       "module": "models",
+       "ast_type": "Name",
+       "chars": 152
       },
-      "x": 516.2153522957819,
-      "y": -175.69999708910802,
-      "label_at": "right"
+      "x": -48.28660393085494,
+      "y": -8.9285396546316,
+      "label_at": "left",
+      "dot_scale": 1.6818435879447726
      },
      "models.Const: ''": {
       "id": "models.Const: ''",
@@ -1838,11 +1015,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 2
       },
-      "x": 482.2292576069875,
-      "y": -185.23022768739688,
-      "label_at": "right"
+      "x": -33.63401162327439,
+      "y": -14.199529502517441,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Audio'": {
       "id": "models.Const: 'Audio'",
@@ -1854,11 +1033,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 418.5356740518154,
-      "y": -205.4463673919883,
-      "label_at": "left"
+      "x": -46.84159291840527,
+      "y": 0.956447759213564,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "models.Const: 'Cue Number'": {
       "id": "models.Const: 'Cue Number'",
@@ -1870,11 +1051,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 12
       },
-      "x": 324.4162247986638,
-      "y": -138.85024098717383,
-      "label_at": "right"
+      "x": -42.54891846482678,
+      "y": 3.287659646539591,
+      "label_at": "left",
+      "dot_scale": 0.5791812460476248
      },
      "models.Const: 'Label'": {
       "id": "models.Const: 'Label'",
@@ -1886,11 +1069,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 282.87705632634277,
-      "y": -151.9170975756694,
-      "label_at": "left"
+      "x": -30.556619766317972,
+      "y": 3.440662402544751,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Layer Title'": {
       "id": "models.Const: 'Layer Title'",
@@ -1902,11 +1087,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 13
       },
-      "x": 326.7664309789629,
-      "y": -172.1843463907666,
-      "label_at": "right"
+      "x": -43.97491739441984,
+      "y": -4.583281306305761,
+      "label_at": "left",
+      "dot_scale": 0.6139433523068368
      },
      "models.Const: 'Lights'": {
       "id": "models.Const: 'Lights'",
@@ -1918,11 +1105,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": 485.20992309926754,
-      "y": -236.0954540934802,
-      "label_at": "right"
+      "x": -31.231672778591204,
+      "y": -13.507598815724133,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'MIDI'": {
       "id": "models.Const: 'MIDI'",
@@ -1934,11 +1123,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": 454.2405358745093,
-      "y": -162.98952555638502,
-      "label_at": "below"
+      "x": -33.22362194325591,
+      "y": -16.66561553316081,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Network'": {
       "id": "models.Const: 'Network'",
@@ -1950,11 +1141,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 9
       },
-      "x": 425.9700472076811,
-      "y": -243.13195320283037,
-      "label_at": "left"
+      "x": -29.030294503502336,
+      "y": -12.322721737725429,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Page Number'": {
       "id": "models.Const: 'Page Number'",
@@ -1966,11 +1159,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 13
       },
-      "x": 306.2694003379986,
-      "y": -123.63150265297863,
-      "label_at": "below"
+      "x": -34.828564671388804,
+      "y": -11.07240877140914,
+      "label_at": "right",
+      "dot_scale": 0.6139433523068368
      },
      "models.Const: 'Sound'": {
       "id": "models.Const: 'Sound'",
@@ -1982,11 +1177,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 505.516169990352,
-      "y": -200.55626253999327,
-      "label_at": "right"
+      "x": -30.82128309857271,
+      "y": -15.973684846367494,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Stage'": {
       "id": "models.Const: 'Stage'",
@@ -1998,11 +1195,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 413.2778926692809,
-      "y": -177.09396269459407,
-      "label_at": "left"
+      "x": -27.12968950627574,
+      "y": -10.698621788671396,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 'Video'": {
       "id": "models.Const: 'Video'",
@@ -2014,11 +1213,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": 468.0981521315785,
-      "y": -260.58719739450964,
-      "label_at": "above"
+      "x": -45.8276611020503,
+      "y": 3.2416047060736837,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "models.Const: 'Work Note'": {
       "id": "models.Const: 'Work Note'",
@@ -2030,11 +1231,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 11
       },
-      "x": 287.3489228480836,
-      "y": -177.10859759248854,
-      "label_at": "left"
+      "x": -27.890752909468468,
+      "y": -6.893012717416404,
+      "label_at": "right",
+      "dot_scale": 0.541392685158225
      },
      "models.Const: 'a'": {
       "id": "models.Const: 'a'",
@@ -2046,11 +1249,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 484.7154545460389,
-      "y": -157.54268472798583,
-      "label_at": "right"
+      "x": -41.55752663073481,
+      "y": -17.928562846652255,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: 's'": {
       "id": "models.Const: 's'",
@@ -2062,11 +1267,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 399.52107143052024,
-      "y": -225.0266827411729,
-      "label_at": "left"
+      "x": -48.04399533700291,
+      "y": -13.786172207130976,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "models.Const: 'v'": {
       "id": "models.Const: 'v'",
@@ -2078,11 +1285,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": 512.0627306712586,
-      "y": -233.04967727087998,
-      "label_at": "right"
+      "x": -25.6160331318158,
+      "y": -8.708937296080464,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.Const: None": {
       "id": "models.Const: None",
@@ -2094,11 +1303,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 4
       },
-      "x": 340.6931267421297,
-      "y": -148.60709903807762,
-      "label_at": "right"
+      "x": -31.651110809284482,
+      "y": 5.688347735696636,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "models.LAYERS": {
       "id": "models.LAYERS",
@@ -2110,11 +1321,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 62
       },
-      "x": 278.6622639286697,
-      "y": -132.78988098021532,
-      "label_at": "left"
+      "x": -48.98885600389091,
+      "y": -2.518421518189097,
+      "label_at": "left",
+      "dot_scale": 1.292391689498254
      },
      "models.LAYER_IDS": {
       "id": "models.LAYER_IDS",
@@ -2126,11 +1339,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 87
       },
-      "x": 433.7920509781472,
-      "y": -268.9183466938348,
-      "label_at": "above"
+      "x": -37.5687256210194,
+      "y": -16.12150868718616,
+      "label_at": "right",
+      "dot_scale": 1.4395192526186185
      },
      "models.int": {
       "id": "models.int",
@@ -2142,11 +1357,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": 315.6085271764865,
-      "y": -189.11927200412038,
-      "label_at": "above"
+      "x": -43.54815196696555,
+      "y": -7.277578458280239,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "models.layer": {
       "id": "models.layer",
@@ -2158,27 +1375,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 55
       },
-      "x": 326.86922859569137,
-      "y": -119.46875413060141,
-      "label_at": "right"
-     },
-     "models.models": {
-      "id": "models.models",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "models.models",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 136.02771082574952,
-      "y": -357.8318916228664,
-      "label_at": "right"
+      "x": -33.42359478986005,
+      "y": 0.6790272424794459,
+      "label_at": "right",
+      "dot_scale": 1.2403626894942439
      },
      "models.name": {
       "id": "models.name",
@@ -2190,11 +1393,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 45
       },
-      "x": 269.1554172097383,
-      "y": -165.15302830268854,
-      "label_at": "left"
+      "x": -43.26561438586906,
+      "y": -0.6118130143084777,
+      "label_at": "left",
+      "dot_scale": 1.1532125137753437
      },
      "models.notes": {
       "id": "models.notes",
@@ -2206,11 +1411,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 50
       },
-      "x": 345.49667917126914,
-      "y": -170.61767765628122,
-      "label_at": "right"
+      "x": -31.209749273632497,
+      "y": -9.090838387843645,
+      "label_at": "right",
+      "dot_scale": 1.1989700043360187
      },
      "models.number": {
       "id": "models.number",
@@ -2222,11 +1429,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 52
       },
-      "x": 290.92769004237107,
-      "y": -112.99849721232833,
-      "label_at": "left"
+      "x": -38.688402975201164,
+      "y": 1.9357942028438693,
+      "label_at": "below",
+      "dot_scale": 1.2160033436347992
      },
      "models.page": {
       "id": "models.page",
@@ -2238,11 +1447,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 51
       },
-      "x": 292.3255320177651,
-      "y": -195.06961541525916,
-      "label_at": "above"
+      "x": -30.460996763216453,
+      "y": -3.830782057424184,
+      "label_at": "right",
+      "dot_scale": 1.2075701760979363
      },
      "models.str": {
       "id": "models.str",
@@ -2254,43 +1465,13 @@
       "line": 0,
       "meta": {
        "module": "models",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": 261.66234488030426,
-      "y": -140.78574274185655,
-      "label_at": "left"
-     },
-     "pathlib.Path": {
-      "id": "pathlib.Path",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "pathlib.Path",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -362.4379152395505,
-      "y": 337.057254135214,
-      "label_at": "right"
-     },
-     "pathlib.pathlib": {
-      "id": "pathlib.pathlib",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "pathlib.pathlib",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 345.4021559055936,
-      "y": 308.50558470870527,
-      "label_at": "right"
+      "x": -37.51257913754675,
+      "y": -11.559678941502575,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "plugin.Const: ' not found'": {
       "id": "plugin.Const: ' not found'",
@@ -2302,11 +1483,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 10
       },
-      "x": -125.35013997949333,
-      "y": 334.01752100531814,
-      "label_at": "right"
+      "x": 14.287440997804826,
+      "y": 34.51522465743998,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: '.'": {
       "id": "plugin.Const: '.'",
@@ -2318,11 +1501,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -386.5615096300619,
-      "y": 238.54931547884152,
-      "label_at": "right"
+      "x": -4.242264016465202,
+      "y": 14.223013224784186,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: '.csv'": {
       "id": "plugin.Const: '.csv'",
@@ -2334,11 +1519,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": -282.91167916383745,
-      "y": 168.48441399125875,
-      "label_at": "left"
+      "x": 10.983166422918671,
+      "y": 42.58694252506973,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.Const: '/'": {
       "id": "plugin.Const: '/'",
@@ -2350,11 +1537,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -216.23743011638516,
-      "y": 137.8353272897668,
-      "label_at": "right"
+      "x": 26.74493218840611,
+      "y": 30.918971814508183,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: '/cuelist'": {
       "id": "plugin.Const: '/cuelist'",
@@ -2366,11 +1555,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 10
       },
-      "x": -258.25980844392274,
-      "y": 350.27021150958626,
-      "label_at": "right"
+      "x": 23.000549719565768,
+      "y": 36.2042074663385,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: '/cues'": {
       "id": "plugin.Const: '/cues'",
@@ -2382,11 +1573,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": -247.2068173411435,
-      "y": 210.941255826862,
-      "label_at": "below"
+      "x": 20.62047822822805,
+      "y": 38.75790490069017,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: '/cues/import'": {
       "id": "plugin.Const: '/cues/import'",
@@ -2398,11 +1591,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 14
       },
-      "x": -275.47730600797166,
-      "y": 130.7988281804167,
-      "label_at": "left"
+      "x": -1.022982696205215,
+      "y": 40.78211348409698,
+      "label_at": "below",
+      "dot_scale": 0.646128035678238
      },
      "plugin.Const: '/tmp/cuelist_import.csv'": {
       "id": "plugin.Const: '/tmp/cuelist_import.csv'",
@@ -2414,11 +1609,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 25
       },
-      "x": -195.93118322530086,
-      "y": 173.37451884325372,
-      "label_at": "right"
+      "x": 19.765306297964244,
+      "y": 35.574902221078226,
+      "label_at": "right",
+      "dot_scale": 0.8979400086720376
      },
      "plugin.Const: '0.1.0'": {
       "id": "plugin.Const: '0.1.0'",
@@ -2430,11 +1627,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": -355.8422332362088,
-      "y": 74.05929020266441,
-      "label_at": "right"
+      "x": 10.926426815121664,
+      "y": 4.5394693772168475,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'CueList '": {
       "id": "plugin.Const: 'CueList '",
@@ -2446,11 +1645,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": -160.34531988892874,
-      "y": 323.3703554744394,
-      "label_at": "left"
+      "x": 13.099780187259293,
+      "y": 12.997448131244047,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'Cuelist'": {
       "id": "plugin.Const: 'Cuelist'",
@@ -2462,11 +1663,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 9
       },
-      "x": -299.7989769162439,
-      "y": 337.2033549210905,
-      "label_at": "left"
+      "x": 15.796608687158423,
+      "y": 41.77965682343953,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'File must be a .csv'": {
       "id": "plugin.Const: 'File must be a .csv'",
@@ -2478,11 +1681,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 21
       },
-      "x": -288.16946054637197,
-      "y": 196.83681868865298,
-      "label_at": "left"
+      "x": 25.359305670427148,
+      "y": 9.918450343309585,
+      "label_at": "right",
+      "dot_scale": 0.8222192947339193
      },
      "plugin.Const: 'Manages cue lists exported from CueList.'": {
       "id": "plugin.Const: 'Manages cue lists exported from CueList.'",
@@ -2494,11 +1699,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 42
       },
-      "x": -397.3814017085298,
-      "y": 60.99243361416885,
-      "label_at": "left"
+      "x": 9.746297907807328,
+      "y": 8.095245998157207,
+      "label_at": "right",
+      "dot_scale": 1.1232492903979003
      },
      "plugin.Const: 'description'": {
       "id": "plugin.Const: 'description'",
@@ -2510,11 +1717,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 13
       },
-      "x": -353.4920270559096,
-      "y": 40.7251847990716,
-      "label_at": "right"
+      "x": 5.773446088269836,
+      "y": 8.2056399150051,
+      "label_at": "below",
+      "dot_scale": 0.6139433523068368
      },
      "plugin.Const: 'icon'": {
       "id": "plugin.Const: 'icon'",
@@ -2526,11 +1735,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": -255.90960226362353,
-      "y": 316.93610610599336,
-      "label_at": "right"
+      "x": -7.166267199560133,
+      "y": 31.198969706613717,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'label'": {
       "id": "plugin.Const: 'label'",
@@ -2542,11 +1753,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": -276.406632904588,
-      "y": 365.4889498437815,
-      "label_at": "below"
+      "x": -9.526048695215955,
+      "y": 32.024458224256676,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'list'": {
       "id": "plugin.Const: 'list'",
@@ -2558,11 +1771,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": -295.327110394503,
-      "y": 312.0118549042715,
-      "label_at": "left"
+      "x": -5.583468925626086,
+      "y": 29.26383414959675,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'name'": {
       "id": "plugin.Const: 'name'",
@@ -2574,11 +1789,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": -373.98905769687394,
-      "y": 89.27802853685961,
-      "label_at": "below"
+      "x": 11.112638392520022,
+      "y": 2.0464139730104254,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'ok'": {
       "id": "plugin.Const: 'ok'",
@@ -2590,11 +1807,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 4
       },
-      "x": -233.3492010840743,
-      "y": 113.34358398873744,
-      "label_at": "above"
+      "x": 29.17480798810551,
+      "y": 21.677084707117185,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'order'": {
       "id": "plugin.Const: 'order'",
@@ -2606,11 +1825,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 7
       },
-      "x": -241.9829065004567,
-      "y": 340.51335345868233,
-      "label_at": "right"
+      "x": -5.242368379609891,
+      "y": 26.787213383813764,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'path'": {
       "id": "plugin.Const: 'path'",
@@ -2622,11 +1843,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 6
       },
-      "x": -304.01376931391695,
-      "y": 356.3305715165447,
-      "label_at": "left"
+      "x": -11.969974210944288,
+      "y": 31.497933701017704,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'plugin'": {
       "id": "plugin.Const: 'plugin'",
@@ -2638,11 +1861,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": -216.73189866961388,
-      "y": 216.38809665526117,
-      "label_at": "right"
+      "x": 30.645278469585797,
+      "y": 23.698894926473873,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'status'": {
       "id": "plugin.Const: 'status'",
@@ -2654,11 +1879,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 8
       },
-      "x": -301.9262817851326,
-      "y": 148.90409864207413,
-      "label_at": "left"
+      "x": 1.2458374348816221,
+      "y": 42.40973419568869,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.Const: 'version'": {
       "id": "plugin.Const: 'version'",
@@ -2670,11 +1897,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 9
       },
-      "x": -392.90953518678896,
-      "y": 35.80093359734971,
-      "label_at": "left"
+      "x": 3.275480220746501,
+      "y": 7.1094955824026504,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.Const: 0": {
       "id": "plugin.Const: 0",
@@ -2686,11 +1915,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 1
       },
-      "x": -428.10067810238286,
-      "y": 225.48245889034598,
-      "label_at": "left"
+      "x": -11.754920835059146,
+      "y": 19.48343216114624,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.Const: 1": {
       "id": "plugin.Const: 1",
@@ -2702,11 +1933,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 1
       },
-      "x": -384.2113034497627,
-      "y": 205.21521007524885,
-      "label_at": "right"
+      "x": -5.044252020712243,
+      "y": 11.85514176690396,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 400": {
       "id": "plugin.Const: 400",
@@ -2718,11 +1951,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -189.38462254439418,
-      "y": 140.8811041123671,
-      "label_at": "right"
+      "x": 3.020089348384861,
+      "y": 44.17099231062531,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.Const: 404": {
       "id": "plugin.Const: 404",
@@ -2734,11 +1969,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -27.085067646468815,
-      "y": 301.9383795485093,
-      "label_at": "right"
+      "x": 21.052776030612225,
+      "y": 27.23295831425591,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: 50": {
       "id": "plugin.Const: 50",
@@ -2750,11 +1987,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 2
       },
-      "x": -267.0675060661,
-      "y": 300.00118049263966,
-      "label_at": "above"
+      "x": -6.243113744900166,
+      "y": 24.496250984766142,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: Ellipsis": {
       "id": "plugin.Const: Ellipsis",
@@ -2766,11 +2005,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 3
       },
-      "x": -269.73727173589674,
-      "y": 225.68221961158196,
-      "label_at": "left"
+      "x": 29.071079118265803,
+      "y": 16.076235958297094,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.Const: None": {
       "id": "plugin.Const: None",
@@ -2782,11 +2023,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Constant"
+       "ast_type": "Constant",
+       "chars": 4
       },
-      "x": -454.25846953128007,
-      "y": 59.63102643293524,
-      "label_at": "right"
+      "x": 3.7830222759722254,
+      "y": 14.74444097254687,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.ForLoop": {
       "id": "plugin.ForLoop",
@@ -2798,16 +2041,18 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "For"
+       "ast_type": "For",
+       "chars": 559
       },
       "construct": "control.loop",
       "construct_color": "#94a3b8",
       "construct_name": "Loop",
       "shape": "circle",
       "color": "#94a3b8",
-      "x": 44.568622821226654,
-      "y": 362.0629647924436,
-      "label_at": "none"
+      "x": 12.346429963794327,
+      "y": 28.84333023405044,
+      "label_at": "right",
+      "dot_scale": 2.247411807886423
      },
      "plugin.FormattedValue": {
       "id": "plugin.FormattedValue",
@@ -2819,11 +2064,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "FormattedValue"
+       "ast_type": "FormattedValue",
+       "chars": 13
       },
-      "x": -122.14720930880961,
-      "y": 305.4648209667707,
-      "label_at": "right"
+      "x": 11.607032575245356,
+      "y": 35.02195590917043,
+      "label_at": "right",
+      "dot_scale": 0.6139433523068368
      },
      "plugin.JoinedStr": {
       "id": "plugin.JoinedStr",
@@ -2835,11 +2082,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "JoinedStr"
+       "ast_type": "JoinedStr",
+       "chars": 34
       },
-      "x": -139.13893995563495,
-      "y": 322.4473440309604,
-      "label_at": "none"
+      "x": -0.18458859333065192,
+      "y": 24.04101216725414,
+      "label_at": "left",
+      "dot_scale": 1.0314789170422551
      },
      "plugin.ShowCue": {
       "id": "plugin.ShowCue",
@@ -2851,11 +2100,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 7
       },
-      "x": -68.62423611878984,
-      "y": 288.87152296001375,
-      "label_at": "left"
+      "x": 4.538555411615539,
+      "y": 35.0570516543536,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin._state": {
       "id": "plugin._state",
@@ -2867,11 +2118,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 24
       },
-      "x": -125.82720931568252,
-      "y": 58.732943518305746,
-      "label_at": "right"
+      "x": -13.946763010387976,
+      "y": 21.902028380976848,
+      "label_at": "left",
+      "dot_scale": 0.880211241711606
      },
      "plugin.app": {
       "id": "plugin.app",
@@ -2883,11 +2136,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 3
       },
-      "x": -167.36637778800355,
-      "y": 45.66608692981016,
-      "label_at": "left"
+      "x": 25.497982306414137,
+      "y": 17.621244411209915,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.c": {
       "id": "plugin.c",
@@ -2899,11 +2154,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 1
       },
-      "x": 58.357422797368265,
-      "y": 373.63314176680126,
-      "label_at": "right"
+      "x": 6.203320961750737,
+      "y": 14.118218750313579,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.contents": {
       "id": "plugin.contents",
@@ -2915,11 +2172,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 28
       },
-      "x": -483.2020010273134,
-      "y": 208.8878465642477,
-      "label_at": "right"
+      "x": 15.396775877992383,
+      "y": 1.8051246253148003,
+      "label_at": "right",
+      "dot_scale": 0.9471580313422192
      },
      "plugin.created": {
       "id": "plugin.created",
@@ -2931,11 +2190,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 49
       },
-      "x": -24.734861466169605,
-      "y": 268.60427414491664,
-      "label_at": "right"
+      "x": 23.12859198394812,
+      "y": 32.32592840284089,
+      "label_at": "right",
+      "dot_scale": 1.1901960800285138
      },
      "plugin.created.append": {
       "id": "plugin.created.append",
@@ -2947,13 +2208,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 24
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 23.362242887932666,
-      "y": 362.98597623592246,
-      "label_at": "left"
+      "x": 17.605554125716996,
+      "y": 18.6259655263649,
+      "label_at": "right",
+      "dot_scale": 0.880211241711606
      },
      "plugin.cue": {
       "id": "plugin.cue",
@@ -2965,11 +2228,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": 61.56035346805183,
-      "y": 345.08044172825373,
-      "label_at": "right"
+      "x": 4.577716917733525,
+      "y": 42.21553933108197,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.cue_list": {
       "id": "plugin.cue_list",
@@ -2981,11 +2246,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 38
       },
-      "x": -45.231892107134,
-      "y": 317.15711788270454,
-      "label_at": "below"
+      "x": 18.279451403280053,
+      "y": 24.845260143794523,
+      "label_at": "right",
+      "dot_scale": 1.0797835966168101
      },
      "plugin.cue_list_id": {
       "id": "plugin.cue_list_id",
@@ -2997,11 +2264,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 16
       },
-      "x": -64.15236959704895,
-      "y": 263.68002294319473,
-      "label_at": "left"
+      "x": -8.868712244492105,
+      "y": 35.42425938491815,
+      "label_at": "below",
+      "dot_scale": 0.7041199826559248
      },
      "plugin.cues": {
       "id": "plugin.cues",
@@ -3013,11 +2282,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 15
       },
-      "x": -10.808165703002857,
-      "y": 292.18152149760556,
-      "label_at": "right"
+      "x": 20.078482162728438,
+      "y": 21.259507214068996,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "plugin.db": {
       "id": "plugin.db",
@@ -3029,11 +2300,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 13
       },
-      "x": -72.8390285164629,
-      "y": 307.99873955546786,
-      "label_at": "left"
+      "x": -0.14642216159488264,
+      "y": 20.25035976429414,
+      "label_at": "left",
+      "dot_scale": 0.6139433523068368
      },
      "plugin.enumerate": {
       "id": "plugin.enumerate",
@@ -3045,11 +2318,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 9
       },
-      "x": 43.400753022486356,
-      "y": 388.5643530604794,
-      "label_at": "below"
+      "x": 17.713435311309947,
+      "y": 31.51412857611345,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.file": {
       "id": "plugin.file",
@@ -3061,11 +2336,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 16
       },
-      "x": -298.4934501097767,
-      "y": 224.63652913945788,
-      "label_at": "left"
+      "x": 28.340266745881586,
+      "y": 18.891155668023686,
+      "label_at": "right",
+      "dot_scale": 0.7041199826559248
      },
      "plugin.int": {
       "id": "plugin.int",
@@ -3077,11 +2354,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": -404.70833409072713,
-      "y": 253.76805381303683,
-      "label_at": "below"
+      "x": -4.616632049994026,
+      "y": 16.694824013552577,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.list": {
       "id": "plugin.list",
@@ -3093,11 +2372,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 4
       },
-      "x": -265.7639274984766,
-      "y": 25.828575628378058,
-      "label_at": "right"
+      "x": 1.0328111643819777,
+      "y": 1.160693684731147,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "plugin.number": {
       "id": "plugin.number",
@@ -3109,11 +2390,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 45
       },
-      "x": 26.059269599262937,
-      "y": 339.98007903662403,
-      "label_at": "left"
+      "x": 14.341386260848962,
+      "y": 21.819913606476952,
+      "label_at": "above",
+      "dot_scale": 1.1532125137753437
      },
      "plugin.parts": {
       "id": "plugin.parts",
@@ -3125,27 +2408,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 25
       },
-      "x": -423.62881158064204,
-      "y": 200.29095887352688,
-      "label_at": "left"
-     },
-     "plugin.plugin": {
-      "id": "plugin.plugin",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "plugin.plugin",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 18.92626188837906,
-      "y": -315.21044982022,
-      "label_at": "right"
+      "x": -6.022030896915716,
+      "y": 19.67604510059043,
+      "label_at": "right",
+      "dot_scale": 0.8979400086720376
      },
      "plugin.point": {
       "id": "plugin.point",
@@ -3157,11 +2426,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 45
       },
-      "x": 75.23363531001053,
-      "y": 366.12122908432025,
-      "label_at": "right"
+      "x": 13.423990222000844,
+      "y": 16.790040825396304,
+      "label_at": "above",
+      "dot_scale": 1.1532125137753437
      },
      "plugin.raw": {
       "id": "plugin.raw",
@@ -3173,11 +2444,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 8
       },
-      "x": -370.2846076865958,
-      "y": 228.79245742793785,
-      "label_at": "right"
+      "x": -9.304137068390418,
+      "y": 19.977050362829573,
+      "label_at": "below",
+      "dot_scale": 0.5
      },
      "plugin.router": {
       "id": "plugin.router",
@@ -3189,11 +2462,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 55
       },
-      "x": -93.3952341171904,
-      "y": -28.11882700295085,
-      "label_at": "right"
+      "x": 25.204274202271826,
+      "y": 21.9617529323834,
+      "label_at": "right",
+      "dot_scale": 1.2403626894942439
      },
      "plugin.s": {
       "id": "plugin.s",
@@ -3205,11 +2480,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 1
       },
-      "x": -35.892765268646116,
-      "y": 251.66934853156283,
-      "label_at": "above"
+      "x": 0.7755566616560401,
+      "y": 17.683002967375394,
+      "label_at": "left",
+      "dot_scale": 0.5
      },
      "plugin.s.add": {
       "id": "plugin.s.add",
@@ -3221,13 +2498,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 15
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 17.591169133037283,
-      "y": 380.92011177976906,
-      "label_at": "left"
+      "x": 18.693431381693415,
+      "y": 28.835593002585803,
+      "label_at": "right",
+      "dot_scale": 0.6760912590556812
      },
      "plugin.s.commit": {
       "id": "plugin.s.commit",
@@ -3239,13 +2518,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 10
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": -24.632063849441153,
-      "y": 321.3198664050818,
-      "label_at": "right"
+      "x": 16.68011669231111,
+      "y": 33.79058473242974,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.s.refresh": {
       "id": "plugin.s.refresh",
@@ -3257,13 +2538,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 12
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": 52.12950136770541,
-      "y": 328.11048895333283,
-      "label_at": "above"
+      "x": -1.891936941810254,
+      "y": 27.347549115026325,
+      "label_at": "left",
+      "dot_scale": 0.5791812460476248
      },
      "plugin.self": {
       "id": "plugin.self",
@@ -3275,11 +2558,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Argument"
+       "ast_type": "Argument",
+       "chars": 4
       },
-      "x": -307.3030959707977,
-      "y": 12.761719039882394,
-      "label_at": "left"
+      "x": -1.7249756064005126,
+      "y": 37.983916595652246,
+      "label_at": "right",
+      "dot_scale": 0.5
      },
      "plugin.seq": {
       "id": "plugin.seq",
@@ -3291,11 +2576,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 3
       },
-      "x": 62.81337663933751,
-      "y": 393.7430682979016,
-      "label_at": "right"
+      "x": 16.977825105746533,
+      "y": 15.426541977051919,
+      "label_at": "above",
+      "dot_scale": 0.5
      },
      "plugin.show_cue": {
       "id": "plugin.show_cue",
@@ -3307,11 +2594,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 335
       },
-      "x": 8.103004118605014,
-      "y": 350.5164868604069,
-      "label_at": "left"
+      "x": 3.3365540108896687,
+      "y": 29.63868590840199,
+      "label_at": "left",
+      "dot_scale": 2.025044807036845
      },
      "plugin.tmp": {
       "id": "plugin.tmp",
@@ -3323,11 +2612,13 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Name"
+       "ast_type": "Name",
+       "chars": 37
       },
-      "x": -213.30931587573866,
-      "y": 80.0778471386823,
-      "label_at": "above"
+      "x": 12.943963238775291,
+      "y": 39.524475237974684,
+      "label_at": "right",
+      "dot_scale": 1.068201724066995
      },
      "plugin.tmp.unlink": {
       "id": "plugin.tmp.unlink",
@@ -3339,13 +2630,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 12
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": -209.67768086946896,
-      "y": 253.72186134580937,
-      "label_at": "right"
+      "x": 28.22284889928593,
+      "y": 24.793758441399696,
+      "label_at": "right",
+      "dot_scale": 0.5791812460476248
      },
      "plugin.tmp.write_bytes": {
       "id": "plugin.tmp.write_bytes",
@@ -3357,13 +2650,15 @@
       "line": 0,
       "meta": {
        "module": "plugin",
-       "ast_type": "Call"
+       "ast_type": "Call",
+       "chars": 25
       },
       "shape": "hexagon",
       "color": "#00aa2a",
-      "x": -496.9908010034549,
-      "y": 197.31766958989,
-      "label_at": "none"
+      "x": 17.32618612765088,
+      "y": 38.860201747185656,
+      "label_at": "right",
+      "dot_scale": 0.8979400086720376
      },
      "pydantic.BaseModel": {
       "id": "pydantic.BaseModel",
@@ -3377,9 +2672,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 574.662156221068,
-      "y": -107.6698165516751,
-      "label_at": "right"
+      "x": -28.442948446969833,
+      "y": 0.650968234044365,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "pydantic.Field": {
       "id": "pydantic.Field",
@@ -3393,25 +2689,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": 348.4562972538861,
-      "y": -131.61235080406436,
-      "label_at": "right"
-     },
-     "pydantic.pydantic": {
-      "id": "pydantic.pydantic",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "pydantic.pydantic",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 371.4112923580517,
-      "y": -278.2175414555956,
-      "label_at": "right"
+      "x": -35.135331545789455,
+      "y": 5.3563750571389726,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "showrunner.models.CueList": {
       "id": "showrunner.models.CueList",
@@ -3425,25 +2706,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": -425.6150651375039,
-      "y": 144.9513369383161,
-      "label_at": "right"
-     },
-     "showrunner.models.showrunner.models": {
-      "id": "showrunner.models.showrunner.models",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "showrunner.models.showrunner.models",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 16.680680671602346,
-      "y": 154.2665520993329,
-      "label_at": "right"
+      "x": 7.952539117199972,
+      "y": 34.28587381623588,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "showrunner.plugins.db.get_db": {
       "id": "showrunner.plugins.db.get_db",
@@ -3457,57 +2723,10 @@
        "module": "",
        "ast_type": ""
       },
-      "x": -82.34587523539432,
-      "y": 275.63559223299467,
-      "label_at": "left"
-     },
-     "showrunner.plugins.db.showrunner.plugins.db": {
-      "id": "showrunner.plugins.db.showrunner.plugins.db",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "showrunner.plugins.db.showrunner.plugins.db",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": -256.0932264477357,
-      "y": -66.3752236379203,
-      "label_at": "right"
-     },
-     "typing_extensions.Literal": {
-      "id": "typing_extensions.Literal",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "typing_extensions.Literal",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 450.0001090930964,
-      "y": -62.296542054402856,
-      "label_at": "right"
-     },
-     "typing_extensions.typing_extensions": {
-      "id": "typing_extensions.typing_extensions",
-      "depth": 3,
-      "language": "python",
-      "kind": "symbol",
-      "label": "typing_extensions.typing_extensions",
-      "file": "",
-      "line": 0,
-      "meta": {
-       "module": "",
-       "ast_type": ""
-      },
-      "x": 496.07333948602326,
-      "y": -323.59081595286784,
-      "label_at": "right"
+      "x": 9.685835011059634,
+      "y": 13.768796518098602,
+      "label_at": "right",
+      "dot_scale": 1
      }
     },
     "edges": [
@@ -3576,24 +2795,6 @@
       }
      },
      {
-      "source": "cues.csv.DictReader",
-      "target": "csv.csv",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "cues.pathlib.Path",
-      "target": "pathlib.pathlib",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "cues.models.Cue",
-      "target": "models.models",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
       "source": "cues.open_csv",
       "target": "cues.csv",
       "kind": "contains",
@@ -3642,31 +2843,22 @@
       "weight": 1
      },
      {
-      "source": "cues.DictReader",
-      "target": "csv.DictReader",
-      "kind": "contains",
+      "source": "cues.csv",
+      "target": "cues.f",
+      "kind": "flows",
       "weight": 1
      },
      {
-      "source": "cues.Cue",
-      "target": "models.Cue",
-      "kind": "contains",
+      "source": "cues.open",
+      "target": "cues.f",
+      "kind": "flows",
       "weight": 1
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
-      "target": "cues.csv.DictReader",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
-      "target": "cues.pathlib.Path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
-      "target": "cues.models.Cue",
-      "kind": "contains"
+      "source": "cues.f",
+      "target": "cues.reader",
+      "kind": "flows",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
@@ -3674,191 +2866,205 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
-      "target": "cues.DictReader",
+      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py",
-      "target": "cues.Cue",
+      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.scripts::10",
       "kind": "contains"
      },
      {
-      "source": "__init__.cues.open_csv",
-      "target": "cues.cues",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.models.CUE_TYPES",
-      "target": "models.models",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.models.LAYER_IDS",
-      "target": "models.models",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.models.LAYERS",
-      "target": "models.models",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.models.Cue",
-      "target": "models.models",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.plugin.plugin",
-      "target": "plugin.plugin",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "__init__.plugin",
-      "target": "plugin.plugin",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.cues.open_csv",
+      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.entry-points.\"showrunner\"::13",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.models.CUE_TYPES",
+      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::16",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.models.LAYER_IDS",
+      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.uv.sources::20",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.models.LAYERS",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.models.Cue",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.plugin.plugin",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.__all__",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'Cue'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'CUE_TYPES'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'LAYER_IDS'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'LAYERS'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'open_csv'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.Const: 'plugin'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
-      "target": "__init__.plugin",
-      "kind": "contains"
-     },
-     {
-      "source": "plugin.pathlib.Path",
-      "target": "pathlib.pathlib",
+      "source": "models.Cue",
+      "target": "pydantic.BaseModel",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.fastapi.APIRouter",
-      "target": "fastapi.fastapi",
+      "source": "models.Cue",
+      "target": "models.page",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.fastapi.HTTPException",
-      "target": "fastapi.fastapi",
+      "source": "models.Cue",
+      "target": "models.int",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.fastapi.Query",
-      "target": "fastapi.fastapi",
+      "source": "models.Cue",
+      "target": "models.Const: None",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.fastapi.UploadFile",
-      "target": "fastapi.fastapi",
+      "source": "models.Cue",
+      "target": "pydantic.Field",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.showrunner.models.Cue",
-      "target": "showrunner.models.showrunner.models",
+      "source": "models.Cue",
+      "target": "models.Const: 'Page Number'",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.showrunner.models.CueList",
-      "target": "showrunner.models.showrunner.models",
+      "source": "models.Cue",
+      "target": "models.layer",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.showrunner.plugins.db.get_db",
-      "target": "showrunner.plugins.db.showrunner.plugins.db",
+      "source": "models.Cue",
+      "target": "models.LAYERS",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "models.Cue",
+      "target": "models.Const: 'Layer Title'",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.cues.open_csv",
-      "target": "cues.cues",
+      "source": "models.Cue",
+      "target": "models.number",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.models.CUE_TYPES",
-      "target": "models.models",
+      "source": "models.Cue",
+      "target": "models.str",
       "kind": "contains",
       "weight": 1
      },
      {
-      "source": "plugin.models.Cue",
-      "target": "models.models",
+      "source": "models.Cue",
+      "target": "models.Const: 'Cue Number'",
       "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "models.Cue",
+      "target": "models.name",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "models.Cue",
+      "target": "models.Const: 'Label'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "models.Cue",
+      "target": "models.notes",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "models.Cue",
+      "target": "models.Const: 'Work Note'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.LAYERS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Lights'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Sound'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Video'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Audio'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Stage'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.LAYER_IDS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: ''",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 's'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'v'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'a'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.CUE_TYPES",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'MIDI'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Const: 'Network'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
+      "target": "models.Cue",
+      "kind": "contains"
+     },
+     {
+      "source": "plugin._state",
+      "target": "plugin.created",
+      "kind": "flows",
       "weight": 1
      },
      {
@@ -3898,6 +3104,24 @@
       "weight": 1
      },
      {
+      "source": "plugin._parse_cue_number",
+      "target": "plugin.point",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin._parse_cue_number",
+      "target": "plugin.number",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.raw",
+      "target": "plugin.parts",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "plugin._import_to_db",
       "target": "plugin.cues",
       "kind": "contains",
@@ -3906,7 +3130,7 @@
      {
       "source": "plugin._import_to_db",
       "target": "plugin.cue_list_id",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -3924,13 +3148,13 @@
      {
       "source": "plugin._import_to_db",
       "target": "plugin.created",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin._import_to_db",
       "target": "plugin.list",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -3959,12 +3183,6 @@
      },
      {
       "source": "plugin._import_to_db",
-      "target": "fastapi.HTTPException",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin._import_to_db",
       "target": "plugin.Const: 404",
       "kind": "contains",
       "weight": 1
@@ -3988,6 +3206,66 @@
       "weight": 1
      },
      {
+      "source": "plugin._import_to_db",
+      "target": "plugin._parse_cue_number",
+      "kind": "calls",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cues",
+      "target": "plugin.seq",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cues",
+      "target": "plugin.cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue_list_id",
+      "target": "plugin.cue_list",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue_list_id",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue_list_id",
+      "target": "plugin.created",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.db",
+      "target": "plugin.s",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.created",
+      "target": "plugin.c",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.ShowCue",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.s",
+      "target": "plugin.cue_list",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "plugin.JoinedStr",
       "target": "plugin.Const: 'CueList '",
       "kind": "contains",
@@ -4008,7 +3286,7 @@
      {
       "source": "plugin.FormattedValue",
       "target": "plugin.cue_list_id",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4020,7 +3298,7 @@
      {
       "source": "plugin.ForLoop",
       "target": "plugin.cue",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4032,7 +3310,7 @@
      {
       "source": "plugin.ForLoop",
       "target": "plugin.cues",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4050,7 +3328,7 @@
      {
       "source": "plugin.ForLoop",
       "target": "plugin._parse_cue_number",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4062,13 +3340,13 @@
      {
       "source": "plugin.ForLoop",
       "target": "plugin.ShowCue",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.ForLoop",
       "target": "plugin.cue_list_id",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4104,7 +3382,7 @@
      {
       "source": "plugin.ForLoop",
       "target": "plugin.created",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4114,33 +3392,93 @@
       "weight": 1
      },
      {
+      "source": "plugin.seq",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue",
+      "target": "plugin.number",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.cue",
+      "target": "plugin.point",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.enumerate",
+      "target": "plugin.seq",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.enumerate",
+      "target": "plugin.cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.number",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
+      "source": "plugin.point",
+      "target": "plugin.show_cue",
+      "kind": "flows",
+      "weight": 1
+     },
+     {
       "source": "plugin.s.add",
       "target": "plugin.show_cue",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.created.append",
       "target": "plugin.show_cue",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.s.refresh",
       "target": "plugin.c",
-      "kind": "contains",
+      "kind": "uses",
+      "weight": 1
+     },
+     {
+      "source": "plugin.file",
+      "target": "plugin.contents",
+      "kind": "flows",
       "weight": 1
      },
      {
       "source": "plugin.tmp.write_bytes",
       "target": "plugin.contents",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin._CuelistState",
       "target": "plugin.__init__",
       "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "plugin._CuelistState",
+      "target": "plugin._state",
+      "kind": "flows",
       "weight": 1
      },
      {
@@ -4152,13 +3490,13 @@
      {
       "source": "plugin.__init__",
       "target": "plugin.list",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.__init__",
       "target": "models.Cue",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4206,7 +3544,7 @@
      {
       "source": "plugin.showrunner_register",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4230,7 +3568,7 @@
      {
       "source": "plugin.showrunner_register",
       "target": "plugin.Const: 'Cuelist'",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4248,7 +3586,7 @@
      {
       "source": "plugin.showrunner_startup",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4260,43 +3598,43 @@
      {
       "source": "plugin.showrunner_shutdown",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_shutdown",
       "target": "plugin.app",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_shutdown",
       "target": "plugin._state",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_routes",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_routes",
       "target": "plugin.router",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_commands",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_nav",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4326,13 +3664,13 @@
      {
       "source": "plugin.showrunner_get_nav",
       "target": "plugin.Const: 'Cuelist'",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_nav",
       "target": "plugin.Const: '/cuelist'",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
@@ -4350,122 +3688,28 @@
      {
       "source": "plugin.showrunner_get_status",
       "target": "plugin.self",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "plugin.showrunner_get_status",
       "target": "plugin.Const: None",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.Path",
-      "target": "pathlib.Path",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.APIRouter",
-      "target": "fastapi.APIRouter",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.HTTPException",
-      "target": "fastapi.HTTPException",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.Query",
-      "target": "fastapi.Query",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.Cue",
-      "target": "models.Cue",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.CueList",
-      "target": "showrunner.models.CueList",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.get_db",
-      "target": "showrunner.plugins.db.get_db",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.open_csv",
-      "target": "cues.open_csv",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "plugin.CUE_TYPES",
-      "target": "models.CUE_TYPES",
-      "kind": "contains",
+      "kind": "uses",
       "weight": 1
      },
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.pathlib.Path",
+      "target": "plugin.router",
       "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.fastapi.APIRouter",
+      "target": "plugin.Const: '/cuelist'",
       "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.fastapi.HTTPException",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.fastapi.Query",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.fastapi.UploadFile",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.showrunner.models.Cue",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.showrunner.models.CueList",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.showrunner.plugins.db.get_db",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.cues.open_csv",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.models.CUE_TYPES",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.models.Cue",
+      "target": "plugin.Const: 'Cuelist'",
       "kind": "contains"
      },
      {
@@ -4490,7 +3734,17 @@
      },
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin._state",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
       "target": "plugin.Const: '/cues'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin.list",
       "kind": "contains"
      },
      {
@@ -4501,6 +3755,21 @@
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
       "target": "plugin._import_to_db",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin.cue_list_id",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin.created",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin.cue",
       "kind": "contains"
      },
      {
@@ -4526,6 +3795,11 @@
      {
       "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
       "target": "plugin.Const: 'File must be a .csv'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
+      "target": "plugin.contents",
       "kind": "contains"
      },
      {
@@ -4604,305 +3878,38 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.Path",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.__all__",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.APIRouter",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'Cue'",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.HTTPException",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'CUE_TYPES'",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.Query",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'LAYER_IDS'",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.Cue",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'LAYERS'",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.CueList",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'open_csv'",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.get_db",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.open_csv",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py",
-      "target": "plugin.CUE_TYPES",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project::1",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project.scripts::10",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
-      "target": "toml::pyproject.toml::section::project.entry-points.\"showrunner\"::13",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
-      "target": "toml::pyproject.toml::section::build-system::16",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/pyproject.toml",
-      "target": "toml::pyproject.toml::section::tool.uv.sources::20",
-      "kind": "contains"
-     },
-     {
-      "source": "models.pydantic.BaseModel",
-      "target": "pydantic.pydantic",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.pydantic.Field",
-      "target": "pydantic.pydantic",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.typing_extensions.Literal",
-      "target": "typing_extensions.typing_extensions",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "pydantic.BaseModel",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.page",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.int",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: None",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "pydantic.Field",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: 'Page Number'",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.layer",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.LAYERS",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: 'Layer Title'",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.number",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.str",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: 'Cue Number'",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.name",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: 'Label'",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.notes",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Cue",
-      "target": "models.Const: 'Work Note'",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.BaseModel",
-      "target": "pydantic.BaseModel",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Field",
-      "target": "pydantic.Field",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "models.Literal",
-      "target": "typing_extensions.Literal",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.pydantic.BaseModel",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.pydantic.Field",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.typing_extensions.Literal",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Lights'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Sound'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Video'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Audio'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Stage'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.LAYER_IDS",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: ''",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 's'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'v'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'a'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.CUE_TYPES",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'MIDI'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Const: 'Network'",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Cue",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.BaseModel",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Field",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/models.py",
-      "target": "models.Literal",
+      "source": "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py",
+      "target": "__init__.Const: 'plugin'",
       "kind": "contains"
      },
      {

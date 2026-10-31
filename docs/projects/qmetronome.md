@@ -77,9 +77,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/qmetronome/code.svg)](../show/project/qmetronome/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/qmetronome/code.svg)](../show/project/qmetronome/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← qmcp](qmcp.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [rad →](rad.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← qmcp](qmcp.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [rad →](rad.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -88,7 +88,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qmetronome's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and qmetronome's default branch at `1abf5e9`, on 2026-10-27. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and qmetronome's default branch at `1abf5e9`, on 2026-10-29. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
