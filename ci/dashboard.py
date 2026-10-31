@@ -14,20 +14,24 @@ registered (`uv run qm instances register`) and that is not already up.
 on the web and `dossier` its front end in a terminal; neither owns anything,
 and a figure that differs between them is a defect. `looksatwords` reads the
 conversations the harness archived and reports their topics. `apothecary`
-serves its parts and the bench that makes them, in the browser.
+serves its parts and the bench that makes them, in the browser. `alfred` is a
+video editor in the browser, and `joe` the speech engine it hears with.
 
 Reporting is the default: nothing starts unless `--start` names it. `--start`
 detaches a server into its own process, records its pid, and waits until its
 port answers; a server that exits first, or does not answer within `--wait`
 seconds, is reported as not started, with the end of its log. The terminal
 front end draws where it is run, so for it this prints the command instead.
-`--stop` ends only a pid this command started, and only while that pid is
-still the process it started; then it withdraws every run-file naming the
-port it freed whose process is gone, the server's own among them.
+alfred's editor is a container stack that one session starts and every other
+shares, so for it this prints who starts it. `--stop` ends only a pid this
+command started, and only while that pid is still the process it started;
+then it withdraws every run-file naming the port it freed whose process is
+gone, the server's own among them.
 
 The ports are defaults, each overridable: pi for the harness, e for the web
-front end, phi for the terminal one, root two for the prose reader, and tau
-for apothecary's viewer. Each is its constant's first four digits.
+front end, phi for the terminal one, root two for the prose reader, tau for
+apothecary's viewer, root three for alfred's editor, and the twelfth root of
+two, a semitone, for joe. Each is its constant's first four digits.
 `docs/ref/ci/demos.md` describes the surfaces.
 """
 
@@ -99,6 +103,16 @@ class Surface:
     does is not declared again here, so `qm instances` reads one declaration of
     it rather than two."""
 
+    health: str = "/health"
+    """The path its health answer is on, the only one `qm instances` asks."""
+
+    owner_starts: bool = False
+    """Whether one session owns starting it: a stack in containers, brought up
+    once and used by every other session, per
+    `handbook/running-several-repositories.md`. This command starts and stops
+    none of it, and `command` runs in its repository as written, not under
+    `uv run`."""
+
 
 SURFACES: tuple[Surface, ...] = (
     Surface(
@@ -147,6 +161,27 @@ SURFACES: tuple[Surface, ...] = (
               "/openapi.json": "every route this server serves"},
         note="the demo touches no real board; `apothecary serve` without "
              "--demo drives the boards plugged into this machine"),
+    Surface(
+        name="editor", repo="alfred",
+        role="a video editor in the browser", port=1732, constant="root three",
+        command=("./al", "family", "up"), detachable=False, owner_starts=True,
+        health="/healthz",
+        dataview="/",
+        also={"/api": "every route its API serves"},
+        note="a container stack, with joe beside it: the session that owns "
+             "alfred starts it once and the others use it. Ask that session "
+             "before starting a second"),
+    Surface(
+        name="speech", repo="joe",
+        role="the speech engine alfred hears with", port=1059,
+        constant="twelfth root of two",
+        command=("uvicorn", "api:app", "--host", "127.0.0.1", "--port", "1059"),
+        detachable=True,
+        health="/api/health",
+        dataview="/docs",
+        also={"/api/health": "whether it is up"},
+        note="alfred's editor reaches it for captions, and `./al family up` "
+             "starts it beside the editor"),
 )
 
 BY_NAME = {s.name: s for s in SURFACES}
@@ -226,6 +261,11 @@ def start(surface: Surface, repo: Path, wait: float = WAIT) -> tuple[bool, str]:
     none of them. Started is said only of a server whose port answers: a pid
     alone is a process that may already have exited.
     """
+    if surface.owner_starts:
+        return False, (f"{surface.name} is {surface.repo}'s stack, which the "
+                       f"session that owns it starts once for everyone. Ask "
+                       f"it; if none has, run `{' '.join(surface.command)}` "
+                       f"in {surface.repo} yourself")
     if not surface.detachable:
         return False, (f"{surface.name} draws in the terminal it is run from. "
                        f"Run `{' '.join(surface.command)}` there yourself")
@@ -253,7 +293,8 @@ def start(surface: Surface, repo: Path, wait: float = WAIT) -> tuple[bool, str]:
         # So `qm instances` finds it by its declaration, not by its port.
         instances.declare(surface.repo, child.pid, surface.port,
                           [*RUNNER, *surface.command],
-                          session="dashboard", checkout=repo)
+                          session="dashboard", health=surface.health,
+                          checkout=repo)
 
     outcome = await_port(child, surface.port, wait)
     if outcome == "listening":
@@ -437,7 +478,11 @@ def report() -> int:
                 print(f"  {surface.name:<10} {surface.repo} is not beside this "
                       f"clone. Nothing here can start it")
                 continue
-            if surface.detachable:
+            if surface.owner_starts:
+                print(f"  {surface.name:<10} cd {surface.repo} && "
+                      f"{' '.join(surface.command)}")
+                print(f"  {'':<10} ({surface.note})")
+            elif surface.detachable:
                 print(f"  {surface.name:<10} uv run qm dashboard --start "
                       f"{surface.name}")
                 print(f"  {'':<10} or, in its own terminal: "
@@ -495,6 +540,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({
             s.name: {"repository": s.repo, "role": s.role, "port": s.port,
                      "constant": s.constant, "detachable": s.detachable,
+                     "owner_starts": s.owner_starts, "health": s.health,
                      "present": repo_of(s) is not None,
                      "listening": listening(s.port),
                      "started_here": s.name in started,
