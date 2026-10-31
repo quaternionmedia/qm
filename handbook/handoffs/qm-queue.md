@@ -247,8 +247,10 @@ each pull request into it is behind its base until brought level.
   show generator or by an allowance with a stated reason. (2026-10-26)
 
 - **Two green pull requests left a generated page on `main` stale, and no gate
-  saw it.** #248 moved the roster and #285 carried `docs/families/index.md`
-  as generated before it; each passed `docs-audit.yml` at its own tip, and
+  saw it.** The pull request that put cathy in the roster moved the roster,
+  and the one that drew every showgraph as a Showcase carried
+  `docs/families/index.md` as generated before it; each passed
+  `docs-audit.yml` at its own tip, and
   merged in that order they left `main`'s page one rostered repository
   behind. The audit runs on `pull_request` alone, filtered to `docs/**` and
   the generator's inputs, so `main` was never checked after either merge and
@@ -259,7 +261,8 @@ each pull request into it is behind its base until brought level.
   one-line drift. Done is the audit running on every push to `main` as well,
   so a stale generated page is `main`'s red and not the next contributor's,
   and the step saying *stale against its committed inputs* rather than
-  naming a disk. (2026-10-31)
+  naming a disk. `hil-review-2026-10-31.md` §5 names the three pull requests.
+  (2026-10-31)
 
 ### Carried from retired pages
 
