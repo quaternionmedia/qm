@@ -1,7 +1,7 @@
 # Handoff — joe's open set, #35 to #58, landed one merge at a time
 
-**Stamped 2026-10-28.** `joe` `main` at `474307f`; `joe`'s
-`integrate/open-prs` at `6ff1f67`; `qm` `main` at `bb2ed17`. Every figure on
+**Stamped 2026-10-31.** `joe` `main` at `474307f`; `joe`'s
+`integrate/open-prs` at `6ff1f67`; `qm` `main` at `aee6f21`. Every figure on
 this page was true at those commits and nowhere else. Re-derive each one with
 `gh` before acting on it: an assistant session's Auto-fix watches #35 to #50
 and merges `main` into one the host reports conflicting (`0a469eb` on #47).
@@ -68,6 +68,12 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 #49; #53 to #58; #36, #37, #38, #35; then #51 and #52. #4 (`p5`) and #7
 (Dependabot) are older than the set and outside this page.
 
+#59, another session's draft from `main` (`feat/constant-port`), moves joe's
+API from 8000 to 1059, the twelfth root of two, qm's allocation for joe since
+qm #292 (`docs/ref/ci/demos.md`). #35 to #38, #53's `vite.config.js` and #55
+add lines naming 8000 as joe's address: whichever of #59 and each of them
+lands second takes 1059.
+
 ## 4. Recorded against each, to fix as it is readied
 
 - **#36.** No test reads `DEFAULT_TTL` or `JOE_MEDIA_TTL`; the hour the tests
@@ -114,6 +120,13 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 
 ## 6. Open failures, and what was not verified
 
+- **Every `joe` pull request's next `pytest (ubuntu-latest)` fails at
+  collection.** The hosted `ubuntu-latest` is Ubuntu 26.04.1 (image
+  `20261021.618`), whose `libportaudio2` brings `libpulse0`, and `import
+  sounddevice` then fails in `Pa_Initialize` with no PulseAudio server: #59's
+  run `41155201708`, `PulseAudio_Initialize: Can't connect to server`. Every
+  run of `tests.yml` through 2026-10-28 passed, #51's, #52's and #58's last
+  among them. Nothing in the set fixes it.
 - A take once shown plays from the browser's cache after its recording is
   deleted: `GET /api/voice/takes/{take}/audio` sends no `Cache-Control`. Left
   as it is: `joe` deletes no take's recording -- what `Modules/Media.py` and
@@ -146,8 +159,10 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
    met so far, resolved.
 3. **The page's specs on the branch's own build.** Before #53 lands, a
    branch's `playwright.config.js` reuses whatever answers on `:3000`, which
-   can be the demo. A config of its own runs `npm run dev -- --port 3300
-   --strictPort` with `reuseExistingServer: false` and `testDir` set to the
+   can be the demo. A config of its own runs `npm run dev -- --port <port>
+   --strictPort` on a free port, as qm's
+   `handbook/running-several-repositories.md` asks of a session, with
+   `reuseExistingServer: false` and `testDir` set to the
    worktree's `tests/e2e`. A worktree without `node_modules` takes a junction
    (`mklink /J`) to another worktree's whose `package-lock.json` is the same;
    `rmdir` the junction before removing the worktree, or the removal follows
@@ -165,15 +180,21 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 
 ## 8. Local state at the stamp
 
-Nothing is unpushed but `joe.worktrees/review`. The demo runs: its page on
-`:3000` and its API on `127.0.0.1:8020`, without `qmcp`, so the page's proxy
-answers `/v1/human/requests` with a 500.
+Nothing is unpushed but `joe.worktrees/review`. The demo is stopped, and
+`uv run qm instances` declared nothing.
 
-- The `joe` clone: `demo/voice-loop-2026-10-04` at `f3faa67`, clean. Its
-  untracked `.claude/launch.json` starts the demo: `joe-demo-api` (uvicorn on
-  `127.0.0.1:8020`, every `JOE_ALLOW_*` set, `tighten`'s venv, `PYTHONPATH`
-  the demo) and `joe-demo-page` (`npm run dev` on `:3000` with
-  `JOE_API_URL=http://127.0.0.1:8020`).
+- The demo is served from `joe.worktrees/demo` through qm's wrapper, each
+  server on a free port, as `handbook/running-several-repositories.md` asks of
+  a session. From that worktree, with `uv run --project <qm clone>` so the
+  working directory stays the demo's: the API as `qm instances run --repo joe
+  --session <name> --health /api/health -- <venv python> -m uvicorn api:app
+  --host 127.0.0.1 --port {port}`, `PYTHONPATH` the demo and every
+  `JOE_ALLOW_*` set; the page as `qm instances run --repo joe --session <name>
+  --health /joe/ -- npm run dev -- --port {port} --strictPort`, with
+  `JOE_API_URL` the API's address. The `joe` clone's untracked
+  `.claude/launch.json` holds the fixed ports the demo used before that
+  procedure, 8020 and 3000.
+- The `joe` clone: `demo/voice-loop-2026-10-04` at `f3faa67`, clean.
 - `joe.worktrees/demo`: detached at `d28d142`, #52's head, with a `Data/` of
   its own whose takes point into it.
 - `joe.worktrees/golden-layout` (#51), `paths` (#52), `topics` (#58),
@@ -184,5 +205,7 @@ answers `/v1/human/requests` with a 500.
   merged and deleted on origin.
 - `joe.worktrees/review`: detached at `422fe96`, a review build of 2026-10-24
   that `integrate/open-prs` replaces.
-- alfred's Docker containers hold `127.0.0.1:8000` and `:8001`, so the demo's
-  API is on `8020`.
+- Nothing listened on `127.0.0.1:8000`, `:8001`, `:1059` or `:3141`. alfred's
+  editor takes 1732 and joe's API 1059 when a person starts them
+  (`uv run qm dashboard`); alfred's container stack, joe beside it, is its
+  owning session's to start.
