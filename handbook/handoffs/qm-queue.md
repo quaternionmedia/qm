@@ -98,7 +98,8 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
-| #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #147, #148, #149, #150, #151, #153, #156 | seven project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-29 | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -197,8 +198,9 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
 - **alfred's detail page shows its pictures.** Its seven screenshots are on
-  alfred's stack, up to `feat/close-gaps`, and not on its `main`, so its page
-  on the site shows each as waiting. Done is alfred's stack merged, then
+  alfred's stack from alfred #126, `integrate/wave-6`, up, and not on its
+  `main` (2026-10-29), so its page on the site shows each as waiting. Done is
+  alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
 - **The namespaces are declared by hand, in several places.**
@@ -247,12 +249,21 @@ re-checked and is re-derived before anyone acts on it.
   branches; absent on alfred, apothecary, datum, dossier, factorio-sysops,
   qmetronome and rad, and not read for the private projects. Done is the
   workflow on every project's default branch, which follows the propagations
-  in §2 and a copy in each project.
-- **Unsubstituted placeholders.** Seven project branches' `adr/README.md`
-  still reads `project/<name>`: alfred, apothecary, factorio-sysops,
-  qmetronome, `private-32`, `private-33` and `private-34`.
+  in §2 and a copy in each project. alfred's copy is the seed's file
+  verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
+  pull request is a draft, and alfred #117, the bottom one, is ready on
+  `main`. alfred's `main` has no governance submodule yet, and its stack
+  pins `e76827d`, where neither script the workflow runs exists;
+  `project/alfred` carries both since its propagation of 2026-10-29, voice
+  step exempting automation accounts included. The copy
+  goes onto alfred's stack with a pin bump, and reaches its `main` when the
+  stack lands.
+- **Unsubstituted placeholders.** Six project branches' `adr/README.md`
+  still reads `project/<name>`: apothecary, factorio-sysops, qmetronome,
+  `private-32`, `private-33` and `private-34`.
   `project-seed/ci/check_placeholders.py` refuses it at each branch's next
-  propagation. Done is that check clean on every project branch.
+  propagation, so the propagation substitutes it, as alfred's did on
+  2026-10-29. Done is that check clean on every project branch.
 - **`handbook/async-contract.md` names an adapter's command** (`/cowork`), where
   a governance page names no tool. Done is the page stating the rule and
   pointing at `adapters/` for any mechanism.
@@ -310,6 +321,18 @@ re-checked and is re-derived before anyone acts on it.
   host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
   that mode, or `handbook/consolidation-runbook.md` Step 8 naming
   `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
+- **Only qmcp says which server it is.** `qm instances` identifies a server
+  whose health answer names its pid and port; on 2026-10-29 qmcp's did, and
+  codecartographer's checkout served no health route, and looksatwords'
+  health named no pid. Every other server reads as `answering`, attributed by
+  its run-file alone. Done is each serving repository's health route naming
+  its pid and port, as `qmcp/instance.py` does, and `qm instances` reading it
+  as `identified`. (2026-10-29)
+- **The family demo declares nothing.** `qm family-demo` keeps its members in
+  a manifest, so while it runs every member reads as a listener nobody
+  declared in its range, and a member this machine registers reads as
+  `missing`. Done is the demo writing a run-file for each member it starts,
+  with the run's name as its session. (2026-10-29)
 - **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
   planes, and the instruction loop appears in it only as a departure it names;
   the archive and speech do not appear. `qmcp tools list` lists the built-in
@@ -438,3 +461,7 @@ re-checked and is re-derived before anyone acts on it.
   gates never ran, and a push to its branch starts them.
 - `uv run qm docs check` runs in no workflow and no preflight step; run it
   before a pull request is ready.
+- A propagation pull request goes red on `namespace` once `main` moves past
+  the commit it merged: the guard compares every file the merge brings with
+  `main`'s tip. Merging `main` into the `propagate/*` branch again clears it;
+  alfred's propagation took it so on 2026-10-29.

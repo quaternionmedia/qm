@@ -87,14 +87,17 @@ mappings:
       analogy.
 
   - layer: the service ports
-    structure: mathematical constants -- pi, phi, e
+    structure: >
+      mathematical constants -- pi, phi, e, root two, tau, root three and the
+      twelfth root of two
     state: decorative
     decides: nothing
     measured: none
     unearned: >
-      everything. Three numbers chosen to be recalled without looking. `e` went
+      everything. Seven numbers chosen to be recalled without looking. `e` went
       to the layer whose stated problem is complexity growing faster than
-      anybody can hold, which is a reason and still not a structure.
+      anybody can hold, and the twelfth root of two, a semitone, to the speech
+      engine; each is a reason and still not a structure.
     next: >
       nothing stated. This entry exists to be labelled rather than improved --
       an unlabelled decoration is what turns the practice into ornament.
