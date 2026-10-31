@@ -8,8 +8,10 @@ with `gh` before acting on it. `joe` #33 and #34 were re-derived on
 
 [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
 set and §5 there is the order it lands in;
-[`the-voice-loop.md`](the-voice-loop.md) is the loop itself. This page is how
-far that order has got, what is left, and how each step was done. Delete it
+[`the-voice-loop.md`](the-voice-loop.md) is the loop itself;
+[`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after the
+set. This page is how far that order has got, what is left, and how each step
+was done. Delete it
 when the set and the steps after it have landed.
 
 ---
@@ -32,7 +34,9 @@ when the set and the steps after it have landed.
    one commit, its tests, each mutation seen red -- and the overview says so.
    Applied on #68, #73 and #74.
 5. **The landing paused at `joe` #33** until a person had tested it by hand.
-   #33 merged on 2026-10-26; whether the test ran is in §5.
+   #33 merged on 2026-10-26, after Peter tested it on the demo by step 4 of
+   `joe`'s `docs/paths/voice-loop.md` §4 (`joe-open-set.md` §2); §5 says what
+   the host shows of it.
 6. **Decided 2026-10-17, while `qm`'s part landed**, each asked on its own:
    - a finding in a pull request's own text is fixed on that pull request,
      one commit, before its merge is asked;
@@ -93,8 +97,8 @@ each stated in its pull request's body:
 |---|---|---|
 | #33, the transcript lane | merged 2026-10-26 as `c7dccf4` | done |
 | #34, `joe`'s timeless text | merged 2026-10-26 as `474307f` | done |
-| README | not opened | one pull request from `joe`'s `main` after #34, carrying the demo branch's README content as facts |
-| cookbook | not opened | the same, for the cookbook |
+| README | not opened; `joe` #56 states `main`'s README as its code is | one pull request from `joe`'s `main` after #34, carrying the demo branch's README content as facts, or Peter's word that #56 stands for it |
+| cookbook | not opened; `joe` #52 folds the cookbook's recipes into three lane pages and deletes it | the same, for the cookbook, or Peter's word that #52 stands for it |
 
 The host refused to merge `main` into #27 and #32 and they were merged by
 hand (§6, step 3).
@@ -140,6 +144,7 @@ together having landed. Nothing of the set is left in `qm`.
 
 ## 4. Blocked on a person
 
+- **Whether `joe` #56 and #52 stand for §3's README and cookbook rows.**
 - **Two decisions carried from the 2026-09-27 review page**, which this page
   retires:
   - whether `joe` carries the corpus -- at the stamp it has no
@@ -161,13 +166,16 @@ together having landed. Nothing of the set is left in `qm`.
 - Tiers 2 and 3 of the demonstration -- the local model, a microphone -- were
   not run on any `main` during the landing.
 - That `joe` #33 was tested by hand before it merged on 2026-10-26: its pull
-  request carries no comment or review saying so.
+  request carries no comment or review saying so. The session that asked for
+  its merge records Peter's test (`joe-open-set.md` §2).
 - Pull requests with no commit made by hand during the landing were checked
   by the hosted workflows only: `vox` #10 to #15; `qmcp` #54 to #56, #58,
-  #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31, #33.
+  #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31.
   Those with a commit made by hand during the landing -- a merge of `main`, a
   pin move, a restamp -- were also run locally (§6, step 5): `qmcp` #60, #68,
-  #69, #70, #72, #73, #74, #82; `joe` #27, #32; `vox` #9. Every `qm` pull
+  #69, #70, #72, #73, #74, #82; `joe` #27, #32, #33, #34; `vox` #9. `joe`
+  #34's browser suite ran on the hosted runner only, no page file differing
+  from `main`'s. Every `qm` pull
   request of the set was also run locally, against `main`, at the head it
   merged at.
 - `uv run qm docs check` runs in no workflow and in no preflight step. #135
@@ -227,5 +235,6 @@ Nothing is unpushed.
 - `qmcp`: the clone on `demo/voice-loop-2026-10-04`, and
   `qmcp.worktrees/integration` detached at `72b6f82`; neither was made by the
   landing.
-- `joe`: the clone on `demo/voice-loop-2026-10-04`.
+- `joe`: the clone on `demo/voice-loop-2026-10-04`; `joe-open-set.md` §8 has
+  its worktrees.
 - `qm`: the clone on `main`, clean; `qm.worktrees/demo` on the demo branch.
