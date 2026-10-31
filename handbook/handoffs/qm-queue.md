@@ -166,6 +166,13 @@ each pull request into it is behind its base until brought level.
 
 ## 4. Unfinished, and what done looks like
 
+- **The design review of qm, phases 4 to 7.** Phases 0, 1 and 3 ran at
+  `debf210`, read-only, scoped to a stranger's first hour; #303 carries Part 1
+  of `design-review-of-the-estate.md` with the leads as hypotheses and the
+  skeptic verdicts, and the retrospective, and stays open for the owner to
+  read. Done is #303 merged, then the triage, the owner's decisions asked in
+  the session, and the workstreams landed from `evolve/design-review-<date>`.
+  (2026-10-31)
 - **`project/apothecary`'s unsigned history.** #121's 33 commits are unsigned,
   dated 2026-09-18 to 2026-10-13. `project/apothecary` is one of eight project
   branches without `signature-check.yml`, so nothing on a pull request into it
