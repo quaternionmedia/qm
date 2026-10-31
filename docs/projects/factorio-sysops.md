@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. factorio-sysops's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and factorio-sysops's default branch at `da1e1d0`, on 2026-10-27. [The show document](../show/project/factorio-sysops/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and factorio-sysops's default branch at `da1e1d0`, on 2026-10-29. [The show document](../show/project/factorio-sysops/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

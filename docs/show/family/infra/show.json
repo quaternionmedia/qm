@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:ebd4ba15e366342af1e74e61e184a8ceabfdc75f3aae843cf81a0d3298e800ae"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -223,10 +223,10 @@
     "subject": "family:infra",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -262,9 +262,66 @@
     "notes": [],
     "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: streaming-infrastructure, ztgui."
    }
+  },
+  "code": {
+   "graph": "each project's code view's",
+   "metadata": {
+    "kind": "show",
+    "subject": "family:infra",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "bb2ed17",
+    "provenance": {
+     "source": "families.json",
+     "commit": "bb2ed17",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     },
+     "parsed": {
+      "style": "solid",
+      "color": "#56688f",
+      "size": 0.75
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "streaming-infrastructure",
+     "ztgui"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "code": {
+     "moat": "16a595a3598c02ba521fc42617fc130030f9b57f",
+     "ztgui": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
+    },
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: streaming-infrastructure, ztgui. Each project's code is the code map its show document in the corpus holds, drawn from its default branch: 2 project(s); 1 with no code map drawn yet are drawn alone: streaming-infrastructure."
+   }
   }
  },
  "files": {
-  "estate": "estate.svg"
+  "estate": "estate.svg",
+  "code": "code.svg"
  }
 }

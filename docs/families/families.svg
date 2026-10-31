@@ -176,5 +176,5 @@
 <rect class="track" x="920.9" y="124" width="16" height="6" rx="1"/>
 <text x="883.8" y="288" font-size="13" font-weight="700">9 members</text>
 <text class="mono muted" x="883.8" y="304" font-size="11">2 past v0.0.0</text>
-<text class="mono muted" x="16" y="344" font-size="11">the lit share of a meter is the share past v0.0.0 · a repository in two families counts in each · 1 rostered repository states no family yet</text>
+<text class="mono muted" x="16" y="344" font-size="11">the lit share of a meter is the share past v0.0.0 · a repository in two families counts in each · 2 rostered repositories state no family yet</text>
 </svg>

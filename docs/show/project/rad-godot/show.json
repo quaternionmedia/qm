@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "commit": "bb2ed1731b19a5b335c8e06de444bdd014732e74",
    "digest": "sha256:52c96de6615a43af500db0ae07d927e9cdf2275f4d5f13b62a5322beb4223ce3"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6dd9485f6bd2a5ddf7679f3dfe4c19f44385a5f3"
   },
   "drawn_by": {
-   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+   "graph": "codecartographer@92c5a4c159c0f3e583f80a7bdda5fe1293379c1f"
   },
-  "drawn_at": "2026-10-27T19:21:23Z"
+  "drawn_at": "2026-10-29T19:28:44Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:rad-godot",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "6906aee",
+    "commit": "bb2ed17",
     "provenance": {
      "source": "families.json",
-     "commit": "6906aee",
+     "commit": "bb2ed17",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,9 +218,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1792.740932650509,
-      "y": -480.3634851419221,
+      "x": -263.89089151126115,
+      "y": 0,
       "size": 120
      },
      "dir::quaternionmedia/rad-godot/Scenes": {
@@ -232,9 +233,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 1808.0133772862102,
-      "y": -393.61166997446037,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": -262.66088680070254,
+      "y": -14.01526926717129,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons": {
@@ -246,9 +248,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1239.5587217599611,
-      "y": -332.1387584665367,
+      "x": 180.82153579707875,
+      "y": -198.23268681593947,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4": {
@@ -260,9 +263,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1043.6396538073652,
-      "y": -279.6424024267803,
+      "x": -159.84174406556,
+      "y": 15.494810782728962,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/bin": {
@@ -274,9 +278,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 979.8885492722866,
-      "y": -262.56034545001387,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -151.34174406556,
+      "y": 15.494810782728962,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src": {
@@ -288,9 +293,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -167.79778980702795,
-      "y": 241.50009543998698,
+      "x": 28.34986358058535,
+      "y": -26.591811698910874,
       "size": 200
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts": {
@@ -301,10 +307,14 @@
       "kind": "directory",
       "file": "",
       "line": 0,
-      "meta": {},
-      "label_at": "none",
-      "x": -233.88706110906102,
-      "y": 891.1374369668273,
+      "meta": {
+       "lines": 137,
+       "pages": 1
+      },
+      "dot_scale": 2.1367205671564067,
+      "label_at": "right",
+      "x": 37.12330471489821,
+      "y": -26.591811698910874,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/cmd": {
@@ -316,9 +326,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "left",
-      "x": -231.54889434210645,
-      "y": 258.5821524167534,
+      "x": 20.653470384781997,
+      "y": -19.541285077642982,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core": {
@@ -330,9 +341,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 96.08597848858999,
-      "y": -287.3817652322765,
+      "x": -59.16981290047361,
+      "y": 61.84568963547798,
       "size": 190
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/assets": {
@@ -344,9 +356,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 32.334873953511476,
-      "y": -270.29970825551015,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -50.6698129004736,
+      "y": 61.84568963547798,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/attributes": {
@@ -358,9 +371,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 137.9130865923859,
-      "y": -353.0175445578346,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -66.56090723882753,
+      "y": 68.616537494613,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/command": {
@@ -372,9 +386,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 111.35842312429105,
-      "y": -200.62995006481478,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": -58.17802088992735,
+      "y": 50.544731220024175,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/discovery": {
@@ -386,9 +401,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 18.943697965683455,
-      "y": -346.62495940447826,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -51.54808774975797,
+      "y": 71.78688043321188,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/event": {
@@ -400,9 +416,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 201.34046801521072,
-      "y": -296.53285448386043,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -72.56845381806775,
+      "y": 59.47565871555918,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution": {
@@ -414,9 +431,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 334.7245822421976,
-      "y": -867.8423234144516,
+      "x": 20.97905060714362,
+      "y": 40.049791208858096,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages": {
@@ -428,9 +446,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 191.30187032935788,
-      "y": -724.4196115016119,
+      "x": 6.217248130738483,
+      "y": 65.61798310928776,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/fuzzed": {
@@ -442,9 +461,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 127.55076579427936,
-      "y": -707.3375545248455,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 14.717248130738483,
+      "y": 65.61798310928776,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/single": {
@@ -456,9 +476,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 233.1289784331543,
-      "y": -790.0553908271701,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -1.1738462076154406,
+      "y": 72.38883096842272,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/hooks": {
@@ -470,9 +491,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 19.404743547169403,
-      "y": -203.8126279395017,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -46.84511303601252,
+      "y": 54.0057244250352,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parameters": {
@@ -484,9 +506,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 96.18410305055157,
-      "y": -408.0688207584195,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": -63.20485170178992,
+      "y": 76.85583285171253,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parse": {
@@ -498,9 +521,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 182.16280529491834,
-      "y": -193.26631811038612,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -66.74060319110927,
+      "y": 47.268593624090244,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/report": {
@@ -512,9 +536,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -37.43782374329201,
-      "y": -299.2094546744822,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -42.95376304351075,
+      "y": 67.76776503490476,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/runners": {
@@ -526,9 +551,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 207.4578274548117,
-      "y": -372.6247928523998,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -75.86580450821273,
+      "y": 68.7375522635565,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates": {
@@ -540,9 +566,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -235.12864400975698,
-      "y": -198.63307461246518,
+      "x": -82.95116274021964,
+      "y": 103.03619583048811,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates/test_suite": {
@@ -554,9 +581,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -298.87974854483554,
-      "y": -181.55101763569877,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -74.45116274021964,
+      "y": 103.03619583048811,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/thread": {
@@ -568,9 +596,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 70.5052196738559,
-      "y": -143.44688489237276,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -51.18983209752187,
+      "y": 44.792934172371076,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/writers": {
@@ -582,9 +611,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 14.661965357587547,
-      "y": -415.613265206512,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": -53.315012541420714,
+      "y": 80.51171576600814,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet": {
@@ -596,9 +626,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 284.85252502447923,
-      "y": 306.8627501089748,
+      "x": 16.46083919034146,
+      "y": -76.49550156648161,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/doubler": {
@@ -610,9 +641,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -125.97068170323182,
-      "y": 175.86431611442882,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": 29.387675495406995,
+      "y": -38.41714318751767,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/extractors": {
@@ -624,9 +656,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -152.52534517132688,
-      "y": 328.25191060744874,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 36.35000502154918,
+      "y": -16.157043860816998,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/fuzzers": {
@@ -638,9 +671,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "left",
-      "x": -244.9400703299342,
-      "y": 182.25690126778522,
+      "x": 14.255803996782959,
+      "y": -29.08485238909961,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/matchers": {
@@ -652,9 +686,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -62.54330028040697,
-      "y": 232.349006188403,
+      "x": 41.33462136283839,
+      "y": -34.85165172734321,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/mocking": {
@@ -666,9 +701,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -244.47902474844852,
-      "y": 325.0692327327618,
+      "dot_scale": 2,
+      "label_at": "below",
+      "x": 24.093619400553223,
+      "y": -10.758795499734504,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/monitor": {
@@ -680,9 +716,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -167.69966524506611,
-      "y": 120.81303991384385,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": 20.356466105847915,
+      "y": -41.98261212704534,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network": {
@@ -694,9 +731,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 229.4062195540374,
-      "y": 679.4092772341814,
+      "x": -16.12621939553773,
+      "y": -94.25040793487415,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network/rpc": {
@@ -708,9 +746,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 165.6551150189589,
-      "y": 696.4913342109478,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -7.626219395537703,
+      "y": -94.25040793487415,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters": {
@@ -722,9 +761,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -705.0827174897752,
-      "y": -33.72552867061415,
+      "x": 76.38813401072235,
+      "y": -26.591811698910874,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/console": {
@@ -736,9 +776,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -768.8338220248536,
-      "y": -16.643471693847772,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 84.88813401072235,
+      "y": -26.591811698910874,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html": {
@@ -750,9 +791,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -691.4064421480671,
-      "y": 381.8006109847171,
+      "x": 105.91173896353246,
+      "y": -26.591811698910874,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template": {
@@ -764,9 +806,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -1400.6932030865426,
-      "y": 753.5904137567288,
+      "x": 146.21665004595974,
+      "y": -26.591811698910874,
       "size": 90
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css": {
@@ -778,9 +821,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -1207.5502614233064,
-      "y": 401.0519129334482,
+      "x": 200.68574184405915,
+      "y": -43.3581862965525,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/xml": {
@@ -792,9 +836,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -663.2556093859791,
-      "y": -99.36130799617231,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": 68.99703967236843,
+      "y": -19.820963839775885,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/spy": {
@@ -806,9 +851,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": -81.72096300069958,
-      "y": 335.61554256187736,
+      "x": 45.48423407700437,
+      "y": -20.334367074816015,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui": {
@@ -820,9 +866,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": -106.02822520652242,
-      "y": 595.9902912139524,
+      "x": -19.956624869720287,
+      "y": -44.79187351228356,
       "size": 100
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/menu": {
@@ -834,9 +881,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -169.77932974160095,
-      "y": 613.0723481907188,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -11.456624869720287,
+      "y": -44.79187351228356,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/parts": {
@@ -848,9 +896,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -64.2011171027265,
-      "y": 530.3545118883942,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -27.34771920807415,
+      "y": -38.02102565314857,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/settings": {
@@ -862,9 +911,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -90.75578057082134,
-      "y": 682.7421063814141,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": -18.964832859174038,
+      "y": -56.09283192773739,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/templates": {
@@ -876,9 +926,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -183.17050572942873,
-      "y": 536.7470970417505,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -12.334899719004596,
+      "y": -34.85068271454969,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/utils": {
@@ -890,9 +941,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -0.7737356799016482,
-      "y": 586.8392019623685,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": -33.35526578731444,
+      "y": -47.16190443220239,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update": {
@@ -904,9 +956,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 460.7896018359103,
-      "y": 128.51009923138284,
+      "x": 61.60279051014164,
+      "y": -110.95709624326584,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update/assets": {
@@ -918,9 +971,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 397.03849730083175,
-      "y": 145.59215620814922,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 70.10279051014163,
+      "y": -110.95709624326584,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin": {
@@ -932,9 +986,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1396.7245639104783,
-      "y": -489.30460061705406,
+      "x": 180.82153579707875,
+      "y": -230.2593770711505,
       "size": 90
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/linux": {
@@ -946,9 +1001,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 1438.5516720142743,
-      "y": -554.9403799426123,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": 173.43044145872483,
+      "y": -223.48852921201555,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/macos": {
@@ -960,9 +1016,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 1411.9970085461796,
-      "y": -402.5527854495923,
+      "dot_scale": 2,
+      "label_at": "above",
+      "x": 181.81332780762494,
+      "y": -241.56033548660437,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/win64": {
@@ -974,9 +1031,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 1319.5822833875716,
-      "y": -548.5477947892557,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 188.44326094779439,
+      "y": -220.31818627341667,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/rad": {
@@ -988,9 +1046,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1408.7339103511708,
-      "y": -140.41482007226995,
+      "x": 217.09283227690196,
+      "y": -195.7713341854946,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/rad/core": {
@@ -1002,9 +1061,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 1344.9828058160924,
-      "y": -123.33276309550358,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": 225.59283227690196,
+      "y": -195.7713341854946,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/rad/ui": {
@@ -1016,9 +1076,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 1450.5610184549666,
-      "y": -206.05059939782805,
+      "dot_scale": 2,
+      "label_at": "left",
+      "x": 209.7017379385481,
+      "y": -189.0004863263596,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/conformance": {
@@ -1030,9 +1091,10 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 1715.5986521276025,
-      "y": -539.6066793141238,
+      "dot_scale": 2,
+      "label_at": "right",
+      "x": -254.3116022724795,
+      "y": 12.49448650355303,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/docs": {
@@ -1043,10 +1105,14 @@
       "kind": "directory",
       "file": "",
       "line": 0,
-      "meta": {},
-      "label_at": "none",
-      "x": 2067.238819080663,
-      "y": -406.8119981489125,
+      "meta": {
+       "lines": 503,
+       "pages": 3
+      },
+      "dot_scale": 2.7015679850559273,
+      "label_at": "left",
+      "x": -280.88424098340204,
+      "y": -3.0058842482355197,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/tests": {
@@ -1058,9 +1124,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "right",
-      "x": 1897.9954221771297,
-      "y": -489.51457439350605,
+      "x": -248.1566411060462,
+      "y": -10.00884217432215,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/tools": {
@@ -1072,9 +1139,10 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "dot_scale": 2,
       "label_at": "none",
-      "x": 1891.0632257381917,
-      "y": -987.4035294348384,
+      "x": -300.34196045124753,
+      "y": 65.65578454190931,
       "size": 90
      },
      "file::quaternionmedia/rad-godot/HANDOFF.md": {
@@ -1086,9 +1154,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 1728.9898281154303,
-      "y": -463.2814281651557,
+      "dot_scale": 1.5,
+      "label_at": "right",
+      "x": -253.98775554114928,
+      "y": 0,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/README.md": {
@@ -1100,9 +1169,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 1834.5680407543045,
-      "y": -545.9992644674802,
+      "dot_scale": 1.5,
+      "label_at": "left",
+      "x": -272.8615648224773,
+      "y": 8.21787159028127,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/runtest.sh": {
@@ -1114,23 +1184,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/runtest.sh",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 1085.466761911161,
-      "y": -345.27818175233836,
-      "size": 30
-     },
-     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md": {
-      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md",
-      "label": "CLAUDE.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/asserts/CLAUDE.md",
-      "line": 0,
-      "meta": {},
+      "dot_scale": 1.5,
       "label_at": "left",
-      "x": -286.04705572867067,
-      "y": 905.1136654023633,
+      "x": -167.23283840391392,
+      "y": 22.26565864186395,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs": {
@@ -1142,9 +1199,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 143.79056028086265,
-      "y": 344.6601896447744,
+      "x": 30.96083919034146,
+      "y": -76.49550156648161,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css": {
@@ -1156,9 +1214,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1171.5744141540563,
-      "y": 266.7882230792677,
+      "x": 215.18574184405927,
+      "y": -43.3581862965525,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css": {
@@ -1170,9 +1229,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1396.8965977537075,
-      "y": 451.787110842971,
+      "x": 185.98860072140252,
+      "y": -20.021881181454916,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html": {
@@ -1184,9 +1244,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1461.715123032848,
-      "y": 981.3273193717409,
+      "x": 144.4250525180306,
+      "y": -51.284221960571294,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html": {
@@ -1198,9 +1259,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1538.5150899825442,
-      "y": 790.519677049846,
+      "x": 135.5344025560604,
+      "y": -12.924128764814412,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html": {
@@ -1212,9 +1274,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": -1299.800579483658,
-      "y": 854.4830373596133,
+      "x": 129.3376215021949,
+      "y": -36.05083050122062,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/godot-git-plugin/THIRDPARTY.md": {
@@ -1226,51 +1289,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/godot-git-plugin/THIRDPARTY.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 1332.9734593754,
-      "y": -472.22254364028765,
-      "size": 30
-     },
-     "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md": {
-      "id": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md",
-      "label": "DRAFT-rad-godot-adoption-and-scope.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-adoption-and-scope.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "left",
-      "x": 2015.078824461053,
-      "y": -392.8357697133764,
-      "size": 30
-     },
-     "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md": {
-      "id": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md",
-      "label": "DRAFT-rad-godot-architecture.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-architecture.md",
-      "line": 0,
-      "meta": {},
+      "dot_scale": 1.5,
       "label_at": "right",
-      "x": 2099.5063166581162,
-      "y": -457.44668092750817,
-      "size": 30
-     },
-     "file::quaternionmedia/rad-godot/docs/integrations.md": {
-      "id": "file::quaternionmedia/rad-godot/docs/integrations.md",
-      "label": "integrations.md",
-      "depth": 1,
-      "language": "markdown",
-      "kind": "file",
-      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/integrations.md",
-      "line": 0,
-      "meta": {},
-      "label_at": "below",
-      "x": 2078.6004198947116,
-      "y": -342.27488458669785,
+      "x": 189.32153579707875,
+      "y": -230.2593770711505,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_core_boundary.py": {
@@ -1282,9 +1304,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_core_boundary.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 1960.859975504144,
-      "y": -841.021218216175,
+      "x": -314.90570052117613,
+      "y": 48.87582638887874,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_imports.py": {
@@ -1296,9 +1319,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_imports.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 1934.732087083908,
-      "y": -1150.3779386857348,
+      "x": -315.89241865965926,
+      "y": 82.19622925790688,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_vector_pin.py": {
@@ -1310,9 +1334,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_vector_pin.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 1730.1237950464952,
-      "y": -944.2799389506739,
+      "x": -336.1699454985277,
+      "y": 65.17935725867073,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/repo.py": {
@@ -1324,52 +1349,11 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/repo.py",
       "line": 0,
       "meta": {},
+      "dot_scale": 1.5,
       "label_at": "none",
-      "x": 2145.5256088697474,
-      "y": -1007.0698583998659,
+      "x": -281.36411879061455,
+      "y": 65.32395869835445,
       "size": 30
-     },
-     "check_core_boundary.ROOT": {
-      "id": "check_core_boundary.ROOT",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ROOT",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1928.0184974103158,
-      "y": -832.2213706826892,
-      "label_at": "left"
-     },
-     "check_core_boundary.__future__.annotations": {
-      "id": "check_core_boundary.__future__.annotations",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "__future__.annotations",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1981.111728250967,
-      "y": -872.8005984914657,
-      "label_at": "right"
      },
      "check_core_boundary.main": {
       "id": "check_core_boundary.main",
@@ -1381,205 +1365,18 @@
       "line": 0,
       "meta": {
        "module": "check_core_boundary",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 650
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 1967.9752121130643,
-      "y": -800.6046571551558,
-      "label_at": "below"
-     },
-     "check_core_boundary.repo.ROOT": {
-      "id": "check_core_boundary.repo.ROOT",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.ROOT",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1925.8536520626108,
-      "y": -867.9051319771354,
-      "label_at": "left"
-     },
-     "check_core_boundary.repo.fail": {
-      "id": "check_core_boundary.repo.fail",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.fail",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 2007.7177716469005,
-      "y": -845.0951525116468,
-      "label_at": "right"
-     },
-     "check_core_boundary.repo.tracked": {
-      "id": "check_core_boundary.repo.tracked",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.tracked",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1927.2160259721954,
-      "y": -804.3551963445333,
-      "label_at": "left"
-     },
-     "check_core_boundary.repo.verdict": {
-      "id": "check_core_boundary.repo.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.verdict",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1960.902537491095,
-      "y": -893.3697921077078,
-      "label_at": "above"
-     },
-     "check_core_boundary.tracked": {
-      "id": "check_core_boundary.tracked",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "tracked",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1997.8525823176064,
-      "y": -800.5739124821146,
-      "label_at": "right"
-     },
-     "check_core_boundary.verdict": {
-      "id": "check_core_boundary.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "verdict",
-      "file": "check_core_boundary.py",
-      "line": 0,
-      "meta": {
-       "module": "check_core_boundary",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1903.9121660134067,
-      "y": -846.0657195995357,
-      "label_at": "left"
-     },
-     "check_imports.Path": {
-      "id": "check_imports.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Path",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1901.8906089900795,
-      "y": -1141.5780911522493,
-      "label_at": "left"
-     },
-     "check_imports.ROOT": {
-      "id": "check_imports.ROOT",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "ROOT",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1954.983839830731,
-      "y": -1182.1573189610258,
-      "label_at": "right"
-     },
-     "check_imports.__future__.annotations": {
-      "id": "check_imports.__future__.annotations",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "__future__.annotations",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1941.8473236928294,
-      "y": -1109.9613776247159,
-      "label_at": "below"
+      "x": -306.7798738078904,
+      "y": 48.87582638887874,
+      "label_at": "right",
+      "dot_scale": 2.3129133566428557
      },
      "check_imports.main": {
       "id": "check_imports.main",
@@ -1591,121 +1388,18 @@
       "line": 0,
       "meta": {
        "module": "check_imports",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 1318
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 1899.7257636423751,
-      "y": -1177.2618524466952,
-      "label_at": "left"
-     },
-     "check_imports.pathlib.Path": {
-      "id": "check_imports.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1981.5898832266655,
-      "y": -1154.4518729812066,
-      "label_at": "right"
-     },
-     "check_imports.repo.ROOT": {
-      "id": "check_imports.repo.ROOT",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.ROOT",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1901.0881375519596,
-      "y": -1113.7119168140935,
-      "label_at": "left"
-     },
-     "check_imports.repo.fail": {
-      "id": "check_imports.repo.fail",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.fail",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1934.7746490708594,
-      "y": -1202.7265125772678,
-      "label_at": "above"
-     },
-     "check_imports.repo.tracked": {
-      "id": "check_imports.repo.tracked",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.tracked",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1971.7246938973708,
-      "y": -1109.9306329516744,
-      "label_at": "right"
-     },
-     "check_imports.repo.verdict": {
-      "id": "check_imports.repo.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.verdict",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1877.7842775931713,
-      "y": -1155.4224400690957,
-      "label_at": "left"
+      "x": -307.1525878391433,
+      "y": 82.19622925790688,
+      "label_at": "right",
+      "dot_scale": 2.619915410257991
      },
      "check_imports.res_to_path": {
       "id": "check_imports.res_to_path",
@@ -1717,100 +1411,18 @@
       "line": 0,
       "meta": {
        "module": "check_imports",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 78
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 1981.9294231869926,
-      "y": -1186.5023620689876,
-      "label_at": "right"
-     },
-     "check_imports.tracked": {
-      "id": "check_imports.tracked",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "tracked",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1923.950231708985,
-      "y": -1089.7118312230482,
-      "label_at": "below"
-     },
-     "check_imports.verdict": {
-      "id": "check_imports.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "verdict",
-      "file": "check_imports.py",
-      "line": 0,
-      "meta": {
-       "module": "check_imports",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1900.573610764444,
-      "y": -1204.1727896989369,
-      "label_at": "left"
-     },
-     "check_vector_pin.Path": {
-      "id": "check_vector_pin.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Path",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1697.282316952667,
-      "y": -935.4800914171881,
-      "label_at": "left"
-     },
-     "check_vector_pin.__future__.annotations": {
-      "id": "check_vector_pin.__future__.annotations",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "__future__.annotations",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1750.375547793318,
-      "y": -976.0593192259646,
-      "label_at": "right"
+      "x": -313.42001614833555,
+      "y": 87.97362138507178,
+      "label_at": "right",
+      "dot_scale": 1.3920946026904804
      },
      "check_vector_pin.main": {
       "id": "check_vector_pin.main",
@@ -1822,184 +1434,18 @@
       "line": 0,
       "meta": {
        "module": "check_vector_pin",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 485
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 1737.239031655416,
-      "y": -903.8633778896548,
-      "label_at": "below"
-     },
-     "check_vector_pin.pathlib.Path": {
-      "id": "check_vector_pin.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1695.1174716049618,
-      "y": -971.1638527116343,
-      "label_at": "left"
-     },
-     "check_vector_pin.read_json": {
-      "id": "check_vector_pin.read_json",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "read_json",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1776.9815911892522,
-      "y": -948.3538732461457,
-      "label_at": "right"
-     },
-     "check_vector_pin.repo.fail": {
-      "id": "check_vector_pin.repo.fail",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.fail",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1696.4798455145467,
-      "y": -907.6139170790321,
-      "label_at": "left"
-     },
-     "check_vector_pin.repo.read_json": {
-      "id": "check_vector_pin.repo.read_json",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.read_json",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1730.1663570334458,
-      "y": -996.6285128422065,
-      "label_at": "above"
-     },
-     "check_vector_pin.repo.sha256_of": {
-      "id": "check_vector_pin.repo.sha256_of",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.sha256_of",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1767.116401859958,
-      "y": -903.8326332166132,
-      "label_at": "right"
-     },
-     "check_vector_pin.repo.verdict": {
-      "id": "check_vector_pin.repo.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "repo.verdict",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1673.175985555758,
-      "y": -949.3244403340345,
-      "label_at": "left"
-     },
-     "check_vector_pin.sha256_of": {
-      "id": "check_vector_pin.sha256_of",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "sha256_of",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1777.3211311495795,
-      "y": -980.4043623339264,
-      "label_at": "right"
-     },
-     "check_vector_pin.verdict": {
-      "id": "check_vector_pin.verdict",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "verdict",
-      "file": "check_vector_pin.py",
-      "line": 0,
-      "meta": {
-       "module": "check_vector_pin",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 1719.341939671572,
-      "y": -883.6138314879871,
-      "label_at": "below"
+      "x": -328.2984620213232,
+      "y": 65.17935725867073,
+      "label_at": "right",
+      "dot_scale": 2.185741738602264
      },
      "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208": {
       "id": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208",
@@ -2010,9 +1456,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 208,
       "meta": {},
-      "x": 164.04231302768554,
-      "y": 312.88080936948353,
-      "label_at": "right"
+      "x": 34.61993009943234,
+      "y": -72.38928022332337,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24": {
       "id": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24",
@@ -2023,9 +1470,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 24,
       "meta": {},
-      "x": 110.94908218703435,
-      "y": 353.4600371782601,
-      "label_at": "left"
+      "x": 36.46083919034146,
+      "y": -76.49550156648161,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4": {
       "id": "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4",
@@ -2036,9 +1484,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 4,
       "meta": {},
-      "x": 150.90579688978318,
-      "y": 385.0767507057935,
-      "label_at": "below"
+      "x": 34.61993009943234,
+      "y": -80.60172290963985,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::breadcrumb.css::class::breadcrumb::1": {
       "id": "css::breadcrumb.css::class::breadcrumb::1",
@@ -2049,9 +1498,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
       "line": 1,
       "meta": {},
-      "x": -1204.4158922478846,
-      "y": 275.5880706127534,
-      "label_at": "left"
+      "x": 220.68574184405924,
+      "y": -43.3581862965525,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::check-icon::94": {
       "id": "css::styles.css::class::check-icon::94",
@@ -2062,9 +1512,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 94,
       "meta": {},
-      "x": -1429.7380758475358,
-      "y": 460.5869583764568,
-      "label_at": "left"
+      "x": 191.48860072140252,
+      "y": -20.021881181454916,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::grid-item::292": {
       "id": "css::styles.css::class::grid-item::292",
@@ -2075,9 +1526,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 292,
       "meta": {},
-      "x": -1376.6448450068851,
-      "y": 420.00773056768026,
-      "label_at": "right"
+      "x": 189.64769163049345,
+      "y": -15.915659838296675,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::group-bg-1::284": {
       "id": "css::styles.css::class::group-bg-1::284",
@@ -2088,9 +1540,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 284,
       "meta": {},
-      "x": -1389.7813611447875,
-      "y": 492.2036719039902,
-      "label_at": "below"
+      "x": 189.64769163049345,
+      "y": -24.128102524613155,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::group-bg-2::288": {
       "id": "css::styles.css::class::group-bg-2::288",
@@ -2101,9 +1554,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 288,
       "meta": {},
-      "x": -1431.9029211952413,
-      "y": 424.9031970820106,
-      "label_at": "left"
+      "x": 185.357308459945,
+      "y": -25.485531067805965,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "css::styles.css::class::label::74": {
       "id": "css::styles.css::class::label::74",
@@ -2114,9 +1568,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 74,
       "meta": {},
-      "x": -1350.038801610951,
-      "y": 447.7131765474992,
-      "label_at": "right"
+      "x": 185.357308459945,
+      "y": -14.558231295103866,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "css::styles.css::class::logging-container::372": {
       "id": "css::styles.css::class::logging-container::372",
@@ -2127,9 +1582,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 372,
       "meta": {},
-      "x": -1430.5405472856562,
-      "y": 488.4531327146124,
-      "label_at": "left"
+      "x": 194.1242381726849,
+      "y": -23.66926589181901,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::logo::26": {
       "id": "css::styles.css::class::logo::26",
@@ -2140,9 +1596,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 26,
       "meta": {},
-      "x": -1396.8540357667575,
-      "y": 399.4385369514384,
-      "label_at": "above"
+      "x": 194.1242381726849,
+      "y": -16.374496471090794,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::percentage::111": {
       "id": "css::styles.css::class::percentage::111",
@@ -2153,9 +1610,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 111,
       "meta": {},
-      "x": -1359.9039909402452,
-      "y": 492.2344165770315,
-      "label_at": "right"
+      "x": 181.48952589417388,
+      "y": -16.858287386575796,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::rate-text::106": {
       "id": "css::styles.css::class::rate-text::106",
@@ -2166,9 +1624,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 106,
       "meta": {},
-      "x": -1453.844407244445,
-      "y": 446.7426094596103,
-      "label_at": "left"
+      "x": 181.48952589417388,
+      "y": -23.185474976334035,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::report-container::47": {
       "id": "css::styles.css::class::report-container::47",
@@ -2179,9 +1638,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 47,
       "meta": {},
-      "x": -1349.699261650624,
-      "y": 415.6626874597185,
-      "label_at": "right"
+      "x": 188.6780676474463,
+      "y": -28.52239761387375,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-bar-column::324": {
       "id": "css::styles.css::class::status-bar-column::324",
@@ -2192,9 +1652,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 324,
       "meta": {},
-      "x": -1333.4023417157425,
-      "y": 468.91105461142877,
-      "label_at": "right"
+      "x": 178.28926429533504,
+      "y": -20.021881181454916,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-bar::315": {
       "id": "css::styles.css::class::status-bar::315",
@@ -2205,9 +1666,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 315,
       "meta": {},
-      "x": -1431.0550740731724,
-      "y": 397.9922598297691,
-      "label_at": "left"
+      "x": 196.75987562396722,
+      "y": -20.021881181454916,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-box::433": {
       "id": "css::styles.css::class::status-box::433",
@@ -2218,9 +1680,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 433,
       "meta": {},
-      "x": -1457.0384068017584,
-      "y": 482.9604216140119,
-      "label_at": "left"
+      "x": 193.15461418963775,
+      "y": -28.063560981079604,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-error::341": {
       "id": "css::styles.css::class::status-error::341",
@@ -2231,9 +1694,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 341,
       "meta": {},
-      "x": -1372.9464473889093,
-      "y": 386.3710172764522,
-      "label_at": "above"
+      "x": 193.15461418963775,
+      "y": -11.980201381830199,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-failed::345": {
       "id": "css::styles.css::class::status-failed::345",
@@ -2244,9 +1708,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 345,
       "meta": {},
-      "x": -1369.6565787571817,
-      "y": 517.9302802943128,
-      "label_at": "right"
+      "x": 181.43151017171562,
+      "y": -12.358661382567504,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-flaky::349": {
       "id": "css::styles.css::class::status-flaky::349",
@@ -2257,9 +1722,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 349,
       "meta": {},
-      "x": -1463.3117060406928,
-      "y": 420.6417517789294,
-      "label_at": "left"
+      "x": 181.43151017171562,
+      "y": -27.685100980342327,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-legend-item::427": {
       "id": "css::styles.css::class::status-legend-item::427",
@@ -2270,9 +1736,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 427,
       "meta": {},
-      "x": -1325.1885241086554,
-      "y": 429.3591222101106,
-      "label_at": "right"
+      "x": 184.75226935921688,
+      "y": -30.721967526410083,
+      "label_at": "above",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-passed::337": {
       "id": "css::styles.css::class::status-passed::337",
@@ -2283,9 +1750,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 337,
       "meta": {},
-      "x": -1435.494279076184,
-      "y": 518.2652576021025,
-      "label_at": "left"
+      "x": 184.75226935921688,
+      "y": -9.32179483649972,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-skipped::333": {
       "id": "css::styles.css::class::status-skipped::333",
@@ -2296,9 +1764,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 333,
       "meta": {},
-      "x": -1413.7046282704728,
-      "y": 375.03636094339356,
-      "label_at": "above"
+      "x": 198.60078471487634,
+      "y": -15.915659838296675,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::status-warning::353": {
       "id": "css::styles.css::class::status-warning::353",
@@ -2309,9 +1778,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 353,
       "meta": {},
-      "x": -1331.2989635890929,
-      "y": 497.98451761007635,
-      "label_at": "right"
+      "x": 198.60078471487634,
+      "y": -24.128102524613155,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::status::305": {
       "id": "css::styles.css::class::status::305",
@@ -2322,9 +1792,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 305,
       "meta": {},
-      "x": -1407.6784531286314,
-      "y": 512.4532183056577,
-      "label_at": "below"
+      "x": 188.6780676474463,
+      "y": -11.521364749036081,
+      "label_at": "below",
+      "dot_scale": 1
      },
      "css::styles.css::class::success-rate::86": {
       "id": "css::styles.css::class::success-rate::86",
@@ -2335,9 +1806,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 86,
       "meta": {},
-      "x": -1478.087883161046,
-      "y": 462.2411853550517,
-      "label_at": "left"
+      "x": 197.6311607318292,
+      "y": -11.521364749036081,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::summary-item::69": {
       "id": "css::styles.css::class::summary-item::69",
@@ -2348,9 +1820,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 69,
       "meta": {},
-      "x": -1457.9079067755902,
-      "y": 390.37766391958303,
-      "label_at": "left"
+      "x": 177.14964250113434,
+      "y": -24.375185922244697,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::summary::463": {
       "id": "css::styles.css::class::summary::463",
@@ -2361,9 +1834,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 463,
       "meta": {},
-      "x": -1393.4525767159178,
-      "y": 536.7434303200487,
-      "label_at": "below"
+      "x": 177.14964250113434,
+      "y": -15.668576440665136,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::summary::60": {
       "id": "css::styles.css::class::summary::60",
@@ -2374,9 +1848,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 60,
       "meta": {},
-      "x": -1343.0599432518889,
-      "y": 388.0141570768819,
-      "label_at": "right"
+      "x": 197.6311607318292,
+      "y": -28.52239761387375,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "css::styles.css::class::tab-report-grid::226": {
       "id": "css::styles.css::class::tab-report-grid::226",
@@ -2387,9 +1862,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 226,
       "meta": {},
-      "x": -1465.708644675698,
-      "y": 509.1153516881767,
-      "label_at": "left"
+      "x": 177.09162677867607,
+      "y": -11.168950436656843,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::tab-report::220": {
       "id": "css::styles.css::class::tab-report::220",
@@ -2400,9 +1876,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 220,
       "meta": {},
-      "x": -1308.9169216329603,
-      "y": 455.9270492106747,
-      "label_at": "right"
+      "x": 177.09162677867607,
+      "y": -28.874811926252985,
+      "label_at": "left",
+      "dot_scale": 1
      },
      "css::styles.css::class::value::79": {
       "id": "css::styles.css::class::value::79",
@@ -2413,9 +1890,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 79,
       "meta": {},
-      "x": -1384.6852444599367,
-      "y": 361.58417103093007,
-      "label_at": "above"
+      "x": 191.31370509872863,
+      "y": -7.87398003867196,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::folder_report.html::anchor::report-table::74": {
       "id": "html::folder_report.html::anchor::report-table::74",
@@ -2426,9 +1904,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
       "line": 74,
       "meta": {},
-      "x": -1494.5566011266762,
-      "y": 990.1271669052268,
-      "label_at": "left"
+      "x": 149.9250525180306,
+      "y": -51.284221960571294,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::index.html::anchor::content::66": {
       "id": "html::index.html::anchor::content::66",
@@ -2439,9 +1918,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
       "line": 66,
       "meta": {},
-      "x": -1571.3565680763725,
-      "y": 799.3195245833317,
-      "label_at": "left"
+      "x": 141.0344025560604,
+      "y": -12.924128764814412,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::index.html::anchor::logging_content::154": {
       "id": "html::index.html::anchor::logging_content::154",
@@ -2452,9 +1932,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
       "line": 154,
       "meta": {},
-      "x": -1518.2633372357209,
-      "y": 758.740296774555,
-      "label_at": "right"
+      "x": 139.19349346515133,
+      "y": -8.817907421656173,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::suite_report.html::anchor::report-table::83": {
       "id": "html::suite_report.html::anchor::report-table::83",
@@ -2465,9 +1946,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
       "line": 83,
       "meta": {},
-      "x": -1332.6420575774864,
-      "y": 863.282884893099,
-      "label_at": "left"
+      "x": 134.8376215021949,
+      "y": -36.05083050122062,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "html::suite_report.html::anchor::report_area::99": {
       "id": "html::suite_report.html::anchor::report_area::99",
@@ -2478,51 +1960,10 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
       "line": 99,
       "meta": {},
-      "x": -1279.5488267368348,
-      "y": 822.7036570843221,
-      "label_at": "right"
-     },
-     "repo.Path": {
-      "id": "repo.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "Path",
-      "file": "repo.py",
-      "line": 0,
-      "meta": {
-       "module": "repo",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 2112.684130775919,
-      "y": -998.2700108663803,
-      "label_at": "left"
-     },
-     "repo.__future__.annotations": {
-      "id": "repo.__future__.annotations",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "__future__.annotations",
-      "file": "repo.py",
-      "line": 0,
-      "meta": {
-       "module": "repo",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 2165.7773616165705,
-      "y": -1038.8492386751568,
-      "label_at": "right"
+      "x": 132.99671241128584,
+      "y": -31.944609158062377,
+      "label_at": "right",
+      "dot_scale": 1
      },
      "repo.fail": {
       "id": "repo.fail",
@@ -2534,16 +1975,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 78
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2152.640845478669,
-      "y": -966.6532973388471,
-      "label_at": "below"
+      "x": -272.62258237511287,
+      "y": 57.744385707348926,
+      "label_at": "right",
+      "dot_scale": 1.3920946026904804
      },
      "repo.ok": {
       "id": "repo.ok",
@@ -2555,37 +1998,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 57
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2110.5192854282145,
-      "y": -1033.9537721608265,
-      "label_at": "left"
-     },
-     "repo.pathlib.Path": {
-      "id": "repo.pathlib.Path",
-      "depth": 2,
-      "language": "python",
-      "kind": "import",
-      "label": "pathlib.Path",
-      "file": "repo.py",
-      "line": 0,
-      "meta": {
-       "module": "repo",
-       "ast_type": "Import"
-      },
-      "shape": "triangle",
-      "color": "#facc15",
-      "construct": "namespace.import",
-      "construct_color": "#64748b",
-      "construct_name": "Import",
-      "x": 2192.383405012505,
-      "y": -1011.1437926953379,
-      "label_at": "right"
+      "x": -284.6135932955514,
+      "y": 60.2660885899371,
+      "label_at": "left",
+      "dot_scale": 1.2558748556724915
      },
      "repo.read_json": {
       "id": "repo.read_json",
@@ -2597,16 +2021,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 91
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2111.881659337799,
-      "y": -970.4038365282245,
-      "label_at": "left"
+      "x": -271.8222673899787,
+      "y": 72.90292396374939,
+      "label_at": "right",
+      "dot_scale": 1.4590413923210934
      },
      "repo.sha256_of": {
       "id": "repo.sha256_of",
@@ -2618,16 +2044,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 99
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2145.5681708566985,
-      "y": -1059.4184322913989,
-      "label_at": "above"
+      "x": -278.67081107734253,
+      "y": 59.4178021793253,
+      "label_at": "right",
+      "dot_scale": 1.49563519459755
      },
      "repo.tracked": {
       "id": "repo.tracked",
@@ -2639,16 +2067,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 472
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2182.5182156832107,
-      "y": -966.6225526658056,
-      "label_at": "right"
+      "x": -273.51623479334637,
+      "y": 65.32395869835445,
+      "label_at": "right",
+      "dot_scale": 2.1739419986340875
      },
      "repo.verdict": {
       "id": "repo.verdict",
@@ -2660,16 +2090,18 @@
       "line": 0,
       "meta": {
        "module": "repo",
-       "ast_type": "Function"
+       "ast_type": "Function",
+       "chars": 200
       },
       "shape": "hexagon",
       "color": "#00ff41",
       "construct": "callable.function",
       "construct_color": "#ff9d3d",
       "construct_name": "Function",
-      "x": 2088.5777993790107,
-      "y": -1012.1143597832269,
-      "label_at": "left"
+      "x": -278.77571496362566,
+      "y": 71.93753728704989,
+      "label_at": "right",
+      "dot_scale": 1.8010299956639813
      }
     },
     "edges": [
@@ -2900,14 +2332,6 @@
      {
       "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
       "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts",
-      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md",
       "metadata": {
        "kind": "contains",
        "weight": 1
@@ -3250,30 +2674,6 @@
       }
      },
      {
-      "source": "dir::quaternionmedia/rad-godot/docs",
-      "target": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/rad-godot/docs",
-      "target": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
-      "source": "dir::quaternionmedia/rad-godot/docs",
-      "target": "file::quaternionmedia/rad-godot/docs/integrations.md",
-      "metadata": {
-       "kind": "contains",
-       "weight": 1
-      }
-     },
-     {
       "source": "dir::quaternionmedia/rad-godot/tools",
       "target": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
       "metadata": {
@@ -3316,18 +2716,8 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
-      "target": "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
-      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
-      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208",
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "target": "html::folder_report.html::anchor::report-table::74",
       "kind": "contains"
      },
      {
@@ -3341,13 +2731,18 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html",
-      "target": "html::folder_report.html::anchor::report-table::74",
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
-      "target": "css::breadcrumb.css::class::breadcrumb::1",
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208",
       "kind": "contains"
      },
      {
@@ -3491,75 +2886,6 @@
       "kind": "contains"
      },
      {
-      "source": "check_core_boundary.main",
-      "target": "repo.tracked",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "check_core_boundary.main",
-      "target": "repo.verdict",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "check_core_boundary.tracked",
-      "target": "repo.tracked",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "check_core_boundary.verdict",
-      "target": "repo.verdict",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.__future__.annotations",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.repo.ROOT",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.repo.fail",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.repo.tracked",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.repo.verdict",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.main",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.ROOT",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.tracked",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
-      "target": "check_core_boundary.verdict",
-      "kind": "contains"
-     },
-     {
       "source": "check_imports.main",
       "target": "repo.tracked",
       "kind": "contains",
@@ -3572,46 +2898,10 @@
       "weight": 1
      },
      {
-      "source": "check_imports.tracked",
-      "target": "repo.tracked",
-      "kind": "contains",
+      "source": "check_imports.main",
+      "target": "check_imports.res_to_path",
+      "kind": "calls",
       "weight": 1
-     },
-     {
-      "source": "check_imports.verdict",
-      "target": "repo.verdict",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.__future__.annotations",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.pathlib.Path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.repo.ROOT",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.repo.fail",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.repo.tracked",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.repo.verdict",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
@@ -3624,34 +2914,32 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.Path",
+      "source": "check_core_boundary.main",
+      "target": "repo.tracked",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_core_boundary.main",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.main",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.ROOT",
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "target": "css::breadcrumb.css::class::breadcrumb::1",
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.tracked",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
-      "target": "check_imports.verdict",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
-      "target": "repo.__future__.annotations",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
-      "target": "repo.pathlib.Path",
-      "kind": "contains"
+      "source": "repo.verdict",
+      "target": "repo.ok",
+      "kind": "calls",
+      "weight": 1
      },
      {
       "source": "file::quaternionmedia/rad-godot/tools/repo.py",
@@ -3684,11 +2972,6 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
-      "target": "repo.Path",
-      "kind": "contains"
-     },
-     {
       "source": "check_vector_pin.main",
       "target": "repo.read_json",
       "kind": "contains",
@@ -3705,54 +2988,6 @@
       "target": "repo.verdict",
       "kind": "contains",
       "weight": 1
-     },
-     {
-      "source": "check_vector_pin.read_json",
-      "target": "repo.read_json",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "check_vector_pin.sha256_of",
-      "target": "repo.sha256_of",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "check_vector_pin.verdict",
-      "target": "repo.verdict",
-      "kind": "contains",
-      "weight": 1
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.__future__.annotations",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.pathlib.Path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.repo.fail",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.repo.read_json",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.repo.sha256_of",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.repo.verdict",
-      "kind": "contains"
      },
      {
       "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
@@ -3760,32 +2995,12 @@
       "kind": "contains"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.Path",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.read_json",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.sha256_of",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
-      "target": "check_vector_pin.verdict",
-      "kind": "contains"
-     },
-     {
-      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
       "target": "file::quaternionmedia/rad-godot/tools/repo.py",
       "kind": "depends_on"
      },
      {
-      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
       "target": "file::quaternionmedia/rad-godot/tools/repo.py",
       "kind": "depends_on"
      },

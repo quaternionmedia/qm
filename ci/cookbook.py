@@ -999,10 +999,9 @@ SHOW_SAYS = {
     "project": {"estate": "its families, its phase, its records and the seams it is on",
                 "code": "its default branch, by directory and file",
                 "system": "the system its own declarations describe"},
-    "family": {"estate": "its members, the families within it and the seams between them"},
-    "index": {"estate": "every family at once, each member drawn once, and the seams between them",
-              "code": "every family, with each project's code in it",
-              "full": "the whole corpus again, every node drawn and nothing written on it"},
+    "family": {"estate": "its members, the families within it and the seams between them",
+               "code": "each of its projects with its code in it"},
+    "index": {"estate": "every family at once, each member drawn once, and the seams between them"},
 }
 # How deep a project's code map was drawn. codecarto holds a code map to a
 # floor of nodes: a large project's is its files, a small one's its symbols
@@ -1011,9 +1010,8 @@ CODE_DEPTH = {1: ("its default branch, by directory and file", "to its files"),
               2: ("its default branch, by directory, file and symbol", "to its symbols"),
               3: ("its default branch, by directory, file, symbol and member", "to its members")}
 # A view named for what it is where its name alone would mislead: the index is
-# every family, not where one subject sits, and its code view is the whole
-# corpus, not one project's code.
-SHOW_TITLES = {"index": {"estate": "Every family", "code": "The whole corpus", "full": "Every node"}}
+# every family, not where one subject sits.
+SHOW_TITLES = {"index": {"estate": "Every family"}}
 # The galleries on the page of the project that draws the showgraphs, each
 # view of every project in one place, by the anchor a project page links to.
 GALLERIES = {"code": ("Every project's code", "every-projects-code"),
@@ -1155,24 +1153,28 @@ def showgraph(kind: str, name: str, pages: list[str] | None = None) -> list[str]
 
 def showgraph_gallery(drawer: str, pages: list[str], families: list[str]) -> list[str]:
     """Every showgraph on these pages, on the page of the project that draws
-    them: the whole corpus with every node and no name, then each view of every
-    project and every family, each opening the page it is on. A view no project
-    has drawn is left out rather than shown empty."""
+    them: the whole corpus a family at a time, each family with its projects'
+    code, then each view of every project and every family, each opening the
+    page it is on. A view nothing has drawn is left out rather than shown
+    empty."""
     lines = ["### Every showgraph { #every-showgraph }", "",
-             f"Every graph {drawer} draws for these pages, in one place: the whole corpus with every "
-             "node and nothing written on it, then each view of every project and every family. "
-             "Each picture opens the page it is on, and each page steps to the same graph of the "
-             "projects beside it.", ""]
-    corpus = _document("index") or {}
-    full = _drawn("index", "full")
-    if full:
-        nodes = _code_drawn(corpus)[1]
-        lines += ["#### The whole corpus, every node { #the-whole-corpus-every-node }", "",
-                  '<figure class="qm-shot" markdown>', "",
-                  f"[![The whole corpus, every node, with no names](../show/index/{full})](../show/index/{full})", "",
-                  f"<figcaption><strong>The whole corpus.</strong> Every family with each project's code "
-                  f"in it, {nodes:,} nodes, every one drawn and nothing written on it.</figcaption>", "",
-                  "</figure>", ""]
+             f"Every graph {drawer} draws for these pages, in one place: the whole corpus a family "
+             "at a time, each family with its projects' code, then each view of every project and "
+             "every family. Each picture opens the page it is on, and each page steps to the same "
+             "graph of the projects beside it.", ""]
+    family_code = [(f, picture) for f in families if (picture := _drawn(f"family/{f}", "code"))]
+    if family_code:
+        lines += ["#### Every family's code { #every-familys-code }", "", '<div class="grid" markdown>', ""]
+        for f, picture in family_code:
+            drawn = len(((_document(f"family/{f}") or {}).get("views", {}).get("code", {})
+                         .get("metadata") or {}).get("code") or {})
+            whose = "project's" if drawn == 1 else "projects'"
+            link = f"../families/{f}.md#showgraph-code"
+            lines += ['<figure class="qm-shot" markdown>', "",
+                      f"[![{f}: its projects' code](../show/family/{f}/{picture}){{ loading=lazy }}]({link})", "",
+                      f'<figcaption markdown="span">[{f}]({link}), {drawn} {whose} code</figcaption>', "",
+                      "</figure>", ""]
+        lines += ["</div>", ""]
     for view, (title, anchor) in GALLERIES.items():
         drawn = [(page, picture) for page in pages if (picture := _drawn(f"project/{page}", view))]
         if not drawn:

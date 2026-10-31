@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. vox declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and vox's default branch at `1721e6f`, on 2026-10-27. [The show document](../show/project/vox/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and vox's default branch at `1721e6f`, on 2026-10-29. [The show document](../show/project/vox/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -300,9 +300,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/apothecary/code.svg)](../show/project/apothecary/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/apothecary/code.svg)](../show/project/apothecary/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← alfred](alfred.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [benchmark →](benchmark.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← alfred](alfred.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [benchmark →](benchmark.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -311,7 +311,7 @@ the graphs codecarto draws
 **Its system:** not drawn. apothecary declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and apothecary's default branch at `ac25b8d`, on 2026-10-27. [The show document](../show/project/apothecary/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and apothecary's default branch at `ac25b8d`, on 2026-10-29. [The show document](../show/project/apothecary/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
