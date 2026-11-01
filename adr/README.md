@@ -242,4 +242,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title): hearth adopts the corpus, and owns the family contract and what holds members to it.
