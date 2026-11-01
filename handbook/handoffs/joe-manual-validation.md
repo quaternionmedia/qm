@@ -62,7 +62,7 @@ Each line is a step of a lane page in `docs/paths/`, with what checks it automat
 - [ ] **4.2** A tab's ✕, or `Delete` on a focused tab, closes its window; what it held is there when it opens again. -- 5 specs
 - [ ] **4.3** The **Panels** menu (▦) lists every window, says which are closed, and opens the one chosen. -- 3 specs
 - [ ] **4.4** The arrangement is kept across a reload; **Panels → Reset layout** puts back the visualiser alone; a saved arrangement the page cannot use is dropped, with a note. -- 8 specs
-- [ ] At 900 pixels with a take loaded: known to run the playback group under the window buttons (`joe-open-set.md` §6). Look, and say whether it matters. -- nothing automated below 1024
+- [ ] At 900 pixels with a take loaded: known to run the playback group under the window buttons (`qm-queue.md` §4). Look, and say whether it matters. -- nothing automated below 1024
 
 ### The voice loop — `docs/paths/voice-loop.md`
 
@@ -146,7 +146,7 @@ lands); every link opens. Known and recorded already, so not new findings:
 - [ ] `uv run pytest tests/`: every test passes, the `local` check among them once #60 is in.
 - [ ] Spot-check one spec per lane section: does it fail if the step's behaviour breaks? (Every new check in #51 to #60 was seen red; `main`'s were audited on 2026-10-25.)
 - [ ] The ★ steps above: does any deserve a spec or test now, rather than a person each time?
-- [ ] Untested, recorded in `joe-open-set.md` §6: `GET /api/results/latest`; `POST /api/voice/transcribe` over HTTP; `capture.AudioCapture`; a live recording; `LABEL_W` in three files.
+- [ ] Untested, recorded in `qm-queue.md` §5: `GET /api/results/latest`; `POST /api/voice/transcribe` over HTTP; `capture.AudioCapture`; a live recording; `LABEL_W` in three files.
 
 ## Findings
 
