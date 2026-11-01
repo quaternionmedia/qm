@@ -240,6 +240,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "timeline", help="a project's dated timeline, from its git history and round log",
+        add_help=False,
+    )
+    sub.add_parser(
         "family-suite", help="run each family's suites, and say what the batch establishes",
         add_help=False,
     )
@@ -394,6 +398,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "families": ("families", False, []),
     "interop": ("interop", False, []),
     "cookbook": ("cookbook", False, []),
+    "timeline": ("timeline", False, []),
     "family-suite": ("family_suite", False, []),
     "rollout": ("rollout", False, []),
     "family-demo": ("family_demo", False, []),

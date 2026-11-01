@@ -77,6 +77,12 @@ EXEMPT = (
     "perspectives/", "handbook/handoffs/", "protocols/runs/", "governance/", "vendor/",
     "node_modules/", "CHANGELOG",
 )
+# A project's dated history, in the corpus's subtree for it beside its page
+# (records/DRAFT-a-projects-history-lives-in-the-corpus.md §3). Exempt only
+# where the repository is the corpus, which holds the charter and the records:
+# a project's own docs/projects/ is timeless like the rest of its docs.
+HISTORY = re.compile(r"^docs/projects/[^/]+/")
+CORPUS_MARKERS = ("PRINCIPLES.md", "records")
 CODE = {".py"}
 HASH_COMMENTED = {".yml", ".yaml", ".toml", ".cfg", ".ini", ".sh", ".gd"}
 SLASH_COMMENTED = {".js", ".mjs", ".cjs", ".ts", ".css"}
@@ -99,8 +105,14 @@ def git(root: Path, *args: str) -> str:
     return done.stdout
 
 
-def checked(path: str) -> bool:
+def is_corpus(root: Path) -> bool:
+    return all((root / marker).exists() for marker in CORPUS_MARKERS)
+
+
+def checked(path: str, corpus: bool = False) -> bool:
     if any(path.startswith(p) or f"/{p}" in path for p in EXEMPT):
+        return False
+    if corpus and HISTORY.match(path):
         return False
     suffix = Path(path).suffix
     return suffix in CODE | HASH_COMMENTED | SLASH_COMMENTED | MARKDOWN
@@ -230,8 +242,9 @@ def findings(root: Path, base: str | None = None) -> tuple[list[Finding], int]:
         scope = added_lines(root, base)
     found: list[Finding] = []
     allowed = 0
+    corpus = is_corpus(root)
     for path, only in sorted(scope.items()):
-        if not checked(path) or not (root / path).is_file():
+        if not checked(path, corpus) or not (root / path).is_file():
             continue
         text = (root / path).read_text(encoding="utf-8", errors="replace")
         more, allows = scan(path, text, only)

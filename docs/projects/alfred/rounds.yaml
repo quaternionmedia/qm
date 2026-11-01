@@ -1,0 +1,409 @@
+# alfred's development rounds: the curated half of its timeline.
+#
+# A person keeps this file; `uv run qm timeline alfred --write` draws
+# timeline.md from it and from git.yaml. Each round names the branch it was
+# integrated on, the pull request that carries it, the dates of its commits and
+# the commit its branch stood at, and what it carried. `measured` holds the
+# counts each round's runs reported, at the commit or branch they ran on, and
+# `noted` the counts alfred's release notes carried.
+#
+# Shape, read by ci/timeline.py, which refuses anything else:
+#   rounds:   round, branch, pr, title?, began, ended, head?, carried
+#   measured: rounds (a list), at, results (suite, result), also?
+#   noted:    version, section, text
+
+project: alfred
+repository: quaternionmedia/alfred
+default_branch: main
+source: >-
+  alfred's [`CHANGELOG.md`](https://github.com/quaternionmedia/alfred/blob/ec60239a/CHANGELOG.md)
+  at `ec60239a`, on `docs/one-pass`. Each round's dates are its commits' dates
+  in alfred's git, its head is its branch's commit on 2026-10-31, and its title
+  is its pull request's.
+about: >-
+  fixes from a review of alfred and otto, landed in rounds of parallel
+  branches, each round integrated on a branch stacked on the round before.
+
+rounds:
+  - round: 1
+    branch: integrate/review-fixes
+    pr: 127
+    title: >-
+      The review's first round fixes the render pipeline, auth and ownership,
+      the editor and CI, and adopts otto's engine contract
+    began: 2026-10-17
+    ended: 2026-10-17
+    head: c3b313e6
+    carried: >-
+      the render pipeline, auth and ownership, the editor, CI and operations,
+      and the engine (otto `fix/engine-contract`)
+
+  - round: 2
+    branch: integrate/wave-2
+    pr: 128
+    title: >-
+      Media access and storage, the editor's tools, accounts and the timeline
+      API land, with otto pinned at e050396
+    began: 2026-10-18
+    ended: 2026-10-18
+    head: 66fa6186
+    carried: >-
+      media access and storage, the editor again, accounts and the timeline
+      API, dependencies, and the engine (otto pinned at e050396,
+      `fix/engine-wave2`)
+
+  - round: 3
+    branch: integrate/wave-3
+    pr: 129
+    title: >-
+      Captions come through vox and joe, and the editor becomes a Golden
+      Layout workspace
+    began: 2026-10-18
+    ended: 2026-10-18
+    head: 2e4024cd
+    carried: >-
+      captions through an audio engine (vox vendored at `alfred/vox` beside
+      otto, driving joe), and a Golden Layout workspace for the editor
+
+  - round: 4
+    branch: integrate/wave-4
+    pr: 130
+    title: >-
+      Every setting reaches its service, no request waits on a preview, the
+      timeline's sound comes from otto, and the phone keeps the whole picture
+    began: 2026-10-18
+    ended: 2026-10-18
+    head: 2de7f896
+    carried: >-
+      the review's fix round: every setting reaching the services that read
+      it, CI installing what the image installs, the workspace's tab race and
+      the suite's timing races, docs that describe the API as it answers, the
+      timeline's sound written by otto (pinned at f3ceca3,
+      `fix/engine-sound`), an api whose one event loop no longer waits on a
+      preview, and a phone layout that keeps the whole picture on the screen
+
+  - round: 5
+    branch: integrate/wave-5
+    pr: 131
+    title: >-
+      Password hashing leaves the event loop, media work moves into otto,
+      refusals carry codes, and ./al family runs the family
+    began: 2026-10-18
+    ended: 2026-10-19
+    head: d5f929c2
+    carried: >-
+      the decisions round 4 stopped at: password hashing off the event loop
+      behind loud safeguards, the media work moved into otto (pinned at
+      7ddbf10, `feat/engine-media-ops`), a code beside every refusal of the
+      routes qmcp calls, a cap on concurrent previews, support mail sent by
+      the worker, the render extra and the docs build tightened, and `./al
+      family`, which runs alfred with the repositories it works with
+
+  - round: 6
+    branch: integrate/wave-6
+    pr: 126
+    title: >-
+      The docs say less and show first, are checked against the code, and the
+      stack has a demo
+    began: 2026-10-19
+    ended: 2026-10-23
+    head: e2e52506
+    carried: >-
+      the docs: every page this effort touched said in fewer words, across the
+      repositories, and the main pages opening with screenshots that `./al
+      recipes` takes from demo data, its GIFs kept out of git (otto f106775
+      and vox e630cb0, for their docs); then the docs checked against the
+      code, the font list's parse tested, and the project filter test making
+      the projects it filters
+
+  - round: 7
+    branch: feat/journeys-and-onboarding
+    pr: 132
+    title: "Round 7: the editor's journeys and the way in"
+    began: 2026-10-24
+    ended: 2026-10-24
+    head: f09ae291
+    carried: >-
+      the editor's journeys and the way in: the phone flow fitting a phone,
+      templates named in words, the empty viewer saying where to start, and a
+      Get started page with the docs in the order a newcomer reads them
+
+  - round: 8
+    branch: feat/close-gaps
+    pr: 133
+    title: >-
+      Round 8: the gaps left open are closed, and the recordings play only in
+      docs served locally
+    began: 2026-10-24
+    ended: 2026-10-24
+    head: 5443bcbe
+    carried: >-
+      the gaps left open: the Render stage's form and the zoom row on every
+      screen, the tests the review asked for (the recipes' pipeline, `./al`'s
+      dev key, `./al family`, `GET /fonts`) and the three bugs they found, the
+      docs tooling pinned, the dev-server notes on the docs site, the API
+      examples sent to the local stack, and the walkthroughs' recordings
+      played only in docs served locally
+
+  - round: 9
+    branch: feat/edit-by-text-and-loop
+    pr: 134
+    title: >-
+      Edit by text, a test loop of named runs, and the suite's screenshots of
+      every tool and example
+    began: 2026-10-25
+    ended: 2026-10-26
+    head: 4073abfc
+    carried: >-
+      edit-by-text on top of the joe and vox loop; `./al loop`, the suites
+      side by side as named runs, and images named per checkout; screenshots
+      of every tool and docs example taken by the suite, the examples on demo
+      media; commands on each system; the docs tools locked on their own; the
+      phone's notices letting taps through; the template preview carrying
+      structured data
+
+  - round: 10
+    branch: feat/pydantic-2
+    pr: 135
+    title: >-
+      alfred runs on pydantic 2 and fastapi-users 15, with Argon2 hashed off
+      the loop four at a time
+    began: 2026-10-26
+    ended: 2026-10-26
+    head: 31b8acf6
+    carried: >-
+      pydantic 2 in alfred and the engine (otto pinned at c82efbd,
+      `feat/pydantic-2`); fastapi-users 15.0.5, with passwords hashed by
+      Argon2 in a pool of their own; passlib and setuptools gone
+
+  # Rounds 11 and 12 are carried by one pull request: round 11's branch is
+  # contained in round 12's, which is the pull request's head.
+  - round: 11
+    branch: feat/family-onboarding
+    pr: 136
+    title: >-
+      Rounds 11 and 12: the family guide, qm's ports, and the editor's user
+      journeys
+    began: 2026-10-29
+    ended: 2026-10-30
+    head: 27d543bc
+    carried: >-
+      making a video in the QM family, walked step by step
+      ([`docs/guide.md`](https://github.com/quaternionmedia/alfred/blob/main/docs/guide.md),
+      `./al family up`); editing by text completed (undo, the timeline tools
+      carrying the words, a cut rewriting a caption's text); comments cut to a
+      line or two, their reasons moved into the docs; the seed's workflows,
+      with `governance/qm` at the propagation; the dev stack on 1732 and joe
+      on 1059, qm's port allocation
+
+  - round: 12
+    branch: feat/ui-journeys
+    pr: 136
+    title: >-
+      Rounds 11 and 12: the family guide, qm's ports, and the editor's user
+      journeys
+    began: 2026-10-31
+    ended: 2026-10-31
+    head: ca6be6ba
+    carried: >-
+      the editor made for the person using it: a line under the rail saying
+      what to do next, the timeline saving itself, New project, and the user
+      journeys
+      ([`docs/journeys.md`](https://github.com/quaternionmedia/alfred/blob/main/docs/journeys.md))
+      that the editor's How? links open; `governance/qm` at project/alfred's
+      propagation of 2026-10-31
+
+  - round: 13
+    branch: docs/one-pass
+    pr: 137
+    title: >-
+      Round 13: the docs in six sections, the cookbook an index, and otto's
+      timeline in otto
+    began: 2026-10-31
+    ended: 2026-10-31
+    head: ec60239a
+    carried: >-
+      the docs in six sections, as qm's own site lays out its: the cookbook
+      cut to the browser suite's index, each walkthrough played on the journey
+      it walks; Get started a journey to the running editor; Configuration by
+      purpose; the questions a new developer asks; otto's timeline format in
+      otto (pinned at 51a1b0e, `docs/timeline`), and vox's and joe's rules
+      left to their own docs
+
+measured:
+  - rounds: [1]
+    at: f0e8cb3
+    results:
+      - suite: ./al pytest
+        result: 699 passed, 2 skipped, 8 xfailed
+      - suite: ./al test
+        result: 212 passed, 1 skipped
+
+  - rounds: [2]
+    at: integrate/wave-2
+    results:
+      - suite: ./al pytest
+        result: 1118 passed, 2 skipped, 8 xfailed
+      - suite: ./al test
+        result: 281 passed, 1 skipped
+
+  - rounds: [3]
+    at: integrate/wave-3
+    results:
+      - suite: ./al pytest
+        result: 1464 passed, 2 skipped, 8 xfailed
+      - suite: ./al test
+        result: >-
+          381 passed, 1 skipped, across `chromium` and `phone`, including the
+          `@slow` specs that encode on otto and transcribe through vox and the
+          stub engine
+    also: >-
+      Live, against joe on the host: a synthesised spoken line was transcribed
+      into three timed captions and rendered with them drawn in
+
+  - rounds: [4]
+    at: integrate/wave-4
+    results:
+      - suite: ./al pytest
+        result: 1567 passed, 2 skipped, 8 xfailed, from a fresh clone
+      - suite: ./al test
+        result: >-
+          389 passed, 1 skipped on the final commit; none passed only on retry
+          in any of three full runs from a fresh clone
+    also: >-
+      CI's install, emulated in a clean container: 1378 passed, 191 skipped
+      (the database tier and the text-drawing tests), none failed. `mkdocs
+      build --strict` without a warning. Live, against joe on the host: the 28
+      checks of the API pass, and qmcp's tools queued a render with the
+      project's captions and were handed its signed download
+
+  - rounds: [5]
+    at: integrate/wave-5
+    results:
+      - suite: ./al pytest
+        result: 1810 passed, 2 skipped, 8 xfailed, from a fresh clone
+      - suite: ./al test
+        result: 391 passed, 1 skipped; none passed only on retry
+    also: >-
+      CI's install, emulated: 1619 passed, 193 skipped, none failed. `mkdocs
+      build --strict` without a warning. `./al family loop` against the
+      round's branches of joe, qmcp and vox: every repository's quick suite
+      green, and the live check's nine checks passing against a joe with
+      nothing but its media API turned on
+
+  - rounds: [6]
+    at: integrate/wave-6
+    results:
+      - suite: ./al pytest
+        result: 1831 passed, 2 skipped, 8 xfailed
+      - suite: ./al test
+        result: 392 passed, none skipped and none passing only on retry
+    also: >-
+      `mkdocs build --strict` without a warning. `./al family loop` against
+      joe#35's branch, with the auth bypass: every repository's quick suite
+      green, and the live check's eight checks passing, the ninth skipped for
+      want of a library file with sound. `./al recipes` against the same joe:
+      all six recipes recorded, and every screenshot unchanged. Against a joe
+      without the media API, the loop warns and captions refuse
+
+  - rounds: [7]
+    at: feat/journeys-and-onboarding
+    results:
+      - suite: ./al pytest
+        result: 1833 passed, 2 skipped, 8 xfailed
+      - suite: ./al test
+        result: 399 passed, none skipped and none passing only on retry
+    also: >-
+      `mkdocs build --strict` without a warning. The `@screens` retaken
+      against `./al family up` with joe#35's branch: all seven changed, for
+      the phone's header, rail and transport and the templates' labels, the
+      captions still shown with joe connected. The phone flow measured at
+      375x812 and 390x844: one screen on every stage, nothing scrolling
+      sideways
+
+  - rounds: [8]
+    at: feat/close-gaps
+    results:
+      - suite: ./al pytest
+        result: 1892 passed, 8 skipped, 8 xfailed; black checked, not applied
+      - suite: ./al test
+        result: 402 passed, none skipped and none passing only on retry
+    also: >-
+      `mkdocs build --strict` without a warning, with the recordings and
+      without them. The `@screens` retaken against `./al family up` with
+      joe#35's branch: seven changed, for the Render stage's form and the zoom
+      row. The Render stage measured at 360x740, 375x812, 390x844 and 812x375:
+      the whole form on the screen upright, and the whole picture held
+      sideways
+
+  - rounds: [9]
+    at: feat/edit-by-text-and-loop
+    results:
+      - suite: ./al pytest
+        result: 1970 passed, 8 skipped, 8 xfailed; black and ruff checked
+      - suite: ./al test
+        result: >-
+          442 passed, 1 passed only on retry (the zoom row's measure, since
+          loosened)
+    also: >-
+      Run side by side by `./al loop`, beside a running stack. `mkdocs build
+      --strict` clean; the quick host suite 150 passed. Every screenshot
+      retaken against joe#35's branch, the tools and examples among them
+
+  - rounds: [10]
+    at: feat/pydantic-2
+    results:
+      - suite: ./al pytest
+        result: >-
+          1979 passed, 10 skipped, 8 xfailed, from a git worktree, whose `.git`
+          the container cannot follow, so two tests that ask git skip; black
+          and ruff checked; 489 warnings, 429 more than round 9, from beanie
+          and lazy-model reading `model_fields` as pydantic 2.11 deprecates
+      - suite: ./al test
+        result: 443 passed, none passing only on retry
+    also: >-
+      Run by `./al loop`, beside a running stack. `mkdocs build --strict`
+      clean; the quick host suite 150 passed. otto's own suite 361 passed, its
+      model tests on pydantic 2.5.3 too. Live: register, login, refresh, a
+      change and a reset of password, and a 10.4.2 bcrypt account logging in
+      and becoming Argon2
+
+  - rounds: [11, 12]
+    at: feat/ui-journeys
+    results:
+      - suite: ./al pytest
+        result: 1991 passed, 8 skipped, 8 xfailed; black and ruff checked; 493 warnings
+      - suite: ./al test
+        result: 477 passed, none passing only on retry
+    also: >-
+      Run by `./al loop` beside a demo stack with joe on 1059. `mkdocs build
+      --strict` clean; the quick host suite 154 passed, the port allocation's
+      test running against `governance/qm` at `d324759`. Every screenshot
+      retaken and looked at: the editor's by `./al recipes` against the dev
+      stack with joe (37 recipes recorded), the guide's eight in the suite's
+      stack with the stub engine. The family's live check: 8 passed, 1
+      skipped for want of a library file with sound. The phone flow measured
+      at 390x844: one screen on every stage, and two whole projects on Source
+
+noted:
+  - version: Unreleased
+    section: Security
+    text: >-
+      Open advisories in the image's dependencies go from 82 to 20, with
+      python-multipart 0.0.32, Pillow 12.3, python-jose, ecdsa and rsa
+      removed, and the lock refreshed within its ranges.
+  - version: "0.3.0"
+    section: Fixed
+    text: >-
+      The broken logo cost eleven 404s per session in the API log.
+  - version: "0.3.0"
+    section: Added
+    text: >-
+      The backend test suite holds 236 tests plus 19 strict `xfail`s that pin
+      known defects, with one real 320×240 encode.
+  - version: "0.3.0"
+    section: Removed
+    text: >-
+      The JS bundle's content hash is unchanged either side of removing
+      `website/src/logic.js`, `resizable.js` and `sortable.js`
+      (`website.5e1ea2fd.js`, 279.86 kB).

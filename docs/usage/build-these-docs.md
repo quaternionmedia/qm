@@ -46,7 +46,7 @@ The first command copies `docs/`, `includes/` and `zensical.toml` into `.preview
 
 ## The family and project pages
 
-Every page under `docs/families/` and `docs/projects/`, and every snippet under `includes/`, is written by one command:
+Every page under `docs/families/` and `docs/projects/` but a project's history, and every snippet under `includes/`, is written by one command:
 
 ```bash
 uv run qm cookbook docs/families --site --write
@@ -62,6 +62,23 @@ It reads four sources, and a page is changed by changing one of them, never the 
 A project's version on its page comes from whether the [corpus](../ref/glossary.md#corpus){ .glossary-term } has a `project/<name>` branch, so run the command in a clone that has fetched every branch.
 
 `--check` in place of `--write` lists the pages that no longer match their sources. The `docs-audit` workflow runs it on every pull request that touches the pages or their sources, and fails on any. The rules behind the pages are in [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md).
+
+## A project's history
+
+A project that has adopted [the record on a project's dated history](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-projects-history-lives-in-the-corpus.md) keeps its dated account in a subtree beside its page, `docs/projects/<name>/`, which the cookbook links and does not write:
+
+- `rounds.yaml`, the round log a person keeps: each development round's branch, pull request, dates and what it carried, and the counts measured on it;
+- `git.yaml`, the pull requests merged on the project's default branch and its tags, read from its clone;
+- `timeline.md`, drawn from the two, newest first;
+- the project's retrospectives, each with a `**Date:**` line under its title.
+
+```bash
+uv run qm timeline <name> --write             # read the clone, then draw the page
+uv run qm timeline <name> --write --offline   # draw the page from the committed git.yaml
+uv run qm timeline --check                    # every timeline against its committed inputs
+```
+
+The clone is found where the cookbook finds a member's, and `--clone <path>` names one. `--check` reads no clone, so the `docs-audit` workflow runs it on every pull request that touches the site, and fails on a timeline its inputs do not give or a retrospective with no date. The subtree's pages are reached from the project's page, and are not listed in the navigation.
 
 ## Add a page
 

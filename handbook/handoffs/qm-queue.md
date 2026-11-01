@@ -9,7 +9,7 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`. The rest of the page holds at the stamp, which those entries do not
+day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, the two naming #306 and #309 at `b130fa4`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -133,11 +133,18 @@ pick up alone; that page is then listed in the index and named here.
     Python version, submodules and pip arguments as inputs, were taken on
     holophonor's run of the black and ruff workflows at the branch, and merged.
     (2026-10-31)
+20. **A project's docs are timeless, and its dated history lives here**, at
+    `docs/projects/<name>/` beside its page: its retrospectives, its round log
+    with each round's branch, pull request and dates, the counts each round
+    measured, and a timeline `uv run qm timeline` draws from git and the round
+    log. Each project adopts the boundary by a record of its own, alfred
+    first. `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, on #306,
+    is the boundary. (2026-10-31)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-No pull request into `main` is this page's; every one it names is into a
-project branch. `uv run qm stacks --repo
+Two pull requests into `main` are this page's, #306 and #309 in the
+table's last row; every other one it names is into a project branch. `uv run qm stacks --repo
 quaternionmedia/qm` lists them. Two causes account for most of the red: a
 project branch that took `main` before the stack rule carries the old `slot`
 check, which refuses every pull request into it after the first; and commits
@@ -152,6 +159,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
+| #306, then #309 on #306 | `main` | at `b130fa4`: #306 ready, the record on a project's dated history; #309 a draft stacked on it, with `uv run qm timeline`, the project page's link to its subtree, and alfred's subtree | #306 merged; #309 retargeted onto `main`, marked ready and merged |
 
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
@@ -236,6 +244,15 @@ each pull request into it is behind its base until brought level.
   alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
+- **alfred adopts the record on a project's dated history.** From #309,
+  `docs/projects/alfred/` holds alfred's round log, its measured counts and its
+  two retrospectives, and its `git.yaml` is read from alfred's `main` at
+  `7fff7ae`, which predates alfred's stack. Done is a record on
+  `project/alfred` adopting
+  `records/DRAFT-a-projects-history-lives-in-the-corpus.md`; alfred's
+  `CHANGELOG.md` and `docs/` without the rounds, the counts and the
+  retrospectives; and, once alfred's stack has merged, `uv run qm timeline
+  alfred --write` in a pull request here. (2026-10-31)
 - **The namespaces are declared by hand, in several places.**
   `docs/ref/namespaces.md` is canonical; `AGENTS.md` item 3, `README.md` and
   `.github/rulesets/E-naming.json` each restate it, and

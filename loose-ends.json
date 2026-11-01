@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T01:27:30Z",
+  "generated_at": "2026-11-01T01:28:12Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-01T01:27:29Z"
+        "generated_at": "2026-11-01T01:28:11Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-31T19:35:24Z"
+        "generated_at": "2026-11-01T01:06:57Z"
       }
     }
   },
@@ -84,7 +84,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at. Of a timeline it sees the committed files only: not a git snapshot behind its project, nor a round left out of the round log.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
       "address_parses": true
     },
@@ -212,7 +212,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-timeless-check",
       "title": "timeless-check cannot see",
-      "detail": "A story told in neutral words, and a present-tense sentence that is no longer true; those are the reviewer's. Text already on the base, which `--all` reports and a sweep removes. Capitals in title case or spaced out, a phrase broken so that no line holds three of its words, and file types it does not read.",
+      "detail": "A story told in neutral words, and a present-tense sentence that is no longer true; those are the reviewer's. Text already on the base, which `--all` reports and a sweep removes. Capitals in title case or spaced out, a phrase broken so that no line holds three of its words, and file types it does not read. In this corpus it does not read a project's subtree under `docs/projects/<name>/`, which is dated history.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-timeless-check",
       "address_parses": true
     },

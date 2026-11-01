@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T01:27:29Z'
+generated_at: '2026-11-01T01:28:11Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -35,6 +35,8 @@ states:
   generated: written by a tool. Do not edit by hand; check its age before quoting.
   standing: policy or charter with no lifecycle defined for its class.
   transient: working instructions, deleted when the work lands.
+  dated: a project's dated history, true of the days it names. Never brought up to
+    date; read it for what happened, not for what is.
   unknown: the state could not be established, which is not the same as fine.
 reading_load:
   documents:
@@ -121,10 +123,11 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 310
+  documents: 313
   by_state:
+    dated: 2
     draft: 3
-    generated: 55
+    generated: 56
     proposed: 42
     standing: 90
     transient: 23
@@ -392,6 +395,29 @@ documents:
   state_from_filename: null
   state: generated
   refresh: uv run qm cookbook docs/families --site --write
+  present: true
+- path: docs/projects/alfred/retrospective-0.3.0.md
+  class: history
+  class_reason: a project's dated account, in its subtree beside its page
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: dated
+- path: docs/projects/alfred/retrospective-verification-discipline.md
+  class: history
+  class_reason: a project's dated account, in its subtree beside its page
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: dated
+- path: docs/projects/alfred/timeline.md
+  class: generated
+  class_reason: a tool writes it
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: generated
+  refresh: uv run qm timeline alfred --write
   present: true
 - path: docs/projects/apothecary.md
   class: generated

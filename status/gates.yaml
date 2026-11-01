@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T19:35:24Z'
+generated_at: '2026-11-01T01:06:57Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -305,20 +305,25 @@ gates:
   runs:
   - ci/docs_audit.py
   - ci/cookbook.py
+  - ci/timeline.py
   - .github/workflows/docs-audit.yml
   enforces:
   - records/DRAFT-the-read-document-governs.md
   - records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
+  - records/DRAFT-a-projects-history-lives-in-the-corpus.md
   refuses: A documentation site that builds but does not hold together -- a page the
     navigation does not reach, a link to a page that is not published, a claim the
-    audit's four dimensions can check -- and a generated family page, project page
-    or front-page snippet that no longer matches its sources.
+    audit's four dimensions can check -- a generated family page, project page or
+    front-page snippet that no longer matches its sources, and a project's timeline
+    that no longer matches its committed round log and git snapshot, or a retrospective
+    beside it with no date.
   cannot_see: 'Whether a page is true. It builds the site and reads what the build
     reads, so it finds a page nobody can reach and not a page that is wrong. `uv run
     qm prose` reads the openings; a person reads the rest. Of the generated pages
     it sees only whether they match their sources: not whether a showcase caption
     describes its picture, nor whether a showgraph was drawn from the commits its
-    project is at.'
+    project is at. Of a timeline it sees the committed files only: not a git snapshot
+    behind its project, nor a round left out of the round log.'
   evidence:
     present: true
     workflow_name: Docs audit
@@ -600,7 +605,9 @@ gates:
   cannot_see: A story told in neutral words, and a present-tense sentence that is
     no longer true; those are the reviewer's. Text already on the base, which `--all`
     reports and a sweep removes. Capitals in title case or spaced out, a phrase broken
-    so that no line holds three of its words, and file types it does not read.
+    so that no line holds three of its words, and file types it does not read. In
+    this corpus it does not read a project's subtree under `docs/projects/<name>/`,
+    which is dated history.
   evidence:
     present: true
     workflow_name: Timeless text
