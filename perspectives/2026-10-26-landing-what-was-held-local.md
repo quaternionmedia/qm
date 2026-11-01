@@ -161,6 +161,6 @@ were left running and named in the report.
 on the person (§3); the local runner and the branch census (§4); and whether
 `joe` #33 was tested by hand before it merged on 2026-10-26, which its pull
 request does not say (§5). `joe` #33 and #34 merged during this session, from
-another one; this close corrected the lines in `voice-set-landing.md`,
+another one; this close corrected the lines in the voice set's landing handoff,
 `the-voice-loop.md` and the handoffs index that still called them pending,
 and left the rest of those pages to the session that landed them.
