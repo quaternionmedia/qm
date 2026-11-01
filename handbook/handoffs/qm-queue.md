@@ -9,8 +9,9 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, the two naming #306 and #309 at `b130fa4`. The rest of the page holds at the stamp, which those entries do not
-move.
+day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
+those that name 2026-11-01 at `qm` `5126c2e`. The rest of the page holds at
+the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -138,14 +139,22 @@ pick up alone; that page is then listed in the index and named here.
     with each round's branch, pull request and dates, the counts each round
     measured, and a timeline `uv run qm timeline` draws from git and the round
     log. Each project adopts the boundary by a record of its own, alfred
-    first. `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, on #306,
-    is the boundary. (2026-10-31)
+    first. `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, on
+    `main`, is the boundary. (2026-10-31)
+21. **The instruction pointer files are one-line imports, not symlinks.**
+    `CLAUDE.md` holds the single line `@AGENTS.md`; `AGENTS.md` is the one
+    document every tool reads, and `.github/copilot-instructions.md` goes once
+    Copilot's reading of a root `AGENTS.md` is established. The `.vscode/` and
+    `.claude/` configuration pointers stay symlinks to their seed copies, since
+    they have no import syntax. The change enters as one pull request that
+    rewrites `records/DRAFT-ide-integrated-governance-discovery.md` in place
+    and repairs every page restating it; until it lands the symlinks stand and
+    the symlink-integrity gate holds them. (2026-11-01)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-Two pull requests into `main` are this page's, #306 and #309 in the
-table's last row; every other one it names is into a project branch. `uv run qm stacks --repo
-quaternionmedia/qm` lists them. Two causes account for most of the red: a
+Every pull request this page names is into a project branch. `uv run qm
+stacks --repo quaternionmedia/qm` lists them. Two causes account for most of the red: a
 project branch that took `main` before the stack rule carries the old `slot`
 check, which refuses every pull request into it after the first; and commits
 made on 2026-10-13 that the host reads as unsigned.
@@ -159,7 +168,6 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
-| #306, then #309 on #306 | `main` | at `b130fa4`: #306 ready, the record on a project's dated history; #309 a draft stacked on it, with `uv run qm timeline`, the project page's link to its subtree, and alfred's subtree | #306 merged; #309 retargeted onto `main`, marked ready and merged |
 
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
@@ -244,15 +252,39 @@ each pull request into it is behind its base until brought level.
   alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
-- **alfred adopts the record on a project's dated history.** From #309,
-  `docs/projects/alfred/` holds alfred's round log, its measured counts and its
-  two retrospectives, and its `git.yaml` is read from alfred's `main` at
-  `7fff7ae`, which predates alfred's stack. Done is a record on
-  `project/alfred` adopting
-  `records/DRAFT-a-projects-history-lives-in-the-corpus.md`; alfred's
+- **alfred adopts the record on a project's dated history.**
+  `docs/projects/alfred/` holds alfred's round log through round 14, its
+  measured counts and its two retrospectives, and its `git.yaml` is read from
+  alfred's `main` at `7fff7ae`, which predates alfred's stack. The adopting
+  record is open as #310 into `project/alfred`. Done is #310 merged; alfred's
   `CHANGELOG.md` and `docs/` without the rounds, the counts and the
   retrospectives; and, once alfred's stack has merged, `uv run qm timeline
-  alfred --write` in a pull request here. (2026-10-31)
+  alfred --write` in a pull request here. (2026-11-01)
+- **The instruction pointer files become one-line imports** (decision 21).
+  Done is one pull request into `main`: `CLAUDE.md` and
+  `project-seed/ide/CLAUDE.md` regular files holding `@AGENTS.md`;
+  `.github/copilot-instructions.md` and its seed copy removed, or kept as
+  one-line pointers if Copilot's reading of `AGENTS.md` cannot be established;
+  the record rewritten in place and `AGENTS.md`'s Windows section (both
+  copies), `handbook/forking-a-project.md`, `docs/usage/first-project.md`,
+  `IDE_ARTIFACTS` in `ci/governance_status.py` and the comments in
+  `ci/mutate.py` and `project-seed/ci/check_attribution.py` repaired toward it;
+  `.github/workflows/symlink-integrity.yml` holding only the `.vscode/` and
+  `.claude/` pointers, seen red once with its mutation written beside it;
+  `python ci/check_restatements.py` pairing every declaration. (2026-11-01)
+- **The first page assumes `uv` is installed.** `AGENTS.md` names
+  `uv run qm` for every one of the four facts and nowhere says where `uv`
+  comes from or what a reader without it does. Done is one sentence on the
+  page, before the four facts, naming the install and the no-`uv` route (the
+  scripts in `ci/` and `project-seed/ci/` run under any Python with the
+  dependencies `pyproject.toml` lists). (2026-11-01)
+- **`qm estate`'s default search root from a worktree is the clone's
+  `.claude` folder.** The default is the grandparent of the running checkout
+  (`ci/estate.py`); for a worktree under `.claude/worktrees/` that is the
+  clone's `.claude`, so every roster row reads MISSING there, and the refusal
+  names the root it searched and `--search-root`. Done is a default that
+  resolves from a worktree to the same root as from the clone, with a test
+  that runs the command from a worktree. (2026-11-01)
 - **The namespaces are declared by hand, in several places.**
   `docs/ref/namespaces.md` is canonical; `AGENTS.md` item 3, `README.md` and
   `.github/rulesets/E-naming.json` each restate it, and
