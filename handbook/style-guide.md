@@ -191,7 +191,7 @@ nothing is dropped unsorted:
 |---|---|---|
 | **A short fact** | Stays inline, in the present tense | It says what this code is, takes or returns, or cannot do, in a sentence or two, and is wrong if the code changes |
 | **An explanation** | `docs/`, the reference page for the area | A concept, a rule or a behaviour a user needs at length, often true of several modules at once; it is still true next month |
-| **A narrative** | A dated retrospective in the corpus's `perspectives/` | It tells how something came to be, what was found, by what, or what was learned, as an event |
+| **A narrative** | A dated retrospective in the corpus's `perspectives/`; for a project that has adopted `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, one project's own history goes to its subtree, `docs/projects/<name>/` | It tells how something came to be, what was found, by what, or what was learned, as an event |
 
 A passage often holds all three. *"The plane declared that the pipeline ran,
 the registry held the stub, so `stubs()` checks every `runs` declaration"*

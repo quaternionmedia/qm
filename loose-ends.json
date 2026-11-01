@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T00:57:49Z",
+  "generated_at": "2026-11-01T01:27:30Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-01T00:57:47Z"
+        "generated_at": "2026-11-01T01:27:29Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 268,
+    "loose_ends": 269,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 41,
+      "document-proposed": 42,
       "document-unreviewed": 97,
       "stalled-thread": 110
     },
-    "open": 268,
+    "open": 269,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -270,6 +270,14 @@
       "title": "records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-projects-history-lives-in-the-corpus",
+      "title": "records/DRAFT-a-projects-history-lives-in-the-corpus.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-projects-history-lives-in-the-corpus",
       "address_parses": true
     },
     {

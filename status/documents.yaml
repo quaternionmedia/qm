@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T00:57:47Z'
+generated_at: '2026-11-01T01:27:29Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -104,9 +104,9 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 44
+      total: 45
       ratified: 0
-      proposed: 41
+      proposed: 42
     documents_in_unknown_state: 0
     reading_within_budget: false
     reading_total_lines: 1205
@@ -121,11 +121,11 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 309
+  documents: 310
   by_state:
     draft: 3
     generated: 55
-    proposed: 41
+    proposed: 42
     standing: 90
     transient: 23
     unreviewed: 97
@@ -2361,6 +2361,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-a-projects-history-lives-in-the-corpus.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed
