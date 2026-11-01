@@ -254,6 +254,12 @@ merged:
   title: Cypress testing
   commit: a86640b2b6ccb76cdfc6de00f61fed4686bbbbe3
 branches:
+- name: feat/generic-form-and-lighter-ui
+  base: docs/history-in-qm
+  commits: 5
+  first: '2026-11-01'
+  date: '2026-11-01'
+  commit: f24d8126605750a1029e486a9f45018f4fbfc7eb
 - name: feat/ui-journeys
   base: feat/pydantic-2
   commits: 48
