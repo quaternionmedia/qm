@@ -302,15 +302,17 @@ version of `adr/`, `ci/`, or this file's own seed copy in
 
 ## One-time setup on a fresh clone (Windows)
 
-`CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's own
-`.vscode/settings.json`/`extensions.json` are real symlinks, not copies —
-POSIX checkouts resolve them with no setup. On Windows, enable Developer
-Mode (Settings → For developers) and run `git config core.symlinks true`
-once per clone, then `git checkout -- .` if the files were already checked
-out before that; the checkout then resolves them as a POSIX one does.
-Without that setting, each checks out as a one-line file holding the
-relative path to its target. A person can follow it, but a tool that reads
-only that file gets the path: `CLAUDE.md` and
-`.github/copilot-instructions.md` carry none of these instructions, and the
-`.vscode` files none of their configuration. The IDE-integrated governance
-discovery record in `records/` is the decision behind these files.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`: an import
+the tool that reads it expands into this page, on every platform, with no
+setup. This repo's own `.vscode/settings.json`/`extensions.json`, and the
+other pointers `.github/workflows/symlink-integrity.yml` lists, are real
+symlinks to their canonical copies, not copies — POSIX checkouts resolve
+them with no setup. On Windows, enable Developer Mode (Settings → For
+developers) and run `git config core.symlinks true` once per clone, then
+`git checkout -- .` if the files were already checked out before that; the
+checkout then resolves them as a POSIX one does. Without that setting, each
+checks out as a one-line file holding the relative path to its target. A
+person can follow it, but a tool that reads only that file gets the path,
+and the `.vscode` files carry none of their configuration.
+`records/DRAFT-ide-integrated-governance-discovery.md` is the decision
+behind these files.

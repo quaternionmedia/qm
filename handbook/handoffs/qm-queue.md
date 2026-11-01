@@ -143,13 +143,14 @@ pick up alone; that page is then listed in the index and named here.
     `main`, is the boundary. (2026-10-31)
 21. **The instruction pointer files are one-line imports, not symlinks.**
     `CLAUDE.md` holds the single line `@AGENTS.md`; `AGENTS.md` is the one
-    document every tool reads, and `.github/copilot-instructions.md` goes once
-    Copilot's reading of a root `AGENTS.md` is established. The `.vscode/` and
-    `.claude/` configuration pointers stay symlinks to their seed copies, since
-    they have no import syntax. The change enters as one pull request that
-    rewrites `records/DRAFT-ide-integrated-governance-discovery.md` in place
-    and repairs every page restating it; until it lands the symlinks stand and
-    the symlink-integrity gate holds them. (2026-11-01)
+    document every tool reads, and no `.github/copilot-instructions.md` is
+    carried, since the agent, review and VS Code chat surfaces read a root
+    `AGENTS.md` and the record names the chat surfaces that do not. The
+    `.vscode/` and `.claude/` configuration pointers stay symlinks to their
+    seed copies, since they have no import syntax, and the symlink-integrity
+    gate holds those alone.
+    `records/DRAFT-ide-integrated-governance-discovery.md` is the decision,
+    on `main`. (2026-11-01)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -260,18 +261,6 @@ each pull request into it is behind its base until brought level.
   `CHANGELOG.md` and `docs/` without the rounds, the counts and the
   retrospectives; and, once alfred's stack has merged, `uv run qm timeline
   alfred --write` in a pull request here. (2026-11-01)
-- **The instruction pointer files become one-line imports** (decision 21).
-  Done is one pull request into `main`: `CLAUDE.md` and
-  `project-seed/ide/CLAUDE.md` regular files holding `@AGENTS.md`;
-  `.github/copilot-instructions.md` and its seed copy removed, or kept as
-  one-line pointers if Copilot's reading of `AGENTS.md` cannot be established;
-  the record rewritten in place and `AGENTS.md`'s Windows section (both
-  copies), `handbook/forking-a-project.md`, `docs/usage/first-project.md`,
-  `IDE_ARTIFACTS` in `ci/governance_status.py` and the comments in
-  `ci/mutate.py` and `project-seed/ci/check_attribution.py` repaired toward it;
-  `.github/workflows/symlink-integrity.yml` holding only the `.vscode/` and
-  `.claude/` pointers, seen red once with its mutation written beside it;
-  `python ci/check_restatements.py` pairing every declaration. (2026-11-01)
 - **The first page assumes `uv` is installed.** `AGENTS.md` names
   `uv run qm` for every one of the four facts and nowhere says where `uv`
   comes from or what a reader without it does. Done is one sentence on the

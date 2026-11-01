@@ -1,10 +1,9 @@
 <!-- SEED FILE: this whole project-seed/ide/ directory mirrors the target
      project's own root layout 1:1 -- copy it recursively onto the project
      root (handbook/forking-a-project.md, step 5) rather than copying files
-     one at a time. CLAUDE.md and .github/copilot-
-     instructions.md are real symlinks to this file in the seed; a
-     symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
-     carries that forward so an edit to this file alone keeps both current.
+     one at a time. CLAUDE.md is a regular file holding the one line
+     `@AGENTS.md`, an import of this file, so a plain copy carries it and
+     an edit to this file alone keeps it current.
      Delete this comment in the copy. Replace every <name> placeholder with
      the project's own name, and fill in project-specific setup and test
      commands below the marked line. The governance section above that line
@@ -238,18 +237,15 @@ quoting a figure.
     `timeless-check.yml` runs `check_timeless.py` on the lines a pull request
     adds and refuses a phrase set in capitals and a phrase that only narrates.
 
-## One-time setup on a fresh clone (Windows)
+## The instruction files
 
-`CLAUDE.md` and `.github/copilot-instructions.md` are real symlinks to this
-file, not copies — POSIX checkouts resolve them with no setup. On Windows,
-enable Developer Mode (Settings → For developers) and run `git config
-core.symlinks true` once per clone, then `git checkout -- .` if the files
-were already checked out before that; the checkout then resolves them as a
-POSIX one does. Without that setting, each of the two checks out as a
-one-line file holding the relative path to this file: a person can follow
-it, and a tool that reads only that file gets the path rather than these
-instructions. The IDE-integrated governance discovery record in
-`governance/qm/records/` is the decision behind both files.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`: an import
+the tool that reads it expands into this page, on every platform, with no
+setup. This file is the one every tool reads, and no other instruction file
+is carried.
+`governance/qm/records/DRAFT-ide-integrated-governance-discovery.md` is the
+decision behind the file, and says when a project adds a
+`.github/copilot-instructions.md`.
 
 <!-- Project-specific setup commands, test commands, and conventions belong
      below this line. Above it, the governance section of

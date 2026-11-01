@@ -29,7 +29,6 @@ path = [
   "project-seed/adr/**",
   "project-seed/ide/AGENTS.md",
   "project-seed/ide/CLAUDE.md",
-  "project-seed/ide/.github/copilot-instructions.md",
   "project-seed/ide/.claude/**",
 ]
 precedence = "override"
@@ -50,15 +49,6 @@ path = [
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "Apache-2.0"
-
-# --- Root pointer files follow their target, not their directory ------------
-# .github/copilot-instructions.md is a symlink to ../AGENTS.md, which is
-# corpus prose. Its licence is its target's, not `.github/**`'s.
-[[annotations]]
-path = ".github/copilot-instructions.md"
-precedence = "override"
-SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
-SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # --- No outbound grant (§11) ------------------------------------------------
 # Attributed opinion and primary-source transcripts substantially produced by

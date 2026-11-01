@@ -28,9 +28,9 @@ for bookkeeping's sake.
 |---|---|---|
 | ADR lint, four checks | banned vocabulary in drafts; numbered filenames not ratified; edits to a ratified body outside Amendments; index/directory mismatch | `.github/workflows/adr-lint.yml`, logic in `project-seed/ci/adr_lint.py` |
 | REUSE lint | every file carries copyright and licence; every licence text present and used | `.github/workflows/reuse-lint.yml` |
-| Symlink integrity | the pointer files stay mode `120000` rather than degrading to stale copies | `.github/workflows/symlink-integrity.yml` |
+| Symlink integrity | the `.vscode/` and `.claude/` pointers stay mode `120000` rather than degrading to stale copies | `.github/workflows/symlink-integrity.yml` |
 | Namespace guard | a `project/*` branch's own commits touch `adr/` only | `.github/workflows/namespace-guard.yml` |
-| IDE discovery | `AGENTS.md` at root, with `CLAUDE.md` and `.github/copilot-instructions.md` as symlinks to it | repo root, mirrored in `project-seed/ide/` |
+| IDE discovery | `AGENTS.md` at root, with `CLAUDE.md` a one-line import of it (`records/DRAFT-ide-integrated-governance-discovery.md`) | repo root, mirrored in `project-seed/ide/` |
 | Attribution | `Author` names an accountable human; tools disclosed as a `Tools:` note | `perspectives/README.md` and each file's own header |
 
 The vocabulary check reads prose only — fenced blocks, inline code spans and

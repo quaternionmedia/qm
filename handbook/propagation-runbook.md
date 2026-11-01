@@ -227,9 +227,10 @@ legitimately have edited the parts it owns.
   fix to the lint reaches every project on its next pin bump. If the project
   mounts the submodule anywhere other than `governance/qm`, set `QM_SUBMODULE`
   in that workflow — it is the only place the path appears.
-- **`project-seed/ide/` → the project root**, recursively and
-  **symlink-preserving** (`cp -a`, `cp -P`, `rsync -a`, or `git checkout`).
-  The tree already mirrors the target layout, so nothing is renamed per file.
+- **`project-seed/ide/` → the project root**, recursively. Every file in it
+  is a regular file, `CLAUDE.md` the one line `@AGENTS.md`
+  (`records/DRAFT-ide-integrated-governance-discovery.md`). The tree already
+  mirrors the target layout, so nothing is renamed per file.
   Fill in project-specific commands *below* `AGENTS.md`'s marked line and
   leave the governance section above it alone, apart from replacing `<name>`.
 
@@ -237,17 +238,17 @@ legitimately have edited the parts it owns.
 failed silently in a real adoption:
 
 ```sh
-# 1. The ignore file did not swallow what you just copied.
-git check-ignore -v AGENTS.md CLAUDE.md .github/copilot-instructions.md \
-  .vscode/settings.json .vscode/extensions.json
-#    Any path that comes back matched would never have been committed.
+# 1. The ignore file did not swallow what you just copied. Run it without -v:
+#    with -v, git prints negation matches too and exits 0.
+git check-ignore AGENTS.md CLAUDE.md .vscode/settings.json .vscode/extensions.json
+#    Any path that comes back would never have been committed; exit 1 with
+#    no output is the pass.
 
-# 2. The pointer files are still symlinks, not dereferenced copies.
-git ls-files -s CLAUDE.md .github/copilot-instructions.md
-#    Expect mode 120000. `cp -a` has been observed dereferencing these on at
-#    least one Windows toolchain. If they are 100644, recreate them:
-#      git hash-object -w --stdin <<< 'AGENTS.md'
-#      git update-index --cacheinfo 120000,<sha>,CLAUDE.md
+# 2. The pointer file is the one-line import, not an edited copy.
+cat CLAUDE.md
+#    Expect the single line `@AGENTS.md`, and mode 100644 from
+#    `git ls-files -s CLAUDE.md`. Anything else was edited, not copied:
+#    restore it from the seed.
 
 # 3. The lint runs, and against the right directory.
 python governance/qm/project-seed/ci/adr_lint.py --records-dir governance/qm/adr
@@ -313,7 +314,7 @@ adoption lives, and nothing reports their absence.
 | `adr/TEMPLATE.md` differs from the seed | Explicit commit. No merge will do it |
 | Literal `project/<name>` in `adr/README.md` | Substitute. It sends its reader to a branch that does not exist |
 | Org content on a `project/*` branch | Lift to `main` first, then continue |
-| Pointer files not mode `120000` | Recreate as symlink objects, per Part B |
+| `CLAUDE.md` is not the one line `@AGENTS.md` | Restore it from the seed, per Part B |
 | Seed artifacts absent from the project repo entirely | Fork steps 4 and 5 were never done. Do them now — the pin alone is not adoption |
 | A divergent in-project implementation of a seed mechanism | Replace it, do not add beside it, and flag the behaviour change in the PR |
 | A record's Status or number needs changing | **Not yours.** Draft it and hand it back; a human ratifies |
