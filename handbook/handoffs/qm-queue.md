@@ -12,10 +12,8 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`. The rest of the page holds at the stamp, which those entries do not
 move.
 
-[`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
-two `joe` pull requests merged on 2026-10-26, and the steps after it;
-[`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after it,
-#35 to #58, which a person merges one at a time;
+The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
+#35 to #58, on 2026-10-31; what remains of both is in §4.
 [`the-voice-loop.md`](the-voice-loop.md) is the loop;
 [`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
 landed on its `main`, and how it keeps landing;
@@ -97,16 +95,17 @@ pick up alone; that page is then listed in the index and named here.
 12. **joe adopts the corpus after its open set has landed**: a joe pull request
     adds `governance/qm` by its HTTPS URL, the seed's `AGENTS.md` and
     workflows, and `project/joe` takes its propagation; nothing opens before
-    the set is in. joe's README pull request and its lane-pages pull request
-    stand for `voice-set-landing.md` §3's README and cookbook rows. (2026-10-31)
+    the set is in. joe's README pull request (#56) and its lane-pages pull request
+    (#52) stand for the README and cookbook pull requests that were to follow
+    the voice set. (2026-10-31)
 13. **`openai-whisper` becomes an optional `voice` extra of joe**, in a pull
     request after the set lands: joe without it serves the media API and the
     page, and says so where a voice route is asked. (2026-10-31)
-14. **joe's open set lands in `joe-open-set.md`'s order, merged by the session
-    that readies each pull request** once its gates are green and its §4 fix is
-    on it; the checklist in `joe-manual-validation.md` is walked against
-    `main` afterwards, and a finding becomes a fix pull request. This
-    supersedes that page's decision 1. (2026-10-31)
+14. **joe's open set landed one pull request at a time, merged by the session
+    that readied each** once its gates were green and the finding recorded
+    against it was fixed on it; the checklist in `joe-manual-validation.md` is
+    walked against `main` afterwards, and a finding becomes a fix pull
+    request. (2026-10-31)
 15. **`status/governance.yaml`'s open questions are settled**: records on
     project branches are listed per project and do not count in the corpus's
     figure; CI holds no credential for private repositories, and whoever opens
@@ -318,7 +317,26 @@ each pull request into it is behind its base until brought level.
   declares that namespace. Done is the entry removed or computed from the
   namespaces page, and `fix/*` checked the same way. (2026-10-31)
 - **The checklist is walked.** `joe-manual-validation.md` against joe's
-  `main` once the set is in; a finding becomes a fix pull request. (2026-10-31)
+  `main` now the set is in; a finding becomes a fix pull request. (2026-10-31)
+- **joe's API moves to port 1059.** #59 (`feat/constant-port`) is open: the
+  twelfth root of two, qm's allocation for joe (`docs/ref/ci/demos.md`).
+  Whatever in joe still names 8000 as its address takes 1059 with it. Done is
+  #59 merged and `git grep 8000` in joe naming only what is not joe's API.
+  (2026-10-31)
+- **The voice set's branches are deleted by a person.**
+  `demo/voice-loop-2026-10-04` stands in `vox`, `joe` and `qm`, and
+  `integrate/open-prs` in `joe`. `qmcp`'s demo branch was deleted on 2026-10-25. Before
+  each deletion, `check_pr_base.py --base main --head <branch>` lists the
+  commits no other branch holds. (2026-10-31)
+- **joe's recorded choices wait for a design.** Below 1024 pixels with a take
+  and its note showing, the transport's playback group runs under the window
+  buttons; the specs hold the bar at 1024 and 1280 pixels only. `LABEL_W` is
+  defined in three files and `capture.py` has no test, and one `LABEL_W`
+  changes `src/index.js`'s imports. A take's audio route sends no
+  `Cache-Control`, so a recording deleted by hand stays in a browser's cache.
+  A panel told it is shown a frame after its window opens has no spec that
+  fails without it. Done is each decided in a joe pull request or left as it
+  is in `joe`'s docs. (2026-10-31)
 
 - **A repository leaving the private set renumbers every later reference.**
   `ci/inventory.py`'s `assign_references` numbers the repositories that are
@@ -538,9 +556,13 @@ re-checked and is re-derived before anyone acts on it.
   read it online: exercised against a local bare remote only. Against the
   host, only holders whose tip equals the tracking ref have been read.
 - That `joe`'s transcript lane was tested by hand before it merged on
-  2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
-  its pull request carries no comment or review saying so. The session that
-  asked for its merge records Peter's test (`joe-open-set.md` §2).
+  2026-10-26 (`joe` `c7dccf4`): its pull request carries no comment or review
+  saying so. The session that asked for its merge records Peter's test, by
+  step 4 of `joe`'s `docs/paths/voice-loop.md` §4.
+- Tiers 2 and 3 of the voice demonstration, the local model and a microphone,
+  were not run on any `main` during the landing. No test drives joe's
+  microphone, a live recording, `GET /api/results/latest` or
+  `POST /api/voice/transcribe`.
 - That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
   on `main`: every local run on 2026-10-31 skipped it, because the families
   step before it failed first (§4).
@@ -561,6 +583,16 @@ re-checked and is re-derived before anyone acts on it.
   `pull_request` workflow: #217, #220 and #139 ran nothing at theirs. A body
   edit fires `edited`. `qm merge` refuses a pull request whose `main`-only
   gates never ran, and a push to its branch starts them.
+- A `qmcp` pull request that pins `vendor/vox` at a `vox` branch head gets
+  one commit moving it to that branch's merge commit
+  (`git update-index --cacheinfo 160000,<merge>,vendor/vox`); merging `main`
+  then conflicts on the pin, and the merge commit is the resolution. A pull
+  request merged by hand is run locally as well: `qmcp` with
+  `governance/qm/project-seed/ci/run_workflows_locally.py --event pull_request
+  --base-ref origin/main` from Git Bash, `joe` with `uv run pytest tests/`,
+  `npx playwright test` and `npm run build`. In a `joe` worktree a page spec
+  runs on a free port with `reuseExistingServer: false`, as
+  `handbook/running-several-repositories.md` asks.
 - `uv run qm docs check` runs in no workflow and no preflight step; run it
   before a pull request is ready.
 - A propagation pull request goes red on `namespace` once `main` moves past

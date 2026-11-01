@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-01T00:50:15Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-01T00:57:47Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 44**; 41 proposed |
-| Mandatory reading | under budget | 1207 of 1200 lines — **over** |
+| Mandatory reading | under budget | 1205 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **311**, unfiltered.
+Every governed document in this corpus: **309**, unfiltered.
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] `unreviewed` | 97 |
 | [G] `generated` | 55 |
 | [S] `standing` | 90 |
-| [T] `transient` | 25 |
+| [T] `transient` | 23 |
 
 ## Documents
 
@@ -362,7 +362,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-31.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-manual-validation.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/joe-open-set.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/ludwig-simultaneous-run.md` | handoff | — |
@@ -378,7 +377,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/the-voice-loop.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/wolf-simultaneous-run.md` | handoff | — |
 
 ## Reading this document
