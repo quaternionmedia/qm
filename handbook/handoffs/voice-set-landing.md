@@ -16,6 +16,12 @@ when the set and the steps after it have landed.
 
 ---
 
+**Re-read on 2026-10-31.** The set is landed whole, its two documentation
+rows with joe's README and lane-pages pull requests, and what §4 carried is
+decided in [`qm-queue.md`](qm-queue.md) §1. The sections below describe the
+landing as it was in progress and are kept until every page that cites them
+is swept; this page goes with that sweep.
+
 ## 1. Decisions in force
 
 1. **The set is approved** and lands in this order: `vox`, `qmcp`, `joe`,

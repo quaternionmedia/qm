@@ -13,6 +13,14 @@ landed or closed.
 
 ---
 
+**Re-read on 2026-10-31, at joe `main` `188a2cb`.** Every pull request §3 lists
+below #59 has merged, in the order §1 gives and with §4's fixes on each;
+[`qm-queue.md`](qm-queue.md) §1 decision 14 is the decision that landed them
+and §4 carries what remains: #59, the two integration branches, and the walk
+of [`joe-manual-validation.md`](joe-manual-validation.md) against `main`.
+The sections below describe the set as it stood open and are kept until
+every page that cites them is swept; this page goes with that sweep.
+
 ## 1. Decisions in force
 
 Each asked of Peter on its own, 2026-10-24 to 2026-10-26, in the session that

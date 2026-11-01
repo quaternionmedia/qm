@@ -1,16 +1,13 @@
 # Handoff — joe validated by hand, the open set
 
-**Under test:** the sum of the open set, `joe.worktrees/demo` at `docs/user-paths`
-`d28d142`: `main` (#33 and #34 in it), #35 to #58 merged on `integrate/open-prs`,
-then #51 and #52. Not in it: #59 (joe's API on 1059) and #60 (the suite with no
-audio server). Re-read the stack's top before starting; move the demo with
-`git checkout --detach origin/docs/user-paths`.
+**Under test:** joe `main` at `188a2cb`, the open set landed ([`qm-queue.md`](qm-queue.md) §1,
+decision 14). Not in it: #59 (joe's API on 1059). Start joe from a checkout of `main`.
 
 **How to record.** Tick a box when what you see is what the step says. When it
 is not, leave it unticked and add a row to the findings log at the end: what you
 did, what you saw, what the step says. Each finding is fixed on the pull request
 that wrote the text or the code, one commit, before that pull request's merge is
-asked ([`joe-open-set.md`](joe-open-set.md) §1, decision 2).
+asked ([`qm-queue.md`](qm-queue.md) §1, decision 14).
 
 ★ marks a step no spec or test drives: the steps worth a person's time first.
 
