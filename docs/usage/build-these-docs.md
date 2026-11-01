@@ -68,7 +68,7 @@ A project's version on its page comes from whether the [corpus](../ref/glossary.
 A project that has adopted [the record on a project's dated history](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-projects-history-lives-in-the-corpus.md) keeps its dated account in a subtree beside its page, `docs/projects/<name>/`, which the cookbook links and does not write:
 
 - `rounds.yaml`, the round log a person keeps: each development round's branch, pull request, dates and what it carried, and the counts measured on it;
-- `git.yaml`, the pull requests merged on the project's default branch and its tags, read from its clone;
+- `git.yaml`, read from its clone: the pull requests merged on the project's default branch, its tags, and the branches on its remote that the default branch does not hold, each with the branch it is stacked on and the commits it adds;
 - `timeline.md`, drawn from the two, newest first;
 - the project's retrospectives, each with a `**Date:**` line under its title.
 
@@ -78,7 +78,7 @@ uv run qm timeline <name> --write --offline   # draw the page from the committed
 uv run qm timeline --check                    # every timeline against its committed inputs
 ```
 
-The clone is found where the cookbook finds a member's, and `--clone <path>` names one. `--check` reads no clone, so the `docs-audit` workflow runs it on every pull request that touches the site, and fails on a timeline its inputs do not give or a retrospective with no date. The subtree's pages are reached from the project's page, and are not listed in the navigation.
+The clone is found where the cookbook finds a member's, and `--clone <path>` names one. It is read as it stands, so fetch it with `--prune` first, or a branch deleted on the host stays on the page. A branch a round names is listed in that round's row, and every other branch in a row of its own. `--check` reads no clone, so the `docs-audit` workflow runs it on every pull request that touches the site, and fails on a timeline its inputs do not give or a retrospective with no date. The subtree's pages are reached from the project's page, and are not listed in the navigation.
 
 ## Add a page
 
