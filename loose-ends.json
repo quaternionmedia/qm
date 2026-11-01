@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T19:28:37Z",
+  "generated_at": "2026-11-01T23:35:58Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-01T19:28:36Z"
+        "generated_at": "2026-11-01T23:35:56Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-01T15:41:20Z"
+        "generated_at": "2026-11-01T23:29:07Z"
       }
     }
   },
@@ -205,7 +205,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
-      "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
+      "detail": "The instruction pointers. CLAUDE.md and project-seed/ide/CLAUDE.md are regular files holding the one line `@AGENTS.md`, an import and not a link, so a wrong line in either is a text change this check does not read. And a rule missing from one of the two genuinely different AGENTS.md files: they are not linked to each other, so this check cannot notice them disagreeing.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-symlink-integrity",
       "address_parses": true
     },
