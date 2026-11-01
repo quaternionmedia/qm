@@ -168,10 +168,11 @@ person who asked for the work; do not request a review.
 
 **"The suite is green. Does that mean the tests are any good?"**
 
-Not on its own — a passing test may be asserting nothing. `uv run qm mutate
-<module>` breaks a module on purpose and reports whether its tests noticed.
-`uv run qm posture` reports what the suite costs and what it catches together,
-because either number alone flatters. This is charter principle `a-check-is-evidence-after-it-fails`.
+Not on its own — a passing test may be asserting nothing. `uv run --extra dev
+qm mutate <module>` breaks a module on purpose and reports whether its tests
+noticed. `uv run --extra dev qm posture` reports what the suite costs and what
+it catches together, because either number alone flatters; both run pytest,
+which that extra installs. This is charter principle `a-check-is-evidence-after-it-fails`.
 
 **"This says zero. Does that mean nobody looked?"**
 

@@ -21,19 +21,25 @@ no other briefing, read this file fully before your first commit or edit.
 ## Before you do anything
 
 **Establish four facts about this session before you write anything**, by
-asking the repository rather than inheriting a previous session's belief:
+asking the repository rather than inheriting a previous session's belief.
+Each says what it needs.
 
-1. **The commit you are working against**, and the branch.
-2. **Which pull requests you already hold open, and how they stack** — small,
-   atomic pull requests, a dependent one stacked on its parent as a draft:
-   `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
-3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
-   sibling branch, an unpushed commit. Other sessions are likely running right
-   now, in other repositories, for the same reviewer;
-   `governance/qm/handbook/async-contract.md` is the short set of rules for
-   working alongside them.
-4. **Which gates exist**, and what each cannot see:
-   `python governance/qm/project-seed/ci/run_workflows_locally.py`.
+- **A. The commit you are working against**, and the branch. `git log -1` and
+  `git status` answer it, and need nothing but the clone.
+- **B. Which pull requests you already hold open, and how they stack** — small,
+  atomic pull requests, a dependent one stacked on its parent as a draft:
+  `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
+  It asks the host, so it needs a signed-in `gh`; without one it says
+  `gh auth login` and stops, and with no account the answer is none.
+- **C. What else is in flight in this clone** — a dirty tree you did not dirty,
+  a sibling branch, an unpushed commit. `git status` and `git branch -vv`
+  answer it. Other sessions are likely running right now, in other
+  repositories, for the same reviewer;
+  `governance/qm/handbook/async-contract.md` is the short set of rules for
+  working alongside them.
+- **D. Which gates exist**, and what each cannot see:
+  `python governance/qm/project-seed/ci/run_workflows_locally.py`, which
+  needs pyyaml, a signed-in `gh` and an `origin` to run every step.
 
 Those are the invariants. **How** you gather them is yours to choose — read the
 repository, run the scripts above, or use an adapter if one exists for your
@@ -58,8 +64,13 @@ quoting a figure.
    when you touch this project's records there — then **merge it yourself once
    every gate is green.** Your job is a default branch that is clean and
    working, entered through a pull request so the gates ran and the diff stays
-   readable afterwards. **Never push a shared branch directly**: that is the
-   one act that destroys the audit record.
+   readable afterwards. That route is a maintainer's. An outsider with this
+   project's records to change opens an issue or a pull request here, and a
+   maintainer pushes the project's `project/<name>` branch in the corpus on
+   their behalf. An outside tester's pull request is merged by its assignee,
+   a maintainer. **Never push
+   a shared branch directly**: that is the one act that destroys the audit
+   record.
    **The default branch is not a claim, so merging into it is not a release.**
    Per `governance/qm/records/DRAFT-version-tags-are-claims.md` §4, the default
    branch, a pull request and a local build are all drafts — they may be

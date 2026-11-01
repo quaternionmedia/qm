@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Break a module on purpose and see whether its tests notice.
 
-    uv run qm mutate ci/rulesets.py
-    uv run qm mutate ci/rulesets.py --list          # the mutants, without running
-    uv run qm mutate ci/rulesets.py --check         # exit non-zero on a survivor
+    uv run --extra dev qm mutate ci/rulesets.py
+    uv run --extra dev qm mutate ci/rulesets.py --list    # the mutants, without running
+    uv run --extra dev qm mutate ci/rulesets.py --check   # exit non-zero on a survivor
 
 It is a route, so the claim "these tests discriminate" carries a command
 anybody can reproduce, rather than a number from a script nobody else has.
