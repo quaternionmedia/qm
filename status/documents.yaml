@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T01:28:11Z'
+generated_at: '2026-11-01T02:54:36Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -123,11 +123,11 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 313
+  documents: 314
   by_state:
     dated: 2
     draft: 3
-    generated: 56
+    generated: 57
     proposed: 42
     standing: 90
     transient: 23
@@ -546,6 +546,15 @@ documents:
   refresh: uv run qm cookbook docs/families --site --write
   present: true
 - path: docs/projects/looksatwords.md
+  class: generated
+  class_reason: a tool writes it
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
+- path: docs/projects/loopwall.md
   class: generated
   class_reason: a tool writes it
   declared_status: null

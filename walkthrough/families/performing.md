@@ -13,7 +13,7 @@
 | `alfred` | yes |
 | `otto` | no |
 | `carlos` | yes |
-| `private-34` | no |
+| `loopwall` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
 | `midiphonor` | no |
@@ -45,13 +45,13 @@ Everyone in these is in this family as well, and is in the table above.
 
 | family | drives | members | governed |
 |---|---|---|---|
-| [`instruments`](./instruments.md) | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 2 |
-| [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 3 | 0 |
+| [`instruments`](./instruments.md) | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 3 |
+| [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 3 | 1 |
 | [`show-control`](./show-control.md) | the room — cues, lighting, sound and video playback, audio transport | 8 | 0 |
 
 ## Starting here
 
-3 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
+4 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
 
 ```sh
 cd alfred
@@ -70,4 +70,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-31 from `families.json`.*
+*Generated 2026-11-01 from `families.json`.*

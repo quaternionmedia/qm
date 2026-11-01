@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T01:00:37Z",
+  "generated_at": "2026-11-01T02:54:22Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -38,8 +38,8 @@
   "totals": {
     "on_host": 123,
     "in_roster": 50,
-    "on_host_not_in_roster": 76,
-    "in_roster_not_on_host": 3,
+    "on_host_not_in_roster": 75,
+    "in_roster_not_on_host": 2,
     "cloned_here": 47,
     "private": 37,
     "forks": 10,
@@ -57,12 +57,11 @@
       "dormant": 0,
       "retired": 0,
       "external": 0,
-      "unstated": 41,
-      "unrostered": 76
+      "unstated": 42,
+      "unrostered": 75
     }
   },
   "in_roster_not_on_host": [
-    "private-34",
     "qmcli-godot",
     "streaming-infrastructure"
   ],
@@ -415,7 +414,7 @@
       "created_at": "2019-09-14T06:59:16Z",
       "default_branch_commit_at": "2024-01-12T01:09:56Z",
       "language": "JavaScript",
-      "disk_usage_kb": 16752,
+      "disk_usage_kb": 16861,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -878,7 +877,7 @@
       "created_at": "2018-10-09T05:03:04Z",
       "default_branch_commit_at": "2026-10-31T23:13:55Z",
       "language": "Python",
-      "disk_usage_kb": 2832,
+      "disk_usage_kb": 2824,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1019,10 +1018,10 @@
       "default_branch_commit_at": "2026-08-10T13:53:54Z",
       "language": "Python",
       "disk_usage_kb": 1242,
-      "in_roster": false,
-      "roster_phase": null,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "unstated",
       "recency": "quiet",
       "name": "loopwall",
       "description": null
@@ -1201,11 +1200,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-11-01T00:52:23Z",
+      "updated_at": "2026-11-01T01:46:35Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-11-01T00:52:18Z",
+      "default_branch_commit_at": "2026-11-01T01:46:29Z",
       "language": "Python",
-      "disk_usage_kb": 25921,
+      "disk_usage_kb": 26102,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,

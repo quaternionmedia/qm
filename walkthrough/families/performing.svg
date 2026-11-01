@@ -13,9 +13,9 @@
 <circle class="c-performing" cx="22" cy="128" r="5"/>
 <text class="mono" x="36" y="132" font-size="13">carlos</text>
 <text class="mono muted" x="276" y="132" font-size="12">governed</text>
-<circle class="s-performing" cx="22" cy="154" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="158" font-size="13">private-34</text>
-<text class="mono muted" x="276" y="158" font-size="12">not adopted</text>
+<circle class="c-performing" cx="22" cy="154" r="5"/>
+<text class="mono" x="36" y="158" font-size="13">loopwall</text>
+<text class="mono muted" x="276" y="158" font-size="12">governed</text>
 <circle class="c-performing" cx="22" cy="180" r="5"/>
 <text class="mono" x="36" y="184" font-size="13">qmetronome</text>
 <text class="mono muted" x="276" y="184" font-size="12">governed</text>

@@ -271,7 +271,7 @@ repositories:
       not `main`.
     paths: [carlos, qm/carlos]
 
-  - ref: private-34
+  - name: loopwall
     role: project
     phase: v0.0.1
     phase_source: scaffolded
@@ -283,6 +283,8 @@ repositories:
 
   # Both of these carry a project/<name> branch in this repository, so the
   # corpus governs them.
+    paths: [qm/loopwall, loopwall]
+
   - ref: private-36
     role: project
     phase: v0.0.1
