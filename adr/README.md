@@ -242,4 +242,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): hearth adopts the corpus, and owns the family contract and what holds members to it.
+Drafts in flight (numberless, by title): hearth adopts the corpus, and owns the family contract and what holds members to it; hearth is licensed MPL-2.0.
