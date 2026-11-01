@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-31T19:54:22Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-31T21:40:27Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **309**, unfiltered.
+Every governed document in this corpus: **311**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 41 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 95 |
+| [-] `unreviewed` | 97 |
 | [G] `generated` | 55 |
 | [S] `standing` | 90 |
 | [T] `transient` | 25 |
@@ -198,6 +198,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-28-an-allowance-read-as-free.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-29-several-repositories-one-workstation.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-31-a-red-on-main-read-as-the-disk.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-31-cathys-network-guard-routed-around.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-31-the-strangers-first-hour.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
