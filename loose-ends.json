@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T23:46:38Z",
+  "generated_at": "2026-11-01T00:30:21Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-31T23:46:37Z"
+        "generated_at": "2026-11-01T00:30:20Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 267,
+    "loose_ends": 268,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 41,
-      "document-unreviewed": 96,
+      "document-unreviewed": 97,
       "stalled-thread": 110
     },
-    "open": 267,
+    "open": 268,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1230,6 +1230,14 @@
       "title": "perspectives/2026-10-31-cathys-network-guard-routed-around.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-31-cathys-network-guard-routed-around",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-31-the-strangers-first-hour",
+      "title": "perspectives/2026-10-31-the-strangers-first-hour.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-31-the-strangers-first-hour",
       "address_parses": true
     },
     {
