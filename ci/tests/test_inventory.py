@@ -147,6 +147,56 @@ def test_a_new_repository_does_not_renumber_the_existing_ones():
     assert after["aaa"]["ref"] == "private-03"
 
 
+def test_a_repository_leaving_the_private_set_moves_no_other_reference():
+    """The ledger holds a number after its repository goes public, so every
+    later reference keeps pointing at the same repository.
+
+    Mutation: make `assign_references` ignore `ledger` (numbering the
+    repositories private now, by creation order) and this goes red -- `c`
+    and `d` move down by one.
+    """
+    private = [repo(n, True, f"202{i}-01-01T00:00:00Z") for i, n in enumerate("abcd")]
+    ledger = []
+    before = assign_references(private, ORG, ledger)
+    ledger += inventory.ledger_additions(private, before, ledger)
+    after = assign_references([r for r in private if r["name"] != "b"], ORG, ledger)
+    assert {n: v["ref"] for n, v in after.items()} == {
+        n: before[n]["ref"] for n in ("a", "c", "d")}
+    assert after["d"]["ref"] == "private-04"
+    assert after["d"]["label"] == f"{ORG} private repo 4"
+
+
+def test_a_new_repository_takes_the_next_free_number_after_one_leaves():
+    private = [repo(n, True, f"202{i}-01-01T00:00:00Z") for i, n in enumerate("abc")]
+    ledger = []
+    ledger += inventory.ledger_additions(private, assign_references(private, ORG, ledger), ledger)
+    now = [private[0], private[2], repo("new", True, "2026-01-01T00:00:00Z")]
+    refs = assign_references(now, ORG, ledger)
+    assert refs["new"]["ref"] == "private-04"
+    assert [e["ref"] for e in inventory.ledger_additions(now, refs, ledger)] == ["private-04"]
+
+
+def test_the_ledger_round_trips_without_a_name(tmp_path):
+    entries = [{"ref": "private-02", "created_at": "2021-01-01T00:00:00Z"},
+               {"ref": "private-01", "created_at": "2020-01-01T00:00:00Z"}]
+    path = tmp_path / "private-references.yaml"
+    inventory.write_ledger(entries, path)
+    assert [e["ref"] for e in inventory.load_ledger(path)] == ["private-01", "private-02"]
+    assert set(inventory.load_ledger(path)[0]) == {"ref", "created_at"}
+
+
+def test_build_appends_what_it_assigns_to_the_ledger(monkeypatch, tmp_path):
+    ledger = [{"ref": "private-01", "created_at": "2019-01-01T00:00:00Z"}]
+    monkeypatch.setattr(inventory, "host_repositories",
+                        lambda org: [repo("p", True, "2020-01-01T00:00:00Z")])
+    monkeypatch.setattr(inventory, "default_branch_commits", lambda org: {})
+    roster = tmp_path / "workspace.yaml"
+    roster.write_text("repositories: []\n", encoding="utf-8")
+    pub, priv, _ = inventory.build(ORG, roster, [tmp_path], ledger)
+    assert pub["repositories"][0]["ref"] == "private-02"
+    assert ledger[-1] == {"ref": "private-02", "created_at": "2020-01-01T00:00:00Z"}
+
+
 def test_the_label_is_readable_and_names_the_org():
     refs = assign_references([repo("x", True)], "quaternionmedia")
     assert refs["x"]["label"] == "quaternionmedia private repo 1"
