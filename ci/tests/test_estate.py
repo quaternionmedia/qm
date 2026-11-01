@@ -620,3 +620,24 @@ def test_a_repository_in_two_families_is_a_row_under_each():
     grouped = dict((family, [r.name for r in members])
                    for family, members in estate.by_family(rows))
     assert grouped == {"instruments": ["pedal"], "irl": ["pedal", "board"]}
+
+
+def test_every_row_missing_is_a_search_root_without_clones_and_exits_two(
+        root, capsys):
+    """A survey in which no roster entry resolves, the corpus's own clone
+    among them, has read nothing about the estate: the search root holds no
+    clone, and exit 0 under a table of MISSING rows is the tool describing
+    its own scaffolding. It names the roots it searched and the flag that
+    moves them, prints no table, and exits as an unreadable roster does.
+
+    Mutation: drop the all-missing refusal from `main`, and this exits 0 over
+    the table.
+    """
+    empty = root / "nothing-here"
+    empty.mkdir()
+    code, out, err = main(capsys, "--roster", str(roster_for(root, "plain", "other")),
+                          "--search-root", str(empty), "--offline")
+    assert code == 2, out
+    assert str(empty.resolve()) in err
+    assert "--search-root" in err
+    assert out == ""

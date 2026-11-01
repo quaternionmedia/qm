@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """What the suite costs and what it catches, in one reading.
 
-    uv run qm posture
-    uv run qm posture --baseline
-    uv run qm posture --against .qm-posture.json
+    uv run --extra dev qm posture
+    uv run --extra dev qm posture --baseline
+    uv run --extra dev qm posture --against .qm-posture.json
 
 A suite has a cost (wall clock, and the share of it spent building fixtures)
 and a yield (whether it notices when the code is wrong). This reports the two

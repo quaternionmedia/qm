@@ -18,6 +18,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from conftest import CI_DIR, ENV, run_tool
 
 REPO = "owner/name"
@@ -206,3 +208,31 @@ def test_a_repo_name_missing_its_owner_is_refused(tmp_path: Path) -> None:
     result = run_tool("check_one_pr.py", "--repo", "qm", cwd=tmp_path)
     assert result.returncode != 0
     assert "must be owner/name" in (result.stdout + result.stderr)
+
+
+def test_without_a_credential_the_fetch_names_the_login_not_an_api_failure(monkeypatch):
+    """`gh` without a credential exits 4 and says `gh auth login` under a
+    line about getting started; wrapped in *gh api ... failed* that reads as
+    the host refusing the repository. The check names the missing credential
+    itself and stops.
+
+    Mutation: drop the credential branch from `fetch_open_prs`, and the
+    message is the api failure again.
+    """
+    sys.path.insert(0, str(CI_DIR))
+    import check_one_pr
+
+    def no_credential(*args, **kwargs):
+        return subprocess.CompletedProcess(
+            args, 4, "",
+            "To get started with GitHub CLI, please run:  gh auth login\n"
+            "Alternatively, populate the GH_TOKEN environment variable with a "
+            "GitHub API authentication token.\n")
+
+    monkeypatch.setattr(check_one_pr.subprocess, "run", no_credential)
+    with pytest.raises(SystemExit) as stopped:
+        check_one_pr.fetch_open_prs(REPO)
+    message = str(stopped.value)
+    assert message.startswith("check_one_pr: no host credential"), message
+    assert "gh auth login" in message
+    assert "failed" not in message

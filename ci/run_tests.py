@@ -4,9 +4,10 @@
 Org-level tooling, copied nowhere. There is one way to run the tests and this
 is it:
 
-    uv run qm test
+    uv run --extra dev qm test
 
-An improvised invocation can collect a different set of tests, and a run that
+The `dev` extra installs pytest; without it the dispatcher says so and runs
+nothing. An improvised invocation can collect a different set of tests, and a run that
 collects one suite and not the other reports green over half the tooling
 (`pyproject.toml` says so beside `testpaths`). This is the one invocation.
 
@@ -25,8 +26,8 @@ narrowing is `-k`, so a subset is never reported as the suite's pass.
 `docs/ref/ci/measuring-the-suite.md` describes the test command.
 
 Usage:
-    uv run qm test
-    uv run qm test -- -k restatements      # narrow by name, not by path
+    uv run --extra dev qm test
+    uv run --extra dev qm test -- -k restatements   # narrow by name, not by path
     python ci/run_tests.py
 """
 

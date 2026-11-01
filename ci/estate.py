@@ -34,9 +34,12 @@ What it refuses to do:
     hurry, and the `git` helper here refuses any verb outside a short list of
     readers. `ci/tests/test_estate.py` breaks that list and watches it fire.
   * **It is a reading, not a gate.** A completed survey exits zero whatever
-    it found; the only non-zero exit is a roster that could not be read. A
-    tool that failed on the estate's state would be run less, which is the
-    opposite of what a survey is for.
+    it found; the only non-zero exits are a roster that could not be read and
+    a search root under which no roster entry resolves, the corpus's own
+    clone included. That survey read nothing about the estate, so it reports
+    where it looked and what it expected to find there, instead of a table of
+    MISSING rows with a zero under it. A tool that failed on the estate's
+    state would be run less, which is the opposite of what a survey is for.
   * **It drops nothing.** A roster entry no candidate path resolves is
     reported as MISSING with its candidates, as the workspace generator does,
     because a survey silently short of two repositories reads exactly like a
@@ -591,6 +594,26 @@ def main(argv: list[str] | None = None) -> int:
     search_roots = [p.resolve() for p in args.search_root] or [CORPUS.parent.parent]
     online = not args.offline
     found = survey(roster, search_roots, args.remote, online)
+
+    if all(r.missing for r in found):
+        # Every row MISSING, this corpus's own among them, is not a reading of
+        # the estate: it is a search root that holds no clone. The roster's
+        # paths are relative to a directory holding the clones side by side,
+        # which is the layout `ci/workspace.yaml` describes.
+        roots = ", ".join(str(p) for p in search_roots)
+        corpus = next((e for e in roster if e.get("role") == "corpus"), None)
+        where = (f"  This corpus is looked for as {' or '.join(corpus['paths'])} "
+                 "under that root.\n" if corpus and corpus.get("paths") else "")
+        sys.stderr.write(
+            f"estate: none of the {len(found)} repositories the roster names was "
+            f"found under {roots}.\n"
+            "  The roster's paths are relative to a search root that holds the\n"
+            "  clones side by side (ci/workspace.yaml); the default root is two\n"
+            f"  directories above this clone.\n{where}"
+            "  Pass --search-root <dir> with the directory that holds them. With\n"
+            "  no other clone, `git status` and `git branch -vv` answer for this\n"
+            "  one. A survey that found no clone has read nothing about the estate.\n")
+        return 2
 
     if args.json:
         json.dump(as_document(found, args.roster, search_roots, online),

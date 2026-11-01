@@ -101,6 +101,17 @@ def fetch_open_prs(repo: str) -> list[dict]:
         errors="replace",
     )
     if result.returncode != 0:
+        # gh exits 4 when it holds no credential, and says `gh auth login`
+        # under a line about getting started. Wrapped in the message below
+        # that reads as the host refusing the repository, so the missing
+        # credential is named first and on its own.
+        if result.returncode == 4 or "gh auth login" in result.stderr:
+            sys.exit(
+                "check_one_pr: no host credential. Run `gh auth login`, or set "
+                "GH_TOKEN to a token that can read pull requests.\n"
+                "This check reads pull requests; it cannot report a repository "
+                "it could not read as compliant."
+            )
         sys.exit(
             f"check_one_pr: gh api repos/{repo}/pulls failed:\n"
             f"{result.stderr.strip()}\n"
