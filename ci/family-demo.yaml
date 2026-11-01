@@ -384,7 +384,7 @@ members:
     needs:
       - a branch with active work named, then the contract
 
-  - name: private-34
+  - name: loopwall
     phase: instruments
     ports: {main: 18445}
     needs:
