@@ -17,9 +17,10 @@ repository: quaternionmedia/alfred
 default_branch: main
 source: >-
   alfred's [`CHANGELOG.md`](https://github.com/quaternionmedia/alfred/blob/ec60239a/CHANGELOG.md)
-  at `ec60239a`, on `docs/one-pass`. Each round's dates are its commits' dates
-  in alfred's git, its head is its branch's commit on 2026-10-31, and its title
-  is its pull request's.
+  at `ec60239a`, on `docs/one-pass`, for rounds 1 to 13, whose heads are their
+  branches' commits on 2026-10-31; each later round is added as it closes,
+  with its head the commit it closed at. Each round's dates are its commits'
+  dates in alfred's git, and its title is its pull request's.
 about: >-
   fixes from a review of alfred and otto, landed in rounds of parallel
   branches, each round integrated on a branch stacked on the round before.
@@ -230,6 +231,22 @@ rounds:
       otto (pinned at 51a1b0e, `docs/timeline`), and vox's and joe's rules
       left to their own docs
 
+  - round: 14
+    branch: feat/generic-form-and-lighter-ui
+    pr: 139
+    title: >-
+      Round 14: a form project any user can make, and an editor drawn lighter
+    began: 2026-11-01
+    ended: 2026-11-01
+    head: f24d8126
+    carried: >-
+      the seed's car-dealer form projects replaced by Announcement, a
+      templates-only form any account can add from
+      `alfred/examples/announcement.json`, with the form component named
+      `ProjectForm`, a line under the rail that sends a form project to
+      Render, and the journey From a form; the editor's lines at one pixel
+      and its text at one weight, with every screenshot retaken
+
 measured:
   - rounds: [1]
     at: f0e8cb3
@@ -384,6 +401,23 @@ measured:
       stack with the stub engine. The family's live check: 8 passed, 1
       skipped for want of a library file with sound. The phone flow measured
       at 390x844: one screen on every stage, and two whole projects on Source
+
+  - rounds: [14]
+    at: feat/generic-form-and-lighter-ui
+    results:
+      - suite: ./al pytest
+        result: 2011 passed, 9 skipped, 8 xfailed; black and ruff checked; 493 warnings
+      - suite: ./al test
+        result: 478 passed, none passing only on retry
+    also: >-
+      Run by `./al loop r14b` on the tree of `f927f1ca`, the round's last code
+      commit. `mkdocs build --strict` clean; the quick host suite 169 passed,
+      31 skipped. The screenshots retaken by `./al recipes` against the demo
+      stack with joe, whose live check passed 8 and skipped 1, and the guide's
+      eight by `./al loop shots`. CI's Black check fails on two test files the
+      round does not touch, as it does on every pull request from round 11's:
+      the shared workflow installs Black 26, and alfred's nox pins Black below
+      26.
 
 noted:
   - version: Unreleased
