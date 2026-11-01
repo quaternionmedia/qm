@@ -241,6 +241,33 @@ gates:
       sees the committed files only: not a git snapshot behind its project,
       nor a round left out of the round log.
 
+  - id: docs-check
+    workflow: docs-check.yml
+    job: generated
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A committed generated document that no longer matches what its generator
+      writes from this tree: the governance and gate documents, the gate view,
+      the site palette, the family cookbook and the family site pages, the
+      rollout, and the three index documents, `status/documents.yaml`,
+      `handbook/document-states.md` and `loose-ends.json`. It runs with no path
+      filter, so a page that changes state without its index is red on the
+      pull request that changed it, and `main` is checked after every merge.
+    runs:
+      - ci/generate_docs.py --check
+    enforces:
+      - handbook/generated-documents.md
+    cannot_see: >
+      A document with no check mode, `status/harness.yaml` and `families.json`:
+      their freshness is the staleness budget each carries in its own
+      `reading:` block, and the run reports them skipped. The enforcement layer
+      of `status/gates.yaml`, which is read from the host and changes without
+      a commit here. Whether a generated document is true: it compares each
+      with what its generator writes from the same tree, so a generator that
+      is wrong is wrong on both sides and passes.
+
   - id: docs-draft
     workflow: docs-draft.yml
     job: draft

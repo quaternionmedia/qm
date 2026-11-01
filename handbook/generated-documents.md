@@ -24,6 +24,11 @@ uv run qm docs generate --offline  # skip the three that read other repositories
 uv run qm docs check               # CI-safe: has anything drifted?
 ```
 
+`docs check` is also the `docs-check` gate: it runs on every pull request into
+`main` and on every push to it, with no path filter, so a committed document
+that has drifted from the tree is a red on the pull request and not a surprise
+found later. `uv run qm gates` lists what it cannot see.
+
 The per-document commands below still work and are what CI and a fork invoke —
 a workflow that shelled out to `uv run` would need a venv built before any gate
 could report, and a fork runs the seed scripts in place without installing

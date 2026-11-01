@@ -290,24 +290,6 @@ each pull request into it is behind its base until brought level.
   private repository's name. Done is the check clean, by redaction in the
   show generator or by an allowance with a stated reason. (2026-10-26)
 
-- **Two green pull requests left a generated page on `main` stale, and no gate
-  saw it.** The pull request that put cathy in the roster moved the roster,
-  and the one that drew every showgraph as a Showcase carried
-  `docs/families/index.md` as generated before it; each passed
-  `docs-audit.yml` at its own tip, and
-  merged in that order they left `main`'s page one rostered repository
-  behind. The audit runs on `pull_request` alone, filtered to `docs/**` and
-  the generator's inputs, so `main` was never checked after either merge and
-  the red surfaced on the next pull request that touched `docs/`, as a
-  failure its branch did not cause. Three local runs the same day read the
-  step's wording, *no longer describe this disk*, as an environment
-  difference; the host's run and a regeneration from `main` showed the same
-  one-line drift. Done is the audit running on every push to `main` as well,
-  so a stale generated page is `main`'s red and not the next contributor's,
-  and the step saying *stale against its committed inputs* rather than
-  naming a disk. `hil-review-2026-10-31.md` §5 names the three pull requests.
-  (2026-10-31)
-
 - **benchmark's workflow runs on pull requests.** `deploy.yml`'s `test` job
   runs on pushes to `main` alone, so no pull request into benchmark produces
   a check its protection could require. Done is a `pull_request` trigger for
@@ -610,8 +592,9 @@ re-checked and is re-derived before anyone acts on it.
   `npx playwright test` and `npm run build`. In a `joe` worktree a page spec
   runs on a free port with `reuseExistingServer: false`, as
   `handbook/running-several-repositories.md` asks.
-- `uv run qm docs check` runs in no workflow and no preflight step; run it
-  before a pull request is ready.
+- `uv run qm docs check` runs as the `docs-check` gate on every pull request
+  into `main` and every push to it, and so in the preflight; run it before a
+  pull request is ready, since a stale index document is a red.
 - A propagation pull request goes red on `namespace` once `main` moves past
   the commit it merged: the guard compares every file the merge brings with
   `main`'s tip. Merging `main` into the `propagate/*` branch again clears it;
