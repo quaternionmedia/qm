@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-31T21:40:27Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-01T00:50:15Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -359,9 +359,9 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/carlos-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/design-review-of-the-estate.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-31.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/joe-manual-validation.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-open-set.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |

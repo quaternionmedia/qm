@@ -10,8 +10,8 @@ Re-derive before acting on any of it.
 state is recorded here and nowhere else. `vox` joined the roster on
 2026-09-27, in `core`; `joe` is in `performer-display` and predates this
 work.
-[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
-set, with the decisions it left to a person, and
+The set's review page is gone with its work, its decisions closed in
+[`qm-queue.md`](qm-queue.md) §1, and
 [`voice-set-landing.md`](voice-set-landing.md) is how far its landing has got
 and what is left of it. Nothing in this page is a decision.
 

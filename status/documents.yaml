@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T21:40:27Z'
+generated_at: '2026-11-01T00:50:15Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -1051,13 +1051,6 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/hil-review-2026-10-04.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/hil-review-2026-10-31.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -1066,6 +1059,13 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/holophonor-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/joe-manual-validation.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null

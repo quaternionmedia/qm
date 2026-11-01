@@ -20,7 +20,7 @@ table in §5. Nothing here binds a port another project uses by default.
 |---|---|---|---|
 | **The docs site**, as `main` renders it | `uv run --extra docs zensical serve -a 127.0.0.1:8400`, the preview address `ci/cookbook.py` names, then open `http://127.0.0.1:8400/` | §2 | the terminal it runs in |
 | **The trio**: the harness, its web front end and its terminal front end | `uv run qm dashboard` says what is up and prints the command for what is not; `uv run qm dashboard --start harness --start web` brings the first two up on their reserved ports; the terminal front end runs in a terminal of its own, as the dashboard says | §3 | `uv run qm dashboard --stop harness --stop web` |
-| **joe's open set**, by hand | joe's `docs/paths/manual-validation.md`, on its branch `docs/manual-validation-checklist` (joe #61, stacked on joe #52); its own §0 says what to start | that page | that page |
+| **joe, by hand** | [`joe-manual-validation.md`](joe-manual-validation.md), against joe's `main` now that the set has landed; its own §0 says what to start | that page | that page |
 
 The docs site is static. A page that reads wrong is a generator's output, so
 the fix is in `ci/` and the page is regenerated, never edited under `docs/`;
