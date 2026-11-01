@@ -242,4 +242,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): Constitution adoption and scope; Control plane and engine boundary; Datastore and task queue; Object storage seam.
+Drafts in flight (numberless, by title): Constitution adoption and scope; Control plane and engine boundary; Datastore and task queue; Object storage seam; Alfred's docs are timeless, and its history lives in the corpus.
