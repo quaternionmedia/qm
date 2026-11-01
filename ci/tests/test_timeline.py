@@ -58,6 +58,13 @@ SNAPSHOT = {
     "tags": [{"name": "v0.1.0", "date": "2026-01-01", "commit": "d" * 40, "annotated": False}],
 }
 
+BRANCHES = [
+    {"name": "integrate/two", "base": "integrate/one", "commits": 2, "first": "2026-01-05",
+     "date": "2026-01-05", "commit": "c" * 40},
+    {"name": "spike", "base": "main", "commits": 1, "first": "2026-01-03", "date": "2026-01-04",
+     "commit": "b" * 40},
+]
+
 RETRO = "# Retrospective: the first round\n\n**Date:** 2026-01-06, written after it.\n\nBody.\n"
 
 
@@ -141,6 +148,21 @@ def test_a_project_with_no_snapshot_says_none_has_been_read(tmp_path):
     assert "| 2026-01-05 |" in text
 
 
+def test_a_branch_is_listed_once_in_its_round_or_in_a_row_of_its_own(tmp_path):
+    """A round names its branch, and git counts it: one row says both.
+    Mutation: read the round's branch with `get` in place of `pop` in
+    `entries` and the branch is listed a second time."""
+    subtree(tmp_path, snapshot={**SNAPSHOT, "branches": BRANCHES})
+    text = timeline.page_for("demo", tmp_path)
+    assert "**Round 2**, on `integrate/two` (2 commits on `integrate/one`): " in text
+    assert ("[demo#12](https://github.com/example/demo/pull/12) · [compare]"
+            "(https://github.com/example/demo/compare/integrate/one...integrate/two)") in text
+    assert "Branch `integrate/two`" not in text
+    assert ("| 2026-01-03 to 2026-01-04 | Branch `spike`: 1 commit on `main` | "
+            "[compare](https://github.com/example/demo/compare/main...spike) |") in text
+    assert "the branches its clone held then" in text
+
+
 def test_a_pipe_in_a_title_does_not_break_its_row(tmp_path):
     snapshot = {**SNAPSHOT, "merged": [{**SNAPSHOT["merged"][0], "title": "a | b"}]}
     subtree(tmp_path, snapshot=snapshot)
@@ -214,7 +236,9 @@ def test_every_committed_timeline_matches_its_inputs():
 @pytest.fixture()
 def clone(tmp_path: Path) -> Path:
     """A clone whose remote's default branch holds a GitHub merge, a squash
-    merge and two tags, and whose local main is ahead of the remote."""
+    merge and two tags; whose remote has a stack of three branches, `lower`,
+    `middle` and `upper`, and a site's branch with no history in common; and
+    whose local main is ahead of the remote."""
     origin = tmp_path / "origin"
     origin.mkdir()
     git("init", "-q", "-b", "main", cwd=origin)
@@ -234,6 +258,13 @@ def clone(tmp_path: Path) -> Path:
     commit("A small fix (#4)")
     commit("an unnumbered commit")
     git("-c", "tag.gpgsign=false", "tag", "-a", "v0.0.2", "-m", "v0.0.2", cwd=origin)
+    for branch, commits in (("lower", 2), ("middle", 1), ("upper", 1)):
+        git("switch", "-q", "-c", branch, cwd=origin)
+        for n in range(commits):
+            commit(f"{branch}, {n}")
+    git("switch", "-q", "--orphan", "pages", cwd=origin)
+    commit("a published site")
+    git("switch", "-q", "main", cwd=origin)
     here = tmp_path / "clone"
     git("clone", "-q", str(origin), str(here), cwd=tmp_path)
     git("config", "user.email", "t@example.com", cwd=here)
@@ -254,6 +285,20 @@ def test_merged_pull_requests_and_tags_are_read_from_the_remote_branch(clone):
     assert merged[4]["branch"] is None and merged[4]["title"] == "A small fix"
     tags = {t["name"]: t["annotated"] for t in facts["tags"]}
     assert tags == {"v0.0.1": False, "v0.0.2": True}
+
+
+def test_a_stack_of_branches_is_read_as_a_stack(clone):
+    """Each branch the default branch does not hold is on the nearest branch
+    its tip holds, with the commits it adds to it. A merged branch, a site's
+    unrelated history and a branch the host does not have are left out.
+    Mutation: pick the base by the fewest commits in place of the most and
+    `upper` reads as on `lower`."""
+    git("switch", "-q", "-c", "local-only", cwd=clone)
+    git("-c", "commit.gpgsign=false", "commit", "-q", "--allow-empty", "-m", "unpushed", cwd=clone)
+    branches = {b["name"]: b for b in timeline.read_git(clone, "demo")["branches"]}
+    assert set(branches) == {"lower", "middle", "upper"}
+    assert {name: (b["base"], b["commits"]) for name, b in branches.items()} == {
+        "lower": ("main", 2), "middle": ("lower", 1), "upper": ("middle", 1)}
 
 
 def test_a_written_snapshot_reads_back_as_the_same_facts(clone, tmp_path):

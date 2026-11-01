@@ -15,13 +15,17 @@ three of its files belong to this tool:
                   request, dates and what it carried, the counts measured on
                   it, and counts the project's release notes carried
     git.yaml      written by `--write` from the project's clone: the pull
-                  requests merged on its default branch, its tags, and the
-                  commit they were read at
+                  requests merged on its default branch, the branches on its
+                  remote that the default branch does not hold, each with the
+                  branch it is stacked on, its tags, and the commit they were
+                  read at
     timeline.md   written by `--write` from the two above, and the subtree's
                   retrospectives, which it links
 
 The clone is found the way the cookbook finds a member's: the roster's
 candidate paths first, then the sibling probe. `--clone` names one outright.
+It is read as it stands and nothing is fetched, so `git fetch --prune` it
+first: a branch deleted on the host stays on the page until its clone drops it.
 The runner holds no clones, so `--check` reads the committed files and nothing
 else, and refuses a `timeline.md` that differs from what they give, a
 `rounds.yaml` of the wrong shape, and a retrospective with no date.
@@ -241,6 +245,43 @@ def default_ref(clone: Path, branch: str | None = None) -> tuple[str, str]:
     raise RuntimeError(f"{clone.name} has no branch {branch!r}, local or remote")
 
 
+def read_branches(clone: Path, ref: str) -> list[dict]:
+    """The remote's branches that `ref` does not hold. Each is stacked on the
+    nearest of the others its tip holds, or on the default branch, and counts
+    the commits it adds to that. A branch with no history in common with the
+    default branch, a published site's, is no part of the project's."""
+    if "/" not in ref:
+        return []
+    remote, default = ref.split("/", 1)
+    prefix = f"{remote}/"
+    listing = git(clone, "for-each-ref", f"refs/remotes/{remote}", "--no-merged", ref,
+                  "--format=%(refname:short)%1f%(objectname)%1f%(committerdate:short)")
+    unmerged = {}
+    for line in listing.splitlines():
+        fields = line.split("\x1f")
+        if len(fields) != 3 or not fields[0].startswith(prefix):
+            continue
+        name, commit, day = fields
+        try:
+            git(clone, "merge-base", ref, commit)
+        except RuntimeError:
+            continue
+        ahead = int(git(clone, "rev-list", "--count", f"{ref}..{commit}").strip())
+        unmerged[name[len(prefix):]] = {"commit": commit, "date": day, "ahead": ahead}
+    branches = []
+    for name, tip in unmerged.items():
+        held = [b[len(prefix):] for b in git(clone, "for-each-ref", f"refs/remotes/{remote}",
+                                             "--merged", tip["commit"],
+                                             "--format=%(refname:short)").split()]
+        # The deepest branch below this one; an equal tip is no base.
+        below = [b for b in held if b in unmerged and unmerged[b]["ahead"] < tip["ahead"]]
+        base = max(below, key=lambda b: (unmerged[b]["ahead"], b)) if below else default
+        days = git(clone, "log", "--format=%cs", f"{prefix}{base}..{tip['commit']}").split()
+        branches.append({"name": name, "base": base, "commits": len(days),
+                         "first": min(days), "date": tip["date"], "commit": tip["commit"]})
+    return sorted(branches, key=lambda b: (b["date"], b["name"]), reverse=True)
+
+
 def read_git(clone: Path, name: str, branch: str | None = None) -> dict:
     """The git facts a timeline is drawn from, read from one clone."""
     branch, ref = default_ref(clone, branch)
@@ -279,7 +320,7 @@ def read_git(clone: Path, name: str, branch: str | None = None) -> dict:
     tags.sort(key=lambda t: (t["date"], t["name"]), reverse=True)
     return {"project": name, "default_branch": branch,
             "read_at": {"ref": ref, "commit": tip, "date": tip_day},
-            "merged": merged, "tags": tags}
+            "merged": merged, "branches": read_branches(clone, ref), "tags": tags}
 
 
 def snapshot_text(document: dict) -> str:
@@ -307,20 +348,37 @@ def entries(rounds: dict, snapshot: dict | None, repository: str) -> list[dict]:
     """Every dated thing the page lists, newest first."""
     url = f"https://github.com/{repository}"
     short = repository.split("/")[-1]
+    branches = {b["name"]: b for b in (snapshot or {}).get("branches") or []}
+
+    def span(first: str, last: str) -> str:
+        return last if first == last else f"{first} to {last}"
+
+    def compare(b: dict) -> str:
+        return f"[compare]({url}/compare/{b['base']}...{b['name']})"
+
+    def adds(b: dict) -> str:
+        return f"{b['commits']} commit{'' if b['commits'] == 1 else 's'} on `{b['base']}`"
+
     found = []
     for r in rounds["rounds"]:
-        when = r["ended"] if r["began"] == r["ended"] else f"{r['began']} to {r['ended']}"
-        found.append({"key": (r["ended"], 2, r["round"]), "date": when,
-                      "what": f"**Round {r['round']}**, on `{r['branch']}`: {r['carried']}",
-                      "link": f"[{short}#{r['pr']}]({url}/pull/{r['pr']})"})
+        # A round's branch is listed once, in its round.
+        b = branches.pop(r["branch"], None)
+        held = f" ({adds(b)})" if b else ""
+        found.append({"key": (r["ended"], 3, r["round"], ""), "date": span(r["began"], r["ended"]),
+                      "what": f"**Round {r['round']}**, on `{r['branch']}`{held}: {r['carried']}",
+                      "link": f"[{short}#{r['pr']}]({url}/pull/{r['pr']})"
+                              + (f" · {compare(b)}" if b else "")})
+    for b in branches.values():
+        found.append({"key": (b["date"], 2, 0, b["name"]), "date": span(b["first"], b["date"]),
+                      "what": f"Branch `{b['name']}`: {adds(b)}", "link": compare(b)})
     for m in (snapshot or {}).get("merged") or []:
         branch = f" `{m['branch']}`" if m.get("branch") else ""
-        found.append({"key": (m["date"], 1, m["pr"]), "date": m["date"],
+        found.append({"key": (m["date"], 1, m["pr"], ""), "date": m["date"],
                       "what": f"Merged{branch}: {m['title']}",
                       "link": f"[{short}#{m['pr']}]({url}/pull/{m['pr']})"})
     for t in (snapshot or {}).get("tags") or []:
         kind = "" if t.get("annotated") else ", a lightweight tag"
-        found.append({"key": (t["date"], 0, 0), "date": t["date"],
+        found.append({"key": (t["date"], 0, 0, t["name"]), "date": t["date"],
                       "what": f"Tagged `{t['name']}` at `{t['commit'][:7]}`{kind}",
                       "link": f"[{t['name']}]({url}/releases/tag/{t['name']})"})
     return sorted(found, key=lambda e: e["key"], reverse=True)
@@ -333,14 +391,19 @@ def render(name: str, rounds: dict, snapshot: dict | None, retros: list[dict],
     lines = ["---", f"title: {name}'s timeline", "---", "",
              f"# {name}'s timeline", "",
              f"What happened in {here}, newest first: its development rounds, the pull "
-             f"requests merged on its default branch and its tags, each with its date and "
-             f"a link to it on GitHub. This page is dated history, and each entry is true "
-             f"of the day it names; {name}'s own pages say what is true of it now.", ""]
+             f"requests merged on its default branch, the branches that branch does not "
+             f"hold, and its tags, each with its date and a link to it on GitHub. This page "
+             f"is dated history, and each entry is true of the day it names; {name}'s own "
+             f"pages say what is true of it now.", ""]
     if snapshot:
         read = snapshot["read_at"]
         facts = (f"the git facts in [`{SNAPSHOT}`]({source}{SNAPSHOT}), read from {name}'s "
                  f"`{snapshot['default_branch']}` at `{read['commit'][:7]}`, a commit of "
                  f"{read['date']}")
+        if snapshot.get("branches"):
+            facts += (f", and from the branches its clone held then; each is stacked on the "
+                      f"nearest branch its tip holds, or on `{snapshot['default_branch']}`, "
+                      f"and counts the commits it adds to that")
     else:
         facts = (f"no git facts: none have been read for {name}, and `uv run qm timeline "
                  f"{name} --write` reads them from its clone")
@@ -442,6 +505,11 @@ def main(argv: list[str] | None = None) -> int:
                         help="with --write: keep the committed git.yaml and redraw the page from it")
     parser.add_argument("--clone", metavar="PATH", help="with --write: the project's clone")
     args = parser.parse_args(argv)
+
+    # A title's emoji, printed to a Windows console.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
     names = [args.project] if args.project else with_subtree()
     if args.clone and len(names) != 1:
