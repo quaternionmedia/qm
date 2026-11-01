@@ -28,7 +28,7 @@ The [handbook](../ref/glossary.md#handbook){ .glossary-term } numbers the steps 
 
 **5. Wire governance discovery.** Copy `project-seed/ide/` recursively onto the project root, using a method that preserves symlinks (`cp -a`, `rsync -a`). Fill in the project-specific sections of `AGENTS.md` and replace the `<name>` placeholders. Check that the project's `.gitignore` does not swallow the copied files.
 
-**6. Seed the first records.** Write the project's first records on its branch as numberless drafts — conventionally an adoption record and a scope record — and list each in `adr/README.md`, on the `Drafts in flight` line or as a table row, or the ADR lint refuses it.
+**6. Seed the first records.** Write the project's first records on its branch as numberless drafts — conventionally an adoption record and a scope record — and list each in `adr/README.md`, on the `Drafts in flight` line or as a table row, or the [ADR](../ref/glossary.md#adr){ .glossary-term } lint refuses it.
 
 **7. [Register](../ref/glossary.md#register){ .glossary-term } carried patches.** If the project carries patches against upstream software, register them in the org-level [registers/carried-patches.md](https://github.com/quaternionmedia/qm/blob/main/registers/carried-patches.md).
 
