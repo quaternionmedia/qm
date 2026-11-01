@@ -1711,15 +1711,20 @@ def main(argv: list[str] | None = None) -> int:
                 stale.append(f"{path}: out of date")
         for problem in stale:
             print(f"  {problem}", file=sys.stderr)
+        # The site pages are drawn from committed inputs and the corpus's own
+        # branch refs; the walkthrough's read the clones on this disk. The
+        # verdict names the right one, so a stale site page on a runner is not
+        # read as an environment difference.
+        against = "their committed inputs" if args.site else "this disk"
         if stale:
             # The command that wrote these pages, so a site page is not sent to
             # the walkthrough's default directory.
             again = " ".join(["uv run qm cookbook", out.as_posix(),
                               *(["--site"] if args.site else []), "--write"])
-            print(f"\ncookbook: {len(stale)} page(s) no longer describe this disk. "
+            print(f"\ncookbook: {len(stale)} page(s) are stale against {against}. "
                   f"Regenerate with `{again}`.", file=sys.stderr)
             return 1
-        print(f"cookbook: {len(files)} page(s) still describe this disk.")
+        print(f"cookbook: {len(files)} page(s) match {against}.")
         return 0
 
     if args.write:

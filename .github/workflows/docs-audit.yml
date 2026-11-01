@@ -29,9 +29,14 @@
 #              the run by default: a link typo is worth seeing and not worth
 #              blocking a merge.
 #
-# Path-filtered, because `docs/` and `zensical.toml` do not exist on every
-# branch, and without the filter this would fail a branch for the absence of a
-# site it does not claim to have.
+# On a pull request it is path-filtered to the site and the generators'
+# inputs: `docs/` and `zensical.toml` do not exist on every branch, and without
+# the filter this would fail a branch for the absence of a site it does not
+# claim to have. On a push to `main` it runs with no filter. A pull request is
+# checked at its own tip, and two pull requests each green there can together
+# leave a generated page on `main` stale, so the default branch is checked
+# after every merge and the red is `main`'s rather than the next
+# contributor's.
 #
 # What it does not cover:
 #
@@ -55,15 +60,27 @@ on:
       - 'ci/docs_audit.py'
       - 'ci/cookbook.py'
       - 'ci/timeline.py'
+      - 'ci/palette.py'
+      - 'ci/roster.py'
+      - 'ci/workspace.yaml'
       - 'ci/showcase.yaml'
       - 'families.json'
       - 'status/inventory.yaml'
       - '.github/workflows/docs-audit.yml'
       - '.github/workflows/docs.yml'
+  push:
+    branches: [main]
 
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
+#
+# Cancellation applies to pull requests only. On the default branch the run is
+# the record of what that commit reported, and cancelling it would remove the
+# only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
