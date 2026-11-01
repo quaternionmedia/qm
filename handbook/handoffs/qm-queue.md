@@ -117,8 +117,9 @@ pick up alone; that page is then listed in the index and named here.
     vendored copy is true at its pin, which is its stamp. (2026-10-31)
 16. **loopwall is public and is rostered by name.** The repository rostered
     as `private-34` was made public on 2026-10-31; its roster row carries its
-    name, and the pages and fixtures that name it by reference are renamed in
-    a sweep of their own. (2026-10-31)
+    name once private references have a ledger (§4), and the pages and
+    fixtures that name it by reference are renamed in a sweep of their own.
+    (2026-10-31)
 17. **benchmark's `main` requires no status check for now**: the three
     contexts its protection named came from a matrix its workflow no longer
     has, and the workflow runs on pushes to `main` alone. A pull request gives
@@ -319,6 +320,19 @@ each pull request into it is behind its base until brought level.
 - **The checklist is walked.** `joe-manual-validation.md` against joe's
   `main` once the set is in; a finding becomes a fix pull request. (2026-10-31)
 
+- **A repository leaving the private set renumbers every later reference.**
+  `ci/inventory.py`'s `assign_references` numbers the repositories that are
+  private now, by creation order, so when loopwall went public the regenerated
+  documents named the repository the roster carries as `private-36` as
+  `private-35`, and `private-38` as `private-37`, while the roster rows, the
+  handoffs and the show documents keep the old numbers; the roster test caught
+  it on the loopwall pull request, which is a draft until this is done. The
+  references were meant to be append-only, so that a document six months old
+  keeps pointing where it did. Done is a committed ledger of assigned
+  references, kept when a repository leaves the set, that the inventory and
+  the status generators read before numbering anything new, with a test that
+  removes a private repository and sees every other reference unmoved.
+  (2026-10-31)
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
