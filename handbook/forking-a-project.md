@@ -129,22 +129,21 @@ passes, not when its command exits zero.
    check, not a finding.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout
-   (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
-   a symlink-preserving recursive copy (`git checkout`, `cp -a`/`cp -P`,
-   `rsync -a`) lands every file at its right final path in one step, no
-   per-file renaming. `CLAUDE.md` and `.github/copilot-instructions.md` are
-   real symlinks to `AGENTS.md` in the seed, not independent copies of its
-   content — a copy method that preserves symlinks carries that forward, so
-   editing the project's `AGENTS.md` later keeps both current for free. Fill
-   in project-specific setup/test commands below `AGENTS.md`'s marked line;
-   the governance section above it stays verbatim, apart from replacing the
-   `<name>` placeholders. Before committing, check that the project's
-   `.gitignore` does not swallow the files just copied, by asking git rather
-   than by reading the ignore file:
+   (`AGENTS.md` and `CLAUDE.md` at its own root, `.vscode/`), so a plain
+   recursive copy lands every file at its right final path in one step, no
+   per-file renaming. Every file in the seed is a regular file. `CLAUDE.md`
+   holds the one line `@AGENTS.md`, an import the tool that reads it expands
+   in place, so editing the project's `AGENTS.md` later keeps it current for
+   free; the seed carries no `.github/copilot-instructions.md`, and
+   `records/DRAFT-ide-integrated-governance-discovery.md` §2 says why and
+   when a project adds one. Fill in project-specific setup/test commands
+   below `AGENTS.md`'s marked line; the governance section above it stays
+   verbatim, apart from replacing the `<name>` placeholders. Before
+   committing, check that the project's `.gitignore` does not swallow the
+   files just copied, by asking git rather than by reading the ignore file:
 
    ```sh
-   git check-ignore AGENTS.md CLAUDE.md .github/copilot-instructions.md \
-     .vscode/settings.json .vscode/extensions.json
+   git check-ignore AGENTS.md CLAUDE.md .vscode/settings.json .vscode/extensions.json
    ```
 
    Any path that comes back would never have been committed; exit 1 with no
@@ -176,39 +175,20 @@ passes, not when its command exits zero.
    rule still holds by asking about a path it should catch —
    `git check-ignore .vscode/launch.json` must exit 0.
 
-   **On Windows, one one-time step per clone gives the identical result
-   POSIX gets for free.** It is spelled out in `AGENTS.md`'s own "One-time
-   setup on a fresh clone" section, which is the copy a reader of the new
-   project will actually meet; that section is the single source for it,
-   rather than a third paragraph saying the same thing. Do it, and confirm
-   the pointer files resolve, before treating step 5 as done: a project
-   without it is not instantiated, it is improvised — the same standard
-   `adr/` and `ci/` are held to. `cp -a` is not always sufficient even with
-   the config set: a Windows toolchain can dereference `CLAUDE.md` into a full
-   copy and fail outright on the `.github/` pointer. Verify with `git ls-files -s`, which should show mode
-   `120000` for both; if it does not, create them as symlink objects
-   directly (`git hash-object -w`, then `git update-index --cacheinfo
-   120000,<sha>,<path>`), the same method the record's Consequences
-   documents for making the committed object independent of the authoring
-   machine. That method is worth reaching for first rather than last: it
-   produces a blob whose SHA you can compare against the seed's own
-   (`git ls-files -s project-seed/ide/`), which is a stronger check than
-   looking at the copy.
+   **Verify the copy by its bytes, not by the copy command's exit code.**
+   `cat CLAUDE.md` prints `@AGENTS.md` and nothing else, and `git ls-files -s
+   CLAUDE.md` shows mode `100644` once it is staged. A copy taken from the
+   submodule's working tree and one taken with `git -C governance/qm show
+   HEAD:project-seed/ide/CLAUDE.md` are the same bytes; a file that differs
+   was edited, not copied. Nothing in this step needs `core.symlinks` or
+   Developer Mode on Windows: the seed has no symlinks.
 
-   **The submodule is a separate clone and does not inherit `core.symlinks`.**
-   Even on a superproject configured correctly, the seed's pointer files
-   *inside* `governance/qm` can materialise as one-line text stubs, so a copy
-   taken from them lands a regular file containing the string `AGENTS.md`
-   where a symlink belongs — and the resulting file reads plausibly enough
-   that nothing complains. Run `git -C governance/qm config core.symlinks
-   true && git -C governance/qm checkout -- .` after adding the submodule, or
-   take the paths from `git ls-files -s` rather than from the working tree.
-
-   If the project already has a real file at one of the seed's pointer paths —
-   `.github/copilot-instructions.md` is the likely one — its content is not
-   yours to discard. Fold it into `AGENTS.md` below the marked line and then
-   make the pointer a symlink, so the project keeps its own instructions and
-   gains one place to edit them.
+   If the project already has a real `.github/copilot-instructions.md`, its
+   content is not yours to discard. Fold it into `AGENTS.md` below the marked
+   line, then remove the file where every surface the project's contributors
+   use reads `AGENTS.md`, or leave it as one line naming `AGENTS.md` where
+   one does not (the record's Consequences name them), so the project keeps
+   its instructions in one place.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular

@@ -22,7 +22,7 @@ The [handbook](../ref/glossary.md#handbook){ .glossary-term } numbers the steps 
 
 **4. Wire CI.** Copy the [seed](../ref/glossary.md#seed){ .glossary-term } workflows into `.github/workflows/`, verbatim. The handbook requires `adr-lint.yml`, `submodule-check.yml`, `reuse-lint.yml` and `one-pr-check.yml`, and copies `leak-check.yml` the same way. `project-seed/ci/` also holds `signature-check.yml`, `tag-claims.yml` and `timeless-check.yml`: each one's header says to copy it verbatim, and the handbook's step 4 does not name them. Also wire the license gates the open-license [record](../ref/glossary.md#record){ .glossary-term } requires for the project's runtime shape.
 
-**5. Wire governance discovery.** Copy `project-seed/ide/` recursively onto the project root, using a method that preserves symlinks (`cp -a`, `rsync -a`). Fill in the project-specific sections of `AGENTS.md` and replace the `<name>` placeholders. Check that the project's `.gitignore` does not swallow the copied files.
+**5. Wire governance discovery.** Copy `project-seed/ide/` recursively onto the project root; every file in it is a regular file, and `CLAUDE.md` is the one line `@AGENTS.md`, an import of `AGENTS.md` (`records/DRAFT-ide-integrated-governance-discovery.md`). Fill in the project-specific sections of `AGENTS.md` and replace the `<name>` placeholders. Check that the project's `.gitignore` does not swallow the copied files.
 
 **6. Seed the first records.** Write the project's first records on its branch as numberless drafts — conventionally an adoption record and a scope record.
 

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-11-01T02:50:44Z"
+generated_at: "2026-11-01T23:33:38Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -15,7 +15,6 @@ generator:
     ide:
       - AGENTS.md
       - CLAUDE.md
-      - ".github/copilot-instructions.md"
     seed_workflow_filenames:
       - adr-lint.yml
       - submodule-check.yml
@@ -39,8 +38,8 @@ reading:
     - "regenerate this in CI -- it reads other repositories, so every unrelated pull request would go red for a reason its author cannot fix"
 corpus:
   ref: origin/main
-  commit: "8091d1cb56f0456ed168c307f4ce4c5e6b1e9501"
-  committed_at: "2026-11-01T01:46:29Z"
+  commit: "b84cc1646057c1ce8b017b07c2e7744f528653c7"
+  committed_at: "2026-11-01T19:31:50Z"
   records:
     total: 45
     ratified: 0
@@ -54,7 +53,7 @@ projects:
       ref: origin/project/alfred
       commit: "d3247591f75d6e42fd340d16e67c50a79e70c7e5"
       committed_at: "2026-10-31T20:25:58Z"
-      behind_corpus: 28
+      behind_corpus: 53
       ahead_of_corpus: 22
       merge_base: "b3c64713923db97e5b04892376b5884e3422f226"
       merge_base_at: "2026-10-31T19:59:20Z"
@@ -76,7 +75,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-11-01T00:52:09Z"
+      pushed_at: "2026-11-01T19:33:28Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -84,7 +83,6 @@ projects:
         branch: null
       ide: []
       ide_missing:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       seed_workflow_filenames_present: []
@@ -105,13 +103,13 @@ projects:
         head: adr/alfred-history-in-the-corpus
         draft: false
         title: "alfred adopts the record that keeps a project's docs timeless"
-    observed_at: "2026-11-01T02:50:14Z"
+    observed_at: "2026-11-01T23:33:06Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
       commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
       committed_at: "2026-08-12T12:41:51Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -133,14 +131,13 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-31T20:51:54Z"
+      pushed_at: "2026-11-01T22:39:34Z"
       licence: MIT
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
         branch: project/apothecary
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -167,13 +164,13 @@ projects:
         head: fix/apothecary-seed-refresh
         draft: false
         title: "apothecary's project index names its branch and lists each draft by its whole title"
-    observed_at: "2026-11-01T02:50:17Z"
+    observed_at: "2026-11-01T23:33:08Z"
   - name: carlos
     branch:
       ref: origin/project/carlos
       commit: "22d32a1a674b49ae2eae95fcdc8331d288387b26"
       committed_at: "2026-08-20T15:32:42Z"
-      behind_corpus: 829
+      behind_corpus: 854
       ahead_of_corpus: 6
       merge_base: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
       merge_base_at: "2026-08-16T22:01:43Z"
@@ -192,14 +189,13 @@ projects:
       default_branch: they
       private: false
       archived: false
-      pushed_at: "2026-10-31T20:40:37Z"
+      pushed_at: "2026-11-01T13:07:37Z"
       licence: MIT
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
         branch: project/carlos
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -214,13 +210,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T02:50:19Z"
+    observed_at: "2026-11-01T23:33:10Z"
   - name: cathy
     branch:
       ref: origin/project/cathy
       commit: "5b68f4c549ed0f46d2160e09eef1ed3347a3a3ee"
       committed_at: "2026-10-31T21:04:55Z"
-      behind_corpus: 240
+      behind_corpus: 265
       ahead_of_corpus: 7
       merge_base: "ba3e6ab6232083c528f97fb6321c69d407adb492"
       merge_base_at: "2026-10-24T19:34:52Z"
@@ -247,7 +243,6 @@ projects:
         branch: null
       ide: []
       ide_missing:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       seed_workflow_filenames_present: []
@@ -260,13 +255,13 @@ projects:
       records_dir:
         unknown: "cathy has no .github/workflows/adr-lint.yml to read"
     open_prs: []
-    observed_at: "2026-11-01T02:50:20Z"
+    observed_at: "2026-11-01T23:33:11Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
       commit: "40849656c3dd21a810aa1bcf5daeb5a64b9c0f74"
       committed_at: "2026-10-26T19:44:16Z"
-      behind_corpus: 185
+      behind_corpus: 210
       ahead_of_corpus: 35
       merge_base: "2c4cb112b24658e447a2864b7aed107ab2829276"
       merge_base_at: "2026-10-26T12:25:50Z"
@@ -296,7 +291,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/codecartographer
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -375,13 +369,13 @@ projects:
         head: adr/codecartographer-a-page-without-a-server
         draft: true
         title: "Propose that one page without a server draws the graphs and addresses other apps hand codecartographer"
-    observed_at: "2026-11-01T02:50:22Z"
+    observed_at: "2026-11-01T23:33:13Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
       commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
       committed_at: "2026-08-12T12:42:02Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -411,7 +405,6 @@ projects:
         branch: project/private-33
       ide: []
       ide_missing:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       seed_workflow_filenames_present:
@@ -425,13 +418,13 @@ projects:
         unknown: "adr-lint.yml in private-33 declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/private-33: unexpected response shape"
-    observed_at: "2026-11-01T02:50:24Z"
+    observed_at: "2026-11-01T23:33:15Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "e49617e5bcc807f509791920da2588347faafad2"
       committed_at: "2026-08-19T15:58:55Z"
-      behind_corpus: 800
+      behind_corpus: 825
       ahead_of_corpus: 18
       merge_base: "88e174938b7938c0ddecc4ac9e0f247792f047de"
       merge_base_at: "2026-08-19T15:42:23Z"
@@ -461,7 +454,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/datum
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -477,13 +469,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/datum: unexpected response shape"
-    observed_at: "2026-11-01T02:50:26Z"
+    observed_at: "2026-11-01T23:33:17Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
       commit: "a100171a53d43dbeedc132718b86f38c2835d931"
       committed_at: "2026-08-25T15:15:55Z"
-      behind_corpus: 699
+      behind_corpus: 724
       ahead_of_corpus: 14
       merge_base: "de74e9972b97023bbb8ce40d3043fbda4e96cdb3"
       merge_base_at: "2026-08-25T15:04:36Z"
@@ -512,7 +504,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/dossier
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -527,13 +518,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T02:50:28Z"
+    observed_at: "2026-11-01T23:33:19Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
       commit: "a545991fc62f94e74296d803770391eda1658d8a"
       committed_at: "2026-08-12T12:42:20Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -563,7 +554,6 @@ projects:
         branch: null
       ide: []
       ide_missing:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       seed_workflow_filenames_present: []
@@ -577,13 +567,13 @@ projects:
         unknown: "private-32 has no .github/workflows/adr-lint.yml to read"
     open_prs:
       unknown: "pulls?base=project/private-32: unexpected response shape"
-    observed_at: "2026-11-01T02:50:29Z"
+    observed_at: "2026-11-01T23:33:20Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
       commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
       committed_at: "2026-08-12T12:42:25Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -613,7 +603,6 @@ projects:
         branch: project/factorio-sysops
       ide: []
       ide_missing:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       seed_workflow_filenames_present:
@@ -627,13 +616,13 @@ projects:
         unknown: "adr-lint.yml in factorio-sysops declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-11-01T02:50:31Z"
+    observed_at: "2026-11-01T23:33:22Z"
   - name: private-36
     branch:
       ref: origin/project/private-36
       commit: "a13f8f24c54292670af38605db0ea335f96c447a"
       committed_at: "2026-09-19T22:00:49Z"
-      behind_corpus: 689
+      behind_corpus: 714
       ahead_of_corpus: 3
       merge_base: "a5072a351661e20f8d6f6e8bcae691ae76e67187"
       merge_base_at: "2026-08-27T00:50:48Z"
@@ -662,7 +651,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/private-36
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -677,13 +665,59 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T02:50:33Z"
+    observed_at: "2026-11-01T23:33:23Z"
+  - name: hearth
+    branch:
+      ref: origin/project/hearth
+      commit: "b65b630c98b17a7e6d965379ec116c4fd89c1581"
+      committed_at: "2026-11-01T23:06:32Z"
+      behind_corpus: 0
+      ahead_of_corpus: 9
+      merge_base: "b84cc1646057c1ce8b017b07c2e7744f528653c7"
+      merge_base_at: "2026-11-01T19:31:50Z"
+      last_propagation: null
+    records:
+      total: 2
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 2
+    seed:
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-11-01T23:11:54Z"
+      licence: MPL-2.0
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/hearth
+      ide:
+        - AGENTS.md
+        - CLAUDE.md
+      ide_missing: []
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+        - one-pr-check.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      seed_workflow_filenames_absent: []
+      licensing:
+        - LICENSE
+        - REUSE.toml
+      records_dir: null
+    open_prs: []
+    observed_at: "2026-11-01T23:33:25Z"
   - name: looksatwords
     branch:
       ref: origin/project/looksatwords
       commit: "b8acde1670fec9d16a2a8632217ea93e7503055b"
       committed_at: "2026-08-27T00:32:55Z"
-      behind_corpus: 692
+      behind_corpus: 717
       ahead_of_corpus: 1
       merge_base: "f1e25fb886ea2e81412d92e1b05f857a16a13248"
       merge_base_at: "2026-08-27T00:26:09Z"
@@ -708,7 +742,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/looksatwords
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -724,13 +757,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/looksatwords: unexpected response shape"
-    observed_at: "2026-11-01T02:50:35Z"
+    observed_at: "2026-11-01T23:33:27Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
       commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
       committed_at: "2026-08-12T12:42:31Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -759,7 +792,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/loopwall
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -773,13 +805,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/loopwall: unexpected response shape"
-    observed_at: "2026-11-01T02:50:36Z"
+    observed_at: "2026-11-01T23:33:29Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
       commit: "f4786fecb8e539a07ea25e6a7f6f0a897b7ef672"
       committed_at: "2026-10-26T02:58:43Z"
-      behind_corpus: 220
+      behind_corpus: 245
       ahead_of_corpus: 30
       merge_base: "685d086ad663afe9e70fc5a324ea5fd7ced4c046"
       merge_base_at: "2026-10-26T00:48:30Z"
@@ -801,14 +833,13 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-10-31T14:12:47Z"
+      pushed_at: "2026-11-01T23:14:12Z"
       licence: NOASSERTION
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
         branch: project/qmcp
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -822,13 +853,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T02:50:38Z"
+    observed_at: "2026-11-01T23:33:31Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
       commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
       committed_at: "2026-08-12T12:42:44Z"
-      behind_corpus: 922
+      behind_corpus: 947
       ahead_of_corpus: 24
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -858,7 +889,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/qmetronome
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -873,13 +903,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-11-01T02:50:40Z"
+    observed_at: "2026-11-01T23:33:33Z"
   - name: rad
     branch:
       ref: origin/project/rad
       commit: "c925686429c3ab00c38ec999978be507dec6cb14"
       committed_at: "2026-08-19T18:23:16Z"
-      behind_corpus: 796
+      behind_corpus: 821
       ahead_of_corpus: 1
       merge_base: "ce616c0fa90b85a8545d88989adb2c834d2c459c"
       merge_base_at: "2026-08-19T16:47:53Z"
@@ -904,7 +934,6 @@ projects:
         corpus_mounted_at: governance/qm
         branch: project/rad
       ide:
-        - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
       ide_missing: []
@@ -919,13 +948,13 @@ projects:
         - REUSE.toml
       records_dir: adr
     open_prs: []
-    observed_at: "2026-11-01T02:50:42Z"
+    observed_at: "2026-11-01T23:33:34Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 981
+      behind_corpus: 1006
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -948,12 +977,12 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-11-01T02:50:43Z"
+    observed_at: "2026-11-01T23:33:35Z"
 org:
   repositories:
-    total: 123
+    total: 124
     private: 37
-    governed: 16
+    governed: 17
     unmanaged: 106
   governed_without_repository:
     - streaming-infrastructure
@@ -1031,7 +1060,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 34
-  observed_at: "2026-11-01T02:50:44Z"
+  observed_at: "2026-11-01T23:33:38Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."

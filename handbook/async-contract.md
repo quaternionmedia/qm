@@ -249,7 +249,7 @@ corpus's own root points into it **for some IDE files but not for
 | `.vscode/settings.json`, `.vscode/extensions.json` | `120000` | `project-seed/ide/.vscode/…` |
 | `.claude/commands/*.md` | `120000` | `adapters/claude-code/commands/…` — optional, outside the seed |
 | `.claude/skills/design-review` | `120000` | `adapters/claude-code/skills/design-review/` — a directory; optional, outside the seed |
-| `CLAUDE.md`, `.github/copilot-instructions.md` | `120000` | the **root** `AGENTS.md` — not the seed |
+| `CLAUDE.md` | `100644` | the **root** `AGENTS.md` — not the seed; an import (`@AGENTS.md`), not a link |
 | `AGENTS.md` | `100644` | **a second, genuinely different document** |
 
 So editing the seed edits this repository's own harness in the same commit for
@@ -257,7 +257,9 @@ So editing the seed edits this repository's own harness in the same commit for
 org-facing, the seed's is project-facing, and a rule that belongs in both has to
 be written twice. That is a real cost: forgetting the second edit leaves the
 two saying different things. `symlink-integrity.yml` checks that the files which *are* symlinks
-stay mode `120000`; it cannot notice a rule missing from one AGENTS.md.
+stay mode `120000`; it cannot notice a rule missing from one AGENTS.md, and it
+does not read `CLAUDE.md`, whose one line is text
+(`records/DRAFT-ide-integrated-governance-discovery.md`).
 
 A project picks seed changes up when its governance pin is bumped and the seed
 files are re-copied — `handbook/propagation-runbook.md`, Part B. A merge does not
