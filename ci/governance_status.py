@@ -72,7 +72,7 @@ from adr_lint import NUMBERED_FILENAME, is_ratified, status_of  # noqa: E402
 # the moment either changed, and two documents would then disagree about which
 # repository `private-32` is.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from inventory import assign_references  # noqa: E402
+from inventory import assign_references, load_ledger  # noqa: E402
 from roster import redact  # noqa: E402
 
 SCHEMA = 1
@@ -886,7 +886,7 @@ def github_layer(hub: Hub, projects: list[dict], name_private: bool) -> dict:
         # `private_repository_names_listed` flag describes every list in it.
     if not name_private and isinstance(listed, list):
         private = [r for r in listed if r.get("private")]
-        refs = assign_references(private, hub.org)
+        refs = assign_references(private, hub.org, load_ledger())
         for i, entry in enumerate(projects):
             handle = refs.get(entry.get("name"))
             if handle:
