@@ -24,7 +24,8 @@ of pull requests, each a round, and each added a row to both tables.
 
 The corpus generates alfred's subtree: a round log, `rounds.yaml`, with each
 round's branch, pull request, dates, what it carried and what it measured;
-`git.yaml`, the merged pull requests and tags read from alfred's clone; a
+`git.yaml`, the merged pull requests, the tags and the branches `main` does
+not hold, each with the branch it is stacked on, read from alfred's clone; a
 `timeline.md` drawn from both by `uv run qm timeline alfred --write`; and the
 two retrospectives. alfred's project page on the site links them.
 
