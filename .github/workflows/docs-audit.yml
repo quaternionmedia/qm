@@ -19,6 +19,11 @@
 #              rules out. The checkout fetches every branch, because a
 #              project's version on its page is read from whether its
 #              `project/<name>` branch exists.
+#              Each project's `timeline.md` matches what its committed
+#              `rounds.yaml` and `git.yaml` give, and every retrospective
+#              beside it is dated, per
+#              records/DRAFT-a-projects-history-lives-in-the-corpus.md. No
+#              clone is read: the git facts are the committed snapshot.
 #   accuracy   links resolve, named repository paths exist, and no page
 #              silently shadows a corpus document. Reported, and does not fail
 #              the run by default: a link typo is worth seeing and not worth
@@ -49,6 +54,7 @@ on:
       - 'zensical.toml'
       - 'ci/docs_audit.py'
       - 'ci/cookbook.py'
+      - 'ci/timeline.py'
       - 'ci/showcase.yaml'
       - 'families.json'
       - 'status/inventory.yaml'
@@ -97,6 +103,9 @@ jobs:
       # The generated dimension. Blocking -- see the header.
       - name: The generated pages match their sources
         run: python ci/cookbook.py docs/families --site --check
+
+      - name: The project timelines match their committed inputs
+        run: python ci/timeline.py --check
 
       # The accuracy dimension. Reported, not blocking -- see the header.
       - name: The pages match the corpus

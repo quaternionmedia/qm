@@ -10,10 +10,9 @@ Re-derive before acting on any of it.
 state is recorded here and nowhere else. `vox` joined the roster on
 2026-09-27, in `core`; `joe` is in `performer-display` and predates this
 work.
-[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
-set, with the decisions it left to a person, and
-[`voice-set-landing.md`](voice-set-landing.md) is how far its landing has got
-and what is left of it. Nothing in this page is a decision.
+The set's review page is gone with its work, its decisions closed in
+[`qm-queue.md`](qm-queue.md) §1. The set is landed whole; what is left of it
+is in §1 below and in the queue's §4. Nothing in this page is a decision.
 
 The why of all of it is in the retrospectives, and not here:
 `perspectives/2026-09-27-the-voice-loop.md`,
@@ -69,11 +68,12 @@ onboarding.
 
 ## 1. What remains, and what done looks like
 
-- **`joe`'s README and cookbook.** `joe` #33, the transcript lane, and #34
+- **`joe`'s README and cookbook are in.** `joe` #33, the transcript lane, and #34
   merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
-  pull requests that replace the closed #24 and #25 follow them.
-  `voice-set-landing.md` §3 says what done is for each; `joe`'s pull requests
-  opened after the set are [`joe-open-set.md`](joe-open-set.md)'s.
+  pull requests that replace the closed #24 and #25 are `joe` #56 and #52,
+  merged on 2026-10-31 (`qm-queue.md` §1 decision 12). `joe`'s other pull
+  requests opened after the set landed with them; what remains is in the
+  queue's §4.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
@@ -83,9 +83,9 @@ onboarding.
   onboarding and architecture pages; Phase 2 bounds the transcript's storage
   and rendering cost; Phase 3 makes the declared checks' boundaries explicit.
   New capabilities come after.
-- **The steps after the set**, as `voice-set-landing.md` §3 lists them:
-  Phase 10's boxes on the roadmap, the two read-back helpers made one,
-  `vendor/vox` moved to `vox`'s `main`, and the demo branches deleted.
+- **The steps after the set**: Phase 10's boxes on the roadmap, the two
+  read-back helpers made one, `vendor/vox` moved to `vox`'s `main` to take its
+  two documentation merges, and the demo branches deleted (the queue's §4).
   `qmcp`'s governance pin bump, which took the REUSE step through `uvx` (§4),
   landed as `qmcp` #117 on 2026-10-25, pinning `f4786fe`.
 - **`joe` records on one host API, and the other three are a reading of one

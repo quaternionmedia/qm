@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-31T23:40:59Z'
+generated_at: '2026-11-01T02:52:39Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -63,19 +63,19 @@ totals:
   slots_unknown: 7
   compliant: 42
   over_limit: 1
-  governance_readable: 15
-  seed_complete: 4
-  at_v0.0.0: 33
-  past_v0.0.0: 17
+  governance_readable: 16
+  seed_complete: 5
+  at_v0.0.0: 32
+  past_v0.0.0: 18
   version_unknown: 0
   phase_scaffolded: 15
   phase_stated_as_intent: 1
   threads_by_stage:
     local: 0
     pushed: 0
-    draft: 57
+    draft: 58
     ready: 48
-  threads_stalled: 82
+  threads_stalled: 84
   threads_unreadable: 7
 repositories:
 - name: qm
@@ -91,14 +91,22 @@ repositories:
     repository: quaternionmedia/qm
     contributor: null
     open_prs:
-    - number: 303
-      title: The design-review handoff carries Part 1 as run at debf210
+    - number: 310
+      title: alfred adopts the record that keeps a project's docs timeless
+      author: subcontrabass
+      bot: false
+      base: project/alfred
+      head: adr/alfred-history-in-the-corpus
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 304
+      title: loopwall is public and is rostered by name
       author: subcontrabass
       bot: false
       base: main
-      head: evolve/design-review-2026-10-31
+      head: evolve/loopwall-by-name
       head_repo: quaternionmedia/qm
-      draft: false
+      draft: true
     - number: 291
       title: Propose that one page without a server draws the graphs and addresses
         other apps hand codecartographer
@@ -373,20 +381,35 @@ repositories:
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads:
-  - name: evolve/design-review-2026-10-31
+  - name: adr/alfred-history-in-the-corpus
     stage: ready
-    pr: 303
-    base: main
-    title: The design-review handoff carries Part 1 as run at debf210
+    pr: 310
+    base: project/alfred
+    title: alfred adopts the record that keeps a project's docs timeless
     author: subcontrabass
     delta:
-      additions: 600
-      changed_files: 8
-      commits: 3
-      deletions: 246
+      additions: 86
+      changed_files: 2
+      commits: 1
+      deletions: 1
       mergeable_state: clean
-      updated_at: '2026-10-31T21:49:40Z'
-    idle_hours: 1.8
+      updated_at: '2026-11-01T01:45:19Z'
+    idle_hours: 1.1
+    stalled: false
+  - name: evolve/loopwall-by-name
+    stage: draft
+    pr: 304
+    base: main
+    title: loopwall is public and is rostered by name
+    author: subcontrabass
+    delta:
+      additions: 781
+      changed_files: 33
+      commits: 4
+      deletions: 1544
+      mergeable_state: dirty
+      updated_at: '2026-11-01T00:49:51Z'
+    idle_hours: 2.0
     stalled: false
   - name: adr/codecartographer-a-page-without-a-server
     stage: draft
@@ -402,7 +425,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:49Z'
-    idle_hours: 9.1
+    idle_hours: 12.3
     stalled: false
   - name: adr/apothecary-airgap-metrics
     stage: draft
@@ -417,7 +440,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-23T23:50:21Z'
-    idle_hours: 191.8
+    idle_hours: 195.0
     stalled: true
   - name: adr/codecartographer-shell-notes
     stage: ready
@@ -432,7 +455,7 @@ repositories:
       deletions: 60
       mergeable_state: clean
       updated_at: '2026-10-20T01:57:05Z'
-    idle_hours: 285.7
+    idle_hours: 288.9
     stalled: true
   - name: adr/apothecary-review-the-whole
     stage: draft
@@ -448,7 +471,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-10-20T00:36:07Z'
-    idle_hours: 287.0
+    idle_hours: 290.2
     stalled: true
   - name: adr/codecartographer-a-human-merges
     stage: ready
@@ -464,7 +487,7 @@ repositories:
       deletions: 735
       mergeable_state: clean
       updated_at: '2026-10-25T00:59:08Z'
-    idle_hours: 166.7
+    idle_hours: 169.9
     stalled: true
   - name: adr/codecartographer-adoption
     stage: ready
@@ -480,7 +503,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:33Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-rust-records-state-the-code
     stage: ready
@@ -496,7 +519,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:26Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-parser-records-state-the-code
     stage: ready
@@ -512,7 +535,7 @@ repositories:
       deletions: 735
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:19Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-graphbase-records-state-the-code
     stage: ready
@@ -527,7 +550,7 @@ repositories:
       deletions: 516
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:14Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-shell-records-state-the-code
     stage: ready
@@ -543,7 +566,7 @@ repositories:
       deletions: 368
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:08Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-rad-is-proposed
     stage: ready
@@ -559,7 +582,7 @@ repositories:
       deletions: 126
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:02Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: propagate/apothecary-2026-10-13
     stage: draft
@@ -574,7 +597,7 @@ repositories:
       deletions: 3394
       mergeable_state: clean
       updated_at: '2026-10-20T00:36:18Z'
-    idle_hours: 287.0
+    idle_hours: 290.2
     stalled: true
   - name: fix/apothecary-seed-refresh
     stage: ready
@@ -590,7 +613,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-13T19:33:51Z'
-    idle_hours: 436.1
+    idle_hours: 439.3
     stalled: true
   - name: adr/codecartographer-every-graph-a-chrestomathy
     stage: ready
@@ -606,7 +629,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-10-16T23:14:51Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-parser-cache-by-file-key
     stage: ready
@@ -622,7 +645,7 @@ repositories:
       deletions: 5
       mergeable_state: unstable
       updated_at: '2026-10-16T23:13:53Z'
-    idle_hours: 360.4
+    idle_hours: 363.6
     stalled: true
   - name: adr/codecartographer-rust-at-the-item-level
     stage: ready
@@ -638,7 +661,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:34Z'
-    idle_hours: 164.9
+    idle_hours: 168.1
     stalled: true
   - name: adr/codecartographer-one-construct-vocabulary
     stage: ready
@@ -654,7 +677,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:31Z'
-    idle_hours: 164.9
+    idle_hours: 168.1
     stalled: true
   - name: adr/codecartographer-reads-what-cargo-wrote
     stage: ready
@@ -669,7 +692,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-25T02:46:30Z'
-    idle_hours: 164.9
+    idle_hours: 168.1
     stalled: true
   - name: adr/looksatwords-adopt-and-scope
     stage: ready
@@ -685,7 +708,7 @@ repositories:
       deletions: 1
       mergeable_state: unstable
       updated_at: '2026-10-11T17:39:15Z'
-    idle_hours: 486.0
+    idle_hours: 489.2
     stalled: true
   - name: adr/the-monitor-derives-the-system
     stage: ready
@@ -701,7 +724,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-24T01:55:57Z'
-    idle_hours: 189.7
+    idle_hours: 192.9
     stalled: true
   - name: adr/apothecary-what-v0-0-2-asserts
     stage: draft
@@ -716,7 +739,7 @@ repositories:
       deletions: 1
       mergeable_state: dirty
       updated_at: '2026-10-11T17:37:04Z'
-    idle_hours: 486.0
+    idle_hours: 489.2
     stalled: true
   - name: adr/qmetronome-charter-by-name
     stage: ready
@@ -731,7 +754,7 @@ repositories:
       deletions: 12
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:54Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/private-34-charter-by-name
     stage: ready
@@ -746,7 +769,7 @@ repositories:
       deletions: 2
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:39Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/factorio-sysops-charter-by-name
     stage: ready
@@ -761,7 +784,7 @@ repositories:
       deletions: 3
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:34Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/private-32-charter-by-name
     stage: ready
@@ -776,7 +799,7 @@ repositories:
       deletions: 3
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:28Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/datum-charter-by-name
     stage: ready
@@ -791,7 +814,7 @@ repositories:
       deletions: 6
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:22Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/private-33-charter-by-name
     stage: ready
@@ -806,7 +829,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:15Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/codecartographer-charter-by-name
     stage: ready
@@ -821,7 +844,7 @@ repositories:
       deletions: 1
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:09Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/apothecary-charter-by-name
     stage: ready
@@ -836,7 +859,7 @@ repositories:
       deletions: 4
       mergeable_state: unstable
       updated_at: '2026-10-11T11:41:03Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/alfred-charter-by-name
     stage: ready
@@ -851,7 +874,7 @@ repositories:
       deletions: 9
       mergeable_state: unstable
       updated_at: '2026-10-11T11:40:57Z'
-    idle_hours: 492.0
+    idle_hours: 495.2
     stalled: true
   - name: adr/firmware-toolchain-seam
     stage: ready
@@ -867,7 +890,7 @@ repositories:
       deletions: 168
       mergeable_state: unstable
       updated_at: '2026-10-13T23:32:33Z'
-    idle_hours: 432.1
+    idle_hours: 435.3
     stalled: true
   governance:
     seed: n/a
@@ -891,7 +914,7 @@ repositories:
         the docs preview beside it
       author: subcontrabass
       bot: false
-      base: main
+      base: feat/constant-port
       head: feat/serve-on-phi
       head_repo: quaternionmedia/dossier
       draft: true
@@ -973,18 +996,18 @@ repositories:
   - name: feat/serve-on-phi
     stage: draft
     pr: 63
-    base: main
+    base: feat/constant-port
     title: dossier serve starts on 1618, where the loop looks for the panel, and the
       docs preview beside it
     author: subcontrabass
     delta:
       additions: 112
       changed_files: 7
-      commits: 1
+      commits: 2
       deletions: 16
-      mergeable_state: clean
-      updated_at: '2026-10-31T14:50:22Z'
-    idle_hours: 8.8
+      mergeable_state: unstable
+      updated_at: '2026-10-31T23:43:52Z'
+    idle_hours: 3.1
     stalled: false
   - name: feat/constant-port
     stage: draft
@@ -1000,7 +1023,7 @@ repositories:
       deletions: 12
       mergeable_state: clean
       updated_at: '2026-10-31T02:01:30Z'
-    idle_hours: 21.6
+    idle_hours: 24.8
     stalled: false
   - name: feat/the-delta-board-checks-the-clones
     stage: ready
@@ -1015,7 +1038,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-11T23:08:09Z'
-    idle_hours: 480.5
+    idle_hours: 483.7
     stalled: true
   - name: evolve/rad-conformance-replay
     stage: ready
@@ -1031,7 +1054,7 @@ repositories:
       deletions: 12
       mergeable_state: clean
       updated_at: '2026-10-11T23:08:07Z'
-    idle_hours: 480.5
+    idle_hours: 483.7
     stalled: true
   governance:
     seed: incomplete
@@ -1045,8 +1068,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 673
-    observed_at: '2026-10-31T23:38:44Z'
+    behind_corpus: 699
+    observed_at: '2026-11-01T02:50:28Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1093,7 +1116,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2026-10-31T14:13:00Z'
-    idle_hours: 9.4
+    idle_hours: 12.6
     stalled: false
   governance:
     seed: incomplete
@@ -1107,8 +1130,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 1
-    behind_corpus: 194
-    observed_at: '2026-10-31T23:38:55Z'
+    behind_corpus: 220
+    observed_at: '2026-11-01T02:50:38Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1135,7 +1158,7 @@ repositories:
       title: vox reaches joe on 1059, the twelfth root of two, from qm's port allocation
       author: subcontrabass
       bot: false
-      base: main
+      base: docs/tighten-language
       head: feat/constant-port
       head_repo: quaternionmedia/vox
       draft: true
@@ -1160,17 +1183,17 @@ repositories:
   - name: feat/constant-port
     stage: draft
     pr: 17
-    base: main
+    base: docs/tighten-language
     title: vox reaches joe on 1059, the twelfth root of two, from qm's port allocation
     author: subcontrabass
     delta:
-      additions: 26
-      changed_files: 5
-      commits: 1
-      deletions: 25
+      additions: 34
+      changed_files: 10
+      commits: 3
+      deletions: 33
       mergeable_state: clean
-      updated_at: '2026-10-31T02:01:28Z'
-    idle_hours: 21.6
+      updated_at: '2026-10-31T23:41:24Z'
+    idle_hours: 3.2
     stalled: false
   - name: docs/tighten-language
     stage: ready
@@ -1185,7 +1208,7 @@ repositories:
       deletions: 244
       mergeable_state: clean
       updated_at: '2026-10-20T01:56:51Z'
-    idle_hours: 285.7
+    idle_hours: 288.9
     stalled: true
   governance:
     seed: n/a
@@ -1243,7 +1266,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-03T13:55:52Z'
-    idle_hours: 681.7
+    idle_hours: 684.9
     stalled: true
   governance:
     seed: incomplete
@@ -1257,8 +1280,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 770
-    observed_at: '2026-10-31T23:38:59Z'
+    behind_corpus: 796
+    observed_at: '2026-11-01T02:50:42Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1275,6 +1298,14 @@ repositories:
     repository: quaternionmedia/alfred
     contributor: null
     open_prs:
+    - number: 138
+      title: alfred's docs state what is true; its history lives on qm's site
+      author: subcontrabass
+      bot: false
+      base: docs/one-pass
+      head: docs/history-in-qm
+      head_repo: quaternionmedia/alfred
+      draft: true
     - number: 137
       title: 'Round 13: the docs in six sections, the cookbook an index, and otto''s
         timeline in otto'
@@ -1487,6 +1518,21 @@ repositories:
     asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
       no manual test'
   threads:
+  - name: docs/history-in-qm
+    stage: draft
+    pr: 138
+    base: docs/one-pass
+    title: alfred's docs state what is true; its history lives on qm's site
+    author: subcontrabass
+    delta:
+      additions: 246
+      changed_files: 32
+      commits: 3
+      deletions: 450
+      mergeable_state: unstable
+      updated_at: '2026-11-01T01:48:05Z'
+    idle_hours: 1.1
+    stalled: false
   - name: docs/one-pass
     stage: draft
     pr: 137
@@ -1495,13 +1541,13 @@ repositories:
       timeline in otto'
     author: subcontrabass
     delta:
-      additions: 1209
-      changed_files: 36
-      commits: 4
-      deletions: 3702
+      additions: 1396
+      changed_files: 40
+      commits: 7
+      deletions: 3752
       mergeable_state: unstable
-      updated_at: '2026-10-31T23:39:07Z'
-    idle_hours: 0.0
+      updated_at: '2026-11-01T00:06:21Z'
+    idle_hours: 2.7
     stalled: false
   - name: feat/ui-journeys
     stage: draft
@@ -1517,7 +1563,7 @@ repositories:
       deletions: 3008
       mergeable_state: unstable
       updated_at: '2026-10-31T21:30:37Z'
-    idle_hours: 2.1
+    idle_hours: 5.3
     stalled: false
   - name: feat/pydantic-2
     stage: draft
@@ -1533,7 +1579,7 @@ repositories:
       deletions: 607
       mergeable_state: clean
       updated_at: '2026-10-26T14:22:56Z'
-    idle_hours: 129.3
+    idle_hours: 132.5
     stalled: true
   - name: feat/edit-by-text-and-loop
     stage: draft
@@ -1549,7 +1595,7 @@ repositories:
       deletions: 881
       mergeable_state: clean
       updated_at: '2026-10-26T12:52:00Z'
-    idle_hours: 130.8
+    idle_hours: 134.0
     stalled: true
   - name: feat/close-gaps
     stage: draft
@@ -1565,8 +1611,8 @@ repositories:
       deletions: 108
       mergeable_state: unstable
       updated_at: '2026-10-30T02:32:05Z'
-    idle_hours: 45.1
-    stalled: false
+    idle_hours: 48.3
+    stalled: true
   - name: feat/journeys-and-onboarding
     stage: draft
     pr: 132
@@ -1580,7 +1626,7 @@ repositories:
       deletions: 224
       mergeable_state: clean
       updated_at: '2026-10-24T17:57:38Z'
-    idle_hours: 173.7
+    idle_hours: 176.9
     stalled: true
   - name: integrate/wave-5
     stage: draft
@@ -1596,7 +1642,7 @@ repositories:
       deletions: 849
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:05Z'
-    idle_hours: 191.9
+    idle_hours: 195.1
     stalled: true
   - name: integrate/wave-4
     stage: draft
@@ -1612,7 +1658,7 @@ repositories:
       deletions: 841
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:03Z'
-    idle_hours: 191.9
+    idle_hours: 195.1
     stalled: true
   - name: integrate/wave-3
     stage: draft
@@ -1628,7 +1674,7 @@ repositories:
       deletions: 1620
       mergeable_state: clean
       updated_at: '2026-10-23T23:47:02Z'
-    idle_hours: 191.9
+    idle_hours: 195.1
     stalled: true
   - name: integrate/wave-2
     stage: draft
@@ -1644,7 +1690,7 @@ repositories:
       deletions: 2122
       mergeable_state: unstable
       updated_at: '2026-10-24T00:31:35Z'
-    idle_hours: 191.1
+    idle_hours: 194.3
     stalled: true
   - name: integrate/review-fixes
     stage: draft
@@ -1660,7 +1706,7 @@ repositories:
       deletions: 1732
       mergeable_state: clean
       updated_at: '2026-10-23T23:46:57Z'
-    idle_hours: 191.9
+    idle_hours: 195.1
     stalled: true
   - name: integrate/wave-6
     stage: draft
@@ -1676,7 +1722,7 @@ repositories:
       deletions: 1889
       mergeable_state: clean
       updated_at: '2026-10-24T01:06:54Z'
-    idle_hours: 190.5
+    idle_hours: 193.7
     stalled: true
   - name: feat/thin-dev-stack
     stage: draft
@@ -1691,7 +1737,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:30Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/08-stage-flow
     stage: draft
@@ -1707,7 +1753,7 @@ repositories:
       deletions: 2145
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:28Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/07-flow-and-render
     stage: draft
@@ -1723,7 +1769,7 @@ repositories:
       deletions: 531
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:25Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/06-timeline-editor
     stage: draft
@@ -1739,7 +1785,7 @@ repositories:
       deletions: 617
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:22Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/05-review-and-auth
     stage: draft
@@ -1755,7 +1801,7 @@ repositories:
       deletions: 31
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:20Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/04-dev-loop-and-release
     stage: draft
@@ -1771,7 +1817,7 @@ repositories:
       deletions: 412
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:18Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/03-core-tests
     stage: draft
@@ -1787,7 +1833,7 @@ repositories:
       deletions: 909
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:16Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/02-playwright
     stage: draft
@@ -1802,7 +1848,7 @@ repositories:
       deletions: 672
       mergeable_state: unstable
       updated_at: '2026-10-11T23:25:14Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: stack/01-adopt-governance
     stage: ready
@@ -1817,7 +1863,7 @@ repositories:
       deletions: 0
       mergeable_state: blocked
       updated_at: '2026-10-11T23:25:12Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: config
     stage: ready
@@ -1832,7 +1878,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 24864.7
+    idle_hours: 24867.9
     stalled: true
   governance:
     seed: incomplete
@@ -1849,8 +1895,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 2
-    observed_at: '2026-10-31T23:38:31Z'
+    behind_corpus: 28
+    observed_at: '2026-11-01T02:50:14Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -1951,7 +1997,7 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-31T23:39:09Z'
-    idle_hours: 0.0
+    idle_hours: 3.2
     stalled: false
   - name: feat/pydantic-2
     stage: draft
@@ -1966,7 +2012,7 @@ repositories:
       deletions: 85
       mergeable_state: clean
       updated_at: '2026-10-26T14:22:40Z'
-    idle_hours: 129.3
+    idle_hours: 132.5
     stalled: true
   - name: docs/tighten-language
     stage: ready
@@ -1982,7 +2028,7 @@ repositories:
       deletions: 1522
       mergeable_state: unstable
       updated_at: '2026-10-31T23:38:20Z'
-    idle_hours: 0.0
+    idle_hours: 3.2
     stalled: false
   - name: fix/makecolor-accepts-every-colour-spelling
     stage: ready
@@ -1997,7 +2043,7 @@ repositories:
       deletions: 4
       mergeable_state: blocked
       updated_at: '2026-10-11T23:28:37Z'
-    idle_hours: 480.2
+    idle_hours: 483.4
     stalled: true
   - name: download
     stage: ready
@@ -2012,7 +2058,7 @@ repositories:
       deletions: 46
       mergeable_state: blocked
       updated_at: '2024-01-12T23:41:31Z'
-    idle_hours: 24552.0
+    idle_hours: 24555.2
     stalled: true
   governance:
     seed: n/a
@@ -2052,8 +2098,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:33Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:17Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2093,8 +2139,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 774
-    observed_at: '2026-10-31T23:38:42Z'
+    behind_corpus: 800
+    observed_at: '2026-11-01T02:50:26Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2312,7 +2358,7 @@ repositories:
       deletions: 109
       mergeable_state: clean
       updated_at: '2026-10-31T16:51:20Z'
-    idle_hours: 6.8
+    idle_hours: 10.0
     stalled: false
   - name: evolve/pages
     stage: draft
@@ -2328,7 +2374,7 @@ repositories:
       deletions: 10
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:33Z'
-    idle_hours: 9.1
+    idle_hours: 12.3
     stalled: false
   - name: evolve/view-page
     stage: draft
@@ -2343,7 +2389,7 @@ repositories:
       deletions: 138
       mergeable_state: clean
       updated_at: '2026-10-31T14:33:13Z'
-    idle_hours: 9.1
+    idle_hours: 12.3
     stalled: false
   - name: evolve/export-imports
     stage: draft
@@ -2359,7 +2405,7 @@ repositories:
       deletions: 39
       mergeable_state: clean
       updated_at: '2026-10-31T01:12:02Z'
-    idle_hours: 22.5
+    idle_hours: 25.7
     stalled: false
   - name: evolve/lean-pictures
     stage: draft
@@ -2375,7 +2421,7 @@ repositories:
       deletions: 29
       mergeable_state: clean
       updated_at: '2026-10-31T00:40:16Z'
-    idle_hours: 23.0
+    idle_hours: 26.2
     stalled: false
   - name: evolve/a-page-without-a-server
     stage: draft
@@ -2391,7 +2437,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-30T23:34:18Z'
-    idle_hours: 24.1
+    idle_hours: 27.3
     stalled: false
   - name: evolve/shared-imports
     stage: draft
@@ -2407,7 +2453,7 @@ repositories:
       deletions: 34
       mergeable_state: clean
       updated_at: '2026-10-30T11:30:48Z'
-    idle_hours: 36.2
+    idle_hours: 39.3
     stalled: false
   - name: evolve/showgraph-baseline
     stage: draft
@@ -2423,8 +2469,8 @@ repositories:
       deletions: 0
       mergeable_state: clean
       updated_at: '2026-10-30T01:45:52Z'
-    idle_hours: 45.9
-    stalled: false
+    idle_hours: 49.1
+    stalled: true
   - name: evolve/family-code-maps
     stage: draft
     pr: 160
@@ -2439,7 +2485,7 @@ repositories:
       deletions: 82
       mergeable_state: clean
       updated_at: '2026-10-29T20:04:42Z'
-    idle_hours: 51.6
+    idle_hours: 54.8
     stalled: true
   - name: evolve/showcase-layout
     stage: ready
@@ -2454,7 +2500,7 @@ repositories:
       deletions: 156
       mergeable_state: clean
       updated_at: '2026-10-29T19:55:20Z'
-    idle_hours: 51.7
+    idle_hours: 54.9
     stalled: true
   - name: evolve/an-agent-merges-once-the-local-suite-has-passed
     stage: ready
@@ -2469,7 +2515,7 @@ repositories:
       deletions: 6
       mergeable_state: clean
       updated_at: '2026-10-26T21:06:43Z'
-    idle_hours: 122.6
+    idle_hours: 125.7
     stalled: true
   - name: docs/tighten-language
     stage: ready
@@ -2485,7 +2531,7 @@ repositories:
       deletions: 1276
       mergeable_state: dirty
       updated_at: '2026-10-20T01:57:01Z'
-    idle_hours: 285.7
+    idle_hours: 288.9
     stalled: true
   governance:
     seed: complete
@@ -2498,8 +2544,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 159
-    observed_at: '2026-10-31T23:38:38Z'
+    behind_corpus: 185
+    observed_at: '2026-11-01T02:50:22Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2544,8 +2590,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:45Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:29Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2622,8 +2668,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:40Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:24Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2663,8 +2709,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:47Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:31Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2777,7 +2823,7 @@ repositories:
       deletions: 59
       mergeable_state: unstable
       updated_at: '2026-10-31T20:40:51Z'
-    idle_hours: 3.0
+    idle_hours: 6.2
     stalled: false
   - name: feat/family-control
     stage: draft
@@ -2793,7 +2839,7 @@ repositories:
       deletions: 44
       mergeable_state: unstable
       updated_at: '2026-10-31T20:40:50Z'
-    idle_hours: 3.0
+    idle_hours: 6.2
     stalled: false
   - name: fix/dials-cable-ends-and-scroll
     stage: ready
@@ -2808,7 +2854,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 1686.2
+    idle_hours: 1689.4
     stalled: true
   governance:
     seed: complete
@@ -2821,8 +2867,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 803
-    observed_at: '2026-10-31T23:38:35Z'
+    behind_corpus: 829
+    observed_at: '2026-11-01T02:50:19Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2883,8 +2929,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 0
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:53Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:36Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -2894,7 +2940,7 @@ repositories:
   family: null
   phase: v0.0.1
   phase_source: scaffolded
-  version: v0.0.0
+  version: v0.0.1
   intent: null
   note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
     for the same reason as private-32 through private-34 above. Governed via a project/<name>
@@ -2924,10 +2970,21 @@ repositories:
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads: []
   governance:
-    seed: n/a
+    seed: complete
     missing: []
-    asserts: 'no project/<name> branch in the corpus: the project is at v0.0.0, and
-      the seed measures only a project that has one'
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/private-36
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 689
+    observed_at: '2026-11-01T02:50:33Z'
+    asserted_by: null
+    asserts: the seed set measures how far adoption has got and never decides a rung;
+      a complete set means a human may say adoption is complete, never that they have
 - name: streaming-infrastructure
   slug: quaternionmedia/streaming-infrastructure
   role: project
@@ -3005,7 +3062,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-09-20T23:14:49Z'
-    idle_hours: 984.4
+    idle_hours: 987.6
     stalled: true
   governance:
     seed: incomplete
@@ -3020,8 +3077,8 @@ repositories:
       workflows_present: 2
       workflows_absent: 2
       licensing_present: 1
-    behind_corpus: 896
-    observed_at: '2026-10-31T23:38:57Z'
+    behind_corpus: 922
+    observed_at: '2026-11-01T02:50:40Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3160,8 +3217,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 666
-    observed_at: '2026-10-31T23:38:51Z'
+    behind_corpus: 692
+    observed_at: '2026-11-01T02:50:35Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3240,7 +3297,7 @@ repositories:
       deletions: 26
       mergeable_state: clean
       updated_at: '2026-10-26T00:52:32Z'
-    idle_hours: 142.8
+    idle_hours: 146.0
     stalled: true
   - name: evolve/agree-on-scheme-and-host-case
     stage: draft
@@ -3256,7 +3313,7 @@ repositories:
       deletions: 16
       mergeable_state: clean
       updated_at: '2026-10-26T01:07:31Z'
-    idle_hours: 142.5
+    idle_hours: 145.7
     stalled: true
   - name: evolve/read-an-export
     stage: draft
@@ -3272,7 +3329,7 @@ repositories:
       deletions: 2
       mergeable_state: clean
       updated_at: '2026-10-26T01:24:08Z'
-    idle_hours: 142.3
+    idle_hours: 145.5
     stalled: true
   - name: evolve/adopt-the-corpus
     stage: ready
@@ -3287,7 +3344,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-25T16:40:56Z'
-    idle_hours: 151.0
+    idle_hours: 154.2
     stalled: true
   governance:
     seed: incomplete
@@ -3304,8 +3361,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 214
-    observed_at: '2026-10-31T23:38:36Z'
+    behind_corpus: 240
+    observed_at: '2026-11-01T02:50:20Z'
     asserted_by: null
     asserts: the seed set measures how far adoption has got and never decides a rung;
       a complete set means a human may say adoption is complete, never that they have
@@ -3364,7 +3421,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 1293.6
+    idle_hours: 1296.8
     stalled: true
   - name: qm
     stage: draft
@@ -3379,7 +3436,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 1711.3
+    idle_hours: 1714.5
     stalled: true
   governance:
     seed: n/a
@@ -3471,7 +3528,7 @@ repositories:
       deletions: 205
       mergeable_state: clean
       updated_at: '2026-10-28T01:13:44Z'
-    idle_hours: 94.4
+    idle_hours: 97.6
     stalled: true
   - name: renumber-cues
     stage: ready
@@ -3486,7 +3543,7 @@ repositories:
       deletions: 16
       mergeable_state: clean
       updated_at: '2026-10-23T20:05:05Z'
-    idle_hours: 195.6
+    idle_hours: 198.8
     stalled: true
   - name: integrate/2026-09-20
     stage: draft
@@ -3501,7 +3558,7 @@ repositories:
       deletions: 513
       mergeable_state: dirty
       updated_at: '2026-10-13T05:17:18Z'
-    idle_hours: 450.4
+    idle_hours: 453.6
     stalled: true
   governance:
     seed: n/a
@@ -3551,7 +3608,7 @@ repositories:
       deletions: 96
       mergeable_state: clean
       updated_at: '2026-09-20T23:14:32Z'
-    idle_hours: 984.4
+    idle_hours: 987.6
     stalled: true
   governance:
     seed: n/a
@@ -3601,7 +3658,7 @@ repositories:
       deletions: 643
       mergeable_state: clean
       updated_at: '2026-10-24T05:30:09Z'
-    idle_hours: 186.2
+    idle_hours: 189.4
     stalled: true
   governance:
     seed: n/a
@@ -3792,7 +3849,7 @@ repositories:
       deletions: 14
       mergeable_state: clean
       updated_at: '2026-10-12T16:49:28Z'
-    idle_hours: 462.8
+    idle_hours: 466.0
     stalled: true
   - name: feat/family-demo-contract
     stage: draft
@@ -3807,7 +3864,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-10-11T10:44:45Z'
-    idle_hours: 492.9
+    idle_hours: 496.1
     stalled: true
   - name: tests
     stage: ready
@@ -3822,7 +3879,7 @@ repositories:
       deletions: 4
       mergeable_state: clean
       updated_at: '2026-10-09T12:43:26Z'
-    idle_hours: 539.0
+    idle_hours: 542.1
     stalled: true
   governance:
     seed: n/a
@@ -3901,7 +3958,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 11905.4
+    idle_hours: 11908.6
     stalled: true
   governance:
     seed: n/a
@@ -4008,7 +4065,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 11416.3
+    idle_hours: 11419.5
     stalled: true
   governance:
     seed: n/a
@@ -4116,7 +4173,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 7528.7
+    idle_hours: 7531.9
     stalled: true
   governance:
     seed: n/a
@@ -4168,14 +4225,6 @@ repositories:
     repository: quaternionmedia/joe
     contributor: null
     open_prs:
-    - number: 61
-      title: A manual-validation checklist walks the open set's lanes, docs and tests
-      author: subcontrabass
-      bot: false
-      base: main
-      head: docs/manual-validation-checklist
-      head_repo: quaternionmedia/joe
-      draft: true
     - number: 59
       title: joe's API listens on 1059, the twelfth root of two, from qm's port allocation
       author: subcontrabass
@@ -4209,21 +4258,6 @@ repositories:
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads:
-  - name: docs/manual-validation-checklist
-    stage: draft
-    pr: 61
-    base: main
-    title: A manual-validation checklist walks the open set's lanes, docs and tests
-    author: subcontrabass
-    delta:
-      additions: 159
-      changed_files: 1
-      commits: 3
-      deletions: 0
-      mergeable_state: unstable
-      updated_at: '2026-10-31T23:13:58Z'
-    idle_hours: 0.4
-    stalled: false
   - name: feat/constant-port
     stage: draft
     pr: 59
@@ -4237,7 +4271,7 @@ repositories:
       deletions: 38
       mergeable_state: dirty
       updated_at: '2026-10-31T02:01:26Z'
-    idle_hours: 21.7
+    idle_hours: 24.8
     stalled: false
   - name: p5
     stage: ready
@@ -4250,9 +4284,9 @@ repositories:
       changed_files: 11
       commits: 14
       deletions: 7
-      mergeable_state: unknown
+      mergeable_state: dirty
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 15982.5
+    idle_hours: 15985.7
     stalled: true
   governance:
     seed: n/a
@@ -4342,7 +4376,7 @@ repositories:
       deletions: 1040
       mergeable_state: clean
       updated_at: '2026-09-20T22:50:26Z'
-    idle_hours: 984.8
+    idle_hours: 988.0
     stalled: true
   governance:
     seed: n/a
@@ -4571,7 +4605,7 @@ repositories:
       deletions: 375
       mergeable_state: blocked
       updated_at: '2026-09-20T14:13:24Z'
-    idle_hours: 993.5
+    idle_hours: 996.7
     stalled: true
   governance:
     seed: n/a

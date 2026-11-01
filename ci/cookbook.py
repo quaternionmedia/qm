@@ -1272,8 +1272,30 @@ def project_page(project: dict, by_name: dict[str, dict],
                         "</figure>", ""]
         further += ["</div>", ""]
     lines += showcase_section("project", name, further, _pages(projects), sorted(by_name))
+    lines += history_section(name)
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
+
+
+# A project's dated account sits in its subtree beside its page,
+# records/DRAFT-a-projects-history-lives-in-the-corpus.md §3. A page links it
+# and writes none of it: the timeline is ci/timeline.py's, the rest a person's.
+PROJECT_PAGES = ROOT / "docs" / "projects"
+
+
+def history_section(name: str, projects: Path | None = None) -> list[str]:
+    """The project's timeline and its retrospectives, when its subtree holds a
+    timeline, and nothing when it does not."""
+    import timeline
+    folder = (projects or PROJECT_PAGES) / name
+    if not (folder / timeline.PAGE).is_file():
+        return []
+    body = [f"What happened in {name}, newest first, and the retrospectives of its "
+            "work. Each page is dated, and true of the days it names.", "",
+            f"- [{name}'s timeline]({name}/{timeline.PAGE})"]
+    body += [f"- [{r['title']}]({name}/{r['file']})" + (f" · {r['date']}" if r["date"] else "")
+             for r in timeline.retrospectives(folder)]
+    return _section("dated", "Its history", [*body, ""])
 
 
 def _pages(projects: dict[str, dict] | None) -> list[str]:
@@ -1396,6 +1418,7 @@ def detail_page(project: dict, by_name: dict[str, dict], projects: dict[str, dic
         lines += _section(built["eyebrow"] or "how it is built", built["title"], body)
 
     lines += showcase_section("project", name, None, _pages(projects), sorted(by_name))
+    lines += history_section(name)
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 

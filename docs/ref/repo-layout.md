@@ -21,6 +21,7 @@ qm/
 ├── docs/                  this documentation site
 │   ├── families/          generated: a page per family
 │   ├── projects/          generated: a page per project
+│   │   └── <name>/        a project's dated history: its timeline, round log and retrospectives
 │   └── show/              the showgraphs: pictures a tool drew, with their show documents
 ├── includes/              the front page's showcase, generated and included by docs/index.md
 ├── families.json          generated: every family and its members, from the family record
@@ -46,9 +47,10 @@ Do not edit these by hand. `ci/doc_status.py` lists them, and `status/documents.
 
 | Files | Refresh command |
 |---|---|
-| `docs/families/`, `docs/projects/`, `includes/` | `uv run qm cookbook docs/families --site --write` |
+| `docs/families/`, `docs/projects/` but a project's subtree, `includes/` | `uv run qm cookbook docs/families --site --write` |
+| `docs/projects/<name>/timeline.md` and `git.yaml` | `uv run qm timeline <name> --write`, which reads the project's clone |
 
-They are committed, and CI regenerates none of them. The `docs-audit` workflow refuses a family page, project page or front-page snippet that no longer matches its sources, per [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md). The pictures under `docs/show/` are drawn by codecartographer's `uv run codecarto show export`, and are regenerated rather than edited. See [Build these docs](../usage/build-these-docs.md), [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+They are committed, and CI regenerates none of them. The `docs-audit` workflow refuses a family page, project page, front-page snippet or project timeline that no longer matches its sources, per [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md). The pictures under `docs/show/` are drawn by codecartographer's `uv run codecarto show export`, and are regenerated rather than edited. See [Build these docs](../usage/build-these-docs.md), [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 The `site/` directory (the built documentation) and `.cache/` (the build cache) are generated and not committed.
 

@@ -79,7 +79,8 @@ disagree, they are repaired together.**
 | `handbook/` | `handbook` | Policy on QM's own conduct, and procedure with its verification | QM's conduct, not a project's design |
 | `handbook/handoffs/` | `handoff` | Working instructions for the next session. Deleted when the work lands | Nobody. It is a note, and a stale one is a cost |
 | `docs/` | `reference` | Contracts, interfaces, procedures, how to use the thing | Nobody. It describes rather than decides |
-| `docs/families/`, `docs/projects/`, and the files `GENERATED` names | `generated` | What a tool writes from its sources; `refresh` in `status/documents.yaml` names the command | Nobody. It has an age, not a lifecycle, and it is changed through its sources |
+| `docs/families/`, `docs/projects/` and a project's `timeline.md` there, and the files `GENERATED` names | `generated` | What a tool writes from its sources; `refresh` in `status/documents.yaml` names the command | Nobody. It has an age, not a lifecycle, and it is changed through its sources |
+| `docs/projects/<name>/` | `history` | A project's dated account beside its page: its retrospectives, with its round log and generated timeline | Nobody. Each page is true of the days it names, and is never brought up to date |
 | `perspectives/` | `perspective` | Every why: rationale, incidents, what was learned | Nobody. Dated, attributed, non-binding |
 | `protocols/` | `protocol` | A procedure run deliberately, and the record of its runs | Nobody. A protocol page owns the procedure, never the decision behind it |
 | `curriculum/` | `curriculum` | A reading order, citing documents it does not restate | Nobody |
@@ -191,7 +192,7 @@ nothing is dropped unsorted:
 |---|---|---|
 | **A short fact** | Stays inline, in the present tense | It says what this code is, takes or returns, or cannot do, in a sentence or two, and is wrong if the code changes |
 | **An explanation** | `docs/`, the reference page for the area | A concept, a rule or a behaviour a user needs at length, often true of several modules at once; it is still true next month |
-| **A narrative** | A dated retrospective in the corpus's `perspectives/` | It tells how something came to be, what was found, by what, or what was learned, as an event |
+| **A narrative** | A dated retrospective in the corpus's `perspectives/`; for a project that has adopted `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, one project's own history goes to its subtree, `docs/projects/<name>/` | It tells how something came to be, what was found, by what, or what was learned, as an event |
 
 A passage often holds all three. *"The plane declared that the pipeline ran,
 the registry held the stub, so `stubs()` checks every `runs` declaration"*

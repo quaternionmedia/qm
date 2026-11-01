@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T00:31:36Z",
+  "generated_at": "2026-11-01T02:54:22Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
     "org": "quaternionmedia",
     "private_repository_names_listed": false,
     "absolute_paths_written": false,
-    "private_repositories_referenced_as": "private-NN, by creation order",
+    "private_repositories_referenced_as": "private-NN, from ci/private-references.yaml",
     "companion_files": {
       "inventory-private.json": "reference -> name. Gitignored, never committed.",
       "inventory-local.json": "clone paths on one machine. Gitignored, never committed."
@@ -38,7 +38,7 @@
   "totals": {
     "on_host": 123,
     "in_roster": 50,
-    "on_host_not_in_roster": 74,
+    "on_host_not_in_roster": 75,
     "in_roster_not_on_host": 2,
     "cloned_here": 47,
     "private": 37,
@@ -57,8 +57,8 @@
       "dormant": 0,
       "retired": 0,
       "external": 0,
-      "unstated": 43,
-      "unrostered": 74
+      "unstated": 42,
+      "unrostered": 75
     }
   },
   "in_roster_not_on_host": [
@@ -414,7 +414,7 @@
       "created_at": "2019-09-14T06:59:16Z",
       "default_branch_commit_at": "2024-01-12T01:09:56Z",
       "language": "JavaScript",
-      "disk_usage_kb": 16621,
+      "disk_usage_kb": 16861,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -669,7 +669,7 @@
       "created_at": "2026-01-18T01:38:27Z",
       "default_branch_commit_at": "2026-09-28T00:51:13Z",
       "language": "Python",
-      "disk_usage_kb": 3819,
+      "disk_usage_kb": 3838,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -877,7 +877,7 @@
       "created_at": "2018-10-09T05:03:04Z",
       "default_branch_commit_at": "2026-10-31T23:13:55Z",
       "language": "Python",
-      "disk_usage_kb": 2832,
+      "disk_usage_kb": 2824,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1187,7 +1187,7 @@
       "created_at": "2020-05-28T18:54:29Z",
       "default_branch_commit_at": "2023-04-15T17:58:53Z",
       "language": "Python",
-      "disk_usage_kb": 6051,
+      "disk_usage_kb": 6057,
       "in_roster": true,
       "roster_phase": "v0.0.0",
       "cloned_here": true,
@@ -1200,11 +1200,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-11-01T00:26:04Z",
+      "updated_at": "2026-11-01T01:46:35Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-11-01T00:25:59Z",
+      "default_branch_commit_at": "2026-11-01T01:46:29Z",
       "language": "Python",
-      "disk_usage_kb": 25842,
+      "disk_usage_kb": 26102,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1489,7 +1489,7 @@
       "created_at": "2026-09-21T23:45:58Z",
       "default_branch_commit_at": "2026-10-12T18:35:35Z",
       "language": "Python",
-      "disk_usage_kb": 417,
+      "disk_usage_kb": 445,
       "in_roster": true,
       "roster_phase": "v0.0.0",
       "cloned_here": true,
@@ -2145,8 +2145,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "quiet",
-      "ref": "private-34",
-      "label": "quaternionmedia private repo 34"
+      "ref": "private-35",
+      "label": "quaternionmedia private repo 35"
     },
     {
       "private": true,
@@ -2162,8 +2162,8 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "live",
-      "ref": "private-35",
-      "label": "quaternionmedia private repo 35"
+      "ref": "private-36",
+      "label": "quaternionmedia private repo 36"
     },
     {
       "private": true,
@@ -2174,13 +2174,13 @@
       "default_branch_commit_at": "2026-05-18T00:30:30Z",
       "language": "Python",
       "disk_usage_kb": 310,
-      "in_roster": true,
-      "roster_phase": "v0.0.1",
+      "in_roster": false,
+      "roster_phase": null,
       "cloned_here": false,
-      "attention": "unstated",
+      "attention": "unrostered",
       "recency": "quiet",
-      "ref": "private-36",
-      "label": "quaternionmedia private repo 36"
+      "ref": "private-37",
+      "label": "quaternionmedia private repo 37"
     },
     {
       "private": true,
@@ -2196,8 +2196,8 @@
       "cloned_here": true,
       "attention": "unstated",
       "recency": "live",
-      "ref": "private-37",
-      "label": "quaternionmedia private repo 37"
+      "ref": "private-38",
+      "label": "quaternionmedia private repo 38"
     }
   ]
 }

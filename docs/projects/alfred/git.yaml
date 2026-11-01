@@ -1,0 +1,264 @@
+# alfred's git facts, as `uv run qm timeline alfred --write` read them from
+# its clone. Generated: timeline.md is drawn from this file and rounds.yaml,
+# and a refresh rewrites both. Do not edit by hand.
+project: alfred
+default_branch: main
+read_at:
+  ref: origin/main
+  commit: 7fff7ae01bce8f29d05ccf569237fcdf3416b5c0
+  date: '2024-01-11'
+merged:
+- pr: 105
+  date: '2023-07-19'
+  branch: pytest-qm
+  title: 🏹 QM Pytest
+  commit: 02cc251bec5201002004d16ac5fb84e2df1ceed7
+- pr: 109
+  date: '2023-07-17'
+  branch: ruff
+  title: 🐶 Ruff
+  commit: 7f77a39ae5e4f4b97ad2e433cd6c9b7211ad50ea
+- pr: 108
+  date: '2023-07-17'
+  branch: pdm
+  title: 📦 PDM
+  commit: e8ec00f0beb41775be9ccee1081e4d482fd0cf45
+- pr: 107
+  date: '2023-03-26'
+  branch: null
+  title: 👕 Lint
+  commit: e4e4350c3932e5293a3877eb70ff60aeea3a636b
+- pr: 106
+  date: '2023-03-26'
+  branch: black
+  title: 🖤 Black
+  commit: 26904381fbfd58797c2c46b0b8c248b44431f62d
+- pr: 104
+  date: '2023-03-26'
+  branch: poetry
+  title: 🌹 Poetry
+  commit: 8253cd3b9b4914c0b9b57495451dee23c1389fb0
+- pr: 103
+  date: '2023-03-26'
+  branch: deploy
+  title: 🪂 Continuous Deployment
+  commit: b4a97b7da89ec090a3ddee099ae42d82bb289655
+- pr: 100
+  date: '2023-03-21'
+  branch: pytest
+  title: 🧪 Pytest
+  commit: 4b72ebd992f1ef64216c94166c30e60c1229a973
+- pr: 98
+  date: '2023-02-05'
+  branch: null
+  title: ℹ️ `./al help`
+  commit: fb3b86096e0a37308667f07b6a76623f08ae2280
+- pr: 97
+  date: '2023-02-05'
+  branch: null
+  title: 📘 Update docs versions, remove dev requirements
+  commit: f038014f8e635a4229c4d765679d349a28d5b8c3
+- pr: 95
+  date: '2023-02-04'
+  branch: null
+  title: 🧍 fastapi-users 10
+  commit: eee98eb0f053b2a486aa70d35e648f3043227788
+- pr: 94
+  date: '2022-09-02'
+  branch: test-config
+  title: 🇨🇾 cy tests into own file
+  commit: 08c91ab2e930248edad6bdec8fedb5fc812909f9
+- pr: 92
+  date: '2022-09-02'
+  branch: update-website-requirements
+  title: 🦘 Upgrade devDependencies
+  commit: 5149df549ad91be4cfd0e49d2c9911b2ce23293d
+- pr: 91
+  date: '2022-09-02'
+  branch: docs
+  title: 📑 Docs versioning
+  commit: 7097e89b8a1e24b83b5840c208de90fb0f74b001
+- pr: 87
+  date: '2022-09-02'
+  branch: rerender
+  title: 🔁 Rerender
+  commit: 4ebc8211efec633de87aac7c9894f4b097ad58ef
+- pr: 85
+  date: '2022-08-30'
+  branch: HomePageRedesign
+  title: 'Redesign of Home Page Progresses #84'
+  commit: 8036be503804e75025f22525105f73a34961df59
+- pr: 83
+  date: '2022-08-28'
+  branch: ProjectsPage
+  title: Redesign projects page
+  commit: 5d8bb280d882ed0bbaa0f87232f651d185a25803
+- pr: 81
+  date: '2022-08-14'
+  branch: RenderPage
+  title: ':magic_wand: Redesign Renders Page'
+  commit: e201fc7c5bc222bee58c735d2ff89cde6adc00d4
+- pr: 79
+  date: '2022-08-14'
+  branch: documents
+  title: Adds Documents Page
+  commit: 6ee6db84f86559991855159991bf9808775331e2
+- pr: 77
+  date: '2022-08-14'
+  branch: footer
+  title: 🦶 Footer
+  commit: 8de4e4c5c320888ffb450fc487aeacda07aaed72
+- pr: 75
+  date: '2022-08-14'
+  branch: menu
+  title: 🍔 Menu Redesign
+  commit: 5f1b2b91e3541dee80e1646cda03db0b5748ccaf
+- pr: 73
+  date: '2022-07-31'
+  branch: dev
+  title: Beta
+  commit: 8dfe7a8da9076093603693dac841202cc9b4e758
+- pr: 72
+  date: '2022-07-31'
+  branch: draft-release
+  title: Create new draft release from closed milestones
+  commit: 660213a8cbbc55e28e6f2b684bc56fb875632167
+- pr: 56
+  date: '2021-12-20'
+  branch: documentation
+  title: 'dev: ProjectAPI, documentation'
+  commit: b00dc24b4196297f88b0903f278927e3977356db
+- pr: 54
+  date: '2021-12-02'
+  branch: module
+  title: python module
+  commit: 3bca7f8f4a6efcf51a8bb7451eba0cab182b692d
+- pr: 53
+  date: '2021-11-17'
+  branch: crud
+  title: AL-18 Crud routing
+  commit: 9de8db4cdc9b5df17e01f6c1d7bd2d6d69c630da
+- pr: 52
+  date: '2021-11-15'
+  branch: users
+  title: Users router and async db
+  commit: 78a94077f13110dddff5931e6704d20e0daff0e0
+- pr: 51
+  date: '2021-11-10'
+  branch: docs
+  title: Docs
+  commit: fd9496cf3fe18b5d1c7a5fbb5579452c4bc4b5b8
+- pr: 50
+  date: '2021-11-07'
+  branch: TemplateEditor
+  title: Template editor and css table improvements
+  commit: 45baa325fce45f68e1435b09ae10edbd9c9ff3b7
+- pr: 49
+  date: '2021-11-07'
+  branch: loading
+  title: Loading bar and routing updates
+  commit: 35dc890f50ce09cad6ed6a14ab4138bed797dd65
+- pr: 48
+  date: '2021-11-07'
+  branch: docker2.0
+  title: Docker2.0 and new docker compose
+  commit: 19b7e9386173a29b42739e13e5632ccf66e633ac
+- pr: 47
+  date: '2021-06-30'
+  branch: description
+  title: Description
+  commit: aae67dc34cb34a289a13ec625c3da8495935cac9
+- pr: 46
+  date: '2021-06-17'
+  branch: delete_render
+  title: moved deleted renders to deleted collection
+  commit: 9bb87e48a48d760e074b720a47093b05d26a3e06
+- pr: 45
+  date: '2021-06-17'
+  branch: projects
+  title: Projects
+  commit: abadd4510a6ed91e3b2f8e829bf7d2ceb10602b0
+- pr: 43
+  date: '2021-04-28'
+  branch: overhaul
+  title: Overhaul
+  commit: a7109ae46758627d3fad08ef274ff2d2b8d25229
+- pr: 42
+  date: '2021-03-22'
+  branch: magnussens
+  title: 'Magnussens: form to render workflow'
+  commit: fc977492742419a1cf40cdfd0b54c6bad6df2496
+- pr: 41
+  date: '2020-08-12'
+  branch: fonts
+  title: Fonts, and UX redesign
+  commit: 94b319a507996f470042053d030c49c287f5b253
+- pr: 39
+  date: '2020-07-29'
+  branch: celery
+  title: Celery integration - multi-machine rendering, messaging broker, and cloud storage
+  commit: 5bba8de71c5f793bb046d3ef0117e90a4a5841c5
+- pr: 38
+  date: '2020-07-29'
+  branch: mcguffin
+  title: Mcguffin - csrf and refresh token
+  commit: 49541897310187ae4b285f876ba8a34bc126f997
+- pr: 37
+  date: '2020-07-11'
+  branch: form
+  title: Form - Image, Audio, Video, Text, Color previews, sortable media, drag and drop upload
+  commit: 18744bba32af4e4723a8dfc412c1581c595382d9
+- pr: 36
+  date: '2020-07-10'
+  branch: preview
+  title: Preview and Renders improvements, Resolution / Aspect selectors, etc.
+  commit: 6defedb3fbd966a72ed054412271d9d2725cca2e
+- pr: 33
+  date: '2020-06-25'
+  branch: templates
+  title: new Timeline with Template, Preview, Otto integration, Form rendering, and more
+  commit: 8eebd4030bad20b0fdb2e949114e70b2cb3d81cb
+- pr: 30
+  date: '2020-04-30'
+  branch: devops
+  title: Devops
+  commit: 2d92471a40b576d8cd83511eeeea3a2b200098b9
+- pr: 27
+  date: '2020-03-08'
+  branch: tools
+  title: Timeline Tools
+  commit: 92a87d2567e9d4987cd9d0afeb2994bf5e8ecb6e
+- pr: 25
+  date: '2020-02-20'
+  branch: ffmpeg
+  title: Ffmpeg v2
+  commit: 9cd7baa7d60fea0271c06f9d5292072b405808e0
+- pr: 23
+  date: '2020-02-19'
+  branch: ffmpeg
+  title: Ffmpeg
+  commit: e9646b9110a1367d5feb88d02140f5fbfdbb919d
+- pr: 22
+  date: '2020-02-11'
+  branch: slider
+  title: Slider
+  commit: 1cc3fd2d5c0e632598f28115eb5437145a54d566
+- pr: 20
+  date: '2020-02-11'
+  branch: seekEdl
+  title: Seek edl, better editing logic
+  commit: 391fad30c849caa290ea963993ec3453ba1d96b3
+- pr: 18
+  date: '2020-02-11'
+  branch: cypress
+  title: Cypress testing
+  commit: a86640b2b6ccb76cdfc6de00f61fed4686bbbbe3
+tags:
+- name: v0.2.0
+  date: '2023-03-21'
+  commit: 4b72ebd992f1ef64216c94166c30e60c1229a973
+  annotated: false
+- name: alpha
+  date: '2020-04-30'
+  commit: 2d92471a40b576d8cd83511eeeea3a2b200098b9
+  annotated: false

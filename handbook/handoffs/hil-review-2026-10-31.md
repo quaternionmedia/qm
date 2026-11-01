@@ -20,7 +20,7 @@ table in §5. Nothing here binds a port another project uses by default.
 |---|---|---|---|
 | **The docs site**, as `main` renders it | `uv run --extra docs zensical serve -a 127.0.0.1:8400`, the preview address `ci/cookbook.py` names, then open `http://127.0.0.1:8400/` | §2 | the terminal it runs in |
 | **The trio**: the harness, its web front end and its terminal front end | `uv run qm dashboard` says what is up and prints the command for what is not; `uv run qm dashboard --start harness --start web` brings the first two up on their reserved ports; the terminal front end runs in a terminal of its own, as the dashboard says | §3 | `uv run qm dashboard --stop harness --stop web` |
-| **joe's open set**, by hand | joe's `docs/paths/manual-validation.md`, on its branch `docs/manual-validation-checklist` (joe #61, stacked on joe #52); its own §0 says what to start | that page | that page |
+| **joe, by hand** | [`joe-manual-validation.md`](joe-manual-validation.md), against joe's `main` now that the set has landed; its own §0 says what to start | that page | that page |
 
 The docs site is static. A page that reads wrong is a generator's output, so
 the fix is in `ci/` and the page is regenerated, never edited under `docs/`;
@@ -39,7 +39,7 @@ address above is built from `main` at the stamp.
 | #248 | cathy is in the roster as an adopted project | `ci/workspace.yaml`'s cathy row and the family it names; the families index on the site, whose member counts moved with it |
 | #285 | every showgraph drawn as a Showcase, and the whole corpus a family at a time | the families index's Showgraph, every family at once; each family page's Showgraph; each project page's pictures; `ci/showcase.yaml`, where a person's picks live |
 | #295 | a record decides how a shared allowance is drawn on | `AGENTS.md` item 20 and `project-seed/ide/AGENTS.md` item 16 against the record's Decision; the perspective's account of the hour it cost |
-| #277 | joe's open set has a handoff, and the voice pages say how joe #33 was tested | `handbook/handoffs/joe-open-set.md` against joe's open pull requests on the host; the changed rows of `voice-set-landing.md` |
+| #277 | joe's open set has a handoff, and the voice pages say how joe #33 was tested | the joe entries of `handbook/handoffs/qm-queue.md` §4 against joe's pull requests on the host; the changed rows of `the-voice-loop.md` |
 | #272 | the triplet's graph leg has a handoff and a perspective | `handbook/handoffs/the-triplet.md` against what #285 landed: which of its phases the site now shows, and which it still describes as ahead |
 | #254 | a retrospective reads cathy's importer against quaternion.media and a real export | the perspective's findings against cathy's open pull requests on the host |
 | #296 | the families page is regenerated after the roster gained a member | the families index's count of rostered repositories that state no family, against `ci/workspace.yaml` and `families.json`; that the page and `families.svg` agree |

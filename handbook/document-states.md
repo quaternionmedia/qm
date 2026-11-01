@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-01T00:38:49Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-01T02:54:36Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,8 +9,8 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 44**; 41 proposed |
-| Mandatory reading | under budget | 1207 of 1200 lines — **over** |
+| Records ratified | every requirement below | **0 of 45**; 42 proposed |
+| Mandatory reading | under budget | 1205 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **312**, unfiltered.
+Every governed document in this corpus: **314**, unfiltered.
 
 | | |
 |---|---|
@@ -53,17 +53,19 @@ A state says whether a page binds you. It never says the content is right — St
 | [G] | `generated` | written by a tool. Do not edit by hand; check its age before quoting. |
 | [S] | `standing` | policy or charter with no lifecycle defined for its class. |
 | [T] | `transient` | working instructions, deleted when the work lands. |
+| [H] | `dated` | a project's dated history, true of the days it names. Never brought up to date; read it for what happened, not for what is. |
 
 ## Counts
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 41 |
+| [P] `proposed` | 42 |
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 97 |
-| [G] `generated` | 56 |
+| [G] `generated` | 57 |
 | [S] `standing` | 90 |
-| [T] `transient` | 25 |
+| [T] `transient` | 23 |
+| [H] `dated` | 2 |
 
 ## Documents
 
@@ -76,6 +78,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-principle-is-addressed-by-its-name.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-projects-history-lives-in-the-corpus.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-route-is-an-address.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-semantic-index-is-a-recorded-document.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md` | record | Proposed |
@@ -227,6 +230,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [G] | `generated` | `docs/projects/TheatreMix-python.md` | generated | — |
 | [G] | `generated` | `docs/projects/aes.md` | generated | — |
 | [G] | `generated` | `docs/projects/alfred.md` | generated | — |
+| [G] | `generated` | `docs/projects/alfred/timeline.md` | generated | — |
 | [G] | `generated` | `docs/projects/apothecary.md` | generated | — |
 | [G] | `generated` | `docs/projects/benchmark.md` | generated | — |
 | [G] | `generated` | `docs/projects/carlos.md` | generated | — |
@@ -360,10 +364,9 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/carlos-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/design-review-of-the-estate.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-31.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/joe-open-set.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/joe-manual-validation.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/ludwig-simultaneous-run.md` | handoff | — |
@@ -379,8 +382,9 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/the-voice-loop.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/wolf-simultaneous-run.md` | handoff | — |
+| [H] | `dated` | `docs/projects/alfred/retrospective-0.3.0.md` | history | — |
+| [H] | `dated` | `docs/projects/alfred/retrospective-verification-discipline.md` | history | — |
 
 ## Reading this document
 

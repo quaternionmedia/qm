@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-11-01T00:32:15Z"
+generated_at: "2026-11-01T02:50:44Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -25,7 +25,7 @@ generator:
       - LICENSE
       - REUSE.toml
     records_dir_from: ".github/workflows/adr-lint.yml env RECORDS_DIR"
-  unknowns: 15
+  unknowns: 14
 reading:
   refresh: "uv run qm docs generate"
   refresh_without_the_cli: "python ci/governance_status.py --write status/governance.yaml"
@@ -39,22 +39,22 @@ reading:
     - "regenerate this in CI -- it reads other repositories, so every unrelated pull request would go red for a reason its author cannot fix"
 corpus:
   ref: origin/main
-  commit: "c1e37e9019d078d49895648a9a2e2e57320eb7d6"
-  committed_at: "2026-11-01T00:25:59Z"
+  commit: "8091d1cb56f0456ed168c307f4ce4c5e6b1e9501"
+  committed_at: "2026-11-01T01:46:29Z"
   records:
-    total: 44
+    total: 45
     ratified: 0
     numbered_files: 0
     by_status:
       draft: 3
-      proposed: 41
+      proposed: 42
 projects:
   - name: alfred
     branch:
       ref: origin/project/alfred
       commit: "d3247591f75d6e42fd340d16e67c50a79e70c7e5"
       committed_at: "2026-10-31T20:25:58Z"
-      behind_corpus: 6
+      behind_corpus: 28
       ahead_of_corpus: 22
       merge_base: "b3c64713923db97e5b04892376b5884e3422f226"
       merge_base_at: "2026-10-31T19:59:20Z"
@@ -76,7 +76,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-11-01T00:03:37Z"
+      pushed_at: "2026-11-01T00:52:09Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -97,14 +97,21 @@ projects:
       records_dir:
         unknown: "alfred has no .github/workflows/adr-lint.yml to read"
     open_prs:
-      unknown: "pulls?base=project/alfred: unexpected response shape"
-    observed_at: "2026-11-01T00:31:48Z"
+      - number: 144
+        head: adr/alfred-charter-by-name
+        draft: false
+        title: "alfred's records address the charter by name"
+      - number: 310
+        head: adr/alfred-history-in-the-corpus
+        draft: false
+        title: "alfred adopts the record that keeps a project's docs timeless"
+    observed_at: "2026-11-01T02:50:14Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
       commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
       committed_at: "2026-08-12T12:41:51Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -160,13 +167,13 @@ projects:
         head: fix/apothecary-seed-refresh
         draft: false
         title: "apothecary's project index names its branch and lists each draft by its whole title"
-    observed_at: "2026-11-01T00:31:50Z"
+    observed_at: "2026-11-01T02:50:17Z"
   - name: carlos
     branch:
       ref: origin/project/carlos
       commit: "22d32a1a674b49ae2eae95fcdc8331d288387b26"
       committed_at: "2026-08-20T15:32:42Z"
-      behind_corpus: 807
+      behind_corpus: 829
       ahead_of_corpus: 6
       merge_base: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
       merge_base_at: "2026-08-16T22:01:43Z"
@@ -207,13 +214,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T00:31:52Z"
+    observed_at: "2026-11-01T02:50:19Z"
   - name: cathy
     branch:
       ref: origin/project/cathy
       commit: "5b68f4c549ed0f46d2160e09eef1ed3347a3a3ee"
       committed_at: "2026-10-31T21:04:55Z"
-      behind_corpus: 218
+      behind_corpus: 240
       ahead_of_corpus: 7
       merge_base: "ba3e6ab6232083c528f97fb6321c69d407adb492"
       merge_base_at: "2026-10-24T19:34:52Z"
@@ -253,13 +260,13 @@ projects:
       records_dir:
         unknown: "cathy has no .github/workflows/adr-lint.yml to read"
     open_prs: []
-    observed_at: "2026-11-01T00:31:53Z"
+    observed_at: "2026-11-01T02:50:20Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
       commit: "40849656c3dd21a810aa1bcf5daeb5a64b9c0f74"
       committed_at: "2026-10-26T19:44:16Z"
-      behind_corpus: 163
+      behind_corpus: 185
       ahead_of_corpus: 35
       merge_base: "2c4cb112b24658e447a2864b7aed107ab2829276"
       merge_base_at: "2026-10-26T12:25:50Z"
@@ -368,13 +375,13 @@ projects:
         head: adr/codecartographer-a-page-without-a-server
         draft: true
         title: "Propose that one page without a server draws the graphs and addresses other apps hand codecartographer"
-    observed_at: "2026-11-01T00:31:55Z"
+    observed_at: "2026-11-01T02:50:22Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
       commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
       committed_at: "2026-08-12T12:42:02Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -418,13 +425,13 @@ projects:
         unknown: "adr-lint.yml in private-33 declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/private-33: unexpected response shape"
-    observed_at: "2026-11-01T00:31:57Z"
+    observed_at: "2026-11-01T02:50:24Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "e49617e5bcc807f509791920da2588347faafad2"
       committed_at: "2026-08-19T15:58:55Z"
-      behind_corpus: 778
+      behind_corpus: 800
       ahead_of_corpus: 18
       merge_base: "88e174938b7938c0ddecc4ac9e0f247792f047de"
       merge_base_at: "2026-08-19T15:42:23Z"
@@ -470,13 +477,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/datum: unexpected response shape"
-    observed_at: "2026-11-01T00:31:58Z"
+    observed_at: "2026-11-01T02:50:26Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
       commit: "a100171a53d43dbeedc132718b86f38c2835d931"
       committed_at: "2026-08-25T15:15:55Z"
-      behind_corpus: 677
+      behind_corpus: 699
       ahead_of_corpus: 14
       merge_base: "de74e9972b97023bbb8ce40d3043fbda4e96cdb3"
       merge_base_at: "2026-08-25T15:04:36Z"
@@ -520,13 +527,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T00:32:00Z"
+    observed_at: "2026-11-01T02:50:28Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
       commit: "a545991fc62f94e74296d803770391eda1658d8a"
       committed_at: "2026-08-12T12:42:20Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -570,13 +577,13 @@ projects:
         unknown: "private-32 has no .github/workflows/adr-lint.yml to read"
     open_prs:
       unknown: "pulls?base=project/private-32: unexpected response shape"
-    observed_at: "2026-11-01T00:32:01Z"
+    observed_at: "2026-11-01T02:50:29Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
       commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
       committed_at: "2026-08-12T12:42:25Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -620,20 +627,20 @@ projects:
         unknown: "adr-lint.yml in factorio-sysops declares no RECORDS_DIR"
     open_prs:
       unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-11-01T00:32:03Z"
-  - name: private-35
+    observed_at: "2026-11-01T02:50:31Z"
+  - name: private-36
     branch:
-      ref: origin/project/private-35
+      ref: origin/project/private-36
       commit: "a13f8f24c54292670af38605db0ea335f96c447a"
       committed_at: "2026-09-19T22:00:49Z"
-      behind_corpus: 667
+      behind_corpus: 689
       ahead_of_corpus: 3
       merge_base: "a5072a351661e20f8d6f6e8bcae691ae76e67187"
       merge_base_at: "2026-08-27T00:50:48Z"
       last_propagation:
         commit: "a13f8f24c54292670af38605db0ea335f96c447a"
         committed_at: "2026-09-19T22:00:49Z"
-        subject: "Merge remote-tracking branch 'origin/main' into project/private-35"
+        subject: "Merge remote-tracking branch 'origin/main' into project/private-36"
     records:
       total: 4
       ratified: 0
@@ -653,7 +660,7 @@ projects:
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
-        branch: project/private-35
+        branch: project/private-36
       ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
@@ -670,13 +677,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T00:32:04Z"
+    observed_at: "2026-11-01T02:50:33Z"
   - name: looksatwords
     branch:
       ref: origin/project/looksatwords
       commit: "b8acde1670fec9d16a2a8632217ea93e7503055b"
       committed_at: "2026-08-27T00:32:55Z"
-      behind_corpus: 670
+      behind_corpus: 692
       ahead_of_corpus: 1
       merge_base: "f1e25fb886ea2e81412d92e1b05f857a16a13248"
       merge_base_at: "2026-08-27T00:26:09Z"
@@ -717,13 +724,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/looksatwords: unexpected response shape"
-    observed_at: "2026-11-01T00:32:06Z"
+    observed_at: "2026-11-01T02:50:35Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
       commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
       committed_at: "2026-08-12T12:42:31Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -766,13 +773,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/loopwall: unexpected response shape"
-    observed_at: "2026-11-01T00:32:08Z"
+    observed_at: "2026-11-01T02:50:36Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
       commit: "f4786fecb8e539a07ea25e6a7f6f0a897b7ef672"
       committed_at: "2026-10-26T02:58:43Z"
-      behind_corpus: 198
+      behind_corpus: 220
       ahead_of_corpus: 30
       merge_base: "685d086ad663afe9e70fc5a324ea5fd7ced4c046"
       merge_base_at: "2026-10-26T00:48:30Z"
@@ -815,13 +822,13 @@ projects:
         - REUSE.toml
       records_dir: null
     open_prs: []
-    observed_at: "2026-11-01T00:32:09Z"
+    observed_at: "2026-11-01T02:50:38Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
       commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
       committed_at: "2026-08-12T12:42:44Z"
-      behind_corpus: 900
+      behind_corpus: 922
       ahead_of_corpus: 24
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -866,13 +873,13 @@ projects:
       records_dir: null
     open_prs:
       unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-11-01T00:32:11Z"
+    observed_at: "2026-11-01T02:50:40Z"
   - name: rad
     branch:
       ref: origin/project/rad
       commit: "c925686429c3ab00c38ec999978be507dec6cb14"
       committed_at: "2026-08-19T18:23:16Z"
-      behind_corpus: 774
+      behind_corpus: 796
       ahead_of_corpus: 1
       merge_base: "ce616c0fa90b85a8545d88989adb2c834d2c459c"
       merge_base_at: "2026-08-19T16:47:53Z"
@@ -912,13 +919,13 @@ projects:
         - REUSE.toml
       records_dir: adr
     open_prs: []
-    observed_at: "2026-11-01T00:32:13Z"
+    observed_at: "2026-11-01T02:50:42Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 959
+      behind_corpus: 981
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -941,7 +948,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-11-01T00:32:13Z"
+    observed_at: "2026-11-01T02:50:43Z"
 org:
   repositories:
     total: 123
@@ -1024,7 +1031,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 34
-  observed_at: "2026-11-01T00:32:15Z"
+  observed_at: "2026-11-01T02:50:44Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
