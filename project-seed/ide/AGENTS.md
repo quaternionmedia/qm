@@ -202,6 +202,41 @@ quoting a figure.
     response as it arrives, send a few at a time, and stop at the first refusal
     that names a limit, saying when it resets. The allowance belongs to every
     caller on the credential.
+17. **Check what your branch carries before you open the pull request.**
+    `python governance/qm/project-seed/ci/check_pr_base.py --base <base> --head
+    <branch>` reports the merge-base, the commit and file counts, the authors,
+    and any commit that also lives on another branch; paste its output into the
+    description. A branch cut from the wrong parent passes every other check,
+    because tests and lint measure the branch and not where it came from. It
+    refuses the directions the namespaces forbid, such as a `project/<name>`
+    head aimed at the default branch.
+18. **Run the CI locally before you call a pull request ready.**
+    `python governance/qm/project-seed/ci/run_workflows_locally.py` executes the
+    workflows' actual steps; reading a workflow and running the commands you
+    think it contains is not the same thing. Report what you ran and what it
+    said, including the steps the runner cannot reproduce, and say whether a
+    local failure is a defect or a difference in the environment.
+19. **Durable text carries as few integers as it can** — record
+    `governance/qm/records/DRAFT-few-integers-in-durable-text.md`. A number in
+    prose is a claim with an expiry date that the prose does not carry. Prefer
+    the relation to the count ("every service", not a total), and where a
+    figure is the point, name the command and the commit that produced it.
+    Never restate a figure a generated document already holds. A verification
+    section is the one place a bare count belongs. An assertion in code that goes
+    stale fails, which is the property prose lacks.
+20. **This page is read first, so it restates decisions it does not own** —
+    record `governance/qm/records/DRAFT-the-read-document-governs.md`. Where a
+    passage here summarizes a record, it names the record's path. When the
+    summary and the record disagree, the record is what was decided and the
+    summary is repaired, never the other way round.
+21. **Durable text states what is true now, for a reader who was not there** —
+    record `governance/qm/records/DRAFT-durable-text-states-what-is-true.md`. A
+    docstring, a page or a record says what the thing is, what it does, what it
+    cannot do and what to do with it, in the present tense. It does not tell how
+    it came to be: what it replaced, what was found, when or by whom. The
+    commit, the pull request and the retrospective hold that. The seed's
+    `timeless-check.yml` runs `check_timeless.py` on the lines a pull request
+    adds and refuses a phrase set in capitals and a phrase that only narrates.
 
 ## One-time setup on a fresh clone (Windows)
 
