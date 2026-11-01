@@ -201,6 +201,13 @@ def test_the_check_reads_no_clone(tmp_path, monkeypatch):
     assert timeline.problems("demo", tmp_path) == []
 
 
+def test_every_committed_timeline_matches_its_inputs():
+    """The committed subtrees, as the docs audit checks them."""
+    names = timeline.with_subtree()
+    assert names, "no project has a subtree"
+    assert [p for name in names for p in timeline.problems(name)] == []
+
+
 # --- reading git --------------------------------------------------------------
 
 
