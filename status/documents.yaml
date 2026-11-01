@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T00:34:48Z'
+generated_at: '2026-11-01T00:38:49Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 310
+  documents: 312
   by_state:
     draft: 3
-    generated: 55
+    generated: 56
     proposed: 41
     standing: 90
     transient: 25
-    unreviewed: 96
+    unreviewed: 97
   disagreements: 0
   unknown: 0
 documents:
@@ -520,6 +520,15 @@ documents:
   refresh: uv run qm cookbook docs/families --site --write
   present: true
 - path: docs/projects/looksatwords.md
+  class: generated
+  class_reason: a tool writes it
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: generated
+  refresh: uv run qm cookbook docs/families --site --write
+  present: true
+- path: docs/projects/loopwall.md
   class: generated
   class_reason: a tool writes it
   declared_status: null
@@ -1951,6 +1960,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-31-cathys-network-guard-routed-around.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-31-the-strangers-first-hour.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null

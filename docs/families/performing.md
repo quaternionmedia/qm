@@ -58,7 +58,7 @@ automatic video generation
 
 `instruments` · 10 members
 
-[carlos](../projects/carlos.md), [loopwall](../projects/index.md#loopwall), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md)
+[carlos](../projects/carlos.md), [loopwall](../projects/loopwall.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md)
 
 </div>
 
@@ -68,7 +68,7 @@ automatic video generation
 
 `performer-display` · 3 members
 
-[loopwall](../projects/index.md#loopwall), [joe](../projects/joe.md), [leo](../projects/leo.md)
+[loopwall](../projects/loopwall.md), [joe](../projects/joe.md), [leo](../projects/leo.md)
 
 </div>
 

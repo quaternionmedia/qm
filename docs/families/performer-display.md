@@ -18,9 +18,11 @@ Drives the performer — what a player reads while playing.
 
 <div class="card qm-f-performer-display" markdown>
 
-[loopwall](../projects/index.md#loopwall){ .qm-card-link }
+[loopwall](../projects/loopwall.md){ .qm-card-link }
 
-<span class="qm-meta">not on the host yet</span>
+<span class="qm-meta">v0.0.1</span> · also in [`instruments`](instruments.md)
+
+Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above.
 
 </div>
 
@@ -46,7 +48,7 @@ Web pdf viewer, annotator, collaborator
 
 </div>
 
-Start in `loopwall`: its records and its `AGENTS.md` say how work arrives there.
+Start in [`loopwall`](../projects/loopwall.md): its records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

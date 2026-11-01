@@ -20,4 +20,4 @@ A family within another is listed under it, and its members count toward both. A
 
 `2` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
-*Generated 2026-10-31.*
+*Generated 2026-11-01.*

@@ -46,9 +46,11 @@ Browser workspace for sketching hardware rigs from real gear, patched on the fac
 
 <div class="card qm-f-instruments" markdown>
 
-[loopwall](../projects/index.md#loopwall){ .qm-card-link }
+[loopwall](../projects/loopwall.md){ .qm-card-link }
 
-<span class="qm-meta">not on the host yet</span>
+<span class="qm-meta">v0.0.1</span> · also in [`performer-display`](performer-display.md)
+
+Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above.
 
 </div>
 
