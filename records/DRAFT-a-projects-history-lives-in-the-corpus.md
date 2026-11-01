@@ -67,13 +67,14 @@ carried, and what was measured on it.
    holds:
 
    - `timeline.md`, generated: what happened, newest first, each entry with
-     its date and a link to its pull request or tag on the host;
+     its date and a link to its pull request, branch or tag on the host;
    - `rounds.yaml`, curated: each development round's branch, pull request,
      dates and what it carried, and each count measured on it with the commit
      or branch it was measured on;
    - `git.yaml`, generated: the git facts the timeline is drawn from, being
-     the pull requests merged on the default branch and the tags with their
-     dates, and the commit they were read at;
+     the pull requests merged on the default branch, the tags with their
+     dates, the branches on the host that the default branch does not hold,
+     each with the branch it is stacked on, and the commit they were read at;
    - the project's retrospectives, each dated, with every link it carries
      absolute.
 
