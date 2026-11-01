@@ -8,6 +8,16 @@ keeping a project current once it exists — this page covers only standing it u
 **Read this if** you are standing up a new QM project, or checking whether an
 existing one was set up completely: an adopting project can be missing a step.
 
+**Who can take these steps.** Step 2 pushes a branch to this repository, and
+only a maintainer with write access to it can. An outsider adopting the corpus
+opens an issue or a pull request in the project's own repository, and a
+maintainer pushes `project/<name>` here on their behalf; from the push on, every
+step below is the same for both. A pull request an outside tester opens against
+this repository is merged by its assignee, a maintainer. A cached credential on
+a workstation counts as write access: `git push` uses it with `gh` signed out,
+so check who you are pushing as before step 2. `AGENTS.md` item 3 is the rule
+the route follows.
+
 **How proven each third of the seed is, because a forker inherits the untested
 parts too.** `adr/` has the most mileage: every adopting project runs it.
 `project/streaming-infrastructure` has no
@@ -39,6 +49,10 @@ passes, not when its command exits zero.
    with `git submodule update`, by the URL `.gitmodules` records, after a
    checkout that rewrites no SSH URL, and a runner holds no SSH key. An SSH URL
    fails each of them at the clone, and a local run, which has a key, passes.
+   On Windows, Git for Windows 2.37 refuses `git submodule add` from a deeply
+   nested clone with `fatal: '$GIT_DIR' too big`. The same command succeeds from
+   a short path, so move the project clone to one before treating the error as a
+   defect of the URL or the repository.
    *Verify:* `git submodule status` lists `governance/qm`, and
    `git config -f .gitmodules --get submodule.governance/qm.url` returns
    `https://github.com/quaternionmedia/qm.git`.
@@ -54,11 +68,22 @@ passes, not when its command exits zero.
    org namespace. The branch is permanent from this moment and never merges
    anywhere; every later change to it arrives as a pull request whose *base* is
    this branch. See `docs/ref/namespaces.md`.
-   *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
+   *Verify the copy:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
-   comment the seed itself says to delete. And
-   `uv run qm branch --base main --head project/<name>`
-   REFUSES — if it does not, the guard is not in the copy you are running.
+   comment the seed itself says to delete.
+   *Verify the push, once it has run:* `git ls-remote origin
+   refs/heads/project/<name>` prints one line whose sha is the output of `git
+   rev-parse project/<name>`; no output means the push did not reach the host,
+   and a different sha means the host holds an older tip. The host then lists
+   the branch at `https://github.com/quaternionmedia/qm/tree/project/<name>`,
+   with no pull request, since none was opened.
+   *Verify the guard, after the push:* `uv run qm branch --base main --head
+   project/<name>` prints `REFUSED` and exits 1. Run before the push it prints
+   `exists locally but not on origin` and exits 1 for that reason alone, which
+   proves nothing about the guard; a refusal that does not say `REFUSED` means
+   the guard is not in the copy you are running. In a project repository the
+   command is `python governance/qm/project-seed/ci/check_pr_base.py --base main
+   --head project/<name>`.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
    `branch = project/<name>` to the new project's `.gitmodules` so
@@ -98,11 +123,14 @@ passes, not when its command exits zero.
 
    After this the submodule reports no remote counterpart, which is true, and
    `submodule-check.yml` is the thing that tells you when it stops being true.
-4. **Wire CI:** copy all four of `project-seed/ci/adr-lint.yml`,
-   `submodule-check.yml`, `reuse-lint.yml` and `one-pr-check.yml` into
-   `.github/workflows/` verbatim — no project-specific edits needed.
-   `project-seed/ci/leak-check.yml` sits beside them and is copied the same
-   way; whether it joins the four the ladder requires is the `Pends on` of
+4. **Wire CI:** copy every workflow that `project-seed/ci/seed-workflows.txt`
+   lists into `.github/workflows/` verbatim — no project-specific edits needed.
+   That list is the one place the set is kept, and a test holds this page to it.
+   The ladder requires `adr-lint.yml`, `submodule-check.yml`, `reuse-lint.yml`
+   and `one-pr-check.yml`. `leak-check.yml`, `signature-check.yml`,
+   `tag-claims.yml` and `timeless-check.yml` sit beside them, each with a header
+   that says to copy it verbatim; whether `leak-check.yml` joins the four the
+   ladder requires is the `Pends on` of
    `records/DRAFT-what-is-not-the-organisation.md`.
    `one-pr-check.yml` is the org-wide stack rule of `handbook/async-contract.md`
    §1, and its own header says to copy it verbatim like the others. Start
@@ -127,6 +155,14 @@ passes, not when its command exits zero.
    executes the workflows' actual steps rather than an approximation of them —
    and confirm each license gate produces a report you have actually read. A gate whose output nobody has looked at is a green
    check, not a finding.
+   The runner needs `pyyaml`, `gh` signed in (`gh auth login`), an `origin`
+   remote, and `origin/main` fetched. Before any step runs it prints the ones
+   missing, with the command that supplies each; a step that needs the missing
+   one then fails with its own message. On a fresh project with none of them,
+   expect the base-ref, one-pull-request, signature and timeless steps to fail,
+   and the REUSE step to fail until the licensing pass is done: those are the
+   environment. `submodule-check` passing with an `at risk:` line under it means
+   a branch inside the submodule is on no remote, which step 2's push settles.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout
    (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
@@ -221,6 +257,10 @@ passes, not when its command exits zero.
    in that state is instantiated, not improvised: the corpus distinguishes
    projects that carry the governance machinery from those that do not,
    never compliant projects from non-compliant ones.
+   Each draft is listed in `adr/README.md`, or the ADR lint refuses it: add its
+   title to the `Drafts in flight (numberless, by title):` line, separated by
+   semicolons, or add a table row that links its file. Numbers arrive in the
+   table only at ratification.
    *Verify:* every conflict row carries the reproduction that established it,
    per the discipline record's evidence clause, and says how it is pinned. A
    row asserting a defect nobody reproduced is a claim, not a finding. Then

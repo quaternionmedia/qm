@@ -126,6 +126,29 @@ def gh_config_hint(env: dict[str, str]) -> str | None:
     return None
 
 
+def base_report(base_ref: str) -> list[str]:
+    """Name the git state the base-ref steps read, before they fail on it.
+
+    The base-ref, signature and timeless steps read `origin/<base>`. A clone
+    with no `origin`, or one that has never fetched, fails each with a git
+    error about a bad object or a missing repository; the fix is one command,
+    and this says which.
+    """
+    code, _ = probe(["git", "remote", "get-url", "origin"])
+    if code != 0:
+        return [
+            "  - [env ] origin: none; add one with `git remote add origin <url>` "
+            "and run `git fetch origin`"
+        ]
+    code, _ = probe(["git", "rev-parse", "--verify", "--quiet", f"origin/{base_ref}"])
+    if code != 0:
+        return [
+            f"  - [env ] origin/{base_ref}: not fetched; run `git fetch origin` "
+            "or pass --base-ref with a branch that exists"
+        ]
+    return []
+
+
 def probe(argv: list[str], timeout: float = 20) -> tuple[int | None, str]:
     """(exit status, output), or (None, reason) when the tool could not be run."""
     try:
@@ -151,7 +174,12 @@ def environment_report(env: dict[str, str]) -> list[str]:
     lines = [f"  - [env ] shell: {resolve_bash()}"]
 
     code, out = probe(["gh", "auth", "status"])
-    if code == 0:
+    if code is None:
+        lines.append(
+            f"  - [env ] gh: NOT installed ({out}); install it from https://cli.github.com "
+            "and run `gh auth login`; steps that read pull requests will fail"
+        )
+    elif code == 0:
         account = re.search(r"account (\S+)", out)
         lines.append(f"  - [env ] gh: signed in as {account.group(1) if account else '?'}")
     else:
@@ -326,7 +354,7 @@ def main() -> int:
     args.base_ref = bare_branch(args.base_ref)
 
     print("environment")
-    for line in environment_report(dict(os.environ)):
+    for line in environment_report(dict(os.environ)) + base_report(args.base_ref):
         print(line)
 
     head = subprocess.run(

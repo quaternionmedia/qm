@@ -1,0 +1,12 @@
+# The workflows a forking project copies into .github/workflows/, verbatim.
+# One file name per line, then `required` (the ladder names it) or `copied` (its
+# own header says to copy it the same way). The directory holds exactly these;
+# ci/tests/test_seed_workflow_list.py fails when a page or a copy disagrees.
+adr-lint.yml required
+submodule-check.yml required
+reuse-lint.yml required
+one-pr-check.yml required
+leak-check.yml copied
+signature-check.yml copied
+tag-claims.yml copied
+timeless-check.yml copied
