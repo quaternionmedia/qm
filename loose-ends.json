@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T14:32:28Z",
+  "generated_at": "2026-11-01T15:50:44Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -29,7 +29,7 @@
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-01T02:52:39Z"
+        "generated_at": "2026-11-01T15:41:20Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 244,
+    "loose_ends": 246,
     "by_kind": {
-      "blind-spot": 20,
+      "blind-spot": 22,
       "document-proposed": 42,
       "document-unreviewed": 97,
       "over-slot": 1,
       "stalled-thread": 84
     },
-    "open": 244,
+    "open": 246,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -85,8 +85,16 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at. Of a timeline it sees the committed files only: not a git snapshot behind its project, nor a round left out of the round log.",
+      "detail": "Whether a page is true. It builds the site and follows the links, so it finds a link to nothing and not a page that is wrong, and it does not read the navigation, so a page nothing links to passes. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at. Of a timeline it sees the committed files only: not a git snapshot behind its project, nor a round left out of the round log. On a pull request it runs only when the change touches the site or a generator's input, by path filter.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-docs-check",
+      "title": "docs-check cannot see",
+      "detail": "A document with no check mode, `status/harness.yaml` and `families.json`: their freshness is the staleness budget each carries in its own `reading:` block, and the run reports them skipped. The enforcement layer of `status/gates.yaml`, which is read from the host and changes without a commit here. Whether a generated document is true: it compares each with what its generator writes from the same tree, so a generator that is wrong is wrong on both sides and passes.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-check",
       "address_parses": true
     },
     {
@@ -125,7 +133,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-namespace-guard",
       "title": "namespace-guard cannot see",
-      "detail": "A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.",
+      "detail": "Anything on a pull request into `main`: both its triggers are filtered to `project/**`, so the direction of a pull request between namespaces is `pr-direction`'s to refuse. A push cannot be refused, so on a push it reports and prevents nothing. A branch cut from the wrong parent whose own commits touch `adr/` only.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-namespace-guard",
       "address_parses": true
     },
@@ -135,6 +143,14 @@
       "title": "one-pr-voice cannot see",
       "detail": "The third person. \"Peter merges once the gates are green\" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-voice",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-pr-direction",
+      "title": "pr-direction cannot see",
+      "detail": "A branch under a prefix the namespaces page does not list: it refuses three directions and no unknown prefix, so an `adr/*` or `fix/*` head passes it. A branch cut from the wrong parent whose direction is legal: the merge-base and the commits shared with another branch are reported as an advisory, and nothing fails on them.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-pr-direction",
       "address_parses": true
     },
     {

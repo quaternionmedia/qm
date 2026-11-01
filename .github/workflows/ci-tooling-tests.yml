@@ -7,19 +7,18 @@ name: CI tooling tests
 # These tests build real git repositories rather than mocking git. The tools
 # are almost entirely about git, and a mock would encode the same
 # misunderstanding the tool does and then agree with it.
+#
+# No path filter. The suites read the whole repository: the first page, the
+# workflows, the records, the registries, the walkthrough and the usage pages
+# the doctests execute. There is no path a change can touch that no test
+# reads, so a filter is a list of paths that drifts from the tests, and a
+# change outside the list lands with the suite unrun.
+# `ci/tests/test_run_tests.py` holds both triggers unfiltered.
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'project-seed/ci/**'
-      - 'ci/**'
-      - '.github/workflows/ci-tooling-tests.yml'
   pull_request:
-    paths:
-      - 'project-seed/ci/**'
-      - 'ci/**'
-      - '.github/workflows/ci-tooling-tests.yml'
 
 # One run per branch per workflow. A second push supersedes the first: the
 # result of a run whose commit has been replaced is not read, and its minutes

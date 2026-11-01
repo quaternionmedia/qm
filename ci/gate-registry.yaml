@@ -24,8 +24,14 @@
 # interchangeable:
 #
 #   main     it runs on pull requests into the default branch
+#   project  it runs on pull requests into a `project/<name>` branch, and on
+#            none into the default branch
 #   tag      it runs on a `v*` push and judges the tag, not the branch
 #   push     it runs on direct pushes as well, so it also reports on landed work
+#
+# `ci/gate_status.py` derives the same words from each workflow's `on:` block
+# and shows them beside the claim; `ci/tests/test_gate_tooling.py` fails when
+# the two disagree, so a value here is checked against the trigger it describes.
 #
 # `exists: false` is a declaration. A gate listed here without an
 # implementation is a rule this org has decided on and not yet made mechanical.
@@ -117,22 +123,52 @@ gates:
       them without a pronoun, so it is allowed; and whether the body is honest,
       complete, or about the diff at all.
 
-  - id: namespace-guard
-    workflow: namespace-guard.yml
-    job: namespace
-    gates: [main, push]
+  - id: pr-direction
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
     seed: false
     exists: true
     refuses: >
-      A pull request opened in the wrong direction between namespaces, and a
-      project branch whose own commits touch anything outside `adr/`.
+      A pull request whose head is a `project/<name>` branch, which is
+      permanent and never a merge source; a `math/<slug>` exploration aimed at
+      anything but a `workspace/*` branch; and a head carrying a top-level
+      `adr/` at the default branch. The step is in this corpus's copy of the
+      workflow and not in the seed: a project's own repository has no
+      `project/*` branches, so there the same step could never fail.
     runs:
       - project-seed/ci/check_pr_base.py
     enforces:
-      - README.md
+      - docs/ref/namespaces.md
     cannot_see: >
-      A branch cut from the wrong parent whose direction is nonetheless legal.
-      `check_pr_base.py` reports the inheritance; nothing fails on it.
+      A branch under a prefix the namespaces page does not list: it refuses
+      three directions and no unknown prefix, so an `adr/*` or `fix/*` head
+      passes it. A branch cut from the wrong parent whose direction is legal:
+      the merge-base and the commits shared with another branch are reported
+      as an advisory, and nothing fails on them.
+
+  - id: namespace-guard
+    workflow: namespace-guard.yml
+    job: namespace
+    gates: [project, push]
+    seed: false
+    exists: true
+    refuses: >
+      A `project/<name>` branch whose own commits touch anything outside
+      `adr/`, on a pull request into the branch and, after the fact, on a push
+      to it. It compares content with `main` and not commits, so org content
+      arriving by a merge from `main` is not mistaken for the project editing
+      it.
+    runs:
+      - .github/workflows/namespace-guard.yml
+    enforces:
+      - docs/ref/namespaces.md
+    cannot_see: >
+      Anything on a pull request into `main`: both its triggers are filtered to
+      `project/**`, so the direction of a pull request between namespaces is
+      `pr-direction`'s to refuse. A push cannot be refused, so on a push it
+      reports and prevents nothing. A branch cut from the wrong parent whose
+      own commits touch `adr/` only.
 
   - id: ci-tooling-tests
     workflow: ci-tooling-tests.yml
@@ -212,16 +248,20 @@ gates:
   - id: docs-audit
     workflow: docs-audit.yml
     job: audit
-    gates: [pull_request]
+    gates: [main, push]
     seed: false
     exists: true
     refuses: >
-      A documentation site that builds but does not hold together -- a page
-      the navigation does not reach, a link to a page that is not published,
-      a claim the audit's four dimensions can check -- a generated family
-      page, project page or front-page snippet that no longer matches its
-      sources, and a project's timeline that no longer matches its committed
-      round log and git snapshot, or a retrospective beside it with no date.
+      A documentation site that no longer builds, or builds and emits nothing;
+      a generated family page, project page or front-page snippet that no
+      longer matches its sources; and a project's timeline that no longer
+      matches its committed round log and git snapshot, or a retrospective
+      beside it with no date. A link to nothing, a corpus path a page names
+      that does not exist, and a page that shadows a corpus document are
+      reported and do not fail the run. On a push to `main` it runs with no
+      path filter, so two pull requests each green at their own tip that
+      together leave a generated page stale make `main` red, and not the next
+      contributor's pull request.
     runs:
       - ci/docs_audit.py
       - ci/cookbook.py
@@ -232,19 +272,48 @@ gates:
       - records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
       - records/DRAFT-a-projects-history-lives-in-the-corpus.md
     cannot_see: >
-      Whether a page is true. It builds the site and reads what the build
-      reads, so it finds a page nobody can reach and not a page that is wrong.
-      `uv run qm prose` reads the openings; a person reads the rest. Of the
-      generated pages it sees only whether they match their sources: not
-      whether a showcase caption describes its picture, nor whether a
-      showgraph was drawn from the commits its project is at. Of a timeline it
-      sees the committed files only: not a git snapshot behind its project,
-      nor a round left out of the round log.
+      Whether a page is true. It builds the site and follows the links, so it
+      finds a link to nothing and not a page that is wrong, and it does not
+      read the navigation, so a page nothing links to passes. `uv run qm
+      prose` reads the openings; a person reads the rest. Of the generated
+      pages it sees only whether they match their sources: not whether a
+      showcase caption describes its picture, nor whether a showgraph was
+      drawn from the commits its project is at. Of a timeline it sees the
+      committed files only: not a git snapshot behind its project, nor a round
+      left out of the round log. On a pull request it runs only when the
+      change touches the site or a generator's input, by path filter.
+
+  - id: docs-check
+    workflow: docs-check.yml
+    job: generated
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A committed generated document that no longer matches what its generator
+      writes from this tree: the governance and gate documents, the gate view,
+      the site palette, the family cookbook and the family site pages, the
+      rollout, and the three index documents, `status/documents.yaml`,
+      `handbook/document-states.md` and `loose-ends.json`. It runs with no path
+      filter, so a page that changes state without its index is red on the
+      pull request that changed it, and `main` is checked after every merge.
+    runs:
+      - ci/generate_docs.py --check
+    enforces:
+      - handbook/generated-documents.md
+    cannot_see: >
+      A document with no check mode, `status/harness.yaml` and `families.json`:
+      their freshness is the staleness budget each carries in its own
+      `reading:` block, and the run reports them skipped. The enforcement layer
+      of `status/gates.yaml`, which is read from the host and changes without
+      a commit here. Whether a generated document is true: it compares each
+      with what its generator writes from the same tree, so a generator that
+      is wrong is wrong on both sides and passes.
 
   - id: docs-draft
     workflow: docs-draft.yml
     job: draft
-    gates: [pull_request]
+    gates: [main]
     seed: false
     exists: true
     refuses: >

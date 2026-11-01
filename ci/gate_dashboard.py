@@ -57,6 +57,23 @@ def text_of(value: object) -> str:
     return f"**unknown** — {why}" if why else str(value)
 
 
+def disagreement(gate: dict) -> str:
+    """Why a gate's claim and evidence disagree, in one sentence."""
+    evidence = gate.get("evidence") or {}
+    why = reason(evidence)
+    if why:
+        return f"**unknown** — {why}"
+    said = []
+    if evidence.get("job_declared") is False:
+        said.append(f"the workflow declares no job `{gate.get('job')}`")
+    if evidence.get("gates_declared") is False:
+        before = ", ".join(evidence.get("stands_before") or []) or "nothing"
+        claimed = ", ".join(gate.get("gates") or []) or "nothing"
+        said.append(f"the registry says it stands before {claimed} and its "
+                    f"`on:` block stands before {before}")
+    return "; ".join(said) or str(evidence)
+
+
 def esc(value: object) -> str:
     return html.escape("" if value is None else str(value))
 
@@ -179,7 +196,7 @@ def render_md(doc: dict) -> str:
     else:
         for gate in problems:
             add(f"- {MARK.get(gate.get('state'))} **`{gate.get('id')}`** — "
-                f"{text_of(gate.get('evidence'))}")
+                f"{disagreement(gate)}")
         for name in undeclared:
             add(f"- {MARK[WARN]} **`{name}`** is a workflow nobody declared. It is "
                 f"not adopted into the list above — a gate this page cannot "

@@ -3,10 +3,13 @@ name: ADR lint
 # SEED FILE: copy verbatim into a forking project's .github/workflows/
 # (see adr/README.md's "CI enforcement" section).
 #
-# Enforces all four checks the decision-record-discipline record names:
+# Enforces the four checks the decision-record-discipline record names:
 # banned vocabulary in a pre-ratification draft, a numbered filename whose
 # Status is not ratified, an edit to a ratified record's body outside its
-# Amendments section, and an index/directory mismatch.
+# Amendments section, and an index/directory mismatch. A fifth step refuses a
+# copy of a seed page that still shows its `<name>` placeholder to a reader,
+# which is what a verbatim copy of the seed's `adr/` carries until the name is
+# substituted.
 #
 # Only this YAML file is copied. The lint itself runs from
 # $QM_SUBMODULE/project-seed/ci/adr_lint.py -- inside the submodule the
@@ -107,3 +110,17 @@ jobs:
             --records-dir "$records" \
             --index "$records/README.md" \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+
+      # A seed carries placeholders on purpose; a copy that keeps one is a
+      # template being shown to its reader. The copy is this project's records
+      # directory, which `adr/README.md` says to copy from the seed and then
+      # substitute, and the seed is read out of the same submodule, so the two
+      # are compared at the pin this project holds. The repository's name is
+      # the suggested substitution, and the branch is read when it is absent.
+      - name: No copy shows a template to its reader
+        run: |
+          records="${RECORDS_DIR:-$QM_SUBMODULE/adr}"
+          python "$QM_SUBMODULE/project-seed/ci/check_placeholders.py" \
+            --seed "$QM_SUBMODULE/project-seed/adr" \
+            --copy "$records" \
+            --instance "${{ github.event.repository.name }}"

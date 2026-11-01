@@ -221,8 +221,12 @@ as candidates for reading rather than defects; citations of paths that do not
 exist; and records nothing points at. A citation into another QM repository is
 resolved in that repository's checkout, found through the roster's
 `repositories:` and `paths:`, and is reported as a cross-repository citation,
-not as dangling; a repository in the roster but not checked out is unknown. It
-does not read a record for meaning, and it is a report, not a gate.
+not as dangling; a repository in the roster but not checked out is unknown. A
+bare filename in an Enforcement clause names a mechanism, and is resolved
+against `.github/workflows/` and `project-seed/ci/`, where the mechanisms live:
+a record that says `leak-check.yml` refuses something is read against the
+workflow of that name and not against the repository root. It does not read a
+record for meaning, and it is a report, not a gate.
 
 ## Private repository names
 
@@ -297,6 +301,45 @@ knows only commands that have a route, never fires on its own remedy (an
 allow-list covers `uv run qm test`), reads shell commands only, and fails open:
 input it cannot read, or that is not an object, lets the work through.
 Enabling it is each contributor's decision.
+
+## Generated documents
+
+`uv run qm docs check` (`ci/generate_docs.py --check`) runs every generator's
+check mode against the tree and nothing else, and the `docs-check` workflow
+runs the same step on every pull request into `main` and on every push to it,
+with no path filter, because the index documents describe every page in the
+repository. It refuses a committed generated document that no longer matches
+what its generator writes: the governance and gate documents, the gate view,
+the site palette, the family cookbook and the family site pages, the rollout,
+and the three index documents, `status/documents.yaml`,
+`handbook/document-states.md` and `loose-ends.json`. A page that changes state
+without its index is red on the pull request that changed it, and two pull
+requests each green at their own tip that together leave `main` stale make
+`main` red after the merge, and not the next contributor's pull request.
+
+It cannot see a document with no check mode, `status/harness.yaml` and
+`families.json`, whose freshness is the staleness budget each carries in its
+own `reading:` block and which the run reports skipped; the enforcement layer
+of `status/gates.yaml`, which is read from the host and changes without a
+commit; or whether a generated document is true, since it compares each with
+what its generator writes from the same tree, and a generator that is wrong is
+wrong on both sides.
+
+## Triggers
+
+A workflow runs where its `on:` block says, and three checks hold that block to
+what the job reads. `ci-tooling-tests.yml` carries no path filter, because its
+suites read the whole repository, and `ci/tests/test_run_tests.py` refuses one.
+`docs-audit.yml` runs unfiltered on a push to `main`, so the default branch is
+checked after every merge and not only each pull request at its own tip.
+`ci/gate-registry.yaml`'s `gates` field says what each gate stands before, in a
+closed vocabulary (`main`, `project`, `push`, `tag`); `ci/gate_status.py`
+derives the same words from each workflow's `on:` block and writes them beside
+the claim in `status/gates.yaml`, and `ci/tests/test_gate_tooling.py` fails
+when the two disagree. None of them can see whether a filter that matches is
+the right one: a path a job reads that nobody listed passes, because the
+registry describes branches and not paths, and the pull-request filter on the
+docs audit is a list a reader keeps.
 
 ## Shared shapes
 

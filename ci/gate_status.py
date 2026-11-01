@@ -14,7 +14,10 @@ Three layers, and they are not interchangeable
                redefine governance as a filename check, which is the exact
                substitution ci/workspace.yaml refuses in its own header.
   evidence     .github/workflows/. Which workflow files exist, what triggers
-               them, which jobs they declare.
+               them, which jobs they declare, and what their `on:` blocks say
+               they stand in front of, in the registry's own vocabulary, so a
+               claim of `main` beside a workflow filtered to `project/**` is a
+               disagreement the document shows.
   enforcement  the host. Whether anything actually blocks a merge. It changes
                with no commit here, so it carries this document's staleness
                budget and `--no-host` writes it as `unknown` rather than as
@@ -33,6 +36,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import subprocess
 import sys
@@ -73,6 +77,49 @@ def load_registry(path: Path) -> list[dict]:
     return gates
 
 
+def stands_before(triggers: object) -> list[str]:
+    """What a workflow's `on:` block stands in front of, in the registry's words.
+
+    The registry's `gates` field uses a closed vocabulary, and this is the one
+    place it is derived from a trigger block, so the claim and the evidence
+    can be compared in the same terms:
+
+      main     a `pull_request` trigger with no branch filter, or one whose
+               filter matches the default branch
+      project  a `pull_request` trigger whose filter names a `project/**`
+               branch
+      push     a `push` trigger on branches, or with no filter at all
+      tag      a `push` trigger on tags
+
+    A filter is matched as the host matches it, by glob. An unfiltered
+    pull-request trigger counts as `main` and not as `project`: it stands
+    before the default branch by default, and before a project branch only
+    where a filter puts it there on purpose.
+    """
+    if isinstance(triggers, str):
+        triggers = {triggers: None}
+    elif isinstance(triggers, list):
+        triggers = {name: None for name in triggers}
+    if not isinstance(triggers, dict):
+        return []
+    found: list[str] = []
+    if "pull_request" in triggers:
+        spec = triggers.get("pull_request")
+        branches = spec.get("branches") if isinstance(spec, dict) else None
+        if not branches or any(fnmatch.fnmatch("main", str(p)) for p in branches):
+            found.append("main")
+        if branches and any(fnmatch.fnmatch("project/x", str(p)) for p in branches):
+            found.append("project")
+    if "push" in triggers:
+        spec = triggers.get("push")
+        spec = spec if isinstance(spec, dict) else {}
+        if spec.get("branches") or not spec.get("tags"):
+            found.append("push")
+        if spec.get("tags"):
+            found.append("tag")
+    return found
+
+
 def discover(workflows: Path) -> dict[str, dict]:
     """What is actually in .github/workflows/, keyed by filename.
 
@@ -90,6 +137,7 @@ def discover(workflows: Path) -> dict[str, dict]:
             found[path.name] = {"unreadable": str(exc).splitlines()[0]}
             continue
         triggers = doc.get(True, doc.get("on"))
+        before = stands_before(triggers)
         if isinstance(triggers, dict):
             triggers = sorted(triggers)
         elif isinstance(triggers, str):
@@ -97,6 +145,7 @@ def discover(workflows: Path) -> dict[str, dict]:
         found[path.name] = {
             "name": doc.get("name"),
             "triggers": sorted(triggers or []),
+            "stands_before": before,
             "jobs": sorted(doc.get("jobs") or {}),
         }
     return found
@@ -201,14 +250,21 @@ def gate_row(gate: dict, found: dict[str, dict]) -> dict:
         return row
 
     job_declared = gate.get("job") in evidence.get("jobs", [])
+    # The claim and the `on:` block, in one vocabulary. A gate that says it
+    # stands before `main` while its workflow is filtered to `project/**` is
+    # a check a reader believes runs on a pull request it never sees.
+    before = evidence.get("stands_before", [])
+    gates_agree = set(before) == set(row["gates"])
     row["evidence"] = {
         "present": True,
         "workflow_name": evidence.get("name"),
         "triggers": evidence.get("triggers", []),
+        "stands_before": before,
+        "gates_declared": gates_agree,
         "jobs": evidence.get("jobs", []),
         "job_declared": job_declared,
     }
-    row["state"] = OK if job_declared else WARN
+    row["state"] = OK if job_declared and gates_agree else WARN
     return row
 
 

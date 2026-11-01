@@ -61,7 +61,7 @@ It reads four sources, and a page is changed by changing one of them, never the 
 
 A project's version on its page comes from whether the [corpus](../ref/glossary.md#corpus){ .glossary-term } has a `project/<name>` branch, so run the command in a clone that has fetched every branch.
 
-`--check` in place of `--write` lists the pages that no longer match their sources. The `docs-audit` workflow runs it on every pull request that touches the pages or their sources, and fails on any. The rules behind the pages are in [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md).
+`--check` in place of `--write` lists the pages that no longer match their sources. The `docs-audit` workflow runs it on every pull request that touches the pages or their sources and on every push to `main`, and fails on any. The rules behind the pages are in [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md).
 
 ## A project's history
 
@@ -78,7 +78,7 @@ uv run qm timeline <name> --write --offline   # draw the page from the committed
 uv run qm timeline --check                    # every timeline against its committed inputs
 ```
 
-The clone is found where the cookbook finds a member's, and `--clone <path>` names one. It is read as it stands, so fetch it with `--prune` first, or a branch deleted on the host stays on the page. A branch a round names is listed in that round's row, and every other branch in a row of its own. `--check` reads no clone, so the `docs-audit` workflow runs it on every pull request that touches the site, and fails on a timeline its inputs do not give or a retrospective with no date. The subtree's pages are reached from the project's page, and are not listed in the navigation.
+The clone is found where the cookbook finds a member's, and `--clone <path>` names one. It is read as it stands, so fetch it with `--prune` first, or a branch deleted on the host stays on the page. A branch a round names is listed in that round's row, and every other branch in a row of its own. `--check` reads no clone, so the `docs-audit` workflow runs it on every pull request that touches the site and on every push to `main`, and fails on a timeline its inputs do not give or a retrospective with no date. The subtree's pages are reached from the project's page, and are not listed in the navigation.
 
 ## Add a page
 
