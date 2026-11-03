@@ -165,7 +165,8 @@ Three asymmetries, recorded rather than smoothed:
 A claim names every family whose border the repository is inside. A repository
 that drives two things is in both, and the roster says so with a list:
 `family: [irl, instruments]`. Neither reading has to lose, and a reader looking
-for the repository by either finds it.
+for the repository by either finds it. The list has no first: no family in it
+is the repository's home, and a generated page treats each the same.
 
 A family may sit within another, as the three parts of a show sit within
 `performing`. A member of an inner family is a member of the outer one without

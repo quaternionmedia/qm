@@ -110,7 +110,7 @@ A python module to make, gather, analyze, and visualize language data.
 
 </div>
 
-Start in [`qm`](../projects/qm.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`codecartographer`](../projects/codecartographer.md), [`dossier`](../projects/dossier.md), [`looksatwords`](../projects/looksatwords.md), [`qm`](../projects/qm.md), [`qmcp`](../projects/qmcp.md), [`rad`](../projects/rad.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

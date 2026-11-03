@@ -332,6 +332,28 @@ code, kbd, pre {
   margin: 0 0 0.35em;
 }
 
+/* A project in several families wears every one of their hues: the card's
+   cap, its title link and the page's name run through them left to right,
+   in the order the page names the families. The element sets `--qm-rainbow`. */
+.md-typeset .grid > .card.qm-f-many {
+  border-top-color: transparent;
+}
+.md-typeset .grid > .card.qm-f-many::before {
+  background: var(--qm-rainbow);
+  border-radius: 6px 6px 0 0;
+  content: "";
+  height: 4px;
+  inset: -4px -1px auto -1px;
+  position: absolute;
+}
+.md-typeset .grid > .card.qm-f-many a.qm-card-link,
+.md-typeset h1.qm-family-title.qm-f-many .qm-name {
+  background: var(--qm-rainbow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* The full stop after a page's name, in its family's hue. */
 .md-typeset .qm-dot {
   color: var(--c, var(--qm-accent));

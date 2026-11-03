@@ -54,7 +54,7 @@ A physical switch for devices that lost one: dry contacts in, versioned JSON eve
 
 </div>
 
-<div class="card qm-f-irl" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-show-control))" markdown>
 
 [ira](../projects/ira.md){ .qm-card-link }
 
@@ -64,7 +64,7 @@ LED controller, designed for live theater
 
 </div>
 
-<div class="card qm-f-irl" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
 
 [uPhonor](../projects/uPhonor.md){ .qm-card-link }
 
@@ -74,7 +74,7 @@ Micro-Holophonor
 
 </div>
 
-<div class="card qm-f-irl" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
 
 [stomp](../projects/stomp.md){ .qm-card-link }
 
@@ -100,7 +100,7 @@ Chess set, designed in openSCAD
 
 3 private repositories are counted here and not named.
 
-Start in [`apothecary`](../projects/apothecary.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`apothecary`](../projects/apothecary.md), [`datum`](../projects/datum.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

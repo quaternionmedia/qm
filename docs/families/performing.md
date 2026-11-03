@@ -84,7 +84,7 @@ automatic video generation
 
 </div>
 
-Start in [`alfred`](../projects/alfred.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`alfred`](../projects/alfred.md), [`carlos`](../projects/carlos.md), [`loopwall`](../projects/loopwall.md), [`qmetronome`](../projects/qmetronome.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 
