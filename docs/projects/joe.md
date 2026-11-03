@@ -5,10 +5,10 @@ hide:
   - toc
 ---
 
-[performer-display](../families/performer-display.md) · within [performing](../families/performing.md)
+[irl](../families/irl.md) · [performer-display](../families/performer-display.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# joe<span class="qm-dot">.</span> { .qm-family-title .qm-f-performer-display }
+# <span class="qm-name">joe</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performer-display))" }
 
 <p class="qm-lede">Realtime sheet music visualization</p>
 

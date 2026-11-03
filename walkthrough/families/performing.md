@@ -35,8 +35,11 @@
 
 Also in another family, because each drives more than one thing:
 
+- `alfred` — [`irl`](./irl.md)
+- `otto` — [`irl`](./irl.md)
 - `uPhonor` — [`irl`](./irl.md)
 - `stomp` — [`irl`](./irl.md)
+- `joe` — [`irl`](./irl.md)
 - `ira` — [`irl`](./irl.md)
 
 ## The families within it

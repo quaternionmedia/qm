@@ -78,7 +78,7 @@ words would have placed one program in all of them.
 | `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | `performing` | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes; ira |
 | `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor; and one private repository, referenced rather than named |
 | `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo; and one private repository, referenced rather than named |
-| `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | — | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
+| `irl` | **matter, and the record of its making** — a thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done | — | apothecary; datum; scad-chess; stomp; ira; uPhonor; joe; vox; alfred; otto; and three private repositories, referenced rather than named |
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | — | moat; ztgui; streaming-infrastructure; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | — | qm; qmcp; dossier; codecartographer; looksatwords; vox; rad |
 | `games` | **play** — a game somebody plays: its rules, its world, its loop, and the server it is played on | — | golfvs; rad-godot; qmcli-godot; factorio-sysops; and three private repositories, referenced rather than named |
@@ -119,14 +119,24 @@ the things it hosts. That relation is a **seam** under §5 and not a family
 relation: neither sits within the other. Reading `infra` as a family within
 `core` would make every family one eventually, since everything runs somewhere.
 
-`irl` is where §2's border is tested hardest, on three repositories. A foot
-controller, an LED controller and a micro-looper each *drive* sound or light,
-and each is also a board somebody solders into an enclosure. Both readings are
-true, so both are claimed: `ira` is in `irl` and `show-control`, and `stomp`
-and `uPhonor` are in `irl` and `instruments`. A reader looking for the pedal
-finds it beside the boards and beside the loopers. `cesar` is in
-`show-control` alone: it emits a program that drives lights, and nothing you
-can hold.
+`irl` is where §2's border is tested hardest. A foot controller, an LED
+controller and a micro-looper each *drive* sound or light, and each is also a
+board somebody solders into an enclosure. Both readings are true, so both are
+claimed: `ira` is in `irl` and `show-control`, and `stomp` and `uPhonor` are
+in `irl` and `instruments`. A reader looking for the pedal finds it beside the
+boards and beside the loopers. `cesar` is in `show-control` alone: it emits a
+program that drives lights, and nothing you can hold.
+
+A bench keeps a record of the making as well as the thing made — a camera
+over the print or the board, a mic for what is said over the work — and that
+record is in `irl` beside the thing. joe is the mic there and alfred the
+camera's editor, so joe's output acts on the record of the making and on the
+person at the work, who hears it spoken back, and alfred's acts on the video
+of the making, just as in `performing` it acts on the video of a show. vox,
+which recognises and speaks the word, and otto, which renders the frame, act
+on the same record. Each of the four is in `irl` by §2 read on its own
+output, and in the family it belongs to for a show or for the corpus by the
+same test read there.
 
 `core` is the family that drives none of the others, and that is the point of
 naming it rather than leaving it unstated. It drives **the work itself**: the
@@ -256,8 +266,8 @@ for what drives a show without driving one of its parts; the families within it
 keep the question answerable.
 
 **A repository in exactly one family.** Simpler to count and to draw, and it
-forces a choice where both readings are true: the three boards in `irl` would
-lose their sound and lighting readings, and a search for them there would find
+forces a choice where both readings are true: the boards in `irl` would lose
+their sound and lighting readings, and a search for them there would find
 nothing.
 
 **A `video` family within `performing`, for alfred alone.** A family of one has

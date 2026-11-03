@@ -2,7 +2,7 @@
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work
+**Drives** matter, and the record of its making — a thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done
 
 ![the irl family](./irl.svg)
 
@@ -10,11 +10,15 @@
 
 | member | governed |
 |---|---|
+| `vox` | no |
+| `alfred` | yes |
+| `otto` | no |
 | `apothecary` | yes |
 | `datum` | yes |
 | `ira` | no |
 | `uPhonor` | no |
 | `stomp` | no |
+| `joe` | no |
 | `scad-chess` | no |
 | `private-03` | no |
 | `private-05` | no |
@@ -22,13 +26,17 @@
 
 Also in another family, because each drives more than one thing:
 
+- `vox` — [`core`](./core.md)
+- `alfred` — [`performing`](./performing.md)
+- `otto` — [`performing`](./performing.md)
 - `ira` — [`show-control`](./show-control.md)
 - `uPhonor` — [`instruments`](./instruments.md)
 - `stomp` — [`instruments`](./instruments.md)
+- `joe` — [`performer-display`](./performer-display.md)
 
 ## Starting here
 
-2 of 9 members carry governance, and each is a governed entry point: `apothecary`, `datum`. Begin in any of them:
+3 of 13 members carry governance, and each is a governed entry point: `alfred`, `apothecary`, `datum`. Begin in any of them:
 
 ```sh
 cd <member>               # one of those named above
