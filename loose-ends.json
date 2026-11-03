@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T23:35:58Z",
+  "generated_at": "2026-11-03T23:17:00Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -29,7 +29,7 @@
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-01T23:29:07Z"
+        "generated_at": "2026-11-03T23:15:04Z"
       }
     }
   },
@@ -93,7 +93,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-check",
       "title": "docs-check cannot see",
-      "detail": "A document with no check mode, `status/harness.yaml` and `families.json`: their freshness is the staleness budget each carries in its own `reading:` block, and the run reports them skipped. The enforcement layer of `status/gates.yaml`, which is read from the host and changes without a commit here. Whether a generated document is true: it compares each with what its generator writes from the same tree, so a generator that is wrong is wrong on both sides and passes.",
+      "detail": "A document with no check mode, `status/harness.yaml` and `families.json`: their freshness is the staleness budget each carries in its own `reading:` block, and the run reports them skipped. The enforcement layer of `status/gates.yaml`, which is read from the host and changes without a commit here. Whether a generated document is true: it compares each with what its generator writes from the same tree, so a generator that is wrong is wrong on both sides and passes. The rollout's evidence: its check compares the committed document's membership with the tree's, and what the host or one disk said about a step is not compared.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-check",
       "address_parses": true
     },

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T23:29:07Z'
+generated_at: '2026-11-03T23:15:04Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -437,7 +437,9 @@ gates:
     and the run reports them skipped. The enforcement layer of `status/gates.yaml`,
     which is read from the host and changes without a commit here. Whether a generated
     document is true: it compares each with what its generator writes from the same
-    tree, so a generator that is wrong is wrong on both sides and passes.'
+    tree, so a generator that is wrong is wrong on both sides and passes. The rollout''s
+    evidence: its check compares the committed document''s membership with the tree''s,
+    and what the host or one disk said about a step is not compared.'
   evidence:
     present: true
     workflow_name: Generated documents

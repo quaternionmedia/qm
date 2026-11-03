@@ -287,9 +287,76 @@ def test_host_file_matches_decodes_the_contents_api_and_a_404_is_a_fail():
 
 
 def test_host_cannot_name_a_private_repo_without_the_companion():
-    src = rollout.HostSource(org="o", runner=lambda args: (0, "{}"))
-    v = src.measure({"kind": "path-exists", "path": "AGENTS.md"}, {"ref": "private-03"})
-    assert v.state == "unverifiable"
+    """Without the companion a private entry's name is its reference, which names
+    no repository on the host: the source asks nothing, reports the step
+    unverifiable, and names what would resolve it. An entry the companion
+    named is asked about as any other.
+
+    Mutation: drop the `repo == ref` half of the guard in `HostSource.measure`
+    and this fails on `asked`.
+    """
+    asked: list[list[str]] = []
+
+    def runner(args):
+        asked.append(args)
+        return 1, "gh: Not Found (HTTP 404)"
+
+    src = rollout.HostSource(org="o", runner=runner)
+    for entry in ({"ref": "private-03"}, {"ref": "private-03", "name": "private-03"}):
+        v = src.measure({"kind": "path-exists", "path": "AGENTS.md"}, entry)
+        assert v.state == "unverifiable"
+        assert "ci/workspace-private.yaml" in v.detail
+    assert asked == []
+    named = {"ref": "private-03", "name": "real-name"}
+    assert src.measure({"kind": "path-exists", "path": "AGENTS.md"}, named).state == "fail"
+    assert asked == [["api", "repos/o/real-name/contents/AGENTS.md"]]
+
+
+def test_the_check_refuses_a_committed_document_the_tree_has_left_behind(tmp_path, monkeypatch, capsys):
+    """The committed document says which phase each member is in. A roster change
+    that moves a member leaves the document behind, and `--check` compares the
+    document's membership with the tree's and refuses the difference, naming
+    the member and both phases. The evidence is not compared: a document whose
+    rows differ only in what the host said is current.
+
+    Mutation: make `drift` return [] and this fails; make `main` skip the
+    comparison and the exit-code half fails.
+    """
+    fresh = {"rollout": "r", "steps": [{"id": "s", "means": "", "detector": False}], "phases": [
+        {"name": "one", "families": ["f"], "status": "current", "on_a_persons_word": 0,
+         "members": [{"repo": "a", "steps": {"s": {"state": "-", "detail": ""}}, "next": "s"}]},
+        {"name": "two", "families": ["g"], "status": "queued", "on_a_persons_word": 0,
+         "members": [{"repo": "b", "steps": {"s": {"state": "-", "detail": ""}}, "next": "s"}]}]}
+    same = json.loads(json.dumps(fresh))
+    same["phases"][0]["members"][0]["steps"]["s"] = {"state": "ok", "detail": "the host said so"}
+    same["phases"][0]["status"] = "done"
+    assert rollout.drift(same, fresh) == []
+    moved = json.loads(json.dumps(fresh))
+    moved["phases"][0]["members"].append(moved["phases"][1]["members"].pop())
+    assert rollout.drift(moved, fresh) == ["b: the document lists it in 'one'; the tree places it in 'two'"]
+    gone = json.loads(json.dumps(fresh))
+    gone["phases"][1]["members"] = []
+    gone["phases"][1]["families"] = ["h"]
+    assert rollout.drift(gone, fresh) == [
+        "phase 'two': the document names families ['h'], the plan ['g']",
+        "b: the tree places it in 'two'; the document does not list it"]
+
+    plan = {"rollouts": [{"name": "r", "steps": [{"id": "s"}],
+                          "phases": [{"name": "one", "families": ["f"]}, {"name": "two", "families": ["g"]}],
+                          "claims": []}]}
+    monkeypatch.setattr(rollout, "load_plan", lambda: plan)
+    monkeypatch.setattr(rollout, "families_document", lambda: families_doc(f=["a"], g=["b"]))
+    monkeypatch.setattr(rollout.roster, "load", lambda: [{"name": "a"}, {"name": "b"}])
+    monkeypatch.setattr(rollout, "LocalSource", lambda: FakeSource({}))
+    committed = tmp_path / "rollout.yaml"
+    monkeypatch.setattr(rollout, "DOCUMENT", committed)
+    committed.write_text(yaml.safe_dump(moved), encoding="utf-8")
+    assert rollout.main(["--check"]) == 1
+    err = capsys.readouterr().err
+    assert "b: the document lists it in 'one'; the tree places it in 'two'" in err
+    assert "Regenerate: uv run qm rollout --write status/rollout.yaml --source host" in err
+    committed.write_text(yaml.safe_dump(same), encoding="utf-8")
+    assert rollout.main(["--check"]) == 0
 
 
 # --- claims are appended by text, and the file still parses -------------------------------
