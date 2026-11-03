@@ -311,7 +311,9 @@ gates:
       of `status/gates.yaml`, which is read from the host and changes without
       a commit here. Whether a generated document is true: it compares each
       with what its generator writes from the same tree, so a generator that
-      is wrong is wrong on both sides and passes.
+      is wrong is wrong on both sides and passes. The rollout's evidence: its
+      check compares the committed document's membership with the tree's,
+      and what the host or one disk said about a step is not compared.
 
   - id: docs-draft
     workflow: docs-draft.yml
