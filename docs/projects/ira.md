@@ -8,7 +8,7 @@ hide:
 [irl](../families/irl.md) · [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# ira<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
+# <span class="qm-name">ira</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-show-control))" }
 
 <p class="qm-lede">LED controller, designed for live theater</p>
 

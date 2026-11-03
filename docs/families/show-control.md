@@ -66,7 +66,7 @@ A unified lighting / sound / video controller for theatrical applications
 
 </div>
 
-<div class="card qm-f-show-control" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-show-control))" markdown>
 
 [ira](../projects/ira.md){ .qm-card-link }
 

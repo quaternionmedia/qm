@@ -8,7 +8,7 @@ hide:
 [instruments](../families/instruments.md) · [performer-display](../families/performer-display.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# loopwall<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
+# <span class="qm-name">loopwall</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-performer-display))" }
 
 <p class="qm-lede">Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above.</p>
 

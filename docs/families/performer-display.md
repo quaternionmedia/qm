@@ -16,7 +16,7 @@ Drives the performer — what a player reads while playing.
 
 <div class="grid" markdown>
 
-<div class="card qm-f-performer-display" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-performer-display))" markdown>
 
 [loopwall](../projects/loopwall.md){ .qm-card-link }
 

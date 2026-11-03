@@ -51,10 +51,10 @@ Everyone in these is in this family as well, and is in the table above.
 
 ## Starting here
 
-4 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
+4 of 22 members carry governance, and each is a governed entry point: `alfred`, `carlos`, `loopwall`, `qmetronome`. Begin in any of them:
 
 ```sh
-cd alfred
+cd <member>               # one of those named above
 uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
 ```
 
@@ -70,4 +70,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-11-01 from `families.json`.*
+*Generated 2026-11-03 from `families.json`.*
