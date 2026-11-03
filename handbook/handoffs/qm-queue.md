@@ -10,8 +10,9 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
 day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
-those that name 2026-11-01 at `qm` `5126c2e`. The rest of the page holds at
-the stamp, which those entries do not move.
+those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
+from the tree at `qm` `52b3898`, asking the host nothing. The rest of the page
+holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -553,6 +554,28 @@ re-checked and is re-derived before anyone acts on it.
 - *Carried.* **A check that every `project/<name>` branch has a roster entry**,
   treating an unmatched private branch as unknown where the companion is
   absent.
+- **The rollout check does not open the committed document.** `ci/rollout.py
+  --check`, which the `docs-check` gate runs for `status/rollout.yaml`,
+  refuses a contradicted claim, an undeclared family or step, a repository
+  unlisted or named by two phases, and a plan that resolves nothing, and
+  reads the committed document at no point, so a member that moves phase on
+  a roster change leaves it stale under a green check. Done is the check
+  comparing the committed phases and members with the tree's, as the other
+  generated documents' checks do, with the host-read evidence left out of
+  the comparison. (2026-11-03)
+- **The rollout's host source fails a private entry it cannot name.** Without
+  `ci/workspace-private.yaml` a private entry's name is its reference,
+  `HostSource` asks the host for a repository of that name, and each step
+  that looks for a file reads `n/a` for its not being there, where the
+  source's docstring promises unverifiable and never failed. Done is a
+  nameless private entry reported as unverifiable, naming the companion as
+  what would verify it. (2026-11-03)
+- **`status/rollout.yaml` is behind the roster once the `irl` claims land.**
+  alfred, otto and joe move to the `matter-and-infra` phase, and the
+  document is written from the host on a clone holding the companion, which
+  is why the claims' pull request leaves it as it is. Done is
+  `uv run qm rollout --write status/rollout.yaml --source host` run where the
+  companion is, landed by a pull request of its own. (2026-11-03)
 
 ## 5. Not verified
 

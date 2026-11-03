@@ -18,6 +18,10 @@
 | `codecartographer` | yes |
 | `looksatwords` | yes |
 
+Also in another family, because each drives more than one thing:
+
+- `vox` — [`irl`](./irl.md)
+
 ## Starting here
 
 6 of 7 members carry governance, and each is a governed entry point: `codecartographer`, `dossier`, `looksatwords`, `qm`, `qmcp`, `rad`. Begin in any of them:

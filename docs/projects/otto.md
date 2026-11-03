@@ -5,10 +5,10 @@ hide:
   - toc
 ---
 
-[performing](../families/performing.md)
+[irl](../families/irl.md) · [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# otto<span class="qm-dot">.</span> { .qm-family-title .qm-f-performing }
+# <span class="qm-name">otto</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" }
 
 <p class="qm-lede">automatic video generation</p>
 

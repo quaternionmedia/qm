@@ -155,7 +155,7 @@ repositories:
 
   - name: vox
     role: project
-    family: core
+    family: [core, irl]
     phase: v0.0.0
     phase_source: scaffolded
     attention: active
@@ -166,7 +166,10 @@ repositories:
       the border test in
       records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
       output acts on is the corpus's own tooling, not the sound it emits and
-      not the family of the engine it talks to.
+      not the family of the engine it talks to. In irl as well: at a bench
+      it recognises and speaks the word said over the work, and that output
+      acts on the record of the making and on the person at the work
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/vox, vox]
 
   - name: rad
@@ -180,15 +183,19 @@ repositories:
 
   - name: alfred
     role: project
-    family: performing
+    family: [performing, irl]
     phase: v0.0.1
     phase_source: scaffolded
-    note: video editor; UI migration and Playwright coverage in flight
+    note: >
+      video editor; UI migration and Playwright coverage in flight. In irl
+      as well: at a bench its output acts on the video of the making, the
+      frames a camera keeps of the work
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/alfred]
 
   - name: otto
     role: project
-    family: performing
+    family: [performing, irl]
     phase: v0.0.0
     phase_source: scaffolded
     attention: active
@@ -198,7 +205,9 @@ repositories:
       `alfred/otto`. Placed in performing by the border test in
       records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
       output acts on is the video of a show, before it and after it, as
-      alfred's does.
+      alfred's does. In irl as well, as alfred is: at a bench the picture
+      it renders is the video of the making
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/otto, otto, qm/alfred/alfred/otto]
 
   - name: apothecary
@@ -499,10 +508,13 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: performer-display
+    family: [performer-display, irl]
     note: >
       an audio workbench: chroma visualisations and MIDI from audio files,
-      and the media API that alfred's captions reach through vox
+      and the media API that alfred's captions reach through vox. In irl as
+      well: at a bench it is the mic, and its output acts on the record of
+      the making and on the person at the work, who hears it spoken back
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [joe, qm/joe]
 
   - name: leo

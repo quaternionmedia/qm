@@ -13,7 +13,7 @@ irl
 
 # matter<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
-Drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.
+Drives matter, and the record of its making — a thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done.
 { .qm-lede }
 
 </div>
@@ -31,6 +31,36 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 ## Who is in it
 
 <div class="grid" markdown>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-core), var(--qm-family-irl))" markdown>
+
+[vox](../projects/vox.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span> · also in [`core`](core.md)
+
+The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter
+
+</div>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
+
+[alfred](../projects/alfred.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.1</span> · also in [`performing`](performing.md)
+
+serverless video editing
+
+</div>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
+
+[otto](../projects/otto.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span> · also in [`performing`](performing.md)
+
+automatic video generation
+
+</div>
 
 <div class="card qm-f-irl" markdown>
 
@@ -84,6 +114,16 @@ a midi foot controller for Arduino / Teensy
 
 </div>
 
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performer-display))" markdown>
+
+[joe](../projects/joe.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span> · also in [`performer-display`](performer-display.md)
+
+Realtime sheet music visualization
+
+</div>
+
 <div class="card qm-f-irl" markdown>
 
 ![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png){ .qm-thumb loading=lazy }
@@ -100,7 +140,7 @@ Chess set, designed in openSCAD
 
 3 private repositories are counted here and not named.
 
-Start in any of [`apothecary`](../projects/apothecary.md), [`datum`](../projects/datum.md): each one's records and its `AGENTS.md` say how work arrives there.
+Start in any of [`alfred`](../projects/alfred.md), [`apothecary`](../projects/apothecary.md), [`datum`](../projects/datum.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

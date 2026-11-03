@@ -12,7 +12,7 @@ A family within another is listed under it, and its members count toward both. A
 | [`core`](./core.md) | — | the corpus and its tooling — governance, the archive, the deltas, the maps, the language data | 7 | 6 |
 | [`games`](./games.md) | — | play — a game somebody plays: its rules, its world, its loop, and the server it is played on | 7 | 1 |
 | [`infra`](./infra.md) | — | where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path | 5 | 1 |
-| [`irl`](./irl.md) | — | matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | 9 | 2 |
+| [`irl`](./irl.md) | — | matter, and the record of its making — a thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done | 13 | 3 |
 | [`performing`](./performing.md) | — | a show — what an audience sees and hears, and the video made before and after it | 22 | 4 |
 | [`instruments`](./instruments.md) | `performing` | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 3 |
 | [`performer-display`](./performer-display.md) | `performing` | the performer — what a player reads while playing | 3 | 1 |
@@ -20,4 +20,4 @@ A family within another is listed under it, and its members count toward both. A
 
 `2` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
-*Generated 2026-11-01.*
+*Generated 2026-11-03.*

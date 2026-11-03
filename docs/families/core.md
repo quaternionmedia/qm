@@ -64,11 +64,11 @@ Quaternion MCP
 
 </div>
 
-<div class="card qm-f-core" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-core), var(--qm-family-irl))" markdown>
 
 [vox](../projects/vox.md){ .qm-card-link }
 
-<span class="qm-meta">v0.0.0</span>
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter
 

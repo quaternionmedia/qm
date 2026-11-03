@@ -26,11 +26,11 @@ Name and paths live in ci/workspace-private.yaml, which is not committed, for th
 
 </div>
 
-<div class="card qm-f-performer-display" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performer-display))" markdown>
 
 [joe](../projects/joe.md){ .qm-card-link }
 
-<span class="qm-meta">v0.0.0</span>
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 Realtime sheet music visualization
 
