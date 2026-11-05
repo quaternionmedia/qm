@@ -42,10 +42,10 @@ list without tripping on it.
 - **Branch protection.** The rulesets are checked in at
   `.github/rulesets/` as configuration with an apply script a human runs.
   Nothing is applied. That directory's README carries the staged path.
-- **The commit-trailer ban.** Human-only contributorship is the one rule an
-  assistant's *default tooling* violates automatically, and it is currently
-  an instruction rather than a check. Ruleset A carries the negated
-  `co-authored-by:.*noreply` pattern that closes it.
+- **The commit-trailer ban at the host.** Human-only contributorship is the
+  one rule an assistant's *default tooling* violates automatically. The ADR lint
+  refuses such a trailer on a pull request's own commits, and Ruleset A carries
+  the negated `co-authored-by:.*noreply` pattern that holds it at the host.
 - **The carried-patch register.** No gate can detect a patch applied during a
   build, so registration is an obligation on whoever adds it and a reviewer
   following fork step 7, not a check. The records say so rather than claiming
