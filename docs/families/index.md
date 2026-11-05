@@ -126,7 +126,7 @@ A thing somebody builds, holds or installs: parts, boards, enclosures, the firmw
 
 </div>
 
-2 rostered repositories state no family yet. That is *unstated*, not *none*: nobody has answered the question.
+3 rostered repositories state no family yet. That is *unstated*, not *none*: nobody has answered the question.
 
 <section class="qm-section" markdown>
 

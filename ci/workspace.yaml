@@ -172,6 +172,15 @@ repositories:
       (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/vox, vox]
 
+  - name: hearth
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      the contract a family's members keep, family/1, its vector set and check,
+      the member library and the coordinator an exemplar runs; no family placed
+    paths: [qm/hearth]
+
   - name: rad
     role: project
     family: core
@@ -215,7 +224,9 @@ repositories:
     family: irl
     phase: v0.0.2
     phase_source: stated
-    note: parametric assembly; named as a v0.0.2 integration consumer
+    note: >
+      parametric assembly; named as a v0.0.2 integration consumer; the irl
+      family's hub, running hearth's coordinator on family/1
     paths: [qm/apothecary]
 
   - name: datum
