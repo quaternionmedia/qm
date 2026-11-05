@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-01T19:28:36Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-01T23:35:56Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 45**; 42 proposed |
-| Mandatory reading | under budget | 1228 of 1200 lines — **over** |
+| Mandatory reading | under budget | 1232 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:

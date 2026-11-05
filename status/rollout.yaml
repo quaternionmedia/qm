@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-01T02:53:49Z'
+generated_at: '2026-11-03T23:14:10Z'
 generator:
   tool: ci/rollout.py
   source: host
@@ -169,29 +169,35 @@ phases:
   - repo: private-32
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: private-33
     steps:
       rekeyed:
         state: '-'
-        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
         state: '-'
-        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
@@ -229,18 +235,21 @@ phases:
   - repo: private-38
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: rad-godot
     steps:
       rekeyed:
@@ -278,6 +287,36 @@ phases:
   status: queued
   on_a_persons_word: 0
   members:
+  - repo: alfred
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: otto
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: apothecary
     steps:
       rekeyed:
@@ -353,6 +392,21 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
+  - repo: joe
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: scad-chess
     steps:
       rekeyed:
@@ -371,48 +425,57 @@ phases:
   - repo: private-03
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: private-05
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: private-07
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: streaming-infrastructure
     steps:
       rekeyed:
@@ -461,69 +524,45 @@ phases:
   - repo: private-23
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: private-26
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: a private repository whose name this machine cannot resolve; ci/workspace-private.yaml
+          holds it
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
 - name: performing
   families:
   - performing
   status: queued
   on_a_persons_word: 0
   members:
-  - repo: alfred
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
-  - repo: otto
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
   - repo: carlos
     steps:
       rekeyed:
@@ -630,21 +669,6 @@ phases:
         detail: ''
     next: handoff-noted
   - repo: waveofhormuz
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
-  - repo: joe
     steps:
       rekeyed:
         state: n/a

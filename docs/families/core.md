@@ -64,11 +64,11 @@ Quaternion MCP
 
 </div>
 
-<div class="card qm-f-core" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-core), var(--qm-family-irl))" markdown>
 
 [vox](../projects/vox.md){ .qm-card-link }
 
-<span class="qm-meta">v0.0.0</span>
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter
 
@@ -110,7 +110,7 @@ A python module to make, gather, analyze, and visualize language data.
 
 </div>
 
-Start in [`qm`](../projects/qm.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`codecartographer`](../projects/codecartographer.md), [`dossier`](../projects/dossier.md), [`looksatwords`](../projects/looksatwords.md), [`qm`](../projects/qm.md), [`qmcp`](../projects/qmcp.md), [`rad`](../projects/rad.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

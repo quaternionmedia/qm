@@ -22,8 +22,8 @@ Where a name is fine, and these are the point rather than loopholes:
 
   - **Inside a code span or fence.** A record forbidding a trailer has to quote
     the trailer, exactly as the banned-vocabulary check lets the discipline
-    record quote its own list. Also house style for a path, so `CLAUDE.md` and
-    `.github/copilot-instructions.md` are covered by the same exemption.
+    record quote its own list. Also house style for a path, so `CLAUDE.md` is
+    covered by the same exemption.
   - **In `perspectives/`.** Dated, attributed, non-binding, and their own README
     *requires* a `Tools:` row. This script never reads them.
   - **In an enumeration of competing vendors.** Nobody attributes one piece of

@@ -53,14 +53,29 @@ def test_a_family_with_a_governed_member_names_one():
     assert "cd one" in text
 
 
-def test_the_corpus_is_the_entry_point_for_its_own_family():
+def test_the_corpus_is_an_entry_point_for_its_own_family():
     """Reading only `project/*` branches printed the corpus as ungoverned and
     sent a reader to the next repository listed."""
     text = cookbook.page(
         family(members=("dossier", "qm")),
         [state("dossier", adopted=True), state("qm", adopted=True)],
         "2026-01-01")
-    assert "cd qm" in text
+    assert "entry point: `dossier`, `qm`" in text
+
+
+def test_every_governed_member_is_an_entry_point():
+    """A family with several governed members names them all, in name order,
+    and sends the reader to none in particular: a claim list has no first,
+    and neither does the roster's order of rows.
+
+    Mutation: make `entry_points` return only the first governed member in
+    `states` order and this fails.
+    """
+    states = [state("editor", adopted=True), state("bench", adopted=True), state("part")]
+    text = cookbook.page(family(members=("editor", "bench", "part")), states, "2026-01-01")
+    assert "2 of 3 members carry governance, and each is a governed entry point: " \
+           "`bench`, `editor`. Begin in any of them:" in text
+    assert "cd <member>" in text and "cd editor" not in text and "cd bench" not in text
 
 
 def test_the_committed_page_carries_no_machine_scoped_state():
@@ -265,6 +280,48 @@ def test_a_site_page_names_its_family_and_where_it_sits():
     assert "Start in [`synth`](../projects/synth.md)" in page
 
 
+def test_a_site_page_starts_in_every_governed_member():
+    """Several governed members are all named, in name order, each linked when
+    it has a page; none is picked.
+
+    Mutation: make `entry_point` name only the first of `entry_points` and
+    this fails.
+    """
+    page = cookbook.site_page(
+        {"name": "irl", "drives": "matter", "within": None},
+        [state("editor", adopted=True), state("bench", adopted=True), state("part")],
+        projects={"bench": _project("bench", governed=True)})
+    assert "Start in any of [`bench`](../projects/bench.md), `editor`: each one's " \
+           "records and its `AGENTS.md` say how work arrives there." in page
+
+
+def test_a_project_in_several_families_wears_every_family_s_hue():
+    """A project in one family is titled and carded in that family's hue; one
+    in several runs through every one of them, in the order its families are
+    named, and its showcase card names them all.
+
+    Mutation: make `hue` return the first family's class for any list and
+    this fails.
+    """
+    by_name = {"irl": {"name": "irl", "within": None},
+               "instruments": {"name": "instruments", "within": "performing"},
+               "performing": {"name": "performing", "within": None}}
+    one = _project("bench", families=("irl",), pictures=["b.png"])
+    two = _project("pedal", families=("instruments", "irl"), pictures=["p.png"])
+    both = ('style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), '
+            'var(--qm-family-irl))"')
+    assert '# bench<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }' \
+        in cookbook._project_title(one, by_name)
+    assert (f'# <span class="qm-name">pedal</span><span class="qm-dot">.</span> '
+            f'{{ .qm-family-title .qm-f-many {both} }}') in cookbook._project_title(two, by_name)
+    assert "[instruments](../families/instruments.md) · [irl](../families/irl.md) · " \
+           "within [performing](../families/performing.md)" in cookbook._project_title(two, by_name)
+    assert cookbook.showcase_card(one, "")[0] == '<div class="card qm-f-irl" markdown>'
+    card = cookbook.showcase_card(two, "")
+    assert card[0] == f'<div class="card qm-f-many" {both} markdown>'
+    assert '<span class="qm-meta">instruments · irl · v0.0.0</span>' in card
+
+
 def test_a_member_with_a_page_is_a_card_that_opens_it():
     """The card's title links the project's page and covers the card; its
     first picture leads it; the other families it is in are links too.
@@ -282,6 +339,27 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
     assert "also in [`irl`](irl.md)" in page
     assert '<span class="qm-meta">v0.0.1</span>' in page
     assert "governed" not in page and "not adopted" not in page
+
+
+def test_a_member_in_several_families_wears_them_all_on_its_family_s_page():
+    """A card wears the project's own hues wherever its name is styled: on its
+    family's page a member in one family takes that hue, and one in several
+    the rainbow of all of them, whether or not it has a page yet.
+
+    Mutation: make `site_page` card every member in the page's family alone
+    and this fails.
+    """
+    both = ('style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), '
+            'var(--qm-family-irl))"')
+    page = cookbook.site_page(
+        {"name": "instruments", "drives": "the sound", "within": None},
+        [state("synth", adopted=True), state("pedal"), state("planned")],
+        also={"pedal": ["irl"], "planned": ["irl"]},
+        projects={"synth": _project("synth", governed=True),
+                  "pedal": _project("pedal", families=("instruments", "irl"))})
+    assert '<div class="card qm-f-instruments" markdown>\n\n[synth](../projects/synth.md)' in page
+    assert f'<div class="card qm-f-many" {both} markdown>\n\n[pedal](../projects/pedal.md)' in page
+    assert f'<div class="card qm-f-many" {both} markdown>\n\n[planned](../projects/index.md#planned)' in page
 
 
 def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():

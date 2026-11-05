@@ -5,10 +5,10 @@ hide:
   - toc
 ---
 
-[core](../families/core.md)
+[core](../families/core.md) · [irl](../families/irl.md)
 { .qm-eyebrow }
 
-# vox<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
+# <span class="qm-name">vox</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-core), var(--qm-family-irl))" }
 
 <p class="qm-lede">The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p>
 

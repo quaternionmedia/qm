@@ -135,8 +135,8 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
 
     Binary copies. A text-mode copy on Windows rewrites every line ending, and
     the diff then measures the copier. Symlinks are followed rather than
-    recreated -- `CLAUDE.md` and friends are real symlinks here, and creating
-    one on Windows needs a privilege a test run should not require.
+    recreated -- the `.vscode/` and `.claude/` pointers are real symlinks here,
+    and creating one on Windows needs a privilege a test run should not require.
     """
     destination = workdir / "tree"
     shutil.copytree(

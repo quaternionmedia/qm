@@ -442,16 +442,25 @@ def page(family: dict, states: list[dict], generated_at: str,
         "",
     ]
     if adopted:
-        # The corpus first when it is in this family: it is where the rules are,
-        # and a newcomer sent anywhere else reads a consumer before the contract.
-        first = next((s["name"] for s in adopted if s["name"] == "qm"),
-                     adopted[0]["name"])
+        names = entry_points(states)
+        if len(names) == 1:
+            lines += [
+                f"1 of {len(states)} members carry governance, so this family has a "
+                f"governed entry point. Begin in `{names[0]}`:",
+                "",
+                "```sh",
+                f"cd {names[0]}",
+            ]
+        else:
+            lines += [
+                f"{len(adopted)} of {len(states)} members carry governance, and each "
+                f"is a governed entry point: {', '.join(f'`{n}`' for n in names)}. "
+                "Begin in any of them:",
+                "",
+                "```sh",
+                "cd <member>               # one of those named above",
+            ]
         lines += [
-            f"{len(adopted)} of {len(states)} members carry governance, so this "
-            f"family has a governed entry point. Begin in `{first}`:",
-            "",
-            "```sh",
-            f"cd {first}",
             "uv run qm cowork          # or read AGENTS.md, if this repo has no CLI",
             "```",
             "",
@@ -620,16 +629,52 @@ def _detail(drives: str) -> str:
     return parts[1].strip() if len(parts) > 1 else parts[0].strip()
 
 
+def entry_points(states: list[dict]) -> list[str]:
+    """Every governed member, in name order. Each is as good a start as the
+    others: a claim list has no first and neither does the roster's order of
+    rows, so a page names them all and picks none."""
+    return sorted((s["name"] for s in states if s["adopted"]), key=str.lower)
+
+
 def entry_point(states: list[dict], projects: dict[str, dict] | None = None) -> list[str]:
-    """Where a newcomer starts: the corpus if it is here, a member past
-    `v0.0.0` otherwise, and no invented one when every member is at `v0.0.0`."""
-    adopted = [s["name"] for s in states if s["adopted"]]
-    if not adopted:
+    """Where a newcomer starts: a member past `v0.0.0`, any of them when there
+    are several, and no invented one when every member is at `v0.0.0`."""
+    names = entry_points(states)
+    if not names:
         return ["Every member here is at `v0.0.0`, so no member has records to start "
                 "from. Reading the code is the entry point."]
-    first = "qm" if "qm" in adopted else adopted[0]
-    named = f"[`{first}`](../projects/{first}.md)" if first in (projects or {}) else f"`{first}`"
-    return [f"Start in {named}: its records and its `AGENTS.md` say how work arrives there."]
+    linked = [f"[`{n}`](../projects/{n}.md)" if n in (projects or {}) else f"`{n}`"
+              for n in names]
+    if len(linked) == 1:
+        return [f"Start in {linked[0]}: its records and its `AGENTS.md` say how work "
+                "arrives there."]
+    return [f"Start in any of {', '.join(linked)}: each one's records and its "
+            "`AGENTS.md` say how work arrives there."]
+
+
+def rainbow(families: list[str]) -> str:
+    """Every family's hue in one gradient, in the order given. The site's
+    palette sets `--qm-family-<name>` for each declared family."""
+    stops = ", ".join(f"var(--qm-family-{f})" for f in families)
+    return f"--qm-rainbow: linear-gradient(90deg, {stops})"
+
+
+def hue(families: list[str]) -> tuple[str, str]:
+    """A thing's class and inline style by its families: one family's
+    `qm-f-<name>` and no style, or `qm-f-many` with the rainbow of every
+    family it claims. A claim list has no first, so a project in several
+    families is coloured as all of them."""
+    if len(families) == 1:
+        return f"qm-f-{families[0]}", ""
+    return "qm-f-many", f' style="{rainbow(families)}"'
+
+
+def card_open(families: list[str] | None) -> str:
+    """A card's opening tag, in its families' hues when it has any."""
+    if not families:
+        return '<div class="card" markdown>'
+    cls, style = hue(families)
+    return f'<div class="card {cls}"{style} markdown>'
 
 
 def public_repositories(path: Path = INVENTORY) -> tuple[str, dict[str, dict]]:
@@ -803,7 +848,8 @@ VERSIONS = ("A version is a project's phase: `v0.0.0` has not adopted the corpus
 
 
 def claims(document: dict) -> dict[str, list[str]]:
-    """`{member: [family, ...]}`, the families each member claims itself."""
+    """`{member: [family, ...]}`, the families each member claims itself, in
+    the seam file's order, which is by name: a claim list has no first."""
     claimed: dict[str, list[str]] = {}
     for family in document["families"]:
         for member in family["members"]:
@@ -865,12 +911,12 @@ def _family_links(names: list[str], prefix: str = "") -> str:
     return ", ".join(f"[`{n}`]({prefix}{n}.md)" for n in names)
 
 
-def project_card(project: dict, href: str, hue: str, also: list[str] = (),
+def project_card(project: dict, href: str, also: list[str] = (),
                  family_prefix: str = "") -> list[str]:
-    """A project as a card: its first picture, its name linking its page, its
-    version, what it is, and the other families it is in. The whole card opens
-    the page."""
-    lines = [f'<div class="card qm-f-{hue}" markdown>', ""]
+    """A project as a card in its own families' hues: its first picture, its
+    name linking its page, its version, what it is, and the other families it
+    is in. The whole card opens the page."""
+    lines = [card_open(project["families"]), ""]
     if project["pictures"]:
         first = project["pictures"][0]
         lines += [f"![{first['caption']}]({first['url']}){{ .qm-thumb loading=lazy }}", ""]
@@ -964,10 +1010,10 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         if _private(member):
             private += 1
         elif member in projects:
-            lines += project_card(projects[member], f"../projects/{member}.md", name,
+            lines += project_card(projects[member], f"../projects/{member}.md",
                                   (also or {}).get(member, []))
         else:
-            lines += [f'<div class="card qm-f-{name}" markdown>', "",
+            lines += [card_open([name, *(also or {}).get(member, [])]), "",
                       f"{_member_link(member, projects)}{{ .qm-card-link }}", "",
                       '<span class="qm-meta">not on the host yet</span>', "",
                       "</div>", ""]
@@ -1204,14 +1250,19 @@ def showgraph_gallery(drawer: str, pages: list[str], families: list[str]) -> lis
 
 
 def _project_title(project: dict, by_name: dict[str, dict]) -> list[str]:
-    """Where a project sits, then its name in its first family's hue."""
+    """Where a project sits, then its name in its family's hue, or in every
+    one of them when it claims several."""
     name = project["name"]
     families = project["families"]
     outer = sorted({o for f in families for o in ancestors_in(f, by_name)})
     eyebrow = " · ".join([f"[{f}](../families/{f}.md)" for f in families]
                          + [f"within [{o}](../families/{o}.md)" for o in outer])
+    cls, style = hue(families)
+    # The rainbow is clipped to the name's own span: clipped to the heading,
+    # it would paint through the theme's hidden permalink as well.
+    shown = f'<span class="qm-name">{name}</span>' if style else name
     return [eyebrow, "{ .qm-eyebrow }", "",
-            f'# {name}<span class="qm-dot">.</span> {{ .qm-family-title .qm-f-{families[0]} }}', ""]
+            f'# {shown}<span class="qm-dot">.</span> {{ .qm-family-title .{cls}{style} }}', ""]
 
 
 def _project_facts(project: dict) -> list[str]:
@@ -1343,13 +1394,12 @@ def _section(eyebrow: str | None, title: str, body: list[str]) -> list[str]:
 
 
 def _part_card(part: dict, here: str, projects: dict[str, dict]) -> list[str]:
-    """One part of how a project is built, as a card in its family's hue. A
+    """One part of how a project is built, as a card in its families' hues. A
     part with a page of its own opens it; the page's own project and a part
     with no page are named in bold."""
     name = part["name"]
     page = projects.get(name)
-    hue = page["families"][0] if page else None
-    lines = [f'<div class="card qm-f-{hue}" markdown>' if hue else '<div class="card" markdown>', ""]
+    lines = [card_open(page["families"] if page else None), ""]
     lines += [f"[{name}]({name}.md){{ .qm-card-link }}" if page and name != here
               else f"**{name}**", ""]
     if part["via"]:
@@ -1389,7 +1439,7 @@ def detail_page(project: dict, by_name: dict[str, dict], projects: dict[str, dic
     if steps:
         body = ['<div class="grid qm-parts" markdown>', ""]
         for number, item in enumerate(steps["items"], start=1):
-            body += [f'<div class="card qm-f-{project["families"][0]}" markdown>', "",
+            body += [card_open(project["families"]), "",
                      f"**{item['name']}**", "",
                      f'<span class="qm-meta">step {number}</span>', "",
                      item["text"], "", "</div>", ""]
@@ -1429,14 +1479,14 @@ SNIPPET_NOTE = ("<!-- Generated by `uv run qm cookbook docs/families --site --wr
 
 
 def showcase_card(project: dict, prefix: str) -> list[str]:
-    """A project as its first picture, its name, its family and version, and
+    """A project as its first picture, its name, its families and version, and
     what the picture shows. The whole card opens the project's page."""
     picture = project["pictures"][0]
-    family = project["families"][0]
-    return [f'<div class="card qm-f-{family}" markdown>', "",
+    families = project["families"]
+    return [card_open(families), "",
             f"![{picture['caption']}]({picture['url']}){{ .qm-thumb loading=lazy }}", "",
             f"[{project['name']}]({prefix}projects/{project['name']}.md){{ .qm-card-link }}", "",
-            f'<span class="qm-meta">{family} · {project["version"]}</span>', "",
+            f'<span class="qm-meta">{" · ".join(families)} · {project["version"]}</span>', "",
             _esc(picture["caption"]), "",
             "</div>", ""]
 
