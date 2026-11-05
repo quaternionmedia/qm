@@ -12,8 +12,8 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
 those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
 from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
-2026-11-05 were re-derived at `qm` `1d8ae63`, `hearth` `c08b48b` and `carlos`
-`a5540e7`. The rest of the page holds at the stamp, which those entries do not
+2026-11-05 were re-derived at `qm` `1d8ae63`, `project/hearth` `72d8ad5`,
+`hearth` `c08b48b` and `carlos` `a5540e7`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -277,14 +277,15 @@ each pull request into it is behind its base until brought level.
   alfred --write` in a pull request here. (2026-11-01)
 - **hearth and carlos carry the one-line import.** `hearth/CLAUDE.md` and
   `carlos/CLAUDE.md` hold the bare text `AGENTS.md` until each moves its pin.
-  #324 brings `project/hearth` to `main` at `1d8ae63`. quaternionmedia/hearth#6
-  is a draft pinned at #324's head, and takes one commit moving the pin to the
-  merge commit before it is readied. carlos's propagation follows decision 22:
-  its conflicts in `ci/gate-registry.yaml`, `project-seed/ci/adr-lint.yml` and
-  `project-seed/ci/check_attribution.py` resolve to `main`'s content, since `main`
-  then carries what #81 put on `project/carlos`. Done is #324 merged, carlos's
-  propagation merged, and a pull request against each project's default branch
-  green, ready and merged by the owner. (2026-11-05)
+  `project/hearth` carries `main` at `1d8ae63`, as `72d8ad5`, and
+  quaternionmedia/hearth#6 pins that commit, ready and left for the owner's merge.
+  carlos's propagation follows decision 22: its conflicts in
+  `ci/gate-registry.yaml`, `project-seed/ci/adr-lint.yml`,
+  `project-seed/ci/check_attribution.py` and its test resolve to `main`'s content,
+  since `main` carries what #81 put on `project/carlos`, and its `adr/` copies are
+  brought to the seed's on the same branch. Done is hearth#6 merged, carlos's
+  propagation merged, and a pull request against `they` green, ready and merged by
+  the owner. (2026-11-05)
 - **The local runner stops on the seed's lint workflow.**
   `run_workflows_locally.py` has no substitution for
   `github.event.repository.name`, which the seed's placeholder step uses, so a
