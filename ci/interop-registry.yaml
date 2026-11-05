@@ -13,7 +13,9 @@
 # same constraint `ci/devloop.py` carries and for the same reason.
 #
 # Per surface:
-#   publisher        the repository that owns the contract and its version
+#   publisher        the repository that owns the contract and its version;
+#                    `cases` names the keys its cases are under, `cases` itself
+#                    when it is left out
 #   implementations  every repository that pins a version it replayed
 #   pattern          a regex with a `version` group, read from that file
 #
@@ -64,3 +66,33 @@ surfaces:
       each host naming the cases it executed rather than counting them, which
       no host does today. Without `--verify` it reaches less still: a declared
       string, and no evidence any set was replayed.
+
+  - id: family-contract
+    what: >
+      family/1, what a family's members and hubs answer over HTTP, JSON and
+      server-sent events. The publisher's vector set is the measurement; an
+      implementation claims the version it replayed.
+    publisher:
+      repo: hearth
+      file: conformance/vectors.json
+      json_key: version
+      cases: [member, hub]
+    implementations:
+      - repo: apothecary
+        file: tests/test_family_hub.py
+        pattern: 'PINNED = "(?P<version>[^"]+)"'
+        covers: >
+          the hub's side, as the irl family's hub. It hosts no member, so the
+          member side's cases are not applicable to it.
+        proves:
+          cwd: .
+          command: [uv, run, pytest, tests/test_family_hub.py, -q, -s]
+    coverage: 'family/1 conformance: (?P<applicable>[0-9]+) applicable, all passing; (?P<not_applicable>[0-9]+) not applicable'
+    cannot_see: >
+      The member side. Only a hub is registered here, so `--verify` reports a
+      surface it cannot cover until a member pins a version. `hearth check` also
+      reports one hub case, that the identity route answers, only when it fails, so
+      a passing run counts one case fewer than the vector set holds, and the checker
+      does not yet read the vector set at all: hearth's adoption record names that
+      gap. And a green run says what a hub answers, not that it delivers well.
+

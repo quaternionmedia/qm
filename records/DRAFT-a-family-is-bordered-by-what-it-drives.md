@@ -160,6 +160,10 @@ Three asymmetries, recorded rather than smoothed:
 - Show control and instruments each have a hub that the periphery names itself
   after. Performer display has none. joe and leo are siblings by what they
   drive, and neither is built on the other.
+- `irl`'s hub is apothecary, which runs hearth's coordinator for the family and
+  holds the site, the machines and the evidence the family's work leaves. Nobody
+  in the family names itself after it: a member reaches it across `family/1`, the
+  protocol §5 asks for.
 - Most of `core` is adopted, and most of the estate is not. Within
   `performing`, adopted members are in `instruments` and in the outer family
   itself, so a family name says what a repository is part of and nothing about
