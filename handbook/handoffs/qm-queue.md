@@ -11,8 +11,10 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
 day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
 those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
-from the tree at `qm` `dcc4863`, asking the host nothing. The rest of the page
-holds at the stamp, which those entries do not move.
+from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
+2026-11-05 were re-derived at `qm` `1d8ae63`, `project/hearth` `72d8ad5`,
+`hearth` `c08b48b` and `carlos` `a5540e7`. The rest of the page holds at the stamp, which those entries do not
+move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -152,6 +154,17 @@ pick up alone; that page is then listed in the index and named here.
     gate holds those alone.
     `records/DRAFT-ide-integrated-governance-discovery.md` is the decision,
     on `main`. (2026-11-01)
+22. **The trailer and author check is on `main`, and reads new commits only.**
+    `check_attribution.py` refuses a commit trailer or author field naming a
+    tool or standing on an address nobody reads, and the seed's `adr-lint.yml`
+    runs it, so a project takes it at its next seed re-copy. It moved from
+    `project/carlos` with what it refuses unchanged. On a pull request the
+    corpus's own workflow passes `--merged-ref origin/main`, so a propagation
+    does not read commits already on `main`, 48 of which carried such a trailer
+    at `1d8ae63`. **A new commit whose `Tools:` trailer names a product is refused
+    on its pull request**, so a commit's `Tools:` line names no product; a note
+    naming one sits on the artifact that calls for it, such as a perspective.
+    (2026-11-05)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -262,6 +275,27 @@ each pull request into it is behind its base until brought level.
   `CHANGELOG.md` and `docs/` without the rounds, the counts and the
   retrospectives; and, once alfred's stack has merged, `uv run qm timeline
   alfred --write` in a pull request here. (2026-11-01)
+- **hearth and carlos carry the one-line import.** `hearth/CLAUDE.md` and
+  `carlos/CLAUDE.md` hold the bare text `AGENTS.md` until each moves its pin.
+  `project/hearth` carries `main` at `1d8ae63`, as `72d8ad5`, and
+  quaternionmedia/hearth#6 pins that commit, ready and left for the owner's merge.
+  carlos's propagation follows decision 22: its conflicts in
+  `ci/gate-registry.yaml`, `project-seed/ci/adr-lint.yml`,
+  `project-seed/ci/check_attribution.py` and its test resolve to `main`'s content,
+  since `main` carries what #81 put on `project/carlos`, and its `adr/` copies are
+  brought to the seed's on the same branch. Done is hearth#6 merged, carlos's
+  propagation merged, and a pull request against `they` green, ready and merged by
+  the owner. (2026-11-05)
+- **The local runner stops on the seed's lint workflow.**
+  `run_workflows_locally.py` has no substitution for
+  `github.event.repository.name`, which the seed's placeholder step uses, so a
+  run in a project stops at `adr-lint.yml` and runs nothing after it. Done is the
+  runner substituting it. Beside it, the voice step writes to `$RUNNER_TEMP`,
+  which a local run leaves unset, so it fails on `/pr-body.md`. (2026-11-05)
+- **hearth's lint is red on its `main`.** `uv run ruff check .` at `hearth`
+  `c08b48b` reports an import order at `tests/test_coordinator.py:9`, and no
+  workflow runs ruff. Done is the imports sorted in a hearth pull request.
+  (2026-11-05)
 - **The first page assumes `uv` is installed.** `AGENTS.md` names
   `uv run qm` for every one of the four facts and nowhere says where `uv`
   comes from or what a reader without it does. Done is one sentence on the

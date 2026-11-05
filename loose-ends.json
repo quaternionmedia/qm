@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-03T23:17:00Z",
+  "generated_at": "2026-11-05T16:39:53Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-01T23:35:56Z"
+        "generated_at": "2026-11-05T16:39:51Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-03T23:15:04Z"
+        "generated_at": "2026-11-05T16:23:09Z"
       }
     }
   },
@@ -61,7 +61,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-adr-lint",
       "title": "adr-lint cannot see",
-      "detail": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
+      "detail": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run. The attribution check does not read the committer: every squash merge on this host is committed by the forge's own no-reply identity, so reading it would fail every merge the org makes. And a byline naming no vendor, at an address that accepts mail, is indistinguishable from a person -- `A Bot <bot@example.com>` passes. On a pull request in this corpus the trailer and author check does not read a commit already on main, so a trailer merged before it existed stays merged.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-adr-lint",
       "address_parses": true
     },
