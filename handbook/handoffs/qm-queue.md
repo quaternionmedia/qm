@@ -12,9 +12,9 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
 those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
 from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
-2026-11-05 were re-derived at `qm` `1d8ae63`, `project/hearth` `72d8ad5`,
-`hearth` `c08b48b` and `carlos` `a5540e7`. The rest of the page holds at the stamp, which those entries do not
-move.
+2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
+`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. The rest
+of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -277,15 +277,18 @@ each pull request into it is behind its base until brought level.
   alfred --write` in a pull request here. (2026-11-01)
 - **hearth and carlos carry the one-line import.** `hearth/CLAUDE.md` and
   `carlos/CLAUDE.md` hold the bare text `AGENTS.md` until each moves its pin.
-  `project/hearth` carries `main` at `1d8ae63`, as `72d8ad5`, and
-  quaternionmedia/hearth#6 pins that commit, ready and left for the owner's merge.
-  carlos's propagation follows decision 22: its conflicts in
-  `ci/gate-registry.yaml`, `project-seed/ci/adr-lint.yml`,
-  `project-seed/ci/check_attribution.py` and its test resolve to `main`'s content,
-  since `main` carries what #81 put on `project/carlos`, and its `adr/` copies are
-  brought to the seed's on the same branch. Done is hearth#6 merged, carlos's
-  propagation merged, and a pull request against `they` green, ready and merged by
-  the owner. (2026-11-05)
+  quaternionmedia/hearth#6 pins `project/hearth` at `72d8ad5` and
+  quaternionmedia/carlos#23 pins `project/carlos` at `8e957a1`, each left for the
+  owner's merge. carlos#23's `reuse` stays red, as carlos's `GOVERNANCE.md`
+  records, since its licensing pass waits on the outbound licence class. Done is
+  both merged. (2026-11-05)
+- **The seed's leak and timeless workflows fire on a branch named `main` only.**
+  carlos's default branch is `they`, so its re-copy leaves both out, and its
+  `GOVERNANCE.md` says so. `check_leaks.py` run by hand at `carlos` `a5540e7` finds
+  six home-path hits in `tests/test_walkthrough.py`. The `push` filter in the
+  seed's `adr-lint.yml` and `reuse-lint.yml` names `main` the same way. Done is the
+  seed's filters reaching a project's default branch under any name, and carlos
+  carrying both, clean. (2026-11-05)
 - **The local runner stops on the seed's lint workflow.**
   `run_workflows_locally.py` has no substitution for
   `github.event.repository.name`, which the seed's placeholder step uses, so a
