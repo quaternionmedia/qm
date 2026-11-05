@@ -98,7 +98,11 @@ PROJECT_NS = "project/"
 # procedure says governance/qm and codecartographer mounts it at docs/qm, so a
 # path check reports a correctly vendored project as not tracking the corpus.
 CORPUS_URL_MARK = "/qm"
-IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")
+# The two instruction files the seed carries: `AGENTS.md`, and a one-line
+# `CLAUDE.md` that imports it (records/DRAFT-ide-integrated-governance-discovery.md
+# §2). No `.github/copilot-instructions.md` is probed, because the seed does not
+# carry one; a project that adds its own is not more adopted for it.
+IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md")
 # The four `handbook/forking-a-project.md` step 4 requires a fork to copy. Not
 # every workflow in `project-seed/ci/`: step 4 does not require the others, so
 # counting them would report every adopting project as incomplete.

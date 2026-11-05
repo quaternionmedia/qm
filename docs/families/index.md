@@ -116,9 +116,9 @@ Ingress, identity, storage, dns, observability, the network path.
 
 **matter**
 
-`irl` · 9 members
+`irl` · 13 members
 
-A thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.
+A thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done.
 
 [The irl family →](irl.md){ .qm-card-link }
 

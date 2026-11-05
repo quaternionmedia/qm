@@ -10,7 +10,7 @@ qm/
 ├── PRINCIPLES.md          the charter: what QM believes, and why
 ├── README.md              the entry point
 ├── AGENTS.md              instructions for coding agents
-├── CLAUDE.md              symlink to AGENTS.md
+├── CLAUDE.md              one-line import of AGENTS.md
 ├── TEMPLATE.md            the record template
 ├── records/               org records; the only binding documents
 ├── registers/             live org-level registers (carried patches)
@@ -35,9 +35,9 @@ qm/
 └── REUSE.toml             per-path license and copyright metadata
 ```
 
-## Symlinks
+## Pointer files
 
-`CLAUDE.md` and `.github/copilot-instructions.md` are symlinks to `AGENTS.md`, so any tool reading either gets its current content. `.vscode/` symlinks into `project-seed/ide/`, which is the single source for what a project copies.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`, the import the tool that reads it expands, so that tool gets `AGENTS.md`'s current content; no `.github/copilot-instructions.md` is carried. `.vscode/` symlinks into `project-seed/ide/`, which is the single source for what a project copies. `records/DRAFT-ide-integrated-governance-discovery.md` is the decision.
 
 Nothing vendor-specific is in `project-seed/`. Anything there is copied into every adopting project and would become an org standard by accident, so per-tool glue lives in `adapters/<product>/` instead — optional, and the governance text depends on none of it.
 

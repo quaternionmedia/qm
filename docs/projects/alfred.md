@@ -5,10 +5,10 @@ hide:
   - toc
 ---
 
-[performing](../families/performing.md)
+[irl](../families/irl.md) · [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# alfred<span class="qm-dot">.</span> { .qm-family-title .qm-f-performing }
+# <span class="qm-name">alfred</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" }
 
 A video editor in the browser. Every preview frame and every render is drawn on the server, by a stack its user runs.
 { .qm-lede }
@@ -36,7 +36,7 @@ four stages, left to right
 
 <div class="grid qm-parts" markdown>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 **Source**
 
@@ -46,7 +46,7 @@ Choose a project and the media and templates for its timeline, or generate the d
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 **Edit**
 
@@ -56,7 +56,7 @@ Arrange, trim and cut the clips on the timeline, and set a title's text, length 
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 **Render**
 
@@ -66,7 +66,7 @@ Choose the output's size and queue a render, which the server makes.
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 **Deliver**
 
@@ -178,7 +178,7 @@ A Mithril app in Golden Layout panels. It edits the timeline and shows the frame
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 **alfred**
 
@@ -188,7 +188,7 @@ FastAPI, MongoDB and a Celery render worker, holding the state and the orchestra
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 [otto](otto.md){ .qm-card-link }
 
@@ -198,7 +198,7 @@ Every preview frame and render, and the timeline's sound mixed for it.
 
 </div>
 
-<div class="card qm-f-core" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-core), var(--qm-family-irl))" markdown>
 
 [vox](vox.md){ .qm-card-link }
 
@@ -208,7 +208,7 @@ The contract and the client for an audio engine.
 
 </div>
 
-<div class="card qm-f-performer-display" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performer-display))" markdown>
 
 [joe](joe.md){ .qm-card-link }
 

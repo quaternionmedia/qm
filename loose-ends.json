@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T19:28:37Z",
+  "generated_at": "2026-11-03T23:17:00Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-01T19:28:36Z"
+        "generated_at": "2026-11-01T23:35:56Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-01T15:41:20Z"
+        "generated_at": "2026-11-03T23:15:04Z"
       }
     }
   },
@@ -93,7 +93,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-check",
       "title": "docs-check cannot see",
-      "detail": "A document with no check mode, `status/harness.yaml` and `families.json`: their freshness is the staleness budget each carries in its own `reading:` block, and the run reports them skipped. The enforcement layer of `status/gates.yaml`, which is read from the host and changes without a commit here. Whether a generated document is true: it compares each with what its generator writes from the same tree, so a generator that is wrong is wrong on both sides and passes.",
+      "detail": "A document with no check mode, `status/harness.yaml` and `families.json`: their freshness is the staleness budget each carries in its own `reading:` block, and the run reports them skipped. The enforcement layer of `status/gates.yaml`, which is read from the host and changes without a commit here. Whether a generated document is true: it compares each with what its generator writes from the same tree, so a generator that is wrong is wrong on both sides and passes. The rollout's evidence: its check compares the committed document's membership with the tree's, and what the host or one disk said about a step is not compared.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-check",
       "address_parses": true
     },
@@ -205,7 +205,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
-      "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
+      "detail": "The instruction pointers. CLAUDE.md and project-seed/ide/CLAUDE.md are regular files holding the one line `@AGENTS.md`, an import and not a link, so a wrong line in either is a text change this check does not read. And a rule missing from one of the two genuinely different AGENTS.md files: they are not linked to each other, so this check cannot notice them disagreeing.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-symlink-integrity",
       "address_parses": true
     },

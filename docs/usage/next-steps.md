@@ -22,7 +22,7 @@ See [Propagate a change](propagate-a-change.md) for the commands, and [handbook/
 The org audits adopted projects to confirm each one has:
 
 - the `governance/qm` submodule on the right branch,
-- the four [seed](../ref/glossary.md#seed){ .glossary-term } CI workflows,
+- the [seed](../ref/glossary.md#seed){ .glossary-term } CI workflows that [step 4 of the handbook](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) lists,
 - the seed files (`AGENTS.md`, editor config) in place,
 - records seeded on its branch.
 

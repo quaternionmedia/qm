@@ -236,3 +236,26 @@ def test_without_a_credential_the_fetch_names_the_login_not_an_api_failure(monke
     assert message.startswith("check_one_pr: no host credential"), message
     assert "gh auth login" in message
     assert "failed" not in message
+
+
+def test_without_gh_installed_the_fetch_names_the_install_not_a_traceback(monkeypatch):
+    """A machine with no `gh` on its path raised `FileNotFoundError` out of the
+    subprocess call, a traceback that names neither the tool nor the remedy.
+    The check names what it needs and stops.
+
+    Mutation: drop the `FileNotFoundError` branch from `fetch_open_prs`, and the
+    exception escapes as itself.
+    """
+    sys.path.insert(0, str(CI_DIR))
+    import check_one_pr
+
+    def no_gh(*args, **kwargs):
+        raise FileNotFoundError(2, "No such file or directory", "gh")
+
+    monkeypatch.setattr(check_one_pr.subprocess, "run", no_gh)
+    with pytest.raises(SystemExit) as stopped:
+        check_one_pr.fetch_open_prs(REPO)
+    message = str(stopped.value)
+    assert message.startswith("check_one_pr: `gh` is not installed"), message
+    assert "https://cli.github.com" in message
+    assert "gh auth login" in message

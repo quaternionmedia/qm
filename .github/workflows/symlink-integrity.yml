@@ -1,11 +1,11 @@
 name: Symlink integrity
 
-# The IDE-integrated governance discovery record makes CLAUDE.md,
-# .github/copilot-instructions.md and this repo's .vscode/ and .claude/ config
-# real git symlinks (mode 120000) to their canonical file in project-seed/ide/,
-# so there is no second copy to keep in sync. That is the whole mechanism
-# behind handbook/async-contract.md's "down" direction: an edit to the seed is
-# an edit to this repository's own harness, in the same commit.
+# records/DRAFT-ide-integrated-governance-discovery.md §4 makes this repo's
+# .vscode/ and .claude/ configuration pointers real git symlinks (mode 120000)
+# to their canonical file in project-seed/ide/ and adapters/, so there is no
+# second copy to keep in sync. That is the whole mechanism behind
+# handbook/async-contract.md's "down" direction: an edit to the seed is an
+# edit to this repository's own harness, in the same commit.
 #
 # The failure mode this guards is silent and platform-specific: a Windows
 # contributor without `git config core.symlinks true` checks these out as
@@ -13,6 +13,17 @@ name: Symlink integrity
 # converts the symlink to a regular file. Nothing else in CI would notice, and
 # the pointer would then hold a stale copy of content it is supposed to
 # resolve to.
+#
+# What it cannot see: the instruction pointers. CLAUDE.md and
+# project-seed/ide/CLAUDE.md are regular files holding the one line
+# `@AGENTS.md`, an import the tool that reads them expands (the record's §2),
+# and a wrong line in either is a text change this step does not read. The two
+# AGENTS.md files are genuinely different documents, not linked to each other,
+# so a rule missing from one is outside it too.
+#
+# Mutation (AGENTS.md item 13): with CLAUDE.md added to the expected list
+# below, the step names it as not a symlink, with mode 100644, and exits 1;
+# with the list as committed it reports ok for every path and exits 0.
 
 on:
   push:
@@ -41,17 +52,13 @@ jobs:
 
       - name: Every pointer file is still mode 120000
         run: |
-          expected="CLAUDE.md
-          .github/copilot-instructions.md
-          .vscode/settings.json
+          expected=".vscode/settings.json
           .vscode/extensions.json
           .claude/commands/cowork.md
           .claude/commands/preflight.md
           .claude/commands/handoff.md
           .claude/commands/status.md
-          .claude/skills/design-review
-          project-seed/ide/CLAUDE.md
-          project-seed/ide/.github/copilot-instructions.md"
+          .claude/skills/design-review"
 
           status=0
           while IFS= read -r path; do

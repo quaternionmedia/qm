@@ -84,22 +84,30 @@ def fetch_open_prs(repo: str) -> list[dict]:
     thirty-first -- a check that goes quiet exactly as the queue it measures
     gets long.
     """
-    result = subprocess.run(
-        [
-            "gh",
-            "api",
-            "--paginate",
-            f"repos/{repo}/pulls?state=open&per_page=100",
-        ],
-        capture_output=True,
-        text=True,
-        # Pull request titles are data this tool did not author, and one emoji
-        # in one of them makes a Windows default decoder raise mid-read. The
-        # symptom is not a bad title -- it is stdout arriving as None and the
-        # whole repository going unchecked.
-        encoding="utf-8",
-        errors="replace",
-    )
+    try:
+        result = subprocess.run(
+            [
+                "gh",
+                "api",
+                "--paginate",
+                f"repos/{repo}/pulls?state=open&per_page=100",
+            ],
+            capture_output=True,
+            text=True,
+            # Pull request titles are data this tool did not author, and one emoji
+            # in one of them makes a Windows default decoder raise mid-read. The
+            # symptom is not a bad title -- it is stdout arriving as None and the
+            # whole repository going unchecked.
+            encoding="utf-8",
+            errors="replace",
+        )
+    except FileNotFoundError:
+        sys.exit(
+            "check_one_pr: `gh` is not installed or not on PATH. Install it from "
+            "https://cli.github.com, then run `gh auth login`.\n"
+            "This check reads pull requests; it cannot report a repository "
+            "it could not read as compliant."
+        )
     if result.returncode != 0:
         # gh exits 4 when it holds no credential, and says `gh auth login`
         # under a line about getting started. Wrapped in the message below

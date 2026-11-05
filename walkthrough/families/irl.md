@@ -2,7 +2,7 @@
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work
+**Drives** matter, and the record of its making — a thing somebody builds, holds or installs: parts, boards, enclosures, the firmware that makes one work, and what a camera and a mic keep of the work as it is done
 
 ![the irl family](./irl.svg)
 
@@ -10,11 +10,15 @@
 
 | member | governed |
 |---|---|
+| `vox` | no |
+| `alfred` | yes |
+| `otto` | no |
 | `apothecary` | yes |
 | `datum` | yes |
 | `ira` | no |
 | `uPhonor` | no |
 | `stomp` | no |
+| `joe` | no |
 | `scad-chess` | no |
 | `private-03` | no |
 | `private-05` | no |
@@ -22,16 +26,20 @@
 
 Also in another family, because each drives more than one thing:
 
+- `vox` — [`core`](./core.md)
+- `alfred` — [`performing`](./performing.md)
+- `otto` — [`performing`](./performing.md)
 - `ira` — [`show-control`](./show-control.md)
 - `uPhonor` — [`instruments`](./instruments.md)
 - `stomp` — [`instruments`](./instruments.md)
+- `joe` — [`performer-display`](./performer-display.md)
 
 ## Starting here
 
-2 of 9 members carry governance, so this family has a governed entry point. Begin in `apothecary`:
+3 of 13 members carry governance, and each is a governed entry point: `alfred`, `apothecary`, `datum`. Begin in any of them:
 
 ```sh
-cd apothecary
+cd <member>               # one of those named above
 uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
 ```
 
@@ -47,4 +55,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-11-01 from `families.json`.*
+*Generated 2026-11-03 from `families.json`.*

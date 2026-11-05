@@ -16,7 +16,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from conftest import commit_all, run_tool, write
+from conftest import commit_all, git, run_tool, write
 
 
 def workflow(body: str) -> str:
@@ -349,3 +349,54 @@ def test_a_pull_request_is_not_run_on_the_default_branch(repo: Path):
     result = run_tool("run_workflows_locally.py", cwd=repo)
     assert result.returncode == 0, result.stdout
 
+
+
+def test_a_missing_gh_is_reported_with_the_remedy(monkeypatch):
+    """The report names the tool that is absent and what to do about it, since
+    the steps that need it would otherwise fail with their own, later message.
+
+    Mutation: drop the remedy from the not-found branch of `environment_report`.
+    """
+    mod = _module()
+    real = mod.probe
+    monkeypatch.setattr(
+        mod, "probe",
+        lambda argv, timeout=20: (None, f"{argv[0]} not found on PATH")
+        if argv[0] == "gh" else real(argv, timeout),
+    )
+    text = "\n".join(mod.environment_report({}))
+    assert "gh: NOT installed" in text, text
+    assert "https://cli.github.com" in text and "gh auth login" in text
+
+
+def test_a_clone_with_no_origin_is_told_how_to_add_one(repo: Path):
+    """No `origin` leaves $GITHUB_REPOSITORY empty and the base-ref steps with
+    nothing to fetch. The note names the command, not only the consequence.
+
+    Mutation: drop the remedy line after the no-origin note.
+    """
+    git(repo, "remote", "remove", "origin")
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow("      - name: fine\n        run: echo ok\n"),
+    )
+    commit_all(repo, "add a workflow")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert "git remote add origin" in result.stdout, result.stdout
+
+
+def test_an_origin_with_no_base_branch_is_told_to_fetch(repo: Path):
+    """The base-ref, signature and timeless steps read `origin/<base>`. A clone
+    that has an `origin` and has never fetched fails each with a git error about
+    a bad object name; the report says to fetch before any of them runs.
+
+    Mutation: drop the unresolved-base check from the environment block.
+    """
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow("      - name: fine\n        run: echo ok\n"),
+    )
+    commit_all(repo, "add a workflow")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "no-such-branch", cwd=repo)
+    assert "git fetch origin" in result.stdout, result.stdout
+    assert result.stdout.index("git fetch origin") < result.stdout.index("[PASS] fine")
