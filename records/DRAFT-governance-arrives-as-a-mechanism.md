@@ -5,43 +5,35 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-14 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P8 — systems over heroics; P6 — decisions are documented or they didn't happen; P11 — governance finds the reader, not the reverse |
+| **Principle** | `systems-over-heroics` — systems over heroics; `decisions-are-documented` — decisions are documented or they didn't happen; `governance-finds-the-reader` — governance finds the reader, not the reverse |
 | **Restated in** | Nothing, deliberately. See §4 |
 
 ## Context
 
-This corpus has measured its own governance twice and got the same answer both
-times. `perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md`
-counted nineteen findings stated and withdrawn while four discipline clauses
-were being written, and the rate did not change.
-`perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md`
-counted thirteen protocol breaks and found that **every clause broken had been
-read in full by the session that broke it** — the eight caught were caught by a
-check that ran, not a rule that was remembered.
+Governance written as prose does not change behaviour on its own. **A clause
+is broken by readers who have read it in full**, and what catches the break is
+a check that runs, not a rule that is remembered.
+`perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md`
+and `perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md`
+hold the measurements.
 
-Two failures follow from writing governance as prose, and both are in this
-corpus today.
+Two failures follow from writing governance as prose.
 
-**A rule can claim to be mechanical and not be.**
-`records/DRAFT-version-tags-are-claims.md` §7 said its §1 was "mechanical rather
-than customary." Nothing read a tag until 2026-08-14 — six days during which the
-sentence was true of an intention and false of the repository. Two lightweight
-tags were cut in that window asserting what §6 says a lightweight tag cannot.
+**A rule can claim to be mechanical and not be.** A record can call a clause
+"mechanical rather than customary" while nothing reads what it governs. The
+sentence is then true of an intention and false of the repository, and the acts
+it forbids go through in the gap.
 
-**A record can assert a state of the world that is not the case.**
-`records/DRAFT-outbound-licensing.md` §12 states that "Every QM repository is
-REUSE-compliant." Checked on 2026-08-14: `qmcp` and `alfred` carry no
-`REUSE.toml`, and `qmcp` declares no licence at all — there is no grant to
-reproduce it. The record is not wrong about what should be true. It is wrong
-because it says *is* about something it never measured, and nothing in the
-corpus could notice.
+**A record can assert a state of the world that is not the case.** A sentence
+such as "Every QM repository is REUSE-compliant" says *is* about something the
+record never measured. It is not wrong about what should be true; it is wrong
+because a repository without a `REUSE.toml` makes it false and nothing in the
+corpus notices.
 
 There is a third cost, paid by a reader rather than by the org. Mandatory
-reading before a first edit — `AGENTS.md`, `handbook/async-contract.md`,
-`handbook/handoffs/README.md` — stands at 626 lines, and **rose by 58 during a
-session whose stated aim included reducing it.** The corpus is about to be read
-by people who did not build it, and prose is the part of it that does not scale
-to a stranger.
+reading before a first edit grows unless it is budgeted, even in work whose
+stated aim is to reduce it. The corpus is read by people who did not build it,
+and prose is the part of it that does not scale to a stranger.
 
 ## Decision
 
@@ -54,8 +46,8 @@ to a stranger.
 2. **A record states a requirement. It does not assert an empirical
    universal.** "Every QM repository is X" is a sentence a generator writes
    from evidence, with a timestamp, never a sentence a record writes from
-   intent. A record says what must hold; `governance-status.yaml`,
-   `gate-status.json` and their kin say what does. Where a record needs to
+   intent. A record says what must hold; `status/governance.yaml`,
+   `status/gates.yaml` and their kin say what does. Where a record needs to
    refer to compliance, it names the document that measures it.
 
 3. **A record's enforcement clause names its mechanism by path, and the
@@ -67,10 +59,13 @@ to a stranger.
 4. **Governance prose does not state what a competent reader derives**, and
    mandatory reading is a budgeted figure rather than a habit. What a session
    must read before its first edit is measured and reported, and the budget is
-   **700 lines**. That is above today's 626 on purpose: a ceiling that is
-   already breached is a ceiling nobody can act on, and one set at today's
-   figure forbids the next necessary sentence. It is a ratchet to lower, not a
-   target to fill.
+   **1,200 lines**. The figure is derived the same way each time the mandate
+   changes: the measured mandatory set, plus headroom for the next necessary
+   sentence. The set is four documents — the two entry pages a session reads
+   in full, the async contract, and the handoff index — measured at 1,130
+   lines. It includes the charter `AGENTS.md` item 1 mandates in full: a
+   ceiling derived from a subset reads as met while the real load is over.
+   It is a ratchet to lower, not a target to fill.
    **This record is not restated in any entry point**, which is the clause
    applying to itself: a reader who needs it can reach it, and adding fifteen
    lines to `AGENTS.md` to announce a rule about not adding lines to `AGENTS.md`
@@ -78,7 +73,7 @@ to a stranger.
 
 5. **Converting beats adding.** Where an existing clause could become a check,
    that is the work. A new clause added alongside the existing ones needs to
-   say why the measured result — twice, in this corpus — does not apply to it.
+   say why the measured result in the Context does not apply to it.
 
 6. **Enforcement.** `ci/doc_status.py` carries a `reading_load` layer: the
    documents a session must read before a first edit, their line counts, the
@@ -95,14 +90,13 @@ to a stranger.
 ## Consequences
 
 - Fewer rules, and the ones that exist are countable. The register of declared
-  gaps becomes the honest measure of how much governance is aspirational, which
-  is a number this org has never had.
+  gaps becomes the measure of how much governance is aspirational.
 - Records get shorter and duller. A record that cannot assert a universal has
   less to say, and what it says survives longer.
 - Cost accepted: a genuine rule with no available mechanism now costs a registry
   entry as well as a clause. That is small and it is the point — the entry is
   what makes the gap visible when somebody later asks what is actually enforced.
-- Cost accepted: the 700-line budget will be hit, and the response has to be
+- Cost accepted: the 1,200-line budget will be hit, and the response has to be
   deleting prose rather than raising the number. A budget raised on contact is a
   budget that was never one. Raising it is an amendment to this record, argued in
   the open.
@@ -117,11 +111,12 @@ to a stranger.
    and a rule that only counts when a script can check it would delete the half
    of this corpus that is actually load-bearing.
 2. **Let records assert facts and correct them when they go stale** — rejected;
-   that is the status quo and it produced §12. Nothing notices, because a false
-   universal in prose reads exactly like a true one.
-3. **Track reading length informally** — rejected. It rose 58 lines in a single
-   session that had reducing it as an explicit goal, held by a practitioner who
-   had written the goal down that morning.
+   nothing notices when they go stale, because a false universal in prose reads
+   exactly like a true one. `records/DRAFT-outbound-licensing.md` §12 is an
+   instance.
+3. **Track reading length informally** — rejected. Reading length rises even
+   in work whose explicit goal is to reduce it, under a practitioner holding
+   that goal in writing.
 4. **Cap the number of records instead** — rejected. Record count is not the
    burden; a stranger reads entry points, and thirteen short records they never
    open cost them nothing.

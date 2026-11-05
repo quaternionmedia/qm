@@ -1,13 +1,9 @@
 """Tests for the whole-corpus record review.
 
-Every case builds a small corpus in a temp directory. The review's value is that
-it fires on the two defects this corpus actually shipped -- an enforcement clause
-naming a mechanism that does not exist, and a record nothing points at -- and
-that it does *not* fire on the prose that legitimately describes the world.
-
-The false-positive tests matter as much as the others. The first version of this
-tool reported 35 findings, of which most were Context sections doing their job,
-and a check that fires on everything trains a reader to skip it.
+Every case builds a small corpus in a temp directory. The review fires on an
+enforcement clause naming a mechanism that does not exist and on a record
+nothing points at, and does *not* fire on prose that legitimately describes the
+world: a check that fires on everything trains a reader to skip it.
 """
 
 from __future__ import annotations
@@ -84,6 +80,37 @@ def test_an_enforcement_clause_naming_a_real_mechanism_is_clean(tmp_path: Path):
 def test_an_enforcement_clause_naming_nothing_at_all_is_reported(tmp_path: Path):
     corpus(tmp_path, decision="6. **Enforcement.** Somebody remembers.")
     assert "enforcement-clause-names-no-mechanism" in kinds(tmp_path)
+
+
+def test_a_bare_workflow_name_resolves_against_the_workflow_directories(tmp_path: Path):
+    """A record says `leak-check.yml` refuses something, and the workflow of
+    that name sits in `.github/workflows/` and in `project-seed/ci/`, never at
+    the root. Resolving the bare name against the root alone reports a
+    mechanism that exists as missing, and a false finding about a real gate
+    trains a reader to skip the report.
+
+    Mutation: resolve against the root alone and this fails.
+    """
+    write(tmp_path / ".github" / "workflows" / "leak-check.yml", "name: leaks\n")
+    corpus(tmp_path, decision="6. **Enforcement.** `leak-check.yml` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" not in kinds(tmp_path)
+
+
+def test_a_bare_seed_script_name_resolves_against_the_seed_directory(tmp_path: Path):
+    write(tmp_path / "project-seed" / "ci" / "check_leaks.py", "")
+    corpus(tmp_path, decision="6. **Enforcement.** `check_leaks.py` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" not in kinds(tmp_path)
+
+
+def test_a_bare_name_in_no_mechanism_directory_is_still_missing(tmp_path: Path):
+    """The resolution is to the directories mechanisms live in, not to anywhere
+    in the tree: a file of that name elsewhere is not the gate the clause claims.
+
+    Mutation: resolve a bare name anywhere under the root and this fails.
+    """
+    write(tmp_path / "plans" / "gone.yml", "name: a plan\n")
+    corpus(tmp_path, decision="6. **Enforcement.** `gone.yml` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" in kinds(tmp_path)
 
 
 def test_a_gate_enforcing_a_record_that_never_says_so_is_reported(tmp_path: Path):
@@ -199,3 +226,253 @@ def test_the_output_says_it_is_not_a_semantic_review(tmp_path: Path):
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
     assert "is a semantic review" in result.stdout  # "None of this is a semantic review"
+
+
+# --- citing another repository in the org ----------------------------------
+#
+# This corpus governs every QM repository, so its records cite their files. A
+# citation that resolves in a sibling checkout is reported as
+# `cross-repository-citation`, not `dangling-citation`: the two facts are
+# different.
+
+
+def with_roster(tmp_path: Path, names: list[str]) -> None:
+    """Give the temp corpus a roster, which is where sibling names come from.
+
+    Written in YAML flow style so the fixture is one line: the loader walks the
+    parsed structure, not the text, so the two spellings are the same input.
+    """
+    rows = ", ".join("{name: " + name + "}" for name in names)
+    write(tmp_path / "ci" / "workspace.yaml", "repositories: [" + rows + "]")
+
+
+def test_a_citation_into_a_sibling_repository_is_not_called_dangling(tmp_path: Path):
+    """A citation that resolves in a sibling checkout is not dangling.
+
+    Mutation: drop the sibling branch and this fails -- the finding reverts to
+    `dangling-citation`, which tells a reader the file does not exist.
+    """
+    with_roster(tmp_path, ["dossier", "qmcp"])
+    corpus(tmp_path, decision="1. See `dossier/tests/core/test_composition.py`.")
+    found = kinds(tmp_path)
+    assert "cross-repository-citation" in found
+    assert "dangling-citation" not in found
+
+
+def test_a_sibling_citation_is_still_reported(tmp_path: Path):
+    """Reported, not silenced: a carve-out that emits nothing is
+    indistinguishable from a rule nobody wrote, and the reader still has to go
+    to the other repository and look.
+
+    Mutation: `continue` without appending and this fails.
+    """
+    with_roster(tmp_path, ["dossier"])
+    corpus(tmp_path, decision="1. See `dossier/docs/rad-commands.md`.")
+    assert kinds(tmp_path).count("cross-repository-citation") == 1
+
+
+def test_a_repository_not_in_the_roster_is_still_dangling(tmp_path: Path):
+    """The carve-out keys on the first path
+    segment, so any invented directory name would walk through it if the roster
+    were not what decides. `notarepo/` is exactly the typo this check exists to
+    catch, and it must not be excused for looking like a repository.
+
+    Mutation: match any first segment rather than a roster name and this fails.
+    """
+    with_roster(tmp_path, ["dossier"])
+    corpus(tmp_path, decision="1. See `notarepo/handbook/gone.md`.")
+    found = kinds(tmp_path)
+    assert "dangling-citation" in found
+    assert "cross-repository-citation" not in found
+
+
+def test_this_corpus_is_not_its_own_sibling(tmp_path: Path):
+    """`qm` is in the roster and is the corpus being checked. Treating it as a
+    sibling would excuse every broken path written as `qm/...`, which is the
+    most likely way to write one.
+
+    Mutation: keep `qm` in the sibling set and this fails.
+    """
+    with_roster(tmp_path, ["qm", "dossier"])
+    corpus(tmp_path, decision="1. See `qm/handbook/gone.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_no_roster_leaves_the_check_exactly_as_strict(tmp_path: Path):
+    """A corpus with no readable roster must not become permissive -- a check
+    that quietly relaxes when its input is missing is the failure mode this
+    corpus keeps finding in its own tooling.
+
+    Mutation: return every first segment when the roster is unreadable and this
+    fails.
+    """
+    corpus(tmp_path, decision="1. See `dossier/tests/core/test_composition.py`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_an_unparseable_roster_is_not_a_crash(tmp_path: Path):
+    """The review must survive a roster somebody is midway through editing."""
+    write(tmp_path / "ci" / "workspace.yaml", "repositories: [unclosed")
+    corpus(tmp_path, decision="1. See `dossier/x.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_a_roster_entry_whose_name_is_not_a_string_is_ignored(tmp_path: Path):
+    """A `name:` holding a list or a mapping is a roster somebody is midway
+    through editing. The walker must skip it rather than call a string method on
+    it -- a review that crashes on a half-written roster is a gate that fails for
+    a reason having nothing to do with the records.
+
+    Mutation: `and` to `or` on the isinstance guard and this raises
+    AttributeError instead of reporting.
+    """
+    write(tmp_path / "ci" / "workspace.yaml",
+          "repositories: [{name: [a, b]}, {name: dossier}]")
+    corpus(tmp_path, decision="1. See `dossier/x.md`.")
+    assert "cross-repository-citation" in kinds(tmp_path)
+
+
+# --- the holes a blind review drove through the first version ----------------
+#
+# Each case below is a way to satisfy a name-keyed guard while citing a file
+# that is not there.
+
+
+def workspace(tmp_path: Path, entries: str) -> None:
+    """A roster whose `qm` entry locates the temp corpus, as the real one does."""
+    own = tmp_path.name
+    write(tmp_path / "ci" / "workspace.yaml",
+          "milestone: {name: alpha, phase: 2}\n"
+          "repositories:\n"
+          f"  - name: qm\n    paths: [{own}]\n" + entries)
+
+
+def sibling_file(tmp_path: Path, repo: str, relative: str) -> Path:
+    """A file in a sibling checkout beside the temp corpus."""
+    found = tmp_path.parent / repo / relative
+    found.parent.mkdir(parents=True, exist_ok=True)
+    found.write_text("# real\n", encoding="utf-8")
+    return found
+
+
+def test_a_milestone_name_is_not_a_repository(tmp_path: Path):
+    """Only the roster's `repositories:` are names: `milestone.name`
+    (`alpha`) must not excuse every citation beginning `alpha/`.
+
+    Mutation: walk the whole document again instead of `repositories:` and this
+    fails.
+    """
+    workspace(tmp_path, "  - name: dossier\n    paths: [dossier]\n")
+    corpus(tmp_path, decision="1. See `alpha/nowhere.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_a_roster_name_colliding_with_a_corpus_directory_is_a_corpus_path(tmp_path: Path):
+    """A repository named `handbook` in the roster must not turn every broken
+    `handbook/...` citation in this corpus into a cross-repository reference.
+    `docs`, `protocols` and `curriculum` are
+    all plausible repository names and all are directories here.
+
+    Mutation: drop the `(root / first).is_dir()` test and this fails.
+    """
+    write(tmp_path / "handbook" / "real.md", "# real\n")
+    workspace(tmp_path, "  - name: handbook\n    paths: [handbook]\n")
+    corpus(tmp_path, decision="1. See `handbook/definitely-gone.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_a_typo_into_a_checked_out_sibling_is_a_defect(tmp_path: Path):
+    """`dossier/docs/rad-comands.md`, one character out, is a defect: the
+    sibling is on the disk, and the check opens it.
+
+    Mutation: report `cross-repository-citation` without testing the path and
+    this fails.
+    """
+    sibling_file(tmp_path, "dossier", "docs/rad-commands.md")
+    workspace(tmp_path, "  - name: dossier\n    paths: [dossier]\n")
+    corpus(tmp_path, decision="1. See `dossier/docs/rad-comands.md`.")
+    found = kinds(tmp_path)
+    assert "dangling-citation" in found
+    assert "cross-repository-citation" not in found
+
+
+def test_a_path_that_is_there_resolves(tmp_path: Path):
+    """The other half of the same rule: the correct spelling must not be a
+    defect. Without this, the case above could be satisfied by calling
+    everything dangling."""
+    sibling_file(tmp_path, "dossier", "docs/rad-commands.md")
+    workspace(tmp_path, "  - name: dossier\n    paths: [dossier]\n")
+    corpus(tmp_path, decision="1. See `dossier/docs/rad-commands.md`.")
+    found = kinds(tmp_path)
+    assert "cross-repository-citation" in found
+    assert "dangling-citation" not in found
+
+
+def test_a_repository_relative_path_resolves_too(tmp_path: Path):
+    """`qmcp/cookbook/delta.py` is a path *inside* qmcp, whose package directory
+    shares the repository name. `dossier/docs/rad-commands.md` is
+    `<repo>/<path>`. Both spellings are in ratified prose, so both are tried.
+
+    Mutation: try only `<checkout>/<rest>` and this fails.
+    """
+    sibling_file(tmp_path, "qmcp", "qmcp/cookbook/delta.py")
+    workspace(tmp_path, "  - name: qmcp\n    paths: [qmcp]\n")
+    corpus(tmp_path, decision="1. See `qmcp/cookbook/delta.py`.")
+    found = kinds(tmp_path)
+    assert "cross-repository-citation" in found
+    assert "dangling-citation" not in found
+
+
+def _details(tmp_path: Path, kind: str) -> list[str]:
+    from record_review import entry_point_text
+    result = review_record(tmp_path / "records" / "DRAFT-a.md", tmp_path, [],
+                           entry_point_text(tmp_path))
+    return [f["detail"] for f in result["findings"] if f["kind"] == kind]
+
+
+def test_a_sibling_that_is_not_checked_out_says_so(tmp_path: Path):
+    """Unknown is a value. A repository in the roster that nobody has cloned
+    here cannot be resolved, and that is a different sentence from either "it is
+    fine" or "it is broken".
+
+    Mutation: treat an absent checkout as resolved and this fails.
+    """
+    workspace(tmp_path, "  - name: alfred\n    paths: [alfred]\n")
+    corpus(tmp_path, decision="1. See `alfred/docs/thing.md`.")
+    detail = _details(tmp_path, "cross-repository-citation")
+    assert detail and "not checked out here" in detail[0], detail
+
+
+def test_a_roster_that_cannot_locate_this_corpus_resolves_nothing(tmp_path: Path):
+    """The workspace root is proven by this corpus's own entry. A roster that
+    cannot locate the repository it is being read from has not earned the right
+    to locate any other one.
+
+    Mutation: assume `root.parent` is the workspace and this fails.
+    """
+    write(tmp_path / "ci" / "workspace.yaml",
+          "repositories:\n"
+          "  - name: qm\n    paths: [somewhere/else]\n"
+          "  - name: dossier\n    paths: [dossier]\n")
+    sibling_file(tmp_path, "dossier", "docs/x.md")
+    corpus(tmp_path, decision="1. See `dossier/docs/x.md`.")
+    detail = _details(tmp_path, "cross-repository-citation")
+    assert detail and "not checked out here" in detail[0], detail
+
+
+def test_the_command_line_reads_the_roster(tmp_path: Path):
+    """`main()` builds the siblings once and passes them down, so this covers
+    the only code path anybody runs; every other test here calls
+    `review_record` directly and hands it siblings.
+
+    Mutation: `siblings = {}` in `main()` and this fails.
+    """
+    sibling_file(tmp_path, "dossier", "docs/x.md")
+    workspace(tmp_path, "  - name: dossier\n    paths: [dossier]\n")
+    corpus(tmp_path, decision="1. See `dossier/docs/x.md`.")
+    result = subprocess.run(
+        [sys.executable, str(TOOL), "--root", str(tmp_path)],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    assert "cross-repository-citation" in result.stdout, result.stdout
+    assert "dangling-citation" not in result.stdout, result.stdout

@@ -56,9 +56,7 @@ def test_the_detector_finds_the_name_at_all():
 #
 # The rule these hold is `DRAFT-human-only-contributorship.md` section 3: no
 # trailer or author field naming an address that is not a monitored inbox
-# reachable to a human accountable for the content. Every one of the cases below
-# was run against the check before it was written down here, and the two marked
-# as findings were routed around by an adversarial pass and closed afterwards.
+# reachable to a human accountable for the content.
 
 VENDOR = "noreply@anthropic.com"
 
@@ -115,11 +113,10 @@ def test_a_forge_per_user_alias_passes(repo: Path):
 
 
 def test_a_noreply_wearing_the_per_user_exemption_fails(repo: Path):
-    """A finding. The adversarial pass walked through the first version here.
+    """The exemption holds only where the local part names an account.
 
-    The exemption was unconditional on the host label, so any no-reply local
-    part at a host called `users.noreply.<anything>` inherited it. The exemption
-    now holds only where the local part names an account.
+    Keyed on the host label alone, any no-reply local part at a host called
+    `users.noreply.<anything>` would inherit it.
     """
     base = git(repo, "rev-parse", "HEAD")
     commit_with(repo, "S", "Co-authored-by: A B <noreply@users.noreply.evil.test>")
@@ -136,12 +133,11 @@ def test_a_human_at_a_vendor_domain_passes(repo: Path):
 
 
 def test_a_bare_address_is_read_as_an_address(repo: Path):
-    """The other finding, and it is about the *reason*, not the verdict.
+    """The verdict and its reason both hold with no angle brackets.
 
-    With no angle brackets there was no address to test, so the whole value fell
-    to the name check and matched on the domain. A vendor `noreply@` was still
-    refused -- with the words "names a tool", which is the wrong reason -- and a
-    real contributor's bare `person@vendor` address was refused with it too.
+    Read as a name, the value would match on the domain: a vendor `noreply@`
+    refused with the words "names a tool", and a real contributor's bare
+    `person@vendor` address refused with it.
     """
     base = git(repo, "rev-parse", "HEAD")
     commit_with(repo, "S", f"Co-authored-by: {VENDOR}")
@@ -192,10 +188,9 @@ def test_the_author_field_is_read(repo: Path):
 def test_the_committer_is_not_read(repo: Path):
     """Every squash merge on GitHub is committed by `GitHub <noreply@github.com>`.
 
-    Measured on a real repository before this was written. Reading the committer
-    would fail every merge the org makes, on the forge's own identity -- a guard
-    that fires on the thing it is protecting is a guard somebody switches off.
-    Section 3 says "author field", and the author is the accountable human.
+    Reading the committer would fail every merge the org makes, on the forge's
+    own identity. Section 3 says "author field", and the author is the
+    accountable human.
     """
     base = git(repo, "rev-parse", "HEAD")
     git(repo, "-c", "user.name=GitHub", "-c", "user.email=noreply@github.com",
@@ -238,6 +233,72 @@ def test_a_ref_that_is_not_there_is_one_finding(repo: Path):
     assert result.returncode == 1
     assert result.stdout.count("does not exist") == 1
     assert "1 finding(s)" in result.stdout
+
+
+# --- the merged ref ----------------------------------------------------------
+#
+# A propagation's range holds commits already on the default branch. The corpus's
+# own workflow passes `--merged-ref`, so they are not read; a new commit still is.
+
+
+def a_merged_trailer(repo: Path) -> str:
+    """A base, then a commit with a vendor trailer that the branch `merged` holds."""
+    base = git(repo, "rev-parse", "HEAD")
+    commit_with(repo, "Landed", f"Co-authored-by: Fable 5 <{VENDOR}>")
+    git(repo, "branch", "merged")
+    return base
+
+
+def test_a_commit_on_the_merged_ref_is_not_read(repo: Path):
+    base = a_merged_trailer(repo)
+    assert check(repo, "--base-ref", base).returncode == 1
+    result = check(repo, "--base-ref", base, "--merged-ref", "merged")
+    assert result.returncode == 0
+    assert "not on merged" in result.stdout
+
+
+def test_a_new_commit_past_the_merged_ref_is_read(repo: Path):
+    base = a_merged_trailer(repo)
+    new = commit_with(repo, "New", f"Co-authored-by: Fable 5 <{VENDOR}>")
+    result = check(repo, "--base-ref", base, "--merged-ref", "merged")
+    assert result.returncode == 1
+    assert result.stdout.count("nobody reads") == 1
+    assert new[:8] in result.stdout
+
+
+def test_a_new_tools_trailer_naming_a_product_is_refused(repo: Path):
+    base = a_merged_trailer(repo)
+    commit_with(repo, "New", "Tools: Fable 5")
+    result = check(repo, "--base-ref", base, "--merged-ref", "merged")
+    assert result.returncode == 1
+    assert "names a tool where a person should be" in result.stdout
+
+
+def test_a_new_tools_trailer_naming_no_product_passes(repo: Path):
+    base = a_merged_trailer(repo)
+    commit_with(repo, "New", "Tools: drafted with an AI coding agent")
+    assert check(repo, "--base-ref", base, "--merged-ref", "merged").returncode == 0
+
+
+def test_the_merged_ref_leaves_the_subject_check_as_it_is(repo: Path):
+    base = git(repo, "rev-parse", "HEAD")
+    commit_all(repo, NAMED)
+    git(repo, "branch", "merged")
+    result = check(repo, "--base-ref", base, "--merged-ref", "merged")
+    assert result.returncode == 1
+    assert "commit subject names a tool" in result.stdout
+
+
+def test_a_merged_ref_that_is_not_there_is_one_finding(repo: Path):
+    base = a_merged_trailer(repo)
+    result = check(repo, "--base-ref", base, "--merged-ref", "no/such/ref")
+    assert result.returncode == 1
+    assert result.stdout.count("does not exist") == 1
+    assert "1 finding(s)" in result.stdout
+
+
+def test_a_merged_ref_needs_a_base_ref(repo: Path):
+    assert check(repo, "--records-dir", ".", "--merged-ref", "HEAD").returncode == 2
 
 
 def test_there_is_no_attribution_exemption_hatch():

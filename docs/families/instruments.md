@@ -1,0 +1,183 @@
+---
+title: instruments
+hide:
+  - toc
+---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
+
+instruments · within [performing](performing.md)
+{ .qm-eyebrow }
+
+# the sound<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
+
+Drives the sound — looping, synthesis, tempo, remote control surfaces.
+{ .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)](../projects/carlos.md)
+
+<figcaption><strong>carlos.</strong> Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
+
+</figure>
+
+</div>
+
+## Who is in it
+
+<div class="grid" markdown>
+
+<div class="card qm-f-instruments" markdown>
+
+![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png){ .qm-thumb loading=lazy }
+
+[carlos](../projects/carlos.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.1</span>
+
+Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on
+
+</div>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-performer-display))" markdown>
+
+[loopwall](../projects/loopwall.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.1</span> · also in [`performer-display`](performer-display.md)
+
+Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above.
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+![The default visualizer running at 120 BPM in 4/4, with tap, play and hold.](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif){ .qm-thumb loading=lazy }
+
+[qmetronome](../projects/qmetronome.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.3</span>
+
+Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+[holophonor](../projects/holophonor.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+Live looping, unlimited!
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+[midiphonor](../projects/midiphonor.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+A Holophonor implementation, using Tone.js
+
+</div>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
+
+[uPhonor](../projects/uPhonor.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
+
+Micro-Holophonor
+
+</div>
+
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
+
+[stomp](../projects/stomp.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
+
+a midi foot controller for Arduino / Teensy
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+[wolf](../projects/wolf.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+remote midi controller
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+[ludwig](../projects/ludwig.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+remote mixing
+
+</div>
+
+<div class="card qm-f-instruments" markdown>
+
+![The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.](https://github.com/quaternionmedia/waveofhormuz/raw/HEAD/waveofhormuz.png){ .qm-thumb loading=lazy }
+
+[waveofhormuz](../projects/waveofhormuz.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform
+
+</div>
+
+</div>
+
+Start in any of [`carlos`](../projects/carlos.md), [`loopwall`](../projects/loopwall.md), [`qmetronome`](../projects/qmetronome.md): each one's records and its `AGENTS.md` say how work arrives there.
+
+<section class="qm-section" markdown>
+
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
+the graphs codecarto draws
+{ .qm-eyebrow }
+
+### Showgraph
+
+<div class="grid" markdown>
+
+<figure class="qm-shot" id="showgraph-estate" markdown>
+
+[![Where it sits: its members, the families within it and the seams between them](../show/family/instruments/estate.svg)](../show/family/instruments/estate.svg)
+
+<figcaption><strong>Where it sits.</strong> Its members, the families within it and the seams between them.</figcaption>
+
+</figure>
+
+<figure class="qm-shot" id="showgraph-code" markdown>
+
+[![Its code: each of its projects with its code in it](../show/family/instruments/code.svg)](../show/family/instruments/code.svg)
+
+<figcaption><strong>Its code.</strong> Each of its projects with its code in it.</figcaption>
+
+</figure>
+
+</div>
+
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17`, on 2026-10-29. [The show document](../show/family/instruments/show.json) holds each graph as drawn.
+{ .qm-caption }
+
+</section>
+
+Generated by `uv run qm cookbook docs/families --site --write` from `families.json`, the inventory, `ci/showcase.yaml` and the show documents `uv run codecarto show export` writes into `docs/show/`. The families are decided in the [family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); edit the roster, the record or the showcase, not this page.
+{ .qm-caption }

@@ -3,20 +3,17 @@
 
 Org-level tooling, copied nowhere -- it reads this corpus's own layout.
 
-WHAT THIS IS FOR. `records/DRAFT-the-read-document-governs.md` §3: an entry
+What this is for. `records/DRAFT-the-read-document-governs.md` §3: an entry
 point may summarize a decision a record owns, and the cost is a declaration.
 The record carries a `Restated in` row naming every document that summarizes
 it, and each of those documents names the record's path. A summary that exists
 in only one direction is a defect.
 
-The failure this exists for is silent by construction. `AGENTS.md` item 3 said
-a pull request was opened "for human review" and that an agent must never merge,
-while `records/DRAFT-version-tags-are-claims.md` §4 said `main` asserts nothing
-and the human gate is the tag. Both were in the tree at the same commit, neither
-looked wrong alone, no gate went red, and a session read the entry point and
-built a model of the whole organisation that the record contradicted.
+The failure this guards is silent by construction: an entry point and a record
+can disagree at the same commit, neither looks wrong alone, no gate goes red,
+and a reader of the entry point builds a model the record contradicts.
 
-WHAT THIS CANNOT DO. Two limits, and they are larger than the check:
+What this cannot do: two limits, and they are larger than the check:
 
   1. **It cannot tell that a restatement and its record say different things.**
      It checks that the pair is *declared*, so the corpus knows where its copies
@@ -80,6 +77,11 @@ ENTRY_POINT_GLOBS = ("handbook/**/*.md",)
 RESTATED_ROW = re.compile(
     r"^\|\s*\*\*Restated in\*\*\s*\|(?P<value>.*?)\|\s*$", re.MULTILINE
 )
+# `| **Unifies** | `records/DRAFT-a.md`; `records/DRAFT-b.md` |`
+UNIFIES_ROW = re.compile(
+    r"^\|\s*\*\*Unifies\*\*\s*\|(?P<value>.*?)\|\s*$", re.MULTILINE
+)
+ITEM_POINTER = re.compile(r"`([^`]+)`\s+item\s+(\d+)")
 BACKTICKED = re.compile(r"`(?P<path>[^`]+?\.md)`")
 
 # A record path as it appears in prose. Deliberately unanchored, which is also
@@ -120,6 +122,73 @@ def declared_restatements(record_text: str) -> set[str]:
     if value.strip().lower() in ("", "none", "nothing", "-", "*none.*"):
         return set()
     return {normalise(m.group("path")) for m in BACKTICKED.finditer(value)}
+
+
+def declared_unifications(record_text: str) -> set[str]:
+    """The records a record says it unifies.
+
+    The same shape as `Restated in` and a different relation: that row names
+    documents which *summarize* this record, this one names records whose rule
+    this record states once. Both are one-directional by design -- only the
+    author knows which of the two a passage is doing.
+
+    >>> sorted(declared_unifications("| **Unifies** | `records/DRAFT-x.md` |"))
+    ['records/DRAFT-x.md']
+    >>> declared_unifications("| **Unifies** | Nothing |")
+    set()
+    >>> declared_unifications("| **Status** | Proposed |")
+    set()
+    """
+    match = UNIFIES_ROW.search(record_text)
+    if match is None:
+        return set()
+    value = match.group("value")
+    if value.strip().lower() in ("", "none", "nothing", "-", "*none.*"):
+        return set()
+    return {normalise(m.group("path")) for m in BACKTICKED.finditer(value)}
+
+
+def declared_items(record_text: str) -> set[tuple[str, int]]:
+    """Every `<path> item N` a record's `Restated in` row names.
+
+    The row often points at a numbered item rather than a whole document, and
+    that number was decoration: `declared_restatements` keeps the path and
+    drops it. Inserting an item into `AGENTS.md` renumbered everything below,
+    and a record went on naming the item that used to carry its summary while
+    this check stayed green -- it was verifying that the document cited the
+    record somewhere, which was still true.
+
+    >>> sorted(declared_items("| **Restated in** | `AGENTS.md` item 3 |"))
+    [('AGENTS.md', 3)]
+    """
+    match = RESTATED_ROW.search(record_text)
+    if match is None:
+        return set()
+    return {(normalise(m.group(1)), int(m.group(2)))
+            for m in ITEM_POINTER.finditer(match.group("value"))}
+
+
+def numbered_items(document_text: str, number: int) -> list[str]:
+    """Every top-level item carrying this number, in document order.
+
+    Plural because a page may hold more than one numbered list, and taking the
+    first match is wrong: `AGENTS.md` opens with a short list of facts to
+    establish and then runs a long list of rules, so "item 3" matched the
+    wrong list entirely and this check reported a restatement as missing that
+    was present a hundred lines further down.
+    """
+    lines = document_text.splitlines()
+    found: list[str] = []
+    for index, line in enumerate(lines):
+        if not re.match(rf"^{number}\.\s", line):
+            continue
+        body = [line]
+        for following in lines[index + 1:]:
+            if re.match(r"^\d+\.\s", following):
+                break
+            body.append(following)
+        found.append(chr(10).join(body))
+    return found
 
 
 def cited_records(document_text: str) -> set[str]:
@@ -174,6 +243,24 @@ def check(root: Path, records_dir: Path) -> tuple[list[str], list[str]]:
         rel = record.relative_to(root).as_posix()
         declared[rel] = declared_restatements(read(record))
 
+    # `Unifies` is the corpus's other declared relation between records: one
+    # record states a rule that several others hold instances of, and the
+    # instances stay where they are. It was carried by one record for a week
+    # with nothing reading it, which makes it a declaration and not a relation
+    # -- a `Unifies` row naming a record that had been renamed would have read
+    # exactly like one naming a record that exists.
+    on_disk = {record.relative_to(root).as_posix() for record in records}
+    for record in records:
+        rel = record.relative_to(root).as_posix()
+        for named in declared_unifications(read(record)):
+            if named == rel:
+                problems.append(f"{rel}: `Unifies` names itself")
+            elif named not in on_disk:
+                problems.append(
+                    f"{rel}: `Unifies` names {named}, which is not a record in "
+                    f"{records_dir.relative_to(root).as_posix()}/"
+                )
+
     entry_points = entry_point_paths(root)
     if not entry_points:
         return ([f"no entry-point documents found under {root} -- nothing was checked"], [])
@@ -182,6 +269,26 @@ def check(root: Path, records_dir: Path) -> tuple[list[str], list[str]]:
     for doc in entry_points:
         rel = doc.relative_to(root).as_posix()
         cites[rel] = cited_records(read(doc))
+
+    # A declaration that names an item number has to point at the item that
+    # actually carries the summary, not merely at a document that mentions the
+    # record somewhere on the page.
+    for record in records:
+        rel = record.relative_to(root).as_posix()
+        for document, number in declared_items(read(record)):
+            path = root / document
+            if not path.is_file():
+                continue
+            items = numbered_items(read(path), number)
+            if not items:
+                problems.append(
+                    f"{rel} says it is restated in {document} item {number}, "
+                    f"which does not exist")
+            elif not any(normalise(rel) in cited_records(item) for item in items):
+                problems.append(
+                    f"{rel} says it is restated in {document} item {number}, "
+                    f"but that item does not name it. Items renumber when one "
+                    f"is inserted above them")
 
     # Direction one: a record names a document, and the document must name it.
     for record_rel, documents in declared.items():

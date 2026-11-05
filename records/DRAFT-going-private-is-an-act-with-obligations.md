@@ -33,7 +33,7 @@ something, and the costs are not small:
 | | what it costs |
 |---|---|
 | An organisation-read credential | the repository's first secret, a rotation duty, and a gate that silently stops working when the token expires |
-| A committed list of digests | 24 of 33 names are ordinary words of median length 7 — the list is recoverable by anyone who wants it, which publishes the thing being protected |
+| A committed list of digests | most names are short ordinary words — the list is recoverable by anyone who wants it, which publishes the thing being protected |
 | Continuous polling | a check that reads the host, so an unrelated pull request goes red for a reason its author cannot fix |
 
 Each of those is the corpus preparing, at permanent cost, for an event that is

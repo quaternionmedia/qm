@@ -1,26 +1,18 @@
 #!/usr/bin/env python3
 """Refuse a branch whose own commits carry no verifiable signature.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-WHAT THIS IS FOR. A signature is what makes the author field a claim somebody
-made rather than a string anybody can type. `records/DRAFT-human-only-contributorship.md`
-turns on attribution being real, and nothing in this org has ever checked it.
+A signature is what makes the author field a claim somebody made rather than
+a string anybody can type, and `records/DRAFT-human-only-contributorship.md`
+turns on attribution being real.
 
-The history says what happens without a check. Signing stopped in this corpus at
-2026-08-12T23:29, mid-branch, immediately after a signed commit -- a session
-added a flag disabling it and nothing noticed. `origin/main`'s recent history
-carries no signature at all, and across every ref the repository holds a mix of
-signed, unsigned and uncheckable.
+Only the commits the branch adds are checked: `--base-ref` is required and the
+range is `base..head`. A commit an author did not write and cannot re-sign is
+never what fails a pull request.
 
-**ONLY THE COMMITS THE BRANCH ADDS.** `--base-ref` is required and the range is
-`base..head`. Checking whole history would fail every pull request in this
-repository forever, for commits their author did not write and cannot re-sign --
-a gate that can only be satisfied by rewriting somebody else's history is a gate
-that gets switched off.
-
-WHAT THIS CANNOT DO, and the list is most of it:
+What this cannot do:
 
   - It cannot tell that the signer is the person in the author field beyond what
     the key attests, and it does not check who the key belongs to. A valid
@@ -60,30 +52,19 @@ BAD = "B"
 
 # Commits committed before this date are reported and not failed.
 #
-# WHY A CUTOFF EXISTS AT ALL. This check was written on 2026-08-15, and the
-# branch that introduced it carries nine unsigned commits made before it. They
-# cannot be signed without rewriting history, which this org's governance does
-# not permit. A gate whose only remedy is a forbidden act is a gate that gets
-# switched off within a week, and the corpus would then have neither the history
-# nor the check.
+# Unsigned commits older than the cutoff cannot be signed without rewriting
+# history, which this org's governance does not permit, so they are reported
+# and not failed. The cutoff is a date rather than a list of blessed SHAs: one
+# number, in the diff that introduced it, and moving it is a reviewable edit.
 #
-# WHY IT IS A DATE AND NOT A LIST. A list of blessed SHAs grows silently and
-# nobody can tell later which were exempted deliberately. A date is one number,
-# it is in the diff that introduced it, and moving it is a reviewable edit.
+# This is a debt, and a range holding only old unsigned commits exits 0. The
+# check still refuses to describe them as signed: the debt is marked per
+# commit, counted on stderr, and the summary reads "0 of 1 commit(s) carry a
+# signature" rather than a cheerful total.
 #
-# THIS IS A DEBT, AND IT DOES EXIT GREEN. Be exact about that, because the
-# comment here first claimed grandfathered commits "never turn the exit status
-# green on their own" and that was false: a range containing only old unsigned
-# commits exits 0. It has to -- the alternative is a gate nobody can satisfy.
-# What the check does instead is refuse to *describe* them as signed: the debt
-# is marked per commit, counted on stderr, and the summary reads "0 of 1
-# commit(s) carry a signature" rather than a cheerful total.
-#
-# THE HOLE, NAMED: commit dates are author-controlled. Someone can backdate a
-# commit past this cutoff and be exempted. That is not defended against here
-# because the defence -- refusing commits whose date precedes their parent's --
-# breaks legitimate rebases and cherry-picks, and this check is not the right
-# place to police clock skew.
+# The hole: commit dates are author-controlled, so a commit backdated past the
+# cutoff is exempted. Refusing commits dated before their parent would break
+# legitimate rebases and cherry-picks, and clock skew is not policed here.
 ENFORCED_FROM = "2026-08-15"
 
 MEANING = {
@@ -101,12 +82,11 @@ MEANING = {
 def host_verification(repo: str, sha: str) -> str:
     """The host's own verdict for one commit, mapped onto a `%G?` letter.
 
-    WHY THIS EXISTS. Verifying a signature needs the signer's public key. A CI
-    runner has none, so `git log --format=%G?` there reports on the runner's
-    empty keyring rather than on the commit -- the measurement describes the
-    scaffolding. The host has already verified every commit server-side against
-    the keys it holds for the author, and exposes the verdict. That is the
-    authoritative source and it needs no key material on the machine asking.
+    Verifying a signature needs the signer's public key, and a CI runner has
+    none, so `git log --format=%G?` there reports on the runner's empty
+    keyring rather than on the commit. The host has already verified every
+    commit server-side against the keys it holds for the author, and exposes
+    the verdict without needing key material on the machine asking.
 
     So: `--source git` locally, where a developer has their own key, and
     `--source host` in CI. Same rule, read from the place that can answer.
@@ -143,10 +123,8 @@ def commits_in_range(
 ) -> tuple[list[tuple[str, str, str, str]], str | None]:
     """[(sha, %G?, committed_at, subject)] for base..head, or ([], reason).
 
-    `cwd` names the repository, the way every other seed check takes one. Left
-    to the process's working directory this could only ever inspect whatever
-    happens to be checked out, which is the proxy-for-the-thing error this
-    corpus keeps recording.
+    `cwd` names the repository, the way every other seed check takes one,
+    rather than inspecting whatever happens to be checked out.
 
     The commit date is carried because the cutoff needs it. It is committer
     date, not author date: a rebase resets the first and preserves the second,
@@ -265,10 +243,9 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
-    # Never "all N carry a signature" when some do not. The grandfathered ones
-    # are exempt from failing, not signed, and a summary line that rounded them
-    # into the good number would be this check reporting success while
-    # attesting nothing -- the defect it was built against.
+    # Never "all N carry a signature" when some do not: the grandfathered ones
+    # are exempt from failing, not signed, and the summary keeps them out of
+    # the good number.
     signed = len(rows) - len(grandfathered)
     if grandfathered:
         print(f"\n{signed} of {len(rows)} commit(s) carry a signature. "

@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import sys
 import tempfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pytest
@@ -400,10 +401,32 @@ class TestShapeIndex:
 # check_pattern_coverage
 # ---------------------------------------------------------------------------
 
-def _make_pattern_index(path, patterns,
-                        generated_at="2026-08-13T12:00:00Z"):
+def _stamp(hours_ago: float) -> str:
+    return (datetime.now(timezone.utc)
+            - timedelta(hours=hours_ago)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def fresh() -> str:
+    """A stamp well inside the budget, whenever it is read."""
+    return _stamp(1)
+
+
+def stale() -> str:
+    """A stamp well outside it. Asked for, never inherited."""
+    return _stamp(200)
+
+
+def _make_pattern_index(path, patterns, generated_at=None):
+    """A pattern index that is fresh unless a test says otherwise.
+
+    The stamp is relative, and staleness is something a test asks for by
+    name: `fresh()` and `stale()` say which property is under test.
+    `check_pattern_coverage` short-circuits a stale document to 0, so a test
+    on a stale fixture that expects 0 would pass without reaching the
+    coverage logic.
+    """
     doc = {
-        "generated_at": generated_at,
+        "generated_at": generated_at or fresh(),
         "staleness_budget_hours": 168,
         "patterns": patterns,
     }
@@ -433,7 +456,7 @@ class TestCheckPatternCoverage:
         })
         assert cpc.main(["--index", str(idx)]) == 1
 
-    def test_exits_0_when_count_below_threshold(self, tmp):
+    def test_exits_0_when_count_below_threshold(self, tmp, capsys):
         idx = tmp / "pi.json"
         _make_pattern_index(idx, {
             "exit-code-trap": {
@@ -443,6 +466,11 @@ class TestCheckPatternCoverage:
             }
         })
         assert cpc.main(["--index", str(idx)]) == 0
+        # And for the right reason. This exact assertion passed for a week
+        # against a stale fixture that never reached the coverage logic: 0 out
+        # of the staleness short-circuit is indistinguishable from 0 out of
+        # "below threshold" unless something looks at why.
+        assert "stale" not in capsys.readouterr().err
 
     def test_exits_1_when_check_exists_unknown(self, tmp):
         # An unknown is the same as a gap operationally.
@@ -458,6 +486,42 @@ class TestCheckPatternCoverage:
 
     def test_exits_2_when_index_absent(self, tmp):
         assert cpc.main(["--index", str(tmp / "absent.json")]) == 2
+
+    def test_a_stale_index_reports_0_and_says_why(self, tmp, capsys):
+        """0 here means "could not check", and only stderr says so.
+
+        The gate is right not to fail on staleness -- blocking every pull
+        request until somebody regenerates a document would make the document's
+        age everybody's problem. But the exit code carries both meanings, so a
+        caller reading it alone cannot tell a checked-and-clean run from a run
+        that checked nothing. This is the assertion that keeps the difference
+        visible in the one place it currently exists.
+        """
+        idx = tmp / "pi.json"
+        _make_pattern_index(idx, {
+            "exit-code-trap": {
+                "count": 4, "threshold": 3,   # a real gap, deliberately
+                "check_exists": False,
+                "caught_by": {},
+            }
+        }, generated_at=stale())
+
+        assert cpc.main(["--index", str(idx)]) == 0
+        complaint = capsys.readouterr().err
+        assert "stale" in complaint
+        assert "not a passing gate" in complaint
+
+    def test_the_same_index_fails_when_it_is_fresh(self, tmp):
+        """The control for the test above: the gap is real, the age hid it."""
+        idx = tmp / "pi.json"
+        _make_pattern_index(idx, {
+            "exit-code-trap": {
+                "count": 4, "threshold": 3,
+                "check_exists": False,
+                "caught_by": {},
+            }
+        }, generated_at=fresh())
+        assert cpc.main(["--index", str(idx)]) == 1
 
     def test_at_threshold_counts_as_above(self, tmp):
         # count == threshold should trigger the gate, not count > threshold

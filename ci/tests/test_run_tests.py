@@ -50,7 +50,33 @@ def test_ci_runs_no_suite_this_route_omits():
 
 
 def test_both_suites_are_present_because_one_would_be_half_the_tooling():
-    assert set(SUITES) == {"project-seed/ci/tests", "ci/tests"}
+    assert {"project-seed/ci/tests", "ci/tests"} <= set(SUITES)
+
+
+def test_ci_runs_the_suites_on_every_change():
+    """The suites read the whole repository: the first page, the workflows,
+    the records, the registries, and the pages the doctests execute. A path
+    filter on the workflow is a list of paths that drifts from what the tests
+    read, and a change outside the list lands with the suite unrun.
+
+    Mutation: add a `paths:` filter to either trigger and this fails.
+    """
+    doc = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
+    triggers = doc.get(True, doc.get("on")) or {}
+    for event in ("push", "pull_request"):
+        assert event in triggers, f"ci-tooling-tests.yml does not run on {event}"
+        spec = triggers[event] or {}
+        assert "paths" not in spec and "paths-ignore" not in spec, (
+            f"the {event} trigger carries a path filter, and the suites read "
+            f"the whole repository")
+
+
+def test_the_walkthrough_is_named_on_the_command_line():
+    """records/DRAFT-one-executable-walkthrough.md §2, measured there: pytest
+    ignores `testpaths` the moment it receives a path argument, and this
+    invocation always passes paths. A walkthrough wired through `testpaths`
+    would be collected by nobody and stay green forever."""
+    assert "walkthrough" in SUITES
 
 
 def test_the_suite_paths_exist():
@@ -58,9 +84,37 @@ def test_the_suite_paths_exist():
         assert (CORPUS / suite).is_dir(), f"{suite} is not a directory"
 
 
-def test_quiet_is_the_only_base_argument():
-    """Anything else here is a default an operator did not choose and cannot see."""
-    assert BASE_ARGS == ("-q",)
+def test_the_base_arguments_are_the_three_that_were_chosen_and_nothing_else():
+    """Every default here is one an operator can see and could have chosen.
+
+    `--doctest-glob=*.md` is here because the walkthrough pages *are* the
+    executable -- without it they are collected and no example runs, which is
+    the silent-green failure the record is against.
+
+    `-n auto` is here on a measurement: 280s serial against 77s parallel on
+    this suite, identical results, stable over three runs. It is a default
+    rather than a flag because a four-minute gate is one people skip between
+    runs, and a gate nobody runs is worth nothing however correct it is. The
+    original of this test refused invisible defaults, and that still holds --
+    `main` prints the whole command, which the next test asserts, so the
+    workers are on screen before anything runs.
+    """
+    assert BASE_ARGS == ("-q", "--doctest-glob=*.md", "-n", "auto")
+
+
+def test_the_command_is_printed_before_it_runs(capsys, monkeypatch):
+    """What makes a default visible rather than hidden.
+
+    Every argument above is chosen for the operator. Printing the whole command
+    is the only thing that keeps that from being a decision made behind them.
+
+    Mutation: drop the `print` from `run_tests.main` and this fails.
+    """
+    monkeypatch.setattr("run_tests.subprocess.run", lambda *a, **k: type("R", (), {"returncode": 0})())
+    main([])
+    printed = capsys.readouterr().out
+    for argument in BASE_ARGS:
+        assert argument in printed, f"{argument} runs but is not shown"
 
 
 def test_extra_arguments_reach_pytest(capsys, monkeypatch):

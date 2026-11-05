@@ -224,10 +224,9 @@ def test_an_already_closed_entry_is_refused():
 
 
 def test_a_long_entry_is_still_seen_as_closed():
-    """The first version of that guard scanned a fixed forty-line window. It
-    passed against the short entry above and walked straight past the real one,
-    whose projection block alone is longer than the window -- so the real file
-    was closed twice and its outcome silently acquired an orphaned prefix."""
+    """The closed-entry guard reads the whole entry, not a fixed window of
+    lines: an entry whose projection block is longer than any window is still
+    seen as closed, so it is never closed twice."""
     padding = "\n".join(f"      line {i} of a long projection" for i in range(80))
     raw = RAW.replace("    projected_impact: it will work",
                       f"    projected_impact: |-\n{padding}")

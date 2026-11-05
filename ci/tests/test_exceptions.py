@@ -86,7 +86,8 @@ def test_a_complete_entry_passes():
 
 
 def test_a_constant_that_no_longer_exists_is_reported(tmp_path: Path):
-    """Caught two real errors on its first run against this corpus."""
+    """A constant the registry names that the file no longer holds is
+    reported."""
     write(tmp_path / "ci" / "thing.py", "SOMETHING_ELSE = 1\n")
     found = drift([entry()], tmp_path)
     assert any("no longer contains" in f for f in found)

@@ -1,6 +1,6 @@
 """What the rulesets say against what the host is running.
 
-NOTHING HERE REACHES A HOST. Every test that involves the host feeds a fake
+Nothing here reaches a host. Every test that involves the host feeds a fake
 `subprocess.run`, so the suite answers the same way offline, in CI, and on a
 machine with an admin credential — and no test can pass because the repository
 happens to be in the state it asserts. That matters more here than usual: the

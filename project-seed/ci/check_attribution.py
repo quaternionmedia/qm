@@ -1,64 +1,62 @@
 #!/usr/bin/env python3
 """Refuse vendor and model names where they do not belong.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-WHAT THIS IS FOR. Tool involvement is disclosed in one place -- a `Tools:` note
-on the artifact that calls for one -- and nowhere else. It is not a byline, not a
-commit subject, and not a sentence in a binding record. The existing rule covers
-only the co-author trailer, so a commit titled "Re-refactor docs with <model>"
-passes every check this org has, and that name is then in the permanent history
-of a corpus meant to outlive the product.
+Tool involvement is disclosed in one place, a `Tools:` note on the artifact
+that calls for one, and nowhere else: not a byline, not a commit subject, and
+not a sentence in a binding record. A commit subject naming a model would put
+that name in the permanent history of a corpus meant to outlive the product.
 
 The deeper reason is the seams doctrine: a record naming a vendor's mechanism in
 prose reads, to the next person, as that mechanism being sanctioned. A record
 states the invariant; a clearly-labelled adapter names the product.
 
-THREE CHECKS, all independent:
+Three checks, all independent:
 
     --records-dir DIR   no vendor or model name in the prose of any record there
     --base-ref REF      no vendor or model name in any commit subject REF..HEAD,
                         and no commit trailer or author field in that range
                         standing on an unmonitored address or a tool's name
+    --merged-ref REF    keeps commits already on REF out of that trailer and
+                        author check
 
-THE TRAILER CHECK IS THE ONE THAT WAS MISSING. `DRAFT-human-only-contributorship.md`
-section 3 bans a trailer or author field naming "an address that is not a
-monitored inbox reachable to a human accountable for the content", and names
-vendor `noreply@` addresses as the case. Every surface in this corpus describes
-that rule as enforced -- the adr-lint workflow's own comment says "the co-author
-trailer was already forbidden" -- and until this function existed, nothing
-anywhere read a trailer. Default tooling appends these, so a rule enforced by
-remembering to suppress it is a rule that holds until somebody is busy.
+`records/DRAFT-human-only-contributorship.md` section 3 bans a trailer or author
+field naming "an address that is not a monitored inbox reachable to a human
+accountable for the content", and names vendor `noreply@` addresses as the case.
+Default tooling appends these, so the rule is read from the commits.
 
-TWO INDEPENDENT WAYS ATTRIBUTION FAILS, because the record and the seed
-AGENTS.md draw slightly different lines and both are worth holding:
+A pull request that merges a default branch into another branch carries commits
+nobody can amend. `--merged-ref` leaves those out of the trailer and author check
+and of nothing else. The corpus's own workflow passes it on a pull request. The
+seed's does not, because a project's pull request carries its own commits.
+
+Attribution fails in two independent ways, because the record and the seed
+`AGENTS.md` draw slightly different lines and both are held:
 
   - **The address is unmonitored.** The record's own test. `noreply@vendor`
     names nobody who can be asked why.
-  - **The name is a tool's.** The seed AGENTS.md adds "do not add yourself, your
+  - **The name is a tool's.** The seed `AGENTS.md` adds "do not add yourself, your
     model name". A trailer reading `<Model> <a@real.address>` routes somewhere
     real and still credits software for the work.
 
-WHERE AN ADDRESS THAT LOOKS UNMONITORED IS FINE, and the check would be useless
-without the distinction:
+Where an address that looks unmonitored is fine:
 
-  - **A forge's per-user alias** -- `someone@users.noreply.github.com`. That is
-    not an unreachable address standing in for accountability; it *is* an
+  - **A forge's per-user alias** -- `someone@users.noreply.github.com`. It is an
     account, and it names one person reachable through the forge. Refusing it
     would refuse every contributor who keeps their email private.
   - **The committer field, which is not read at all.** Every squash merge on a
-    GitHub repository is committed by `GitHub <noreply@github.com>` -- measured
-    on this corpus before the rule was written. Checking the committer would
-    fail every merge this org makes, on the forge's own identity. Section 3 says
-    "author field", and the author is the accountable human.
+    GitHub repository is committed by `GitHub <noreply@github.com>`, so checking
+    the committer would fail every merge on the forge's own identity. Section 3
+    says "author field", and the author is the accountable human.
 
-WHERE A NAME IS FINE, and these are the point rather than loopholes:
+Where a name is fine, and these are the point rather than loopholes:
 
   - **Inside a code span or fence.** A record forbidding a trailer has to quote
     the trailer, exactly as the banned-vocabulary check lets the discipline
-    record quote its own list. Also house style for a path, so `CLAUDE.md` and
-    `.github/copilot-instructions.md` are covered by the same exemption.
+    record quote its own list. Also house style for a path, so `CLAUDE.md` is
+    covered by the same exemption.
   - **In `perspectives/`.** Dated, attributed, non-binding, and their own README
     *requires* a `Tools:` row. This script never reads them.
   - **In an enumeration of competing vendors.** Nobody attributes one piece of
@@ -82,6 +80,7 @@ Usage:
     python check_attribution.py --records-dir records
     python check_attribution.py --base-ref origin/main
     python check_attribution.py --records-dir records --base-ref origin/main
+    python check_attribution.py --base-ref origin/project/x --merged-ref origin/main
 """
 
 from __future__ import annotations
@@ -113,12 +112,11 @@ PER_USER_ALIAS = re.compile(r"@users\.no[._-]?reply\.", re.IGNORECASE)
 # way past a guard.
 ADDRESS = re.compile(r"<([^<>]*)>")
 
-# And an address standing on its own, with no display name around it. Found by
-# attacking the check: `Co-authored-by: noreply@vendor` has no brackets, so the
-# bracketed pattern saw no address at all and the *name* test flagged it -- for
-# the domain, which meant a real contributor's bare `person@vendor` address
-# would have been refused with the words "names a tool". Right verdict, wrong
-# reason, and the wrong reason is what teaches somebody the check is stupid.
+# And an address standing on its own, with no display name around it.
+# `Co-authored-by: noreply@vendor` has no brackets, so the bracketed pattern sees
+# no address. Without this one the whole value falls to the name test and matches
+# on the domain, refusing a real contributor's bare `person@vendor` address with
+# the words "names a tool".
 BARE_ADDRESS = re.compile(r"(?<![<\w.+-])([^\s<>@,()]+@[^\s<>@,()]+)(?![>\w])")
 
 # Grouped by vendor family, because the number of *families* in a paragraph is
@@ -219,7 +217,7 @@ def check_records(records: Path) -> list[str]:
 
 # Commit subjects allowed to name a tool, by full SHA, each with the reason.
 #
-# THE OBJECTION TO A LIST LIKE THIS IS REAL, and it is the one
+# The objection to a list like this is real, and it is the one
 # `check_signatures.py` states when it chooses a date instead: a list of blessed
 # SHAs grows quietly and nobody can tell later which entries were deliberate.
 # Two things answer it here. Every entry carries its reason, printed on every
@@ -302,13 +300,12 @@ def check_commit_subjects(base_ref: str) -> list[str]:
     return failures
 
 
-# THERE IS NO EXEMPTION LIST FOR THIS CHECK, and that is a decision rather than
-# an omission. EXEMPT_SUBJECTS above exists because a commit subject is
-# immutable and the alternative was rewriting somebody's history. Attribution
-# does not need the same hatch: this runs over a pull request's own range, so
-# the commits it reads are the ones their author can still amend, and section 4
-# leaves merged history alone by never being asked about it. An empty list would
-# be an invitation to add the first red rather than fix it.
+# This check has no exemption list, by decision. EXEMPT_SUBJECTS above exists
+# because a commit subject is immutable and the alternative is rewriting
+# somebody's history. This runs over a pull request's own range, so the commits it
+# reads are the ones their author can still amend, and `--merged-ref` keeps merged
+# history out of a propagation's range. An empty list would be an invitation to
+# add the first red rather than fix it.
 
 
 def addresses_in(value: str) -> list[str]:
@@ -343,8 +340,7 @@ def attribution_problems(value: str) -> list[str]:
         local, _, domain = address.partition("@")
         # A per-user alias names an account, so it is exempt -- but only when
         # the local part names one. `noreply@users.noreply.anything` is a
-        # no-reply wearing the exemption, and the adversarial pass walked
-        # straight through the earlier version with exactly that.
+        # no-reply wearing the exemption.
         if PER_USER_ALIAS.search("@" + domain) and not UNMONITORED.match(local):
             continue
         if UNMONITORED.match(local):
@@ -353,8 +349,11 @@ def attribution_problems(value: str) -> list[str]:
     return problems
 
 
-def check_commit_attribution(base_ref: str) -> list[str]:
+def check_commit_attribution(base_ref: str, merged_ref: str | None = None) -> list[str]:
     """No trailer or author field in base_ref..HEAD naming a tool or a void.
+
+    A commit `merged_ref` already holds is not read: it has landed, and its author
+    can no longer amend it.
 
     Git parses the trailers rather than a regex here. Git owns the definition --
     which paragraph they must sit in, folded continuations, which colons count --
@@ -369,8 +368,9 @@ def check_commit_attribution(base_ref: str) -> list[str]:
     # multi-line, so a line-oriented format would split one commit across
     # several records and hang a trailer on the wrong SHA.
     fmt = "%H%x1f%an <%ae>%x1f%(trailers:only=true,unfold=true)%x1e"
+    excluded = ["--not", merged_ref] if merged_ref else []
     result = subprocess.run(
-        ["git", "log", "--format=" + fmt, f"{base_ref}..HEAD"],
+        ["git", "log", "--format=" + fmt, f"{base_ref}..HEAD", *excluded],
         capture_output=True,
         text=True,
     )
@@ -407,21 +407,29 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--records-dir", help="Directory of records to read as prose")
     ap.add_argument("--base-ref", help="Check commit subjects in <ref>..HEAD")
+    ap.add_argument(
+        "--merged-ref",
+        help="Leave commits already on <ref> out of the trailer and author check",
+    )
     args = ap.parse_args()
 
     if not args.records_dir and not args.base_ref:
         ap.error("pass --records-dir, --base-ref, or both")
+    if args.merged_ref and not args.base_ref:
+        ap.error("--merged-ref narrows --base-ref, so pass both")
 
     failures: list[str] = []
     if args.records_dir:
         failures += check_records(Path(args.records_dir))
     if args.base_ref:
-        unreachable = verify_ref(args.base_ref)
+        unreachable = verify_ref(args.base_ref) or (
+            verify_ref(args.merged_ref) if args.merged_ref else None
+        )
         if unreachable:
             failures.append(unreachable)
         else:
             failures += check_commit_subjects(args.base_ref)
-            failures += check_commit_attribution(args.base_ref)
+            failures += check_commit_attribution(args.base_ref, args.merged_ref)
 
     if failures:
         for line in failures:
@@ -435,6 +443,7 @@ def main() -> int:
     if args.base_ref:
         checked.append(
             f"commit subjects, trailers and authors in {args.base_ref}..HEAD"
+            + (f", trailers and authors not on {args.merged_ref}" if args.merged_ref else "")
         )
     print(f"check_attribution: clean ({', '.join(checked)}).")
     return 0

@@ -6,15 +6,12 @@
 # deletes exactly what is listed here and nothing else. Adding a target is an
 # edit to this file, reviewed like any other change, and requires no code.
 #
-# WHY A POLICY RATHER THAN A SCRIPT
+# A policy rather than a script: each entry carries the cost of being wrong, in
+# `safety`, so a reader can tell whether a line is safe without its author, and
+# the reclaimer gates on that field. The cheapest tier runs by default and every
+# other tier is opt-in per invocation.
 #
-# A cleanup script is a list of deletions with the reasoning left in the head of
-# whoever wrote it. Six months later nobody can say whether a line is safe, so
-# either it is run unread or it is not run at all. Here each entry carries the
-# cost of being wrong, in `safety`, and the reclaimer gates on that field: the
-# cheapest tier runs by default and every other tier is opt-in per invocation.
-#
-# SAFETY IS THE COST OF GETTING IT BACK, NOT A GUESS AT RISK
+# Safety is the cost of getting it back, not a guess at risk:
 #
 #   refetched    the tool that owns it downloads it again, unprompted, the next
 #                time it needs it. Costs bandwidth and nothing else. This tier
@@ -28,7 +25,7 @@
 # There is no fourth tier and nothing is unclassified: an entry with no `safety`
 # is a policy error and the tools refuse the file rather than assuming.
 #
-# PATHS ARE WRITTEN AGAINST THE ENVIRONMENT, NOT AGAINST ONE MACHINE
+# Paths are written against the environment, not against one machine:
 #
 # `${VAR}` is expanded from the environment. A variable that is not set makes
 # the entry `unknown` with that reason -- it is never silently skipped, because
@@ -38,7 +35,7 @@
 schema: 1
 
 # Free space below which a volume needs a person. Two thresholds, because two
-# different actions: `warn` is "schedule an hour this week", `critical` is
+# different actions: `warn` is "schedule an hour soon", `critical` is
 # "the next build fails". Ratio and absolute are both checked and the worse one
 # wins -- 10% of a 4TB array is 400GB and fine, 10% of a 128GB laptop is not.
 thresholds:

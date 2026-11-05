@@ -1,8 +1,8 @@
 # About QM
 
-What the corpus is, how it works, and how it got here.
+What the [corpus](../ref/glossary.md#corpus){ .glossary-term } is, how it works, and how it got here.
 
-- **[Overview](overview.md)** — what QM is, the four artifact classes, and the eleven principles.
+- **[Overview](overview.md)** — what QM is, the four artifact classes, and the principles.
 - **[Architecture](architecture.md)** — the branch-per-project model and why it works that way.
 - **[History](history.md)** — how the corpus evolved, and where the reasons live.
 

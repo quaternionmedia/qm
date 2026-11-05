@@ -91,7 +91,7 @@ Session and conversation exports, per vendor.
 The runs that leave no vendor trace.
 
 - Capture: this is the one already half-built. `perspectives/artifacts/` is
-  machine-scoped and gitignored; `ledger.yaml` is committed and human-written
+  machine-scoped and gitignored; `status/ledger.yaml` is committed and human-written
 - **Open:** the corpus already decided session artifacts are machine-scoped and
   must not be committed, because one machine's history would read as an org
   fact. Collection wants the opposite. That is a genuine conflict with a
