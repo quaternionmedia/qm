@@ -1,23 +1,19 @@
 #!/usr/bin/env python3
 """Break a module on purpose and see whether its tests notice.
 
-    uv run qm mutate ci/rulesets.py
-    uv run qm mutate ci/rulesets.py --list          # the mutants, without running
-    uv run qm mutate ci/rulesets.py --check         # exit non-zero on a survivor
+    uv run --extra dev qm mutate ci/rulesets.py
+    uv run --extra dev qm mutate ci/rulesets.py --list    # the mutants, without running
+    uv run --extra dev qm mutate ci/rulesets.py --check   # exit non-zero on a survivor
 
-WHY A ROUTE AND NOT A SCRIPT. `ci/lane-registry.yaml` records it plainly under
-`development-loop`: every mutation result this corpus has quoted was produced by
-an ad-hoc script written into a scratchpad and thrown away, which is the same
-defect as a hand-run check reported as CI -- a number nobody else can reproduce.
-This is the reproduction. It is a route so that the claim "these tests
-discriminate" carries a command.
+It is a route, so the claim "these tests discriminate" carries a command
+anybody can reproduce, rather than a number from a script nobody else has.
 
-WHAT A SURVIVING MUTANT MEANS. The module was changed and every test still
+A surviving mutant means the module was changed and every test still
 passed. Either a test is missing, or the change makes no behavioural difference
 -- an *equivalent* mutant, which is a normal outcome and not a defect. This tool
 cannot tell the two apart, so it reports survivors and judges none of them.
 
-WHAT IT CANNOT SEE.
+What it cannot see:
 
   * Any defect no textual operator below expresses. The operators are a floor.
   * Whether the test that killed a mutant is the test that should have. A suite
@@ -26,12 +22,11 @@ WHAT IT CANNOT SEE.
     obvious filename and says so; a module with tests elsewhere reports as
     having none rather than silently running a smaller suite.
 
-WHY IT COPIES RATHER THAN EDITS IN PLACE. A tool that mutates a tracked file and
-restores it afterwards leaves the file broken if it is interrupted, and this
-corpus has already had one aside-and-back move that would have done real damage
-had the middle command failed. Every mutant is run against a byte-for-byte copy
-of `ci/` in a temporary directory -- binary copies, because a text-mode copy on
-Windows rewrites every line ending and the diff then measures the copier.
+It copies rather than edits in place: a tool that mutates a tracked file and
+restores it afterwards leaves the file broken if it is interrupted. Every
+mutant runs against a copy of the working tree in a temporary directory,
+staged once per sweep; `stage` says what is left out.
+`docs/ref/ci/measuring-the-suite.md` describes mutation testing here.
 """
 
 from __future__ import annotations
@@ -47,10 +42,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # One-for-one textual substitutions. Each is a change that a correct test suite
-# should notice. `return None` -> `return []` is first because it is the one
-# this harness was written for: an empty list is a real answer -- "nothing is
-# applied" -- and a failed call that returns one reports an unreachable host as
-# an unprotected repository.
+# should notice. `return None` -> `return []` is first: an empty list is a real
+# answer ("nothing is applied"), and a failed call that returns one reports an
+# unreachable host as an unprotected repository.
 OPERATORS: tuple[tuple[str, str], ...] = (
     ("return None", "return []"),
     ("return []", "return None"),
@@ -130,11 +124,27 @@ def apply_mutant(source: str, mutant: Mutant) -> str:
 
 
 def stage(workdir: Path, root: Path = ROOT) -> Path:
-    """A byte-for-byte copy of `ci/`, with no compiled cache to shadow it."""
-    destination = workdir / "ci"
+    """A byte-for-byte copy of the working tree, minus build outputs and caches.
+
+    The whole tree, not just `ci/`: a test that reads a registry, a record or a
+    curriculum outside `ci/` would fail in a partial copy, the baseline would
+    go red, and the sweep would refuse to score a suite that is fine. `.git` is
+    copied too, so a test exercising a real `git rev-parse` finds a
+    repository. It costs one copy per sweep rather than one per mutant,
+    because only the module under test is rewritten inside the loop.
+
+    Binary copies. A text-mode copy on Windows rewrites every line ending, and
+    the diff then measures the copier. Symlinks are followed rather than
+    recreated -- the `.vscode/` and `.claude/` pointers are real symlinks here,
+    and creating one on Windows needs a privilege a test run should not require.
+    """
+    destination = workdir / "tree"
     shutil.copytree(
-        root / "ci", destination,
-        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+        root, destination, symlinks=False, ignore_dangling_symlinks=True,
+        ignore=shutil.ignore_patterns(
+            "site", "__pycache__", "*.pyc", ".venv", "node_modules",
+            ".pytest_cache", ".mypy_cache", ".ruff_cache",
+        ),
     )
     return destination
 
@@ -142,7 +152,7 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
 def run_tests(tests: Path, workdir: Path) -> subprocess.CompletedProcess:
     """One pytest run, with no bytecode written and no cache read.
 
-    `-B` IS LOad-BEARING, and finding out why cost a session. CPython validates
+    `-B` is load-bearing. CPython validates
     a cached `.pyc` against the source's size and its mtime *truncated to whole
     seconds*. A mutant that swaps `==` for `!=` changes neither: mutants written
     within the same second are byte-identical to the cache's key, so the second
@@ -178,13 +188,13 @@ def sweep(module: Path, tests: Path, root: Path = ROOT, out=print):
     with tempfile.TemporaryDirectory() as raw:
         workdir = Path(raw)
         staged = stage(workdir, root)
-        staged_module = workdir / relative_module
-        staged_tests = workdir / relative_tests
+        staged_module = staged / relative_module
+        staged_tests = staged / relative_tests
 
         # The baseline, asserted rather than assumed. A suite that is already
         # red kills every mutant for free and the sweep proves nothing -- this
         # corpus has published one mutation result produced exactly that way.
-        baseline = run_tests(staged_tests, workdir)
+        baseline = run_tests(staged_tests, staged)
         if baseline.returncode != 0:
             out(f"{relative_tests} does not pass unmutated. Nothing was measured.")
             out(baseline.stdout.strip()[-2000:])
@@ -195,8 +205,19 @@ def sweep(module: Path, tests: Path, root: Path = ROOT, out=print):
         survivors: list[Mutant] = []
         errored: list[tuple[Mutant, int]] = []
         for index, mutant in enumerate(candidates, start=1):
-            staged_module.write_text(apply_mutant(source, mutant), encoding="utf-8")
-            result = run_tests(staged_tests, workdir)
+            mutated = apply_mutant(source, mutant)
+            # A mutation that does not change the text makes its mutant
+            # unkillable, and the tool then reports a suite as weak when the
+            # suite is fine -- the stale-bytecode defect inverted. Asserted
+            # rather than assumed, because both failures look like a survivor.
+            if mutated == source:
+                out(f"mutant {index} changed nothing: {mutant.label()}")
+                raise SystemExit(2)
+            staged_module.write_text(mutated, encoding="utf-8")
+            if staged_module.read_text(encoding="utf-8") != mutated:
+                out(f"mutant {index} did not reach {staged_module}. Nothing was measured.")
+                raise SystemExit(2)
+            result = run_tests(staged_tests, staged)
             # Exit 1 is the only status that means a test failed. pytest also
             # exits non-zero when it collected nothing (5), was misinvoked (4),
             # errored internally (3) or was interrupted (2). Counting those as
@@ -216,7 +237,6 @@ def sweep(module: Path, tests: Path, root: Path = ROOT, out=print):
                 state = "killed "
             out(f"  [{state}] {index:>3}/{len(candidates)}  {mutant.label()}")
         staged_module.write_text(source, encoding="utf-8")
-        _ = staged  # the staged tree is the temporary directory's to remove
 
     return survivors, errored, len(candidates)
 

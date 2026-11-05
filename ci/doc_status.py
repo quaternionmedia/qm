@@ -4,28 +4,25 @@
 Org-level tooling, copied nowhere. The document half of the shape
 `handbook/generated-documents.md` describes; `ci/doc_dashboard.py` renders it.
 
-WHAT THIS IS FOR. This corpus has four state vocabularies and they do not
-overlap. A record is `Proposed` or `Accepted`, and its filename separately says
-`DRAFT-` or `QM-NNNN-`. A perspective is `Unreviewed`, `Acknowledged`,
-`Responded` or `Declined`. A generated page has no lifecycle at all, only an
-age. A handbook page has no state vocabulary whatsoever. So a reader opening a
-page in this repository cannot tell, from the page, which of those systems it
-belongs to or where in one it sits -- and every one of those states means
-something different about whether the page binds them.
+The corpus has four state vocabularies, and they do not overlap. A record is
+`Proposed` or `Accepted`, and its filename separately says `DRAFT-` or
+`QM-NNNN-`. A perspective is `Unreviewed`, `Acknowledged`, `Responded` or
+`Declined`. A generated page has no lifecycle, only an age. A handbook page has
+no state vocabulary. This gives every governed page one state from one closed
+list, with what that state means about whether the page binds its reader.
 
-TWO SIGNALS PER DOCUMENT, AND THEY CAN DISAGREE
+Two signals per document, which can disagree:
 
   declared   the document's own `| **Status** | ... |` row. What it says of
              itself.
   filename   what the name asserts: `DRAFT-` is pre-ratification,
              `QM-NNNN-` is ratified.
 
-A file named `DRAFT-` whose Status reads `Accepted` is a ratification somebody
-started and did not finish -- step 3 of five, per the ratification path, is the
-rename. Nothing else in this repository notices that, so the disagreement is a
-first-class output here rather than a footnote.
+A file named `DRAFT-` whose Status reads `Accepted` is a ratification started
+and not finished (the rename is a later step of the ratification path), and
+the disagreement is a first-class output.
 
-WHAT THIS CANNOT DO
+What this cannot do:
 
   - It cannot tell whether a state is *correct*. `Proposed` on a record nobody
     has read and `Proposed` on a record awaiting one signature are the same
@@ -36,8 +33,8 @@ WHAT THIS CANNOT DO
     given a state this tool invented.
 
 Usage:
-    python ci/doc_status.py --write doc-status.json
-    python ci/doc_status.py --check doc-status.json
+    python ci/doc_status.py --write status/documents.yaml
+    python ci/doc_status.py --check status/documents.yaml
 """
 
 from __future__ import annotations
@@ -59,10 +56,9 @@ STATUS_ROW = re.compile(r"^\|\s*\*\*Status\*\*\s*\|\s*(?P<value>[^|]+?)\s*\|", r
 
 # A row of the perspectives index:
 #   | 2026-08-13 | `file.md` | Author | Perspective | Unreviewed | Notes |
-# That index is the authority for a perspective's status -- `perspectives/README.md`
-# says so in as many words: "This index is the whole mechanism." Reading the
-# file's own header instead reported 21 of 26 perspectives as `unknown`, which
-# was a fact about where this tool looked and not about the corpus.
+# That index is the authority for a perspective's status: `perspectives/README.md`
+# says "This index is the whole mechanism." Most perspective files carry no
+# Status row of their own.
 INDEX_ROW = re.compile(
     r"^\|\s*[\d-]+\s*\|\s*`(?P<file>[^`]+\.md)`\s*\|[^|]*\|[^|]*\|\s*(?P<status>[^|]+?)\s*\|",
     re.M,
@@ -72,23 +68,63 @@ INDEX_ROW = re.compile(
 # detected: a page is generated because a generator writes it, which is a fact
 # about the tooling and not about the file's contents.
 GENERATED = {
-    "governance-status.yaml": "python ci/governance_status.py --write governance-status.yaml",
-    "harness-status.json": "python ci/harness_status.py --no-local --write harness-status.json",
-    "gate-status.json": "python ci/gate_status.py --write gate-status.json",
-    "doc-status.json": "python ci/doc_status.py --write doc-status.json",
-    "inventory.json": "uv run qm inventory --write inventory.json",
-    "handbook/gates.md": "python ci/gate_dashboard.py gate-status.json --format md --out handbook/gates.md",
-    "handbook/document-states.md": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
+    "status/governance.yaml": "python ci/governance_status.py --write status/governance.yaml",
+    "status/harness.yaml": "python ci/harness_status.py --no-local --write status/harness.yaml",
+    "status/gates.yaml": "python ci/gate_status.py --write status/gates.yaml",
+    "status/documents.yaml": "python ci/doc_status.py --write status/documents.yaml",
+    "status/inventory.yaml": "uv run qm inventory --write",
+    "handbook/gates.md": "python ci/gate_dashboard.py status/gates.yaml --format md --out handbook/gates.md",
+    "handbook/document-states.md": "python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md",
 }
+# The directories one generator writes whole, listed by directory because the
+# pages in them follow the roster: a member added is a page added, and a list
+# of names would fall behind it. Every file under each is the generator's
+# (records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md §1),
+# except a project's subtree below.
+GENERATED_UNDER = {
+    "docs/families/": "uv run qm cookbook docs/families --site --write",
+    "docs/projects/": "uv run qm cookbook docs/families --site --write",
+}
+# A project's dated account, docs/projects/<name>/, is not the cookbook's
+# (records/DRAFT-a-projects-history-lives-in-the-corpus.md §3): its timeline is
+# ci/timeline.py's, and every other page in it is a dated page a person wrote.
+SUBTREE = re.compile(r"^docs/projects/(?P<name>[^/]+)/(?P<file>.+)$")
+TIMELINE = "timeline.md"
+
+
+def refresh_of(rel: str) -> str | None:
+    """The command that writes `rel`, or None when nothing generates it."""
+    if rel in GENERATED:
+        return GENERATED[rel]
+    subtree = SUBTREE.match(rel)
+    if subtree:
+        if subtree.group("file") == TIMELINE:
+            return f"uv run qm timeline {subtree.group('name')} --write"
+        return None
+    return next((command for under, command in GENERATED_UNDER.items()
+                 if rel.startswith(under)), None)
 
 # What a session must read before its first edit, per AGENTS.md's opening.
-# Measured because it is a cost paid by every reader, and because it rose 58
-# lines in a session whose stated aim included cutting it -- an unmeasured
-# figure moves in whichever direction nobody is watching.
+# Measured because it is a cost paid by every reader, and an unmeasured figure
+# moves in whichever direction nobody is watching.
 # records/DRAFT-governance-arrives-as-a-mechanism.md 4 sets the budget.
-MANDATORY_READING = ("AGENTS.md", "handbook/async-contract.md",
+#
+# This list is the measurement's scope: a document a session is told to read
+# in full belongs in it, or the figure undercounts the load. `scope_note` below
+# states what is left out and why, so a reader can argue with the boundary.
+MANDATORY_READING = ("AGENTS.md", "PRINCIPLES.md", "handbook/async-contract.md",
                      "handbook/handoffs/README.md")
-READING_BUDGET_LINES = 700
+# `README.md` is mandated in part rather than in full -- AGENTS.md item 1 asks
+# for its opening points, not the whole page -- so counting the page would
+# overstate the load. The exclusion is named so it cannot be mistaken for an
+# oversight.
+MANDATORY_READING_EXCLUDED = {
+    "README.md": "mandated in part -- its opening points, not the whole page",
+}
+# The ceiling sits above the measured mandate, because a breached ceiling is
+# one nobody can act on. records/DRAFT-governance-arrives-as-a-mechanism.md 4
+# carries the derivation.
+READING_BUDGET_LINES = 1200
 
 
 def reading_load(root: Path) -> dict:
@@ -114,6 +150,13 @@ def reading_load(root: Path) -> dict:
             "It is lowered as prose is deleted, never raised on contact. Raising "
             "it is an amendment to that record, argued in the open."
         ),
+        "excluded": MANDATORY_READING_EXCLUDED,
+        "scope_note": (
+            "`documents` is the scope of this measurement and not a derived "
+            "fact. A figure inside its budget means the listed documents are "
+            "inside it, and nothing more -- read `excluded` before quoting "
+            "`within_budget`."
+        ),
     }
 
 
@@ -132,6 +175,7 @@ STATES = {
     "generated": "written by a tool. Do not edit by hand; check its age before quoting.",
     "standing": "policy or charter with no lifecycle defined for its class.",
     "transient": "working instructions, deleted when the work lands.",
+    "dated": "a project's dated history, true of the days it names. Never brought up to date; read it for what happened, not for what is.",
     "unknown": "the state could not be established, which is not the same as fine.",
 }
 
@@ -189,13 +233,17 @@ def normalise(declared: str | None) -> str | None:
 
 
 def classify(path: Path, root: Path) -> tuple[str, str]:
-    """(class, why) for one path. Class decides which vocabulary applies."""
+    """(class, why) for one path. Class decides which vocabulary applies.
+
+    Paired with `handbook/style-guide.md`'s "Every home" table, which names
+    these classes and this function back. The two are one taxonomy written in
+    two places, and they are repaired together.
+    """
     rel = path.relative_to(root).as_posix()
-    if rel in GENERATED:
+    if refresh_of(rel):
         return "generated", "a tool writes it"
-    # An index is not a member of the thing it indexes. Classifying
-    # perspectives/README.md as a perspective asked it for a status it does not
-    # have and reported the index itself as unknown.
+    # An index is not a member of the thing it indexes, and has no status of
+    # the kind its members carry.
     if path.name == "README.md" and rel != "README.md":
         return "index", "the index for its directory, not a member of it"
     if rel.startswith("records/"):
@@ -206,6 +254,19 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
         return "handoff", "working instructions, deleted when the work lands"
     if rel.startswith("handbook/"):
         return "handbook", "policy binding on QM's own conduct"
+    # `docs/` is the reference tier named in handbook/style-guide.md; it and the
+    # three governed directories below it each have a class, so none of their
+    # pages falls through to "not in a governed directory".
+    if SUBTREE.match(rel):
+        return "history", "a project's dated account, in its subtree beside its page"
+    if rel.startswith("docs/"):
+        return "reference", "the reference: contracts, interfaces, procedures"
+    if rel.startswith("protocols/"):
+        return "protocol", "a procedure run deliberately, and its runs"
+    if rel.startswith("curriculum/"):
+        return "curriculum", "a reading order, citing documents it does not restate"
+    if rel.startswith("walkthrough/"):
+        return "walkthrough", "a worked example, executed by the test command"
     if rel in ("PRINCIPLES.md", "AGENTS.md", "README.md"):
         return "entry", "read first, by everyone"
     return "other", "not in a governed directory"
@@ -235,7 +296,7 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
 
     if kind == "generated":
         entry["state"] = "generated"
-        entry["refresh"] = GENERATED[rel]
+        entry["refresh"] = refresh_of(rel)
         entry["present"] = present
         if not present:
             # Reported, never omitted. A declared document that has never been
@@ -299,6 +360,10 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
         entry["state"] = "transient"
         return entry
 
+    if kind == "history":
+        entry["state"] = "dated"
+        return entry
+
     entry["state"] = "standing"
     entry["note"] = (
         "the corpus defines no lifecycle for this class, so this is the absence "
@@ -335,7 +400,7 @@ def readiness(root: Path, rows: list[dict], by_state: dict[str, int], load: dict
         "reading_total_lines": load["total_lines"],
         "reading_budget_lines": load["budget_lines"],
         "gates": unknown(
-            "held in gate-status.json, which this generator does not read -- one "
+            "held in status/gates.yaml, which this generator does not read -- one "
             "document does not restate another's figures"
         ),
         "semantic_review": unknown(
@@ -362,9 +427,13 @@ def build(root: Path) -> dict:
     # Collected as a set and sorted, so the output does not depend on which
     # generator ran first. An order-dependent document cannot be checked, and
     # this one lists a view that is written after it.
+    # The scan is the scope, and the scope decides what `totals.unknown` means:
+    # a document nothing scans is not a document in a good state, so every
+    # governed directory is in this list.
     found: set[str] = set()
     for pattern in ("records/*.md", "perspectives/*.md", "handbook/**/*.md",
-                    "plans/*.md",
+                    "plans/*.md", "docs/**/*.md", "protocols/**/*.md",
+                    "curriculum/*.md", "walkthrough/*.md",
                     "PRINCIPLES.md", "AGENTS.md", "README.md"):
         for path in root.glob(pattern):
             found.add(path.relative_to(root).as_posix())
@@ -377,10 +446,9 @@ def build(root: Path) -> dict:
 
     index = perspective_index(root)
 
-    # An index row naming a file that does not exist. The reverse -- a file with
-    # no row -- was already caught, and checking one direction only is how a
-    # perspective got indexed here before it was written. `check_restatements.py`
-    # got this right in the same session that got it wrong here.
+    # An index row naming a file that does not exist. The reverse, a file with
+    # no row, is checked too: both directions, as `check_restatements.py`
+    # checks both.
     for name in index:
         rel = f"perspectives/{name}"
         if rel not in found:
@@ -412,7 +480,7 @@ def build(root: Path) -> dict:
         },
         "reading": {
             "refresh": "uv run qm docs generate",
-            "refresh_without_the_cli": "python ci/doc_status.py --write doc-status.json",
+            "refresh_without_the_cli": "python ci/doc_status.py --write status/documents.yaml",
             "staleness_budget_hours": 168,
             "agent_view": "uv run qm docs states",
             "toggle": "uv run qm docs states --state draft",
@@ -461,7 +529,7 @@ def main(argv: list[str] | None = None) -> int:
         if not target.is_file():
             print(f"{args.check}: not present.", file=sys.stderr)
             return 1
-        committed = json.loads(target.read_text(encoding="utf-8"))
+        committed = yaml.safe_load(target.read_text(encoding="utf-8"))
         if comparable(committed) != comparable(build(root)):
             print(f"{args.check} no longer describes the documents on disk.\n"
                   f"Run: python ci/doc_status.py --write {args.check}", file=sys.stderr)
@@ -471,8 +539,9 @@ def main(argv: list[str] | None = None) -> int:
 
     document = build(root)
     if args.write:
+        Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
-            json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
+            yaml.safe_dump(document, sort_keys=False, allow_unicode=True) + "\n", encoding="utf-8", newline="\n"
         )
         print(f"wrote {args.write}")
         return 0

@@ -113,7 +113,7 @@ def test_a_perspective_takes_its_state_from_the_index(tmp_path: Path):
 
 
 def test_a_perspective_missing_from_the_index_is_unknown(tmp_path: Path):
-    """A real finding on this tool's first run: one perspective had no row."""
+    """A perspective with no index row is unknown."""
     corpus(tmp_path)
     write(tmp_path / "perspectives" / "a.md", "# T\n\n*byline*\n")
     write(tmp_path / "perspectives" / "README.md", "| Date | File |\n")
@@ -132,8 +132,8 @@ def test_the_index_disagreeing_with_the_file_is_reported(tmp_path: Path):
 
 
 def test_an_index_row_naming_a_missing_file_is_reported(tmp_path: Path):
-    """Checking one direction only is how a perspective got indexed here before
-    it was written, and nothing said so."""
+    """Both directions are checked: an index row naming a missing file is
+    reported, as is a file with no row."""
     corpus(tmp_path)
     write(tmp_path / "perspectives" / "README.md",
           "| 2026-01-01 | `ghost.md` | Someone | Perspective | Unreviewed | note |\n")
@@ -158,10 +158,26 @@ def test_a_declared_generated_document_absent_from_disk_is_still_listed(tmp_path
     this document lists a view written after itself."""
     corpus(tmp_path)
     doc = build(tmp_path)
-    row = [d for d in doc["documents"] if d["path"] == "gate-status.json"][0]
+    row = [d for d in doc["documents"] if d["path"] == "status/gates.yaml"][0]
     assert row["state"] == "generated"
     assert row["present"] is False
     assert "not on disk" in row["why_absent"]
+
+
+def test_the_sites_family_and_project_pages_are_generated(tmp_path: Path):
+    """The cookbook writes every page under these two directories, and a page
+    read as reference is one somebody edits by hand and loses at the next run.
+    Mutation: empty `GENERATED_UNDER`, and this fails."""
+    corpus(tmp_path)
+    write(tmp_path / "docs" / "projects" / "carlos.md", "# carlos\n")
+    write(tmp_path / "docs" / "families" / "index.md", "# families\n")
+    write(tmp_path / "docs" / "usage" / "build-these-docs.md", "# Build these docs\n")
+    doc = build(tmp_path)
+    assert states(doc)["docs/projects/carlos.md"] == "generated"
+    assert states(doc)["docs/families/index.md"] == "generated"
+    assert find(doc, "docs/projects/carlos.md")["refresh"] == (
+        "uv run qm cookbook docs/families --site --write")
+    assert classify(tmp_path / "docs" / "usage" / "build-these-docs.md", tmp_path)[0] == "reference"
 
 
 def test_the_document_is_order_independent(tmp_path: Path):

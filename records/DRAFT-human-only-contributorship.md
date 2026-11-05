@@ -5,17 +5,16 @@
 | **Status** | Proposed |
 | **Date** | 2026-07-05 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P10 — credit tracks accountability, not output |
+| **Principle** | `credit-tracks-accountability` — credit tracks accountability, not output |
+| **Restated in** | `AGENTS.md`; `handbook/async-contract.md`; `project-seed/ide/AGENTS.md` |
 
 ## Context
 
-Contributor and author fields across the corpus currently mix two different
-kinds of party without saying so. `perspectives/README.md`'s Index table
-lists `Claude Fable 5` and `Claude Sonnet 5` in the same Author column a
-human name would occupy. Separately, default assistant tooling commonly
-appends a `Co-Authored-By: <model> <noreply@vendor.tld>` trailer to commits —
-an address nobody reads, standing in the same field a human's monitored
-address would.
+Contributor and author fields can mix two different kinds of party without
+saying so: a model name in the same Author column a human name would occupy,
+or a `Co-Authored-By: <model> <noreply@vendor.tld>` trailer that default
+assistant tooling commonly appends to commits — an address nobody reads,
+standing in the same field a human's monitored address would.
 
 A contributor is a party who can be asked why a change was made, held to a
 commitment made in review, and reached at a real address if something breaks.
@@ -45,7 +44,19 @@ author/contributor field exists to record.
    hand. Naming a human is always fine, including a human who works at or
    through a tool vendor; the ban is on unreachable addresses standing in for
    accountability, not on disclosing that a tool was used.
-4. This governs attribution metadata — commit trailers, bylines, index
+5. **What a contributor's account posts speaks as that contributor, to the
+   world.** A pull request body, a review comment, an issue or a commit
+   message carries the human's name, so it is the human's statement of the
+   change — and it addresses nobody. A sentence *to* the contributor about
+   how the change is to be handled — who merges it, what deserves their
+   attention, that no review is wanted — is a tool speaking to its operator
+   under the operator's name; on the host it reads as the contributor
+   talking to themself. Such things are said in the session and settled
+   there; the artifact states decisions and facts, in the third person where
+   a person must be named. `project-seed/ci/check_pr_voice.py` refuses the
+   second person and the handling phrases in a pull request body; it cannot
+   see the third person, and does not try to.
+6. This governs attribution metadata — commit trailers, bylines, index
    entries, and each perspective file's own header table and closing
    signature. Existing commits are not amended; commit history is left
    alone. Perspectives are different: they carry no ratification gate (see
@@ -63,10 +74,15 @@ author/contributor field exists to record.
   address, fails review. What backs that up differs by artifact, and the
   difference is worth stating rather than blurring: a byline is prose a human
   reviewer reads in the diff, while a commit trailer is metadata nobody reads
-  by eye. The trailer therefore needs a machine check, and the shape of it is
-  a branch-protection rule matching `co-authored-by:.*noreply` with the match
-  negated — the repository's rulesets carry it. Until a ruleset enforcing it
-  is active, this clause is carried by instruction alone (see below).
+  by eye. The trailer therefore has a machine check:
+  `project-seed/ci/check_attribution.py`, a step of the ADR lint, reads every
+  trailer and author field on a pull request's own commits. The repository's
+  rulesets also carry a branch-protection rule matching
+  `co-authored-by:.*noreply` with the match negated, which holds it at the host
+  once a ruleset enforcing it is active.
+- A `Tools:` line in a commit message is a trailer, so it names no product, and
+  the check refuses one that does. A Tools/Notes annotation naming the software
+  sits on the artifact that calls for it, such as a perspective.
 - `perspectives/README.md`'s index schema gains a Tools/Notes annotation
   distinct from Author; its existing entries crediting model names, plus the
   affected files' own header tables and closing signatures, were migrated to
@@ -74,15 +90,10 @@ author/contributor field exists to record.
   than held pending this record's ratification.
 - Default assistant commit tooling that appends a
   `Co-Authored-By: <model> <noreply@...>` trailer must be suppressed or
-  overridden for qm and any project adopting this record — stated, for now,
-  as an explicit instruction to drafting sessions rather than a mechanical
-  check. That is a known soft spot, not a design choice: this corpus's own
-  decision-record-discipline record rejected "convention without
-  enforcement" as insufficient in a different context, and the same
-  argument applies here until the rule above is actually enforcing. The
-  instruction is the weakest of the three mechanisms this record relies on,
-  and it guards the one violation an assistant commits by default rather
-  than by choice.
+  overridden for qm and any project adopting this record. The check refuses
+  such a trailer on a pull request and leaves a commit already merged alone;
+  the instruction to drafting sessions keeps it from being written, and guards
+  the one violation an assistant commits by default rather than by choice.
 - Cost accepted: some provenance detail (exactly which model or version
   produced a given diff) moves from a prominent commit trailer to a
   lower-visibility Tools note. The org has decided that the signer being
@@ -105,15 +116,15 @@ author/contributor field exists to record.
 
 ## Revision triggers
 
+- A hosted artifact posted under a contributor's account is found addressing
+  that contributor and the voice check did not refuse it — the check's list is
+  then short, and clause 5 names what was missed.
+
 - A tool becomes a legally recognized author in a jurisdiction QM operates
   in — would force reconciling this record with law, not just house style.
 - The Tools/Notes annotation is used to smuggle credit back in, or becomes
   contentious in review — the record needs a firmer format, not repeated
   exceptions.
-- The instruction-only commit-trailer ban is missed by a new contributor or
-  a fresh drafting session — the point at which "stated instruction" needs
-  to become a mechanical check (commit-msg hook or CI grep) rather than
-  staying an accepted gap.
 
 ## Amendments
 

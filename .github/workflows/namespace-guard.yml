@@ -14,29 +14,24 @@ name: Namespace guard
 # from main outwards, so org-namespace content added on a project branch never
 # reaches main and is stranded where nobody looks for it.
 
-# Both events, deliberately. The pull_request trigger is the gate; the push
-# trigger exists because a project branch is one of the two places in this
-# corpus where content legitimately arrives by push -- the initial `adr/` when
-# the branch is created (see docs/ref/namespaces.md). A push is
-# therefore not refusable, but it is the one route by which org content can land
-# on a project branch with nothing having looked at it, and this check is the
-# only thing that looks. Reporting after the fact beats not reporting.
+# Both events. The pull_request trigger is the gate. The push trigger covers
+# the one place in this corpus where content arrives on a project branch by
+# push, the initial `adr/` when the branch is created (see
+# docs/ref/namespaces.md): a push cannot be refused, so this reports it after
+# the fact.
 on:
   pull_request:
     branches: ['project/**']
   push:
     branches: ['project/**']
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -54,10 +49,10 @@ jobs:
 
       - name: A project branch's own commits touch adr/ only
         run: |
-          # `github.base_ref` is set on a pull_request and EMPTY on a push, so
+          # `github.base_ref` is set on a pull_request and empty on a push, so
           # taking it unconditionally would make `base` the ref `origin/` and
-          # fail the step on every push -- a false red introduced by adding the
-          # trigger. On a push the branch's own base is the default branch.
+          # fail the step on every push. On a push the branch's own base is the
+          # default branch.
           base_ref="${{ github.base_ref }}"
           base_ref="${base_ref:-main}"
           base="origin/${base_ref}"
@@ -68,11 +63,9 @@ jobs:
           mergebase=$(git merge-base "$base" HEAD)
           candidates=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**')
 
-          # Then keep only paths whose content actually differs from main's.
-          # A propagation PR carries main's non-adr/ changes by definition --
-          # that is what propagation IS -- so comparing commits rather than
-          # content fails every one of them, which is how this check first
-          # broke #18, #19 and #20.
+          # Then keep only paths whose content differs from main's. A
+          # propagation PR carries main's non-adr/ changes by definition, so a
+          # comparison of commits rather than content would fail every one.
           offending=$(
             for f in $candidates; do
               git diff --quiet origin/main HEAD -- "$f" || echo "$f"

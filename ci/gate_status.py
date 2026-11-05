@@ -6,7 +6,7 @@ Org-level tooling, copied nowhere. This is the *document* half of the shape
 to the filesystem and the host. `ci/gate_dashboard.py` renders it and does
 nothing else.
 
-THREE LAYERS, AND THEY ARE NOT INTERCHANGEABLE
+Three layers, and they are not interchangeable
 
   claim        ci/gate-registry.yaml. What a human asserts each gate does and,
                more importantly, what it cannot see. Never inferred from a
@@ -14,7 +14,10 @@ THREE LAYERS, AND THEY ARE NOT INTERCHANGEABLE
                redefine governance as a filename check, which is the exact
                substitution ci/workspace.yaml refuses in its own header.
   evidence     .github/workflows/. Which workflow files exist, what triggers
-               them, which jobs they declare.
+               them, which jobs they declare, and what their `on:` blocks say
+               they stand in front of, in the registry's own vocabulary, so a
+               claim of `main` beside a workflow filtered to `project/**` is a
+               disagreement the document shows.
   enforcement  the host. Whether anything actually blocks a merge. It changes
                with no commit here, so it carries this document's staleness
                budget and `--no-host` writes it as `unknown` rather than as
@@ -25,14 +28,15 @@ measure of how much of this governance is still customary, and deleting an
 entry to make a page green is the one edit the registry forbids.
 
 Usage:
-    python ci/gate_status.py --write gate-status.json
-    python ci/gate_status.py --no-host --write gate-status.json
-    python ci/gate_status.py --check gate-status.json
+    python ci/gate_status.py --write status/gates.yaml
+    python ci/gate_status.py --no-host --write status/gates.yaml
+    python ci/gate_status.py --check status/gates.yaml
 """
 
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import subprocess
 import sys
@@ -73,6 +77,49 @@ def load_registry(path: Path) -> list[dict]:
     return gates
 
 
+def stands_before(triggers: object) -> list[str]:
+    """What a workflow's `on:` block stands in front of, in the registry's words.
+
+    The registry's `gates` field uses a closed vocabulary, and this is the one
+    place it is derived from a trigger block, so the claim and the evidence
+    can be compared in the same terms:
+
+      main     a `pull_request` trigger with no branch filter, or one whose
+               filter matches the default branch
+      project  a `pull_request` trigger whose filter names a `project/**`
+               branch
+      push     a `push` trigger on branches, or with no filter at all
+      tag      a `push` trigger on tags
+
+    A filter is matched as the host matches it, by glob. An unfiltered
+    pull-request trigger counts as `main` and not as `project`: it stands
+    before the default branch by default, and before a project branch only
+    where a filter puts it there on purpose.
+    """
+    if isinstance(triggers, str):
+        triggers = {triggers: None}
+    elif isinstance(triggers, list):
+        triggers = {name: None for name in triggers}
+    if not isinstance(triggers, dict):
+        return []
+    found: list[str] = []
+    if "pull_request" in triggers:
+        spec = triggers.get("pull_request")
+        branches = spec.get("branches") if isinstance(spec, dict) else None
+        if not branches or any(fnmatch.fnmatch("main", str(p)) for p in branches):
+            found.append("main")
+        if branches and any(fnmatch.fnmatch("project/x", str(p)) for p in branches):
+            found.append("project")
+    if "push" in triggers:
+        spec = triggers.get("push")
+        spec = spec if isinstance(spec, dict) else {}
+        if spec.get("branches") or not spec.get("tags"):
+            found.append("push")
+        if spec.get("tags"):
+            found.append("tag")
+    return found
+
+
 def discover(workflows: Path) -> dict[str, dict]:
     """What is actually in .github/workflows/, keyed by filename.
 
@@ -90,6 +137,7 @@ def discover(workflows: Path) -> dict[str, dict]:
             found[path.name] = {"unreadable": str(exc).splitlines()[0]}
             continue
         triggers = doc.get(True, doc.get("on"))
+        before = stands_before(triggers)
         if isinstance(triggers, dict):
             triggers = sorted(triggers)
         elif isinstance(triggers, str):
@@ -97,6 +145,7 @@ def discover(workflows: Path) -> dict[str, dict]:
         found[path.name] = {
             "name": doc.get("name"),
             "triggers": sorted(triggers or []),
+            "stands_before": before,
             "jobs": sorted(doc.get("jobs") or {}),
         }
     return found
@@ -112,7 +161,7 @@ def read_enforcement(repo: str) -> dict:
         detail = (proc.stderr or proc.stdout or "").strip().splitlines()[:1]
         return unknown(f"could not read rulesets: {detail[0] if detail else 'no detail'}")
     try:
-        rulesets = json.loads(proc.stdout or "[]")
+        rulesets = yaml.safe_load(proc.stdout or "[]")
     except json.JSONDecodeError as exc:
         return unknown(f"rulesets response was not JSON: {exc}")
 
@@ -201,14 +250,21 @@ def gate_row(gate: dict, found: dict[str, dict]) -> dict:
         return row
 
     job_declared = gate.get("job") in evidence.get("jobs", [])
+    # The claim and the `on:` block, in one vocabulary. A gate that says it
+    # stands before `main` while its workflow is filtered to `project/**` is
+    # a check a reader believes runs on a pull request it never sees.
+    before = evidence.get("stands_before", [])
+    gates_agree = set(before) == set(row["gates"])
     row["evidence"] = {
         "present": True,
         "workflow_name": evidence.get("name"),
         "triggers": evidence.get("triggers", []),
+        "stands_before": before,
+        "gates_declared": gates_agree,
         "jobs": evidence.get("jobs", []),
         "job_declared": job_declared,
     }
-    row["state"] = OK if job_declared else WARN
+    row["state"] = OK if job_declared and gates_agree else WARN
     return row
 
 
@@ -241,11 +297,11 @@ def build(registry: Path, workflows: Path, repo: str, host: bool) -> dict:
         },
         "reading": {
             "refresh": "uv run qm docs generate",
-            "refresh_without_the_cli": "python ci/gate_status.py --write gate-status.json",
+            "refresh_without_the_cli": "python ci/gate_status.py --write status/gates.yaml",
             "staleness_budget_hours": 168,
-            "human_view": "python ci/gate_dashboard.py gate-status.json --out gates.html",
+            "human_view": "python ci/gate_dashboard.py status/gates.yaml --out gates.html",
             "agent_view": "uv run qm gates",
-            "faithfulness_check": "python ci/gate_status.py --check gate-status.json",
+            "faithfulness_check": "python ci/gate_status.py --check status/gates.yaml",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could not '
                 "be established and says why. It is not zero, not empty, and not "
@@ -311,7 +367,7 @@ def main(argv: list[str] | None = None) -> int:
         if not target.is_file():
             print(f"{args.check}: not present. Run the refresh command.", file=sys.stderr)
             return 1
-        committed = json.loads(target.read_text(encoding="utf-8"))
+        committed = yaml.safe_load(target.read_text(encoding="utf-8"))
         fresh = build(Path(args.registry), Path(args.workflows), args.repo, host=False)
         if local_layers(committed) != local_layers(fresh):
             print(
@@ -327,8 +383,14 @@ def main(argv: list[str] | None = None) -> int:
     document = build(Path(args.registry), Path(args.workflows), args.repo, host=not args.no_host)
 
     if args.write:
+        # The parent is made, not assumed. The standard moved this document
+        # into `status/`, which exists in the repository and does not exist in
+        # a fresh fixture -- three tests failed on exactly that gap the day of
+        # the migration, and a writer that requires its directory to pre-exist
+        # fails differently on every machine that lacks it.
+        Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
-            json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
+            yaml.safe_dump(document, sort_keys=False, allow_unicode=True) + "\n", encoding="utf-8", newline="\n"
         )
         print(f"wrote {args.write}")
         return 0

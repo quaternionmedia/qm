@@ -10,7 +10,7 @@ product disappears, the invariants and the scripts are untouched.
 
 | Directory | Targets | Contains |
 |---|---|---|
-| `claude-code/` | one vendor's CLI slash-command mechanism | four command files wrapping the session-open, gate-run, and session-close invariants |
+| `claude-code/` | one vendor's CLI: its slash commands and skills | command files wrapping the session-open, gate-run, and session-close invariants; a skill driving `handbook/design-review-runbook.md` with the CLI's workflow tool |
 
 ## Why they are here and not in `project-seed/`
 

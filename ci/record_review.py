@@ -1,36 +1,33 @@
 #!/usr/bin/env python3
 """Review every record as one body, and report what only shows up in aggregate.
 
-Org-level tooling, copied nowhere. `ci/adr_lint.py` checks a record's shape;
+Org-level tooling, copied nowhere. `project-seed/ci/adr_lint.py` checks a
+record's shape;
 this checks the *corpus* — the things no single record can be wrong about on its
 own.
 
-FOUR QUESTIONS, EACH FROM A DEFECT THIS CORPUS ACTUALLY SHIPPED:
+Four questions:
 
   enforcement   A record's Enforcement clause names a mechanism. Does it exist,
                 and does any gate declare it enforces this record?
-                `DRAFT-version-tags-are-claims.md` 7 said its 1 was "mechanical
-                rather than customary" and nothing read a tag for six days.
 
   universals    A universal in a Decision clause, surfaced for a human to read.
-                A record states a requirement; a generator reports compliance,
-                with a timestamp. `DRAFT-outbound-licensing.md` 12 says "Every
-                QM repository is REUSE-compliant" and two repositories have no
-                REUSE.toml -- but this corpus also writes requirements
-                declaratively, so "Every QM repository carries one walkthrough/"
-                is a rule in the same grammar. No pattern separates them. These
-                are candidates for reading, never defects.
+                A record states a requirement and a generator reports
+                compliance, but the corpus also writes requirements
+                declaratively ("Every QM repository carries one walkthrough/"),
+                and no pattern separates the two. These are candidates for
+                reading, never defects.
 
   citations     A record names a path. Does it exist? A ratified record citing
                 a file the corpus does not carry is a dangling reference in
                 doctrine.
 
   orphans       A record nothing points at, from any entry point or any gate.
-                Not a defect on its own -- most of this corpus is advisory --
-                but it is the set a reader will never reach, which is the
-                failure `DRAFT-the-read-document-governs.md` is about.
+                Not a defect on its own, but it is the set a reader will never
+                reach, which is what `DRAFT-the-read-document-governs.md` is
+                about.
 
-WHAT THIS CANNOT DO, and it is the larger half:
+What this cannot do:
 
     **It does not read a record for meaning.** It cannot tell that two records
     contradict each other, that a requirement is wrong, or that a universal
@@ -64,6 +61,145 @@ ENFORCEMENT = re.compile(
 # A path in a code span. Restricted to extensions this corpus actually carries,
 # so a version string or a URL fragment is not read as a file.
 CITED_PATH = re.compile(r"`(?:governance/qm/)?([A-Za-z0-9_][A-Za-z0-9_./-]*\.(?:md|py|ya?ml|json|toml))`")
+
+# Where a mechanism lives when an Enforcement clause names it by its filename
+# alone: the workflows this corpus runs, and the seed workflows and scripts a
+# project runs out of the submodule. Read from disk, never from a list of
+# names, so a workflow added to either directory resolves without an edit here.
+MECHANISM_DIRS = (".github/workflows", "project-seed/ci")
+
+
+def mechanism_exists(root: Path, cited: str) -> bool:
+    """Whether a path an Enforcement clause names is in the corpus.
+
+    A path with a directory resolves against the root. A bare filename names a
+    mechanism, and resolves against the directories mechanisms live in: a
+    record that says `leak-check.yml` refuses something means the workflow of
+    that name, which sits in both of them and never at the root.
+    """
+    if (root / cited).exists():
+        return True
+    if "/" in cited:
+        return False
+    return any((root / directory / cited).is_file() for directory in MECHANISM_DIRS)
+
+
+def sibling_repositories(root: Path) -> dict[str, Path | None]:
+    """Every other QM repository in the roster, mapped to its checkout here.
+
+    A record may correctly cite a file in another QM repository -- this corpus
+    governs them all and its records are written about them. Reporting that as
+    "not in the corpus" is the unknown-as-zero conflation this corpus names
+    everywhere else.
+
+    Only the `repositories:` collection is read, so a key elsewhere in the
+    roster (a milestone's `name`) never becomes a repository name.
+
+    The workspace root is derived by self-check, not assumed. `paths:` are
+    relative to a workspace directory this file never names; the root is
+    whichever ancestor makes this corpus's own entry resolve to `root`. If no
+    ancestor does, the roster cannot locate the repository it is read from,
+    and every value is `None`.
+
+    A value of `None` means "in the roster, not checked out here" -- which is a
+    different fact from "not a QM repository", and the caller distinguishes
+    them. Returns an empty mapping if the roster is unreadable, which leaves the
+    citation check exactly as strict as it was before this existed.
+    """
+    # A relative root has no `.parents`, so the workspace derivation below finds
+    # nothing and every repository reads as "not checked out here" -- a silent
+    # wrong answer rather than an error.
+    root = root.resolve()
+    try:
+        roster = yaml.safe_load((root / "ci" / "workspace.yaml").read_text(
+            encoding="utf-8"))
+    except (OSError, yaml.YAMLError):
+        return {}
+    if not isinstance(roster, dict):
+        return {}
+
+    entries = roster.get("repositories")
+    if not isinstance(entries, list):
+        return {}
+
+    declared: dict[str, list[str]] = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        name = entry.get("name")
+        if not isinstance(name, str) or not name:
+            continue
+        paths = entry.get("paths")
+        declared[name.split("/")[-1]] = [
+            p for p in (paths or []) if isinstance(p, str)]
+
+    workspace = _workspace_root(root, declared.get("qm", []))
+    return {
+        name: _checkout(workspace, paths)
+        for name, paths in declared.items()
+        if name != "qm"
+    }
+
+
+def _elsewhere(cited: str, root: Path,
+               siblings: dict[str, Path | None]) -> tuple[str | None, str | None]:
+    """Whether `cited` is a file in another QM repository, and whether it is there.
+
+    This resolves the path rather than excusing it: the roster carries
+    `paths:` and the sibling is usually checked out one directory over, so a
+    typo in a real sibling path is still a dangling citation.
+
+    Two readings, because the corpus uses both. `dossier/docs/rad-commands.md`
+    is `<repo>/<path-in-repo>`; `qmcp/cookbook/delta.py` is a path inside the
+    qmcp repository whose package directory shares the repository's name. Both
+    are tried, and only if neither locates a file is the citation a defect.
+
+    A first segment that is also a directory of this corpus is a corpus path and
+    is never treated as a sibling -- otherwise adding a repository called
+    `handbook` to the roster would silently excuse every broken `handbook/…`
+    citation here.
+    """
+    first, _, rest = cited.partition("/")
+    if not rest or first not in siblings:
+        return None, None
+    if (root / first).is_dir():
+        return None, None
+
+    checkout = siblings[first]
+    if checkout is None:
+        return ("cross-repository-citation",
+                f"names `{cited}`, in `{first}`, which is in the roster and not "
+                f"checked out here. Nothing on this machine can resolve it")
+
+    for candidate in (checkout / rest, checkout / cited):
+        if candidate.exists():
+            return ("cross-repository-citation",
+                    f"names `{cited}`, which resolves in `{first}`. Reported "
+                    f"because a reader must go to that repository to follow it")
+
+    return ("dangling-citation",
+            f"names `{cited}`, and `{first}` is checked out here without it. "
+            f"This is a broken path, not a cross-repository reference")
+
+
+def _workspace_root(root: Path, own_paths: list[str]) -> Path | None:
+    """The directory `paths:` are relative to, proven by this corpus's entry."""
+    for candidate in root.parents:
+        for relative in own_paths:
+            if (candidate / relative).resolve() == root.resolve():
+                return candidate
+    return None
+
+
+def _checkout(workspace: Path | None, paths: list[str]) -> Path | None:
+    """The first declared path that is actually a directory here."""
+    if workspace is None:
+        return None
+    for relative in paths:
+        found = workspace / relative
+        if found.is_dir():
+            return found
+    return None
 
 # "Every QM repository is ...", "every project CI ...". The subject matters:
 # these are claims about the state of the world, which a record does not make.
@@ -112,8 +248,15 @@ def entry_point_text(root: Path) -> str:
     return "\n".join(parts)
 
 
-def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> dict:
-    rel = path.relative_to(root).as_posix()
+def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
+                  siblings: set[str] | None = None) -> dict:
+    # A records directory outside the root is a caller error, reported as a
+    # sentence rather than as a ValueError from `relative_to`.
+    try:
+        rel = path.relative_to(root).as_posix()
+    except ValueError:
+        rel = path.as_posix()
+    siblings = sibling_repositories(root) if siblings is None else siblings
     text = path.read_text(encoding="utf-8", errors="replace")
     findings: list[dict] = []
 
@@ -122,7 +265,7 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> 
     enforcing_gates = [g["id"] for g in gates if rel in (g.get("enforces") or [])]
     if match:
         named = {m.group(1) for m in CITED_PATH.finditer(match.group("body"))}
-        missing = sorted(p for p in named if not (root / p).exists())
+        missing = sorted(p for p in named if not mechanism_exists(root, p))
         for gone in missing:
             findings.append({
                 "kind": "enforcement-names-a-missing-mechanism",
@@ -145,10 +288,8 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> 
     # Only the Decision section. A Context section describing the problem
     # ("Every QM project acquires a version number, and nothing says what one
     # means") is stating the world in order to argue about it, and Alternatives
-    # quote options being rejected. Scanning the whole record produced 27
-    # findings of which most were prose doing its job -- a check that fires on
-    # everything trains a reader to skip it, which is worse than one that fires
-    # on nothing.
+    # quote options being rejected; both are prose doing its job, and a check
+    # that fires on everything trains a reader to skip it.
     for m in UNIVERSAL.finditer(decision_section(text)):
         sentence = " ".join(m.group(0).split())
         if REQUIREMENT_MODAL.search(m.group("rest") or ""):
@@ -175,9 +316,10 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> 
             if any(root.rglob(cited)):
                 continue
         if not (root / cited).exists():
+            verdict, detail = _elsewhere(cited, root, siblings)
             findings.append({
-                "kind": "dangling-citation",
-                "detail": f"names `{cited}`, which is not in the corpus",
+                "kind": verdict or "dangling-citation",
+                "detail": detail or f"names `{cited}`, which is not in the corpus",
             })
 
     # --- reachability ------------------------------------------------------
@@ -208,7 +350,10 @@ def main(argv: list[str] | None = None) -> int:
 
     gates = load_gates(root / "ci" / "gate-registry.yaml")
     reachable = entry_point_text(root)
-    results = [review_record(p, root, gates, reachable) for p in records]
+    # Read once: the roster does not change between records.
+    siblings = sibling_repositories(root)
+    results = [review_record(p, root, gates, reachable, siblings)
+               for p in records]
 
     by_kind: dict[str, int] = {}
     for result in results:

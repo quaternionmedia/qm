@@ -7,21 +7,22 @@ does not have it, and the fix belongs in ci/doc_status.py where the rule is
 defined once. `ci/tests/test_doc_tooling.py` asserts no process-spawning import
 appears anywhere in this file, this sentence included.
 
-THE TOGGLE. `--state <name>` narrows the page to one state. The count of what
+The toggle: `--state <name>` narrows the page to one state. The count of what
 was hidden is always printed, because a filtered page that does not say it is
 filtered reads as the whole corpus -- and this is a governance view, where a
 short clean list is the most dangerous thing on offer.
 
 Usage:
-    python ci/doc_dashboard.py doc-status.json
-    python ci/doc_dashboard.py doc-status.json --state draft
-    python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md
+    python ci/doc_dashboard.py status/documents.yaml
+    python ci/doc_dashboard.py status/documents.yaml --state draft
+    python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import yaml
 import sys
 from pathlib import Path
 
@@ -38,12 +39,13 @@ MARK = {
     "generated": "[G]",
     "standing": "[S]",
     "transient": "[T]",
+    "dated": "[H]",
     "unknown": "[??]",
 }
 
 # Ordered so a reader meets the binding states first.
 ORDER = ["ratified", "proposed", "draft", "unknown", "responded", "acknowledged",
-         "declined", "unreviewed", "generated", "standing", "transient"]
+         "declined", "unreviewed", "generated", "standing", "transient", "dated"]
 
 
 def reason(value: object) -> str | None:
@@ -209,7 +211,7 @@ def main(argv: list[str] | None = None) -> int:
     if not path.is_file():
         print(f"{args.document}: not present.", file=sys.stderr)
         return 1
-    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     if args.state and args.state not in (doc.get("states") or {}):
         print(f"unknown state {args.state!r}. The vocabulary is closed: "

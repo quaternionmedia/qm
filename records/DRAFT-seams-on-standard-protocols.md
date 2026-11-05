@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P3 — replaceability is the risk strategy |
+| **Principle** | `seams-on-standard-protocols` — replaceability is the risk strategy |
 
 ## Context
 

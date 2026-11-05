@@ -6,17 +6,16 @@
     uv run qm lanes --check         # refuse a lane that is not separable
     uv run qm lanes --where <path>  # which lane owns this file
 
-WHAT A LANE IS FOR. Not a folder and not a label: the unit an interaction can
-be scoped to. A session that set out to build a policy registry also redacted a
-roster, fixed a workflow runner and rewrote a retrospective. Each step followed
-from the last and none of them belonged in the same conversation.
+A lane is not a folder and not a label: it is the unit an interaction can be
+scoped to, so one session's steps stay in one lane even when each follows from
+the last.
 
-WHAT MAKES TWO LANES SEPARABLE. A distinct gate. Two lanes settled by the same
+What makes two lanes separable. A distinct gate. Two lanes settled by the same
 gate are one lane with two names, and `--check` refuses that -- except where a
 lane explicitly has no gate of its own, which is a real answer and stated as
 one.
 
-WHAT THIS CANNOT DO. It cannot tell that a change is in the lane its author
+What this cannot do: it cannot tell that a change is in the lane its author
 said. `--where` reads path ownership, and paths overlap: a record about the
 development loop lives in `records/`, which meta-governance owns. The lane is a
 scoping decision, and declaring it is the author's job.

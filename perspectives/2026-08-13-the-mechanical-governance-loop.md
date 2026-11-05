@@ -115,7 +115,7 @@ Six logical layers, three repositories.
 
 The seams:
 - Layer 1 ↔ Layer 3: filesystem (YAML/JSON files)
-- Layer 3 ↔ Layer 4: file import (dossier syncs from files, same convention as `governance-status.yaml`)
+- Layer 3 ↔ Layer 4: file import (dossier syncs from files, same convention as `status/governance.yaml`)
 - Layer 4 ↔ Layer 6: HTTP (`GET /governance/patterns`, `POST /governance/session-artifacts`)
 - Layer 6 ↔ agent: MCP protocol
 
@@ -338,7 +338,7 @@ shape-registry.yaml"}`. Expanding the vocabulary is a reviewed commit.
 
 ## Layer 4: Storage and API (`dossier`)
 
-Dossier already parses `governance-status.yaml` and `harness-status.json` via
+Dossier already parses `status/governance.yaml` and `status/harness.yaml` via
 `parsers/governance.py`, which enforces the rule: read the document; never
 re-derive a fact it carries; `subprocess` does not appear in the parser.
 `tests/test_governance.py` asserts it. The same rule governs this extension.

@@ -1,65 +1,89 @@
 ---
+title: Quaternion Media
 icon: lucide/book-open
+hide:
+  - navigation
+  - toc
 ---
 
-# QM Governance
+<div class="qm-hero" markdown>
 
-The Quaternion Media constitution: the decisions that govern every QM project, the process that keeps them consistent, and the template each new project starts from.
+<div markdown>
 
-**Projects adopt this corpus by reference.** A project may tighten these rules, but never relax them.
+quaternion media · the performing family and the estate around it
+{ .qm-eyebrow }
 
-## Read this first
+# Software for a show<span class="qm-dot">.</span>
 
-1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
+The video made before a performance and after it, the sound played during it, the room it runs in, and what a player reads while playing. Each is a repository of its own, built in the open, and this site groups them by what each one drives.
+{ .qm-lede }
 
-## Where to go
+[The performing family](families/performing.md){ .md-button .md-button--primary } [Every project](projects/index.md){ .md-button }
 
-=== "Understand"
+</div>
 
-    **Learn what QM is and how it works**
+--8<-- "includes/showcase-hero.md"
 
-    - [Overview](about/overview.md) — the corpus, its principles, and the records
-    - [Architecture](about/architecture.md) — the branch-per-project model
-    - [History](about/history.md) — how the corpus evolved
+</div>
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): eleven principles, short.
+<section class="qm-section" markdown>
 
-=== "Get started"
+the performing family · four parts
+{ .qm-eyebrow }
 
-    **Your first hour with the corpus**
+## What a show needs
 
-    - [Getting started](usage/getting-started.md) — clone, read, and make your first change
-    - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
-    - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
+A repository belongs to the part of the show its output acts on. `performing` holds three families, the sound, the room and the performer, and claims the video itself.
 
-=== "Do a task"
+--8<-- "includes/showcase-parts.md"
 
-    **Practical recipes**
+</section>
 
-    - [Draft a record](cookbook/draft-a-record.md) — write a decision
-    - [Add a perspective](cookbook/add-a-perspective.md) — document an opinion or incident
-    - [Propagate a change](cookbook/propagate-a-change.md) — send org updates to a project
-    - [Run CI locally](cookbook/run-ci-locally.md) — test before you push
-    - [All recipes](cookbook/index.md)
+<section class="qm-section" markdown>
 
-=== "Look it up"
+on screen · each picture from its project's own repository
+{ .qm-eyebrow }
 
-    **Reference**
+## What the show looks like
 
-    - [Branch namespaces](ref/namespaces.md) — the five branch conventions
-    - [Record precedence](ref/precedence.md) — how org and project records relate
-    - [Ratification](ref/ratification.md) — how records become binding
-    - [Repository layout](ref/repo-layout.md) — the directory tree
-    - [Handbook index](ref/handbook.md) — policy and procedure
-    - [Glossary](ref/glossary.md) — key terms
+Every card opens the project's page, with the rest of its pictures and a link to its repository.
 
-## For coding agents
+--8<-- "includes/showcase-performing.md"
 
-If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md). It states four facts to establish before writing anything — the commit, your pull request slot, what else is in flight, and which gates exist — and names the plain scripts that establish them. How you gather them is your choice; `adapters/` holds optional glue for particular tools and nothing depends on it.
+</section>
 
-## See also
+<section class="qm-section" markdown>
 
-- [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — the charter
-- [The repository on GitHub](https://github.com/quaternionmedia/qm)
+the rest of the estate
+{ .qm-eyebrow }
+
+## Beyond the show
+
+The tools the show is built with, and the things people build and hold.
+
+--8<-- "includes/showcase-estate.md"
+
+[![The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then the other families, each with a meter lit by the share of its members past v0.0.0.](families/families.svg){ .qm-picture }](families/index.md)
+
+Every repository, by what it drives. A repository that drives two things is in both families, and each meter is lit by the share past `v0.0.0`, the members that have adopted the corpus. The families are decided in [the family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); [every family has a page](families/index.md).
+{ .qm-caption }
+
+</section>
+
+<section class="qm-section" markdown>
+
+how the work is kept
+{ .qm-eyebrow }
+
+## Decided once, written down
+
+Every project here follows one set of written decisions, and a project can be stricter than these rules, never looser.
+
+1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a [record](ref/glossary.md#record), points at one, or checks that we are keeping to it.
+2. **Nothing is marked final yet.** No record is ratified, on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
+3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated [checks](ref/glossary.md#gate) pass.
+4. **Two moments need a person, and the pull request is not one of them.** Making a record final, and putting a version tag on a project. A tag means somebody read the change, ran it against the real thing, and watched the checks pass. Reaching `main` claims none of that.
+
+[Getting started](usage/getting-started.md) · [The charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) · [How it works](about/overview.md) · [Reference](ref/index.md) · [The glossary](ref/glossary.md) · coding agents start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md)
+
+</section>

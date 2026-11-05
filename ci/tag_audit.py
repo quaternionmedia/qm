@@ -5,20 +5,20 @@ Org-level tooling, copied nowhere. `project-seed/ci/check_tag_claims.py` is the
 rule and runs inside one repository; this sweeps the roster and reports which
 repositories are ready to show.
 
-ONE DEFINITION OF THE RULE. The verdict comes from `check_annotation()`,
+One definition of the rule. The verdict comes from `check_annotation()`,
 imported from the seed script. A second implementation here would be a second
 definition of a governance rule, and the two would drift the first time one was
 fixed -- which is the failure `harness_dashboard.py`'s own docstring refuses for
 the same reason.
 
-WHY THE HOST AND NOT A CLONE. A tag is a published artifact; what is on
+Why the host and not a clone. A tag is a published artifact; what is on
 somebody's disk is not what a consumer sees. Reading the host also means the
 audit needs no clone, so it answers the same way on any machine and inside CI.
 `gh api repos/O/R/git/refs/tags` gives each tag's object type -- `tag` for
 annotated, `commit` for lightweight -- and the annotation body comes from
 `gh api repos/O/R/git/tags/<sha>`.
 
-WHAT THIS CANNOT DO. Everything the seed check cannot do, unchanged: it reads
+What this cannot do: everything the seed check cannot do, unchanged: it reads
 annotations, so it cannot tell whether a review or a manual test happened. See
 that module's docstring. It adds one limit of its own -- a repository it could
 not read is reported as `unknown`, never as clean. A repository nobody could

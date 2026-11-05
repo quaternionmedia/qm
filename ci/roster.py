@@ -3,7 +3,7 @@
 
 `ci/workspace.yaml` is the committed roster. A **private** repository appears
 there as a bare `ref` and nothing else -- naming it would defeat the redaction
-`inventory-public.json` applies to the same repository, which is how the corpus
+`status/inventory.yaml` applies to the same repository, which is how the corpus
 came to contradict itself for five days.
 
 That redaction broke every consumer at once. Four generators read
@@ -22,6 +22,14 @@ So loading lives here, and **`name` is guaranteed**:
 
 An entry is never dropped. A roster silently two short reads exactly like a
 roster of everything that exists.
+
+**A second companion holds one machine's layout.** `ci/workspace-local.yaml`,
+also gitignored, adds candidate `paths` to a public entry by `name`. The
+committed roster's paths are conventions -- `<name>` and `qm/<name>`, where a
+clone goes on any machine -- and a clone that lives somewhere else on one
+person's disk is that person's fact, not the organisation's. The local paths
+are tried first, so a clone at the conventional place is still found without
+the file. `handbook/what-is-not-the-organisation.md` is the line this draws.
 """
 
 from __future__ import annotations
@@ -34,6 +42,7 @@ import yaml
 CI_DIR = Path(__file__).resolve().parent
 ROSTER = CI_DIR / "workspace.yaml"
 COMPANION = CI_DIR / "workspace-private.yaml"
+LOCAL = CI_DIR / "workspace-local.yaml"
 
 
 def label(entry: dict) -> str:
@@ -46,14 +55,94 @@ def label(entry: dict) -> str:
     return entry.get("name") or entry.get("ref") or "<unnamed>"
 
 
-def merge_private(roster: list[dict], companion: Path = COMPANION) -> list[dict]:
-    """Fill in what the committed roster deliberately omits."""
+def families_of(entry: dict) -> list[str]:
+    """The families an entry claims, as a list, in the order it states them.
+
+    A claim is one family's name or a list of names: a repository that drives
+    two things is in both families
+    (`records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §4). Absent is
+    the empty list, which is unstated rather than none. A value of any other
+    shape comes back as its text, so `families.py --check` can name it rather
+    than this dropping it.
+    """
+    claim = entry.get("family")
+    if claim is None:
+        return []
+    if isinstance(claim, (list, tuple)):
+        return [str(name) for name in claim]
+    return [str(claim)]
+
+
+def rung(phase: object) -> tuple[int, ...] | None:
+    """A phase as a comparable rung, or None for anything that is not one.
+
+    `n/a`, `unknown` and a missing phase are not rungs, and compare as none
+    rather than as text: `"n/a" < "v0.0.1"` is true of the strings and says
+    nothing about the ladder.
+    """
+    match = re.fullmatch(r"v(\d+(?:\.\d+)*)", str(phase or ""))
+    return tuple(int(part) for part in match.group(1).split(".")) if match else None
+
+
+FIRST_RUNG = (0, 0, 1)
+
+
+def version_of(adopted: bool, phase: object, source: object) -> str:
+    """A project's place on the phase ladder (`records/DRAFT-project-phase-ladder.md`).
+
+    `v0.0.0` until the project has a `project/<name>` branch in the corpus,
+    and `v0.0.1` from then on, however much of the seed it carries. A rung
+    above `v0.0.1` is the project's own and counts only when a human stated
+    it. A scaffolded phase is the default and never moves the version.
+    """
+    if not adopted:
+        return "v0.0.0"
+    stated = rung(phase) if source == "stated" else None
+    return str(phase) if stated and stated > FIRST_RUNG else "v0.0.1"
+
+
+def intent_of(adopted: bool, phase: object, source: object) -> str | None:
+    """A stated phase that is not the version: intent, shown beside it.
+
+    For a project with no branch, any phase a human stated is intent; for one
+    with a branch, a stated rung is its version.
+    """
+    if source != "stated" or rung(phase) is None:
+        return None
+    return None if str(phase) == version_of(adopted, phase, source) else str(phase)
+
+
+def local_paths(local: Path) -> dict[str, list[str]]:
+    """name -> extra candidate paths, from the machine-local companion.
+
+    Read the same way the private companion is: absent is empty, never an
+    error, because the file describes one disk and most disks have no need of
+    it.
+    """
+    if not local.is_file():
+        return {}
+    document = yaml.safe_load(local.read_text(encoding="utf-8")) or {}
+    return {
+        e["name"]: [str(p) for p in (e.get("paths") or [])]
+        for e in (document.get("repositories") or [])
+        if e.get("name")
+    }
+
+
+def merge_private(roster: list[dict], companion: Path = COMPANION,
+                  local: Path | None = None) -> list[dict]:
+    """Fill in what the committed roster deliberately omits.
+
+    `local` defaults to the file beside `companion`, so a caller that names
+    one companion explicitly gets the other from the same directory.
+    """
     supplied: dict[str, dict] = {}
     if companion.is_file():
         document = yaml.safe_load(companion.read_text(encoding="utf-8")) or {}
         supplied = {
             e["ref"]: e for e in (document.get("repositories") or []) if e.get("ref")
         }
+    extra = local_paths(local if local is not None else companion.parent / LOCAL.name)
 
     merged = []
     for entry in roster:
@@ -64,13 +153,19 @@ def merge_private(roster: list[dict], companion: Path = COMPANION) -> list[dict]
         # a None that reaches a document.
         if not filled.get("name"):
             filled["name"] = label(filled)
+        # One machine's paths go first and the conventions stay: the local
+        # file adds where a clone is, it never says where one is not.
+        if filled["name"] in extra:
+            known = list(filled.get("paths") or [])
+            filled["paths"] = [p for p in extra[filled["name"]] if p not in known] + known
         merged.append(filled)
     return merged
 
 
-def load(path: Path = ROSTER, companion: Path = COMPANION) -> list[dict]:
+def load(path: Path = ROSTER, companion: Path = COMPANION,
+         local: Path | None = None) -> list[dict]:
     document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    return merge_private(document.get("repositories") or [], companion)
+    return merge_private(document.get("repositories") or [], companion, local)
 
 
 def redact(node, name: str, ref: str):
@@ -86,11 +181,27 @@ def redact(node, name: str, ref: str):
     Bounded like ci/check_private_names.py, for the same reason: a plain
     substring replace rewrites a longer repository that merely contains this
     one.
+
+    It walks the whole entry rather than naming fields, because a field list
+    goes stale against a shape that changes. It enumerates types, so a value
+    that is not a dict, a list or a string would fall through unredacted.
+
+    So anything carrying a redactable string attribute is redacted through that
+    attribute, in place, by duck typing rather than by importing the class --
+    `ci/roster.py` must not depend on a generator that depends on it. A new
+    wrapper gets this for free; a new wrapper that hides its string somewhere
+    else does not, and that is the residue.
     """
     if isinstance(node, dict):
         return {k: redact(v, name, ref) for k, v in node.items()}
     if isinstance(node, list):
         return [redact(v, name, ref) for v in node]
     if isinstance(node, str):
-        return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])", ref, node)
+        # Bounded as ci/check_private_names.py's pattern is, a dated branch included.
+        return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_]|-(?!\d))", ref, node)
+    for attribute in ("reason", "text", "message"):
+        current = getattr(node, attribute, None)
+        if isinstance(current, str):
+            setattr(node, attribute, redact(current, name, ref))
+            return node
     return node

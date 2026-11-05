@@ -89,7 +89,7 @@ Seven, named in `A-main.json` and nowhere else:
 | `check` | `governance-status.yml` | `check` | the status document still renders the commits it names |
 | `reuse` | `reuse-lint.yml` | `reuse` | outbound licensing |
 | `signatures` | `signature-check.yml` | `signatures` | every commit is attributable |
-| `slot` | `one-pr-check.yml` | `slot` | one open pull request per contributor |
+| `slot` | `one-pr-check.yml` | `slot` | no pull request is ready while stacked on another |
 | `symlinks` | `symlink-integrity.yml` | `symlinks` | a pointer file has not silently forked in two |
 
 **GitHub matches the `context` against the *job* name, not the workflow name.**
@@ -150,9 +150,10 @@ when a project branch touches an org path.
 
 **A's commit-message rule is the cheapest win here.** Human-only
 contributorship is the one corpus rule an AI agent's *default tooling*
-violates automatically, and the record itself admits it has no mechanical
-check. A negated `(?i)co-authored-by:.*noreply` pattern is that check. Note
-it also blocks merging any pre-existing branch carrying such a trailer.
+violates automatically. The ADR lint refuses it on a pull request's own
+commits, and a negated `(?i)co-authored-by:.*noreply` pattern refuses it at the
+host. Note the pattern also blocks merging any pre-existing branch carrying such
+a trailer.
 
 **F is the teeth of the version-tags record.** That record makes a tag a
 human claim about review, manual testing and deterministic validation; the
@@ -177,7 +178,7 @@ and one account authored every file here — so `required_approving_review_count
 1` is unsatisfiable by the only person who can satisfy it, and the usual escape,
 a `pull_request`-scoped admin bypass, is a rule that permits exactly the thing
 it forbids. A is written at zero for that reason rather than as a concession:
-the governance moved to the check list, which one person *can* approve once and
+the governance moved to the check list, which an author *can* satisfy once and
 then cannot skip.
 
 `bypass_actors` is empty, admins included. That is not a lockout risk, because

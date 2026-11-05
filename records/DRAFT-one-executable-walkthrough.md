@@ -5,54 +5,43 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P12 — show it by running it; P9 — minimal, legible deliverables |
+| **Principle** | `show-it-by-running-it` — show it by running it; `minimal-legible-deliverables` — minimal, legible deliverables |
+| **Restated in** | `AGENTS.md`; `project-seed/ide/AGENTS.md` |
 
 ## Context
 
 Tests, reference docs, a demo and a cookbook are four names for one thing: a
-worked example of the system behaving. The org has built that thing at least
-seven times, in six repositories, and converged once.
+worked example of the system behaving. Repositories in this organisation build
+that thing many times over — reference suites, documentation indexes,
+screenshot suites, cookbook commands, demo flows, in-app walkthroughs, recorded
+videos, prose that is a test suite — often several in one repository, none
+aware of the others.
 
-The survey is unflattering and worth stating plainly. `dossier` has a
-January reference suite that stalled, two documentation indexes that disagree
-with each other, a screenshot suite that generates the README's images, and an
-executable `disk cookbook` — four attempts, none aware of the others. `qmcp` has
-sixteen reference documents totalling five thousand lines, a `cookbook` CLI
-group, nine Metaflow demo flows, a smoke suite that imports them, and a second,
-more abstract cookbook sitting uncommitted in a working tree since February.
-`codecartographer` has forty-eight documents in two tiers, twenty superseded
-ones in an archive, an in-app walkthrough, a Playwright suite that reads as one,
-and an abandoned mkdocs build. `alfred` generates documentation *from* its
-end-to-end suite and records five walkthroughs as video. `datum`'s prose *is*
-its test suite. This corpus writes test names as governance sentences and never
-built the documentation half.
+The word does not survive the trip: **"cookbook" means unrelated things across
+these repositories, and none of them is a document.**
 
-The word does not even survive the trip: **"cookbook" means three unrelated
-things across these repositories, and none of them is a document.**
+The failure is not authorship: such artifacts are written carefully, and many
+are good. The failure is that each needs a *second thing kept in step with a
+first* — a document beside the code, a screenshot beside the UI, a recipe beside
+the command it documents — and nothing makes the second thing cheaper to
+regenerate than to abandon. So they are abandoned, one at a time, by people with
+better things to do.
 
-The failure is not authorship. Every one of those artifacts was written
-carefully, and several are good. The failure is that each needed a *second
-thing kept in step with a first* — a document beside the code, a screenshot
-beside the UI, a recipe beside the command it documents — and nothing made the
-second thing cheaper to regenerate than to abandon. So they were abandoned, one
-at a time, by people with better things to do.
-
-**One instance converged, and it is the evidence this record rests on.**
-`qmetronome` regenerates twenty-four screenshots, twenty-three recordings and
-twenty-four user-guide pages from `./gradlew test` — the command a contributor
-runs before opening a pull request — and they carry zero drift. Its screenshot
+**The instance that converges is the evidence this record rests on.**
+`qmetronome` regenerates its screenshots, recordings and user-guide pages from
+`./gradlew test` — the command a contributor runs before opening a pull request
+— and they carry no drift. Its screenshot
 library runs permanently in *record* mode: it never compares, never gates. All
 the regression protection sits in behavioural assertions in the same test
 method, which drive the real production component through a real gesture and
 assert what the engine did. The picture is a byproduct of the render those
 assertions ran against.
 
-The same repository contains the control. Two of its generated artifacts need a
-*remembered* command: a changelog produced by a script, and a benchmark table
-pasted from a device log. The changelog documents `v0.1.3`; the newest tag is
-`v0.2.0`. Same author, same week, same standard — the artifacts riding the
-command people already run are byte-perfect, and the ones requiring memory are
-stale. That is the whole argument, and it needed no advocacy to produce.
+The same repository contains the control. Its artifacts that need a
+*remembered* command — a changelog produced by a script, a benchmark table
+pasted from a device log — go stale under the same author and the same
+standard, while the artifacts riding the command people already run stay
+exact.
 
 ## Decision
 
@@ -61,7 +50,7 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    are `walkthrough/NN-<slug>.md`, ordinal first, ordered by filename. The
    convention is identical in this corpus and in every adopting project: a
    convention with a project-shaped hole in it is re-derived per project, which
-   is how the org arrived at three meanings of "cookbook".
+   is how one word acquires three meanings.
 
 2. **The pages are executed by the repository's ordinary test command, named
    as an explicit path.** In a Python repository that is pytest with
@@ -138,9 +127,17 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    above is about a page's content, and content properties are satisfiable on a
    branch no remote carries — `alfred`'s documentation guard reports `7 passed`
    on exactly such a branch today. So the walkthrough's check is satisfied only
-   by evidence of a run **on the repository's default branch**: the identifier
-   of an actual job run, not the presence of a workflow file. A file that would
-   have run is not a run.
+   by evidence of a job's run **of a commit the default branch carries**: the
+   identifier of an actual job run, not the presence of a workflow file. A file
+   that would have run is not a run.
+
+   A hermetic page's evidence is the run a push to the default branch makes. A
+   runtime-bound page's may be the run its version tag makes instead, where the
+   project runs its whole suite before every merge on the contributor's machine,
+   on the tree that lands, and the merge commit names that tree, the command
+   and what it counted. That run is what the merge rests on, and it is a claim;
+   the tag's run is the evidence. Between a change to a runtime-bound page and
+   the next tag, the page has a claim and no evidence.
 
 8. **A skip is not a pass, and a page that always skips is deleted.** Pages
    declare their runtime in their opening line:
@@ -190,7 +187,11 @@ stale. That is the whole argument, and it needed no advocacy to produce.
   makes some examples awkward to write and is the honest reason to keep pages
   short.
 - Nothing here obliges an existing artifact to be deleted on adoption. Decision
-  7 obliges deletion only of a page that can never run.
+  8 obliges deletion only of a page that can never run.
+- A project taking decision 7's tag clause carries runtime-bound pages that
+  are, between tags, the contributor's word. The tag's run is where that word is
+  checked, and a project that cuts no tag has runtime-bound pages nobody has
+  checked.
 
 ## Alternatives considered
 
@@ -212,6 +213,24 @@ because they document by running the product, so they cannot introduce it: a
 reader must already have the product working, which is the one thing onboarding
 cannot assume.
 
+**Every page, the runtime-bound ones too, on every push to the default
+branch.** Decision 7 without its tag clause. It keeps the evidence beside every
+merge, and buys a provisioned runtime per merge: in `apothecary`, a push that
+ran its test workflow, the runtime-bound pages among it, took some twenty-five
+times the runner time of a push that ran its governance checks and lint (median
+job-minutes a push, 2026-10-24 to 2026-10-25, summed from `gh api
+repos/quaternionmedia/apothecary/actions/runs/RUN/jobs`). Rejected: the tag's
+run is one `DRAFT-version-tags-are-claims.md` §2 already requires of the tagged
+commit, and it is enough between tags, where each merge rests on the
+contributor's run of the tree that lands and names it.
+
+**The contributor's run as the evidence.** The merge commit names the tree,
+the command and what it counted, and the landed tree can be checked against
+the one named. Rejected: what it counted is the contributor's word about their
+own run, and `DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md` refuses a
+claim as its own evidence. It is what a merge rests on, not what the walkthrough
+is checked by.
+
 **Keep the status quo and write a style guide entry.** Rejected because the
 status quo already includes seven careful attempts. The problem was never that
 people did not know they should document; it is that the second copy was
@@ -223,8 +242,12 @@ cheaper to abandon than to maintain.
   decision 1. The convention is then not carrying its weight and the record is
   re-cut around what the two have in common.
 - A hermetic page acquires a runtime dependency without moving to the
-  runtime-bound tier. Decision 7's tiering has failed and needs a check rather
+  runtime-bound tier. Decision 8's tiering has failed and needs a check rather
   than a declaration.
+- A tag's run fails on a runtime-bound page that every merge since the last
+  tag reported passing on the contributor's machine. The tag clause in decision
+  7 is then carrying a claim the runs do not back, and every push to the default
+  branch runs the page.
 - The doctest form proves unworkable for a repository whose examples are
   genuinely not text. Decision 4 becomes the default there and the record says
   which repositories are in which mode.

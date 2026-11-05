@@ -8,28 +8,26 @@
     uv run qm devloop --json              # the same findings, machine-readable
     uv run qm devloop --check             # exit non-zero if the environment is short
 
-ADVISORY, AND LOCAL ONLY. This reads the operator's filesystem, so it says
+Advisory, and local only. This reads the operator's filesystem, so it says
 different things on two machines and belongs nowhere near CI -- a pull request
 would go red for a reason its author cannot fix. `--check` exists for a local
 pre-flight, not for a gate.
 
-WHAT IT IS FOR. The deliverable is a corpus that accepts concurrent,
+What it is for: the deliverable is a corpus that accepts concurrent,
 overlapping, asynchronous and conflicting feedback and iterates on data
 (records/DRAFT-the-base-is-the-deliverable.md §1). Every one of those words is a
 claim about a *working environment*, not about this repository alone: work
 cannot be concurrent across repositories that are not checked out, and feedback
 cannot be collected from clones nobody has.
 
-WHAT IT CANNOT SEE. Anything not on this disk. A repository absent from
-`inventory-public.json` is absent from the host as of that document's
+What it cannot see: anything not on this disk. A repository absent from
+`status/inventory.yaml` is absent from the host as of that document's
 `generated_at`, which may be stale; a clone this tool cannot find may exist
 under a root it was not given. Both are reported as unknown rather than as zero.
 
-PRIVACY. Private repositories are named nowhere. The public inventory carries
+Privacy: private repositories are named nowhere. The public inventory carries
 them as `ref`/`label` rather than `name`, and a local directory is named only
-when it matches a public repository. This is not a nicety: a tool reading this
-inventory wrote 34 private names into a committable artifact on 2026-08-16, and
-that tool was this one's author.
+when it matches a public repository.
 """
 
 from __future__ import annotations
@@ -43,10 +41,18 @@ from pathlib import Path
 
 import yaml
 
+# Imported two ways -- as `ci.<name>` by the qm CLI and as a bare script -- so
+# this file's own directory goes first, exactly as ci/make_workspace.py does.
+# Both tools must read the roster through the same loader or they answer the
+# same question differently, which is what they did.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import label as roster_label  # noqa: E402
+from roster import load as roster_load  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
-INVENTORY = ROOT / "inventory-public.json"
+INVENTORY = ROOT / "status/inventory.yaml"
 WORKSPACE = ROOT / "ci" / "workspace.yaml"
-LEDGER = ROOT / "ledger.yaml"
+LEDGER = ROOT / "status/ledger.yaml"
 POLICIES = ROOT / "ci" / "policy-registry.yaml"
 GATES = ROOT / "ci" / "gate-registry.yaml"
 
@@ -170,13 +176,23 @@ def checkout(inventory: dict, roster: list[dict], roots: list[Path], deep: bool)
 
     # Presence is decided from the ROSTER, which carries a name and expected
     # paths, and never from the inventory, whose private entries carry no name
-    # at all. Joining on the inventory reported every private roster repository
-    # as absent whether or not it was on the disk, because `None` is never a
-    # key in `found` -- a confident claim the tool structurally could not make.
+    # at all, so `None` would never be a key in `found`.
+    # A nameless entry is unresolved, never absent from the question: a private
+    # roster entry carries a `ref` and no `name` until the uncommitted
+    # companion is merged, and is reported by its reference rather than
+    # dropped. `ci/tests/test_devloop_agrees_with_workspace.py` asserts this agrees
+    # with `uv run qm workspace`, which resolves the same roster through
+    # `roster.merge_private`.
     missing = []
     for entry in roster:
         name = entry.get("name")
-        if not name or name in found:
+        if not name:
+            # The companion was absent, so the name is unknown here. Report it
+            # by its reference rather than skipping it: unknown is a state, and
+            # silently not counting it is the failure above.
+            missing.append(roster_label(entry))
+            continue
+        if name in found:
             continue
         missing.append(name if name in allowed else "a repository not listed publicly")
 
@@ -395,7 +411,12 @@ def render(state: dict, wanted: tuple[str, ...]) -> str:
 
 def gather(roots: list[Path], deep: bool) -> dict:
     inventory = load_json(INVENTORY)
-    roster = (load_yaml(WORKSPACE).get("repositories") or [])
+    # Through `roster.load`, which merges the uncommitted private companion, so
+    # a private entry arrives carrying its name on a machine that has the
+    # companion and its reference on one that does not. Reading the committed
+    # file directly gave every private entry a `None` name, which the missing
+    # check above then skipped.
+    roster = roster_load()
     state = {
         "stability": stability(load_yaml(LEDGER)),
         "checkout": checkout(inventory, roster, roots, deep),
