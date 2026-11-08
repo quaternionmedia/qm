@@ -246,3 +246,4 @@ Drafts in flight (numberless, by title):
 - QM Constitution Adoption Scope for Apothecary
 - Site/Structure/Substructure/Feature Hierarchy for Complex Subassemblies
 - Apothecary is reviewed as one integrated whole, walked as a demo from its README
+- The Airgap Panel's Figures Leave as a Schema-Versioned Metrics Document with Fixed Groupings
