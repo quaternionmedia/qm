@@ -62,11 +62,15 @@ README.
 2. **Every test passes on the whole.** The full suite, the unit tests, the
    walkthrough's doctests and every browser test (`apothecary test all`),
    passes on the integrated tree. A test that passes only at the head that
-   introduced it holds nothing about the code that ships. Each skip is listed
-   with its reason and counts for nothing, as *Version tags are claims* §3
-   counts it. A test that skips for want of something the repository does not
-   hold -- a venue's files, a board -- is named in the approval with what it
-   needs, and its row in the map says so.
+   introduced it holds nothing about the code that ships. The suite runs once,
+   on the head of the stack being pulled merged onto its target's tip: the
+   head carries every level beneath it, so no level is tested alone. Each
+   skip is listed with its reason and counts for nothing, as *Version tags
+   are claims* §3 counts it. A test that skips for want of something the
+   repository does not hold -- a venue's files, a board -- is named in the
+   approval with what it needs, and its row in the map says so. The run and
+   what it leaves for a person are apothecary's integration checklist
+   (`docs/integration-checklist.md`), box by box.
 3. **The README is the map a reviewer walks.** Its section *What it does, and
    how to see it* has one row per thing the code does: where to see it under
    `apothecary serve --demo`, the tests that hold it, and the walkthrough page
@@ -109,8 +113,12 @@ README.
 - A row's "See it" runs under the demo's simulated printer and devkit. What
   only hardware shows stays with the bench checklist, and §4 names it as the
   manual test, so the map never claims what the demo cannot show.
-- Per-pull-request CI keeps gating each audit record. It stops being the
-  evidence a reviewer reads.
+- Per-pull-request CI follows the same unit. A pull request into the target
+  runs the pull-request workflows -- a stack's bottom when it opens, its head
+  when it is retargeted there and marked ready -- and a level stacked on
+  another runs only the stack's own checks and the walkthrough's hermetic
+  pages, which *One executable walkthrough* runs on every pull request. CI
+  stops being the evidence a reviewer reads.
 - A fix to one branch can make the next one conflict: a branch that carries
   another stack's commits meets the fix as a change to its own text. The
   check finds it on the next run, and the fix moves up one branch at a time.
