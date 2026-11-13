@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-05T19:10:11Z",
+  "generated_at": "2026-11-15T12:39:14Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-05T19:10:10Z"
+        "generated_at": "2026-11-15T12:36:41Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 246,
+    "loose_ends": 247,
     "by_kind": {
       "blind-spot": 22,
-      "document-proposed": 42,
+      "document-proposed": 43,
       "document-unreviewed": 97,
       "over-slot": 1,
       "stalled-thread": 84
     },
-    "open": 246,
+    "open": 247,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -527,6 +527,14 @@
       "title": "records/DRAFT-shrink-the-black-box.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-shrink-the-black-box",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it",
+      "title": "records/DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it",
       "address_parses": true
     },
     {

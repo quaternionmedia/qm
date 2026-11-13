@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-05T19:10:10Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-15T12:36:41Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,7 +9,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 45**; 42 proposed |
+| Records ratified | every requirement below | **0 of 46**; 43 proposed |
 | Mandatory reading | under budget | 1232 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **314**, unfiltered.
+Every governed document in this corpus: **316**, unfiltered.
 
 | | |
 |---|---|
@@ -59,11 +59,11 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 42 |
+| [P] `proposed` | 43 |
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 97 |
 | [G] `generated` | 57 |
-| [S] `standing` | 90 |
+| [S] `standing` | 91 |
 | [T] `transient` | 23 |
 | [H] `dated` | 2 |
 
@@ -108,6 +108,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-project-phase-ladder.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-seams-on-standard-protocols.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-shrink-the-black-box.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-the-ledger.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-the-read-document-governs.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
@@ -341,6 +342,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
 | [S] | `standing` | `plans/the-active-set-and-the-pair.md` | other | — |
 | [S] | `standing` | `plans/the-third-side.md` | other | — |
+| [S] | `standing` | `plans/the-tour-adoption.md` | other | — |
 | [S] | `standing` | `plans/the-triplet.md` | other | — |
 | [S] | `standing` | `plans/the-web-window.md` | other | — |
 | [S] | `standing` | `plans/thread-archive-access.md` | other | — |
