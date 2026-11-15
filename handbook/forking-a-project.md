@@ -28,7 +28,7 @@ the adopting projects that copied it from here. `ide/` is the least exercised
 of the three that every project copies; `status/governance.yaml` records an
 `adoption.ide` list per project, read over the GitHub API rather than from the
 checkout. `project/` is exercised only by the projects whose branch holds a
-roadmap. Expect the untested parts to need fixes, and
+roadmap, and `project-seed/ci/check_roadmap.py` is what reads one. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
 

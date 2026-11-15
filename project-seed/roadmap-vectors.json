@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "note": [
+    "Conformance vectors for a roadmap's line grammar: what a project's",
+    "project/ROADMAP.md says it claims, and what each claim names as showing it.",
+    "Shared, not owned: qmcp tour reads roadmaps, and so does",
+    "project-seed/ci/check_roadmap.py, and neither imports the other.",
+    "`python project-seed/ci/check_roadmap.py --vectors` reads every case here.",
+    "",
+    "`lines` is what a reader reads the roadmap as, in its order: the group it",
+    "stands under, the claim with its names taken out, whether it is ticked, and",
+    "the journeys and walkthrough pages it names. The expected readings are",
+    "qmcp tour's, from qmcp/tour.py's roadmap_lines.",
+    "",
+    "Adding a case is cheap, and is the right response to a roadmap read",
+    "wrongly in the wild. Removing one needs a reason."
+  ],
+  "cases": [
+    {
+      "name": "a group and a ticked line naming a journey",
+      "why": "the ordinary line: the heading is its group, and the journey's name leaves the claim",
+      "roadmap": "## Making a thing\n\n- [x] A part is chosen, shaped and printed. `journey:make`\n",
+      "lines": [
+        {
+          "group": "Making a thing",
+          "text": "A part is chosen, shaped and printed.",
+          "ticked": true,
+          "journeys": [
+            "make"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "an unticked line naming a page by a relative link with a fragment",
+      "why": "a page is known by its file name, whatever prefix and fragment its link carries",
+      "roadmap": "## Pages\n\n- [ ] An assembly is navigated. [09](../../../walkthrough/09-an-assembly.md#the-tree)\n",
+      "lines": [
+        {
+          "group": "Pages",
+          "text": "An assembly is navigated.",
+          "ticked": false,
+          "journeys": [],
+          "pages": [
+            "09-an-assembly.md"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a line naming a journey and two pages",
+      "why": "each name leaves the claim with the commas and spaces that follow it",
+      "roadmap": "## Starting\n\n- [x] A fresh clone is served. `journey:start`, [00](../../../walkthrough/00-getting-started.md), [10](../../../walkthrough/10-serving-it.md)\n",
+      "lines": [
+        {
+          "group": "Starting",
+          "text": "A fresh clone is served.",
+          "ticked": true,
+          "journeys": [
+            "start"
+          ],
+          "pages": [
+            "00-getting-started.md",
+            "10-serving-it.md"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a line continued on indented lines",
+      "why": "indented lines under an item continue it, and a name on them belongs to the line",
+      "roadmap": "## G\n\n- [x] A long claim that\n  goes on here, and names\n  `journey:long` at the end.\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "A long claim that goes on here, and names at the end.",
+          "ticked": true,
+          "journeys": [
+            "long"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a nested list item is not part of the line",
+      "why": "a bullet under an item is its own thing, so a name in it does not show the line",
+      "roadmap": "## G\n\n- [x] A claim with a note below it.\n  - a nested note naming `journey:hidden`\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "A claim with a note below it.",
+          "ticked": true,
+          "journeys": [],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a fenced block holds no lines",
+      "why": "a roadmap can show its own format without claiming anything",
+      "roadmap": "## G\n\n```markdown\n- [x] An example. `journey:example`\n```\n\n- [ ] The one real line.\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "The one real line.",
+          "ticked": false,
+          "journeys": [],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a heading of another level opens no group",
+      "why": "only a `## ` heading opens a group; a `### ` heading leaves the line in the group above it",
+      "roadmap": "## Outer\n\n### Inner\n\n- [x] Still in the outer group. `journey:outer`\n",
+      "lines": [
+        {
+          "group": "Outer",
+          "text": "Still in the outer group.",
+          "ticked": true,
+          "journeys": [
+            "outer"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a journey written outside a code span is prose",
+      "why": "the grammar names a journey only in a code span, so this line is shown by nothing",
+      "roadmap": "## G\n\n- [x] Shown by journey:make in plain words.\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "Shown by journey:make in plain words.",
+          "ticked": true,
+          "journeys": [],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a page named in a code span without a link is prose",
+      "why": "the grammar names a page only by a link, so this line is shown by nothing",
+      "roadmap": "## G\n\n- [x] Shown by `walkthrough/09-an-assembly.md`.\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "Shown by `walkthrough/09-an-assembly.md`.",
+          "ticked": true,
+          "journeys": [],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a line above the first group",
+      "why": "a line before any `## ` heading has no group",
+      "roadmap": "# Roadmap\n\n- [x] Above every group. `journey:top`\n\n## Later\n",
+      "lines": [
+        {
+          "group": null,
+          "text": "Above every group.",
+          "ticked": true,
+          "journeys": [
+            "top"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "other bullets and a capital X",
+      "why": "`*` and `+` bullets are items too, and `[X]` is ticked",
+      "roadmap": "## G\n\n* [X] A starred line. `journey:a`\n+ [ ] A plus line. `journey:b`\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "A starred line.",
+          "ticked": true,
+          "journeys": [
+            "a"
+          ],
+          "pages": []
+        },
+        {
+          "group": "G",
+          "text": "A plus line.",
+          "ticked": false,
+          "journeys": [
+            "b"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a name given twice is one name",
+      "why": "a journey or page named twice on a line is listed once",
+      "roadmap": "## G\n\n- [x] Twice. `journey:same` and `journey:same`\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "Twice. and",
+          "ticked": true,
+          "journeys": [
+            "same"
+          ],
+          "pages": []
+        }
+      ]
+    },
+    {
+      "name": "a journey id with a capital is prose",
+      "why": "a journey id is lowercase letters, digits and hyphens, so `journey:Make` names nothing",
+      "roadmap": "## G\n\n- [x] Capitalised. `journey:Make`\n",
+      "lines": [
+        {
+          "group": "G",
+          "text": "Capitalised. `journey:Make`",
+          "ticked": true,
+          "journeys": [],
+          "pages": []
+        }
+      ]
+    }
+  ]
+}
