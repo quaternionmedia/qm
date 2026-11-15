@@ -1,13 +1,13 @@
-# ADR-XXXX — Apothecary is reviewed as one integrated whole, walked as a demo from its README
+# ADR-XXXX — Apothecary is reviewed as one integrated whole, walked on the running server from its README
 
 | | |
 |---|---|
 | **Status** | Proposed |
-| **Date** | 2026-10-15 |
+| **Date** | 2026-11-15 |
 | **Pends on** | The trial: the first review walked this way, of apothecary's `build/integration`, completed by the owner and recorded on its pull request as §4 says. Its outcome decides whether this record is ratified, revised, or proposed to the org. |
-| **Checked against** | apothecary `build/integration` at `48bfbaa` (every open pull request merged onto `build/timeless-docs`, #54 included); qm at this project's pin `20e00bd` for the async contract and the version-tags record, and qm `main` at `df1cb51` for the async contract as it stands there |
-| **Established by** | the stacks merged with `git merge-tree` and then `git merge`; the commands `apothecary test all` runs, run on the merged tree with each skip's reason; `.github/ci/check_integrates.py` run against the repository's open pull requests, before and after their branches were fixed; `tests/test_readme_map.py` seen to fail on a browser test with no row, and on each failure made in a copy of the README |
-| **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
+| **Checked against** | apothecary `build/integration` at `48bfbaa` (every open pull request merged onto `build/timeless-docs`, #54 included); qm at this project's pin `20e00bd` for the async contract and the version-tags record, and qm `main` at `df1cb51` for the async contract as it stands there; apothecary `build/tour-over-the-page` at `3dcae790` for the server a row is seen on and the tour's feedback (§3, §4) |
+| **Established by** | the stacks merged with `git merge-tree` and then `git merge`; the commands `apothecary test all` runs, run on the merged tree with each skip's reason; `.github/ci/check_integrates.py` run against the repository's open pull requests, before and after their branches were fixed; `tests/test_readme_map.py` seen to fail on a browser test with no row, and on each failure made in a copy of the README; the tour opened on the server holding the real state, a stage gone to and a machine with no board connected taken as planned; `qmcp tour` run against that server and the roadmap in `project/` |
+| **Tools** | Drafted with an AI coding agent; the person who ratifies it is its contributor of record |
 
 ## Context
 
@@ -50,8 +50,8 @@ where the stack accumulates.
 
 ## Decision
 
-Apothecary is reviewed as one integrated whole, walked as a demo from its
-README.
+Apothecary is reviewed as one integrated whole, walked on the running server
+from its README.
 
 1. **The unit of review is the integrated whole.** Every open stack is merged
    into one tree on an integration branch above them (`build/integration`),
@@ -70,20 +70,27 @@ README.
    repository does not hold -- a venue's files, a board -- is named in the
    approval with what it needs, and its row in the map says so. The run and
    what it leaves for a person are apothecary's integration checklist
-   (`docs/integration-checklist.md`), box by box.
+   (`project/integration-checklist.md`), box by box.
 3. **The README is the map a reviewer walks.** Its section *What it does, and
-   how to see it* has one row per thing the code does: where to see it under
-   `apothecary serve --demo`, the tests that hold it, and the walkthrough page
-   its run writes. `tests/test_readme_map.py` fails when a row names a test or
+   how to see it* has one row per thing the code does: where to see it on the
+   running server, the tests that hold it, and the walkthrough page its run
+   writes. The server is the one a person runs, `apothecary serve`, on their
+   own state and the machines plugged in; `apothecary serve --simulated`
+   stands simulated machines where none is plugged in. No server exists to be
+   shown beside the one that is used. `tests/test_readme_map.py` fails when a row names a test or
    a page that is not there, when a browser test is in no row, or when a page a
    run writes is in no row naming that run. What the code does is stated there
    and nowhere else; a pull request's body says what it changed.
 4. **A person walks the map on the running whole and approves it once.** The
-   approval names the integration commit, the rows walked, what was tested by
-   hand against real hardware (the bench checklist, `docs/bench-checklist.md`),
+   page's tour takes them through its journeys a stage at a time and keeps
+   their word on each, under their name and of the commit the server runs;
+   `qmcp tour` reads those words against the roadmap
+   (`project/ROADMAP.md`). The approval names the integration commit, the
+   rows walked, what the tour holds at that commit, what was tested by hand
+   against real hardware (the bench checklist, `project/bench-checklist.md`),
    and the suite's result with its skips. It is recorded on the integration
-   pull request. A tag cut at that commit carries the same three in its
-   annotation (*Version tags are claims* §6).
+   pull request. A tag cut at that commit carries the same in its annotation
+   (*Version tags are claims* §6).
 5. **A conflict makes a pull request ineligible to merge, and it is fixed in
    that pull request's branch.** The open pull requests merge depth first from
    their base, oldest first on each. One whose head conflicts with those before
@@ -110,9 +117,13 @@ README.
 - Every browser test needs a row, and every page a run writes needs its run in
   a row. A new browser test with no row fails the map's check; the failure is
   the reminder, and its cost is one line of the README.
-- A row's "See it" runs under the demo's simulated printer and devkit. What
-  only hardware shows stays with the bench checklist, and §4 names it as the
-  manual test, so the map never claims what the demo cannot show.
+- A row is seen on the server a person runs. Where a machine is not plugged
+  in, the row is seen on simulated machines, and a machine the site plans is
+  opened as planned. What only hardware shows stays with the bench checklist,
+  and §4 names it as the manual test, so the map never claims what simulated
+  machines cannot show.
+- Every commit sets the tour's words back to said of an earlier build. A walk
+  is of one commit, which is what §4's approval names.
 - Per-pull-request CI follows the same unit. A pull request into the target
   runs the pull-request workflows -- a stack's bottom when it opens, its head
   when it is retargeted there and marked ready -- and a level stacked on
@@ -167,8 +178,8 @@ README.
   record should then cite.
 - A defect reaches `main` that a row of the map shows, meaning the walk or the
   map missed it.
-- A row needs hardware the demo cannot simulate, so the map and the bench
-  checklist overlap.
+- A row needs hardware that simulated machines cannot stand in for, so the
+  map and the bench checklist overlap.
 - A second project adopts the same review, or *Version tags are claims* is
   ratified with a different unit of review: the rule is then proposed to the
   org, or brought in line.
