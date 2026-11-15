@@ -27,6 +27,7 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 path = [
   "TEMPLATE.md",
   "project-seed/adr/**",
+  "project-seed/project/**",
   "project-seed/ide/AGENTS.md",
   "project-seed/ide/CLAUDE.md",
   "project-seed/ide/.claude/**",
