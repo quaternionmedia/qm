@@ -1,0 +1,1001 @@
+{
+  "schema": 1,
+  "note": [
+    "Conformance vectors for the tour's two documents, GET /tour and GET",
+    "/tour/feedback. Shared, not owned: an application emits them and the harness",
+    "reads them, and neither imports the other. project-seed/tour-schema.json is",
+    "the shape, and `python project-seed/ci/tour_document.py --vectors` decides",
+    "every case here against it.",
+    "",
+    "Every valid payload came out of a real emitter,",
+    "apothecary/tour.py, run on a state folder of its own: cut to the journeys and",
+    "stages a case needs, and otherwise as emitted. Each invalid case, and the",
+    "one valid case shaped as an older record, says in its why which one edit",
+    "made it from which case.",
+    "",
+    "`valid` -- an application may serve it, and a reader must read it. False",
+    "means a reader refuses it, saying why.",
+    "",
+    "Adding a case is cheap, and is the right response to a document read",
+    "wrongly in the wild. Removing one needs a reason."
+  ],
+  "cases": [
+    {
+      "name": "a journey with a word on two of its stages",
+      "document": "tour",
+      "valid": true,
+      "why": "the ordinary document: one stage with nothing to try and no word, one with a step to try and a word that works, one with a word that is off; each word said of the build the application runs",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slice",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "make/see",
+                "journey": "make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a stage that names pages to read whole",
+      "document": "tour",
+      "valid": true,
+      "why": "a try with index null is a page that shows the same thing whole: its heading is the page's number and title, and it has no picture",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "design",
+            "name": "Design a part",
+            "stages": [
+              {
+                "id": "design/numbers",
+                "journey": "design",
+                "stage": "numbers",
+                "title": "Numbers",
+                "words": "its numbers as controls in Parameters: staged, checked, then Apply in Selected",
+                "tries": [
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 1,
+                    "heading": "Part › Edit opens the part's editor at what is drawn",
+                    "words": "The universe, /viewer/sites/apothecary, where every part is a leaf: calibration_cube's row in Site, its ring, Part › Edit, then Panels › Windows › Part view: its parameters in Parameters, under Selected. They start from what is drawn, the part's own STL as its params sidecar records it, and beside the envelope the part declares is what that STL measures. Nothing marks it: it is the saved part. The view is brought to it by hand, Shift+drag and the wheel, as the universe frames a whole shelf of parts. A slider is the next step.",
+                    "picture": "screenshots/04-01-part-edit-opens-the-part-s-editor-at-what-is-drawn.png",
+                    "shown": "envelope 10.00 × 10.00 × 10.00 mm · measured 10.00 × 10.00 × 10.00 mm"
+                  },
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 2,
+                    "heading": "A size dragged is checked once the slider rests",
+                    "words": "The size slider dragged through 5 values without a pause: its line in the part's SCAD, in the editor below, rewritten as it moved, its comment kept -- the text and the controls are one draft. One check, once it rests, against the part's own model, and the envelope it would produce. Nothing is rendered yet; Apply is the next step.",
+                    "picture": "screenshots/04-02-a-size-dragged-is-checked-once-the-slider-rests.png",
+                    "shown": "1 change staged, valid → 30.00 × 30.00 × 30.00 mm\nsize = 30;              // [10:1:50] Cube size in mm"
+                  },
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 3,
+                    "heading": "Apply draws the variant, marked as not saved",
+                    "words": "Apply: the text rendered, its size in it and nothing passed beside it, into the cache of variants, and drawn in this tab at that size, grown from where the part stood on the floor rather than centred on the envelope it had, and measured beside the envelope the part declares, Selected's Footprint following it. The editor's amber edge and its words, and an amber dot over the part in the world, say it is an applied variant and not the saved part; the status line says so too.",
+                    "picture": "screenshots/04-03-apply-draws-the-variant-marked-as-not-saved.png",
+                    "shown": "calibration_cube regenerated: an applied variant, not saved; Part › Save keeps it in git\nenvelope 30.00 × 30.00 × 30.00 mm · measured 30.00 × 30.00 × 30.00 mm"
+                  },
+                  {
+                    "page": "08-fitting.md",
+                    "index": null,
+                    "heading": "08 — Which numbers are whose",
+                    "words": "`datum_core` is sized around a board this repository does not own, and its numbers are of two kinds: the printer's, which carry house defaults, and the board's, which a consumer's fit sets.",
+                    "picture": null,
+                    "shown": null
+                  },
+                  {
+                    "page": "11-contested-numbers.md",
+                    "index": null,
+                    "heading": "11 — Contested numbers",
+                    "words": "Some numbers are not settled, and none is a typo to be quietly corrected — each has a document behind it:",
+                    "picture": null,
+                    "shown": null
+                  }
+                ],
+                "feedback": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a word said of an earlier build",
+      "document": "tour",
+      "valid": true,
+      "why": "the stage's latest word carries another commit than the one the application runs, so it is not current: shown, and the stage waits for a word again",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "design",
+            "name": "Design a part",
+            "stages": [
+              {
+                "id": "design/numbers",
+                "journey": "design",
+                "stage": "numbers",
+                "title": "Numbers",
+                "words": "its numbers as controls in Parameters: staged, checked, then Apply in Selected",
+                "tries": [
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 1,
+                    "heading": "Part › Edit opens the part's editor at what is drawn",
+                    "words": "The universe, /viewer/sites/apothecary, where every part is a leaf: calibration_cube's row in Site, its ring, Part › Edit, then Panels › Windows › Part view: its parameters in Parameters, under Selected. They start from what is drawn, the part's own STL as its params sidecar records it, and beside the envelope the part declares is what that STL measures. Nothing marks it: it is the saved part. The view is brought to it by hand, Shift+drag and the wheel, as the universe frames a whole shelf of parts. A slider is the next step.",
+                    "picture": "screenshots/04-01-part-edit-opens-the-part-s-editor-at-what-is-drawn.png",
+                    "shown": "envelope 10.00 × 10.00 × 10.00 mm · measured 10.00 × 10.00 × 10.00 mm"
+                  },
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 2,
+                    "heading": "A size dragged is checked once the slider rests",
+                    "words": "The size slider dragged through 5 values without a pause: its line in the part's SCAD, in the editor below, rewritten as it moved, its comment kept -- the text and the controls are one draft. One check, once it rests, against the part's own model, and the envelope it would produce. Nothing is rendered yet; Apply is the next step.",
+                    "picture": "screenshots/04-02-a-size-dragged-is-checked-once-the-slider-rests.png",
+                    "shown": "1 change staged, valid → 30.00 × 30.00 × 30.00 mm\nsize = 30;              // [10:1:50] Cube size in mm"
+                  },
+                  {
+                    "page": "04-designing-a-part.md",
+                    "index": 3,
+                    "heading": "Apply draws the variant, marked as not saved",
+                    "words": "Apply: the text rendered, its size in it and nothing passed beside it, into the cache of variants, and drawn in this tab at that size, grown from where the part stood on the floor rather than centred on the envelope it had, and measured beside the envelope the part declares, Selected's Footprint following it. The editor's amber edge and its words, and an amber dot over the part in the world, say it is an applied variant and not the saved part; the status line says so too.",
+                    "picture": "screenshots/04-03-apply-draws-the-variant-marked-as-not-saved.png",
+                    "shown": "calibration_cube regenerated: an applied variant, not saved; Part › Save keeps it in git\nenvelope 30.00 × 30.00 × 30.00 mm · measured 30.00 × 30.00 × 30.00 mm"
+                  },
+                  {
+                    "page": "08-fitting.md",
+                    "index": null,
+                    "heading": "08 — Which numbers are whose",
+                    "words": "`datum_core` is sized around a board this repository does not own, and its numbers are of two kinds: the printer's, which carry house defaults, and the board's, which a consumer's fit sets.",
+                    "picture": null,
+                    "shown": null
+                  },
+                  {
+                    "page": "11-contested-numbers.md",
+                    "index": null,
+                    "heading": "11 — Contested numbers",
+                    "words": "Some numbers are not settled, and none is a typo to be quietly corrected — each has a document behind it:",
+                    "picture": null,
+                    "shown": null
+                  }
+                ],
+                "feedback": {
+                  "stage": "design/numbers",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Ada",
+                  "at": "2026-11-15T23:46:28+00:00",
+                  "commit": "b4a309ce",
+                  "changed": false,
+                  "current": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "an application that cannot say its build",
+      "document": "tour",
+      "valid": true,
+      "why": "commit and changed are null, so no word is tied to a build and each is current",
+      "payload": {
+        "commit": null,
+        "changed": null,
+        "journeys": [
+          {
+            "id": "design",
+            "name": "Design a part",
+            "stages": [
+              {
+                "id": "design/choose",
+                "journey": "design",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces: what it is drawn from, and its envelope",
+                "tries": [],
+                "feedback": {
+                  "stage": "design/choose",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Ada",
+                  "at": "2026-11-15T23:46:28+00:00",
+                  "commit": null,
+                  "changed": null,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "no journey at all",
+      "document": "tour",
+      "valid": true,
+      "why": "an application that declares no journey yet serves an empty list, and its review is its pages read whole",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": []
+      }
+    },
+    {
+      "name": "a stage whose id is not its journey and its stage",
+      "document": "tour",
+      "valid": false,
+      "why": "a word names a stage by `<journey>/<stage>`, so an id that is anything else names a stage nothing serves. Edited from the first case: make/slice's id written make/slicing",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slicing",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "make/see",
+                "journey": "make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a stage listed under a journey it does not name",
+      "document": "tour",
+      "valid": false,
+      "why": "a stage's journey is the journey it is listed under. Edited from the first case: make/see's journey written design, and its id with it",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slice",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "design/see",
+                "journey": "design",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "two stages with one id",
+      "document": "tour",
+      "valid": false,
+      "why": "a word is kept against a stage's id, so two stages with one id share every word. Edited from the first case: make/choose listed twice",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slice",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "make/see",
+                "journey": "make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a journey id a roadmap cannot name",
+      "document": "tour",
+      "valid": false,
+      "why": "a roadmap names a journey as `journey:<id>`, lowercase letters, digits and hyphens. Edited from the first case: the journey's id written Make, and its stages' with it",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "Make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "Make/choose",
+                "journey": "Make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "Make/slice",
+                "journey": "Make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "Make/see",
+                "journey": "Make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a stage with no line of its own",
+      "document": "tour",
+      "valid": false,
+      "why": "the tour says of a stage what the application says of it, and has no words of its own to put in place of a missing line. Edited from the first case: make/choose's words taken out",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slice",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              },
+              {
+                "id": "make/see",
+                "journey": "make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "a latest word that does not say whether it is current",
+      "document": "tour",
+      "valid": false,
+      "why": "the box counts the words on the build it runs, and a word that does not say it is of that build cannot be counted. Edited from the first case: make/slice's current taken out",
+      "payload": {
+        "commit": "3dc617f1",
+        "changed": false,
+        "journeys": [
+          {
+            "id": "make",
+            "name": "Print a part",
+            "stages": [
+              {
+                "id": "make/choose",
+                "journey": "make",
+                "stage": "choose",
+                "title": "Choose",
+                "words": "the part, among the site's pieces",
+                "tries": [],
+                "feedback": null
+              },
+              {
+                "id": "make/slice",
+                "journey": "make",
+                "stage": "slice",
+                "title": "Slice",
+                "words": "the machine's Print window: the part under makes, then Slice",
+                "tries": [
+                  {
+                    "page": "03-a-picture-to-a-print.md",
+                    "index": 7,
+                    "heading": "Slice, in printer_1's Machine, slices the piece and chooses its G-code",
+                    "words": "printer_1's ring, Device › Open: its Machine a tab beside Pictures, below Selected, and ⊞ Windows › Print opens its Print from here, a tab beside it in a column already four stacks deep. It lists the pieces of the garage under makes; disc_1 chosen, its Slice slices it for printer_1, the slicer's log in the card while it runs. The G-code it kept is chosen in the card's files, saying what it was sliced from and for which printer, and the card lists what the slice used -- each value from the printer's profile, a piece declaring none -- with the slicer's estimate. Print is maximised here from its stack, so the whole card is seen.",
+                    "picture": "screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png",
+                    "shown": "disc_1.gcode kept and chosen: sliced from disc_1 for printer_1, 1h 2m 3s, 0.79 g of filament, 15 layers; ▶ Print prints it"
+                  }
+                ],
+                "feedback": {
+                  "stage": "make/slice",
+                  "verdict": "works",
+                  "note": "",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false
+                }
+              },
+              {
+                "id": "make/see",
+                "journey": "make",
+                "stage": "see",
+                "title": "See",
+                "words": "the chosen file's path, drawn on the machine",
+                "tries": [],
+                "feedback": {
+                  "stage": "make/see",
+                  "verdict": "off",
+                  "note": "the travel moves are drawn as extrusion",
+                  "by": "Grace",
+                  "at": "2026-11-15T23:46:03+00:00",
+                  "commit": "3dc617f1",
+                  "changed": false,
+                  "current": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "every word kept",
+      "document": "feedback",
+      "valid": true,
+      "why": "the ordinary document, oldest first: two words on one stage, the later of which is its feedback, and an off with what is off",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "the travel moves are drawn as extrusion",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "words kept where the build cannot be said",
+      "document": "feedback",
+      "valid": true,
+      "why": "commit and changed are null on a word said where the application could not say its build",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "design/choose",
+            "verdict": "works",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:28+00:00",
+            "commit": null,
+            "changed": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "a word kept before words carried a name",
+      "document": "feedback",
+      "valid": true,
+      "why": "an instance's state holds words kept before a name was asked for; a reader prints nothing in its place. Edited from the first feedback case: the first word's by taken out",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "the travel moves are drawn as extrusion",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "a verdict that is neither",
+      "document": "feedback",
+      "valid": false,
+      "why": "the options are closed: works, or off. Edited from the first feedback case: the first verdict written fine",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "fine",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "the travel moves are drawn as extrusion",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "off, saying nothing of what is off",
+      "document": "feedback",
+      "valid": false,
+      "why": "off is refused without what is off, in the person's words. Edited from the first feedback case: the off word's note made blank",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "  ",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "a moment without its offset",
+      "document": "feedback",
+      "valid": false,
+      "why": "a moment with no offset is a different moment in every zone it is read in. Edited from the first feedback case: the first word's at written without +00:00",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:03",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "the travel moves are drawn as extrusion",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "a word with no build",
+      "document": "feedback",
+      "valid": false,
+      "why": "a word is of the build it was said of, so a record without commit cannot be counted for any. Edited from the first feedback case: the first word's commit taken out",
+      "payload": {
+        "feedback": [
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Ada",
+            "at": "2026-11-15T23:46:03+00:00",
+            "changed": false
+          },
+          {
+            "stage": "make/see",
+            "verdict": "off",
+            "note": "the travel moves are drawn as extrusion",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          },
+          {
+            "stage": "make/slice",
+            "verdict": "works",
+            "note": "",
+            "by": "Grace",
+            "at": "2026-11-15T23:46:03+00:00",
+            "commit": "3dc617f1",
+            "changed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "the words as a bare list",
+      "document": "feedback",
+      "valid": false,
+      "why": "the document is an object whose feedback is the list, so a reader can find more beside it. Edited from the first feedback case: the list served alone",
+      "payload": [
+        {
+          "stage": "make/slice",
+          "verdict": "works",
+          "note": "",
+          "by": "Ada",
+          "at": "2026-11-15T23:46:03+00:00",
+          "commit": "3dc617f1",
+          "changed": false
+        },
+        {
+          "stage": "make/see",
+          "verdict": "off",
+          "note": "the travel moves are drawn as extrusion",
+          "by": "Grace",
+          "at": "2026-11-15T23:46:03+00:00",
+          "commit": "3dc617f1",
+          "changed": false
+        },
+        {
+          "stage": "make/slice",
+          "verdict": "works",
+          "note": "",
+          "by": "Grace",
+          "at": "2026-11-15T23:46:03+00:00",
+          "commit": "3dc617f1",
+          "changed": false
+        }
+      ]
+    }
+  ]
+}
