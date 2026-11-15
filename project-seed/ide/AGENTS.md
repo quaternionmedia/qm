@@ -236,6 +236,19 @@ quoting a figure.
     commit, the pull request and the retrospective hold that. The seed's
     `timeless-check.yml` runs `check_timeless.py` on the lines a pull request
     adds and refuses a phrase set in capitals and a phrase that only narrates.
+22. **The application carries its tour, and the harness reviews it** — record
+    `governance/qm/records/DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it.md`,
+    with `governance/qm/handbook/the-tour.md` as the thing to do. An
+    application with a page carries a tour of its own journeys, a stage at a
+    time, in a box over its page: its built-in help, and where a person says
+    `works` or `off` on a stage under a name, kept with the commit it ran. What
+    this project plans and what was found of it are not in this repository: its
+    roadmap, plans, open work, checklists and dated records are in
+    `governance/qm/project/`, on this project's branch of the corpus, and
+    `governance/qm/project-seed/ci/check_roadmap.py` says whether each roadmap
+    line names a journey or a page that is there. The review is the harness's,
+    `qmcp tour`. The tour arms, starts, sends and spends nothing, stands in for
+    nothing a person brings, has no words of its own, and ticks nothing.
 
 ## The instruction files
 
