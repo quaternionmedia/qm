@@ -163,8 +163,8 @@ gates:
     exists: true
     refuses: >
       A `project/<name>` branch whose own commits touch anything outside
-      `adr/`, on a pull request into the branch and, after the fact, on a push
-      to it. It compares content with `main` and not commits, so org content
+      `adr/` and `project/`, on a pull request into the branch and, after the
+      fact, on a push to it. It compares content with `main` and not commits, so org content
       arriving by a merge from `main` is not mistaken for the project editing
       it.
     runs:
@@ -176,7 +176,7 @@ gates:
       `project/**`, so the direction of a pull request between namespaces is
       `pr-direction`'s to refuse. A push cannot be refused, so on a push it
       reports and prevents nothing. A branch cut from the wrong parent whose
-      own commits touch `adr/` only.
+      own commits touch `adr/` and `project/` only.
 
   - id: ci-tooling-tests
     workflow: ci-tooling-tests.yml

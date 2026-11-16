@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-16T00:13:53Z",
+  "generated_at": "2026-11-16T00:18:18Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -29,7 +29,7 @@
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-05T16:23:09Z"
+        "generated_at": "2026-11-16T00:18:01Z"
       }
     }
   },
@@ -133,7 +133,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-namespace-guard",
       "title": "namespace-guard cannot see",
-      "detail": "Anything on a pull request into `main`: both its triggers are filtered to `project/**`, so the direction of a pull request between namespaces is `pr-direction`'s to refuse. A push cannot be refused, so on a push it reports and prevents nothing. A branch cut from the wrong parent whose own commits touch `adr/` only.",
+      "detail": "Anything on a pull request into `main`: both its triggers are filtered to `project/**`, so the direction of a pull request between namespaces is `pr-direction`'s to refuse. A push cannot be refused, so on a push it reports and prevents nothing. A branch cut from the wrong parent whose own commits touch `adr/` and `project/` only.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-namespace-guard",
       "address_parses": true
     },

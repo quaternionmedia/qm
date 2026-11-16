@@ -41,7 +41,10 @@ at 2: its review is its pages, read whole, from the command line.
 - **`project/` in the seed**, beside `adr/`, so a project branch is created
   with a place for its roadmap: `project-seed/project/`, which
   `handbook/forking-a-project.md` step 2 copies and `docs/ref/namespaces.md`
-  names.
+  names. `namespace-guard.yml` lets a project branch's own commits touch
+  `project/` beside `adr/`; a project branch runs the guard it holds, so a
+  pull request adding `project/` to one passes only once `main`'s guard has
+  reached that branch by propagation.
 - **The tour documents' shape**: `project-seed/tour-schema.json` states both
   documents, `project-seed/tour-vectors.json` holds the cases an application
   and the harness hold to, and `project-seed/ci/tour_document.py` checks a
