@@ -9,7 +9,9 @@ work unblocks.
 **Stamped 2026-11-15.** Which repositories carry a walkthrough and a roadmap
 was asked of the host's default branches on 2026-11-13, for the members
 `families.json` lists as governed. A repository the host would not show, or
-whose walkthrough is on another branch, reads here as having none. Re-derive
+whose walkthrough is on another branch, reads here as having none. `alfred` was
+read on 2026-11-15 at the top of its open stack of pull requests,
+`docs/changes-by-family`, since its default branch is far behind it. Re-derive
 before acting.
 
 ## What a project needs, in the order it can be built
@@ -34,16 +36,26 @@ at 2: its review is its pages, read whole, from the command line.
 - **The record ratified**, or adopted by a project as a draft with that said.
 - **`qmcp tour`**: the reader of a project's roadmap and a clone's pages, and
   the review of both against a running application's two documents. A working
-  instance is built on a local branch of `qmcp`.
+  instance is built on a local branch of `qmcp`, and reads `alfred` as it reads
+  `apothecary`, with no change.
 - **`project/` in the seed**, beside `adr/`, so a project branch is created
-  with a place for its roadmap, and `docs/ref/namespaces.md` saying so.
-- **The tour document's shape**, as a schema in `project-seed/`, with address
-  vectors for a stage (`docs/ref/addresses.md`): a journey's id, name and
-  ordered stages, and per stage its line, what it names to try and its latest
-  word. `apothecary`'s `GET /tour` is the instance to take it from.
-- **A check in the seed** that a roadmap's lines name journeys and pages that
-  exist, and that says which lines are shown by nothing. It reports; it gates
-  nothing, because a line shown by nothing is a finding and not a fault.
+  with a place for its roadmap: `project-seed/project/`, which
+  `handbook/forking-a-project.md` step 2 copies and `docs/ref/namespaces.md`
+  names.
+- **The tour documents' shape**: `project-seed/tour-schema.json` states both
+  documents, `project-seed/tour-vectors.json` holds the cases an application
+  and the harness hold to, and `project-seed/ci/tour_document.py` checks a
+  served document or every case against the schema. A stage has no address
+  of its own: the kinds in `docs/ref/addresses.md` are a closed set, and one
+  for a stage waits on a reader that needs to link a word to a row elsewhere.
+- **A check in the seed**, `project-seed/ci/check_roadmap.py`, says whether a
+  roadmap's lines name journeys and pages that exist, and which lines are
+  shown by nothing. It reports and gates nothing, because a line shown by
+  nothing is a finding and not a fault. `project-seed/roadmap-vectors.json`
+  holds the line grammar's cases, read the same by it and by `qmcp tour`.
+- **The page an agent reads**: `handbook/the-tour.md`, and item 22 of
+  `project-seed/ide/AGENTS.md` pointing at it. A project's `AGENTS.md` carries
+  the item once it takes the seed's governance section again.
 - **A rollout** in `ci/rollout.yaml` once two projects have adopted, so the
   claim and the evidence per project are generated and not kept here.
 
@@ -83,8 +95,28 @@ stage happens beside real machines.
   of open work, checklists and dated records stand in `project/`. Groundwork
   left: the states only a fault brings, held as steps to read.
 - **`datum`**: has a walkthrough, no roadmap. Items 2 and 3.
-- **`alfred`**: no walkthrough. It has the stage rail the step rail came from,
-  so, as with `codecartographer`, the walkthrough is what is missing.
+- **`alfred`**: the second instance, drafted on top of its open stack. Its
+  journeys are the editor's user journeys (`docs/journeys.md`) over its four
+  stages, Source, Edit, Render and Deliver: served at `GET /tour` with each
+  stage's line taken from the rail and its steps read from that page, a box in
+  the editor's own front-end idiom, and a stage reached by three things the
+  editor already does, a project opened, a stage chosen, a panel brought
+  forward. Its roadmap and its one plan, the backend test plan, stand in
+  `project/` on `project/alfred`. Groundwork left:
+  - **No walkthrough.** What a stage names to try is the journey's own steps
+    on `docs/journeys.md`, not walkthrough steps, so the review has no pages
+    to read whole, and its claims no journey shows are shown by nothing.
+  - **No test reaches every stage.** Item 5's two tests belong in its browser
+    suite, which needs its dev stack.
+  - **The rail's words are in two places**: the site's stage list and the
+    server's journeys, held equal by a test, because the API image and the
+    site are built apart. One place means the rail reads them from
+    `GET /tour`.
+  - **Words are kept only by a server started to keep them**, and a production
+    stack refuses to start with that setting, since `alfred` in production
+    answers more than its own machine. That a public server never takes a word
+    tightens the record; whether `alfred` in production should take them is
+    the record's first revision trigger.
 - **The family's rule for item 5**: the tour arms nothing, starts nothing and
   sends nothing to a machine, and pins no device a person has not named. A
   member that drives hardware adopts item 5 with a test that holds exactly
@@ -136,16 +168,25 @@ No member is governed. Nothing to plan yet.
 2. The record, to ratification.
 3. `qmcp tour`, landed. From here a project with items 1 and 2 has a review at
    the command line.
-4. `project/` in the seed, and the schema of the tour document.
-5. Second adopters, one per shape: `carlos` (a page, no machines), `datum`
+4. `project/` in the seed, the schema of the tour documents, the roadmap
+   check and the handbook page, with the record.
+5. `alfred`, the second application with a page, on top of its stack once that
+   lands, with its roadmap on `project/alfred` and its pin moved there.
+6. Further adopters, one per shape: `carlos` (a page, no machines), `datum`
    (pages whole), `codecartographer` (journeys already declared).
-6. The rollout document, and the remaining members as each reaches item 1.
+7. The rollout document, and the remaining members as each reaches item 1.
 
 ## What this outline does not know
 
 - Whether an ungoverned repository's walkthrough exists under another name.
 - What any member but `apothecary` and `qmcp` would name as its first journey.
   That is its maintainer's to say, and the roadmap is where it is said.
-- Whether the box can serve an application that is not a web page, and whether
-  a second application's box should be the first one's script.
+- Whether the box can serve an application that is not a web page.
+- Whether a third application's box should share a script. Two applications'
+  boxes are one form and two scripts: `apothecary`'s is plain DOM with the page
+  supplying how a stage is reached, `alfred`'s is written in its front-end
+  framework, and each reaches a stage through things only its own page does.
+  What they share is the two documents, which the seed states, and the rules
+  of a word, which the handbook page does; a shared script would carry neither
+  and would need a framework of its own.
 - How a stage whose point is sound is shown.
