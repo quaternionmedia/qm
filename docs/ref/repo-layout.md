@@ -16,7 +16,7 @@ qm/
 ├── registers/             live org-level registers (carried patches)
 ├── handbook/              policy, status, and procedures
 ├── perspectives/          dated, attributed, non-binding opinion
-├── project-seed/          what a new project copies: adr/, ci/, ide/
+├── project-seed/          what a new project copies: adr/, project/, ci/, ide/
 ├── ci/                    org-level tooling: the status generators
 ├── docs/                  this documentation site
 │   ├── families/          generated: a page per family

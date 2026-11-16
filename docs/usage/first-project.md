@@ -20,7 +20,7 @@ The [handbook](../ref/glossary.md#handbook){ .glossary-term } numbers the steps 
 
 **1. Add the submodule.** Add this repository as a git submodule at `governance/qm` in the new project.
 
-**2. Create the project branch.** In this repository, create `project/<name>` off `main`. Copy `project-seed/adr/` onto it as a top-level `adr/` directory, then **push the branch** — do not open a pull request for it. This is the one place content arrives on a shared branch by push: the only base a pull request could target is the branch being created, which does not exist yet.
+**2. Create the project branch.** In this repository, create `project/<name>` off `main`. Copy `project-seed/adr/` onto it as a top-level `adr/` directory and `project-seed/project/` as a top-level `project/` directory, where the project's roadmap stands, then **push the branch** — do not open a pull request for it. This is the one place content arrives on a shared branch by push: the only base a pull request could target is the branch being created, which does not exist yet.
 
 **3. Point the submodule at the branch.** Check out `project/<name>` inside the submodule, commit the updated pointer, and add `branch = project/<name>` to the project's `.gitmodules`.
 

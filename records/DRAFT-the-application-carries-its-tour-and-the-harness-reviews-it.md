@@ -6,7 +6,7 @@
 | **Date** | 2026-11-15 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | `show-it-by-running-it` — show it by running it; `interrupted-only-by-a-decision` — a person is interrupted only by a decision; `typing-schedules-interface-work` — a change that can only be typed schedules interface work |
-| **Restated in** | Nothing |
+| **Restated in** | `project-seed/ide/AGENTS.md` item 22; `handbook/the-tour.md` |
 
 ## Context
 
@@ -205,8 +205,10 @@ and opens on the first stage without one.
 The application keeps the words in its own state and serves two documents: the
 tour, which is its journeys in order, each stage with its line, what to try on
 it and its latest feedback, with whether that is of the build now running; and
-every word kept, oldest first. It serves them to its own machine and no other.
-The name is what a person typed, and is checked against nothing.
+every word kept, oldest first. Their shape is `project-seed/tour-schema.json`,
+with the cases both an application and the harness hold to in
+`project-seed/tour-vectors.json`. It serves them to its own machine and no
+other. The name is what a person typed, and is checked against nothing.
 
 ### 8. The review is the harness's
 

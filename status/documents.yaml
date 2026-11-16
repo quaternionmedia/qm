@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-15T12:36:41Z'
+generated_at: '2026-11-15T23:54:02Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -123,13 +123,13 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 316
+  documents: 317
   by_state:
     dated: 2
     draft: 3
     generated: 57
     proposed: 43
-    standing: 91
+    standing: 92
     transient: 23
     unreviewed: 97
   disagreements: 0
@@ -1274,6 +1274,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: handbook/test-posture.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: handbook/the-tour.md
   class: handbook
   class_reason: policy binding on QM's own conduct
   declared_status: null

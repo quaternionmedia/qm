@@ -38,7 +38,7 @@ A `project/<name>` branch takes changes **in** and never gives them out:
 | Direction | How |
 |---|---|
 | Project records arrive | A pull request whose **base** is `project/<name>`. |
-| The branch is created | Cut from `main`, `adr/` copied from `project-seed/adr/`, then **pushed** — not opened as a pull request, because the only base it could target does not exist yet. See [Forking a new project](../usage/first-project.md), step 2. |
+| The branch is created | Cut from `main`, `adr/` copied from `project-seed/adr/` and `project/` from `project-seed/project/`, then **pushed** — not opened as a pull request, because the only base it could target does not exist yet. See [Forking a new project](../usage/first-project.md), step 2. |
 | `main`'s changes arrive | `main` is merged **into** the branch, through a `propagate/<name>-<date>` pull request. Never a rebase: a downstream submodule pins the tip, and a rebase breaks every pin. |
 | The project's repository sees it | Through the submodule pointer, bumped by that same [propagation](../ref/glossary.md#propagation){ .glossary-term } merge. |
 

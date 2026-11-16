@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-05T16:23:09Z'
+generated_at: '2026-11-16T00:18:01Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -215,14 +215,15 @@ gates:
   - .github/workflows/namespace-guard.yml
   enforces:
   - docs/ref/namespaces.md
-  refuses: A `project/<name>` branch whose own commits touch anything outside `adr/`,
-    on a pull request into the branch and, after the fact, on a push to it. It compares
-    content with `main` and not commits, so org content arriving by a merge from `main`
-    is not mistaken for the project editing it.
+  refuses: A `project/<name>` branch whose own commits touch anything outside `adr/`
+    and `project/`, on a pull request into the branch and, after the fact, on a push
+    to it. It compares content with `main` and not commits, so org content arriving
+    by a merge from `main` is not mistaken for the project editing it.
   cannot_see: 'Anything on a pull request into `main`: both its triggers are filtered
     to `project/**`, so the direction of a pull request between namespaces is `pr-direction`''s
     to refuse. A push cannot be refused, so on a push it reports and prevents nothing.
-    A branch cut from the wrong parent whose own commits touch `adr/` only.'
+    A branch cut from the wrong parent whose own commits touch `adr/` and `project/`
+    only.'
   evidence:
     present: true
     workflow_name: Namespace guard

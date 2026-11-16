@@ -1,9 +1,10 @@
 name: Namespace guard
 
 # The branch-per-project model gives each adopting project a project/<name>
-# branch of this repo carrying exactly one thing: that project's own adr/
-# directory. Everything else on the branch is org content that arrives by
-# merging main, and is not the project's to edit.
+# branch of this repo carrying two things of its own: its adr/, what it
+# decided, and its project/, what it plans and what was found of it
+# (docs/ref/namespaces.md). Everything else on the branch is org content that
+# arrives by merging main, and is not the project's to edit.
 #
 # GitHub rulesets cannot express this. Their file-path restriction is a push
 # ruleset that applies repository-wide with no branch targeting, so the check
@@ -16,7 +17,7 @@ name: Namespace guard
 
 # Both events. The pull_request trigger is the gate. The push trigger covers
 # the one place in this corpus where content arrives on a project branch by
-# push, the initial `adr/` when the branch is created (see
+# push, the initial `adr/` and `project/` when the branch is created (see
 # docs/ref/namespaces.md): a push cannot be refused, so this reports it after
 # the fact.
 on:
@@ -47,7 +48,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: A project branch's own commits touch adr/ only
+      - name: A project branch's own commits touch adr/ and project/ only
         run: |
           # `github.base_ref` is set on a pull_request and empty on a push, so
           # taking it unconditionally would make `base` the ref `origin/` and
@@ -61,7 +62,7 @@ jobs:
           # Compare against the merge base so org content arriving by a merge
           # from main is not mistaken for the project editing it.
           mergebase=$(git merge-base "$base" HEAD)
-          candidates=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**')
+          candidates=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**' ':(exclude)project/**')
 
           # Then keep only paths whose content differs from main's. A
           # propagation PR carries main's non-adr/ changes by definition, so a
@@ -73,7 +74,7 @@ jobs:
           )
 
           if [ -n "$offending" ]; then
-            echo "A project/* branch may only add or change files under adr/."
+            echo "A project/* branch may only add or change files under adr/ and project/."
             echo
             echo "These paths are outside it:"
             echo "$offending" | sed 's/^/  /'
@@ -84,4 +85,4 @@ jobs:
             exit 1
           fi
 
-          echo "Clean: this branch's own commits touch adr/ only."
+          echo "Clean: this branch's own commits touch adr/ and project/ only."

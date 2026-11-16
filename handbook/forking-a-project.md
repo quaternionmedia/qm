@@ -18,15 +18,17 @@ a workstation counts as write access: `git push` uses it with `gh` signed out,
 so check who you are pushing as before step 2. `AGENTS.md` item 3 is the rule
 the route follows.
 
-**How proven each third of the seed is, because a forker inherits the untested
+**How proven each part of the seed is, because a forker inherits the untested
 parts too.** `adr/` has the most mileage: every adopting project runs it.
 `project/streaming-infrastructure` has no
 `quaternionmedia/streaming-infrastructure` repository behind it, so it
 exercises the record format and none of the rest of a fork; the mileage that
 counts is the adopting projects. `ci/` runs both in this corpus's own CI and in
 the adopting projects that copied it from here. `ide/` is the least exercised
-of the three; `status/governance.yaml` records an `adoption.ide` list per
-project, read over the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
+of the three that every project copies; `status/governance.yaml` records an
+`adoption.ide` list per project, read over the GitHub API rather than from the
+checkout. `project/` is exercised only by the projects whose branch holds a
+roadmap, and `project-seed/ci/check_roadmap.py` is what reads one. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
 
@@ -60,7 +62,11 @@ passes, not when its command exits zero.
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
    before, now landing on a branch of this repo instead of the new
-   project's own repository. **Push the branch** — do not open a pull request
+   project's own repository. Copy `project-seed/project/` beside it as a
+   top-level `project/` directory, the same way: the project's roadmap and
+   whatever else it plans stand there
+   (`records/DRAFT-the-application-carries-its-tour-and-the-harness-reviews-it.md` §1).
+   **Push the branch** — do not open a pull request
    for it. This is the one place in this corpus where content arrives on a
    shared branch by push, and it is not an oversight: the only base such a pull
    request could target is the branch being created, which does not exist yet,
@@ -70,7 +76,11 @@ passes, not when its command exits zero.
    this branch. See `docs/ref/namespaces.md`.
    *Verify the copy:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
-   comment the seed itself says to delete.
+   comment the seed itself says to delete. `project/README.md` and
+   `project/ROADMAP.md` differ from theirs only by the seed comments and the
+   project's name, which
+   `python project-seed/ci/check_placeholders.py --seed project-seed/project --copy project`
+   confirms by exiting 0.
    *Verify the push, once it has run:* `git ls-remote origin
    refs/heads/project/<name>` prints one line whose sha is the output of `git
    rev-parse project/<name>`; no output means the push did not reach the host,
