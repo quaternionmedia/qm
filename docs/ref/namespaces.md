@@ -9,7 +9,7 @@
 
 | Namespace | Holds | Lifetime |
 |---|---|---|
-| `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
+| `project/<name>` | one adopting project's `adr/`, and its `project/` | permanent — a downstream submodule pins its tip |
 | `propagate/<name>-<date>` | `main` merged toward one `project/<name>` or `workspace/<slug>` | deleted after merge |
 | `perspective/<date>-<slug>` | one [perspective](../ref/glossary.md#perspective){ .glossary-term }, staged for `main` | deleted after merge |
 | `evolve/<slug>` | org-level work in progress, or one project's records, cut from its `project/<name>` and opened against it | deleted after merge |
@@ -29,7 +29,7 @@ sorting them under "a branch outside them is a mistake".
 
 ## Rules for `project/<name>` branches
 
-**A `project/<name>` branch is never merged into `main`.** Not once, not squashed, not partially. It exists permanently and holds exactly one thing: how one project's governance differs from `main`.
+**A `project/<name>` branch is never merged into `main`.** Not once, not squashed, not partially. It exists permanently and holds what is one project's alone: in `adr/`, how its governance differs from `main`; in `project/`, what it plans and what was found of it, its roadmap first (the record *The application carries its tour, and the [harness](../ref/glossary.md#harness){ .glossary-term } reviews it*).
 
 The reason: merging it would move that project's `adr/` onto `main`, the org namespace. The project's local decisions would then read as org records binding every other project — and nothing in the repository would look wrong afterward.
 
