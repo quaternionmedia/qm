@@ -27,3 +27,11 @@ What else stands here, as the project has it:
 
 A file a test or a person at a machine feeds to the application is the
 application's, and stays in its repository.
+
+## Plans
+
+Open plans: each says what is decided and what is not built.
+
+| Plan | |
+|---|---|
+| [The core functionality tests](plans/core-tests.md) | The backend suite's strategy and work plan: its tally, the environment it needed, the instruction sets it was built in, and the defects it pins and where each stands |
