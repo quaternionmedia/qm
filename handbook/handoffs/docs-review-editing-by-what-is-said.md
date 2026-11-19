@@ -35,8 +35,8 @@ branches, *proposed* is a sentence in §3 for its owner.
 |---|---|---|
 | this site, `docs/index.md` | the performing family drives the video made before and after a show; nothing of how it is edited | holds: the front page names what, and a journey names how |
 | this site, `docs/journeys/index.md` | three journeys: a clone to the first demo, bringing a set up, a model with an application; none through the editor | fixed: a fourth, [`cut-a-recording-by-what-is-said.md`](../../docs/journeys/cut-a-recording-by-what-is-said.md), the path through all five repositories, with its card and its place in the nav. It has no pictures: `uv run qm journey-pictures` takes them from a running stack, and this path needs Docker Desktop up |
-| this site, `docs/projects/joe.md` | the lede is the host's repository description, *Realtime sheet music visualization* | fixed: a `lede` in `ci/showcase.yaml` says what joe is, in joe's own words; the host's description is the owner's to change |
-| this site, `docs/projects/qmcp.md` | the lede is the host's description, *Quaternion MCP* | fixed likewise |
+| this site, `docs/projects/joe.md` | the lede is the host's repository description, *Realtime sheet music visualization* | proposed: a project with no pictures takes its lede from the host, since a `details` block in `ci/showcase.yaml` must name a picture the inventory knows (`ci/tests/test_cookbook.py`) and joe has none; the description is the owner's to set on the host (§3) |
+| this site, `docs/projects/qmcp.md` | the lede is the host's description, *Quaternion MCP* | proposed likewise (§3) |
 | this site, `docs/projects/alfred.md` | the lede says the editor; its *How a video gets made* steps say arrange, trim and cut, and nothing of the transcript | fixed: the Edit step names cutting by deleting words from the transcript, in `ci/showcase.yaml` |
 | this site, `docs/families/performing.md` | drives a show, the video made before and after it | holds: the family record's words, generated |
 | `qmcp` `README.md` | the role table's flow row: *alfred renders among them* | fixed: renders, captions, and a long recording cut into excerpts a person chooses |
@@ -58,11 +58,12 @@ branches, *proposed* is a sentence in §3 for its owner.
 
 ## 2. What was fixed, and where
 
-On `qm` `evolve/the-video-journey`: the journey page, its card in
-`docs/journeys/index.md` and its line in `zensical.toml`; three entries in
-`ci/showcase.yaml`, and the project pages regenerated from them with
-`uv run qm cookbook docs/families --site --write`, which changed nothing else;
-this page and its row in the handoffs index.
+On `qm` `evolve/the-video-journey`: the journey page, with its glossary terms
+linked by `uv run qm glossary-links`, its card in `docs/journeys/index.md` and
+its line in `zensical.toml`; alfred's Edit step in `ci/showcase.yaml`, and the
+project pages regenerated with `uv run qm cookbook docs/families --site
+--write`, which changed alfred's page alone; this page and its row in the
+handoffs index.
 
 On `qmcp` `feat/alfred-excerpts`: the role table in `README.md`, the flow-host
 lines in `docs/README.md`, `docs/roles.md` and `docs/setup/README.md`, the
@@ -92,6 +93,14 @@ on its `main`.
 - **`alfred` `docs/journeys.md`**, *With an assistant*: `…render and deliver,
   and offer the stretches of a long recording that stand alone as excerpts,
   each rendered once you choose it.`
+- **joe's repository description on the host**, which this site's project
+  page shows as its lede: `An audio workbench, and the audio engine of the
+  video editor: it hears a recording and says each word and when it was said,
+  and how the sound moves.`
+- **qmcp's repository description on the host**, likewise: `The server an
+  assistant works through: it runs the tools, holds the questions that wait
+  for a person, and remembers each instruction it was given and what came of
+  it.`
 - **`joe` `README.md`**, *The audio engine of a video editor*, after *how it
   moves*: `The words are for captions, for cutting the video by deleting
   them, and for finding the stretches of a long recording that stand alone.`
@@ -107,5 +116,12 @@ on its `main`.
 - Take the journey's pictures, for the same reason.
 - Read any page a person has not reached: no newcomer walked these paths while
   the review watched.
-- Run the site build: `the-video-journey.md` §2 says what the gates said when
-  they were last run, and this page's own run is recorded there when it is.
+The gates, locally, `uv run --extra preflight qm preflight` in the qm
+worktree at `3ec7521`: 43 of 46 steps pass; the slot and signature steps ask
+the host about a branch it does not have. The site rebuilt with the journey
+page, 261 files, its links clean and the docs audit's two citation findings
+the ones `main` carries. The CI tooling tests went red on two things that
+commit had: a `details` block naming no picture, and the journey's glossary
+terms unlinked; both are fixed in the commit after it, and
+`ci/tests/test_cookbook.py` and `ci/tests/test_glossary_links.py` pass there.
+The runner reproduces no `uses:` step, runner image or secret.

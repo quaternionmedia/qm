@@ -2,7 +2,7 @@
 
 # Cut a recording by what is said
 
-Put a long recording in the video editor, have the audio engine say what is said in it and when, and edit by the words: delete words to cut the picture, and have the harness offer the stretches that stand alone as excerpts, each rendered with its captions once you choose it. Five repositories of the [performing family](../families/performing.md) do it together.
+Put a long recording in the video editor, have the audio engine say what is said in it and when, and edit by the words: delete words to cut the picture, and have the [harness](../ref/glossary.md#harness){ .glossary-term } offer the stretches that stand alone as excerpts, each rendered with its captions once you choose it. Five repositories of the [performing family](../families/performing.md) do it together.
 { .qm-lede }
 
 ## Who does what
@@ -33,7 +33,7 @@ In alfred's checkout:
 ALFRED_DEV_SKIP_AUTH=1 ./al family up
 ```
 
-It starts joe on its port, then alfred's stack pointed at it, and prints where each one answers, with the `QMCP_ALFRED_URL` for step 5. `./al family smoke` then checks the path through to joe. Without `ALFRED_DEV_SKIP_AUTH=1`, register and log in instead.
+It starts joe on its port, then alfred's stack pointed at it, and prints where each one answers, with the `QMCP_ALFRED_URL` for step 5. `./al family smoke` then checks the path through to joe. Without `ALFRED_DEV_SKIP_AUTH=1`, [register](../ref/glossary.md#register){ .glossary-term } and log in instead.
 
 ## 2. Bring the recording
 
