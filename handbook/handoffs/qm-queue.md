@@ -13,8 +13,10 @@ day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
 those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
 from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
-`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. The rest
-of the page holds at the stamp, which those entries do not move.
+`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`, and those
+that name 2026-11-19 at `qm` `02fa287`, `qmcp` `8aece3e` and `joe` `188a2cb`,
+asking the host nothing. The rest of the page holds at the stamp, which those
+entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -165,6 +167,13 @@ pick up alone; that page is then listed in the index and named here.
     on its pull request**, so a commit's `Tools:` line names no product; a note
     naming one sits on the artifact that calls for it, such as a perspective.
     (2026-11-05)
+23. **The step that cuts a long recording into clips lives in a qmcp flow**,
+    placed by the seam record's ordering rule: span-finding from a
+    transcript's timing is seam logic no engine owns, labelling by language
+    goes to the local model behind a flag, and the review and the render are
+    qmcp's already. A joe route and an alfred panel were the alternatives;
+    the panel would stack above alfred's open pull requests.
+    [`the-video-journey.md`](the-video-journey.md) is the handoff. (2026-11-19)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -598,6 +607,12 @@ re-checked and is re-derived before anyone acts on it.
   verdict. Done is `uv run qm rollout --write status/rollout.yaml --source
   host` run where the companion is, landed by a pull request of its own.
   (2026-11-03)
+- **The excerpt flow against a live alfred.** `qmcp`'s `feat/alfred-excerpts`
+  carries the `alfred-excerpts` recipe, its tools, tests and walkthrough, run
+  against joe and otto alone because Docker Desktop was down; nothing has been
+  rendered by alfred's worker. Done is [`the-video-journey.md`](the-video-journey.md)
+  §3 (a), then its (b) to (e) each as a record or a pull request of its own,
+  and (f) once *keep everything local* is lifted. (2026-11-19)
 
 ## 5. Not verified
 
@@ -634,7 +649,11 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 6. Standing constraints
 
-- *Keep everything local* is **not** in force.
+- *Keep everything local* is **not** in force for this page's work, and is
+  **in force** for the video journey's two branches, `qmcp`
+  `feat/alfred-excerpts` and `qm` `evolve/the-video-journey`, until the
+  person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
+  lands them. (2026-11-19)
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.
 - Project branches take changes in and never out: records reach them on a pull
