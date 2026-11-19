@@ -125,10 +125,11 @@ the private companion writes private names (`qm-queue.md` §4). The docs
 audit's two citation findings stand on `main` as well. The runner reproduces
 no `uses:` step, runner image or secret.
 
-**The review's fixes**, the second commit, ran the excerpt tests, the page, the
-tool tests and the examples smoke test green in the worktree, and ruff clean on
-the files they touch; the whole suite and the preflight were not run again
-after them.
+**The review's fixes and the rename**, the commits after the first, ran the
+excerpt tests, the page, the tool tests, the recipe lists and the examples
+smoke test green in the worktree, and ruff clean on the files they touch. The
+whole suite at `68dce45`: 1799 passed, 12 skipped, the same 3 continuity
+failures. The preflight was not run again after `6e187a4`.
 
 **Not run.** A live alfred, so no excerpt has been rendered by alfred's worker
 or delivered; the Metaflow flow as a process, which needs Docker.
