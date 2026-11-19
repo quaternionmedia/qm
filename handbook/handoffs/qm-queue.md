@@ -167,7 +167,7 @@ pick up alone; that page is then listed in the index and named here.
     on its pull request**, so a commit's `Tools:` line names no product; a note
     naming one sits on the artifact that calls for it, such as a perspective.
     (2026-11-05)
-23. **The step that cuts a long recording into clips lives in a qmcp flow**,
+23. **The step that cuts a long recording into excerpts lives in a qmcp flow**,
     placed by the seam record's ordering rule: span-finding from a
     transcript's timing is seam logic no engine owns, labelling by language
     goes to the local model behind a flag, and the review and the render are

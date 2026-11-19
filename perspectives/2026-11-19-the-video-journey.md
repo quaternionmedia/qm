@@ -72,7 +72,7 @@ Cutting a span at seventy-seven seconds out of it put an in-point past the
 end of a nine-second file, which otto refuses, rightly. The cut was correct
 and the source was wrong. A full-length video made by looping the demo under
 the sound, as a recording in alfred's library would be, rendered in a second,
-and joe heard the span's fifty-one words in the clip, all of them.
+and joe heard the span's fifty-one words in the excerpt, all of them.
 
 **A background run that reported success over six failures.** The suite was
 run in the background with its exit code appended to its own log, and the
@@ -111,5 +111,5 @@ Nothing here has been rendered by alfred's worker: Docker Desktop was down,
 so the steps were driven as functions, the way the walkthrough drives them,
 against joe and otto alone. The flow reaches a live alfred through tools that
 already drive it, and the handoff's first item is that run. After it, the
-sound in the proposal, the editor showing what was proposed, and a clip as a
+sound in the proposal, the editor showing what was proposed, and an excerpt as a
 project of its own are each a decision by the seam rule before they are code.
