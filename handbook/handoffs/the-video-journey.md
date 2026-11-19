@@ -132,17 +132,34 @@ smoke test green in the worktree, and ruff clean on the files they touch. The
 whole suite at `68dce45`: 1799 passed, 12 skipped, the same 3 continuity
 failures. The preflight was not run again after `6e187a4`.
 
-**Not run.** A live alfred, so no excerpt has been rendered by alfred's worker
-or delivered; the Metaflow flow as a process, which needs Docker.
+**Against a live alfred.** With Docker Desktop up, `./al family up` from
+alfred's checkout at `9bf5209`, with `JOE_FFMPEG` naming ffmpeg in the
+environment it starts joe with: a joe started without it answers every upload
+503, which the flow reported as the engine's failure and ended the run asking
+nobody, as it should. `./al family smoke`: 8 pass, 1 skip, the skip its sound
+check reading the first few library files, which are the silent demo clips.
+A project of one clip, the 146 s show, made through `POST /project`;
+`uv run qmcp cookbook run alfred-excerpts --project-id <id> --label-with local
+--categories song,story,announcement,greeting --deliver True` from the
+worktree: the flow in its container reached qmcp on the host, had alfred
+transcribe the timeline through joe (40 captions, 32 segments, done in about
+twenty seconds), proposed five chapters and seven excerpts, titled the chapters
+with the local model over the host's Ollama, and put excerpt 1 on the queue,
+where it waits for a person. Through the tools alone, excerpt 5 was rendered
+by alfred's worker at 1920 by 1080 with its 7 captions burned in and downloaded
+through its signed link, 15.1 s of video and sound.
+
+**Not run.** An excerpt approved from its link and delivered to `local`,
+which waits on the queue's answers.
 
 ## 3. What remains, and what done looks like
 
-- **(a) Against a live alfred.** With Docker Desktop up: `./al family up` in
-  alfred's checkout, a project holding a long recording with sound, and
-  `uv run qmcp cookbook run alfred-excerpts --project-id <id>` with
-  `QMCP_ALFRED_URL` as `up` printed it. Done is one span approved, rendered
-  by alfred's worker with its captions, approved from its link, and delivered
-  to `local`; and `./al family smoke` extended to call `alfred_project`.
+- **(a) Against a live alfred.** Run, as §2 says, to the first question on
+  the queue, with one excerpt rendered by alfred's worker through the tools.
+  What remains is a span approved on the queue, its excerpt approved from its
+  link and delivered to `local`, which is a person's answers; and `./al family
+  smoke` extended to call `alfred_project` and to analyse a library file with
+  sound wherever it sorts.
 - **(b) The sound in the proposal.** alfred serves the engine's analysis of a
   library file, its silences, loudness and tempo, at `GET /media/{name}/audio`
   (alfred's `docs/captions.md`, *Analysing library media*), and qmcp has no
@@ -208,7 +225,11 @@ named above.
 
 ## 5. Standing constraints
 
-- **Keep everything local**, until the person lifts it.
+- **Keep everything local**, until the person lifts it: this branch, `qmcp`
+  `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family` and `joe`
+  `docs/what-the-words-are-for`.
+- **The family's joe needs `JOE_FFMPEG`** in the environment `./al family up`
+  runs in, where ffmpeg is not on the `PATH`.
 - **Never bind a default port.** joe ran on `--port 0` and was asked its
   title before it was trusted; the voice loop's joe is on 8000 and the
   family's on 1059.

@@ -609,10 +609,11 @@ re-checked and is re-derived before anyone acts on it.
   (2026-11-03)
 - **The excerpt flow against a live alfred.** `qmcp`'s `feat/alfred-excerpts`
   carries the `alfred-excerpts` recipe, its tools, tests and walkthrough, run
-  against joe and otto alone because Docker Desktop was down; nothing has been
-  rendered by alfred's worker. Done is [`the-video-journey.md`](the-video-journey.md)
-  §3 (a), then its (b) to (e) each as a record or a pull request of its own,
-  and (f) once *keep everything local* is lifted. (2026-11-19)
+  against a live alfred to its first question on the queue, with one excerpt
+  rendered by alfred's worker. Done is a person's answers on that queue, then
+  [`the-video-journey.md`](the-video-journey.md) §3 (b) to (e) each as a
+  record or a pull request of its own, and (f) once *keep everything local* is
+  lifted. (2026-11-19)
 
 ## 5. Not verified
 
@@ -650,9 +651,10 @@ re-checked and is re-derived before anyone acts on it.
 ## 6. Standing constraints
 
 - *Keep everything local* is **not** in force for this page's work, and is
-  **in force** for the video journey's two branches, `qmcp`
-  `feat/alfred-excerpts` and `qm` `evolve/the-video-journey`, until the
-  person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
+  **in force** for the video journey's four branches, `qmcp`
+  `feat/alfred-excerpts`, `qm` `evolve/the-video-journey`, `alfred`
+  `docs/excerpts-in-the-family` and `joe` `docs/what-the-words-are-for`, until
+  the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
   lands them. (2026-11-19)
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.

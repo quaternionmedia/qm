@@ -7,9 +7,9 @@
 
 Each page in `docs/journeys/` shows what a person sees at a step, and a picture
 taken by hand is one nobody can take again. This takes them from the running
-surfaces: the web front end and the prose reader through Chromium at the
-family demo's pin (`ci/family-demo.yaml`, `browser:`), and the terminal front
-end through Textual's own screenshot, under dossier's environment and over a
+surfaces: the web front end, the prose reader and the video editor through
+Chromium at the family demo's pin (`ci/family-demo.yaml`, `browser:`), and
+the terminal front end through Textual's own screenshot, under dossier's environment and over a
 scratch database, so the operator's own is never touched.
 
 It starts nothing. Bring the set up first (`docs/journeys/bring-your-set-up.md`);
@@ -44,6 +44,7 @@ OUT = ROOT / "docs" / "journeys" / "pictures"
 FAMILY_DEMO = HERE / "family-demo.yaml"
 
 WEB, PROSE, HARNESS = "http://127.0.0.1:2718", "http://127.0.0.1:1414", 3141
+EDITOR = "http://127.0.0.1:1732"
 VIEWPORT = {"width": 1280, "height": 800}
 HOME = re.compile(r"(?i)([A-Z]:[\\/]{1,2}Users[\\/]{1,2}|/home/|/Users/)[^\\/\s<>\"']+")
 
@@ -100,6 +101,22 @@ def browser(out: Path, surfaces: set[str], generate: bool) -> None:
                     page.wait_for_timeout(4000)
                     taken(page.screenshot(path=out / "prose-analyzed.png"),
                           out / "prose-analyzed.png")
+        if "editor" in surfaces:
+            # The first project the account holds, at Edit with its transcript,
+            # then at Deliver with its renders: the journey by what is said.
+            page.goto(f"{EDITOR}/")
+            page.locator("button.projectchoice").first.wait_for(timeout=30_000)
+            page.locator("button.projectchoice").first.click()
+            page.locator(".lm_tab", has_text="Transcript").click()
+            page.locator("#panel-transcript").wait_for()
+            page.wait_for_timeout(1500)                  # the words load
+            taken(page.screenshot(path=out / "editor-transcript.png"),
+                  out / "editor-transcript.png")
+            page.locator("button.stage", has_text="Deliver").click()
+            page.locator("#panel-deliver").wait_for()
+            page.wait_for_timeout(1500)                  # the renders list
+            taken(page.screenshot(path=out / "editor-deliver.png"),
+                  out / "editor-deliver.png")
         chromium.close()
 
 
@@ -183,9 +200,9 @@ def main(argv: list[str] | None = None) -> int:
     sys.path.insert(0, str(HERE))
     import dashboard
     out.mkdir(parents=True, exist_ok=True)
-    up = {name for name in ("web", "prose")
+    up = {name for name in ("web", "prose", "editor")
           if dashboard.listening(dashboard.BY_NAME[name].port)}
-    for name in sorted({"web", "prose"} - up):
+    for name in sorted({"web", "prose", "editor"} - up):
         print(f"{name}: nothing answers on {dashboard.BY_NAME[name].port}; its "
               f"pictures are skipped. `uv run qm dashboard --start {name}`")
     status = 0
