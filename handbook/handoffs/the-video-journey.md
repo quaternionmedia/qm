@@ -107,9 +107,24 @@ whole recording: the in-point at 77 s named a moment the video did not have,
 and otto would have refused it, rightly. The scaffolding was wrong and the
 cut was right; the full-length video fixed the scaffolding.
 
+**The gates, locally.** `uv run qmcp preflight --event pull_request
+--base-ref main` in the qmcp worktree at `6e187a4`: 13 of 15 steps pass. The
+test step's three reds are the continuity tests above. The signature step
+reads the one commit as `E`, a signature this git could not check, while
+`git log --format=%G?` in the same worktree reads it as `G`; the runner's
+git finds no key to check it against, and the host verifies the signature at
+the push. `uv run --extra preflight qm preflight` in the qm worktree: 45 of
+47 steps pass. The slot step asks the host about a branch it does not have.
+The documents index drifted by the two pages this branch adds; it was
+regenerated with `ci/doc_status.py`, the states view with
+`ci/doc_dashboard.py` and the loose-ends file with `ci/loose_ends.py`, each
+alone rather than through the whole generator, which in a worktree without
+the private companion writes private names (`qm-queue.md` §4). The docs
+audit's two citation findings stand on `main` as well. The runner reproduces
+no `uses:` step, runner image or secret.
+
 **Not run.** A live alfred, so no clip has been rendered by alfred's worker
-or delivered; the Metaflow flow as a process, which needs Docker; the
-`qmcp preflight` host steps, which red on an unpushed branch by design.
+or delivered; the Metaflow flow as a process, which needs Docker.
 
 ## 3. What remains, and what done looks like
 
@@ -145,7 +160,9 @@ or delivered; the Metaflow flow as a process, which needs Docker; the
   assignee, run `uv run qmcp preflight --event pull_request --base-ref main`
   on the pushed branch, and merge it green; the recipe's description reaches
   `qmcp_mcp.py`'s list with it. This page's own pull request opens against
-  `qm` `main` from `evolve/the-video-journey`.
+  `qm` `main` from `evolve/the-video-journey`. alfred's `docs/guide.md`, on
+  its stack, counts qmcp's alfred tools as nine; with `alfred_project` they
+  are ten, and its table gets the row when that page is next touched.
 
 ## 4. Standing constraints
 
