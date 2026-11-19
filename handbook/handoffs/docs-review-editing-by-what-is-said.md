@@ -122,6 +122,6 @@ the host about a branch it does not have. The site rebuilt with the journey
 page, 261 files, its links clean and the docs audit's two citation findings
 the ones `main` carries. The CI tooling tests went red on two things that
 commit had: a `details` block naming no picture, and the journey's glossary
-terms unlinked; both are fixed in the commit after it, and
-`ci/tests/test_cookbook.py` and `ci/tests/test_glossary_links.py` pass there.
+terms unlinked; both are fixed in the commit after it, where
+`uv run --extra dev qm test` passes whole: 2244 passed, 2 skipped, at `cbaafad`.
 The runner reproduces no `uses:` step, runner image or secret.
