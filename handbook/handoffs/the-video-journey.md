@@ -45,7 +45,8 @@ cannot reach its `main` until they merge (`qm-queue.md` §4).
 
 Branch `feat/alfred-excerpts` of `qmcp`, in the worktree
 `qmcp.worktrees/alfred-excerpts` beside the clone, cut from `main` at
-`8aece3e`. One commit, `6e187a4`, signed and not pushed.
+`8aece3e`. Three commits, `6e187a4` to `089437b`, signed and not pushed: the flow, the
+editor review's fixes (§4), and a line length.
 
 | Piece | Where | What it is |
 |---|---|---|
@@ -123,6 +124,11 @@ the private companion writes private names (`qm-queue.md` §4). The docs
 audit's two citation findings stand on `main` as well. The runner reproduces
 no `uses:` step, runner image or secret.
 
+**The review's fixes**, the second commit, ran the excerpt tests, the page, the
+tool tests and the examples smoke test green in the worktree, and ruff clean on
+the files they touch; the whole suite and the preflight were not run again
+after them.
+
 **Not run.** A live alfred, so no clip has been rendered by alfred's worker
 or delivered; the Metaflow flow as a process, which needs Docker.
 
@@ -140,11 +146,17 @@ or delivered; the Metaflow flow as a process, which needs Docker.
   is a decision by the seam rule, in a record on `project/qmcp` or
   `project/alfred`: alfred serving joe's analysis beside the transcript, or
   qmcp holding `joe_*` tools of its own.
-- **(c) The editor shows what was proposed.** A Chapters view in alfred's
-  Transcript panel, so a person refines a span where the words are. It stacks
-  above alfred's open pull requests; done is that stack merged first
-  (`qm-queue.md` §4, `hil-review-2026-10-31.md` §4), then the panel as one
-  pull request on it.
+- **(c) The editor renders a selection as a clip.** The Transcript panel
+  already turns a selection of words into a span of seconds
+  (`Transcript.spans()`, `website/src/captions/transcript.js`) and cuts it out
+  with **Cut**; a sibling **Clip** would keep only it, posting `/render` with
+  the timeline cut as the flow cuts one, named for the project and the words,
+  and Deliver would list it as the flow's clips are listed. That is the
+  editor's half of this step, with no chapter view drawn: a person refines a
+  span where the words are, by selecting. It stacks above alfred's open pull
+  requests; done is that stack merged first (`qm-queue.md` §4,
+  `hil-review-2026-10-31.md` §4), then the button as one pull request on it,
+  and §4's rows 3, 5 and 10 each as one more.
 - **(d) A clip as a project of its own.** An approved span could become an
   alfred project named for the recording and the span, with its captions,
   for the editor to refine; that needs a project-creating tool and a decision
@@ -164,7 +176,33 @@ or delivered; the Metaflow flow as a process, which needs Docker.
   its stack, counts qmcp's alfred tools as nine; with `alfred_project` they
   are ten, and its table gets the row when that page is next touched.
 
-## 4. Standing constraints
+## 4. The editor, as the excerpt flow meets it
+
+alfred's editor was reviewed against the flow by its sources at `9bf5209`,
+the top of its stack, and the screenshots its docs commit; the editor itself
+needs the Docker stack, which was down, so nothing here was clicked. Each
+row says what a person does, what the editor shows them, and where that
+stands. The rows that are the flow's own are fixed on `feat/alfred-excerpts`;
+the rows that are the editor's wait on alfred's stack, under §3 (c).
+
+| # | A person | What they meet | Where it stands |
+|---|---|---|---|
+| 1 | reads a span's request by voice through joe's Voice window | the whole prompt spoken, every caption line of a span, up to ninety seconds of words read aloud | fixed: each request carries `context.spoken`, the question in a breath, which the voice adapter speaks in place of the prompt. The other two alfred flows read their links aloud and carry no spoken form |
+| 2 | corrects a misheard word in the Captions tab while the review waits, then approves the span | the clip burned the words the flow read at its start | fixed: the captions are read from alfred when the clip is queued, as the caption flow reads them |
+| 3 | opens Deliver to find the clips | renders newest first, the account's across every project, twelve rows shown; a run's clips arrive in reverse order, and a run of more than twelve pushes a project's other renders off the list | the flow's: clips are queued in span order, so the list reads last clip first. The editor's: no filter by project and no page past twelve (`VISIBLE_RENDERS`, `website/src/Stages.js`) |
+| 4 | reads a clip's row in Deliver | the name `<project> - clip <n>` and, small and grey beside it, a description naming the project by its twenty-four-digit id | fixed: the description names the project and the chapter, and the label when there is one |
+| 5 | wants to watch a rendered clip before approving it | the approval carries a signed download link; the editor's viewer shows the timeline and never a render, and Deliver offers Download alone | the editor's: a render is watched outside the editor, by downloading it, for every flow alike |
+| 6 | wants to refine a span the flow proposed, in the editor | the Transcript shows paragraphs, one per stretch the engine heard, and selects words; nothing shows a chapter, a span or a time range, and the request names times the panel cannot take | the editor's: §3 (c), as a selection rendered rather than a view drawn |
+| 7 | reads the word *clip* | the project card says `4 clips`, meaning items on the timeline; the flow's renders say `clip 2`, meaning an excerpt; otto's clip is the timeline's | open: one word for two things, across three repositories. The flow's output could be called an excerpt, which is what the user asked for |
+| 8 | approves a span with no render worker running | Deliver says why a queued render is not moving (`RendererNotice`); the flow ends that clip `no renderer` after `--queued-timeout` | holds: both say the same thing |
+| 9 | uses a phone | one stage at a time; Deliver's rows carry name, description, size, length and state in a narrow column | the editor's: a long description wraps; nothing hides it. Not seen on a screen |
+| 10 | asks for help from the rail's line | the line under the rail and its **How?** name the four stages and never a clip or an assistant's request | the editor's: the *With an assistant* journey names what the tools do and not where their requests are answered |
+
+What the review did not do: click anything, measure a phone, or watch a
+person. Each row's claim is a reading of the code named in it, at the commit
+named above.
+
+## 5. Standing constraints
 
 - **Keep everything local**, until the person lifts it.
 - **Never bind a default port.** joe ran on `--port 0` and was asked its
