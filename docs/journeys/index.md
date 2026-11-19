@@ -37,6 +37,16 @@ Run a local model, start an application with it, and use it from the browser.
 
 </div>
 
+<div class="card" markdown>
+
+**by what is said**
+
+Put a long recording in the video editor, hear every word with its time, cut by deleting words, and have the harness offer the stretches that stand alone as excerpts.
+
+[Cut a recording by what is said →](cut-a-recording-by-what-is-said.md){ .qm-card-link }
+
+</div>
+
 </div>
 
 ## The front ends

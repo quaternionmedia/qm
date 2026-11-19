@@ -30,6 +30,7 @@ nav = [
         "journeys/clone-to-first-demo.md",
         "journeys/bring-your-set-up.md",
         "journeys/use-a-model-with-an-application.md",
+        "journeys/cut-a-recording-by-what-is-said.md",
     ] },
     { "About" = [
         "about/index.md",

@@ -10,15 +10,13 @@ hide:
 
 # <span class="qm-name">joe</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performer-display))" }
 
-<p class="qm-lede">Realtime sheet music visualization</p>
+An audio workbench, and the audio engine of the video editor: it hears a recording and says each word and when it was said, and how the sound moves.
+{ .qm-lede }
 
 [`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [joe on GitHub](https://github.com/quaternionmedia/joe){ .md-button .md-button--primary }
-
-No pictures are listed for joe yet. A project's own screenshots are picked in the corpus's `ci/showcase.yaml`.
-{ .qm-caption }
 
 <section class="qm-section" markdown>
 

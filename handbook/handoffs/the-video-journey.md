@@ -45,9 +45,10 @@ cannot reach its `main` until they merge (`qm-queue.md` §4).
 
 Branch `feat/alfred-excerpts` of `qmcp`, in the worktree
 `qmcp.worktrees/alfred-excerpts` beside the clone, cut from `main` at
-`8aece3e`. Four commits, `6e187a4` to `68dce45`, signed and not pushed: the flow, the
-editor review's fixes (§4), a line length, and the flow's output named an
-excerpt.
+`8aece3e`. Five commits, `6e187a4` to `701e7c6`, signed and not pushed: the flow, the
+editor review's fixes (§4), a line length, the flow's output named an
+excerpt, and the onboarding naming the flow
+([`docs-review-editing-by-what-is-said.md`](docs-review-editing-by-what-is-said.md)).
 
 | Piece | Where | What it is |
 |---|---|---|
@@ -142,12 +143,13 @@ or delivered; the Metaflow flow as a process, which needs Docker.
   `QMCP_ALFRED_URL` as `up` printed it. Done is one span approved, rendered
   by alfred's worker with its captions, approved from its link, and delivered
   to `local`; and `./al family smoke` extended to call `alfred_project`.
-- **(b) The sound in the proposal.** joe's analysis, silences, loudness and
-  tempo, is not reachable from qmcp: alfred asks joe only to transcribe. A
-  song reads as a pause today, and music under speech reads as speech. Done
-  is a decision by the seam rule, in a record on `project/qmcp` or
-  `project/alfred`: alfred serving joe's analysis beside the transcript, or
-  qmcp holding `joe_*` tools of its own.
+- **(b) The sound in the proposal.** alfred serves the engine's analysis of a
+  library file, its silences, loudness and tempo, at `GET /media/{name}/audio`
+  (alfred's `docs/captions.md`, *Analysing library media*), and qmcp has no
+  tool for it, so the proposal hears nothing: a song reads as a pause, and
+  music under speech reads as speech. Done is an `alfred_media_audio` tool,
+  then the silences and the loudness folded into `propose` beside the
+  transcript's pauses, measured as (e) asks.
 - **(c) The editor renders a selection as an excerpt.** The Transcript panel
   already turns a selection of words into a span of seconds
   (`Transcript.spans()`, `website/src/captions/transcript.js`) and cuts it out

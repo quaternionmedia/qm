@@ -10,15 +10,13 @@ hide:
 
 # qmcp<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
-<p class="qm-lede">Quaternion MCP</p>
+The server an assistant works through: it runs the tools, holds the questions that wait for a person, and remembers each instruction it was given and what came of it.
+{ .qm-lede }
 
 [`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [qmcp on GitHub](https://github.com/quaternionmedia/qmcp){ .md-button .md-button--primary }
-
-No pictures are listed for qmcp yet. A project's own screenshots are picked in the corpus's `ci/showcase.yaml`.
-{ .qm-caption }
 
 <section class="qm-section" markdown>
 
