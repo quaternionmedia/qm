@@ -45,10 +45,11 @@ cannot reach its `main` until they merge (`qm-queue.md` §4).
 
 Branch `feat/alfred-excerpts` of `qmcp`, in the worktree
 `qmcp.worktrees/alfred-excerpts` beside the clone, cut from `main` at
-`8aece3e`. Five commits, `6e187a4` to `701e7c6`, signed and not pushed: the flow, the
+`8aece3e`. Six commits, `6e187a4` to `763414c`, signed and not pushed: the flow, the
 editor review's fixes (§4), a line length, the flow's output named an
-excerpt, and the onboarding naming the flow
-([`docs-review-editing-by-what-is-said.md`](docs-review-editing-by-what-is-said.md)).
+excerpt, the onboarding naming the flow
+([`docs-review-editing-by-what-is-said.md`](docs-review-editing-by-what-is-said.md)),
+and the flow marking the project's timeline with its cues (below).
 
 | Piece | Where | What it is |
 |---|---|---|
@@ -58,6 +59,26 @@ excerpt, and the onboarding naming the flow
 | the checks | `tests/test_alfred_excerpts.py`, `tests/test_alfred_tools.py`, `tests/alfred_stub.py` (`add_project` takes an `edl`), `tests/test_examples_smoke.py`, `tests/test_qmcp_mcp.py` | the proposal, the cut timeline and the labeller alone; the tools against the stand-in; the flow file's steps end to end through a qmcp server and its queue, each way a run can end, each guard naming its mutation |
 | the page | `walkthrough/12-a-long-recording-is-offered-as-excerpts.md` | runs under the ordinary test command |
 | the docs | `docs/integrations/alfred.md` (the flow, the tools), `docs/tools.md`, `docs/setup/flows.md`, `docs/testing.md`, `docs/ROADMAP.md` | |
+| the cues | `qmcp/tools/alfred.py` (`alfred_cues_set`), `qmcp/cookbook/alfred_excerpts.py` (`cues_of`, `mark`, the states), the flow's `_mark` | from `propose` on, the proposal is on the project's timeline as cues of the source `alfred-excerpts`: a cue per chapter and per span, each span's state following the run, so alfred's editor shows the run as it goes; an alfred without the route is printed and the run goes on |
+
+**Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
+`docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
+open stack and that branch, at `499abe8a`, three commits signed and not
+pushed. In the
+clone and not a worktree because the family stack serves the clone's
+checkout, and the lanes were built against it live. The timeline is lanes on
+one time axis, at one scale, in one box that scrolls sideways; alfred's
+`docs/lanes.md` is the reference.
+
+| Piece | Where | What it is |
+|---|---|---|
+| the lanes | `website/src/lanes/Lanes.js`, `lanes.scss` | the ruler, the clips (`#timeline`, unchanged, the tools' subject), the words and the captions, the sound's loudness, each clip's fades and opacity, and the cues, with one playhead down all of them; a press on a lane seeks, a word, a caption or a cue seeks to its start; the lanes draw what is in view, and the Text and Audio lanes redraw only when what they show changes |
+| the arithmetic | `website/src/lanes/arith.js` | the ruler's ticks for a zoom, the view, the clips laid end to end, the envelope sampled over a clip's window no finer than a pixel, the fades as `chosenFade` reads them (moved to `ClipWindow.js` so the render request and the lane share one rule), the cues' rows; imports nothing of the page |
+| the sound | `website/src/lanes/sound.js` | the engine's `peaks` and `silences` per library file from `GET /media/{name}/audio`, asked once per file while the page is open |
+| the cues | `website/src/cues/store.js`, `alfred/core/models/cues.py`, `alfred/core/routes/cues.py` | a project's cues, `GET` and `PUT /project/{id}/cues`, a writer's `source` replacing its own and keeping another's; read again every few seconds while any cue waits; the whole-project update keeps them, and `too_many_cues` is the refusal |
+| the loading | `website/src/OttoTimeline.js` | the captions, the words and the cues load once the session is confirmed, not only when the project opens: under the development bypass the session is confirmed after, and the words never loaded unless the Transcript panel was showing |
+| the checks | `website/e2e/lanes-arith.spec.js` (Node), `website/e2e/lanes.spec.js` (the running stack, the lanes' data served), `screens.spec.js` (the docs' picture), `tests/unit/test_cues_routes.py`, `tests/integration/test_cues_api.py`, the route inventory, the ownership list and the refusal codes | |
+| the docs | `docs/lanes.md` and its place in the nav, `docs/index.md`, `docs/guide.md`, `docs/api/index.md`, `docs/api/errors.md`, `docs/cookbook.md` (regenerated), `website/e2e/README.md`, `CHANGELOG.md` | |
 
 What a span is comes from the transcript alone: when the words were said and
 whether a caption ends a sentence. Nothing in the flow hears the sound, so a
@@ -149,8 +170,51 @@ where it waits for a person. Through the tools alone, excerpt 5 was rendered
 by alfred's worker at 1920 by 1080 with its 7 captions burned in and downloaded
 through its signed link, 15.1 s of video and sound.
 
+**The lanes and the cues**, at alfred `499abe8a` and qmcp `763414c`.
+alfred's Python suite in Docker, `./al pt`: formatting and lint green, and
+2059 tests passed, 9 skipped, 8 expected failures, 1 failed, the docs rule
+that a page named for a timeline is a project's history on qm's site; the
+page was renamed in the commit after, and that rule ran green on the host with
+the other docs rules, 34 passed. The host's environment is on pydantic 1 and
+cannot run the route tests, which is why the suite runs in Docker. The run at
+the commit before had the cookbook stale by the two new specs, regenerated
+with `node website/e2e/cookbook.js`, and four files unformatted, formatted
+with the suite's Black. In Node, the lanes' arithmetic spec: 14 passed, with
+the cut and follow specs 46. The browser gate, `npx playwright test` for the
+`chromium` and `phone` projects against the family stack: 453 passed, 45
+failed, of which 42 are the stack's, which runs with authentication skipped
+and a real joe where the suite expects its stub, and 3 the change's: an empty
+clip strip with no height, so a page with no project open called the timeline
+hidden; the lane labels centred; and a word's text drawn at the usual zoom
+into a box a few pixels wide. All three fixed, the editor's specs rerun: 216
+passed, 4 failed, two the skipped authentication and two drags across the
+Transcript panel's words. The same two drag tests with the website's sources
+set aside on the same stack: the desktop one fails there too, the phone one
+passes; the phone one was the lanes' height squeezing the panel into a
+scroller, bounded since, and the final rerun of the lanes, transcript, phone
+stack, appearance and flow specs: 90 passed, 1 failed, the desktop drag test
+the baseline fails. The docs' picture was taken by the screens spec on the
+running stack, and the journey's three by the shot script over alfred's own
+Playwright, the pinned one having no Chromium here.
+
+qmcp at `763414c`: `uv run pytest tests walkthrough -q` in the worktree, 1810
+passed, 12 skipped, 3 failed, the folder-name continuity tests above; ruff
+clean on the files the commit touches; `uv run qmcp preflight --event
+pull_request --base-ref main`: 13 of 15 steps pass, the two reds the
+signature step's `E` and the suite's three, as before.
+
+**The run marks the timeline.** The excerpt flow run again on the live
+project after the server was restarted with the tool: its proposal is on the
+project as cues of the source `alfred-excerpts`, read back from
+`GET /project/{id}/cues` as 12, five chapters titled by the local model and
+seven excerpts, the first `waiting` on the queue and the rest `proposed`, and
+drawn in the editor's Cues lane, which `docs/journeys/pictures/editor-lanes.png`
+shows. The run before it ended at its four-hour review timeout with its
+request still on the queue, where it stays, unanswered, beside the new one.
+
 **Not run.** An excerpt approved from its link and delivered to `local`,
-which waits on the queue's answers.
+which waits on the queue's answers; alfred's site built with mkdocs, whose
+nav and links the suite's docs rules check in its place.
 
 ## 3. What remains, and what done looks like
 
@@ -188,14 +252,37 @@ which waits on the queue's answers.
   several real recordings with the proposals kept, before any default moves,
   as `qmcp`'s `docs/voice-loop-next-phases.md` Phase 6 asks of the voice
   loop. The empty title for a one-sentence chapter belongs to the same pass.
+- **(g) The panels, split.** Asked for while the lanes were built: the
+  *Media & templates* panel split into a Media panel and a Templates panel,
+  with Media gaining ways to act on a file and to upload one from the person's
+  own machine; and the timeline tools split from the timeline into a panel of
+  their own, so the lanes take the Timeline panel's width. Each is a panel in
+  `website/src/layout/registry.js`, a place in the default layout and in the
+  phone flow, a row in the Panels menu, and the workspace, appearance and
+  phone specs that name every panel. The upload is a route alfred does not
+  have (`docs/captions.md` says media is put in `videos/`), so it is a
+  decision on where uploaded media lives before it is code. Done is one pull
+  request per split above `feat/synced-timeline`, with the upload's record
+  first.
+- **(h) The lanes, further.** A cue stays at its timeline seconds when an
+  edit moves the picture, so the flow's cues describe the timeline as it was
+  read; done is cues followed through `followClips` as the captions are,
+  with the undo carrying them, and the flow re-reading the timeline when an
+  excerpt is queued. The fades are read in the FX lane and not dragged; a
+  dragged fade meets `chosenFade`, which reads exactly one second as none.
+  The editor writes no cue of its own; a mark dropped at the playhead wants
+  the following first. The Audio lane draws each file, not the mix. A lane's
+  label covers the start of whatever sits at second 0 of that lane, a chapter's
+  first letters for one.
 - **(f) Landing, once keep-local is lifted.** Push `feat/alfred-excerpts`,
   open its pull request against `qmcp` `main` with the person who asked as
   assignee, run `uv run qmcp preflight --event pull_request --base-ref main`
   on the pushed branch, and merge it green; the recipe's description reaches
   `qmcp_mcp.py`'s list with it. This page's own pull request opens against
-  `qm` `main` from `evolve/the-video-journey`. alfred's `docs/guide.md`, on
-  its stack, counts qmcp's alfred tools as nine; with `alfred_project` they
-  are ten, and its table gets the row when that page is next touched.
+  `qm` `main` from `evolve/the-video-journey`. alfred's `feat/synced-timeline`
+  opens against `docs/excerpts-in-the-family`, a draft until that lands, and
+  retargets as the stack merges; alfred's suite runs in Docker, `./al pt`,
+  and the browser gate from `website/` against the running stack.
 
 ## 4. The editor, as the excerpt flow meets it
 
@@ -213,7 +300,7 @@ the rows that are the editor's wait on alfred's stack, under §3 (c).
 | 3 | opens Deliver to find the excerpts | renders newest first, the account's across every project, twelve rows shown; a run's excerpts arrive in reverse order, and a run of more than twelve pushes a project's other renders off the list | the flow's: excerpts are queued in span order, so the list reads last excerpt first. The editor's: no filter by project and no page past twelve (`VISIBLE_RENDERS`, `website/src/Stages.js`) |
 | 4 | reads an excerpt's row in Deliver | the name `<project> - excerpt <n>` and, small and grey beside it, a description naming the project by its twenty-four-digit id | fixed: the description names the project and the chapter, and the label when there is one |
 | 5 | wants to watch a rendered excerpt before approving it | the approval carries a signed download link; the editor's viewer shows the timeline and never a render, and Deliver offers Download alone | the editor's: a render is watched outside the editor, by downloading it, for every flow alike |
-| 6 | wants to refine a span the flow proposed, in the editor | the Transcript shows paragraphs, one per stretch the engine heard, and selects words; nothing shows a chapter, a span or a time range, and the request names times the panel cannot take | the editor's: §3 (c), as a selection rendered rather than a view drawn |
+| 6 | wants to refine a span the flow proposed, in the editor | the Transcript shows paragraphs, one per stretch the engine heard, and selects words; nothing shows a chapter, a span or a time range, and the request names times the panel cannot take | the timeline's Cues lane draws each chapter and each span where it falls, coloured by where it stands, and a press on one puts the playhead at its start; what remains is §3 (c), a selection rendered as an excerpt |
 | 7 | reads the word *clip* | the project card says `4 clips`, meaning items on the timeline, and otto's clip is the timeline's; a render named `clip 2` would mean an excerpt | fixed: the flow's output is an excerpt, in its names, its requests and its last line, and *clip* is the timeline's word in every repository |
 | 8 | approves a span with no render worker running | Deliver says why a queued render is not moving (`RendererNotice`); the flow ends that excerpt `no renderer` after `--queued-timeout` | holds: both say the same thing |
 | 9 | uses a phone | one stage at a time; Deliver's rows carry name, description, size, length and state in a narrow column | the editor's: a long description wraps; nothing hides it. Not seen on a screen |
@@ -226,8 +313,12 @@ named above.
 ## 5. Standing constraints
 
 - **Keep everything local**, until the person lifts it: this branch, `qmcp`
-  `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family` and `joe`
-  `docs/what-the-words-are-for`.
+  `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family` and
+  `feat/synced-timeline`, and `joe` `docs/what-the-words-are-for`.
+- **alfred's clone is checked out on `feat/synced-timeline`**, which the
+  family stack serves; `docs/excerpts-in-the-family` has its worktree beside
+  the clone. A session that wants the clone on the stack's top checks it out
+  with the stack down, or serves another checkout on another port.
 - **The family's joe needs `JOE_FFMPEG`** in the environment `./al family up`
   runs in, where ffmpeg is not on the `PATH`.
 - **Never bind a default port.** joe ran on `--port 0` and was asked its

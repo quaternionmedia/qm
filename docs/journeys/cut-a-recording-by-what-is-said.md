@@ -55,9 +55,11 @@ On **Edit**, open the **Transcript** tab and press **Transcribe timeline**. alfr
 
 Select words in the transcript and press **Delete**: the stretch they were said in is cut from the timeline, picture and sound alike, and the captions move with it. This is the editor's own way to edit by what is said, and alfred's docs have its rules. The **Captions** tab corrects a misheard word and chooses how captions are drawn.
 
+The timeline itself shows the same seconds in lanes under the clips: the words and the captions where they are said and shown, the loudness of the sound as the audio engine measured it, each clip's fades, and the cues. A press on any lane puts the playhead there, and a word takes it to its start, so a cut can be placed by what is heard as well as by what is read.
+
 ## 5. Offer the stretches that stand alone
 
-The harness reads the transcript the editor holds, cuts it into chapters at the long pauses and into spans at pauses and sentence ends, and asks you about each span. In qmcp's checkout, with Docker running:
+The harness reads the transcript the editor holds, cuts it into chapters at the long pauses and into spans at pauses and sentence ends, draws them on the editor's timeline, and asks you about each span. In qmcp's checkout, with Docker running:
 
 ```sh
 QMCP_ALFRED_URL=http://127.0.0.1:1732 uv run qmcp cookbook serve
@@ -71,6 +73,16 @@ uv run qmcp human respond <request id> approve
 ```
 
 or by voice through joe's Voice window, which speaks a shorter form of each. Approve the spans worth keeping and reject the rest. With `--label-with local` and `--categories`, the local model titles each chapter and sorts each span into one of your categories first.
+
+<figure class="qm-shot" markdown>
+
+![The editor's timeline with the chapters and excerpts the harness proposed drawn in the Cues lane under the clips, the words and the sound, one excerpt waiting on the queue](pictures/editor-lanes.png)
+
+<figcaption><strong>The proposal on the timeline.</strong> The Cues lane draws each chapter and each excerpt where it falls, coloured by where it stands on the queue; the lanes above it are the words and the sound at the same seconds.</figcaption>
+
+</figure>
+
+The editor's **Cues** lane shows the proposal as the flow goes: each chapter, titled when the model titled it, and each excerpt coloured by where it stands, waiting, approved, rejected, rendered or delivered. It reads the cues again every few seconds while any waits, so an answer given in the terminal shows in the editor.
 
 ## 6. Review each excerpt
 

@@ -48,12 +48,13 @@ branches, *proposed* is a sentence in §3 for its owner.
 | `alfred` `docs/guide.md` | the whole family walked for one short video; *Let an assistant drive it* lists nine tools and no flow | fixed: the tenth tool and the excerpt flow, on alfred's local branch (§2) |
 | `alfred` `docs/journeys.md` | *With an assistant*: list projects, transcribe and correct captions, render and deliver | fixed: one clause, on alfred's local branch (§2) |
 | `alfred` `docs/editing-by-text.md` | the rules of a cut, the words following the picture, undo and saving | holds; its complement, a selection kept rather than cut, is `the-video-journey.md` §3 (c) |
+| `alfred` `docs/lanes.md` | the timeline as lanes: what each shows and where it comes from, the cues through the API, and what the lanes do not do | written, on alfred's `feat/synced-timeline` (§2), with its place in the nav and a sentence each in `docs/index.md` and `docs/guide.md` |
 | `alfred` `docs/captions.md` | transcribing, editing by text, and the audio engine asked two things: a transcript, and an analysis of a library file | holds; `the-video-journey.md` §3 (b) names that route as the way the sound reaches the proposal |
 | `joe` `README.md` | the audio engine of a video editor: what alfred uploads and what joe answers | fixed: what the words are for, on joe's local branch (§2) |
 | `joe` `docs/paths/server.md` §2 | caption and analyse a video for an editor: words for captions, and beats, loudness and silences for cutting | fixed: one clause, on joe's local branch (§2) |
 | `joe` `docs/media.md` | the audio engine of a video pipeline, every route | holds |
 | `vox` `README.md` | the seam, naming no product by design; alfred's captions page links its media client | holds |
-| `otto` `docs/timeline.md` | the in-point and the out-point, which is how an excerpt is cut | holds; otto's index names no editor, as an engine's should not |
+| `otto` `docs/lanes.md` | the in-point and the out-point, which is how an excerpt is cut | holds; otto's index names no editor, as an engine's should not |
 
 ## 2. What was fixed, and where
 
@@ -75,6 +76,13 @@ alfred's open stack (`docs/changes-by-family` at `9bf5209`) in the worktree
 family table's qmcp row in `docs/index.md`, the tenth tool and the excerpt
 flow in `docs/guide.md`, and the *With an assistant* journey. It lands as one
 pull request above the stack, a draft until the stack merges.
+
+On `alfred` `feat/synced-timeline`, in the clone, cut from
+`docs/excerpts-in-the-family`: `docs/lanes.md`, the reference for the
+lanes the branch adds, its place in the nav, the Edit stage's line in
+`docs/index.md`, a sentence in the guide's step 4, the cues route in
+`docs/api/index.md` and its refusal in `docs/api/errors.md`, and the
+changelog; [`the-video-journey.md`](the-video-journey.md) §1 has the branch.
 
 On `joe` `docs/what-the-words-are-for`, at `a7c214c`, cut from joe's `main` in
 the worktree `joe.worktrees/docs-what-the-words-are-for`: the README's

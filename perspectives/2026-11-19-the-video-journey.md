@@ -105,6 +105,58 @@ The local model answered every prompt within its timeout, in sixty-eight
 seconds for twelve, with no stall. One run says it can; it does not say it
 will.
 
+## The timeline became lanes, and what that decided
+
+The second ask of the session was the editor's timeline: synced text, audio,
+clips, effects and queues. The decisions, in the order they were forced:
+
+- **The clip strip stays the element it was.** Every tool and every browser
+  test has `#timeline .clip` as its subject; the lanes wrap it rather than
+  replace it, and a gesture on a clip is still the clip's.
+- **One scale, one scroll box, one edge.** Every lane puts a second at
+  `seconds x scale` pixels from the same left edge, and that is the whole of
+  the synchronisation. A padding would have broken it, so there is none; the
+  labels inherited centred text and sat in the middle of each lane, which the
+  docs' own picture showed before a reader would have.
+- **"Queues" was read as cues.** A lane of marked moments and stretches with
+  a state, fed by the harness's queue through a route of alfred's own, so
+  that alfred reads nothing from qmcp and the seam keeps its direction. The
+  flow writes its proposal as cues of its own source, replacing its own and
+  leaving another writer's, which is what lets the editor show a run as it
+  goes without a second channel.
+- **The sound is what already exists.** alfred served the engine's analysis
+  of a library file before this slice; the Audio lane asks it once per file
+  and draws each clip's window of it. The mix is otto's at render time, and
+  the lane says so rather than drawing a guess.
+- **Fades are read, not dragged.** The render request reads a fade of
+  exactly one second as none, because older projects carry one nobody chose;
+  a dragged fade would meet that rule at one second and vanish. Showing what
+  renders was the honest half; the drag waits on the rule.
+- **A cue does not follow an edit.** The captions and words follow the
+  picture through one function; the cues could ride it, and the undo would
+  have to carry them. That is a slice, not a corner, and the handoff names it
+  rather than leaving it half-done.
+- **Built in the clone, against the live stack.** The habit is a worktree per
+  slice; the family stack serves the clone's checkout, and a lane is judged
+  by looking at it, so the branch was cut in the clone and the handoff says
+  where the clone now sits.
+
+**What the gate said.** The browser gate against the family stack reported
+forty-five reds. Most were the stack's: it runs with authentication skipped,
+and every test that expects a refusal fails there, as do the ones that
+expect the stub engine's words from a real joe. Three were the change's, each
+found by a picture or a test and not by reading: an empty strip with no
+height, so a page with no project open called the timeline hidden; the
+centred labels; and a word's text drawn at the usual zoom into a box a few
+pixels wide, which read as noise. A reader of the diff would have passed all
+three.
+
+**What was asked next.** While the lanes were built, two more asks arrived:
+the Media & templates panel split, with Media gaining ways to act on a file
+and to upload one, and the timeline tools split from the timeline. Both are
+panel splits in the same registry; neither was started here, so that this
+slice closed as one thing.
+
 ## The journey is longer than the slice
 
 Nothing here has been rendered by alfred's worker: Docker Desktop was down,

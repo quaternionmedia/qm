@@ -102,8 +102,9 @@ def browser(out: Path, surfaces: set[str], generate: bool) -> None:
                     taken(page.screenshot(path=out / "prose-analyzed.png"),
                           out / "prose-analyzed.png")
         if "editor" in surfaces:
-            # The first project the account holds, at Edit with its transcript,
-            # then at Deliver with its renders: the journey by what is said.
+            # The first project the account holds, at Edit with its transcript
+            # and its lanes, then at Deliver with its renders: the journey by
+            # what is said.
             page.goto(f"{EDITOR}/")
             page.locator("button.projectchoice").first.wait_for(timeout=30_000)
             page.locator("button.projectchoice").first.click()
@@ -112,6 +113,15 @@ def browser(out: Path, surfaces: set[str], generate: bool) -> None:
             page.wait_for_timeout(1500)                  # the words load
             taken(page.screenshot(path=out / "editor-transcript.png"),
                   out / "editor-transcript.png")
+            # The timeline's lanes, with the cues the excerpt flow wrote: the
+            # panel maximised, so every lane is on the screen.
+            timeline = page.locator(".lm_stack", has=page.locator("#paneltab-timeline"))
+            timeline.locator(".lm_maximise").click()
+            page.locator(".lane.cues .cue").first.wait_for(timeout=30_000)
+            page.wait_for_timeout(1500)                  # the sound's envelope
+            taken(page.screenshot(path=out / "editor-lanes.png"),
+                  out / "editor-lanes.png")
+            timeline.locator(".lm_maximise").click()
             page.locator("button.stage", has_text="Deliver").click()
             page.locator("#panel-deliver").wait_for()
             page.wait_for_timeout(1500)                  # the renders list

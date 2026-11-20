@@ -174,6 +174,15 @@ pick up alone; that page is then listed in the index and named here.
     qmcp's already. A joe route and an alfred panel were the alternatives;
     the panel would stack above alfred's open pull requests.
     [`the-video-journey.md`](the-video-journey.md) is the handoff. (2026-11-19)
+24. **The editor shows the harness's proposal through a route of alfred's
+    own, and reads nothing from qmcp.** A project carries cues, moments and
+    stretches of its timeline with a label and a state, which the editor
+    draws in a lane under the clips and the excerpt flow writes as its
+    proposal and where each span stands; a writer replaces its own cues and
+    leaves another's. The seam keeps its direction: qmcp drives alfred, and
+    alfred holds what it is told. `alfred`'s `docs/lanes.md` is the
+    reference; [`the-video-journey.md`](the-video-journey.md) §1 names the
+    branch. (2026-11-19)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -610,10 +619,12 @@ re-checked and is re-derived before anyone acts on it.
 - **The excerpt flow against a live alfred.** `qmcp`'s `feat/alfred-excerpts`
   carries the `alfred-excerpts` recipe, its tools, tests and walkthrough, run
   against a live alfred to its first question on the queue, with one excerpt
-  rendered by alfred's worker. Done is a person's answers on that queue, then
-  [`the-video-journey.md`](the-video-journey.md) §3 (b) to (e) each as a
-  record or a pull request of its own, and (f) once *keep everything local* is
-  lifted. (2026-11-19)
+  rendered by alfred's worker and the proposal drawn on the editor's timeline
+  as cues, in the lanes `alfred`'s `feat/synced-timeline` adds. Done is a
+  person's answers on that queue, then
+  [`the-video-journey.md`](the-video-journey.md) §3 (b) to (e), (g) and (h)
+  each as a record or a pull request of its own, and (f) once *keep
+  everything local* is lifted. (2026-11-19)
 
 ## 5. Not verified
 
@@ -651,9 +662,10 @@ re-checked and is re-derived before anyone acts on it.
 ## 6. Standing constraints
 
 - *Keep everything local* is **not** in force for this page's work, and is
-  **in force** for the video journey's four branches, `qmcp`
+  **in force** for the video journey's five branches, `qmcp`
   `feat/alfred-excerpts`, `qm` `evolve/the-video-journey`, `alfred`
-  `docs/excerpts-in-the-family` and `joe` `docs/what-the-words-are-for`, until
+  `docs/excerpts-in-the-family` and `feat/synced-timeline`, and `joe`
+  `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
   lands them. (2026-11-19)
 - Nothing of this page's work is unpushed.
