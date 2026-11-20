@@ -68,8 +68,7 @@ pushed. Above it, **`fix/host-run`**, at `9250d669`, four commits signed
 and not pushed, is the clone's checkout: the api's font check copes
 without `fc-list`, `./al host` starts, reports and stops the api, a render
 worker, the site and joe as processes on the host against a MongoDB, and
-`docs/host-run.md` is that run, which this clone serves on 1732 while
-Docker's engine is down. In the clone and
+`docs/host-run.md` is that run, which this clone serves on 1732. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
