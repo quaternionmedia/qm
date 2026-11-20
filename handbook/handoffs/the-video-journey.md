@@ -64,7 +64,7 @@ and the flow marking the project's timeline with its cues (below).
 **Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
 open stack and that branch, at `a0109db3`, five commits signed and not
-pushed. Above it, **`fix/host-run`**, at `63ddf30b`, two commits signed
+pushed. Above it, **`fix/host-run`**, at `8282daab`, three commits signed
 and not pushed, is the clone's checkout: the api's font check copes
 without `fc-list`, and `docs/host-run.md` is the run of the api, a render
 worker and the site as processes on the host against a MongoDB, which
