@@ -1,0 +1,13 @@
+{
+  "suite": {
+    "wall": 137.6247897000285,
+    "tests": 1346,
+    "setup": 10.529999999999939
+  },
+  "yields": {
+    "project-seed/ci/adr_lint.py": 63.63636363636363,
+    "project-seed/ci/check_pr_base.py": 32.6530612244898,
+    "ci/check_restatements.py": 80.76923076923077,
+    "ci/check_mathematics.py": 65.11627906976744
+  }
+}

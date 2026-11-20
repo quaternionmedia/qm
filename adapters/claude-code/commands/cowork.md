@@ -1,0 +1,77 @@
+---
+description: Open a governed session — build the whole context from the repository before writing anything.
+argument-hint: [what you have been asked to do]
+---
+
+Open a co-working session in this repository. The point is that you start from
+what the repository says, not from what a page, a handoff, or a previous
+session believed. **Do not write, commit, push, or open anything during this
+command.** It ends with a brief and a question, not with work.
+
+The task, if one was given: **$ARGUMENTS**
+
+## 1. Build the brief
+
+Run the context builder and read all of its output:
+
+```
+python project-seed/ci/cowork_context.py --out .harness/session-brief.md
+```
+
+In a project that vendors the corpus, that path is
+`governance/qm/project-seed/ci/cowork_context.py`. If the submodule is not
+initialised the brief will say so — initialise it before continuing, because
+every governance file is otherwise absent rather than unreadable, and a check
+that looks for one will report the project as ungoverned.
+
+The builder refuses an `--out` path inside the repository that git does not
+ignore, and exits 2 after printing the brief. A project that has not ignored
+`.harness/` gets the brief on standard output only; read it there, and add
+`.harness/` to the project's `.gitignore` in a pull request of its own.
+
+Add `--offline` only if `gh` is unavailable. Then say in your first message
+that your open pull requests are **unread**, not that there are none.
+
+## 2. Read what governs you
+
+In this order, in full:
+
+1. `AGENTS.md` at this repository's root (or `governance/qm/AGENTS.md`).
+2. `handbook/async-contract.md` in the corpus — the rules that exist only
+   because other sessions are running right now.
+3. `handbook/handoffs/README.md`, then, in the corpus,
+   `handbook/handoffs/qm-queue.md` with `uv run qm queue`'s report beside it,
+   then **at most one** other handoff if you are picking one up.
+
+## 3. Re-derive anything you are about to rely on
+
+Every number in every page was true when written. The brief carries the commit
+each of its own facts came from; a handbook table does not. Before quoting a
+count, a status or a branch state from a document, check it.
+
+## 4. Report back, and ask before writing
+
+Open your first message with these, in this order:
+
+- **The commit you are working against**, and the branch.
+- **Your open pull requests**, and how they stack. If one is ready while
+  stacked, say which and mark it draft until the one beneath it merges. A new
+  change that needs one of them is cut from its branch as a draft against it.
+- **Whether *keep everything local* is in force.** If you cannot tell from the
+  session, ask. It survives compaction and it overrides delivery.
+- **Anything else in flight** — a dirty tree you did not dirty, a sibling
+  branch, an unpushed commit. Reconcile before writing, not after.
+  `uv run qm estate` answers it across every rostered repository.
+- **Every question whose answer changes what you build.** Ask them now. A pull
+  request states decisions; a question that arrives in one hands the drafting
+  back to your reviewer.
+
+Then stop and wait. The next instruction begins the work.
+
+## What this command does not do
+
+It does not fetch, merge, initialise, install, or start a server. If you need a
+dev server later, bind a non-default port and ask the server what it is before
+believing anything you measure against it — two sessions on one workstation is
+the normal case here, and an afternoon has already been spent measuring the
+wrong program.

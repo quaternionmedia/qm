@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P4 — custom code concentrates where sovereignty matters |
+| **Principle** | `build-the-seam-buy-the-engines` — custom code concentrates where sovereignty matters |
 
 ## Context
 
@@ -24,8 +24,8 @@ consumes it at a version across its public API. The open-license record
 reaches something adjacent — its §2 relicense protocol, which requires a
 migration-or-fork record within 90 days when an upstream changes terms. That is
 a tourniquet for a licence event, and it decides nothing about whether QM
-maintains an engine of its own by choice. What alfred did is a
-deliberate first choice, and it serves commons-first economics directly:
+maintains an engine of its own by choice. Alfred's is a deliberate choice, and
+it serves commons-first economics directly:
 the artifact is a public package anyone can use, not a private module that
 happens to live in a second directory. §5 names it, and bounds it, because a
 doctrine that says "buy the engines" while the org writes engines is either

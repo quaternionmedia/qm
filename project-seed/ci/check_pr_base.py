@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assert a branch is based on what its pull request targets, and say what it carries.
 
-SEED FILE, run in place. Run it *before* opening a PR, and paste its output into
+A seed file, run in place. Run it *before* opening a PR, and paste its output into
 the description.
 
 The failure it exists for: a branch cut from the wrong parent is internally
@@ -33,8 +33,9 @@ gets wired in as a gate it was never meant to be.
 
 **A REFUSAL is a verdict.** The pull request is malformed and no description
 fixes it: the head is a `project/<name>` branch (permanent, and never a merge
-source), or the head carries a top-level `adr/` at the default branch. Both
-print `REFUSED` and exit 1 in every mode.
+source); the head is a `math/<slug>` exploration aimed at anything but a
+`workspace/*` branch; or the head carries a top-level `adr/` at the default
+branch. All three print `REFUSED` and exit 1 in every mode.
 
 **An ADVISORY is not.** The merge-base is not the base tip, or commits are
 shared with another branch. **Neither means broken; both mean "explain this".**
@@ -124,7 +125,8 @@ def main() -> int:
     ap.add_argument(
         "--refuse-only",
         action="store_true",
-        help="Exit non-zero ONLY for a refusal -- a project/<name> head, or a "
+        help="Exit non-zero ONLY for a refusal -- a project/<name> head, a "
+        "math/<slug> head aimed at anything but a workspace/* branch, or a "
         "top-level adr/ aimed at the default branch. The behind-the-base and "
         "shared-commits findings are still printed but do not fail. This is the "
         "mode CI runs: those two are advisories that mean 'explain this', and "
@@ -210,7 +212,7 @@ def main() -> int:
         print(f"base            {base}")
         print(f"head            {head}")
         print(f"\nREFUSED: {why}\n\n{meant}")
-        print('\nSee the corpus README\'s "Branch namespaces".')
+        print('\nSee the corpus docs/ref/namespaces.md.')
         return 1
 
     # Refused on the HEAD namespace alone, with no reference to what the base is.
@@ -239,15 +241,42 @@ def main() -> int:
             f"<date> branch,\n    --base {bare_head}",
         )
 
-    # And a content test, because the one above matches a name. A branch called
+    # A math/<slug> exploration is research against one workspace, and a
+    # workspace is terminal: nothing in it binds, and nothing in it reaches the
+    # default branch. The base is what keeps an exploration there, so the base
+    # is checked. Allow-listed rather than deny-listed, for the reason recorded
+    # above: refusing only `base == the default branch` leaves an intermediate
+    # base as a clean route to it.
+    if bare_head.startswith("math/") and not bare_base.startswith("workspace/"):
+        return refuse(
+            f"{bare_head} targets {bare_base}, which is not a workspace branch."
+            f"\n\nAn exploration's only legal base is the workspace/<slug> branch"
+            f" it was cut\nfrom. A workspace is terminal and binds nothing; aimed"
+            f" at any other base,\nresearch reaches {args.default} by the ordinary"
+            f" route.",
+            "What you probably meant:\n"
+            "  - an exploration: open the PR with --base workspace/<slug>\n"
+            "  - work that should bind: rewrite it on an evolve/<slug> or\n"
+            "    perspective/<date>-<slug> branch, on its own merits",
+        )
+
+    # And a content test, because the two above match names. A branch called
     # anything at all can carry a top-level adr/, and the innocuous name is the
     # likelier accident: `git commit-tree <project-branch-tree> -p origin/main`
     # on a branch named evolve/* passed the namespace check and put a whole
     # project's records on the default branch. Names are a convention; the tree
     # is the thing that lands.
-    if bare_base == args.default and git(
+    # The base is asked too, because the message below asserts something about
+    # it. In the corpus, `main` has no top-level `adr/` and a branch carrying
+    # one is putting a project's records into the org namespace. In a project
+    # repository that keeps its records in its own tree -- which the seed's own
+    # `adr-lint.yml` supports through `RECORDS_DIR` -- `main` legitimately has
+    # one, and refusing there would refuse nearly every pull request the project
+    # ever opens. The claim and the test are now the same question.
+    base_has_records = bool(git("ls-tree", "--name-only", base, "adr").strip())
+    if (bare_base == args.default and not base_has_records and git(
         "ls-tree", "--name-only", head, "adr"
-    ).strip():
+    ).strip()):
         return refuse(
             f"{bare_head} carries a top-level adr/ and targets {bare_base}.\n\n"
             f"adr/ holds one project's records and belongs on that project's own\n"
@@ -294,7 +323,10 @@ def main() -> int:
             "\nA branch cut from another branch carries that branch's work. Say so in\n"
             "the description, or rebuild on the base. This is the check that catches a\n"
             "misbranched PR; the merge-base test above does not, because a feature\n"
-            "branch cut from the base is still transitively based on it."
+            "branch cut from the base is still transitively based on it.\n"
+            "A branch stacked ON this one carries all of it by design "
+            "(handbook/async-contract.md 1):\nthat overlap is the stack, not a "
+            "misbranch."
         )
 
     if not aligned:

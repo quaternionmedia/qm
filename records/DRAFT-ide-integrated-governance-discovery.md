@@ -5,11 +5,12 @@
 | **Status** | Proposed |
 | **Date** | 2026-07-05 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P11 — governance finds the reader, not the reverse |
+| **Principle** | `governance-finds-the-reader` — governance finds the reader, not the reverse |
+| **Restated in** | `AGENTS.md`'s "One-time setup on a fresh clone (Windows)" section; `project-seed/ide/AGENTS.md`'s "The instruction files" section; `handbook/forking-a-project.md` step 5; `handbook/async-contract.md`'s table of root pointers; `handbook/governance-rollout.md`'s IDE discovery row; `handbook/propagation-runbook.md` Part B |
 
 ## Context
 
-This corpus's only existing discovery mechanism is a human-driven handoff:
+A human-driven handoff is one discovery mechanism:
 `project-seed/adr/README.md`'s "Drafting-session handoff" section lists the
 process contract as an input a human is expected to hand a drafting session.
 That mechanism depends entirely on a human already knowing to do it, and
@@ -17,29 +18,36 @@ doing it, every time — including sessions where the human is new, in a
 hurry, or running a different tool than the one that last worked in the
 repo.
 
-This repo's own recent history is the counter-evidence, not a hypothetical.
-Four of the nine commits before Human-only contributorship was drafted carried a
-`Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>` trailer — the
-exact pattern that record now forbids — not because the rule didn't exist in
-spirit, but because nothing put it in front of the assistant before it acted.
-That it was four rather than nine is the sharper version of the point: the
-behaviour was inconsistent, which is what an unstated rule produces.
-It took a human manually walking the assistant through `PRINCIPLES.md`,
-`records/`, and `perspectives/` across several conversation turns for the
-corpus to register as binding rather than as files that happened to be read
-on request.
+A rule that nothing puts in front of an assistant before it acts is applied
+inconsistently: a commit trailer the contributorship record forbids appears on
+some commits and not others, which is what an unstated rule produces. Without
+a discovery mechanism, the corpus registers as binding only after a human walks
+the assistant through `PRINCIPLES.md`, `records/` and `perspectives/` by hand,
+and until then it is files that happen to be read on request.
 
 Separately, the industry has converged on an answer to exactly this problem.
-By mid-2026, a plain `AGENTS.md` at repo root is read automatically, with no
-briefing required, by every mainstream coding agent — Claude Code, OpenAI
-Codex CLI, Cursor, Aider, Devin, GitHub Copilot, Gemini CLI, Windsurf, and
-Amazon Q among them. VS Code's own Copilot Chat additionally reads
-`CLAUDE.md` and `.github/copilot-instructions.md` the same way, out of the
-box, gated by settings (`chat.useAgentsMdFile`, `chat.useClaudeMdFile`,
-`chat.instructionsFilesLocations`) rather than by anyone remembering to
+A plain `AGENTS.md` at the repository root is read, with no briefing, by every
+mainstream coding agent — Claude Code, OpenAI Codex CLI, Cursor, Aider, Devin,
+GitHub Copilot, Gemini CLI, Windsurf and Amazon Q among them — and two vendor
+pages, both read on 2026-11-01, document the pointer forms this record relies
+on. Claude Code's page on project memory (`code.claude.com/docs/en/memory`)
+states that a `CLAUDE.md` imports another file with `@path` syntax, that the
+path resolves relative to the file holding the import, that imports nest to a
+depth of four, and that a `CLAUDE.md` which imports `AGENTS.md` is read with
+`AGENTS.md` included through the import; the same page says the tool reads a
+root `AGENTS.md` on its own only when no `CLAUDE.md` sits in or above the
+working directory, and that some sessions cannot read it that way at all.
+GitHub's support matrix for custom instructions
+(`docs.github.com/en/copilot/reference/custom-instructions-support`) lists a
+repository's `AGENTS.md` as read by Copilot's cloud agent in every client, by
+Copilot code review on GitHub.com, by Copilot Chat in VS Code and by the
+Copilot CLI, while Copilot Chat in Visual Studio, JetBrains, Eclipse, Xcode and
+on GitHub.com reads `.github/copilot-instructions.md` and not `AGENTS.md`. VS
+Code gates its own reading of both files behind settings
+(`chat.useAgentsMdFile`, `chat.useClaudeMdFile`,
+`chat.instructionsFilesLocations`) rather than behind anyone remembering to
 paste anything into a prompt. The gap this record closes is not a missing
-mechanism industry-wide — it's that this corpus doesn't use the one that
-already exists.
+mechanism industry-wide; it is using the one that exists.
 
 ## Decision
 
@@ -54,39 +62,31 @@ already exists.
    and a pointer to `PRINCIPLES.md`, `README.md`'s ratification/precedence
    rules, and the drafting-session handoff contract for anything past a
    first commit.
-2. **Tool-specific files are pointers to `AGENTS.md`, never a second copy of
-   its content — implemented as real symlinks, treating every OS as capable
-   of the same result rather than accepting a lesser Windows experience by
-   default.** `CLAUDE.md` and `.github/copilot-instructions.md` at minimum
-   are git symlink objects (mode `120000`) targeting `AGENTS.md`. POSIX
-   checkouts resolve them with no setup, since git auto-detects symlink
-   support at clone time there. Windows checkouts resolve them exactly the
-   same way given one one-time, per-clone step — Developer Mode enabled
-   (Settings → For developers) and `git config core.symlinks true` — which
-   this record's own Consequences confirms actually works, tested on a real
-   Windows checkout, not assumed. That one-time step is named directly in
-   `README.md`'s fork procedure and in `AGENTS.md` itself, not buried in a
-   footnote, because a setup step nobody is told about is indistinguishable
-   from a platform that doesn't work. A tool reading `CLAUDE.md` on a
-   correctly configured checkout gets `AGENTS.md`'s exact current bytes with
-   no second file to keep in sync and no reliance on the reading tool
-   following a textual pointer. Only a checkout that skips that one-time
-   step, or an environment that blocks Developer Mode outright, falls back to
-   a one-line file containing just the relative path — legible to a human
-   as a pointer, not silently broken, but not self-explanatory either (see
-   Consequences). A new tool convention gets the same symlink treatment when
-   it appears; the canonical file never gets rewritten to match a second
-   format.
-3. **`project-seed/` gains an `ide/` directory that mirrors the target
-   project's own root layout exactly** — `AGENTS.md` and `CLAUDE.md` at its
-   own root, `.github/copilot-instructions.md`, `.vscode/settings.json`,
-   `.vscode/extensions.json` — so a single symlink-preserving recursive copy
-   lands every file at its correct final path, the pointer files' relative
-   symlink targets resolving correctly both inside the seed and after the
-   copy. Copied onto a forking project's root at step 1 of "Forking a new
-   project," the same discipline `adr/` and `ci/` already get. A project
-   missing it is improvised, not instantiated — the standard `README.md`
-   already holds those two to.
+2. **A tool-specific instruction file is a pointer to `AGENTS.md`, never a
+   second copy of its content, and the pointer is a one-line import.**
+   `CLAUDE.md` is a regular file (mode `100644`) holding the single line
+   `@AGENTS.md`: the import syntax the tool that reads `CLAUDE.md` documents
+   (Context), which expands the named file into the reader's context in place
+   of the line, resolving the path relative to the file that holds it. The
+   file is the same bytes on every platform and in every checkout, needs no
+   filesystem feature, no privilege and no per-clone configuration, and a
+   copy of it is as good as the original. No `.github/copilot-instructions.md`
+   is carried: the agent, review and VS Code chat surfaces that read it also
+   read a root `AGENTS.md` (Context), so the file would say nothing of its
+   own; the chat surfaces that read only it are a cost stated in
+   Consequences, with the pointer form a project adds when it needs one. A
+   tool convention that reads neither `AGENTS.md` nor an import from a file
+   it does read gets a pointer in whichever form it reads; the canonical file
+   is never rewritten to match a second format.
+3. **`project-seed/ide/` mirrors the target project's own root layout
+   exactly** — `AGENTS.md` and `CLAUDE.md` at its own root,
+   `.vscode/settings.json`, `.vscode/extensions.json` — so a plain recursive
+   copy lands every file at its correct final path. Every file in the seed is
+   a regular file, so no copy method is special: `cp -r`, `git checkout` and
+   a file manager give the same bytes. Copied onto a forking project's root
+   at step 5 of `handbook/forking-a-project.md`, the same discipline `adr/`
+   and `ci/` already get. A project missing it is improvised, not
+   instantiated — the standard that handbook already holds those two to.
 4. **VS Code is the org's blessed default editor for this discovery
    mechanism specifically** — not a re-litigation of house-stack's
    language/framework choices, a decision about the delivery layer alone.
@@ -99,10 +99,14 @@ already exists.
    for the first time — accepting the workspace-trust and
    recommended-extensions prompts, both one-time, per human, per machine —
    is the entire setup. This corpus's own root `.vscode/settings.json` and
-   `.vscode/extensions.json` are themselves symlinks to their canonical copy
-   in `project-seed/ide/.vscode/` — this repo dogfoods the seed rather than
-   keeping an independent copy, so improving the seed improves this repo's
-   own live config for free.
+   `.vscode/extensions.json` are git symlinks (mode `120000`) to their
+   canonical copy in `project-seed/ide/.vscode/`, and its `.claude/commands/`
+   pages and `.claude/skills/design-review` are symlinks into
+   `adapters/claude-code/`: a configuration file has no import syntax, so the
+   symlink is the one form in which this repository dogfoods the seed and the
+   adapter without a second copy, and improving the seed improves this repo's
+   own live config in the same commit. Those symlinks are this repository's
+   alone; a project copies the files.
 5. **Carve-out:** a client- or platform-mandated editor (house-stack's
    existing carve-out logic, extended to the IDE layer) means that project's
    `.vscode/` config is supplementary, not the only path. `AGENTS.md` has to
@@ -127,77 +131,105 @@ already exists.
   used for those two, and inheriting that discipline's one real weakness:
   **a copy does not track its origin.** Fixing a defect in the seed does not
   fix the projects already carrying the defective copy, and nothing records
-  which seed version any project copied. Two seed defects found during
-  alfred's adoption — an `AGENTS.md` pointing at a root `adr/` that does not
-  exist under the branch-per-project model, and an unfilled `project/<name>`
-  placeholder — are live in an earlier adopter's copy today, because that
-  copy was taken before the fix existed. The copies are correct as of their
+  which seed version any project copied. A seed defect fixed after a project
+  copied the seed — an `AGENTS.md` pointing at a root `adr/` that does not
+  exist under the branch-per-project model, or an unfilled `project/<name>`
+  placeholder — stays live in that project's copy, which is correct as of its
   copy date and wrong as of now, and no mechanism says so. Where a seed
   artifact is executable, running it from the submodule rather than copying
   it removes the problem entirely, which is why the ADR lint is invoked in
   place; prose files have no equivalent and are refreshed by hand or not at
   all.
+- The import is followed by the tool that reads `CLAUDE.md` and by nothing
+  else. A person opening the file sees one line and has to know that `@`
+  names a file to open; a tool that reads `CLAUDE.md` without expanding
+  imports gets the line and not the instructions. Accepted: the line names
+  the file a reader needs, which is what a pointer is for, and the tool the
+  file exists for follows it in every version that reads `CLAUDE.md`.
+- Chat surfaces that read `.github/copilot-instructions.md` and not
+  `AGENTS.md` (Context names them) get no instructions from a project that
+  carries only the seed. Accepted, because §4 names VS Code, whose chat reads
+  `AGENTS.md`, and the agent and review surfaces read it from every client. A
+  project whose contributors work in one of those chat surfaces adds
+  `.github/copilot-instructions.md` as a regular file whose one line names
+  `AGENTS.md` as the instructions to read, under §2; the file has no import
+  syntax, so that pointer is a sentence rather than an expansion.
 - Cost accepted: the specific VS Code settings this record pins are VS
   Code's own feature surface and may be renamed or restructured on VS
   Code's schedule, not this corpus's. A revision trigger below, not a
   reason to withhold today's working version.
 - A generic `.gitignore` template commonly blanket-excludes `.vscode/`,
   which silently defeats §4 by keeping the checked-in settings from ever
-  being committed — this corpus's own `.gitignore` did exactly that until
-  drafting this record surfaced it. The fix is `.vscode/*` plus
+  being committed. The fix is `.vscode/*` plus
   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
-  ignore rule outright; `README.md`'s fork-procedure step for this record
-  names the same fix.
-- **Real symlinks work identically on Windows and POSIX, given one
-  documented one-time step per clone: `git config core.symlinks true`, plus
-  Windows Developer Mode enabled** (Settings → For developers). POSIX
-  checkouts get this for free because git auto-detects symlink support at
-  clone time there; Windows needs the explicit config because `core.symlinks`
-  is not itself something a repository can ship — it lives in the untracked
-  `.git/config`, generated fresh on every clone, so no committed file can
-  set it for a future clone. This is the one piece of the discovery
-  mechanism that is not "clone and open" alone; `README.md`'s fork-procedure
-  step for this record and this corpus's own root `AGENTS.md` both name the
-  single command.
-- The symlink objects themselves were created via `git hash-object` plus
-  `git update-index --cacheinfo 120000,<sha>,<path>` rather than a
-  filesystem `ln -s`, so that creating the *committed object* never depends
-  on the authoring machine's own `core.symlinks` setting or OS privilege —
-  only *checking one out as a live symlink* does, per the bullet above.
-  Verified on a Windows machine with Developer Mode on and
-  `core.symlinks true` set: `git checkout` materializes real, resolving
-  symlinks (`lrwxrwxrwx`), not a text placeholder.
-- Without that one-time config (an unconfigured clone, or a CI runner or
-  corporate policy that blocks Developer Mode outright), the pointer files
-  degrade to a one-line file containing just the relative target path (e.g.
-  `AGENTS.md`) rather than resolving to it — legible to a human who thinks
-  to open that path, not self-explanatory, and missing the sentence a
-  hand-written pointer would have carried. Accepted as a fallback for that
-  narrower case, because the failure mode is a visible, inert file, not
-  silently missing or wrong content — not accepted as the expected Windows
-  experience, since the one-time config closes the gap entirely.
+  ignore rule outright; `handbook/forking-a-project.md` step 5 names the same
+  fix.
+- The symlinks in §4 keep one failure the import does not have. A Windows
+  checkout without `git config core.symlinks true` turns each into a one-line
+  text file holding the relative target path, and a commit from such a
+  checkout replaces the pointer with a copy that nothing else in CI reads as
+  wrong. `.github/workflows/symlink-integrity.yml` refuses a pull request in
+  which any of them has a mode other than `120000`, and `AGENTS.md`'s
+  "One-time setup on a fresh clone (Windows)" section names the one-time
+  step — Developer Mode and the config — for a contributor to this
+  repository. A project copies regular files and needs neither.
+- A symlink object in §4 is created with `git hash-object -w` and `git
+  update-index --cacheinfo 120000,<sha>,<path>` rather than a filesystem
+  `ln -s`, so that making the *committed object* never depends on the
+  authoring machine's `core.symlinks` setting or OS privilege; only checking
+  one out as a live link does.
 
 ## Alternatives considered
 
 1. **Rely on the human-driven handoff already documented in
-   `adr/README.md`** — rejected: this repo's own commit history is the
-   counter-evidence. The handoff already existed as documentation, and it
-   did not stop an unbriefed assistant from violating Human-only
-   contributorship across several real commits, until a human personally
-   walked it through the corpus in conversation.
+   `adr/README.md`** — rejected: a handoff that exists as documentation does
+   not stop an unbriefed assistant from violating Human-only contributorship;
+   only a human walking it through the corpus does, every time.
 2. **A single tool-specific file (e.g., only `CLAUDE.md`)** — rejected:
-   shepherds one vendor's tool and nothing else. The premise here is a model
-   that showed up without knowing to look, and it may not be this one.
+   shepherds one vendor's tool and nothing else. The premise here is an agent
+   that arrives without knowing to look, and it may be any vendor's.
 3. **Editor-agnostic, no IDE-layer wiring at all** — rejected: agnosticism
    is indistinguishable from nobody's one-time setup being targeted. A
    specific, unifying default is what makes "one time" true rather than
    aspirational — the same logic house-stack already applies to language
    choice, applied here to the editor layer.
+4. **Git symlinks for the instruction files** — `CLAUDE.md` and
+   `.github/copilot-instructions.md` as mode `120000` objects targeting
+   `AGENTS.md` — rejected. On POSIX a checkout resolves them with no setup,
+   and a tool reading `CLAUDE.md` gets `AGENTS.md`'s exact bytes with no
+   second file to keep in sync. The ordinary failure is a Windows checkout
+   without `core.symlinks true`, which is what git produces there by default:
+   each pointer checks out as a text file holding the relative path, a tool
+   that reads it reads a path as the whole instruction set, and nothing but
+   the symlink gate notices — governance silently absent on exactly the clone
+   that skipped a one-time step nothing enforces. A submodule is a separate
+   clone and does not inherit the setting, so a project copying the seed out
+   of `governance/qm` can land a text stub where a symlink belongs, and the
+   stub reads plausibly enough that nothing complains. The import has no such
+   mode: it is the same bytes in every checkout, and the tool that reads it
+   follows it.
+5. **Carrying `.github/copilot-instructions.md` as a one-line text pointer**
+   — rejected for the seed: the surfaces the seed configures read `AGENTS.md`
+   directly, so the file would be a second instruction file whose whole
+   content is a sentence saying to read the first. Available to a project
+   that needs it, per Consequences.
+6. **No pointer file at all, relying on native `AGENTS.md` reading** —
+   rejected: the tool that reads `CLAUDE.md` reads `AGENTS.md` on its own
+   only from a given version and not in every session (Context), and an
+   older client reads nothing and says nothing. The import costs one file of
+   one line and works in every version that reads `CLAUDE.md`.
 
 ## Revision triggers
 
-- A coding agent with meaningful QM usage doesn't read `AGENTS.md`
-  natively — add its convention as a pointer file, per §2.
+- A coding agent with meaningful QM usage reads neither `AGENTS.md` nor an
+  import from a file it does read — add its convention as a pointer file,
+  per §2.
+- The tool that reads `CLAUDE.md` changes or withdraws the `@path` import
+  syntax — the pointer form in §2 is reconsidered against whatever that tool
+  then documents.
+- A chat surface that reads `.github/copilot-instructions.md` and not
+  `AGENTS.md` comes into meaningful use on a QM project — the seed gains the
+  file as a one-line pointer, per §2 and Consequences.
 - A defect is fixed in `project-seed/ide/` — every existing adopter is
   carrying the unfixed copy, and there is no list of who they are. Either
   refresh them deliberately or accept, in writing, that the seed and the
@@ -208,11 +240,9 @@ already exists.
 - `AGENTS.md` content grows past what a low-context agent will read in
   full before acting — restructure or trim; the format's own convention is
   to stay short.
-- The degraded (non-symlink) one-line pointer form is observed confusing a
-  reader or agent in practice — reconsider whether the pointer files need a
-  short explanatory comment alongside the path, accepting the small
-  duplication cost that would reintroduce, rather than staying pure symlink
-  or bare-path text.
+- A pull request lands one of §4's pointers as a regular file with the
+  symlink gate green — the gate has a hole, and it is read for the hole
+  before the pointer is restored.
 
 ## Amendments
 

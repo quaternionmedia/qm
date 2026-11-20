@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P2 — commons-first economics |
+| **Principle** | `commons-first-economics` — commons-first economics |
 
 ## Context
 

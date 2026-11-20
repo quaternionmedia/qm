@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the harness status document: where every repository's PR slot stands.
+"""Emit the harness status document: where every repository's pull request stacks stand.
 
 Org-level tooling, copied nowhere. It is the collector half of a two-part
 split this repository already uses once: a generator that talks to git, gh and
@@ -10,7 +10,7 @@ The split is not tidiness. A renderer that can run a command is a second place
 a governance rule gets defined, and the two definitions drift. Everything the
 dashboard shows must be a fact in this document or it is not shown.
 
-TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
+Two layers, and they are not the same kind of fact
 
   - `slots` is about the org, read over the network. It is true for everyone.
   - `local` is about one machine, read from one set of clones. It is true for
@@ -20,22 +20,22 @@ TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
     -- exists nowhere else. A dashboard that showed it as an org fact would be
     lying about its scope.
 
-UNKNOWN IS A VALUE
+Unknown is a value
 
 Any fact this tool could not establish is written as `{"unknown": "<reason>"}`,
 never omitted and never defaulted. A repository whose pull requests could not
 be read must not render like a repository with none, because the second reads
 as compliance and the first is an absence of evidence. This is the same
-convention as governance-status.yaml, deliberately.
+convention as status/governance.yaml, deliberately.
 
 Usage:
-    python ci/harness_status.py --no-local --write harness-status.json
+    python ci/harness_status.py --no-local --write status/harness.yaml
     python ci/harness_status.py --write ~/harness-status.local.json
 
 The committed copy needs --no-local, and the machine-scoped copy needs a path
-outside the repository. There is no third form: `--write harness-status.json`
+outside the repository. There is no third form: `--write status/harness.yaml`
 without --no-local always refuses, because that would commit one person's
-clones. This block used to lead with exactly that invocation.
+clones.
 """
 
 from __future__ import annotations
@@ -50,16 +50,20 @@ from pathlib import Path
 
 import yaml
 
+# This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
+# bare script by anyone running it directly. A plain sibling import works
+# only in the second. Putting this file's own directory first makes
+# `roster` resolvable under both, which is what ci/cli.py does for the seed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import intent_of, merge_private, redact, version_of
+
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
 
-# The corpus's own exemption, and the only one. See handbook/async-contract.md.
-CORPUS_PER_BASE = ["project/*"]
-
 # Where the committed copy lives. An agent that cannot guess this path reads
 # nothing, so it is fixed rather than passed, and named in AGENTS.md.
-COMMITTED = CORPUS / "harness-status.json"
+COMMITTED = CORPUS / "status/harness.yaml"
 
 # How long this document may be quoted before it has to be re-derived. Pull
 # request slots turn over in hours -- six sessions produced eight in a day --
@@ -132,7 +136,7 @@ def git(repo: Path, *args: str) -> tuple[int, str]:
     return status, out or err
 
 
-def slot_layer(slug: str, per_base: list[str]) -> dict:
+def slot_layer(slug: str) -> dict:
     """What check_one_pr.py says about this repository, as data.
 
     Invoked as a subprocess rather than imported so that this document records
@@ -140,12 +144,14 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     let this file's own reading of the rule diverge from the file CI runs.
     """
     args = [sys.executable, str(CHECK_ONE_PR), "--repo", slug, "--json"]
-    for pattern in per_base:
-        args += ["--per-base", pattern]
     status, out, err = run(*args)
     if not out:
         return unknown(f"check_one_pr produced no output: {err.splitlines()[0] if err else 'silent'}")
     try:
+        # A check command's stdout is JSON by that command's contract. YAML
+        # here made the unparseable case unparseable no longer -- any prose is
+        # a valid YAML string -- so "not JSON" became a str payload and the
+        # collector crashed on item assignment instead of reporting unknown.
         payload = json.loads(out)
     except json.JSONDecodeError:
         return unknown(f"check_one_pr output was not JSON: {out.splitlines()[0][:120]}")
@@ -259,6 +265,7 @@ def pr_detail(slug: str, number: int) -> dict:
     if status != 0 or not out:
         return unknown(f"pulls/{number}: {(err or 'no output').splitlines()[0]}")
     try:
+        # Same contract: subprocess stdout is JSON, only the document is YAML.
         return json.loads(out)
     except json.JSONDecodeError:
         return unknown(f"pulls/{number}: response was not JSON")
@@ -373,18 +380,20 @@ def local_layer(path: Path) -> dict:
     return facts
 
 
-# The seed artifacts a project carries once it has adopted the constitution.
-# Per the phase-ladder record these are a PRECONDITION for v0.0.1 and never a
-# proof of it: a complete set means a human may now assert governance, never
-# that they have. So this layer reports `met` and `incomplete` and no verdict
-# above them, and the word `adopted` appears nowhere in what it emits.
+# The seed artifacts a project carries as it adopts the constitution. Per the
+# phase-ladder record they measure how far a v0.0.1 project's adoption has got
+# and never decide a rung: a project is at v0.0.1 from the day it has a
+# project/<name> branch, whatever share of these it holds. A complete set means
+# a human may now say adoption is complete, never that they have. So this layer
+# reports `complete` and `incomplete` and no verdict above them, and the word
+# `adopted` appears nowhere in what it emits.
 GOVERNANCE_ARTIFACTS = ("submodule", "ide", "workflows", "licensing")
 
 
 def governance_evidence(project: dict | None) -> dict:
     """What has actually landed on a project's default branch.
 
-    Read out of governance-status.yaml, which is generated from git and the
+    Read out of status/governance.yaml, which is generated from git and the
     host. Nothing here consults the roster: the roster holds what somebody
     claimed, and a check that reads a claim to decide whether the claim is true
     is not a check.
@@ -392,11 +401,20 @@ def governance_evidence(project: dict | None) -> dict:
     Work sitting in an open pull request is work and is not evidence. That gap
     is the whole reason this corpus opens draft pull requests, and crediting
     the intent here would erase it.
+
+    A project with no `project/<name>` branch is at v0.0.0 and has no adoption
+    to measure, which is `n/a` rather than `unknown`: the branch's absence is
+    a fact the document established.
     """
     if project is None:
-        return unknown(
-            "no project/<name> branch in the corpus, so there is nothing to read"
-        )
+        return {
+            "seed": "n/a",
+            "missing": [],
+            "asserts": (
+                "no project/<name> branch in the corpus: the project is at "
+                "v0.0.0, and the seed measures only a project that has one"
+            ),
+        }
 
     adoption = project.get("adoption") or {}
     if "unknown" in adoption:
@@ -417,7 +435,7 @@ def governance_evidence(project: dict | None) -> dict:
 
     branch = project.get("branch") or {}
     return {
-        "precondition": "met" if not missing else "incomplete",
+        "seed": "complete" if not missing else "incomplete",
         "missing": missing,
         "detail": {
             "submodule": submodule.get("corpus_mounted_at"),
@@ -432,10 +450,29 @@ def governance_evidence(project: dict | None) -> dict:
         "observed_at": project.get("observed_at"),
         "asserted_by": None,
         "asserts": (
-            "a complete artifact set means a human may assert v0.0.1, never "
-            "that they have"
+            "the seed set measures how far adoption has got and never decides "
+            "a rung; a complete set means a human may say adoption is "
+            "complete, never that they have"
         ),
     }
+
+
+def version_layer(entry: dict, project: dict | None, gap: str | None) -> tuple:
+    """(version, intent) for one roster entry, by `roster.version_of`.
+
+    Whether the project has adopted is whether it has a `project/<name>`
+    branch, which status/governance.yaml lists. The corpus has none and is
+    the thing doing the governing, as `ci/cookbook.py` reads it too. Without
+    that document the branch is not known, and neither is the version.
+    """
+    if entry.get("role") == "corpus":
+        adopted = True
+    elif gap:
+        return unknown(gap), None
+    else:
+        adopted = project is not None
+    phase, source = entry.get("phase"), entry.get("phase_source")
+    return version_of(adopted, phase, source), intent_of(adopted, phase, source)
 
 
 def load_governance(path: Path) -> tuple[dict[str, dict], str | None]:
@@ -475,6 +512,24 @@ def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     return None
 
 
+def redact_private(records: list[dict], roster: list[dict]) -> list[dict]:
+    """Every private repository's name replaced by its reference, in every record.
+
+    A private repository's own record is redacted where it is built; this pass
+    covers its name inside another repository's record -- a pull request in the
+    corpus whose base is that project's branch, for one. The names are the ones
+    the private companion supplies, so without it nothing can be redacted, and
+    the document is generated where the companion is present.
+    """
+    pairs = [(e["name"], e["ref"]) for e in roster if e.get("ref") and e.get("name") and e["name"] != e["ref"]]
+    out = []
+    for record in records:
+        for name, ref in pairs:
+            record = redact(record, name, ref)
+        out.append(record)
+    return out
+
+
 def build(
     roster: list[dict],
     org: str,
@@ -488,18 +543,38 @@ def build(
     for entry in roster:
         name = entry["name"]
         slug = f"{org}/{name}"
+        # status/governance.yaml keys a private project by its reference, so
+        # with the companion present the real name alone does not find it.
+        project = (governance or {}).get(name) or (governance or {}).get(entry.get("ref"))
+        version, intent = version_layer(
+            entry,
+            project,
+            governance_gap if governance is not None else (
+                "the governance layer was not read, so whether the project has "
+                "a project/<name> branch is not known"
+            ),
+        )
         record = {
             "name": name,
             "slug": slug,
             "role": entry.get("role", "unknown"),
+            # The family is a claim too, made by a person in the roster and
+            # bordered by records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+            # None is unstated -- nobody has answered -- and a view that turns
+            # it into a family has inferred what the record says only a
+            # person may state. One name, or a list of names when the
+            # repository is in more than one family.
+            "family": entry.get("family"),
             # The claim, carried verbatim with its provenance. A view that
             # loses `phase_source` has turned a default into a finding.
             "phase": entry.get("phase", "unknown"),
             "phase_source": entry.get("phase_source", "unknown"),
+            # The rung, read from the branch and the stated phase. A stated
+            # phase that is not the version is intent, carried beside it.
+            "version": version,
+            "intent": intent,
             "note": entry.get("note"),
-            "slots": slot_layer(
-                slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
-            ),
+            "slots": slot_layer(slug),
         }
         record["release"] = release_layer(slug)
         record["threads"] = org_threads(slug, record["slots"], want_pr_detail)
@@ -507,9 +582,9 @@ def build(
             record["governance"] = (
                 unknown(governance_gap)
                 if governance_gap
-                else governance_evidence(governance.get(name))
+                else governance_evidence(project)
                 if entry.get("role") != "corpus"
-                else {"precondition": "n/a", "missing": [],
+                else {"seed": "n/a", "missing": [],
                       "asserts": "this repository is the corpus"}
             )
         if want_local:
@@ -529,28 +604,52 @@ def build(
                     + ", ".join(entry.get("paths", []))
                 )
             )
+        # The host was queried with the real slug, because that is the only
+        # thing the API answers to. What gets *emitted* is the reference: this
+        # document is committed to a public repository, and a private
+        # repository's name in it is a disclosure however it was obtained.
+        # Walked rather than field-listed -- the name also sits inside `slug`,
+        # `slots.repository`, `governance.detail.submodule_branch` and the
+        # candidate paths of a `local: unknown` message, and a list of fields
+        # is a list to keep in step with a shape that changes.
+        if entry.get("ref") and entry["ref"] != name:
+            record = redact(record, name, entry["ref"])
         repositories.append(record)
+    repositories = redact_private(repositories, roster)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
     governed = [
         r
         for r in repositories
         if isinstance(r.get("governance"), dict)
-        and r["governance"].get("precondition") in ("met", "incomplete")
+        and r["governance"].get("seed") in ("complete", "incomplete")
     ]
+    versions = [r["version"] for r in repositories if isinstance(r["version"], str)]
     return {
         "schema": 1,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "generator": {
             "tool": "ci/harness_status.py",
             "org": org,
-            "rule": "one open pull request per repository, per contributor",
+            "rule": "no pull request is ready while stacked on another open one",
             "rule_source": "handbook/async-contract.md",
-            "corpus_exemption": CORPUS_PER_BASE,
             "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
             "phase_layer_is_a_claim": (
                 "phase and phase_source come from ci/workspace.yaml and record "
                 "what a human stated. They are never derived from artifacts."
+            ),
+            "version_is_the_rung": (
+                "v0.0.0 until a project has a project/<name> branch in the "
+                "corpus, and v0.0.1 from then on, however much of the seed it "
+                "carries; a rung above v0.0.1 is the project's own and counts "
+                "when a human stated it. A stated phase that is not the version "
+                "is intent, carried beside it as `intent`."
+            ),
+            "family_is_a_claim": (
+                "family comes from ci/workspace.yaml, where a person stated it; "
+                "the families themselves are declared in "
+                "records/DRAFT-a-family-is-bordered-by-what-it-drives.md. "
+                "null is unstated, which is not none."
             ),
             "thread_stages": list(THREAD_STAGES),
             "thread_stages_are_states_not_progress": (
@@ -561,8 +660,10 @@ def build(
             ),
             "stalled_after_hours": STALLED_AFTER_HOURS,
             "governance_layer_is_evidence": (
-                "read from governance-status.yaml, on each project's default "
-                "branch. Work in an open pull request is work, not evidence."
+                "read from status/governance.yaml, on each project's default "
+                "branch. Work in an open pull request is work, not evidence. "
+                "The seed it reports measures how far a v0.0.1 project's "
+                "adoption has got, and never decides a rung."
             ),
             "layers": ["phase", "slots"]
             + (["governance"] if governance is not None else [])
@@ -580,10 +681,12 @@ def build(
         # convention the next reader does not have: it opens the file, not the
         # page, and it opens it in a session that knows nothing.
         "reading": {
-            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "refresh": "uv run qm docs generate",
+            "refresh_without_the_cli": (
+                "python ci/harness_status.py --no-local --write status/harness.yaml"),
             "staleness_budget_hours": STALENESS_BUDGET_HOURS,
-            "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
-            "agent_view": "python ci/harness_dashboard.py harness-status.json --format md",
+            "human_view": "python ci/harness_dashboard.py status/harness.yaml --out status.html",
+            "agent_view": "uv run qm harness",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could '
                 "not be established and says why. It is not zero, not empty, "
@@ -594,6 +697,10 @@ def build(
                 "quote a figure from this document without its generated_at",
                 "treat a phase as evidence: phase is what a human claimed",
                 "treat the governance layer as a claim: it is what has landed",
+                "read an incomplete seed as a project below v0.0.1: the seed "
+                "measures adoption, and the branch decides the rung",
+                "read a null family as a repository that belongs to none: it "
+                "is one nobody has placed",
                 "regenerate this in CI -- it reads other repositories, so every "
                 "unrelated pull request would go red for a reason its author "
                 "cannot fix",
@@ -610,17 +717,18 @@ def build(
             # with no evidence is absent from both numerator and denominator,
             # so neither reads as a project measured and found wanting.
             "governance_readable": len(governed),
-            "governance_precondition_met": sum(
-                1 for r in governed if r["governance"]["precondition"] == "met"
+            "seed_complete": sum(
+                1 for r in governed if r["governance"]["seed"] == "complete"
             ),
+            # Over every version that could be established; one that could not
+            # is counted as unknown and in neither of the other two.
+            "at_v0.0.0": sum(1 for v in versions if v == "v0.0.0"),
+            "past_v0.0.0": sum(1 for v in versions if v != "v0.0.0"),
+            "version_unknown": len(repositories) - len(versions),
             "phase_scaffolded": sum(
                 1 for r in repositories if r.get("phase_source") == "scaffolded"
             ),
-            "phase_stated_above_governance": sum(
-                1
-                for r in repositories
-                if r.get("phase_source") == "stated" and r.get("phase") > "v0.0.1"
-            ),
+            "phase_stated_as_intent": sum(1 for r in repositories if r.get("intent")),
             # Threads by stage, over every repository whose threads could be
             # read. A repository that could not be read contributes to none of
             # these, so no stage count doubles as a claim about it.
@@ -662,7 +770,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--governance",
         type=Path,
-        default=CORPUS / "governance-status.yaml",
+        default=CORPUS / "status/governance.yaml",
         help="the generated status document the evidence layer is read from",
     )
     parser.add_argument(
@@ -677,8 +785,22 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
+    # The refusal comes before the work, so refusing to write never costs the
+    # scan of every clone that writing would.
+    if args.write and not args.no_local and inside_corpus(args.write):
+        sys.exit(
+            f"harness_status: refusing to write the machine layer to "
+            f"{args.write}, which is inside the corpus.\n"
+            "That layer is one person's clones -- branch names, uncommitted "
+            "counts, unpushed work -- and committing it would publish one "
+            "machine's state as an organisation fact that every reader after "
+            "you inherits.\n"
+            "Pass --no-local for the committed copy, or --write somewhere "
+            "outside the repository for a machine-scoped one."
+        )
+
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
-    roster = document.get("repositories") or []
+    roster = merge_private(document.get("repositories") or [])
     if not roster:
         sys.exit(f"harness_status: {args.roster} lists no repositories")
 
@@ -703,33 +825,23 @@ def main(argv: list[str] | None = None) -> int:
         not args.no_pr_detail,
     )
 
-    text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
-    if args.write and not args.no_local and inside_corpus(args.write):
-        sys.exit(
-            f"harness_status: refusing to write the machine layer to "
-            f"{args.write}, which is inside the corpus.\n"
-            "That layer is one person's clones -- branch names, uncommitted "
-            "counts, unpushed work -- and committing it would publish one "
-            "machine's state as an organisation fact that every reader after "
-            "you inherits.\n"
-            "Pass --no-local for the committed copy, or --write somewhere "
-            "outside the repository for a machine-scoped one."
-        )
+    text = yaml.safe_dump(status, sort_keys=False, allow_unicode=True) + "\n"
     if args.write:
         args.write.write_text(text, encoding="utf-8", newline="\n")
         totals = status["totals"]
         print(
             f"wrote {args.write}: {totals['repositories']} repositories, "
-            f"{totals['compliant']} compliant, {totals['over_limit']} over limit, "
+            f"{totals['compliant']} compliant, {totals['over_limit']} ready while stacked, "
             f"{totals['slots_unknown']} unknown"
         )
         if governance is not None:
             print(
-                f"  governance evidence: "
-                f"{totals['governance_precondition_met']} of "
-                f"{totals['governance_readable']} readable meet the v0.0.1 "
-                f"precondition; {totals['phase_scaffolded']} phases scaffolded, "
-                f"{totals['phase_stated_above_governance']} stated above governance"
+                f"  versions: {totals['at_v0.0.0']} at v0.0.0, "
+                f"{totals['past_v0.0.0']} past it, {totals['version_unknown']} unknown; "
+                f"seed complete in {totals['seed_complete']} of "
+                f"{totals['governance_readable']} readable; "
+                f"{totals['phase_scaffolded']} phases scaffolded, "
+                f"{totals['phase_stated_as_intent']} stated as intent"
             )
         if governance_gap:
             print(f"  governance evidence unreadable: {governance_gap}")

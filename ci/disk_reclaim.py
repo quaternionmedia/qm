@@ -7,30 +7,28 @@ it, and this deletes. Three tools rather than one because the tool that can
 delete should be the smallest, the most boring, and the one nobody has a reason
 to run casually.
 
-IT DOES NOT READ THE STATUS DOCUMENT, AND THAT IS DELIBERATE
+It does not read the status document.
 
-The obvious design is to take the document and remove what it lists. This does
-not, because that document has a six-hour staleness budget and deletion has
-none: a path that was a 40GB browser cache when the document was written may be
-a checkout by the time anybody acts on it. So this reads the same policy the
-collector reads, resolves it against the filesystem now, and prints what it
-found. The two tools agree because they share a policy, never because one
-trusts the other's output.
+That document has a staleness budget and deletion has none: a path that was a
+browser cache when the document was written may be a checkout by the time
+anybody acts on it. So this reads the same policy the collector reads,
+resolves it against the filesystem now, and prints what it found. The two tools
+agree because they share a policy, never because one trusts the other's
+output.
 
-DRY RUN IS THE DEFAULT AND THERE IS NO CONFIGURATION THAT CHANGES THAT
+Dry run is the default, and no configuration changes that.
 
 `--apply` is required per invocation. There is no policy key, no environment
 variable and no config file that makes deletion the default, because the
 failure this guards against is somebody automating the safe-looking form of the
 command and later widening the policy.
 
-THE TIERS ARE A RATCHET, NOT A MENU
+The tiers are a ratchet, not a menu.
 
 `--allow rebuilt` permits refetched and rebuilt. `--allow destructive` permits
-all three. You cannot permit an expensive tier while excluding a cheap one, so
-there is no invocation that empties the recycle bin but leaves a download cache
-alone -- which is the shape every "clean up my disk" script eventually grows
-into, one urgent afternoon at a time.
+all three. An expensive tier cannot be permitted while a cheap one is
+excluded, so no invocation empties the recycle bin but leaves a download cache
+alone.
 
 Usage:
     python ci/disk_reclaim.py                          # dry run, refetched only
