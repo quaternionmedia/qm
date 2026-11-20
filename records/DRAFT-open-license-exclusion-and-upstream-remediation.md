@@ -4,8 +4,8 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
-| **Pends on** | Nothing — ready for ratification |
-| **Principle** | P1 — ownership is the deliverable; P2 — commons-first economics |
+| **Pends on** | §5's boundary, which is where a version review settles it. The scan now covers the runtime dependency closure rather than everything installed, and a project's *test* environment sits on the line: a suite that records a published artifact pulls a library the deployed runtime never loads. `MIT-CMU` is the live instance — on neither the OSI nor the FSF list, so §1 excludes it, while the package declaring it is a documentation tool. Nothing below waits on that answer; the encoding in §4 is correct either way. |
+| **Principle** | `ownership-is-the-deliverable` — ownership is the deliverable; `commons-first-economics` — commons-first economics |
 
 ## Context
 
@@ -35,10 +35,10 @@ hosted object store, and loads a font from a third-party CDN. None of those
 three appear in any manifest. The scans are accurate and the conclusion drawn
 from them would be false.
 
-Two further facts about license metadata, from the same instance. Roughly six
-distinct licenses across 84 Python packages were declared in more than twenty
-spellings, and one npm dependency declared its license only in the deprecated
-`licenses` array, where a reader of the modern `license` field sees null. A
+License metadata has two further properties. A handful of distinct licenses
+appear in many spellings across one project's packages, and an npm dependency
+can declare its license only in the deprecated `licenses` array, where a reader
+of the modern `license` field sees null. A
 gate that compares raw strings fails honest packages and passes unreadable
 ones, so §4 requires normalization rather than leaving it to each project to
 discover.
@@ -83,16 +83,57 @@ discover.
    an ecosystem still permits; an unresolvable or absent declaration is
    treated as a failure to be investigated, never as a pass. All of it is
    paired with a quarterly scan that watches pinned upstreams for
-   license-file changes and archive status. The allowlist encodes the
-   OSI-approved set, which is machine-readable and covers almost every case.
-   §1 also admits FSF-free licenses, and the two sets are not identical: a
-   license the FSF recognises as free but OSI has not reviewed is permitted
-   by §1 and absent from the allowlist, so it fails the gate. That failure is
-   correct — it is the signal to adjudicate, not a verdict. The disposition
-   is an amendment to this record adding the license to the allowlist, with
-   the FSF listing cited. Allowlist changes are amendments to this record in
-   every case; a project may not encode a local exception.
-5. **Scope boundary.** The floor is userspace plus kernel modules. Microcode,
+   license-file changes and archive status.
+
+   **The allowlist is generated, never typed.** §1 admits the union of the
+   OSI-approved and FSF-free sets, and both are machine-readable in SPDX's own
+   data as `osi_approved` and `fsf_libre`. A project's allowlist is that union
+   with deprecated identifiers excluded, produced by a generator and committed
+   with its provenance — the source, the criterion, and the date it was taken.
+   A hand-kept list is wrong in two directions at once: it admits fewer
+   licenses than §1 does, so every honest
+   dependency outside it fails and needs an individual adjudication; and it
+   admits identifiers §1 does not, because nothing checks a typed list against
+   the criterion it claims to encode.
+
+   **The generated file is committed rather than computed at run time.** A gate
+   reading SPDX live changes its verdict when a package updates, with no
+   governance act anywhere. Regenerating produces a diff, and the diff is the
+   amendment. Allowlist changes are amendments to this record in every case; a
+   project may not encode a local exception.
+
+   **Normalization is not exception.** An identifier absent from both sets
+   fails. Where a package's declared identifier and its licence *text* differ —
+   a package declaring `PSF-2.0` while shipping the full Python licence stack
+   that SPDX calls `Python-2.0` — the disposition is a normalization entry,
+   made only after reading that package's licence file, and recorded with what
+   was read. Mapping an identifier onto one it is not is how a gate starts
+   passing things nobody checked.
+
+   **Copyleft is admitted here, as §1 says, and a permissive-only allowlist
+   avoids it technically.** That is the outcome §1 forbids, reached by omission
+   rather than by decision, and a generated list is what prevents it.
+5. **Scope boundary.** §1 binds a *deployed runtime path*, and a project's
+   environment is not one. A license report generated from everything installed
+   scans the test runner, the linter and the documentation toolchain alongside
+   what ships, and passes them only for as long as they happen to be
+   permissively licensed. The risk this record is about is a clause in someone
+   else's contract embedded in our stack: a library that draws documentation on
+   a contributor's machine is embedded in nothing we deploy, and its relicensing
+   changes nothing a user receives. So the report covers the runtime dependency
+   closure, and each project states which dependency groups that closure is
+   taken from.
+
+   A closure that cannot be computed is not an empty one. Where a manifest is
+   unreadable or an ungated dependency is absent, the report falls back to the
+   whole environment and says so — over-reporting is the safe direction, and
+   silently checking a smaller set than the report claims is not.
+
+   This is a licence rule and not a supply-chain one. A compromised build
+   dependency is a real risk and a different one; a licence gate cannot see it,
+   and enlarging this rule to gesture at it would leave both jobs half done.
+
+   The floor is userspace plus kernel modules. Microcode,
    firmware, and BIOS/UEFI are out of scope — no bootable x86 stance
    satisfies the rule, and an unenforceable constitution is worse than an
    honest boundary. Coreboot-capable purchasing is encouraged, not mandated.

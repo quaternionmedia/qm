@@ -5,25 +5,22 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-08 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P1 — ownership is the deliverable; P2 — commons-first economics; P7 — public by default |
+| **Principle** | `ownership-is-the-deliverable` — ownership is the deliverable; `commons-first-economics` — commons-first economics; `public-by-default` — public by default |
 
 ## Context
 
-The open-license record fixes what QM may consume. Nothing states what QM's
-own work is licensed under, and no repository on any branch of this corpus
-carries a licence file. A public repository with no licence grants no rights
-beyond reading, so P7's default publishes the artifact and withholds the
+The open-license record fixes what QM may consume, and says nothing about what
+QM's own work is licensed under. A public repository with no licence grants no rights
+beyond reading, so `public-by-default`'s default publishes the artifact and withholds the
 commons — the opposite of what publishing it was for.
 
-The gap is not theoretical. This corpus's fork procedure instructs an adopting
+The gap is practical. This corpus's fork procedure instructs an adopting
 project to copy `TEMPLATE.md`, `project-seed/adr/`, `project-seed/ci/` and
-`project-seed/ide/` verbatim into its own repository, including a client's,
-with no terms attached. The seed workflow says so in its own header. Read
-literally, the open-license record's §1 also binds QM's own components, which
-makes every unlicensed QM artifact a violation of the rule QM wrote. The
-reference project demonstrates it: the streaming design plan gives its own
-service a License column reading `ours`, which names nothing, while the same
-plan requires the build to fail on any licence outside the allowlist.
+`project-seed/ide/` verbatim into its own repository, including a client's, so
+those files need terms. Read literally, the open-license record's §1 also binds
+QM's own components, which makes an unlicensed QM artifact a violation of the
+rule QM wrote; a License column reading `ours` names nothing, beside a plan
+that requires the build to fail on any licence outside the allowlist.
 
 Delivery mechanism, not preference, decides which licence holds a guarantee.
 A self-hosted service is never conveyed, so a copyleft whose trigger is
@@ -83,7 +80,7 @@ client's own product is a licence the client declines.
    designs take a permissive licence where the target ecosystem's
    contribution path requires one**, named in that project's own record with
    the ecosystem stated; MIT for an ESPHome or Home Assistant integration is
-   the case that prompted this clause. This is an org-level term, not a
+   one such case. This is an org-level term, not a
    project waiver: a project selecting it is applying this record rather
    than relaxing it.
    Licensing hardware is necessary and is not sufficient. A published design
@@ -116,8 +113,8 @@ client's own product is a licence the client declines.
     remain non-binding and citable by author and date. A perspective whose
     text is wholly human-authored may be moved under §1 by its author saying
     so in its own header.
-12. **Enforcement.** Every QM repository is REUSE-compliant: a `LICENSES/`
-    directory holding the SPDX text of each licence in use, an
+12. **Enforcement.** A QM repository **must be** REUSE-compliant: a
+    `LICENSES/` directory holding the SPDX text of each licence in use, an
     `SPDX-License-Identifier` on every file, unannotatable paths such as
     symlinks covered by `REUSE.toml`, and `reuse lint` as a required CI
     check. The repository declares its class in its adoption record, and a
@@ -125,10 +122,17 @@ client's own product is a licence the client declines.
     same check. The quarterly upstream scan the open-license record already
     mandates extends to QM's own repositories. Changes to this class table
     are amendments to this record.
+    **Which repositories actually satisfy this is not a claim this record
+    makes.** It is measured, with a timestamp, by `status/governance.yaml`'s
+    `licensing` probe and reported per repository there. This clause states
+    the requirement; that document states the compliance, and the two are
+    kept apart because a record asserting a universal it never measured is
+    what `records/DRAFT-governance-arrives-as-a-mechanism.md` §2 forbids —
+    this clause is the worked example named in its Context.
 
 ## Consequences
 
-- P7 gains legal effect. Publication becomes a grant rather than a gesture,
+- `public-by-default` gains legal effect. Publication becomes a grant rather than a gesture,
   and the fork procedure stops instructing projects to copy files they have
   no permission to copy.
 - `reuse lint` is independent of runtime shape, so a project that cannot run
@@ -172,7 +176,7 @@ client's own product is a licence the client declines.
    own product at exactly the classes QM ships to clients, and would make the
    embeddable deliverable unsellable.
 4. **Apache-2.0 or MIT throughout** — rejected: no derivative-openness
-   guarantee at all, which reduces P1 and P2 to descriptions of QM's habits.
+   guarantee at all, which reduces `ownership-is-the-deliverable` and `commons-first-economics` to descriptions of QM's habits.
    It genuinely removes all upstream-contribution friction; that is the
    benefit being traded away, and §8 is the cheaper way to buy it back.
 5. **EUPL-1.2** — rejected on legibility rather than substance. Its

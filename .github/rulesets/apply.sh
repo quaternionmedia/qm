@@ -3,9 +3,11 @@
 #
 # Run by a human, deliberately. Nothing in CI calls this.
 #
-# All six configs ship at "enforcement": "evaluate" -- they log what they
-# would have blocked and block nothing. Read README.md's ordering traps before
-# promoting any of them to "active".
+# B through F ship at "enforcement": "evaluate" -- they log what they would
+# have blocked and block nothing. A is "active" and running this makes it so:
+# a pull request, a signature and seven checks become mandatory on the default
+# branch, for every contributor and every session already in flight. Read
+# README.md's ordering traps first.
 set -eu
 
 REPO="${REPO:-quaternionmedia/qm}"
@@ -37,6 +39,6 @@ echo
 echo "Current rulesets:"
 gh api "repos/$REPO/rulesets" --jq '.[] | "  \(.name)  [\(.enforcement)]"'
 echo
-echo "These are evaluating, not enforcing, unless a config says otherwise."
+echo "Read the [enforcement] column above: active enforces, evaluate only logs."
 echo "Check what they would have blocked:"
 echo "  gh api \"repos/$REPO/rulesets/rule-suites\""
