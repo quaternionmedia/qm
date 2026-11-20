@@ -622,8 +622,9 @@ re-checked and is re-derived before anyone acts on it.
   rendered by alfred's worker, approved from their links and delivered to
   `local`, with the proposal drawn on the editor's timeline as cues, in the
   lanes `alfred`'s `feat/synced-timeline` adds; `alfred`'s `fix/host-run`
-  above it runs the api, a worker and the site on the host against any
-  MongoDB (`docs/host-run.md`), for a machine whose Docker is down. Done is
+  above it runs the api, a worker, the site and joe on the host against any
+  MongoDB (`./al host up`, `docs/host-run.md`), for a machine whose Docker
+  is down. Done is
   [`the-video-journey.md`](the-video-journey.md) §3 (a) to (e), (g) and (h)
   each as a record or a pull request of its own, and (f) once *keep
   everything local* is lifted. (2026-11-19)

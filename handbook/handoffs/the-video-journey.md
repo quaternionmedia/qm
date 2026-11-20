@@ -64,11 +64,12 @@ and the flow marking the project's timeline with its cues (below).
 **Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
 open stack and that branch, at `a0109db3`, five commits signed and not
-pushed. Above it, **`fix/host-run`**, at `8282daab`, three commits signed
+pushed. Above it, **`fix/host-run`**, at `9250d669`, four commits signed
 and not pushed, is the clone's checkout: the api's font check copes
-without `fc-list`, and `docs/host-run.md` is the run of the api, a render
-worker and the site as processes on the host against a MongoDB, which
-this clone serves on 1732 while Docker's engine is down. In the clone and
+without `fc-list`, `./al host` starts, reports and stops the api, a render
+worker, the site and joe as processes on the host against a MongoDB, and
+`docs/host-run.md` is that run, which this clone serves on 1732 while
+Docker's engine is down. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
@@ -87,7 +88,7 @@ one time axis, at one scale, in one box that scrolls sideways; alfred's
 | the library written to | `alfred/core/routes/media.py` | `POST /media`, a multipart upload kept under its own file name once the whole of it has arrived, refused for a name the library cannot hold, holds already (unless `replace=true`) or a size past the limit, each with its code; `DELETE /media/{name}` |
 | the panels | `website/src/panels/Media.js`, `Templates.js`, `Tools.js`, `Timeline.js`, `layout/registry.js`, `default_layout.js`, `flow.js` | Media and Templates are two panels, and the timeline's tools a third beside the timeline, which takes its own panel's whole width; on a phone the tools are a row over it that gives way as the timeline does. Media filters a long list, shows each file's kind, adds files from this device by a picker or a drop with how far each has got, asks before replacing a file of a name the library holds, and deletes a file asked twice. A saved arrangement that lacks the tools gives way to the default, as one lacking the timeline did |
 | the checks | `tests/unit/test_media_uploads.py`, the refusal codes' three cases, `website/e2e/media.spec.js` (the panel's uploads, the replace question, a refusal in the server's words, the three panels in their places), and every spec that reached the templates or the bin through the joint panel, which now reach them where they are | |
-| the host run | `docs/host-run.md`, its links from `docs/start.md`, `docs/develop.md`, `docs/commands.md` and the nav, `CONTRIBUTING.md`'s install line, `alfred/main.py` (`installed_fonts`, `checkFonts`), `tests/unit/test_fonts_check.py`, `tests/integration/conftest.py`, `CHANGELOG.md` | on `fix/host-run`: the api, a render worker and parcel's watcher as processes on the host against any MongoDB, with joe beside them; where there is no `fc-list` the api says so at start and leaves the font list as it was, and the integration tier keeps the hook rather than dropping it; `pdm install` names its groups, since the `docs` group is locked apart and pdm before 2.29 selects every dev group whenever one is named |
+| the host run | `scripts/host.py` (`./al host`: `status`, `up`, `down`), `scripts/family.py` (`ensure_joe`, lent to it), `al`, `tests/unit/test_host.py`, `docs/host-run.md`, its links from `docs/start.md`, `docs/develop.md`, `docs/commands.md`, `docs/configuration.md`, `README.md`, `AGENTS.md` and the nav, `CONTRIBUTING.md`'s install line, `alfred/main.py` (`installed_fonts`, `checkFonts`), `tests/unit/test_fonts_check.py`, `tests/integration/conftest.py`, `CHANGELOG.md` | on `fix/host-run`: `./al host up` starts joe as the family does, then the api with its reloader, the worker on celery's solo pool and parcel's watcher with its reload server on loopback, from the checkout's own environment against `ALFRED_HOST_DB`, refusing first when the api's port answers, the site's is in use, there is no environment or `node_modules`, or nothing answers at the database; `./al host` says what answers and what started; `./al host down` stops what it started and leaves the rest. Where there is no `fc-list` the api says so at start and leaves the font list as it was, and the integration tier keeps the hook; `pdm install` names its groups, since the `docs` group is locked apart and pdm before 2.29 selects every dev group whenever one is named |
 
 What a span is comes from the transcript alone: when the words were said and
 whether a caption ends a sentence. Nothing in the flow hears the sound, so a
@@ -280,6 +281,17 @@ modules, 65 passed and 31 skipped; the font test red under its mutation,
 an absent `fc-list` read as an empty list (1 failed), and green restored.
 black and ruff clean on the changed files.
 
+**`./al host up`**, at alfred `9250d669`, with the hand-started processes
+ended first: joe started from its checkout on 1059, then the api, the
+worker and the site, and the command's own lines named each address.
+`./al host` reported the api answering as Alfred API, the site's port in
+use, the database and joe answering, and four processes running from its
+record; `/health` reported the database, one worker and the audio engine
+ok; `./al family smoke` against it 6 pass, 3 fail, the same three as
+above; the editor loaded from it with the seeded projects. The unit tier's
+host, family, task-runner, loop and docs modules: 119 passed, 31 skipped,
+black and ruff clean.
+
 **Not run.** alfred's site built with mkdocs, whose nav and links the
 suite's docs rules check in its place.
 
@@ -340,10 +352,10 @@ suite's docs rules check in its place.
   the following first. The Audio lane draws each file, not the mix. A lane's
   label covers the start of whatever sits at second 0 of that lane, a chapter's
   first letters for one.
-- **(i) The host run, further.** The page gives four processes in four
-  terminals; `./al host`, as `./al family up` does for joe, would be the
-  declared route, with `tests/unit/test_task_runner.py` holding the command
-  list. A text template's preview on a host without ImageMagick is refused
+- **(i) The host run, further.** `./al host up` does not start the
+  database: a MongoDB must answer where `ALFRED_HOST_DB` points, and the
+  page says how to run one from a folder. A text template's preview on a
+  host without ImageMagick is refused
   as though its fields were missing (`preview/template`, 422): the refusal
   should name what the engine lacks. Fontconfig and ImageMagick on a host
   are the person's to install; the page says what each gives. Done is each
