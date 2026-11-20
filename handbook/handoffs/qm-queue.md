@@ -621,7 +621,9 @@ re-checked and is re-derived before anyone acts on it.
   against a live alfred to its end: seven excerpts approved on the queue,
   rendered by alfred's worker, approved from their links and delivered to
   `local`, with the proposal drawn on the editor's timeline as cues, in the
-  lanes `alfred`'s `feat/synced-timeline` adds. Done is
+  lanes `alfred`'s `feat/synced-timeline` adds; `alfred`'s `fix/host-run`
+  above it runs the api, a worker and the site on the host against any
+  MongoDB (`docs/host-run.md`), for a machine whose Docker is down. Done is
   [`the-video-journey.md`](the-video-journey.md) §3 (a) to (e), (g) and (h)
   each as a record or a pull request of its own, and (f) once *keep
   everything local* is lifted. (2026-11-19)
@@ -662,9 +664,9 @@ re-checked and is re-derived before anyone acts on it.
 ## 6. Standing constraints
 
 - *Keep everything local* is **not** in force for this page's work, and is
-  **in force** for the video journey's five branches, `qmcp`
+  **in force** for the video journey's six branches, `qmcp`
   `feat/alfred-excerpts`, `qm` `evolve/the-video-journey`, `alfred`
-  `docs/excerpts-in-the-family` and `feat/synced-timeline`, and `joe`
+  `docs/excerpts-in-the-family`, `feat/synced-timeline` and `fix/host-run`, and `joe`
   `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
   lands them. (2026-11-19)

@@ -172,6 +172,31 @@ the bin through the joint panel, which is what a split of a panel the tests
 address by name costs, and one of them was this slice's own test reading a
 library the page had listed before the file went up.
 
+## The dev server went to the host
+
+The stack came back after a reboot with Docker's engine down: its backend
+crashed at start on a socket file the previous run had left, which Windows
+would not rename or delete under the tools tried, and a second start hung at
+the WSL bootstrap. A quarter of an hour went on that before the person asked
+why the stack was being repaired at all, when the machine runs alfred
+itself. Nothing in alfred's docs said it could: Get started lists Docker as
+what you need, and the contributor guide's host instructions cover the test
+suites.
+
+The host route existed in the code and not on a page, and each gap in it
+was small and undocumented: pdm's install, which refuses the lock unless the
+groups are named; the site's poller, which spawns `npx` as a program Windows
+does not have; the font check, which took the api down on a host without
+`fc-list`; and text templates, which moviepy draws with ImageMagick. The
+first is a line in the contributor guide, the second a different watcher,
+the third a fix, and the fourth a row on the page. The page is
+`docs/host-run.md`, and `./al family smoke` runs against the host as it does
+against the stack, which is how the page knows what the host lacks.
+
+The lesson for a session is the person's: when the documented route is
+blocked, say so and ask before spending the time on the tooling that blocks
+it. Repairing a vendor's socket file is not the work.
+
 ## The journey is longer than the slice
 
 The first run of the session rendered nothing with alfred's worker: Docker
