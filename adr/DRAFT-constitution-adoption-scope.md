@@ -13,11 +13,12 @@ in `adr/README.md`'s "Adopted org records" table to commit `6b893e33176751c5b036
 (that repo's `main` tip at adoption time - no tags exist there yet). `adr/README.md`
 already names three gaps in prose ("this project is a deliberate experiment, not a
 clean instance"), but naming a gap is not the same as deciding what to do about it for
-every record in the corpus. This ADR is that decision, covering all seven records/
-policies in the pinned snapshot (`records/DRAFT-decision-record-discipline.md`,
+every record in the corpus. This ADR is that decision, covering these records and
+policies of the corpus (`records/DRAFT-decision-record-discipline.md`,
 `records/DRAFT-house-stack.md`, `records/DRAFT-open-license-exclusion-and-upstream-remediation.md`,
 `records/DRAFT-seams-on-standard-protocols.md`, `records/DRAFT-build-the-seam-buy-the-engines.md`,
-`records/DRAFT-contribution-and-sponsorship-policy.md`, `handbook/public-by-default.md`),
+`records/DRAFT-contribution-and-sponsorship-policy.md`, `handbook/public-by-default.md`,
+`records/DRAFT-outbound-licensing.md`),
 plus the required baseline component audit.
 
 The corpus is written against the org's default project shape - a self-hosted service
@@ -89,6 +90,17 @@ strained literal reading.
    (`KEYSTORE_BASE64`/`KEYSTORE_PASSWORD`/`KEY_ALIAS`/`KEY_PASSWORD`, per
    `docs/app-store-checklist.md`) are the one named, justified exception (credentials),
    consistent with the policy's own carve-outs.
+8. **Outbound licensing - adopted; this project's class is declared here.** The
+   org record sets a licence per artifact class and names none for a client
+   application installed on a user's device. This project declares: the app
+   (source, resources, build scripts, tooling) is **GPL-3.0-or-later**, with the
+   section 7 linking permission `adr/DRAFT-glyph-matrix-sdk-dependency.md` §5
+   describes; its prose and pictures are **CC-BY-SA-4.0**, as the org record's §1
+   has corpus prose; files copied from the corpus's project seed keep the licence
+   the corpus gives them. The repository is REUSE-compliant per the org record's
+   §12: `REUSE.toml` declares each path, `LICENSES/` holds each text, and
+   `reuse lint` runs as the seed's workflow. An org-level class for client
+   applications, if one is set, replaces this declaration.
 
 ## Consequences
 
@@ -108,7 +120,7 @@ strained literal reading.
   | JUnit 4 (test) | EPL-1.0 | OSI-approved copyleft; test-only, never ships in the app |
   | Robolectric (test) | Apache-2.0 | test-only |
   | AndroidX Test / Espresso (androidTest) | Apache-2.0 | instrumented-test-only |
-  | `app/libs/glyph-matrix-sdk-2.0.aar` | Closed/proprietary | The one deliberate exception - already disposed of by `adr/DRAFT-glyph-matrix-sdk-dependency.md`, not re-litigated here |
+  | `glyph-matrix-sdk-2.0.aar`, fetched by the build and not kept in the repository | Closed/proprietary, the vendor's Glyph SDK End User License Agreement | The one deliberate exception - already disposed of by `adr/DRAFT-glyph-matrix-sdk-dependency.md`, not re-litigated here |
 
   Every shipped (non-test) dependency clears the OSI-approved bar; the one non-compliant
   component is the Glyph Matrix SDK, already named and isolated (import boundary
@@ -147,6 +159,8 @@ strained literal reading.
 - qmetronome adds any networked integration (backend API, analytics, ads, cloud sync) -
   §4 (seams on standard protocols) becomes live; evaluate the specific protocol/vendor
   against the replaceability test at that time.
+- The org's outbound-licensing record gains a class for client applications - §8's
+  declaration is replaced by that class, or the difference is stated here.
 - qmetronome ever vendors a build-time-patched dependency - §6's carried-patch register
   entry is no longer optional.
 - The `governance/qm` submodule pin is bumped - re-verify this ADR's dispositions still

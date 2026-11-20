@@ -11,8 +11,12 @@
 qmetronome's entire reason to exist is driving the Glyph Matrix, a proprietary
 LED hardware feature on Nothing Phone (3) and Phone (4a) Pro. The only way to
 address that hardware is `com.nothing.ketchum.*`, shipped as a closed-source
-binary (`app/libs/glyph-matrix-sdk-2.0.aar`) in the
-[GlyphMatrix-Developer-Kit](https://github.com/Nothing-Developer-Programme/GlyphMatrix-Developer-Kit).
+binary, `glyph-matrix-sdk-2.0.aar`, in the
+[GlyphMatrix-Developer-Kit](https://github.com/Nothing-Developer-Programme/GlyphMatrix-Developer-Kit)
+under the Glyph SDK End User License Agreement, that kit's `LICENSE.md`. The
+agreement licenses use of the SDK for integrating it in an application,
+forbids redistributing it except as the agreement authorises, and forbids
+commercial use without the vendor's written permission.
 The vendor has published a Java/Kotlin API surface and a manifest-permission
 contract; it has not published the underlying wire/hardware protocol, and no
 independent or open reimplementation exists.
@@ -52,6 +56,18 @@ rather than hidden:
    files under `glyph/`, so a future change that lets the closed dependency
    leak into the engine/visualizer/UI layers fails CI rather than passing
    silently.
+4. **The binary is fetched, not kept.** The project's repository does not
+   hold the AAR. The build takes it from the Developer Kit at a pinned
+   commit and refuses a file whose SHA-256 is not the one written in
+   `app/build.gradle.kts`. The project redistributes nothing of the
+   vendor's in source form, and a file changed upstream fails the build
+   instead of entering it.
+5. **The app's licence carries a linking permission.** The app is licensed
+   GPL-3.0-or-later, which alone does not permit conveying it combined
+   with a library under the vendor's agreement. Its licence carries the
+   GPL's section 7 additional permission, SPDX
+   `GPL-3.0-linking-exception`, with this SDK named. The permission is the
+   app's licensors' and grants nothing in the SDK.
 
 ## Consequences
 
@@ -67,6 +83,12 @@ rather than hidden:
   closed dependency is additive to a working open core, not load-bearing for
   it. This is the practical version of "ownable if the vendor disappears
   tomorrow": the app downgrades, it does not die.
+- A checkout without the AAR needs the Developer Kit reachable for its
+  first build. If the vendor removes the file or the kit, no fresh checkout
+  builds until the address is moved or the dependency dropped.
+- The agreement's text does not settle whether a published APK that
+  contains the SDK is within its grant, and a commercial release needs the
+  vendor's written permission. Neither is obtained by this record.
 - No SBOM/digest-pinning/quarterly-scan apparatus exists yet for this
   dependency, because the existing tooling targets server images. A
   dependency-license report for the APK's bundled libraries (e.g. the Android
@@ -95,6 +117,9 @@ rather than hidden:
   new Nothing OS version — the isolation boundary in Decision §1 determines
   the actual migration cost; this ADR should be amended with the observed
   cost when/if that happens.
+- The Developer Kit stops serving the pinned file, or the vendor replaces
+  the agreement - Decision §4's address and the reading of the terms in
+  Context are re-established against what the vendor publishes.
 - The org ratifies a disposition for closed hardware-vendor SDKs (the pended
   input) — this ADR is rewritten (if still Proposed) or superseded (if
   Accepted) to align.
