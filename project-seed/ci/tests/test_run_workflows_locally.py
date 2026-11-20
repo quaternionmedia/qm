@@ -369,6 +369,30 @@ def test_a_missing_gh_is_reported_with_the_remedy(monkeypatch):
     assert "https://cli.github.com" in text and "gh auth login" in text
 
 
+def test_the_repository_is_named_in_an_expression_as_it_is_in_the_environment(repo: Path):
+    """`github.repository` and `github.event.repository.name` are read from
+    `origin`, as $GITHUB_REPOSITORY is. The seed's adr-lint.yml uses the second,
+    and an expression the runner cannot resolve stops the whole run.
+
+    Mutation: drop either assignment to `ctx` after the slug is derived.
+    """
+    git(repo, "remote", "set-url", "origin", "https://example.invalid/acme/widget.git")
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow(
+            "      - name: the repository, both ways\n"
+            "        run: |\n"
+            '          test "${{ github.repository }}" = "$GITHUB_REPOSITORY"\n'
+            '          test "${{ github.repository }}" = acme/widget\n'
+            '          test "${{ github.event.repository.name }}" = widget\n'
+        ),
+    )
+    commit_all(repo, "a step that names the repository")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "unsupported expression" not in result.stdout + result.stderr
+
+
 def test_a_clone_with_no_origin_is_told_how_to_add_one(repo: Path):
     """No `origin` leaves $GITHUB_REPOSITORY empty and the base-ref steps with
     nothing to fetch. The note names the command, not only the consequence.
