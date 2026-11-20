@@ -201,7 +201,10 @@ qmcp at `763414c`: `uv run pytest tests walkthrough -q` in the worktree, 1810
 passed, 12 skipped, 3 failed, the folder-name continuity tests above; ruff
 clean on the files the commit touches; `uv run qmcp preflight --event
 pull_request --base-ref main`: 13 of 15 steps pass, the two reds the
-signature step's `E` and the suite's three, as before.
+signature step's `E` and the suite's three, as before. `uv run --extra
+preflight qm preflight` in the qm worktree at `cc03056`: 45 of 47 steps
+pass, the base and signature steps asking the host about a branch it does
+not have, and `uv run qm docs check` finds no generated document drifted.
 
 **The run marks the timeline.** The excerpt flow run again on the live
 project after the server was restarted with the tool: its proposal is on the
