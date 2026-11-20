@@ -82,7 +82,12 @@ On `alfred` `feat/synced-timeline`, in the clone, cut from
 lanes the branch adds, its place in the nav, the Edit stage's line in
 `docs/index.md`, a sentence in the guide's step 4, the cues route in
 `docs/api/index.md` and its refusal in `docs/api/errors.md`, and the
-changelog; [`the-video-journey.md`](the-video-journey.md) §1 has the branch.
+changelog; then, for the split panels, the guide's step 3 and the journeys'
+media and template steps naming the Media, Templates and Timeline tools
+panels and the upload, `docs/examples/media.md` with the upload and delete
+requests, and the three refusals in `docs/api/errors.md`; the guide's own
+pictures await `./al recipes` on the suite's stack.
+[`the-video-journey.md`](the-video-journey.md) §1 has the branch.
 
 On `joe` `docs/what-the-words-are-for`, at `a7c214c`, cut from joe's `main` in
 the worktree `joe.worktrees/docs-what-the-words-are-for`: the README's

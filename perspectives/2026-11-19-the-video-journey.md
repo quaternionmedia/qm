@@ -151,11 +151,26 @@ centred labels; and a word's text drawn at the usual zoom into a box a few
 pixels wide, which read as noise. A reader of the diff would have passed all
 three.
 
-**What was asked next.** While the lanes were built, two more asks arrived:
-the Media & templates panel split, with Media gaining ways to act on a file
-and to upload one, and the timeline tools split from the timeline. Both are
-panel splits in the same registry; neither was started here, so that this
-slice closed as one thing.
+**What was asked next, and done.** While the lanes were built, two more
+asks arrived: the Media & templates panel split, with Media gaining ways to
+act on a file and to upload one, and the timeline tools split from the
+timeline. Both are panel splits in the same registry, and they were built
+once the lanes were committed, as one more slice on the same branch. What
+they decided: the library gains an upload route of its own, a multipart file
+kept under its name only once the whole of it has arrived, rather than the
+editor writing into `videos/` by some other door; a file of a name the
+library holds is asked about, in place, not replaced; the Templates panel
+sits on the phone's Edit switch and not on its Source stage, because a third
+panel there left the project list one row, and arranging and titling is
+Edit's work; the tools' row on a phone gives way as the timeline's region
+did, down to one row that scrolls, because a row that held its height
+squeezed the Transcript into a scroller and a drag across its words ran
+away; and a saved arrangement from before the split gives way to the default
+once, by the rule that already refused an arrangement lacking the timeline.
+The suite's reds after the split were the suite reaching the templates and
+the bin through the joint panel, which is what a split of a panel the tests
+address by name costs, and one of them was this slice's own test reading a
+library the page had listed before the file went up.
 
 ## The journey is longer than the slice
 

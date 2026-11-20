@@ -63,7 +63,7 @@ and the flow marking the project's timeline with its cues (below).
 
 **Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
-open stack and that branch, at `499abe8a`, three commits signed and not
+open stack and that branch, at `a0109db3`, five commits signed and not
 pushed. In the
 clone and not a worktree because the family stack serves the clone's
 checkout, and the lanes were built against it live. The timeline is lanes on
@@ -79,6 +79,9 @@ one time axis, at one scale, in one box that scrolls sideways; alfred's
 | the loading | `website/src/OttoTimeline.js` | the captions, the words and the cues load once the session is confirmed, not only when the project opens: under the development bypass the session is confirmed after, and the words never loaded unless the Transcript panel was showing |
 | the checks | `website/e2e/lanes-arith.spec.js` (Node), `website/e2e/lanes.spec.js` (the running stack, the lanes' data served), `screens.spec.js` (the docs' picture), `tests/unit/test_cues_routes.py`, `tests/integration/test_cues_api.py`, the route inventory, the ownership list and the refusal codes | |
 | the docs | `docs/lanes.md` and its place in the nav, `docs/index.md`, `docs/guide.md`, `docs/api/index.md`, `docs/api/errors.md`, `docs/cookbook.md` (regenerated), `website/e2e/README.md`, `CHANGELOG.md` | |
+| the library written to | `alfred/core/routes/media.py` | `POST /media`, a multipart upload kept under its own file name once the whole of it has arrived, refused for a name the library cannot hold, holds already (unless `replace=true`) or a size past the limit, each with its code; `DELETE /media/{name}` |
+| the panels | `website/src/panels/Media.js`, `Templates.js`, `Tools.js`, `Timeline.js`, `layout/registry.js`, `default_layout.js`, `flow.js` | Media and Templates are two panels, and the timeline's tools a third beside the timeline, which takes its own panel's whole width; on a phone the tools are a row over it that gives way as the timeline does. Media filters a long list, shows each file's kind, adds files from this device by a picker or a drop with how far each has got, asks before replacing a file of a name the library holds, and deletes a file asked twice. A saved arrangement that lacks the tools gives way to the default, as one lacking the timeline did |
+| the checks | `tests/unit/test_media_uploads.py`, the refusal codes' three cases, `website/e2e/media.spec.js` (the panel's uploads, the replace question, a refusal in the server's words, the three panels in their places), and every spec that reached the templates or the bin through the joint panel, which now reach them where they are | |
 
 What a span is comes from the transcript alone: when the words were said and
 whether a caption ends a sentence. Nothing in the flow hears the sound, so a
@@ -215,6 +218,28 @@ drawn in the editor's Cues lane, which `docs/journeys/pictures/editor-lanes.png`
 shows. The run before it ended at its four-hour review timeout with its
 request still on the queue, where it stays, unanswered, beside the new one.
 
+**The panels and the library's uploads**, at alfred `a0109db3`. The
+editor's browser specs against the family stack, the three panels in place:
+first 36 failed and 250 passed, the reds the suite reaching the templates and
+the bin through the joint panel, the layout tests measuring the tools inside
+the timeline's region, a saved arrangement without the tools, which an
+arrangement cannot do without, the phone's Source stage squeezed by a third
+panel and its tools row holding its height, and the stack's own; the suite
+pointed at the panels' places, the templates given to the phone's Edit switch
+and the tools row let give way, the same specs: 4 failed, 267 passed, three
+the baseline's or the stack's and one this page's own test reading a library
+the page had listed before the file went up; then the affected specs: 126
+passed. `./al pt`: formatting and lint green, 2075 tests passed, 9 skipped, 8 expected failures, after a run at the commit before had the upload limit's test reading a default bound when the helper was defined and a nameless part answered by FastAPI's own 422. The docs'
+pictures were retaken by the docs project on the running stack, 31 passed and
+the guide's walk skipped: it needs the suite's stub engine, so the guide's
+eight pictures still show the joint panel until `./al recipes` runs on that
+stack. `POST /media` and `DELETE /media/{name}` were tried on the live api
+with curl: a file kept, the second send refused as `media_exists`, replaced
+with `replace=true`, deleted, and the second delete a 404. A saved
+arrangement from before the split gives way to the default once, which is
+the existing rule for an arrangement lacking a panel the editor cannot do
+without, and the live editor showed the eleven tabs after one reload.
+
 **Not run.** An excerpt approved from its link and delivered to `local`,
 which waits on the queue's answers; alfred's site built with mkdocs, whose
 nav and links the suite's docs rules check in its place.
@@ -255,18 +280,17 @@ nav and links the suite's docs rules check in its place.
   several real recordings with the proposals kept, before any default moves,
   as `qmcp`'s `docs/voice-loop-next-phases.md` Phase 6 asks of the voice
   loop. The empty title for a one-sentence chapter belongs to the same pass.
-- **(g) The panels, split.** Asked for while the lanes were built: the
-  *Media & templates* panel split into a Media panel and a Templates panel,
-  with Media gaining ways to act on a file and to upload one from the person's
-  own machine; and the timeline tools split from the timeline into a panel of
-  their own, so the lanes take the Timeline panel's width. Each is a panel in
-  `website/src/layout/registry.js`, a place in the default layout and in the
-  phone flow, a row in the Panels menu, and the workspace, appearance and
-  phone specs that name every panel. The upload is a route alfred does not
-  have (`docs/captions.md` says media is put in `videos/`), so it is a
-  decision on where uploaded media lives before it is code. Done is one pull
-  request per split above `feat/synced-timeline`, with the upload's record
-  first.
+- **(g) The panels, further.** Media, Templates and the timeline's tools are
+  three panels on `feat/synced-timeline` (§1), and the library takes uploads.
+  What remains: the upload limit is a constant in `routes/media.py`, not a
+  setting; a deleted file is not checked against the timelines that name it,
+  so a render of one fails at otto's check rather than at the delete; the
+  Media panel offers no way to hear or watch a file before it is placed, and
+  the audio engine's analysis of a file (`GET /media/{name}/audio`) is drawn
+  only once the file is on the timeline; and the guide's eight pictures still
+  show the joint panel, since the guide's walk needs the suite's stub engine
+  and is retaken by `./al recipes` on that stack. Done is each as a pull
+  request on the branch's stack.
 - **(h) The lanes, further.** A cue stays at its timeline seconds when an
   edit moves the picture, so the flow's cues describe the timeline as it was
   read; done is cues followed through `followClips` as the captions are,
