@@ -130,7 +130,7 @@ strained literal reading.
    compliance theater, not compliance - the constitution's own emphasis on honest,
    bounded scope (Proposed/Pends-on rather than silent stretching) argues against this.
 2. **Leave the gaps named in `adr/README.md` without a disposition ADR** - rejected:
-   naming a mismatch and deciding what to do about it are different acts; per P6
+   naming a mismatch and deciding what to do about it are different acts; per `decisions-are-documented`
    ("decisions are documented or they didn't happen"), the disposition itself needs to
    exist somewhere, not just the observation that a disposition is needed.
 3. **Fold this into `docs/governance-perspective.md` instead of a new ADR** - rejected:
