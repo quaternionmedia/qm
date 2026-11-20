@@ -1,0 +1,73 @@
+# The claim registries are complete, and their claims still resolve.
+#
+# Org-level, not a seed workflow: these registries are this corpus's own. A
+# check that exists and is never executed is not a gate, and this workflow is
+# where these checks run.
+#
+# Each check here reads committed files and nothing else: no host, no network,
+# no gitignored companion, no operator's filesystem. That is the test for
+# whether a check belongs on a runner. `qm devloop` and `qm private-names` are
+# absent because they read a machine, and a check that reads a machine fails a
+# pull request for a reason its author cannot fix.
+#
+# What each one cannot do is stated in its own output on every run, including
+# on a pass, and is not repeated here.
+
+name: Registries
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  registries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install pyyaml
+        run: pip install --quiet pyyaml
+
+      # Run as scripts rather than through `uv run qm`. The CLI
+      # dispatches to exactly these modules and decides nothing itself, and a
+      # workflow that installed the package to reach them would be testing the
+      # packaging on every pull request as a side effect.
+      - name: Every exemption is complete, and its constant still exists
+        run: python ci/exceptions.py --check
+
+      - name: Every policy has a detector or a stated reason it cannot
+        run: python ci/policies.py --check
+
+      - name: Every ledger entry is attributed, and every closed one is scored
+        run: python ci/ledger.py --check
+
+      - name: Every lane is separable from every other
+        run: python ci/lanes.py --check
+
+      - name: Every protocol has a page and steps somebody could run
+        run: python ci/protocols.py --check
+
+      - name: Every capability's rungs are ordered and its design pointer resolves
+        run: python ci/capabilities.py --check
+
+      - name: Every curriculum unit cites a document and states its Status
+        run: python ci/curriculum.py --check
+
+      - name: Every address vector parses as declared and round-trips
+        run: python ci/addresses.py --check
+
+      - name: Every family a repository claims is one the record declares
+        run: python ci/families.py --check
+
+      - name: Every mathematical mapping states what it decides and has not earned
+        run: python ci/check_mathematics.py --check

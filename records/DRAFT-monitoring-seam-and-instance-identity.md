@@ -5,18 +5,17 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P3 — replaceability is the risk strategy; P6 — decisions are documented or they didn't happen |
+| **Principle** | `seams-on-standard-protocols` — replaceability is the risk strategy; `decisions-are-documented` — decisions are documented or they didn't happen |
 
 ## Context
 
-The harness now reports the org's state from two committed documents, and the
+The harness reports the org's state from two committed documents, and the
 generated-documents convention governs how they are made and read. Both are
 generated from a git tree and a `gh` call: facts that hold for the
 organisation, at a commit, wherever you stand.
 
-The next thing the reviewer needs to see is not like that. Running six
-concurrent sessions produces state that exists on *one workstation at one
-moment* — which sessions are live, and which human gates are waiting on an
+What the reviewer also needs to see is not like that. Concurrent sessions
+produce state that exists on *one workstation at one moment* — which sessions are live, and which human gates are waiting on an
 answer. `qmcp` is where that state lives: it holds a human-in-the-loop queue
 over HTTP, and `dossier` is the dashboard that should show it.
 
@@ -26,12 +25,17 @@ the code, not inferred from its shape.
 
 **Reading the queue writes to it.** `GET /v1/human/requests/{id}` assigns
 `status = EXPIRED` to a pending request whose `expires_at` has passed
-(`qmcp/server.py:373-382`), and the session context manager commits on exit
-(`qmcp/db/engine.py:69-74`), so the transition is persisted *by the read*. It
-is also the only mechanism that ever produces `expired`; the list endpoint
-applies no expiry, so the two endpoints disagree about the same row. Expiry is
-terminal — the answer POST then returns 410, no endpoint un-expires a request,
-and `CANCELLED` exists in the enum with no code path that sets it. A tab that
+(`qmcp/server.py:448-457`), and the session context manager commits on exit
+(`qmcp/db/engine.py:68-73`), so the transition is persisted *by the read*. It
+is also the only path that persists `expired`. The answer POST assigns it to a
+request past its expiry and then refuses with 410 (`qmcp/server.py:494-503`),
+and the refusal rolls the session back, so the row stays `pending`. The list
+endpoint leaves such a request out of a `pending` listing and writes nothing
+(`qmcp/server.py:411-415`). So one row is stored as pending, listed as not
+pending, and stored as expired by the first detail read of it. Expiry is
+terminal — the answer POST refuses a request past its expiry whatever its
+stored status, no endpoint un-expires a request, and `CANCELLED` exists in the
+enum (`qmcp/db/models.py:44`) with no code path that sets it. A tab that
 polled detail URLs to show who had answered would expire the gates it displayed
 by looking at them, and the write it performed is a decision the human can no
 longer make.
@@ -39,9 +43,12 @@ longer make.
 **The service cannot say which service it is.** `/health` returns
 `{"status": "healthy", "version": __version__}`, and that version is a package
 constant, byte-identical across every `qmcp` process on the machine and every
-clone of it. The queue itself is a SQLite file resolved against one process's
-working directory (`sqlite+aiosqlite:///./qmcp.db`, `qmcp/config.py:23`) behind
-a port that defaults to `3333` (`qmcp/config.py:19`). So two clones have two
+clone of it. `qmcp/identity.py` names the repository a checkout belongs to,
+from its `origin` remote, which two clones of one repository share, and no
+route serves it. The queue itself is a SQLite file resolved against one
+process's working directory (`sqlite+aiosqlite:///./qmcp.db`,
+`qmcp/config.py:37`) behind a port that defaults to `3141`
+(`qmcp/config.py:33`). So two clones have two
 different queues, both answer `/health` identically, and nothing obtainable
 over HTTP distinguishes them.
 
@@ -49,7 +56,7 @@ over HTTP distinguishes them.
 stamped, budgeted, or quoted. A view that looks live and is an hour old is
 worse than one that admits its age, because the first stops people checking.
 
-The consequence that decided this record: a monitor built on a *roster* of
+The consequence that decides this record: a monitor built on a *roster* of
 instances reports perfect health in the one case that matters. A stale entry —
 a previous session's server, or another session's, still listening on a listed
 port — answers `/health` 200 and returns zero gates, because its queue is a
@@ -92,8 +99,7 @@ governs the internal one, and does not relax that record.
    repository, carrying its port, its resolved database path, its start time,
    and the session declaration. The collector enumerates that directory. A
    session therefore becomes visible without editing a reviewed file, which
-   the one-PR-per-repository rule would otherwise price at a contributor's
-   whole slot.
+   would otherwise cost a pull request of its own for every session started.
 
 5. **Identity is asserted before a measurement is attributed.** The collector
    matches the run-file's port, database path and start time against the port
@@ -151,9 +157,11 @@ governs the internal one, and does not relax that record.
 - Cost accepted: the reviewer sees the queue one refresh behind rather than
   live. Given that a live read expires the gates it displays, one refresh
   behind is the feature.
-- `qmcp` is not yet governed — no `AGENTS.md`, no `.github`, no `LICENSE`, no
-  submodule — and nothing the harness depends on should read a repository with
-  no gates. Onboarding it precedes wiring it.
+- Nothing the harness depends on reads a repository with no gates, and `qmcp`
+  has them: an `AGENTS.md`, this corpus as a submodule on its `project/qmcp`
+  branch, REUSE licensing (`REUSE.toml`, `LICENSES/`), and the ADR, leak,
+  one-PR, REUSE and submodule checks in `.github/workflows/`. What wiring it
+  waits on is the run-file and the identity endpoint above.
 
 ## Alternatives considered
 

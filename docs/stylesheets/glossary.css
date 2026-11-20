@@ -1,0 +1,76 @@
+/* A glossary link is a hint, not a destination: a slight difference in colour
+ * and a dotted rule, accessible on both themes.
+ *
+ * WCAG 1.4.1 allows a colour-only link in body text when the colour clears 3:1
+ * against the surrounding text and a non-colour cue appears on hover and focus.
+ * The ink here is chosen to sit under that line on both themes, against the
+ * palette's ink and ground (ci/palette.py):
+ *
+ *   body text vs background   light 16.02:1   dark 15.70:1
+ *   glossary ink vs body      light  2.17:1   dark  1.45:1
+ *   glossary ink vs ground    light  7.39:1   dark 10.81:1
+ *
+ * So the cue is persistent. A dotted underline carries the "this is a link"
+ * information, and colour does no accessibility work: it only has to stay
+ * readable (4.5:1 against the background), so the difference in colour can be
+ * slight, and the cue asks nothing of colour vision.
+ *
+ * A 1px dotted rule at 60% opacity is the treatment `<abbr>` uses, and reads as
+ * a hint rather than a link. It becomes solid on hover and focus.
+ *
+ * ci/tests/test_glossary_contrast.py holds the numbers and fails if either
+ * theme drifts under them.
+ */
+
+:root {
+  /* Light: a slight shift from near-black body text toward the theme's ink.
+     It does not have to clear 3:1 against the body -- the dotted rule does
+     that work -- so it can be quiet. */
+  --qm-glossary-ink: #29527a;
+  --qm-glossary-rule: rgba(41, 82, 122, 0.6);
+}
+
+[data-md-color-scheme="slate"] {
+  --qm-glossary-ink: #a8c7e8;
+  --qm-glossary-rule: rgba(168, 199, 232, 0.6);
+}
+
+.glossary-term {
+  color: var(--qm-glossary-ink);
+
+  /* No `text-decoration` at rest: a text-decoration underline sits on the
+     baseline and reads as a full link. A dotted border sits lower and is
+     lighter. */
+  text-decoration: none;
+  border-bottom: 1px dotted var(--qm-glossary-rule);
+
+  transition: border-bottom-color 120ms ease-in-out;
+}
+
+.glossary-term:hover,
+.glossary-term:focus,
+.glossary-term:focus-visible {
+  /* The cue strengthens rather than appears, so nothing reflows. */
+  border-bottom-style: solid;
+  border-bottom-color: var(--qm-glossary-ink);
+}
+
+.glossary-term:focus-visible {
+  /* Keyboard focus is never subtle. */
+  outline: 2px solid var(--qm-glossary-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glossary-term {
+    transition: none;
+  }
+}
+
+@media print {
+  /* Colour may not survive the printer, and there is no hover on paper. */
+  .glossary-term {
+    color: inherit;
+    border-bottom-color: currentColor;
+  }
+}

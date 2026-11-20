@@ -610,16 +610,16 @@ def test_retained_files_are_not_counted_as_reclaimable(tmp_path: Path) -> None:
 
 
 def test_writing_the_document_into_the_repository_is_refused() -> None:
-    """Unlike harness-status.json there is no committable half to fall back to.
+    """Unlike status/harness.yaml there is no committable half to fall back to.
 
     Run against the real corpus path, because the real path is the whole
     subject: a guard tested against a temporary directory is a guard tested
     where it never fires.
     """
-    target = CI_DIR.parent / "disk-status.json"
+    target = CI_DIR.parent / "status/disk.yaml"
     existed = target.exists()
     result = subprocess.run(
-        [sys.executable, str(CI_DIR / "disk_status.py"), "--write", "disk-status.json"],
+        [sys.executable, str(CI_DIR / "disk_status.py"), "--write", "status/disk.yaml"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
         cwd=str(CI_DIR.parent),
     )
@@ -637,7 +637,7 @@ def test_the_refusal_happens_before_the_walk(monkeypatch) -> None:
 
     monkeypatch.setattr(ds, "build", explode)
     with pytest.raises(SystemExit):
-        ds.main(["--write", str(CI_DIR / "disk-status.json")])
+        ds.main(["--write", str(CI_DIR / "status/disk.yaml")])
 
 
 def test_the_document_names_its_own_scope_and_says_it_is_never_committed() -> None:
