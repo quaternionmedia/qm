@@ -76,9 +76,9 @@ or by voice through joe's Voice window, which speaks a shorter form of each. App
 
 <figure class="qm-shot" markdown>
 
-![The editor's timeline with the chapters and excerpts the harness proposed drawn in the Cues lane under the clips, the words and the sound, one excerpt waiting on the queue](pictures/editor-lanes.png)
+![The editor's timeline with the chapters and excerpts the harness proposed drawn in the Cues lane under the clips, the words and the sound, every excerpt delivered](pictures/editor-lanes.png)
 
-<figcaption><strong>The proposal on the timeline.</strong> The Cues lane draws each chapter and each excerpt where it falls, coloured by where it stands on the queue; the lanes above it are the words and the sound at the same seconds.</figcaption>
+<figcaption><strong>The proposal on the timeline.</strong> The Cues lane draws each chapter and each excerpt where it falls, coloured by where it stands, here delivered; the lanes above it are the words and the sound at the same seconds.</figcaption>
 
 </figure>
 
@@ -90,9 +90,9 @@ Each approved span is rendered as an excerpt of its own, cut from the timeline w
 
 <figure class="qm-shot" markdown>
 
-![The Deliver stage listing an excerpt named for the project and its span, rendered, with Download and Deliver beside it](pictures/editor-deliver.png)
+![The Deliver stage listing the excerpts, each named for the project and its span, rendered and delivered to local, with Download beside each](pictures/editor-deliver.png)
 
-<figcaption><strong>An excerpt on Deliver.</strong> Named for the project and the span, described by its place in the recording.</figcaption>
+<figcaption><strong>The excerpts on Deliver.</strong> Each named for the project and the span, described by its place in the recording, and delivered.</figcaption>
 
 </figure>
 

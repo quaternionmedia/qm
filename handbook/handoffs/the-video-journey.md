@@ -240,18 +240,33 @@ arrangement from before the split gives way to the default once, which is
 the existing rule for an arrangement lacking a panel the editor cannot do
 without, and the live editor showed the eleven tabs after one reload.
 
-**Not run.** An excerpt approved from its link and delivered to `local`,
-which waits on the queue's answers; alfred's site built with mkdocs, whose
-nav and links the suite's docs rules check in its place.
+**The run, walked to its end.** The queue's fourteen requests were answered
+`approve` with `uv run qmcp human respond`, each as the run put it up. The
+seven spans were rendered by alfred's worker at 1920 by 1080 with their
+captions burned in, 2 to 7 each; the first was reported rendered after 293
+seconds of following and the rest within 45 and then at once, the worker
+having rendered them while the first was followed. Each was put to the
+queue with its link and approved, and each delivered to `local`: seven
+files in alfred's `deliveries/`, named by render id, 10 to 18 seconds long.
+The run's last line counts 7 offered, 7 approved, 7 rendered, 7 approved as
+excerpts, 7 delivered; the project's cues read back with every excerpt
+`delivered` and its render id as `ref`; the editor's Deliver stage lists
+each as `delivered → local`, and its Cues lane draws the seven green, which
+`docs/journeys/pictures/editor-lanes.png` and `editor-deliver.png` show.
+The run before it, whose request outlived its review timeout, is no longer
+on the queue.
+
+**Not run.** alfred's site built with mkdocs, whose nav and links the
+suite's docs rules check in its place.
 
 ## 3. What remains, and what done looks like
 
-- **(a) Against a live alfred.** Run, as §2 says, to the first question on
-  the queue, with one excerpt rendered by alfred's worker through the tools.
-  What remains is a span approved on the queue, its excerpt approved from its
-  link and delivered to `local`, which is a person's answers; and `./al family
-  smoke` extended to call `alfred_project` and to analyse a library file with
-  sound wherever it sorts.
+- **(a) Against a live alfred.** Run to its end, as §2 says: every span
+  approved on the queue, rendered, approved from its link and delivered to
+  `local`. What remains is `./al family smoke` extended to call
+  `alfred_project` and to analyse a library file with sound wherever it
+  sorts, and a run answered by a person reading each excerpt rather than
+  approving them all.
 - **(b) The sound in the proposal.** alfred serves the engine's analysis of a
   library file, its silences, loudness and tempo, at `GET /media/{name}/audio`
   (alfred's `docs/captions.md`, *Analysing library media*), and qmcp has no

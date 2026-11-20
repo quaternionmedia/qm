@@ -618,11 +618,11 @@ re-checked and is re-derived before anyone acts on it.
   (2026-11-03)
 - **The excerpt flow against a live alfred.** `qmcp`'s `feat/alfred-excerpts`
   carries the `alfred-excerpts` recipe, its tools, tests and walkthrough, run
-  against a live alfred to its first question on the queue, with one excerpt
-  rendered by alfred's worker and the proposal drawn on the editor's timeline
-  as cues, in the lanes `alfred`'s `feat/synced-timeline` adds. Done is a
-  person's answers on that queue, then
-  [`the-video-journey.md`](the-video-journey.md) §3 (b) to (e), (g) and (h)
+  against a live alfred to its end: seven excerpts approved on the queue,
+  rendered by alfred's worker, approved from their links and delivered to
+  `local`, with the proposal drawn on the editor's timeline as cues, in the
+  lanes `alfred`'s `feat/synced-timeline` adds. Done is
+  [`the-video-journey.md`](the-video-journey.md) §3 (a) to (e), (g) and (h)
   each as a record or a pull request of its own, and (f) once *keep
   everything local* is lifted. (2026-11-19)
 

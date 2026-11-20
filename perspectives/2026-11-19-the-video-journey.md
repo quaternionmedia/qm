@@ -174,9 +174,13 @@ library the page had listed before the file went up.
 
 ## The journey is longer than the slice
 
-Nothing here has been rendered by alfred's worker: Docker Desktop was down,
-so the steps were driven as functions, the way the walkthrough drives them,
-against joe and otto alone. The flow reaches a live alfred through tools that
-already drive it, and the handoff's first item is that run. After it, the
-sound in the proposal, the editor showing what was proposed, and an excerpt as a
-project of its own are each a decision by the seam rule before they are code.
+The first run of the session rendered nothing with alfred's worker: Docker
+Desktop was down, so the steps were driven as functions, the way the
+walkthrough drives them, against joe and otto alone. With the stack up the
+flow reached a live alfred through the tools that already drive it, and at
+the session's end a run was walked to its last line, every excerpt approved
+twice and delivered. That walk approved everything, which proves the path
+and not the judgement; a person reading each excerpt is the run that would.
+After it, the sound in the proposal, a selection rendered from the editor,
+and an excerpt as a project of its own are each a decision by the seam rule
+before they are code.
