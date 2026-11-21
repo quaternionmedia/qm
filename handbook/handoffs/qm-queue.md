@@ -634,12 +634,12 @@ re-checked and is re-derived before anyone acts on it.
 - That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
   on `main`: every local run on 2026-10-31 skipped it, because the families
   step before it failed first (§4).
-- That qmetronome's unit suite is stable (2026-11-21). One full local run at
-  `c5e480b` ends red on `MidiClockSenderTest`'s organic-mode tick test, with a
-  `ConcurrentModificationException` where the test counts the bytes received;
-  the class run alone passes, and the hosted `build-and-test` passes on
-  the pull request that put its default branch at `3aaaa28`. The cause is not
-  read.
+- That qmetronome's unit suite is stable (2026-11-21, at `39c1beb`).
+  `MetronomeEngineTest` drives the engine on real threads against the wall
+  clock, and the body of the pull request merged as `a591c00` measures it red
+  on the host intermittently. `MidiActionSenderTest` collects what its fake
+  destination receives in a plain list while its sender delivers on a
+  background dispatcher; it has not been seen to fail.
 
 ## 6. Standing constraints
 
