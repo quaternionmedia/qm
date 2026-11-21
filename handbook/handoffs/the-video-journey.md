@@ -73,8 +73,9 @@ worker, the site and joe as processes on the host against a MongoDB, and
 count bounds a project's captions or its words, the first pull request of the
 round [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. Above
 that, that round's eight branches, one commit each, signed and not pushed,
-**`feat/who-spoke`** at `e56b386e` at the top and the clone's checkout; that
-page's §5 lists them in order. In the clone and
+**`feat/who-spoke`** at `e56b386e` at the top, and cut from it in parallel
+**`feat/no-cue-cap`** at `e73e5b42` and **`feat/topic-titles`** at
+`bfcb0526`, the clone's checkout; that page's §5 lists them in order. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
@@ -415,8 +416,8 @@ named above.
   `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family`,
   `feat/synced-timeline`, `fix/host-run` and `fix/no-caption-cap`, and `joe`
   `docs/what-the-words-are-for`.
-- **alfred's clone is checked out on `feat/who-spoke`**, the stack's top,
-  which the host run serves on 1732 (`docs/host-run.md`), as the family
+- **alfred's clone is checked out on `feat/topic-titles`**, above the
+  stack's top, which the host run serves on 1732 (`docs/host-run.md`), as the family
   stack does when Docker's engine is up; `docs/excerpts-in-the-family` has
   its worktree beside the clone. A session that wants the clone on the stack's top checks it out
   with the stack down, or serves another checkout on another port.

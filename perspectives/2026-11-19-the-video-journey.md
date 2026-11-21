@@ -296,3 +296,21 @@ knob and changing a step was one panel wide, and a round was added for it.
 The plan asked its questions early, as the page says it should; the build
 answered one of them and reopened two before the person reached them, which
 is the ordinary course, and the reason the questions were written down.
+
+Two of the rows the settlement added were built the same afternoon, as
+parallel branches off the stack's top, since neither needed the other. The
+title rule was chosen from the data before it was written: the engine's
+points over the long recording fall at whole seconds, most of them within
+ten of the next, so a window of ten seconds usually holds a few, and the
+topic whose points within the span weigh most is the title; on the first
+live run eight windows of ten were titled and two held no point at all,
+which the rule leaves with the recipe's name rather than reaching outside
+the span for a guess. The cues' count went as the captions' had, and what
+replaced it was the one refusal the earlier removal had described and not
+written: the database's own refusal of a document past its size, caught at
+the two routes that write captions, words and cues and answered with its
+sentence, which names the size. The second branch's tests ran in a worktree,
+as the habit is, in a folder named for the project and not the branch, since
+the continuity tests read the project from the folder's name, which the
+section above on scaffolding had already recorded; this time it was read
+before the suite ran rather than after.

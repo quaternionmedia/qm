@@ -2,7 +2,8 @@
 
 **Stamped 2026-11-21.** `qm` `main` at `5baf779`; `alfred` `feat/who-spoke`
 at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
-at `a0f7a32b` (§5); `otto` `feat/motion` at `eac657d`, which alfred pins;
+at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42` and `feat/topic-titles`
+at `bfcb0526` each cut from it (§5); `otto` `feat/motion` at `eac657d`, which alfred pins;
 `looksatwords` `test` at `7d9089d`; `qmcp` `feat/alfred-excerpts` at
 `763414c`; `joe` `main` at `188a2cb`. Every figure on this page was true at
 those commits and nowhere else; re-derive before acting on one.
@@ -16,10 +17,11 @@ builds on [`the-video-journey.md`](the-video-journey.md), where the first step
 of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
-leaves out. Of the work it names, §2 (a) to (g) and (l) are built, each as a
-local branch that is a pull request to open once *keep everything local* is
-lifted; (h) to (k), (m) and (n) are planned. The built part runs on the host
-run (`docs/host-run.md`) over the long recording: §6.
+leaves out. Of the work it names, §2 (a) to (g), (l), (n) and the title in
+(h) are built, each as a local branch that is a pull request to open once
+*keep everything local* is lifted; the labeller in (h), (i) to (k) and (m)
+are planned. The built part runs on the host run (`docs/host-run.md`) over
+the long recording: §6.
 
 ## 0. What the round is for
 
@@ -137,11 +139,8 @@ is not.
   No count bounds a project's captions or its words; the refusal
   `too_many_captions` and its code are gone, with the tests that asserted
   it, and the pages say what bounds a project instead: its document, which
-  the database refuses past its own size. §6 is the run. What remains: the
-  cues keep their count (`MAX_CUES`, `alfred/core/models/cues.py`), and a
-  source several recipes have marked is where a long project meets it next;
-  done is the same removal, and a refusal that names the document's size
-  where a write would pass it, for captions, words and cues alike.
+  the database refuses past its own size. §6 is the run. The cues' count
+  goes the same way in (n).
 
 - **(b) The cut's arithmetic, in alfred.** Built: alfred `7a0ccc86`,
   `feat/cut-arithmetic`, as planned, the fixtures recorded once from the
@@ -294,20 +293,25 @@ is not.
   Done is the spec, the journey and the recorded recipe.
 
 - **(h) A title from the reading, then a labeller behind a contract.** Two
-  pull requests, in this order. The title: `label` names a draft by the topic
-  the language engine has live over its span, over the conversation route
-  (l) built, the source's words read once per run; a span with no live topic
-  keeps the recipe's name, no setting arrives, and a run without the engine
-  titles nothing and says so in the job. The labeller: `ALFRED_LABELLER_URL`
+  pull requests, in this order; the first is built: alfred `bfcb0526`,
+  `feat/topic-titles`, cut from `feat/who-spoke`. The title: `label` names
+  each candidate by the topic the language engine has live over it, the one
+  whose points within the span carry the most intensity, read through
+  `utils/language_engine.py` once per run from the source's words and kept
+  beside the library as the measures are, by the engine asked and a digest
+  of the lines; `highlights`, `chapters`, `excerpts` and `quotes` carry the
+  step, a draft is named `<source> – <title> <n>`, and its cue on the source
+  with it. A span with no live topic keeps the recipe's name, no setting
+  arrives, and a run without the engine, or whose engine fails, titles
+  nothing and says why in the job. The labeller: `ALFRED_LABELLER_URL`
   names a chat route of the shape qmcp's `localmodel` serves, and alfred
   names no model: `alfred/core/utils/labeller.py` carries the prompts for a
   category and a score, from the flow's `category_prompt` with a score added,
   and a stand-in for the tests as `tests/stubs/audio_engine.py` stands in for
   joe. `GET /health` reports the labeller as it reports the audio engine. A
   draft made without one keeps its topic title; the recipe runs all the same.
-  Done is `label` titling by topic with the language engine and skipping
-  without it, then scoring with a labeller and skipping without one, each a
-  test, and the health report.
+  Done, for the labeller, is `label` scoring with one and skipping without
+  one, each a test, and the health report.
 
 - **(i) qmcp follows the route.** Tools `alfred_recipes`, `alfred_drafts` and
   `alfred_drafts_status`; the `alfred-excerpts` flow's `propose` step calls
@@ -360,12 +364,15 @@ is not.
   run from the panel; a refused step shown where it is; and a spec on the
   desktop and the phone.
 
-- **(n) The cues' count comes off.** `MAX_CUES` and `too_many_cues` go as the
-  captions' count went, (a), with the tests that assert them, and a write a
-  project's document would not take is refused naming the document's size,
-  for captions, words and cues alike. Done is a source marked by more runs
-  than the count allowed, written, and the refusal at the document's size,
-  each a test.
+- **(n) The cues' count comes off.** Built: alfred `e73e5b42`,
+  `feat/no-cue-cap`, cut from `feat/who-spoke` beside `feat/topic-titles`.
+  `MAX_CUES` and `too_many_cues` are gone as the captions' count went, (a),
+  with the tests that asserted them; a write of captions, words or cues the
+  database would not take for the document's size, refused before it is sent
+  or by the server, answers `project_too_large`, the sentence naming the
+  size in the database's words, from `errors.written` around the two routes'
+  writes. The worker's writes, a transcription's and a run's, are not behind
+  it: a failure there is the job's to report, and it says the same size.
 
 - **(k) Measured.** The built-in recipes run on several real recordings,
   *highlights* first, with every draft kept; what the person dropped, what
@@ -447,11 +454,14 @@ where one adds work, it names the §2 row that carries it.
   page. This round's eight branches stack above `fix/no-caption-cap`, each
   one commit, in this order: `feat/cut-arithmetic`, `feat/timeline-sound`,
   `feat/picture-motion`, `fix/host-reload-waits`, `feat/recipes`,
-  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; none pushed, no pull
+  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; above the last, two
+  more, each cut from it and one commit, parallel since neither needs the
+  other: `feat/no-cue-cap` and `feat/topic-titles`. None pushed, no pull
   request open. otto's `feat/motion` is a branch in the submodule's checkout
   under `alfred/otto`, one commit, not pushed, which `feat/picture-motion`
-  pins. Landing is each as a pull request against the one beneath, in order.
-- **alfred's clone is checked out on `feat/who-spoke`**, the stack's top,
+  pins. Landing is each as a pull request against the one beneath, in order,
+  and the two above `feat/who-spoke` each against it.
+- **alfred's clone is checked out on `feat/topic-titles`**,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
   with `uv run looksatwords serve --no-open --port 8000` and
@@ -463,10 +473,15 @@ where one adds work, it names the §2 row that carries it.
   on a temporary file of its own under Windows; `./al host` says when its
   process is gone, and `down` then `up` brings it back. A browser that
   opened the editor before a change holds the old bundle under the same file
-  name until it fetches past its cache.
-- **The host run's database holds the drafts the demo left**: the long
-  recording's `highlights` run, a draft per window, each a project under it
-  on Source, to open or to drop from the Sculpt stage.
+  name until it fetches past its cache. `feat/no-cue-cap` has a worktree
+  beside the clone, in a folder named `alfred`, since the tests that resolve
+  the project from the folder's name pass there and not in one named for
+  the branch; its tests run with the clone's virtualenv from the worktree's
+  root, which imports the worktree's `alfred` ahead of the editable install.
+- **The host run's database holds the drafts the demos left**: the long
+  recording's `highlights` runs, a draft per window, the later ten titled by
+  the engine's topics, and its `chapters` runs, each a project under it on
+  Source, to open or to drop from the Sculpt stage.
 - **The host lacks fontconfig and ImageMagick**: a draft that carries a
   title card previews and renders only where ImageMagick is.
 - **A long source's transcription runs in the worker** and takes as long as
@@ -516,6 +531,35 @@ run on 1732 where a browser suite is named:
   and `GET /project/{id}/conversation` read 1572 lines through looksatwords
   in about ten seconds and from the kept reading in under a tenth after.
   No mutation was run on (c) to (l) beyond the fixtures'.
+
+### For §2 (h), the title, at alfred `bfcb0526`, and (n) at `e73e5b42`
+
+Each figure one run at that commit, in the host virtualenv; (h) in the
+clone, (n) in its worktree:
+
+- (h): the unit tier, every module: 2049 passed, 37 skipped, 8 xfailed, 4
+  failed, the four this host's as above; the modules the change touches,
+  `test_sculpt`, `test_drafts_task`, `test_language_engine`,
+  `test_conversation_routes`, the recipes' and the drafts' route tests, the
+  refusal codes and the docs' accounting: 249 passed; the mutation, every
+  point of a topic counted wherever it falls, reddened 3, the two that title
+  by what lies within a span and the one that names drafts by it; restored,
+  all pass; `black` and `ruff` clean; the seed's `check_timeless.py --base
+  feat/who-spoke` 0 findings; `check_leaks.py` clean over 533 tracked files;
+- (n): the unit tier, every module: 2031 passed, 40 skipped, 8 xfailed, 8 failed: the host's font probe, preview-slot timing and Windows path, and the five of `test_stack_config` that compare the installed otto and vox with the submodule checkouts a worktree does not carry, which pass in the clone at `bfcb0526` and touch no file of the change; the modules the change
+  touches, the cues' and captions' route tests, the refusal codes, the
+  drafts task, the route inventory and the docs' accounting: 208 passed; the
+  mutation, every write error refused as too large, reddened the one test
+  that says a duplicate key is not this refusal; restored, all pass; `black`
+  and `ruff` clean; `check_timeless.py --base feat/who-spoke` 0 findings;
+  `check_leaks.py` clean over 533 tracked files;
+- on the host run, restarted on `bfcb0526` with both engines reported ok: a
+  `highlights` run asking ten over the long recording left ten drafts in
+  about thirteen seconds, the engine's one read of its 1572 lines about ten
+  of them, eight titled by a topic and two keeping the recipe's name for
+  want of a point within their span, the job's notes empty, the reading
+  kept beside the library, and the Sculpt stage's Drafts panel listing them
+  by title.
 
 ### For §2 (a), at alfred `a0f7a32b`
 
