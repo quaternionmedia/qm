@@ -65,10 +65,14 @@ and the flow marking the project's timeline with its cues (below).
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
 open stack and that branch, at `a0109db3`, five commits signed and not
 pushed. Above it, **`fix/host-run`**, at `9250d669`, four commits signed
-and not pushed, is the clone's checkout: the api's font check copes
+and not pushed: the api's font check copes
 without `fc-list`, `./al host` starts, reports and stops the api, a render
 worker, the site and joe as processes on the host against a MongoDB, and
-`docs/host-run.md` is that run, which this clone serves on 1732. In the clone and
+`docs/host-run.md` is that run, which this clone serves on 1732. Above that,
+**`fix/no-caption-cap`**, at `a0f7a32b`, one commit signed and not pushed, is
+the clone's checkout: no count bounds a project's captions or its words, the
+first pull request of the round
+[`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
@@ -296,6 +300,11 @@ suite's docs rules check in its place.
 
 ## 3. What remains, and what done looks like
 
+The round after this page, an algorithmic layer over the editor as a Sculpt
+stage between Source and Edit, is planned in
+[`the-algorithmic-layer.md`](the-algorithmic-layer.md), which places (b) and
+(d) below within it.
+
 - **(a) Against a live alfred.** Run to its end, as §2 says: every span
   approved on the queue, rendered, approved from its link and delivered to
   `local`. What remains is `./al family smoke` extended to call
@@ -366,7 +375,8 @@ suite's docs rules check in its place.
   `qmcp_mcp.py`'s list with it. This page's own pull request opens against
   `qm` `main` from `evolve/the-video-journey`. alfred's `feat/synced-timeline`
   opens against `docs/excerpts-in-the-family`, a draft until that lands, and
-  retargets as the stack merges, and `fix/host-run` above it the same way;
+  retargets as the stack merges, and `fix/host-run` and `fix/no-caption-cap`
+  above it the same way;
   alfred's suite runs in Docker, `./al pt`,
   and the browser gate from `website/` against the running stack.
 
@@ -400,9 +410,9 @@ named above.
 
 - **Keep everything local**, until the person lifts it: this branch, `qmcp`
   `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family`,
-  `feat/synced-timeline` and `fix/host-run`, and `joe`
+  `feat/synced-timeline`, `fix/host-run` and `fix/no-caption-cap`, and `joe`
   `docs/what-the-words-are-for`.
-- **alfred's clone is checked out on `fix/host-run`**, the stack's top,
+- **alfred's clone is checked out on `fix/no-caption-cap`**, the stack's top,
   which the host run serves on 1732 (`docs/host-run.md`), as the family
   stack does when Docker's engine is up; `docs/excerpts-in-the-family` has
   its worktree beside the clone. A session that wants the clone on the stack's top checks it out

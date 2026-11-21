@@ -209,3 +209,21 @@ and not the judgement; a person reading each excerpt is the run that would.
 After it, the sound in the proposal, a selection rendered from the editor,
 and an excerpt as a project of its own are each a decision by the seam rule
 before they are code.
+
+## A count stood where a bound belonged
+
+The first long recording put through the host run transcribed to the end and
+was then refused by alfred itself: more captions than a project may carry.
+The count had been chosen as a guess with a reason beside it, a thousand
+being well over an hour of speech, and the reason was true of the recordings
+the editor had met until then. What the count stood for was something else,
+the size of the document the database will hold, and that it never measured.
+So the guard enforced the guess and not the bound, and it did so after the
+engine had spent its whole run on the sound: the cost of a number in code is
+paid at the moment it is finally wrong, and by then everything upstream of it
+has been done. The fix removed the counts on captions and words rather than
+raising them, since a raised count is the same guess with a later expiry, and
+left the document's own size as what bounds a project. The lesson is the one
+the corpus states for prose, applied to a constant: a number in code that
+stands for a quantity it does not measure is a claim with an expiry date,
+and the tests that held it in place proved only that the guess was enforced.
