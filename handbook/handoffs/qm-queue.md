@@ -638,7 +638,8 @@ re-checked and is re-derived before anyone acts on it.
   `c5e480b` ends red on `MidiClockSenderTest`'s organic-mode tick test, with a
   `ConcurrentModificationException` where the test counts the bytes received;
   the class run alone passes, and the hosted `build-and-test` passes on
-  qmetronome #22. The cause is not read.
+  the pull request that put its default branch at `3aaaa28`. The cause is not
+  read.
 
 ## 6. Standing constraints
 
