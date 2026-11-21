@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-21T12:38:35Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-21T23:43:09Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **317**, unfiltered.
+Every governed document in this corpus: **318**, unfiltered.
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 98 |
 | [G] `generated` | 57 |
-| [S] `standing` | 92 |
+| [S] `standing` | 93 |
 | [T] `transient` | 23 |
 | [H] `dated` | 2 |
 
@@ -360,6 +360,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `protocols/runs/2026-08-23-security-review.md` | protocol | — |
 | [S] | `standing` | `protocols/runs/2026-08-27-local-demo.md` | protocol | — |
 | [S] | `standing` | `protocols/runs/2026-11-20-project-refresh.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-11-21-project-refresh.md` | protocol | — |
 | [S] | `standing` | `protocols/security-review.md` | protocol | — |
 | [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
 | [S] | `standing` | `walkthrough/02-rollout-by-family.md` | walkthrough | — |
