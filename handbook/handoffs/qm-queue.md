@@ -635,7 +635,7 @@ re-checked and is re-derived before anyone acts on it.
   stage between Source and Edit where recipes of algorithms a person
   configures turn a long source into drafts, each a project to refine by
   hand. Done is that page's §3 settled by the person, then its §2 (b) to
-  (j) each as a pull request of its own. (2026-11-21)
+  (k) each as a pull request of its own. (2026-11-21)
 
 ## 5. Not verified
 
