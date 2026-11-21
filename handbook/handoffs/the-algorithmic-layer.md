@@ -15,11 +15,11 @@ and leaves drafts, and Edit refines a draft by hand. The page
 builds on [`the-video-journey.md`](the-video-journey.md), where the first step
 of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
-what done looks like for each, what is proposed for the person to settle, and
-what the round leaves out. Of the work it names, §2 (a) to (g) and (l) are
-built, each as a local branch that is a pull request to open once *keep
-everything local* is lifted; (h) to (k) are planned. The built part runs on
-the host run (`docs/host-run.md`) over the long recording: §6.
+what done looks like for each, what the person settled and what the round
+leaves out. Of the work it names, §2 (a) to (g) and (l) are built, each as a
+local branch that is a pull request to open once *keep everything local* is
+lifted; (h) to (k), (m) and (n) are planned. The built part runs on the host
+run (`docs/host-run.md`) over the long recording: §6.
 
 ## 0. What the round is for
 
@@ -93,12 +93,12 @@ drafts    projects, each carrying its source, its spans, its recipe and its scor
 | The part | Who owns it | Why | At the stamp |
 |---|---|---|---|
 | hearing the words, the silences, the level over time, the beats | joe, through vox's contract | the audio engine | built: `peaks` is the level over time, `loudness` one figure per file |
-| telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | not built; pends on joe |
+| telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | not built, §2 (j); the `speakers` operation reads the speaker each word carries and does not wait on it, §3 item 7 |
 | motion in the picture over time, and scene changes | otto | the engine that reads frames, with the ffmpeg `otto.media.probe` runs | not built |
-| a title, a category, a score for how well a stretch stands alone | the local model, reached by a contract that names no model, as vox's does | language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up |
+| a title, a category, a score for how well a stretch stands alone | a title from the topic the language engine has live over the stretch; a category and a score from the local model, reached by a contract that names no model, as vox's does | the reading already carries the topics; language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up; in alfred, §2 (h) |
 | who spoke, which topics were live and when, where the talk went off and whether it came back | looksatwords, the language engine, reached by its conversation route | reading prose is its charter, and its border with codecartographer says so | built, §2 (l): `ALFRED_LANGUAGE_ENGINE_URL`, `utils/language_engine.py` |
-| the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | in the browser (`cutRanges`, `followClips`) and in qmcp (`propose`, `excerpt_edl`), twice over; no score anywhere |
-| recipes as documents; drafts as projects with their provenance; the job that runs a recipe | alfred | lifecycle state is the seam's | not built |
+| the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | built, §2 (b) and (e): `utils/cut.py` and `utils/sculpt.py`, the browser's copy held equal by shared fixtures; qmcp's `propose` and `excerpt_edl` stand until (i) |
+| recipes as documents; drafts as projects with their provenance; the job that runs a recipe | alfred | lifecycle state is the seam's | built, §2 (e) and (f) |
 | the review of each draft by a person, the run and its record, delivery | qmcp, the flow | its queue, its record | built, for excerpts |
 | choosing recipes and their knobs; reading and dropping the drafts | the editor, on a Sculpt stage between Source and Edit | where the person is | built, §2 (g) |
 
@@ -220,7 +220,8 @@ is not.
       rises above its usual and the picture's motion is above its usual at
       the same second, each usual a baseline over the whole source, from (c)
       and (d), with a knob saying whether a spike counts only where words are
-      said; `label`, a title, a category or a score where (h) gives a
+      said; `label`, a title from the topic the language engine has live
+      over the candidate, and a category or a score where (h) gives a
       labeller, else skipped with a line in the job;
     - *filter*: `top`, the so many highest-scored candidates that do not
       overlap, the count given or scaled by the source's length; `keep` (a
@@ -292,15 +293,21 @@ is not.
   recording*, in `docs/journeys.md`, with its **How?** from the rail's line.
   Done is the spec, the journey and the recorded recipe.
 
-- **(h) A labeller behind a contract.** `ALFRED_LABELLER_URL` names a chat
-  route of the shape qmcp's `localmodel` serves, and alfred names no model:
-  `alfred/core/utils/labeller.py` carries the prompts for a title, a
-  category and a score, from the flow's `title_prompt` and `category_prompt`
-  with a score added, and a stand-in for the tests as `tests/stubs/audio_engine.py`
-  stands in for joe. `GET /health` reports the labeller as it reports the
-  audio engine. A draft made without one has no title; the recipe runs all
-  the same. Done is `label` running with a labeller and skipping without one,
-  each a test, and the health report.
+- **(h) A title from the reading, then a labeller behind a contract.** Two
+  pull requests, in this order. The title: `label` names a draft by the topic
+  the language engine has live over its span, over the conversation route
+  (l) built, the source's words read once per run; a span with no live topic
+  keeps the recipe's name, no setting arrives, and a run without the engine
+  titles nothing and says so in the job. The labeller: `ALFRED_LABELLER_URL`
+  names a chat route of the shape qmcp's `localmodel` serves, and alfred
+  names no model: `alfred/core/utils/labeller.py` carries the prompts for a
+  category and a score, from the flow's `category_prompt` with a score added,
+  and a stand-in for the tests as `tests/stubs/audio_engine.py` stands in for
+  joe. `GET /health` reports the labeller as it reports the audio engine. A
+  draft made without one keeps its topic title; the recipe runs all the same.
+  Done is `label` titling by topic with the language engine and skipping
+  without it, then scoring with a labeller and skipping without one, each a
+  test, and the health report.
 
 - **(i) qmcp follows the route.** Tools `alfred_recipes`, `alfred_drafts` and
   `alfred_drafts_status`; the `alfred-excerpts` flow's `propose` step calls
@@ -319,9 +326,11 @@ is not.
   /media/{name}/scenes` as the analyses are; the `scenes` operation, so a
   window's edge prefers a scene change and a cut never lands inside a shot.
   joe: speaker turns, and music told from speech, as features of its media
-  API, with vox's `Analysis` and `Capabilities` grown to carry them; the
-  `speakers` operation. Each in its own repository as its own pull request,
-  pinned here when released; joe's pends on joe.
+  API, with vox's `Analysis` and `Capabilities` grown to carry them, so a
+  speaker the sound tells apart can name the words nobody has. The
+  `speakers` operation does not wait on them: it reads the speaker each word
+  carries, (l), as a person names a paragraph. Each in its own repository as
+  its own pull request, pinned here when released; joe's pends on joe.
 
 - **(l) Who spoke, and what about.** Built: alfred `e56b386e`,
   `feat/who-spoke`. The person asked for it mid-round: *speaker highlighting
@@ -343,6 +352,21 @@ is not.
   score a recipe's candidates, which is a `topics` operation for a later
   round.
 
+- **(m) A recipe edited on Sculpt.** The Recipes panel copies a built-in or
+  one of the account's own, lets its steps and their parameters be changed,
+  checks the copy as `POST /recipes` does and shows each refusal beside the
+  step it names, and saves it as the account's own; a built-in is never
+  written. Done is a copy of *highlights* with one step changed, saved and
+  run from the panel; a refused step shown where it is; and a spec on the
+  desktop and the phone.
+
+- **(n) The cues' count comes off.** `MAX_CUES` and `too_many_cues` go as the
+  captions' count went, (a), with the tests that assert them, and a write a
+  project's document would not take is refused naming the document's size,
+  for captions, words and cues alike. Done is a source marked by more runs
+  than the count allowed, written, and the refusal at the document's size,
+  each a test.
+
 - **(k) Measured.** The built-in recipes run on several real recordings,
   *highlights* first, with every draft kept; what the person dropped, what
   they kept, and the difference between a kept draft's timeline and the
@@ -354,57 +378,65 @@ is not.
   `perspectives/` with the figures at their commit. No default moves before
   this.
 
-## 3. Proposed for the person to settle
+## 3. Settled
 
-Each changes what is built. The position the plan takes is first, then what
-it was weighed against.
+Each item is a decision the person took, with what it was weighed against;
+where one adds work, it names the §2 row that carries it.
 
-1. **What a draft is.** A project with a `source` field. Against: a render,
-   as the flow makes one, which cannot be edited; cues alone on the source,
-   which mark but do not cut; a separate collection of drafts joined to
-   projects, which keeps `Project` plain and costs a join on every list.
+1. **What a draft is.** A project with a `source` field, as (f) builds it.
+   Against: a render, as the flow makes one, which cannot be edited; cues
+   alone on the source, which mark but do not cut; a separate collection of
+   drafts joined to projects, which keeps `Project` plain and costs a join on
+   every list.
 2. **Where the arithmetic lives.** alfred, in Python, the browser's copy held
-   equal by shared fixtures. Against: left in qmcp, which keeps the editor
-   out of it; the editor calling alfred for every cut, which costs an edit a
-   round trip and breaks undo while a save is failing.
-3. **Who runs a recipe.** Both the editor's Sculpt stage and qmcp's flow, over one
-   route. Against: the flow alone, which leaves the person configuring on a
-   command line; the editor alone, which loses the queue's review and the
-   run's record.
-4. **How alfred labels.** A contract, a URL, with the model behind qmcp's
-   `localmodel`, and after the signals the advice names, since no score of
-   the first recipe needs it. Against: labelling only in the flow, which
-   leaves a draft made on Sculpt without a title; a model inside alfred's
-   image, which the family's records refuse.
-5. **Whose recipes.** Per account, written through the API this round, not
-   edited on Sculpt, with the built-in ones held in code and read by name by
-   every account; a changed knob is one edit. Against: seeding copies into
-   each account, which leaves a changed first value in every account's copy;
-   built-in only, which makes every knob a release.
-6. **The counts.** The cues' count goes as the captions' did, and the
+   equal by shared fixtures, as (b) builds it. Against: left in qmcp, which
+   keeps the editor out of it; the editor calling alfred for every cut, which
+   costs an edit a round trip and breaks undo while a save is failing.
+3. **Who runs a recipe.** Both the editor's Sculpt stage, (g), and qmcp's
+   flow, (i), over one route. Against: the flow alone, which leaves the
+   person configuring on a command line; the editor alone, which loses the
+   queue's review and the run's record.
+4. **How alfred labels.** A title from the topic the language engine has
+   live over the draft's span, over the conversation route, first; then a
+   category and a score from a chat route behind a contract, with the model
+   behind qmcp's `localmodel` and alfred naming none: (h), in that order.
+   Against: labelling only in the flow, which leaves a draft made on Sculpt
+   without a title; a model inside alfred's image, which the family's records
+   refuse; the labeller alone, which stands a second engine up for a title
+   the reading already carries.
+5. **Whose recipes.** Per account, with the built-in ones held in code and
+   read by name by every account, so a changed knob is one edit; written
+   through the API, (e), and edited on Sculpt, (m). Against: seeding copies
+   into each account, which leaves a changed first value in every account's
+   copy; built-in only, which makes every knob a release; the API alone,
+   which keeps a person's own recipe off the stage they run it from.
+6. **The counts.** The cues' count goes as the captions' did, (n), and the
    document's size is the one refusal. Against: a raised count, which is a
-   number nothing updates.
-7. **Scope.** The score prompt's meaning of *stands alone*, and whether a
-   dialogue spike counts only where words are said, are settled by (k), not
-   before it; the `speakers` operation waits on joe.
+   number nothing updates; drafts that mark no cues, which empties the Cues
+   lane of what each draft took.
+7. **Scope.** The `speakers` operation reads the speaker each word carries,
+   named a paragraph at a time on the Transcript, (l), and does not wait on
+   joe; joe's hearing of speakers, (j), names the words nobody has. The
+   score prompt's meaning of *stands alone*, and whether a dialogue spike
+   counts only where words are said, are settled by (k), not before it.
 8. **Dropping drafts.** A delete route scoped to a source's drafts, for its
-   owner. Against: marking a draft dropped and hiding it, which keeps every
-   project forever; leaving it to the person, whose list grows by dozens a
-   run; a delete for every project, which the ownership round took away.
+   owner, as (f) builds it. Against: marking a draft dropped and hiding it,
+   which keeps every project forever; leaving it to the person, whose list
+   grows by dozens a run; a delete for every project, which the ownership
+   round took away.
 
 ## 4. What this round does not do
 
 - No new editing tool, and no second track: the editor lays its clips end to
   end, and a draft is cut on that model.
 - No model in the first recipe: *highlights* reads the words, the level and
-  the motion, and a title from the labeller is a later, optional step.
+  the motion, and a title is a later, optional step, (h).
 - Sculpt does not replace Edit: a draft is refined by hand, on Edit, with
   the tools the editor has.
 - Nothing is delivered without a person: the flow's review stays, and
   Sculpt leaves drafts, not deliveries.
 - No model in alfred's image, and no model named in alfred: the labeller is a
   URL.
-- No editing of a recipe on Sculpt: a recipe is written through the API.
 
 ## 5. Standing constraints
 

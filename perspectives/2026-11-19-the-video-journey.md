@@ -280,3 +280,19 @@ conversation route as it reaches the audio engine by vox's contract, named
 nothing of it but two routes, and kept the reading by what was read. The
 engine answered the whole recording in seconds, which the plan had not
 measured and would have guessed longer.
+
+The settlement moved what the build had changed the ground under. Of the
+plan's eight proposals, five were taken as written and three were not, and
+each of the three had the same cause: a fact the page was written without.
+The labeller was to be the first thing that named a draft; by the time the
+person settled it, the language engine already read the topics live over
+every span, so a title comes from the reading first and the chat route is
+kept for what the reading cannot give. The `speakers` operation was to wait
+on the audio engine hearing speakers apart; the transcript's words carry a
+speaker a person names, so it reads those, and the engine's hearing names
+the rest when it comes. A recipe was to be written through the API only,
+with the stage setting knobs; seen on the stage, the gap between setting a
+knob and changing a step was one panel wide, and a round was added for it.
+The plan asked its questions early, as the page says it should; the build
+answered one of them and reopened two before the person reached them, which
+is the ordinary course, and the reason the questions were written down.

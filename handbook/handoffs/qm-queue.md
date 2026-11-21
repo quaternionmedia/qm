@@ -634,10 +634,10 @@ re-checked and is re-derived before anyone acts on it.
   [`the-algorithmic-layer.md`](the-algorithmic-layer.md) §2 (a) to (g) and
   (l), a Sculpt stage between Source and Edit where recipes cut a long
   source into drafts, each a project to refine by hand, and the transcript
-  read by looksatwords for who spoke and what about. Done is that page's §3
-  settled by the person, *keep everything local* lifted, otto's branch
-  released and the pin moved to the release, then each branch a pull request
-  against the one beneath; (h) to (k) remain planned. (2026-11-21)
+  read by looksatwords for who spoke and what about; that page's §3 is
+  settled. Done is *keep everything local* lifted, otto's branch released and
+  the pin moved to the release, then each branch a pull request against the
+  one beneath; (h) to (k), (m) and (n) remain planned. (2026-11-21)
 
 ## 5. Not verified
 
