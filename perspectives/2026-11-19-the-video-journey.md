@@ -227,3 +227,56 @@ left the document's own size as what bounds a project. The lesson is the one
 the corpus states for prose, applied to a constant: a number in code that
 stands for a quantity it does not measure is a claim with an expiry date,
 and the tests that held it in place proved only that the guess was enforced.
+
+## The round that followed the plan
+
+The plan page was written one session and built the next, as eight branches
+stacked above the one that took the count off. What the page could not
+know, the build found, and each finding was of a kind the corpus already
+names.
+
+The engine's cap met the raw file first. The plan sent a library file to
+the audio engine as it stood; the long recording is over the gibibyte the
+engine takes in one upload, and the transcription had only ever passed
+because it sends a mixed WAV. So a video's sound now goes to the engine
+alone, as otto writes it, and the analyses are kept beside the library,
+since an api that restarts on every edit, and a worker that never asked,
+would otherwise each measure the recording again. The lesson is the one
+from the count a session before, met from the other side: a limit stated by
+the engine, not by alfred, and a code path that had never carried the
+largest thing it would be given.
+
+The scaffolding stalled twice, and each time the first reading was wrong.
+The api's reloader announced a reload and kept serving old code for an hour
+of edits: not a failed import, which the log would have shown, but a
+browser tab streaming the recording from the api, which the reloader waited
+on for ever. The site's watcher died on a temporary file of its own. A
+browser pane showed the old bundle after a hard reload, because the dev
+build keeps one file name whatever its content. None of these was the
+change under test, and each one looked like it until the ordinary cause was
+named: the reloader got a bounded wait as a branch of its own, the watcher
+was restarted by hand, and the bundle was fetched past the cache.
+
+The fixtures did the work the twin needed. The browser's cut arithmetic
+and alfred's are one set of recorded cases, read by both suites, and the
+mutation that dropped the shift after a cut reddened eleven cases on each
+side. What the fixtures cannot do is choose themselves: they were recorded
+from the implementation that had tests, once, and are the contract from
+then on; a recorder in the repository would have let a regression on one
+side rewrite them.
+
+The built-in recipes are code, not seed. The plan said seeded, as the
+announcement project is; built, a seeded copy in every account would have
+put the advice's first values, held until they are measured, into every
+account's own document, where a later measurement could not reach them.
+Held in code and read by name, a changed value is one edit, and an account
+that wants its own stores a copy.
+
+The second half of the brief arrived mid-build. Speaker highlighting and
+text updating over the transcript were asked for while the recipes were
+being written, and they fitted the ordering rule without a change to it:
+reading prose is looksatwords' charter, so alfred reached it by its
+conversation route as it reaches the audio engine by vox's contract, named
+nothing of it but two routes, and kept the reading by what was read. The
+engine answered the whole recording in seconds, which the plan had not
+measured and would have guessed longer.

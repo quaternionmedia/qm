@@ -1,10 +1,11 @@
 # Handoff — the algorithmic layer: from a long source to drafts, by recipe
 
-**Stamped 2026-11-21.** `qm` `main` at `5baf779`; `alfred` `fix/no-caption-cap`
-at `a0f7a32b`, above `fix/host-run` at `9250d669`; `qmcp` `feat/alfred-excerpts`
-at `763414c`; `otto` as alfred pins it; `joe` `main` at `188a2cb`. Every figure
-on this page was true at those commits and nowhere else; re-derive before
-acting on one.
+**Stamped 2026-11-21.** `qm` `main` at `5baf779`; `alfred` `feat/who-spoke`
+at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
+at `a0f7a32b` (§5); `otto` `feat/motion` at `eac657d`, which alfred pins;
+`looksatwords` `test` at `7d9089d`; `qmcp` `feat/alfred-excerpts` at
+`763414c`; `joe` `main` at `188a2cb`. Every figure on this page was true at
+those commits and nowhere else; re-derive before acting on one.
 
 This page is a plan: the round of feature work that takes alfred from an
 editor a person drives by hand to one with an algorithmic layer over it. In
@@ -15,8 +16,10 @@ builds on [`the-video-journey.md`](the-video-journey.md), where the first step
 of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what is proposed for the person to settle, and
-what the round leaves out. Of the work it names, one pull request is built,
-§2 (a); the rest is planned.
+what the round leaves out. Of the work it names, §2 (a) to (g) and (l) are
+built, each as a local branch that is a pull request to open once *keep
+everything local* is lifted; (h) to (k) are planned. The built part runs on
+the host run (`docs/host-run.md`) over the long recording: §6.
 
 ## 0. What the round is for
 
@@ -93,10 +96,11 @@ drafts    projects, each carrying its source, its spans, its recipe and its scor
 | telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | not built; pends on joe |
 | motion in the picture over time, and scene changes | otto | the engine that reads frames, with the ffmpeg `otto.media.probe` runs | not built |
 | a title, a category, a score for how well a stretch stands alone | the local model, reached by a contract that names no model, as vox's does | language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up |
+| who spoke, which topics were live and when, where the talk went off and whether it came back | looksatwords, the language engine, reached by its conversation route | reading prose is its charter, and its border with codecartographer says so | built, §2 (l): `ALFRED_LANGUAGE_ENGINE_URL`, `utils/language_engine.py` |
 | the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | in the browser (`cutRanges`, `followClips`) and in qmcp (`propose`, `excerpt_edl`), twice over; no score anywhere |
 | recipes as documents; drafts as projects with their provenance; the job that runs a recipe | alfred | lifecycle state is the seam's | not built |
 | the review of each draft by a person, the run and its record, delivery | qmcp, the flow | its queue, its record | built, for excerpts |
-| choosing recipes and their knobs; reading and dropping the drafts | the editor, on a Sculpt stage between Source and Edit | where the person is | not built |
+| choosing recipes and their knobs; reading and dropping the drafts | the editor, on a Sculpt stage between Source and Edit | where the person is | built, §2 (g) |
 
 The plan takes four positions, and §3 puts each to the person with its
 alternatives.
@@ -139,7 +143,10 @@ is not.
   done is the same removal, and a refusal that names the document's size
   where a write would pass it, for captions, words and cues alike.
 
-- **(b) The cut's arithmetic, in alfred.** A module of pure functions over
+- **(b) The cut's arithmetic, in alfred.** Built: alfred `7a0ccc86`,
+  `feat/cut-arithmetic`, as planned, the fixtures recorded once from the
+  browser's implementation and committed as the contract; a mutation to
+  either side reddened its own suite. A module of pure functions over
   a timeline, its captions and its words: `cut_ranges` and `follow_clips`,
   the twins of `website/src/ClipWindow.js`, and `excerpt`, a span as a
   timeline of its own with its captions and its words moved into it, from
@@ -150,7 +157,14 @@ is not.
   and the Node specs read the same files. Done is one set of fixtures read by
   both suites, and a mutation to either implementation reddening its suite.
 
-- **(c) The sound of a timeline, in timeline seconds.** The engine's analysis
+- **(c) The sound of a timeline, in timeline seconds.** Built: alfred
+  `b3771b61`, `feat/timeline-sound`, with one thing the plan did not have:
+  the engine refused the long recording's raw file, which is over the
+  gibibyte it takes in one upload, so a video's sound now goes to the engine
+  alone, as a WAV otto writes from it (`utils/sound.py`), and every analysis
+  is kept beside the library (`utils/analyses.py`) as well as in the api's
+  memory, since the api restarts on every code change and the worker never
+  asked. The engine's analysis
   is in each file's seconds: `peaks`, the level so many times a second,
   `silences`, and `loudness`, one figure for the whole file. A clip plays a
   window of a file at a place on the timeline. The Audio lane maps the peaks
@@ -163,7 +177,13 @@ is not.
   rather than a tool per file. Done is the route, its refusals (no engine, a
   file it cannot analyse) by code, and the fixtures.
 
-- **(d) Motion in the picture, over time.** The advice's second signal is a
+- **(d) Motion in the picture, over time.** Built: otto `eac657d`,
+  `feat/motion`, committed in the submodule's checkout and pinned by alfred
+  `665a6f78`, `feat/picture-motion`; not released, so the pin names a commit
+  only this clone holds until otto's branch is pushed and released. With it,
+  `fix/host-reload-waits` (`be2cdd91`): the host run's api reloader waited
+  for ever while a browser tab streamed the recording from it, and now waits
+  a bounded few seconds. The advice's second signal is a
   spike in the level *with more motion than usual on screen at the same
   time*, and nothing in the family measures motion. otto gains
   `otto.media.motion`: how much the picture changes from one moment to the
@@ -176,7 +196,12 @@ is not.
   made as otto's demo clips are; the two routes with their refusals by code;
   and the mapping's fixtures.
 
-- **(e) Recipes.** A document `{name, label, description, fields, steps}`:
+- **(e) Recipes.** Built: alfred `dcedf676`, `feat/recipes`, with one
+  departure from §3 item 5: the built-in recipes are held in code
+  (`utils/recipes_builtin.py`) and listed for every account by name, not
+  seeded as copies, so a changed first value is one edit and an account that
+  wants its own stores a copy. `spans` gained `chapter_pause`. A document
+  `{name, label, description, fields, steps}`:
   `fields` as a form project declares them, `steps` a list of operations
   from a fixed set, each with its parameters, a parameter reading a field by
   `{"var": name}` as `logic` does. Validated at write, refused by code for an
@@ -223,7 +248,12 @@ is not.
   in it, and `docs/drafts.md` saying what a recipe is and listing the
   operations.
 
-- **(f) Drafts.** `POST /project/{id}/drafts` with `{recipes: [{recipe,
+- **(f) Drafts.** Built: alfred `8aae64ca`, `feat/drafts`, as planned, the
+  measures moved into `utils/measures.py` so the worker and the api's routes
+  share one; a project gained `description` for where a draft came from.
+  Run on the host stack's long recording: the `highlights` recipe with its
+  first values left its drafts in seconds once the recording was measured.
+  `POST /project/{id}/drafts` with `{recipes: [{recipe,
   values}]}` starts a job the render worker runs, as a transcription is, kept
   on the source as its `drafts_job` with a state and a reason; each recipe
   leaves one or more projects carrying `source: {project, recipe, values,
@@ -242,7 +272,11 @@ is not.
   run on the host stack's long recording leaving projects the editor opens,
   each with its words and its scores, and the refusals each a test.
 
-- **(g) The Sculpt stage.** A fifth stage on the rail, between Source and
+- **(g) The Sculpt stage.** Built: alfred `56fabd5f`, `feat/sculpt-stage`,
+  as planned, with the Recipes panel a tab beside Templates and the Drafts
+  panel a tab beside Projects on the desktop; on a phone the rail's five
+  stages fit only without their numbers, so there the labels alone name
+  them. A fifth stage on the rail, between Source and
   Edit, with panels of its own: the recipes, each with its fields drawn by
   the form components, and **Sculpt**; the job followed as a render is on
   Deliver; the drafts, each with its scores and what it was cut from and by
@@ -289,6 +323,26 @@ is not.
   `speakers` operation. Each in its own repository as its own pull request,
   pinned here when released; joe's pends on joe.
 
+- **(l) Who spoke, and what about.** Built: alfred `e56b386e`,
+  `feat/who-spoke`. The person asked for it mid-round: *speaker highlighting
+  and text updating* over the transcript, through looksatwords, the family's
+  language engine. A transcript's words carry a `speaker`, named from the
+  Transcript panel a paragraph at a time and saved with the words; the
+  paragraphs' labels are coloured by speaker. With the engine beside the
+  server (`ALFRED_LANGUAGE_ENGINE_URL`), `GET` and `POST
+  /project/{id}/conversation` send the words as lines, `[m:ss] Speaker:
+  words`, and answer the speakers, the topics live over time and the
+  tangents, in timeline seconds; the panel shows them as chips that seek,
+  and sends the words again a moment after they change, a cut, an undo or a
+  speaker named, so the reading follows the text unsaved. `GET /health`
+  reports the engine beside the audio engine; the stacks pass the setting
+  through; `docs/editing-by-text.md` is the page. The engine reads the long
+  recording's lines in about ten seconds and alfred keeps the reading by
+  what was read. What it does not do: tell speakers apart by the sound,
+  which is joe's, (j); draw the topics as a lane; let the engine's reading
+  score a recipe's candidates, which is a `topics` operation for a later
+  round.
+
 - **(k) Measured.** The built-in recipes run on several real recordings,
   *highlights* first, with every draft kept; what the person dropped, what
   they kept, and the difference between a kept draft's timeline and the
@@ -322,9 +376,11 @@ it was weighed against.
    the first recipe needs it. Against: labelling only in the flow, which
    leaves a draft made on Sculpt without a title; a model inside alfred's
    image, which the family's records refuse.
-5. **Whose recipes.** Per account, with the built-in ones seeded; written
-   through the API this round, not edited on Sculpt. Against: built-in
-   only, which makes every knob a release.
+5. **Whose recipes.** Per account, written through the API this round, not
+   edited on Sculpt, with the built-in ones held in code and read by name by
+   every account; a changed knob is one edit. Against: seeding copies into
+   each account, which leaves a changed first value in every account's copy;
+   built-in only, which makes every knob a release.
 6. **The counts.** The cues' count goes as the captions' did, and the
    document's size is the one refusal. Against: a raised count, which is a
    number nothing updates.
@@ -356,12 +412,29 @@ it was weighed against.
   `fix/no-caption-cap` on `fix/host-run` on `feat/synced-timeline` on
   `docs/excerpts-in-the-family`, above alfred's open stack; qmcp's
   `feat/alfred-excerpts`; qm's `evolve/the-video-journey`, which carries this
-  page. New work of this round stacks above `fix/no-caption-cap`.
-- **alfred's clone is checked out on `fix/no-caption-cap`**, which the host
-  run serves on 1732 (`docs/host-run.md`), with its MongoDB on 27018 and joe
-  on 1059. The api reloads itself when its code changes; the worker does not,
-  so a change to a task, a transcription's included, is `./al host down`
-  then `./al host up`.
+  page. This round's eight branches stack above `fix/no-caption-cap`, each
+  one commit, in this order: `feat/cut-arithmetic`, `feat/timeline-sound`,
+  `feat/picture-motion`, `fix/host-reload-waits`, `feat/recipes`,
+  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; none pushed, no pull
+  request open. otto's `feat/motion` is a branch in the submodule's checkout
+  under `alfred/otto`, one commit, not pushed, which `feat/picture-motion`
+  pins. Landing is each as a pull request against the one beneath, in order.
+- **alfred's clone is checked out on `feat/who-spoke`**, the stack's top,
+  which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
+  on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
+  with `uv run looksatwords serve --no-open --port 8000` and
+  `LOOKSATWORDS_DB` pointed at a scratch file, so its own database is left
+  alone; the host run was started with `ALFRED_LANGUAGE_ENGINE_URL` naming
+  it. The api reloads itself when its code changes, now within a few seconds
+  whatever a tab streams; the worker does not, so a change to a task is
+  `./al host down` then `./al host up`. The site's watcher has crashed once
+  on a temporary file of its own under Windows; `./al host` says when its
+  process is gone, and `down` then `up` brings it back. A browser that
+  opened the editor before a change holds the old bundle under the same file
+  name until it fetches past its cache.
+- **The host run's database holds the drafts the demo left**: the long
+  recording's `highlights` run, a draft per window, each a project under it
+  on Source, to open or to drop from the Sculpt stage.
 - **The host lacks fontconfig and ImageMagick**: a draft that carries a
   title card previews and renders only where ImageMagick is.
 - **A long source's transcription runs in the worker** and takes as long as
@@ -369,10 +442,52 @@ it was weighed against.
 - **The projects in the host run's database are the person's**, and this
   page names none of them.
 
-## 6. Verification, for §2 (a)
+## 6. Verification
 
-At alfred `a0f7a32b`, in the host virtualenv, each figure one run at that
-commit:
+### For §2 (b) to (g) and (l), at alfred `e56b386e`
+
+Each figure one run at that commit, in the host virtualenv, against the host
+run on 1732 where a browser suite is named:
+
+- the unit tier, every module but the three that record pictures: 1983
+  passed, 37 skipped, 8 xfailed, 4 failed, the four this host's by their own
+  reasons, none of them a file the round touches: the font probe, which
+  needs fontconfig; the password-hashing guard, which reads source the store
+  Python does not give; a preview-slot timing; a render reason spelt with a
+  Windows path;
+- otto's `test_motion.py`, `test_media.py` and `test_sound.py` at
+  `eac657d`: 68 passed;
+- the shared fixtures: `test_cut.py` 30 passed and `cut-fixtures.spec.js` 25
+  passed over the same files; the mutation, the shift after a cut dropped,
+  reddened 11 of each; `test_sound.py` and `lanes-fixtures.spec.js` over the
+  sound fixtures, both green;
+- the browser suite's `sculpt.spec.js` and `appearance.spec.js` on the
+  `chromium` and `phone` projects: 19 passed, the `@slow` run of the
+  `chapters` recipe through the real worker included; `conversation.spec.js`
+  on both: 5 passed, 2 skipped, the skips the case for a server without a
+  language engine; the rail's specs (`flow`, `navigation`, `projects`,
+  `editor`): 10 passed for the cases that count the stages and list the
+  projects. A run of every spec that walks the rail, before those fixes, was
+  130 passed and 14 failed: 4 of mine, since fixed, the rest this host's
+  known gaps, no ImageMagick (`422 GET /preview/template/title`), the auth
+  bypass (two anonymous-visitor cases), the site's watcher down at that
+  moment (one console error), and the phone's Source-room case, which fails
+  on the branch beneath the round too;
+- `black` and `ruff` clean; the seed's `check_timeless.py` 0 findings on
+  every branch against the one beneath; `check_leaks.py` clean over 527
+  tracked files;
+- on the host run over the long recording: `GET /media/{name}/audio`
+  answered in under 40 seconds through the extraction, `GET
+  /media/{name}/motion` measured the recording at 4 values a second,
+  `POST /project/{id}/drafts` with `highlights` left 25 drafts in about
+  three seconds, each of 8 to 12 seconds scored by `dialogue` and `spikes`,
+  and `GET /project/{id}/conversation` read 1572 lines through looksatwords
+  in about ten seconds and from the kept reading in under a tenth after.
+  No mutation was run on (c) to (l) beyond the fixtures'.
+
+### For §2 (a), at alfred `a0f7a32b`
+
+In the host virtualenv, each figure one run at that commit:
 
 - the unit modules the change touched, `test_captions_routes`,
   `test_caption_mapping`, `test_caption_parsing`, `test_refusal_codes`,

@@ -628,14 +628,16 @@ re-checked and is re-derived before anyone acts on it.
   [`the-video-journey.md`](the-video-journey.md) §3 (a) to (e), (g) and (h)
   each as a record or a pull request of its own, and (f) once *keep
   everything local* is lifted. (2026-11-19)
-- **The algorithmic layer over alfred's editor.** `alfred`'s
-  `fix/no-caption-cap`, above `fix/host-run`, takes the count off a
-  project's captions and words: the first pull request of the round
-  [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans, a Sculpt
-  stage between Source and Edit where recipes of algorithms a person
-  configures turn a long source into drafts, each a project to refine by
-  hand. Done is that page's §3 settled by the person, then its §2 (b) to
-  (k) each as a pull request of its own. (2026-11-21)
+- **The algorithmic layer over alfred's editor.** Built as eight local
+  branches stacked above `alfred`'s `fix/no-caption-cap`, `feat/who-spoke`
+  at the top, with otto's `feat/motion` in the submodule's checkout:
+  [`the-algorithmic-layer.md`](the-algorithmic-layer.md) §2 (a) to (g) and
+  (l), a Sculpt stage between Source and Edit where recipes cut a long
+  source into drafts, each a project to refine by hand, and the transcript
+  read by looksatwords for who spoke and what about. Done is that page's §3
+  settled by the person, *keep everything local* lifted, otto's branch
+  released and the pin moved to the release, then each branch a pull request
+  against the one beneath; (h) to (k) remain planned. (2026-11-21)
 
 ## 5. Not verified
 
@@ -673,10 +675,12 @@ re-checked and is re-derived before anyone acts on it.
 ## 6. Standing constraints
 
 - *Keep everything local* is **not** in force for this page's work, and is
-  **in force** for the video journey's seven branches, `qmcp`
+  **in force** for the video journey's branches, `qmcp`
   `feat/alfred-excerpts`, `qm` `evolve/the-video-journey`, `alfred`
-  `docs/excerpts-in-the-family`, `feat/synced-timeline`, `fix/host-run` and
-  `fix/no-caption-cap`, and `joe`
+  `docs/excerpts-in-the-family`, `feat/synced-timeline`, `fix/host-run`,
+  `fix/no-caption-cap` and the algorithmic layer's eight above it
+  (`feat/cut-arithmetic` to `feat/who-spoke`), `otto` `feat/motion` in
+  alfred's submodule checkout, and `joe`
   `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
   lands them. (2026-11-19)

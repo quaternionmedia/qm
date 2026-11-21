@@ -69,10 +69,12 @@ and not pushed: the api's font check copes
 without `fc-list`, `./al host` starts, reports and stops the api, a render
 worker, the site and joe as processes on the host against a MongoDB, and
 `docs/host-run.md` is that run, which this clone serves on 1732. Above that,
-**`fix/no-caption-cap`**, at `a0f7a32b`, one commit signed and not pushed, is
-the clone's checkout: no count bounds a project's captions or its words, the
-first pull request of the round
-[`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. In the clone and
+**`fix/no-caption-cap`**, at `a0f7a32b`, one commit signed and not pushed: no
+count bounds a project's captions or its words, the first pull request of the
+round [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. Above
+that, that round's eight branches, one commit each, signed and not pushed,
+**`feat/who-spoke`** at `e56b386e` at the top and the clone's checkout; that
+page's §5 lists them in order. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
@@ -375,8 +377,9 @@ stage between Source and Edit, is planned in
   `qmcp_mcp.py`'s list with it. This page's own pull request opens against
   `qm` `main` from `evolve/the-video-journey`. alfred's `feat/synced-timeline`
   opens against `docs/excerpts-in-the-family`, a draft until that lands, and
-  retargets as the stack merges, and `fix/host-run` and `fix/no-caption-cap`
-  above it the same way;
+  retargets as the stack merges, `fix/host-run` and `fix/no-caption-cap`
+  above it the same way, and the algorithmic layer's eight above those
+  ([`the-algorithmic-layer.md`](the-algorithmic-layer.md) §5);
   alfred's suite runs in Docker, `./al pt`,
   and the browser gate from `website/` against the running stack.
 
@@ -412,7 +415,7 @@ named above.
   `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family`,
   `feat/synced-timeline`, `fix/host-run` and `fix/no-caption-cap`, and `joe`
   `docs/what-the-words-are-for`.
-- **alfred's clone is checked out on `fix/no-caption-cap`**, the stack's top,
+- **alfred's clone is checked out on `feat/who-spoke`**, the stack's top,
   which the host run serves on 1732 (`docs/host-run.md`), as the family
   stack does when Docker's engine is up; `docs/excerpts-in-the-family` has
   its worktree beside the clone. A session that wants the clone on the stack's top checks it out
