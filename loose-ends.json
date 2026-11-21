@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-20T13:04:27Z",
+  "generated_at": "2026-11-21T12:38:36Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-20T13:03:31Z"
+        "generated_at": "2026-11-21T12:38:35Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 246,
+    "loose_ends": 247,
     "by_kind": {
       "blind-spot": 22,
       "document-proposed": 42,
-      "document-unreviewed": 97,
+      "document-unreviewed": 98,
       "over-slot": 1,
       "stalled-thread": 84
     },
-    "open": 246,
+    "open": 247,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1263,6 +1263,14 @@
       "title": "perspectives/2026-10-31-the-strangers-first-hour.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-31-the-strangers-first-hour",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-21-the-evidence-was-in-the-context",
+      "title": "perspectives/2026-11-21-the-evidence-was-in-the-context.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-21-the-evidence-was-in-the-context",
       "address_parses": true
     },
     {
