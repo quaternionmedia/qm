@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-21T12:38:35Z'
+generated_at: '2026-11-21T23:43:09Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -123,13 +123,13 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 317
+  documents: 318
   by_state:
     dated: 2
     draft: 3
     generated: 57
     proposed: 42
-    standing: 92
+    standing: 93
     transient: 23
     unreviewed: 98
   disagreements: 0
@@ -2355,6 +2355,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: protocols/runs/2026-11-20-project-refresh.md
+  class: protocol
+  class_reason: a procedure run deliberately, and its runs
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: protocols/runs/2026-11-21-project-refresh.md
   class: protocol
   class_reason: a procedure run deliberately, and its runs
   declared_status: null
