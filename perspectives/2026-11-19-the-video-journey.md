@@ -370,3 +370,15 @@ machine's two system voices and shifted copies of them, since no recording
 with two known voices was to hand, and it said so with the margin it
 measured; that is the shape of every default in this round, a first value
 held until a real recording measures it, and the page carries it as one.
+
+Taking the turns to the words was the shortest row of the round and the one
+that reached furthest: the engine's letters sit on the words exactly where a
+person's names sit, so the transcript's labels, the language engine's
+reading and the `speakers` operation all took them without a change, and a
+person renames a letter the way they name a paragraph. What it cost was
+honesty about the engine's borders: each file is lettered on its own, so a
+timeline of several files prefixes the letters, and the page says so rather
+than pretending A is one person across files. The first naming of the long
+recording took the engine's time whole, since nothing had asked it for
+speakers before, and the route says that a second ask is quick because the
+answer is kept, which is the same shape as the measures a session earlier.

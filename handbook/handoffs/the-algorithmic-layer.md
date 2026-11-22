@@ -4,14 +4,14 @@
 at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
 at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
 at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
-`d26c9784`, `feat/drafts-measured` at `bb5a969d` and `feat/open-in` at
-`993bfc9e` each cut from it (§5); `otto` `feat/scenes` at `0b0f558` above
+`d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
+`993bfc9e` and `feat/speakers-to-words` at `af0941b6` each cut from it (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
 `763414c`; `joe` `feat/speaker-turns` at `b2c0d00` above `main` at
-`188a2cb`; `vox` `feat/speakers` at `588c09b` above `e630cb0`, which alfred
-pins. Every figure on this page was true at
+`188a2cb`; `vox` `feat/speakers` at `588c09b` above `e630cb0`, which
+`feat/speakers-to-words` pins and the rest of alfred's branches do not. Every figure on this page was true at
 those commits and nowhere else; re-derive before acting on one.
 
 This page is a plan: the round of feature work that takes alfred from an
@@ -24,11 +24,10 @@ of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
 leaves out. Of the work it names, §2 (a) to (g), (i), (l), (m), (n), (o),
-the title in (h), (j) in otto, joe, vox and alfred, and the instrument of
-(k) are built, each as a local branch that is a pull request to open once
-*keep everything local* is lifted; the labeller in (h), alfred's taking of
-joe's speaker turns to the words, and the measurement of (k) over real
-recordings are open. The built part
+the title in (h), (j) in otto, joe, vox and alfred, the words named by
+joe's turns, and the instrument of (k) are built, each as a local branch
+that is a pull request to open once *keep everything local* is lifted; the
+labeller in (h) and the measurement of (k) over real recordings are open. The built part
 runs on the host run (`docs/host-run.md`) over the long recording: §6.
 
 ## 0. What the round is for
@@ -379,9 +378,20 @@ is not.
   labels; place a change with no pause closer than about half a second; or
   hear a voice under half a second as its own. The margin of its gate on
   real voices is modest, so another platform's voice pair may fall
-  differently. alfred's taking a speaker the sound tells apart to name the
-  words nobody has, through vox's `speakers`, is a row after this one, and
-  the `speakers` operation reads the words' speakers meanwhile.
+  differently. alfred takes the turns to the words: alfred `af0941b6`,
+  `feat/speakers-to-words`, cut from `feat/who-spoke`, pins vox at its
+  `speakers` commit, and `POST /project/{id}/captions/speakers` asks the
+  engine who is speaking when over the saved timeline's sound, one file at
+  a time through `measures.sound_of` with the feature asked by name, moves
+  the turns onto the timeline through the clips' windows
+  (`utils/speakers.py`, a letter prefixed with the file's number where more
+  than one file sounds), and gives each word that carries no speaker the
+  letter of the turn its middle falls in; a word a person named keeps the
+  name, and a person renames a letter to a name as before. The Transcript
+  panel offers it as **Name speakers by the sound** under the transcription's
+  line, waiting while the transcript has unsaved changes, and `GET
+  /media/{name}/audio` takes `speakers` among its features. The `speakers`
+  operation then reads the engine's letters as it reads a person's names.
 
 - **(l) Who spoke, and what about.** Built: alfred `e56b386e`,
   `feat/who-spoke`. The person asked for it mid-round: *speaker highlighting
@@ -540,8 +550,10 @@ where one adds work, it names the §2 row that carries it.
   `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; above the last, six
   more, each cut from it, parallel since none needs another:
   `feat/no-cue-cap`, `feat/topic-titles`, `feat/recipe-editor`,
-  `feat/scene-cuts` (four commits), `feat/drafts-measured` and
-  `feat/open-in` (two commits), the rest one commit each. qmcp's
+  `feat/scene-cuts` (four commits), `feat/drafts-measured`, `feat/open-in`
+  (two commits) and `feat/speakers-to-words`, the rest one commit each;
+  the last pins vox's `feat/speakers`, so vox's branch lands before it.
+  qmcp's
   `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
   in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
   `feat/open-by-link` is above its `test`, two commits, in its clone. None
@@ -550,14 +562,15 @@ where one adds work, it names the §2 row that carries it.
   commit each, not pushed; `feat/picture-motion` pins the first and
   `feat/scene-cuts` the second. vox's `feat/speakers` is a branch in the
   submodule's checkout under `alfred/vox`, one commit, not pushed, which
-  nothing pins yet, the checkout sitting at alfred's pin; joe's
+  `feat/speakers-to-words` pins and the clone's checkout sits at; joe's
   `feat/speaker-turns` is one commit, not pushed, in a worktree beside
-  joe's clone. Landing is
+  joe's clone, and joe's clone sits detached at that commit so the host run's
+  joe hears speakers, to go back to `main` when the branch lands. Landing is
   each as a pull request against the one beneath, in order, and the six
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
   as the later ones land.
-- **alfred's clone is checked out on `feat/open-in`**,
+- **alfred's clone is checked out on `feat/speakers-to-words`**,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
   with `uv run looksatwords serve --no-open --port 8000` and
@@ -751,6 +764,20 @@ named:
   **Open in joe** at the engine's page. `conversation.spec.js` on the
   `chromium` and `phone` projects: 4 passed, 2 skipped, the skips the cases for a server without a language engine, the link's case among the passes. looksatwords' own
   suite at `aeb22b6`: 238 passed, 1 skipped.
+
+### For the words named by the sound, at alfred `af0941b6`
+
+Each figure one run at that commit, in the host virtualenv, against the
+host run on 1732 with joe at `b2c0d00`:
+
+- the unit tier, every module: 2047 passed, 37 skipped, 8 xfailed, 4
+  failed, the four this host's as above; the modules the change touches,
+  the speaker arithmetic, the captions and audio routes, the refusal
+  codes, the inventory, the stacks' settings and the docs tests: 298
+  passed; the mutation, the words a person named renamed too, reddened 3;
+  restored, all pass; `black`, `ruff`, `check_timeless.py --base
+  feat/who-spoke` and `check_leaks.py` clean;
+- on the host run: the long recording's words were named through the route in about fourteen minutes, the engine's one pass over the whole sound: 7977 of 9247 words took a letter, 7833 of them one voice, the rest spread over seven letters of a few words each, and the words heard in no turn stayed unnamed; from a fresh browser the Transcript panel offered the button and 1086 of its 1572 paragraphs read one letter, 448 stayed Unknown. Asked directly, the engine answered a one-minute tone in under a second as one voice and five minutes of the recording's sound in about two seconds as five voices over 92 turns, where the whole recording had read as mostly one: the engine's letters on a real recording are a first value a person corrects, which joe's own page says.
 
 ### For §2 (a), at alfred `a0f7a32b`
 

@@ -645,11 +645,12 @@ re-checked and is re-derived before anyone acts on it.
   the editor's links into joe's and looksatwords' own pages, the last with a
   looksatwords branch that opens a conversation by its id; joe's
   `feat/speaker-turns` and vox's `feat/speakers` build joe's half of (j),
-  who is speaking when told apart by the sound. Done is *keep everything
-  local* lifted, otto's branches released and the pin moved to the release,
-  then each branch a pull request against the one beneath; the labeller in
-  (h), alfred's taking of joe's speaker turns to the words, and the
-  measurement of (k) remain open. (2026-11-21)
+  who is speaking when told apart by the sound, and alfred's
+  `feat/speakers-to-words` takes the turns to the words nobody has named.
+  Done is *keep everything local* lifted, otto's and vox's branches
+  released and the pins moved to the releases, then each branch a pull
+  request against the one beneath; the labeller in (h) and the measurement
+  of (k) remain open. (2026-11-21)
 
 ## 5. Not verified
 
@@ -694,7 +695,8 @@ re-checked and is re-derived before anyone acts on it.
   algorithmic layer's eight above it (`feat/cut-arithmetic` to
   `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
   `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
-  `feat/drafts-measured`, `feat/open-in`), `looksatwords`
+  `feat/drafts-measured`, `feat/open-in`, `feat/speakers-to-words`),
+  `looksatwords`
   `feat/open-by-link`, `joe` `feat/speaker-turns`, `vox` `feat/speakers` in
   alfred's submodule checkout, `otto` `feat/motion` and `feat/scenes` in
   alfred's submodule checkout, and `joe`
