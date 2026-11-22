@@ -9,7 +9,9 @@ at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
-`763414c`; `joe` `main` at `188a2cb`, with a `feat/speaker-turns` under way. Every figure on this page was true at
+`763414c`; `joe` `feat/speaker-turns` at `b2c0d00` above `main` at
+`188a2cb`; `vox` `feat/speakers` at `588c09b` above `e630cb0`, which alfred
+pins. Every figure on this page was true at
 those commits and nowhere else; re-derive before acting on one.
 
 This page is a plan: the round of feature work that takes alfred from an
@@ -22,10 +24,11 @@ of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
 leaves out. Of the work it names, §2 (a) to (g), (i), (l), (m), (n), (o),
-the title in (h), otto's and alfred's halves of (j) and the instrument of
+the title in (h), (j) in otto, joe, vox and alfred, and the instrument of
 (k) are built, each as a local branch that is a pull request to open once
-*keep everything local* is lifted; the labeller in (h), joe's half of (j)
-and the measurement of (k) over real recordings are open. The built part
+*keep everything local* is lifted; the labeller in (h), alfred's taking of
+joe's speaker turns to the words, and the measurement of (k) over real
+recordings are open. The built part
 runs on the host run (`docs/host-run.md`) over the long recording: §6.
 
 ## 0. What the round is for
@@ -100,7 +103,7 @@ drafts    projects, each carrying its source, its spans, its recipe and its scor
 | The part | Who owns it | Why | At the stamp |
 |---|---|---|---|
 | hearing the words, the silences, the level over time, the beats | joe, through vox's contract | the audio engine | built: `peaks` is the level over time, `loudness` one figure per file |
-| telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | not built, §2 (j); the `speakers` operation reads the speaker each word carries and does not wait on it, §3 item 7 |
+| telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | built, §2 (j): joe's `speakers` feature letters each turn's voice, and vox's contract carries it; music is not told from speech, and a sustained tone is lettered as a voice; the `speakers` operation reads the speaker each word carries and does not wait on it, §3 item 7 |
 | motion in the picture over time, and scene changes | otto | the engine that reads frames, with the ffmpeg `otto.media.probe` runs | built, §2 (d) and (j): `otto.media.motion` and `otto.media.scenes` |
 | a title, a category, a score for how well a stretch stands alone | a title from the topic the language engine has live over the stretch; a category and a score from the local model, reached by a contract that names no model, as vox's does | the reading already carries the topics; language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up; in alfred, §2 (h) |
 | who spoke, which topics were live and when, where the talk went off and whether it came back | looksatwords, the language engine, reached by its conversation route | reading prose is its charter, and its border with codecartographer says so | built, §2 (l): `ALFRED_LANGUAGE_ENGINE_URL`, `utils/language_engine.py` |
@@ -356,12 +359,29 @@ is not.
   speaker takes from the speaker the words carry, (l), every speaker's or
   `who`'s alone, between `shortest` and `longest`, titled by the speaker.
   Neither built-in recipe carries them yet: a recipe of the account's does,
-  §6. joe's half, speaker turns and music told from speech as features of
-  its media API with vox's `Analysis` and `Capabilities` grown to carry them,
-  is under way as joe `feat/speaker-turns`, in a worktree beside joe's
-  clone, with vox `feat/speakers` in the checkout under alfred; a run of it
-  will say what it heard apart, and alfred's taking a speaker the sound
-  tells apart to name the words nobody has is a row after it.
+  §6. joe's half is built: joe `b2c0d00`, `feat/speaker-turns`, above
+  `main`, in a worktree beside joe's clone; vox `588c09b`, `feat/speakers`,
+  above the commit alfred pins, in the checkout under alfred. joe's media
+  API answers a `speakers` feature: who is speaking when, told apart by the
+  sound alone, as turns `{start, end, speaker}` in the upload's seconds with
+  the voices lettered A, B and on in the order first heard, and how many
+  were heard; `Modules/Speakers.py` reads the speech copy in blocks, takes
+  the frames above the floor and within reach of the loud ones as speech,
+  cuts it at pauses into short overlapping pieces, places each by its
+  timbre and pitch, and merges pieces whose places lie under a fixed gate,
+  at most eight voices, with no dependency added. vox's `EngineContract`
+  names the feature and its keys, `Analysis` carries `speakers` as
+  `SpeakerTurn`s with a `speaker_count`, and `Capabilities.features` reports
+  it when the engine lists it. What it does not do, and says in joe's
+  `docs/media.md`: know who; tell voices that sound alike apart, the same
+  voice shifted a few semitones reading as one; tell music from speech, a
+  sustained tone being lettered as a voice; give overlapping voices two
+  labels; place a change with no pause closer than about half a second; or
+  hear a voice under half a second as its own. The margin of its gate on
+  real voices is modest, so another platform's voice pair may fall
+  differently. alfred's taking a speaker the sound tells apart to name the
+  words nobody has, through vox's `speakers`, is a row after this one, and
+  the `speakers` operation reads the words' speakers meanwhile.
 
 - **(l) Who spoke, and what about.** Built: alfred `e56b386e`,
   `feat/who-spoke`. The person asked for it mid-round: *speaker highlighting
@@ -528,8 +548,11 @@ where one adds work, it names the §2 row that carries it.
   pushed, no pull request open. otto's `feat/motion` and `feat/scenes`
   above it are branches in the submodule's checkout under `alfred/otto`, one
   commit each, not pushed; `feat/picture-motion` pins the first and
-  `feat/scene-cuts` the second. vox's `feat/speakers` and joe's
-  `feat/speaker-turns` are a session's, under way at this stamp. Landing is
+  `feat/scene-cuts` the second. vox's `feat/speakers` is a branch in the
+  submodule's checkout under `alfred/vox`, one commit, not pushed, which
+  nothing pins yet, the checkout sitting at alfred's pin; joe's
+  `feat/speaker-turns` is one commit, not pushed, in a worktree beside
+  joe's clone. Landing is
   each as a pull request against the one beneath, in order, and the six
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
@@ -692,6 +715,19 @@ named:
   cut at 1495 s and four had no cut in reach; the first such run, before
   the cuts reached the worker's source, said so in the job's notes, which
   is how that gap was found.
+- (j), joe and vox, each figure the session's that built them, read back
+  here as the commits and one rerun: joe's suite, `pytest tests/ -m "not
+  local"`, at `main`: 602 passed; at `b2c0d00`: 619 passed, the two
+  platform-voice cases among them; `tests/test_media_speakers.py`: 16
+  passed, rerun here after the hand-back; the mutations, one label for
+  every piece, reddened 7 of the 16, and the block read without its pad
+  reddened the one that holds the block features to librosa's on the whole
+  signal; vox's suite at `588c09b`: 398 passed, and its walkthrough's
+  mutations 79 of 79 caught, the new one a speaker's label read under a
+  fixed key. The feature was calibrated on this machine's two system voices
+  and pitch-shifted copies, not on a recording; the gate's margin there was
+  modest. The vox checkout was put back at alfred's pin after the hand-back,
+  and alfred's `test_stack_settings` then passed on `feat/open-in`.
 - (k): `test_measured.py` and `test_drafts_routes.py`: 22 passed; the
   refusal codes, the inventory and the docs tests green; `ruff`, `black`,
   `check_timeless.py --base feat/who-spoke` and `check_leaks.py` clean.

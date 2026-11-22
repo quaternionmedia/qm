@@ -643,11 +643,13 @@ re-checked and is re-derived before anyone acts on it.
   from `feat/who-spoke` build its (j), scene changes from otto with the
   `scenes` and `speakers` operations, the instrument of its (k), and its (o),
   the editor's links into joe's and looksatwords' own pages, the last with a
-  looksatwords branch that opens a conversation by its id; joe's half of (j)
-  is a session's, under way. Done is *keep everything local* lifted, otto's
-  branches released and the pin moved to the release, then each branch a
-  pull request against the one beneath; the labeller in (h), joe's half of
-  (j) and the measurement of (k) remain open. (2026-11-21)
+  looksatwords branch that opens a conversation by its id; joe's
+  `feat/speaker-turns` and vox's `feat/speakers` build joe's half of (j),
+  who is speaking when told apart by the sound. Done is *keep everything
+  local* lifted, otto's branches released and the pin moved to the release,
+  then each branch a pull request against the one beneath; the labeller in
+  (h), alfred's taking of joe's speaker turns to the words, and the
+  measurement of (k) remain open. (2026-11-21)
 
 ## 5. Not verified
 
@@ -693,7 +695,8 @@ re-checked and is re-derived before anyone acts on it.
   `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
   `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
   `feat/drafts-measured`, `feat/open-in`), `looksatwords`
-  `feat/open-by-link`, `otto` `feat/motion` and `feat/scenes` in
+  `feat/open-by-link`, `joe` `feat/speaker-turns`, `vox` `feat/speakers` in
+  alfred's submodule checkout, `otto` `feat/motion` and `feat/scenes` in
   alfred's submodule checkout, and `joe`
   `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)

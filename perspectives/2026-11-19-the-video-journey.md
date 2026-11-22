@@ -361,3 +361,12 @@ person's word, and its vox changes sat in the checkout alfred imports while
 it worked, which turned one of alfred's suites red on settings alfred had
 not read an hour before; the red was read as the checkout before it was
 read as the change.
+
+That session's hand-back was read as a report and not as proof: its two
+commits were found where it said, its sixteen speaker tests were run again
+here and passed, and the vox checkout was put back at alfred's pin, at
+which alfred's suite went green again. What it built was calibrated on the
+machine's two system voices and shifted copies of them, since no recording
+with two known voices was to hand, and it said so with the margin it
+measured; that is the shape of every default in this round, a first value
+held until a real recording measures it, and the page carries it as one.
