@@ -45,7 +45,7 @@ cannot reach its `main` until they merge (`qm-queue.md` §4).
 
 Branch `feat/alfred-excerpts` of `qmcp`, in the worktree
 `qmcp.worktrees/alfred-excerpts` beside the clone, cut from `main` at
-`8aece3e`. Six commits, `6e187a4` to `763414c`, signed and not pushed: the flow, the
+`2c53b78`. Six commits, `d2688b7` to `954545e`, signed and pushed: the flow, the
 editor review's fixes (§4), a line length, the flow's output named an
 excerpt, the onboarding naming the flow
 ([`docs-review-editing-by-what-is-said.md`](docs-review-editing-by-what-is-said.md)),
@@ -63,28 +63,28 @@ and the flow marking the project's timeline with its cues (below).
 
 **Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
-open stack and that branch, at `a0109db3`, five commits signed and not
-pushed. Above it, **`fix/host-run`**, at `9250d669`, four commits signed
-and not pushed: the api's font check copes
-without `fc-list`, `./al host` starts, reports and stops the api, a render
+open stack and that branch, at `a0109db3`, five commits signed and
+pushed. Above it, **`fix/host-run`**, at `5c661345`, five commits signed
+and pushed: the api's font check copes
+without `fc-list`, and its test holds whether or not the host has it, `./al host` starts, reports and stops the api, a render
 worker, the site and joe as processes on the host against a MongoDB, and
 `docs/host-run.md` is that run, which this clone serves on 1732. Above that,
-**`fix/no-caption-cap`**, at `a0f7a32b`, one commit signed and not pushed: no
+**`fix/no-caption-cap`**, at `85fa4a15`, one commit signed and pushed: no
 count bounds a project's captions or its words, the first pull request of the
 round [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. Above
-that, that round's eight branches, one commit each, signed and not pushed,
-**`feat/who-spoke`** at `e56b386e` at the top, and cut from it in parallel
-**`feat/no-cue-cap`** at `e73e5b42`, **`feat/topic-titles`** at `bfcb0526`,
-**`feat/recipe-editor`** at `c9b92d4c`, **`feat/scene-cuts`** at
-`d26c9784`, **`feat/drafts-measured`** at `bb5a969d`, **`feat/open-in`** at
-`993bfc9e`, **`feat/speakers-to-words`** at `af0941b6`,
-**`feat/trim-captions`** at `5d4f062c`, **`feat/fluid-tools`** at
-`d8aa98dd` and **`feat/revealed-words`** at `45e40bef`, the clone's
-checkout, with **`feat/labeller`** at `0fc7b9aa` above
+that, that round's eight branches, signed and pushed,
+**`feat/who-spoke`** at `6cb9dcba` at the top, and cut from it in parallel
+**`feat/no-cue-cap`** at `897b896b`, **`feat/topic-titles`** at `f22d5f8b`,
+**`feat/recipe-editor`** at `c44a154b`, **`feat/scene-cuts`** at
+`5e8ec494`, **`feat/drafts-measured`** at `de26ebb6`, **`feat/open-in`** at
+`ceeb906c`, **`feat/speakers-to-words`** at `661ed288`,
+**`feat/trim-captions`** at `68dccef6`, **`feat/fluid-tools`** at
+`7979afa1` and **`feat/revealed-words`** at `b10f618f`, the clone's
+checkout, with **`feat/labeller`** at `45b1a790` above
 `feat/topic-titles`; that page's §5
-lists them in order, with qmcp's **`feat/alfred-drafts`** at `6ee6d44`
+lists them in order, with qmcp's **`feat/alfred-drafts`** at `3fd0788`
 above `feat/alfred-excerpts` and looksatwords' **`feat/open-by-link`** at
-`aeb22b6` above `test`. In the clone and
+`ca30279` above `main`. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
 run, serves the clone's checkout, and the lanes were built against it
 live. The timeline is lanes on
@@ -421,9 +421,14 @@ named above.
 
 ## 5. Standing constraints
 
-- **Keep everything local**, until the person lifts it: this branch, `qmcp`
-  `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family`,
-  `feat/synced-timeline`, `fix/host-run` and `fix/no-caption-cap`, and `joe`
+- **The journey's branches are open as pull requests**: `qmcp`
+  `feat/alfred-excerpts` as quaternionmedia/qmcp#129, and alfred's
+  `docs/excerpts-in-the-family`, `feat/synced-timeline`, `fix/host-run` and
+  `fix/no-caption-cap` as quaternionmedia/alfred#145,
+  quaternionmedia/alfred#146, quaternionmedia/alfred#147 and
+  quaternionmedia/alfred#148, the first on quaternionmedia/alfred#141;
+  [`the-algorithmic-layer.md`](the-algorithmic-layer.md) §5 lists the rest.
+  *Keep everything local* still holds for `joe`
   `docs/what-the-words-are-for`.
 - **alfred's clone is checked out on `feat/revealed-words`**, above the
   stack's top, which the host run serves on 1732 (`docs/host-run.md`), as the family

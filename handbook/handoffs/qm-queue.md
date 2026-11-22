@@ -649,14 +649,20 @@ re-checked and is re-derived before anyone acts on it.
   `feat/speaker-turns` and vox's `feat/speakers` build joe's half of (j),
   who is speaking when told apart by the sound, and alfred's
   `feat/speakers-to-words` takes the turns to the words nobody has named.
-  Done is *keep everything local* lifted, otto's and vox's branches
-  released and the pins moved to the releases, then each branch a pull
-  request against the one beneath; alfred's `feat/labeller`, cut from
+  Every branch is open as a pull request against the one beneath
+  (2026-11-22), alfred's from quaternionmedia/alfred#145 on
+  quaternionmedia/alfred#141 to quaternionmedia/alfred#167, with otto's
+  quaternionmedia/otto#37 and quaternionmedia/otto#38, vox's quaternionmedia/vox#19,
+  joe's quaternionmedia/joe#62, looksatwords' quaternionmedia/looksatwords#25 and qmcp's
+  quaternionmedia/qmcp#129 and quaternionmedia/qmcp#130; done is each merged in
+  the order the alfred bodies carry, and otto's and vox's released with the
+  pins moved to the releases; alfred's `feat/labeller`, cut from
   `feat/topic-titles`, builds the labeller in (h), so every row is built;
   the first reading of (k)'s instrument over two real recordings is taken
-  with no person's choices in it, so no default has moved, and the
-  instrument reads a recipe's own cuts as a person's, to correct on
-  `feat/drafts-measured` (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`); a person's pass over the drafts,
+  with no person's choices in it, so no default has moved
+  (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`), and a
+  draft keeps the length its recipe cut it to, so the instrument no longer
+  reads a recipe's own cuts as a person's; a person's pass over the drafts,
   *highlights* first, remains open. Beside them, cut from the same top and
   outside the round, alfred's `feat/trim-captions` has every timeline tool
   act on the Text lane's captions and words, `feat/fluid-tools` has the
@@ -707,24 +713,11 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 6. Standing constraints
 
-- *Keep everything local* is **not** in force for this page's work, and is
-  **in force** for the video journey's branches, `qmcp`
-  `feat/alfred-excerpts` and `feat/alfred-drafts` above it, `qm`
-  `evolve/the-video-journey`, `alfred` `docs/excerpts-in-the-family`,
-  `feat/synced-timeline`, `fix/host-run`, `fix/no-caption-cap`, the
-  algorithmic layer's eight above it (`feat/cut-arithmetic` to
-  `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
-  `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
-  `feat/drafts-measured`, `feat/open-in`, `feat/speakers-to-words`,
-  `feat/trim-captions`, `feat/fluid-tools`, `feat/revealed-words`, and
-  `feat/labeller` above `feat/topic-titles`),
-  `looksatwords`
-  `feat/open-by-link`, `joe` `feat/speaker-turns`, `vox` `feat/speakers` in
-  alfred's submodule checkout, `otto` `feat/motion` and `feat/scenes` in
-  alfred's submodule checkout, and `joe`
-  `docs/what-the-words-are-for`, until
-  the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
-  lands them. (2026-11-19)
+- *Keep everything local* is **not** in force for this page's work, nor
+  for the video journey's and the algorithmic layer's branches, which are
+  open as pull requests ([`the-algorithmic-layer.md`](the-algorithmic-layer.md)
+  §5); it is **in force** for `joe` `docs/what-the-words-are-for`, until the
+  person lifts it. (2026-11-22)
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.
 - Project branches take changes in and never out: records reach them on a pull

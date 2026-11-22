@@ -1,18 +1,18 @@
 # Handoff — the algorithmic layer: from a long source to drafts, by recipe
 
 **Stamped 2026-11-22.** `qm` `main` at `2617723`; `alfred` `feat/who-spoke`
-at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
-at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
-at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
-`d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
-`993bfc9e`, `feat/speakers-to-words` at `af0941b6`, `feat/trim-captions` at `5d4f062c`, `feat/fluid-tools` at `d8aa98dd` and `feat/revealed-words` at `45e40bef` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
+at `6cb9dcba`, the top of eight branches stacked above `fix/no-caption-cap`
+at `85fa4a15`, with `feat/no-cue-cap` at `897b896b`, `feat/topic-titles`
+at `f22d5f8b`, `feat/recipe-editor` at `c44a154b`, `feat/scene-cuts` at
+`5e8ec494`, `feat/drafts-measured` at `de26ebb6`, `feat/open-in` at
+`ceeb906c`, `feat/speakers-to-words` at `661ed288`, `feat/trim-captions` at `68dccef6`, `feat/fluid-tools` at `7979afa1` and `feat/revealed-words` at `b10f618f` each cut from it, and `feat/labeller` at `45b1a790` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
-`feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
-`feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
-`763414c`; `joe` `feat/speaker-turns` at `b2c0d00` above `main` at
+`feat/open-by-link` at `ca30279` above `main` at `01da481`; `qmcp`
+`feat/alfred-drafts` at `3fd0788`, cut from `feat/alfred-excerpts` at
+`954545e`; `joe` `feat/speaker-turns` at `b2c0d00` above `main` at
 `188a2cb`; `vox` `feat/speakers` at `588c09b` above `e630cb0`, which
 `feat/speakers-to-words` pins and the rest of alfred's branches do not. Every figure on this page was true at
-those commits and nowhere else; re-derive before acting on one.
+the commit it names and nowhere else; re-derive before acting on one.
 
 This page is a plan: the round of feature work that takes alfred from an
 editor a person drives by hand to one with an algorithmic layer over it. In
@@ -24,9 +24,9 @@ of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
 leaves out. Of the work it names, every row, §2 (a) to (o), (j) in otto,
-joe, vox and alfred with the words named by joe's turns, is built, each as a
-local branch that is a pull request to open once *keep everything local* is
-lifted; the first reading of (k)'s instrument over two real recordings is
+joe, vox and alfred with the words named by joe's turns, is built and open
+as a pull request against the one beneath it (§5), each read for whether its
+tests and docs say what its code does before it was pushed (§6); the first reading of (k)'s instrument over two real recordings is
 taken, with no person's choices in it, so no default has moved
 (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`). The built part runs on the host run (`docs/host-run.md`) over the
 long recording: §6.
@@ -137,20 +137,20 @@ alternatives.
 
 One change per pull request, stacked where one needs another and parallel
 where not; each is cut from alfred's `fix/no-caption-cap` or from the row
-above it that it needs, and stays local while *keep everything local* holds
-(§5). The order is the advice's path: what the `highlights` recipe needs
+above it that it needs, and each is open as a pull request against that
+branch (§5). The order is the advice's path: what the `highlights` recipe needs
 comes first, and the labeller, the flow and the remaining engine work follow
 it. Each row says what done looks like, and the check that goes red when it
 is not.
 
-- **(a) The counts come off.** Built: alfred `a0f7a32b`, `fix/no-caption-cap`.
+- **(a) The counts come off.** Built: alfred `85fa4a15`, `fix/no-caption-cap`.
   No count bounds a project's captions or its words; the refusal
   `too_many_captions` and its code are gone, with the tests that asserted
   it, and the pages say what bounds a project instead: its document, which
   the database refuses past its own size. §6 is the run. The cues' count
   goes the same way in (n).
 
-- **(b) The cut's arithmetic, in alfred.** Built: alfred `7a0ccc86`,
+- **(b) The cut's arithmetic, in alfred.** Built: alfred `22957214`,
   `feat/cut-arithmetic`, as planned, the fixtures recorded once from the
   browser's implementation and committed as the contract; a mutation to
   either side reddened its own suite. A module of pure functions over
@@ -165,7 +165,7 @@ is not.
   both suites, and a mutation to either implementation reddening its suite.
 
 - **(c) The sound of a timeline, in timeline seconds.** Built: alfred
-  `b3771b61`, `feat/timeline-sound`, with one thing the plan did not have:
+  `5f0cd3b6`, `feat/timeline-sound`, with one thing the plan did not have:
   the engine refused the long recording's raw file, which is over the
   gibibyte it takes in one upload, so a video's sound now goes to the engine
   alone, as a WAV otto writes from it (`utils/sound.py`), and every analysis
@@ -186,9 +186,9 @@ is not.
 
 - **(d) Motion in the picture, over time.** Built: otto `eac657d`,
   `feat/motion`, committed in the submodule's checkout and pinned by alfred
-  `665a6f78`, `feat/picture-motion`; not released, so the pin names a commit
-  only this clone holds until otto's branch is pushed and released. With it,
-  `fix/host-reload-waits` (`be2cdd91`): the host run's api reloader waited
+  `49a3915f`, `feat/picture-motion`; not released, so the pin names the head
+  of otto's `feat/motion`, open as quaternionmedia/otto#37. With it,
+  `fix/host-reload-waits` (`f544b968`): the host run's api reloader waited
   for ever while a browser tab streamed the recording from it, and now waits
   a bounded few seconds. The advice's second signal is a
   spike in the level *with more motion than usual on screen at the same
@@ -203,7 +203,7 @@ is not.
   made as otto's demo clips are; the two routes with their refusals by code;
   and the mapping's fixtures.
 
-- **(e) Recipes.** Built: alfred `dcedf676`, `feat/recipes`, with one
+- **(e) Recipes.** Built: alfred `62f11d3b`, `feat/recipes`, with one
   departure from §3 item 5: the built-in recipes are held in code
   (`utils/recipes_builtin.py`) and listed for every account by name, not
   seeded as copies, so a changed first value is one edit and an account that
@@ -256,7 +256,7 @@ is not.
   in it, and `docs/drafts.md` saying what a recipe is and listing the
   operations.
 
-- **(f) Drafts.** Built: alfred `8aae64ca`, `feat/drafts`, as planned, the
+- **(f) Drafts.** Built: alfred `4e540532`, `feat/drafts`, as planned, the
   measures moved into `utils/measures.py` so the worker and the api's routes
   share one; a project gained `description` for where a draft came from.
   Run on the host stack's long recording: the `highlights` recipe with its
@@ -280,7 +280,7 @@ is not.
   run on the host stack's long recording leaving projects the editor opens,
   each with its words and its scores, and the refusals each a test.
 
-- **(g) The Sculpt stage.** Built: alfred `56fabd5f`, `feat/sculpt-stage`,
+- **(g) The Sculpt stage.** Built: alfred `28bb6fca`, `feat/sculpt-stage`,
   as planned, with the Recipes panel a tab beside Templates and the Drafts
   panel a tab beside Projects on the desktop; on a phone the rail's five
   stages fit only without their numbers, so there the labels alone name
@@ -301,7 +301,7 @@ is not.
   Done is the spec, the journey and the recorded recipe.
 
 - **(h) A title from the reading, then a labeller behind a contract.** Two
-  pull requests, in this order, both built; the title: alfred `bfcb0526`,
+  pull requests, in this order, both built; the title: alfred `f22d5f8b`,
   `feat/topic-titles`, cut from `feat/who-spoke`. The title: `label` names
   each candidate by the topic the language engine has live over it, the one
   whose points within the span carry the most intensity, read through
@@ -311,7 +311,7 @@ is not.
   step, a draft is named `<source> – <title> <n>`, and its cue on the source
   with it. A span with no live topic keeps the recipe's name, no setting
   arrives, and a run without the engine, or whose engine fails, titles
-  nothing and says why in the job. The labeller: alfred `0fc7b9aa`,
+  nothing and says why in the job. The labeller: alfred `45b1a790`,
   `feat/labeller`, cut from `feat/topic-titles`. `ALFRED_LABELLER_URL` names
   the base of an OpenAI-style chat route, the shape qmcp's `localmodel`
   serves, `ALFRED_LABELLER_MODEL` the model it serves, and alfred names no
@@ -328,7 +328,7 @@ is not.
   three settings. No built-in asks it; a stored copy of one with
   `categories` does.
 
-- **(i) qmcp follows the route.** Built: qmcp `6ee6d44`,
+- **(i) qmcp follows the route.** Built: qmcp `3fd0788`,
   `feat/alfred-drafts`, cut from `feat/alfred-excerpts`. Tools
   `alfred_recipes`, `alfred_drafts`, `alfred_drafts_status` and
   `alfred_drafts_drop`; the `alfred-excerpts` flow's `propose` step calls
@@ -351,8 +351,8 @@ is not.
   person's check is.
 
 - **(j) The engines, the rest.** Built, otto's and alfred's halves: otto
-  `0b0f558`, `feat/scenes`, above `feat/motion`; alfred `d26c9784`,
-  `feat/scene-cuts`, cut from `feat/who-spoke`, four commits, which pins
+  `0b0f558`, `feat/scenes`, above `feat/motion`; alfred `5e8ec494`,
+  `feat/scene-cuts`, cut from `feat/who-spoke`, five commits, which pins
   otto's. `otto.media.scenes` finds where a video's picture cuts from one
   shot to another by ffmpeg's own scene score, decoded small and grey a few
   times a second, as the seconds each new shot begins at with the threshold
@@ -386,7 +386,7 @@ is not.
   labels; place a change with no pause closer than about half a second; or
   hear a voice under half a second as its own. The margin of its gate on
   real voices is modest, so another platform's voice pair may fall
-  differently. alfred takes the turns to the words: alfred `af0941b6`,
+  differently. alfred takes the turns to the words: alfred `661ed288`,
   `feat/speakers-to-words`, cut from `feat/who-spoke`, pins vox at its
   `speakers` commit, and `POST /project/{id}/captions/speakers` asks the
   engine who is speaking when over the saved timeline's sound, one file at
@@ -401,7 +401,7 @@ is not.
   /media/{name}/audio` takes `speakers` among its features. The `speakers`
   operation then reads the engine's letters as it reads a person's names.
 
-- **(l) Who spoke, and what about.** Built: alfred `e56b386e`,
+- **(l) Who spoke, and what about.** Built: alfred `6cb9dcba`,
   `feat/who-spoke`. The person asked for it mid-round: *speaker highlighting
   and text updating* over the transcript, through looksatwords, the family's
   language engine. A transcript's words carry a `speaker`, named from the
@@ -421,7 +421,7 @@ is not.
   score a recipe's candidates, which is a `topics` operation for a later
   round.
 
-- **(m) A recipe edited on Sculpt.** Built: alfred `c9b92d4c`,
+- **(m) A recipe edited on Sculpt.** Built: alfred `c44a154b`,
   `feat/recipe-editor`, cut from `feat/who-spoke` beside the other two. The
   Recipes panel's Copy, on any recipe, and Edit, on one of the account's
   own, open it in the panel: its name, label and description, and its steps
@@ -436,7 +436,7 @@ is not.
   the copy saved, and runs a copy of *chapters* with a step changed, on the
   desktop and the phone. §6 is the run.
 
-- **(n) The cues' count comes off.** Built: alfred `e73e5b42`,
+- **(n) The cues' count comes off.** Built: alfred `897b896b`,
   `feat/no-cue-cap`, cut from `feat/who-spoke` beside `feat/topic-titles`.
   `MAX_CUES` and `too_many_cues` are gone as the captions' count went, (a),
   with the tests that asserted them; a write of captions, words or cues the
@@ -446,14 +446,14 @@ is not.
   writes. The worker's writes, a transcription's and a run's, are not behind
   it: a failure there is the job's to report, and it says the same size.
 
-- **(k) Measured.** The instrument is built: alfred `bb5a969d`,
+- **(k) Measured.** The instrument is built: alfred `de26ebb6`,
   `feat/drafts-measured`, cut from `feat/who-spoke`. A source remembers each
   draft dropped from it as `drafts_dropped`, its provenance as the draft
   carried it and how long its timeline was when it went, and `./al measured`
   reads every project and render from the host run's database and prints,
   per source and recipe, what was made, held, dropped, edited and rendered,
   with the mean length as made, as held and as rendered; a source is named
-  by its id alone. The first reading is taken, at `bb5a969d` over the host
+  by its id alone. The first reading is taken, at `de26ebb6` over the host
   run's database, with every built-in run over the long recording and a
   short second one and every draft kept: nothing dropped, since no person
   has chosen, and `edited` counting the two *tight-cut* drafts whose
@@ -477,9 +477,9 @@ is not.
   their commit. No default moves before this; §6 holds the reading's
   figures, over two recordings and no person's choices.
 
-- **(o) Open in the family's programs.** Built: alfred `993bfc9e`,
+- **(o) Open in the family's programs.** Built: alfred `ceeb906c`,
   `feat/open-in`, cut from `feat/who-spoke`, two commits; looksatwords
-  `aeb22b6`, `feat/open-by-link`, above `test`, two commits. Where a thing
+  `ca30279`, `feat/open-by-link`, above `main`, two commits. Where a thing
   in the editor has a page in another of the family's programs, the editor
   offers it: a transcribed timeline's job line offers **Open in joe**, the
   audio engine's own page, where its latest run is shown, and the
@@ -560,50 +560,43 @@ where one adds work, it names the §2 row that carries it.
 
 ## 5. Standing constraints
 
-- **Keep everything local**, until the person lifts it: alfred's
-  `fix/no-caption-cap` on `fix/host-run` on `feat/synced-timeline` on
-  `docs/excerpts-in-the-family`, above alfred's open stack; qmcp's
-  `feat/alfred-excerpts`; qm's `evolve/the-video-journey`, which carries this
-  page. This round's eight branches stack above `fix/no-caption-cap`, each
-  one commit, in this order: `feat/cut-arithmetic`, `feat/timeline-sound`,
-  `feat/picture-motion`, `fix/host-reload-waits`, `feat/recipes`,
-  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; above the last, six
-  more, each cut from it, parallel since none needs another:
-  `feat/no-cue-cap`, `feat/topic-titles`, `feat/recipe-editor`,
-  `feat/scene-cuts` (four commits), `feat/drafts-measured`, `feat/open-in`
-  (two commits) and `feat/speakers-to-words`, the rest one commit each;
-  the last pins vox's `feat/speakers`, so vox's branch lands before it;
-  and `feat/labeller`, one commit, cut from `feat/topic-titles` and a
-  draft against it until that one merges. Two more are cut from
-  `feat/who-spoke` beside the seven and are outside the round's rows, each a
-  pull request of its own against the branch beneath:
-  `feat/trim-captions`, two commits, where every timeline tool acts on the
-  Text lane's captions and words as it does on a clip and what it changed
-  saves itself; `feat/fluid-tools`, one commit, where the Timeline tools
-  panel flows to fill its shape, as many tools to a row as it holds, so
-  docked as a strip over the timeline it is one row; and
-  `feat/revealed-words`, three commits, where what a longer, slipped,
-  rolled, slid or added clip shows is said as the draft's sources, nearest
-  first, and the owner's other projects that play the file said it
-  (`POST /project/{id}/captions/said`), saved with the timeline.
-  qmcp's
-  `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
-  in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
-  `feat/open-by-link` is above its `test`, two commits, in its clone. None
-  pushed, no pull request open. otto's `feat/motion` and `feat/scenes`
-  above it are branches in the submodule's checkout under `alfred/otto`, one
-  commit each, not pushed; `feat/picture-motion` pins the first and
-  `feat/scene-cuts` the second. vox's `feat/speakers` is a branch in the
-  submodule's checkout under `alfred/vox`, one commit, not pushed, which
-  `feat/speakers-to-words` pins, the clone's checkout sitting at alfred's
-  pin while the clone is on any other branch; joe's
-  `feat/speaker-turns` is one commit, not pushed, in a worktree beside
-  joe's clone, and joe's clone sits detached at that commit so the host run's
-  joe hears speakers, to go back to `main` when the branch lands. Landing is
-  each as a pull request against the one beneath, in order, and the six
-  above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
-  `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
-  as the later ones land.
+- **The round is open as pull requests**, each against the one beneath, a
+  draft while that one is open, as the stacking rule has it, and assigned to
+  the person: alfred's twelve in a chain on alfred's open stack,
+  quaternionmedia/alfred#145 → quaternionmedia/alfred#146 →
+  quaternionmedia/alfred#147 → quaternionmedia/alfred#148 →
+  quaternionmedia/alfred#149 → quaternionmedia/alfred#150 →
+  quaternionmedia/alfred#151 → quaternionmedia/alfred#152 →
+  quaternionmedia/alfred#153 → quaternionmedia/alfred#154 →
+  quaternionmedia/alfred#155 → quaternionmedia/alfred#156, the first based
+  on quaternionmedia/alfred#141; the ten cut from `feat/who-spoke` beside
+  each other, quaternionmedia/alfred#157 `feat/no-cue-cap`,
+  quaternionmedia/alfred#158 `feat/topic-titles`, quaternionmedia/alfred#159
+  `feat/recipe-editor`, quaternionmedia/alfred#160 `feat/scene-cuts`,
+  quaternionmedia/alfred#161 `feat/drafts-measured`,
+  quaternionmedia/alfred#162 `feat/open-in`, quaternionmedia/alfred#163
+  `feat/speakers-to-words`, quaternionmedia/alfred#164 `feat/trim-captions`,
+  quaternionmedia/alfred#165 `feat/fluid-tools`, quaternionmedia/alfred#166
+  `feat/revealed-words`; and quaternionmedia/alfred#167 `feat/labeller` on
+  `feat/topic-titles`. otto's quaternionmedia/otto#37 `feat/motion` and
+  quaternionmedia/otto#38 `feat/scenes` on quaternionmedia/otto#36, vox's
+  quaternionmedia/vox#19 `feat/speakers` on quaternionmedia/vox#16, joe's
+  quaternionmedia/joe#62 `feat/speaker-turns`, looksatwords'
+  quaternionmedia/looksatwords#25 `feat/open-by-link` and qmcp's
+  quaternionmedia/qmcp#129 `feat/alfred-excerpts` on `main`, and qmcp's
+  quaternionmedia/qmcp#130 `feat/alfred-drafts` on the last. alfred's pins
+  name the heads of otto's and vox's branches, so those merge with merge
+  commits and before alfred's; each alfred body carries the order. Where two
+  of the ten touch `docs/drafts.md`, `sculpt.py`, `recipes.py` or the
+  changelog, the later one meets a small conflict there as it lands.
+  alfred's open stack below them, quaternionmedia/alfred#118 to
+  quaternionmedia/alfred#141, is marked ready while stacked, which the
+  stacked-drafts check reports on every alfred pull request of the person's
+  until it is drafts again. *Keep everything local* still holds for joe's
+  `docs/what-the-words-are-for`. joe's clone sits detached at
+  `feat/speaker-turns`'s head so the host run's joe hears speakers, to go
+  back to `main` when the branch lands; the vox and otto checkouts under
+  alfred sit at the pins of the branch the clone serves.
 - **alfred's clone is checked out on `feat/revealed-words`**, with vox and
   otto at the stack's pins,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
@@ -613,8 +606,8 @@ where one adds work, it names the §2 row that carries it.
   alone; the host run was started with `ALFRED_LANGUAGE_ENGINE_URL` naming
   it, and with `ALFRED_LABELLER_URL` and `ALFRED_LABELLER_MODEL` naming the
   local model server on 11434 and the model qmcp's `localmodel` installs.
-  The alfred worktree beside the clone sits detached at
-  `feat/trim-captions`'s first commit; `scripts/measured.py` reads the host
+  The alfred worktree beside the clone sits detached, its governance
+  submodule checked out; `scripts/measured.py` reads the host
   run's database from a checkout of `feat/drafts-measured`. After a change
   of branch, or a restore of `website/src` from another ref, parcel's
   watcher has kept the old module graph and served the old bundle while
@@ -651,6 +644,102 @@ where one adds work, it names the §2 row that carries it.
   page names none of them.
 
 ## 6. Verification
+
+### For the review before the round was pushed, at the pushed commits
+
+Every branch of the round was read for whether its tests and its docs say
+what its code does, then run through the gates a pull request meets at the
+commit it was pushed at. The sections after this one name the commit each of
+their runs was taken at; those commits are on no pushed branch, since the
+branches were rebuilt before they were pushed, and each pushed branch differs
+from them only by what this section lists.
+
+What the reading found and changed:
+
+- **A source id in `docs/drafts.md`'s example** was a real project's. The
+  commit that added the example on `feat/drafts` was rewritten with a made-up
+  id, and every branch above it rebased, so no pushed commit carries it.
+- **The instrument counted a recipe's own cuts as a person's edit**: a
+  tight-cut draft, shorter than its spans by the fillers and pauses the recipe
+  took out, read as edited. A draft now keeps `made_duration`, the length its
+  recipe cut it to, a dropped draft keeps it on its source, and `edited` is
+  counted against it (`feat/drafts-measured`), with a test that a mutation
+  reading the spans alone turns red.
+- **Faults fixed on a later branch moved to the branch that made them**, so
+  each pull request passes on its own: the two fixture specs' named tests and
+  their cookbook rows onto `feat/cut-arithmetic` and `feat/timeline-sound`,
+  where the specs arrive; the api's routes and the sculpt tests laid out as
+  Black lays them onto `feat/timeline-sound` and `feat/recipes`; the pages'
+  links into otto naming the pinned commit onto `feat/picture-motion`, which
+  moves the pin.
+- **The font probe's test depended on the host**: `fix/host-run` skips the
+  probe where there is no `fc-list`, so on a host without fontconfig the test
+  never saw it run. The test now says the host has one, on `fix/host-run`.
+- **The pages said less than the code, or more**: a slide's reveal had no
+  test and the editing page's table did not name it; which of the owner's
+  other projects the said route reads, and in what order, was unstated
+  (`feat/revealed-words`); the zoom's page put the magnifiers below the tools
+  (`feat/fluid-tools`); the labeller's page said it is asked after the
+  filters wherever its step stands, and that a failure leaves every draft
+  uncategorised (`feat/labeller`); the refusals page left the scenes routes
+  out of two codes they answer (`feat/scene-cuts`).
+- **Checked and found true**: every name a branch adds to its Markdown is in
+  its code; the operations table's parameters and defaults match the
+  operations at each tip that changes them; no new test is skipped or
+  focused but on a condition of the stack it runs on.
+
+Each branch at the commit it was pushed at, in the alfred worktree beside the
+clone, its governance submodule checked out and otto and vox imported from
+checkouts at the branch's own pins: `black --check` (26.1.0), `ruff check`,
+`mkdocs build --strict`, `check_timeless.py` against its parent and
+`check_leaks.py` clean on every one; the unit tier, `pytest tests/unit`:
+
+| Branch | Pushed at | Passed | Failed |
+|---|---|---|---|
+| `docs/excerpts-in-the-family` | `86a6708b` | 1713 | 7 |
+| `feat/synced-timeline` | `a0109db3` | 1759 | 7 |
+| `fix/host-run` | `5c661345` | 1782 | 7 |
+| `fix/no-caption-cap` | `85fa4a15` | 1781 | 7 |
+| `feat/cut-arithmetic` | `22957214` | 1811 | 7 |
+| `feat/timeline-sound` | `5f0cd3b6` | 1836 | 7 |
+| `feat/picture-motion` | `49a3915f` | 1853 | 7 |
+| `fix/host-reload-waits` | `f544b968` | 1853 | 7 |
+| `feat/recipes` | `62f11d3b` | 1966 | 7 |
+| `feat/drafts` | `4e540532` | 1999 | 7 |
+| `feat/sculpt-stage` | `28bb6fca` | 1999 | 7 |
+| `feat/who-spoke` | `6cb9dcba` | 2030 | 7 |
+| `feat/no-cue-cap` | `897b896b` | 2035 | 7 |
+| `feat/topic-titles` | `f22d5f8b` | 2046 | 7 |
+| `feat/recipe-editor` | `c44a154b` | 2037 | 7 |
+| `feat/scene-cuts` | `5e8ec494` | 2060 | 7 |
+| `feat/drafts-measured` | `de26ebb6` | 2037 | 7 |
+| `feat/open-in` | `ceeb906c` | 2032 | 7 |
+| `feat/speakers-to-words` | `661ed288` | 2044 | 7 |
+| `feat/trim-captions` | `68dccef6` | 2030 | 7 |
+| `feat/fluid-tools` | `7979afa1` | 2030 | 7 |
+| `feat/revealed-words` | `b10f618f` | 2051 | 7 |
+| `feat/labeller` | `45b1a790` | 2078 | 7 |
+
+37 skipped and 8 xfailed on each. Every failure is one of seven that fail
+alike at the stack's base, `docs/changes-by-family`, on this machine: a
+preview slot's timing, a render reason spelt with a Windows path, and five
+dependency-pinning tests that find the clone's installed otto and vox because
+the worktree's own submodules are not checked out. The browser suite runs in
+CI on each pull request; this workstation's container engine is down.
+
+Beside alfred, at the pushed commits: otto's media tests at `eac657d`, 68
+passed, and at `0b0f558`, 77 passed; otto's whole suite fails the same 32
+tests, every one drawing a template, at its base `51a1b0e` and at both. vox
+at `588c09b`: 398 passed. joe at `b2c0d00`: 619 passed, 1 deselected, with
+`-m "not local"`. looksatwords at `ca30279`, rebased onto `main`: 341
+passed, 27 skipped. qmcp at `3fd0788`, rebased onto `main`, `uv run pytest
+tests walkthrough -q` after `uv sync --all-extras`: 1802 passed, 12 skipped,
+14 deselected; at `954545e`, in a worktree named for its branch, 1810
+passed and 3 failed, the three continuity tests that look the folder's name
+up on the roster, which pass at that commit in a checkout named `qmcp`. The
+local workflow runner against `main` in looksatwords and qmcp: every step
+passed but the signature check, which read the commits as unsigned before
+they were pushed; every one verifies locally.
 
 ### For §2 (b) to (g) and (l), at alfred `e56b386e`
 
