@@ -63,24 +63,24 @@ and the flow marking the project's timeline with its cues (below).
 
 **Branch `feat/synced-timeline` of `alfred`**, in the clone itself, cut from
 `docs/excerpts-in-the-family` at `86a6708b` so that it lands above alfred's
-open stack and that branch, at `a0109db3`, five commits signed and
-pushed. Above it, **`fix/host-run`**, at `5c661345`, five commits signed
+open stack and that branch, at `f0023abb`, six commits signed and
+pushed. Above it, **`fix/host-run`**, at `a926184d`, five commits signed
 and pushed: the api's font check copes
 without `fc-list`, and its test holds whether or not the host has it, `./al host` starts, reports and stops the api, a render
 worker, the site and joe as processes on the host against a MongoDB, and
 `docs/host-run.md` is that run, which this clone serves on 1732. Above that,
-**`fix/no-caption-cap`**, at `85fa4a15`, one commit signed and pushed: no
+**`fix/no-caption-cap`**, at `6c607eb0`, one commit signed and pushed: no
 count bounds a project's captions or its words, the first pull request of the
 round [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. Above
 that, that round's eight branches, signed and pushed,
-**`feat/who-spoke`** at `6cb9dcba` at the top, and cut from it in parallel
-**`feat/no-cue-cap`** at `897b896b`, **`feat/topic-titles`** at `f22d5f8b`,
-**`feat/recipe-editor`** at `c44a154b`, **`feat/scene-cuts`** at
-`5e8ec494`, **`feat/drafts-measured`** at `de26ebb6`, **`feat/open-in`** at
-`ceeb906c`, **`feat/speakers-to-words`** at `661ed288`,
-**`feat/trim-captions`** at `68dccef6`, **`feat/fluid-tools`** at
-`7979afa1` and **`feat/revealed-words`** at `b10f618f`, the clone's
-checkout, with **`feat/labeller`** at `45b1a790` above
+**`feat/who-spoke`** at `8caa1f78` at the top, and cut from it in parallel
+**`feat/no-cue-cap`** at `799da17c`, **`feat/topic-titles`** at `eb56004e`,
+**`feat/recipe-editor`** at `63302000`, **`feat/scene-cuts`** at
+`30dedcb7`, **`feat/drafts-measured`** at `033fc4a4`, **`feat/open-in`** at
+`1a648f11`, **`feat/speakers-to-words`** at `45a08774`,
+**`feat/trim-captions`** at `dfc3a4c8`, **`feat/fluid-tools`** at
+`3a5392f5` and **`feat/revealed-words`** at `ef0061c4`, the clone's
+checkout, with **`feat/labeller`** at `fef0dc01` above
 `feat/topic-titles`; that page's §5
 lists them in order, with qmcp's **`feat/alfred-drafts`** at `3fd0788`
 above `feat/alfred-excerpts` and looksatwords' **`feat/open-by-link`** at
