@@ -5,7 +5,7 @@ at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
 at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
 at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
 `d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
-`993bfc9e`, `feat/speakers-to-words` at `af0941b6` and `feat/trim-captions` at `dd3d8dc9` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
+`993bfc9e`, `feat/speakers-to-words` at `af0941b6`, `feat/trim-captions` at `5d4f062c` and `feat/fluid-tools` at `d8aa98dd` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
@@ -569,11 +569,14 @@ where one adds work, it names the §2 row that carries it.
   (two commits) and `feat/speakers-to-words`, the rest one commit each;
   the last pins vox's `feat/speakers`, so vox's branch lands before it;
   and `feat/labeller`, one commit, cut from `feat/topic-titles` and a
-  draft against it until that one merges. `feat/trim-captions`, one commit,
-  is cut from `feat/who-spoke` beside the seven and is outside the round's
-  rows: with the Trim tool a caption in the Text lane is dragged by its
-  nearer edge, and the captions save themselves as the clips' edits do; it
-  lands as a pull request of its own against the branch beneath.
+  draft against it until that one merges. Two more are cut from
+  `feat/who-spoke` beside the seven and are outside the round's rows, each a
+  pull request of its own against the branch beneath:
+  `feat/trim-captions`, two commits, where every timeline tool acts on the
+  Text lane's captions and words as it does on a clip and what it changed
+  saves itself; and `feat/fluid-tools`, one commit, where the Timeline tools
+  panel flows to fill its shape, as many tools to a row as it holds, so
+  docked as a strip over the timeline it is one row.
   qmcp's
   `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
   in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
@@ -592,7 +595,7 @@ where one adds work, it names the §2 row that carries it.
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
   as the later ones land.
-- **alfred's clone is checked out on `feat/trim-captions`**, with vox and
+- **alfred's clone is checked out on `feat/fluid-tools`**, with vox and
   otto at the stack's pins,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
@@ -602,8 +605,12 @@ where one adds work, it names the §2 row that carries it.
   it, and with `ALFRED_LABELLER_URL` and `ALFRED_LABELLER_MODEL` naming the
   local model server on 11434 and the model qmcp's `localmodel` installs.
   The alfred worktree beside the clone sits detached at
-  `feat/trim-captions`'s commit; `scripts/measured.py` reads the host run's
-  database from a checkout of `feat/drafts-measured`. The api reloads itself when its code changes, and has stalled twice
+  `feat/trim-captions`'s first commit; `scripts/measured.py` reads the host
+  run's database from a checkout of `feat/drafts-measured`. After a change
+  of branch, or a restore of `website/src` from another ref, parcel's
+  watcher has kept the old module graph and served the old bundle while
+  its build failed; restart the run, and check the served bundle for a
+  string the sources hold before measuring against it. The api reloads itself when its code changes, and has stalled twice
   while its log said "Reloading...", once with `fix/host-reload-waits`'s
   bounded wait on its command line, so the flag does not bound it; the sign
   is no "Started server process" after the line, and a route the file has
@@ -792,18 +799,43 @@ named:
   `chromium` and `phone` projects: 4 passed, 2 skipped, the skips the cases for a server without a language engine, the link's case among the passes. looksatwords' own
   suite at `aeb22b6`: 238 passed, 1 skipped.
 
-### For the trim of captions, at alfred `dd3d8dc9`
+### For the tools on the Text lane, at alfred `5d4f062c`, and the fluid tools panel at `d8aa98dd`
 
 Each figure one run at that commit, against the host run on 1732 serving
-the branch:
+the branch, its served bundle checked for a string the branch's sources
+hold:
 
-- `lanes-arith.spec.js`, the arithmetic in Node: 18 passed; `lanes.spec.js`
-  in the browser: 7 passed; with `captions.spec.js`, `follow-clips.spec.js`
-  and `cut-ranges.spec.js`: 70 passed. Two mutations, the start bounded by
-  the end alone and every press trimming the end, reddened 1 each;
-  restored, all pass. `check_timeless.py --base feat/who-spoke` and
-  `check_leaks.py` clean. The browser suite's phone project does not run
-  the lanes spec, by its own list of specs.
+- the Text lane: `lanes-text.spec.js`, the tools' arithmetic in Node: 21
+  passed; `lanes.spec.js`, six tests of the tools on captions and words in
+  the browser among its twelve: all pass. Three mutations, a word moving
+  past its neighbours, only the pressed caption written and a word's edit
+  saving the captions alone, reddened 2, 2 and 1; restored, all pass. The
+  lanes, captions, follow-clips, cut-ranges, timeline-tools, transcript and
+  editor specs on both projects: 168 passed, 8 failed; served the base's
+  `website/src`, verified in the bundle, the same specs' failing tests
+  failed alike but for one, a transcription test that timed out clicking
+  Transcribe after the real engine's run before it and passes on the
+  branch when run again: the template preview's 422 on this host, and
+  joe's real hearing where the suite expects its stand-in.
+  `dd3d8dc9`, the first commit, left the cookbook page stale; `5d4f062c`
+  regenerates it and `test_cookbook.py` passes there. On the second
+  recording, from a fresh browser, Slide moved a caption with both
+  neighbours' near edges, Trim lengthened a word up to the next, and each
+  saved itself, the words with the captions; its captions and words were
+  put back and read back equal;
+- the tools panel: two tests seeding a saved arrangement, the tools as a
+  strip between the viewer and the timeline and as a column wide enough for
+  three to a row, failed on the base's layout, 4 rows for 1 and 2 to a row
+  for more than 2, and pass at the commit, with the zoom test; the
+  two-column grid put back reddened both; restored, all pass. The
+  timeline-tools, workspace, editor, flow, stacked, media, tools and
+  journeys specs on both projects: 166 passed, 10 failed, 2 skipped: the
+  suite's unauthenticated requests answered as this host run's skipped
+  login answers them, the template preview's 422, and one phone Source
+  stage test that fails alike with the base's CSS verified as served.
+  `check_timeless.py --base feat/who-spoke`, `check_leaks.py` and the docs
+  tests clean on both branches. From a fresh browser at 1280 by 800, the
+  default column held the tools in three rows and the strip in one.
 
 ### For §2 (h), the labeller, at alfred `0fc7b9aa`, and the first reading of (k) at `bb5a969d`
 

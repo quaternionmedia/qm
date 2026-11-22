@@ -77,9 +77,10 @@ that, that round's eight branches, one commit each, signed and not pushed,
 **`feat/no-cue-cap`** at `e73e5b42`, **`feat/topic-titles`** at `bfcb0526`,
 **`feat/recipe-editor`** at `c9b92d4c`, **`feat/scene-cuts`** at
 `d26c9784`, **`feat/drafts-measured`** at `bb5a969d`, **`feat/open-in`** at
-`993bfc9e`, **`feat/speakers-to-words`** at `af0941b6` and
-**`feat/trim-captions`** at `dd3d8dc9`, the clone's checkout, with
-**`feat/labeller`** at `0fc7b9aa` above `feat/topic-titles`; that page's §5
+`993bfc9e`, **`feat/speakers-to-words`** at `af0941b6`,
+**`feat/trim-captions`** at `5d4f062c` and **`feat/fluid-tools`** at
+`d8aa98dd`, the clone's checkout, with **`feat/labeller`** at `0fc7b9aa`
+above `feat/topic-titles`; that page's §5
 lists them in order, with qmcp's **`feat/alfred-drafts`** at `6ee6d44`
 above `feat/alfred-excerpts` and looksatwords' **`feat/open-by-link`** at
 `aeb22b6` above `test`. In the clone and
@@ -423,7 +424,7 @@ named above.
   `feat/alfred-excerpts`, `alfred` `docs/excerpts-in-the-family`,
   `feat/synced-timeline`, `fix/host-run` and `fix/no-caption-cap`, and `joe`
   `docs/what-the-words-are-for`.
-- **alfred's clone is checked out on `feat/trim-captions`**, above the
+- **alfred's clone is checked out on `feat/fluid-tools`**, above the
   stack's top, which the host run serves on 1732 (`docs/host-run.md`), as the family
   stack does when Docker's engine is up; `docs/excerpts-in-the-family` has
   its worktree beside the clone. A session that wants the clone on the stack's top checks it out

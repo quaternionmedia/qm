@@ -655,9 +655,10 @@ re-checked and is re-derived before anyone acts on it.
   with no person's choices in it, so no default has moved, and the
   instrument reads a recipe's own cuts as a person's, to correct on
   `feat/drafts-measured` (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`); a person's pass over the drafts,
-  *highlights* first, remains open. Beside them, alfred's
-  `feat/trim-captions`, cut from the same top and outside the round, has the
-  Trim tool drag a caption's edge in the Text lane. (2026-11-22)
+  *highlights* first, remains open. Beside them, cut from the same top and
+  outside the round, alfred's `feat/trim-captions` has every timeline tool
+  act on the Text lane's captions and words, and `feat/fluid-tools` has the
+  Timeline tools panel flow to its shape, one row as a strip. (2026-11-22)
 
 ## 5. Not verified
 
@@ -703,7 +704,8 @@ re-checked and is re-derived before anyone acts on it.
   `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
   `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
   `feat/drafts-measured`, `feat/open-in`, `feat/speakers-to-words`,
-  `feat/trim-captions`, and `feat/labeller` above `feat/topic-titles`),
+  `feat/trim-captions`, `feat/fluid-tools`, and `feat/labeller` above
+  `feat/topic-titles`),
   `looksatwords`
   `feat/open-by-link`, `joe` `feat/speaker-turns`, `vox` `feat/speakers` in
   alfred's submodule checkout, `otto` `feat/motion` and `feat/scenes` in
