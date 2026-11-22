@@ -5,7 +5,7 @@ at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
 at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
 at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
 `d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
-`993bfc9e` and `feat/speakers-to-words` at `af0941b6` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
+`993bfc9e`, `feat/speakers-to-words` at `af0941b6` and `feat/trim-captions` at `dd3d8dc9` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
@@ -569,7 +569,11 @@ where one adds work, it names the §2 row that carries it.
   (two commits) and `feat/speakers-to-words`, the rest one commit each;
   the last pins vox's `feat/speakers`, so vox's branch lands before it;
   and `feat/labeller`, one commit, cut from `feat/topic-titles` and a
-  draft against it until that one merges.
+  draft against it until that one merges. `feat/trim-captions`, one commit,
+  is cut from `feat/who-spoke` beside the seven and is outside the round's
+  rows: with the Trim tool a caption in the Text lane is dragged by its
+  nearer edge, and the captions save themselves as the clips' edits do; it
+  lands as a pull request of its own against the branch beneath.
   qmcp's
   `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
   in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
@@ -580,7 +584,7 @@ where one adds work, it names the §2 row that carries it.
   `feat/scene-cuts` the second. vox's `feat/speakers` is a branch in the
   submodule's checkout under `alfred/vox`, one commit, not pushed, which
   `feat/speakers-to-words` pins, the clone's checkout sitting at alfred's
-  pin while the clone is on `feat/labeller`; joe's
+  pin while the clone is on any other branch; joe's
   `feat/speaker-turns` is one commit, not pushed, in a worktree beside
   joe's clone, and joe's clone sits detached at that commit so the host run's
   joe hears speakers, to go back to `main` when the branch lands. Landing is
@@ -588,8 +592,8 @@ where one adds work, it names the §2 row that carries it.
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
   as the later ones land.
-- **alfred's clone is checked out on `feat/labeller`**, with vox and otto
-  at that branch's pins,
+- **alfred's clone is checked out on `feat/trim-captions`**, with vox and
+  otto at the stack's pins,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
   with `uv run looksatwords serve --no-open --port 8000` and
@@ -597,8 +601,9 @@ where one adds work, it names the §2 row that carries it.
   alone; the host run was started with `ALFRED_LANGUAGE_ENGINE_URL` naming
   it, and with `ALFRED_LABELLER_URL` and `ALFRED_LABELLER_MODEL` naming the
   local model server on 11434 and the model qmcp's `localmodel` installs.
-  The alfred worktree beside the clone sits on `feat/drafts-measured`, where
-  `scripts/measured.py` reads the host run's database. The api reloads itself when its code changes, and has stalled twice
+  The alfred worktree beside the clone sits detached at
+  `feat/trim-captions`'s commit; `scripts/measured.py` reads the host run's
+  database from a checkout of `feat/drafts-measured`. The api reloads itself when its code changes, and has stalled twice
   while its log said "Reloading...", once with `fix/host-reload-waits`'s
   bounded wait on its command line, so the flag does not bound it; the sign
   is no "Started server process" after the line, and a route the file has
@@ -786,6 +791,19 @@ named:
   **Open in joe** at the engine's page. `conversation.spec.js` on the
   `chromium` and `phone` projects: 4 passed, 2 skipped, the skips the cases for a server without a language engine, the link's case among the passes. looksatwords' own
   suite at `aeb22b6`: 238 passed, 1 skipped.
+
+### For the trim of captions, at alfred `dd3d8dc9`
+
+Each figure one run at that commit, against the host run on 1732 serving
+the branch:
+
+- `lanes-arith.spec.js`, the arithmetic in Node: 18 passed; `lanes.spec.js`
+  in the browser: 7 passed; with `captions.spec.js`, `follow-clips.spec.js`
+  and `cut-ranges.spec.js`: 70 passed. Two mutations, the start bounded by
+  the end alone and every press trimming the end, reddened 1 each;
+  restored, all pass. `check_timeless.py --base feat/who-spoke` and
+  `check_leaks.py` clean. The browser suite's phone project does not run
+  the lanes spec, by its own list of specs.
 
 ### For §2 (h), the labeller, at alfred `0fc7b9aa`, and the first reading of (k) at `bb5a969d`
 
