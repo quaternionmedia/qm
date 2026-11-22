@@ -15,8 +15,9 @@ from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
 `project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. Those
 that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
-`348e31f` and `qmetronome` `3aaaa28`. The rest of the page holds at the
-stamp, which those entries do not move.
+`348e31f` and `qmetronome` `3aaaa28`. Those that name 2026-11-22 were
+re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. The
+rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -85,9 +86,8 @@ pick up alone; that page is then listed in the index and named here.
    (`records/DRAFT-work-is-delivered-into-a-repository.md`, on `main` since
    `d85dd12`). (2026-10-24)
 8. **qmcp's adoption record is restated in two steps.** C2, C3 and C7 were
-   restated by the pull request merged into `project/qmcp` as `6a4819a`.
-   C1, C5, C6 and C8 come next, in a pull request of their own based on
-   `project/qmcp`. (2026-10-24)
+   restated by the pull request merged into `project/qmcp` as `6a4819a`, and
+   C1, C4, C5, C6 and C8 by the one merged as `5c5b0fa`. (2026-11-22)
 
 9. **A remembered approval covers runs that spend nothing, and nothing
    else.** Phase 11 of `qmcp`'s roadmap, habits into auto-approvals, is built
@@ -167,6 +167,15 @@ pick up alone; that page is then listed in the index and named here.
     on its pull request**, so a commit's `Tools:` line names no product; a note
     naming one sits on the artifact that calls for it, such as a perspective.
     (2026-11-05)
+23. **qmcp's lock is read against published advisories on every pull
+    request, and the check blocks**: a locked version inside an advisory's
+    range fails the pull request whether or not it touched a dependency, and
+    Dependabot's grouped security update is the way back to green
+    (`.github/workflows/advisories.yml` in `qmcp`, qmcp#134). (2026-11-22)
+24. **qmcp's architecture page follows its control-plane record**: the server
+    starts a process only for a person at the machine, on a loopback route,
+    after consent; and tools keep no state but a client's credentials, as the
+    `alfred_*` tools keep alfred's token. (2026-11-22)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -200,6 +209,14 @@ each pull request into it is behind its base until brought level.
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
+- **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
+  held by the person (2026-11-22). The stated intent is a licence under which
+  a derivative stays open, with Creative Commons named; the outbound-licensing
+  record (`records/DRAFT-outbound-licensing.md`) puts a QM service under
+  AGPL-3.0-or-later (§4) and prose under CC-BY-SA-4.0 (§1). `REUSE.toml`
+  records MIT as the current state and says it does not ratify it. Done is the
+  class chosen, then a root `LICENSE`, the `license` key in `pyproject.toml`
+  and `REUSE.toml`'s default block stating it.
 - **Applying the rulesets.** `.github/rulesets/README.md` sets out the staged
   path and shows the host at stage 0, no ruleset applied. Stage 1 is a person
   running `apply.sh`; an agent never does.
@@ -235,10 +252,10 @@ each pull request into it is behind its base until brought level.
 - **Dependabot's updates, grouped** (decision 5). At the stamp Dependabot holds
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
-  open. At `qmcp` `82b2d58`, `qmcp` has no `dependabot.yml`, no open
-  Dependabot pull request and no open alert. Its one leftover Dependabot
-  branch, whose pull request was closed on 2026-10-25 because `main` already
-  locks the version it set, was deleted on 2026-10-27 at the person's word.
+  open. `qmcp` carries `groups:` since qmcp#131 (2026-11-22), and its first
+  grouped pull request, qmcp#133, takes sqlmodel to the version qmcp#136
+  adapts qmcp to. Done is qmcp#133 brought level with `main` by Dependabot,
+  green, and merged.
 - **The signature gate reads an SSH signature as none.** `check_signatures`
   runs `git` with no allowed-signers file, so a commit the host verifies by an
   SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
@@ -450,17 +467,6 @@ re-checked and is re-derived before anyone acts on it.
   `project/qmetronome` still calls itself "a real, accepted departure" from
   the QM record it relaxes. Done is the draft tightened, or the departure
   taken to the org as an amendment.
-- **qmcp's adoption record, C1, C5, C6 and C8** (decision 8). Their readings
-  at `qmcp` `a41f9a3` are under "Outside this pull request" in the
-  description of the pull request merged into `project/qmcp` as `6a4819a`.
-  Done is a pull request based on `project/qmcp` that restates the four
-  rows, then a `qmcp` pin bump that takes it. `qmcp`'s pin has been `f4786fe`
-  since 2026-10-25, and that commit does not carry the four rows.
-- **Three of qmcp's tests name the project after the checkout's directory.**
-  `qmcp/instructions/check.py:403` resolves `project or clone.name`, so three
-  tests in `tests/test_cookbook_instruct.py` fail in any checkout not named
-  `qmcp`, a worktree among them. Done is those tests passing the project's
-  name. (2026-10-25)
 - **No gate measures how far a project's pin lags `main`.** On 2026-10-25,
   until the propagation merged into `project/qmcp` as `777a275`, `qmcp`'s pin
   was two commits behind that branch and the branch 343 behind `main`. Most
@@ -511,32 +517,10 @@ re-checked and is re-derived before anyone acts on it.
   declared in its range, and a member this machine registers reads as
   `missing`. Done is the demo writing a run-file for each member it starts,
   with the run's name as its session. (2026-10-29)
-- **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
-  planes, and the instruction loop appears in it only as a departure it names;
-  the archive and speech do not appear. `qmcp tools list` lists the built-in
-  tools only, where `GET /v1/tools` lists the `alfred_*` tools too. Done is
-  each describing what the code does. (2026-10-25)
-- **qmcp declares no licence where a packager reads one.** At `qmcp`
-  `82b2d58` it carries `REUSE.toml` (MIT for `**`), `LICENSES/` and a REUSE
-  lint workflow, but no root `LICENSE` and no `license` key in
-  `pyproject.toml`. Done is a licence declared in both places, and C1
-  restated in its adoption record (decision 8).
-- **qmcp's roadmap still calls project names unmeasured.** Phase 10's
-  constraints in `qmcp`'s `docs/ROADMAP.md` say "Whether project names
-  transcribe reliably is unmeasured", and
-  `perspectives/2026-10-25-what-whisper-heard.md` measures it on synthesized
-  speech. Done is that line citing the perspective. Making that change was
-  asked on 2026-10-25 and not yet answered.
-- **qmcp's `flows` extra asks for `pydantic-ai[openai]`**, an extra that no
-  pydantic-ai release from 2.31 to 2.61 provides, so uv warns on every lock.
-  Done is the extra naming what it needs.
-- **No check reads qmcp's lock against open advisories before a pull
-  request.** On the change that took `qmcp`'s lock past its 36 alerts (merged
-  2026-10-25 as `82b2d58`), `uv lock --upgrade-package` stopped pydantic-ai at
-  2.32.2, below the 2.53.0 that fixes one of its alerts, and reported it as
-  updated. A one-off script that compared each alert's range with the lock
-  caught it. Done is that comparison as a preflight step, or the reason it
-  cannot be one.
+- **qmcp's open pull requests** (2026-11-22). qmcp#129 and its stacked draft qmcp#130,
+  alfred's excerpt and drafts flows, land in the cross-repository order #345
+  records. qmcp#125, `qmcp tour`, is a draft until the tour's records land in
+  the corpus (#331, #332).
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
@@ -586,8 +570,10 @@ re-checked and is re-derived before anyone acts on it.
   (one branch, 60 commits), each checked out by a session at work that day.
   alfred's seven feature branches are *held*, every commit on a pushed
   branch, so deleting them loses only the names. `qmcp`'s were pruned on
-  2026-10-25 at the person's word, and the one Dependabot branch above on
-  2026-10-27; its remote holds `main` alone.
+  2026-10-25 at the person's word. On 2026-11-22 its remote also holds
+  `fix/flows-extra-names-what-it-needs`, a branch with no pull request whose
+  one change merged as qmcp#132 under another commit; deleting it loses only
+  the name.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
@@ -607,13 +593,6 @@ re-checked and is re-derived before anyone acts on it.
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.
-- That a local run of a project-branch pull request now agrees with the host
-  on the ADR lint's *default branch carries no project records* step, which
-  #229 changes the runner for. A project branch carries its own copy of the
-  runner. The local run of the pull request merged into `project/qmcp` as
-  `6a4819a` needed `--ref` for that step to pass, because neither that branch
-  nor `qmcp`'s pin had #229. Both have it at `f4786fe`, and no local run of a
-  pull request into `project/qmcp` has been made since.
 - `qmcp`'s provider SDKs as locked at `82b2d58` (anthropic 2.3.0, google-genai
   2.33.0, logfire 5.3.0) against their services. `-m live_anthropic` and the
   `--live` cookbook checks were not run. The offline suite, the local-model
