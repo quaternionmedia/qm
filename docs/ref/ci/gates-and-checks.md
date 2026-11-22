@@ -102,6 +102,16 @@ changes a submodule's path and keeps its name. SSH URLs are tried over https,
 because a runner has no SSH key, and a filesystem path is reported as
 resolvable nowhere else.
 
+The governance submodule is the exception to that translation. The seed
+workflows that run a corpus script clone it on a runner with
+`git submodule update`, by the URL `.gitmodules` records and with no SSH key,
+so any URL but HTTPS fails each of them at the clone, and a local run, which
+has a key, passes. A checkout with `submodules: true` rewrites a GitHub SSH URL
+to HTTPS; the seed's checkouts do not. So the governance URL's form is judged
+before any fetch: anything but `https://` is `not-https`, a hard failure, and
+the local run goes red as the runner does. The path is `$QM_SUBMODULE`, else
+`governance/qm`, and `--governance` names another.
+
 Locally it also lists branches inside each submodule's clone that are on no
 remote: work committed inside a submodule is invisible to every check the
 parent runs. That list is empty in CI, where submodules are cloned fresh, and
@@ -158,13 +168,18 @@ tree, and never deletes anything.
 | Class | Meaning |
 |---|---|
 | stranded | The local ref is ahead of its own remote: commits on one disk |
-| local | A local branch with no remote at all |
-| gone | A remote branch whose local ref is gone; nothing to lose |
+| local | A local branch with no remote of its name, contained in no remote branch |
 | ahead | Unmerged work that is pushed and reachable |
+| held | A local branch with no remote of its name, whose tip another remote branch contains; deleting it loses the name |
+| gone | A remote branch whose local ref is gone; nothing to lose |
 | merged | Every commit is on the default branch; deleting loses nothing |
 
 The classes sort by what it costs to be wrong, so what would be lost comes
-first. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
+first. A branch is read as held only once the host confirms its holder: one
+`git ls-remote --heads` says which branches the host holds now, and a holder
+the host has deleted, or moved to a commit the clone never fetched, does not
+count. `--offline` asks the host nothing and reads holders from the tracking
+refs, as of the last fetch. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
 patch is already upstream (squashed, cherry-picked, rebased) as landed, so a
 branch ahead by one can hold nothing. It errs toward reporting loss, since a
 commit that landed in a different shape still reads as unique. The default
@@ -172,6 +187,30 @@ branch is asked of the remote rather than assumed, `origin/HEAD` is not a
 branch, and automation branches are summarised in one line. The summary and
 the exit status share one definition of "at risk". It cannot tell whether an
 `ahead` branch is abandoned or paused.
+
+## Branch references
+
+`uv run qm references <branch>` (`ci/branch_references.py`) lists what still
+refers to a branch, asked before it is retired. The census says what deleting
+a branch loses; this says what deleting it leaves pointing at nothing. It
+reads four kinds of reference:
+
+| Kind | What matches |
+|---|---|
+| name | The branch's name as written when it holds a slash, in backticks when it does not |
+| commit | A commit no other branch holds, by its first seven characters |
+| file | A file the branch adds that its base lacks, by path, or by a basename the base does not share |
+| named | The branch's name in backticks on `docs/ref/namespaces.md`, where the stage refs are named, or a line there calling its namespace permanent |
+
+It searches `main`, `--base` when that is another branch, and the head of every
+open pull request but the branch's own, and skips the generated documents. A
+pull request into a branch other than `main` is searched only in the files it
+changes, since the rest of its tree is an older copy of `main`. A line a head
+carries unchanged from `main` is reported once, as `main`'s.
+Exit 0 is nothing found and 1 is a list of references. Exit 2 is a search that
+could not run, an open pull request whose head is not fetched among them. It
+cannot see another repository, a submodule pin there included, or a pull
+request body, comment or issue.
 
 ## Record review
 
@@ -182,8 +221,12 @@ as candidates for reading rather than defects; citations of paths that do not
 exist; and records nothing points at. A citation into another QM repository is
 resolved in that repository's checkout, found through the roster's
 `repositories:` and `paths:`, and is reported as a cross-repository citation,
-not as dangling; a repository in the roster but not checked out is unknown. It
-does not read a record for meaning, and it is a report, not a gate.
+not as dangling; a repository in the roster but not checked out is unknown. A
+bare filename in an Enforcement clause names a mechanism, and is resolved
+against `.github/workflows/` and `project-seed/ci/`, where the mechanisms live:
+a record that says `leak-check.yml` refuses something is read against the
+workflow of that name and not against the repository root. It does not read a
+record for meaning, and it is a report, not a gate.
 
 ## Private repository names
 
@@ -231,6 +274,23 @@ host; a session runs it at open and close. It cannot see a pull request the
 page never names, or whether a sentence claims one is open, and a stamp moved
 without a re-read silences it.
 
+## Assigned work
+
+`uv run qm assigned` (`ci/assigned.py`) asks the host, as whoever `gh` is
+signed in as, for every open pull request in the organisation that requests
+their review and every open pull request and issue that names them as
+assignee, and lists them in four groups by repository: review requested, pull
+requests assigned by somebody else, issues, and their own pull requests, which
+carry them as assignee because every pull request a session opens does
+(`handbook/async-contract.md` §2). `--org` reads another owner. A private
+repository is marked as one. It prints the host's draft flag and base and reads
+no checks, because whether a pull request can merge is `uv run qm merge`'s
+reading. It never writes, and exits 0 on any completed reading and 2 when the
+host cannot be read. No workflow runs it, because it reads the host. It cannot
+see an ask made in a comment or a mention, a review already given, a repository
+outside `--org` or an archived one, and it reports a search the host counted
+past what it lists.
+
 ## The declared-routes hook
 
 `.claude/hooks/prefer_declared_routes.py` is an optional pre-command hook that
@@ -241,6 +301,45 @@ knows only commands that have a route, never fires on its own remedy (an
 allow-list covers `uv run qm test`), reads shell commands only, and fails open:
 input it cannot read, or that is not an object, lets the work through.
 Enabling it is each contributor's decision.
+
+## Generated documents
+
+`uv run qm docs check` (`ci/generate_docs.py --check`) runs every generator's
+check mode against the tree and nothing else, and the `docs-check` workflow
+runs the same step on every pull request into `main` and on every push to it,
+with no path filter, because the index documents describe every page in the
+repository. It refuses a committed generated document that no longer matches
+what its generator writes: the governance and gate documents, the gate view,
+the site palette, the family cookbook and the family site pages, the rollout,
+and the three index documents, `status/documents.yaml`,
+`handbook/document-states.md` and `loose-ends.json`. A page that changes state
+without its index is red on the pull request that changed it, and two pull
+requests each green at their own tip that together leave `main` stale make
+`main` red after the merge, and not the next contributor's pull request.
+
+It cannot see a document with no check mode, `status/harness.yaml` and
+`families.json`, whose freshness is the staleness budget each carries in its
+own `reading:` block and which the run reports skipped; the enforcement layer
+of `status/gates.yaml`, which is read from the host and changes without a
+commit; or whether a generated document is true, since it compares each with
+what its generator writes from the same tree, and a generator that is wrong is
+wrong on both sides.
+
+## Triggers
+
+A workflow runs where its `on:` block says, and three checks hold that block to
+what the job reads. `ci-tooling-tests.yml` carries no path filter, because its
+suites read the whole repository, and `ci/tests/test_run_tests.py` refuses one.
+`docs-audit.yml` runs unfiltered on a push to `main`, so the default branch is
+checked after every merge and not only each pull request at its own tip.
+`ci/gate-registry.yaml`'s `gates` field says what each gate stands before, in a
+closed vocabulary (`main`, `project`, `push`, `tag`); `ci/gate_status.py`
+derives the same words from each workflow's `on:` block and writes them beside
+the claim in `status/gates.yaml`, and `ci/tests/test_gate_tooling.py` fails
+when the two disagree. None of them can see whether a filter that matches is
+the right one: a path a job reads that nobody listed passes, because the
+registry describes branches and not paths, and the pull-request filter on the
+docs audit is a list a reader keeps.
 
 ## Shared shapes
 

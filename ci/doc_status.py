@@ -72,10 +72,37 @@ GENERATED = {
     "status/harness.yaml": "python ci/harness_status.py --no-local --write status/harness.yaml",
     "status/gates.yaml": "python ci/gate_status.py --write status/gates.yaml",
     "status/documents.yaml": "python ci/doc_status.py --write status/documents.yaml",
-    "inventory.json": "uv run qm inventory --write inventory.json",
+    "status/inventory.yaml": "uv run qm inventory --write",
     "handbook/gates.md": "python ci/gate_dashboard.py status/gates.yaml --format md --out handbook/gates.md",
     "handbook/document-states.md": "python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md",
 }
+# The directories one generator writes whole, listed by directory because the
+# pages in them follow the roster: a member added is a page added, and a list
+# of names would fall behind it. Every file under each is the generator's
+# (records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md §1),
+# except a project's subtree below.
+GENERATED_UNDER = {
+    "docs/families/": "uv run qm cookbook docs/families --site --write",
+    "docs/projects/": "uv run qm cookbook docs/families --site --write",
+}
+# A project's dated account, docs/projects/<name>/, is not the cookbook's
+# (records/DRAFT-a-projects-history-lives-in-the-corpus.md §3): its timeline is
+# ci/timeline.py's, and every other page in it is a dated page a person wrote.
+SUBTREE = re.compile(r"^docs/projects/(?P<name>[^/]+)/(?P<file>.+)$")
+TIMELINE = "timeline.md"
+
+
+def refresh_of(rel: str) -> str | None:
+    """The command that writes `rel`, or None when nothing generates it."""
+    if rel in GENERATED:
+        return GENERATED[rel]
+    subtree = SUBTREE.match(rel)
+    if subtree:
+        if subtree.group("file") == TIMELINE:
+            return f"uv run qm timeline {subtree.group('name')} --write"
+        return None
+    return next((command for under, command in GENERATED_UNDER.items()
+                 if rel.startswith(under)), None)
 
 # What a session must read before its first edit, per AGENTS.md's opening.
 # Measured because it is a cost paid by every reader, and an unmeasured figure
@@ -148,6 +175,7 @@ STATES = {
     "generated": "written by a tool. Do not edit by hand; check its age before quoting.",
     "standing": "policy or charter with no lifecycle defined for its class.",
     "transient": "working instructions, deleted when the work lands.",
+    "dated": "a project's dated history, true of the days it names. Never brought up to date; read it for what happened, not for what is.",
     "unknown": "the state could not be established, which is not the same as fine.",
 }
 
@@ -212,7 +240,7 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
     two places, and they are repaired together.
     """
     rel = path.relative_to(root).as_posix()
-    if rel in GENERATED:
+    if refresh_of(rel):
         return "generated", "a tool writes it"
     # An index is not a member of the thing it indexes, and has no status of
     # the kind its members carry.
@@ -229,6 +257,8 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
     # `docs/` is the reference tier named in handbook/style-guide.md; it and the
     # three governed directories below it each have a class, so none of their
     # pages falls through to "not in a governed directory".
+    if SUBTREE.match(rel):
+        return "history", "a project's dated account, in its subtree beside its page"
     if rel.startswith("docs/"):
         return "reference", "the reference: contracts, interfaces, procedures"
     if rel.startswith("protocols/"):
@@ -266,7 +296,7 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
 
     if kind == "generated":
         entry["state"] = "generated"
-        entry["refresh"] = GENERATED[rel]
+        entry["refresh"] = refresh_of(rel)
         entry["present"] = present
         if not present:
             # Reported, never omitted. A declared document that has never been
@@ -328,6 +358,10 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
 
     if kind == "handoff":
         entry["state"] = "transient"
+        return entry
+
+    if kind == "history":
+        entry["state"] = "dated"
         return entry
 
     entry["state"] = "standing"

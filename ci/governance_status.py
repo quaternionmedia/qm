@@ -72,7 +72,7 @@ from adr_lint import NUMBERED_FILENAME, is_ratified, status_of  # noqa: E402
 # the moment either changed, and two documents would then disagree about which
 # repository `private-32` is.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from inventory import assign_references  # noqa: E402
+from inventory import assign_references, load_ledger  # noqa: E402
 from roster import redact  # noqa: E402
 
 SCHEMA = 1
@@ -98,7 +98,11 @@ PROJECT_NS = "project/"
 # procedure says governance/qm and codecartographer mounts it at docs/qm, so a
 # path check reports a correctly vendored project as not tracking the corpus.
 CORPUS_URL_MARK = "/qm"
-IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")
+# The two instruction files the seed carries: `AGENTS.md`, and a one-line
+# `CLAUDE.md` that imports it (records/DRAFT-ide-integrated-governance-discovery.md
+# §2). No `.github/copilot-instructions.md` is probed, because the seed does not
+# carry one; a project that adds its own is not more adopted for it.
+IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md")
 # The four `handbook/forking-a-project.md` step 4 requires a fork to copy. Not
 # every workflow in `project-seed/ci/`: step 4 does not require the others, so
 # counting them would report every adopting project as incomplete.
@@ -886,7 +890,7 @@ def github_layer(hub: Hub, projects: list[dict], name_private: bool) -> dict:
         # `private_repository_names_listed` flag describes every list in it.
     if not name_private and isinstance(listed, list):
         private = [r for r in listed if r.get("private")]
-        refs = assign_references(private, hub.org)
+        refs = assign_references(private, hub.org, load_ledger())
         for i, entry in enumerate(projects):
             handle = refs.get(entry.get("name"))
             if handle:

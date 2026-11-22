@@ -69,6 +69,7 @@ If several agent sessions run at the same time, the rules in [handbook/async-con
 
 ## Next
 
+- [From a clone to the first demo](../journeys/clone-to-first-demo.md) — the core cloned, synced and drawing in two front ends
 - [Questions a new developer asks](questions-a-new-developer-asks.md) — the questions a newcomer asks, a command per question
 - [Forking a new project](first-project.md) — adopt the corpus in a new project
 - [Recipes](index.md#recipes) — step by step, for common tasks

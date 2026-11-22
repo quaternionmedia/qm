@@ -62,6 +62,27 @@ ENFORCEMENT = re.compile(
 # so a version string or a URL fragment is not read as a file.
 CITED_PATH = re.compile(r"`(?:governance/qm/)?([A-Za-z0-9_][A-Za-z0-9_./-]*\.(?:md|py|ya?ml|json|toml))`")
 
+# Where a mechanism lives when an Enforcement clause names it by its filename
+# alone: the workflows this corpus runs, and the seed workflows and scripts a
+# project runs out of the submodule. Read from disk, never from a list of
+# names, so a workflow added to either directory resolves without an edit here.
+MECHANISM_DIRS = (".github/workflows", "project-seed/ci")
+
+
+def mechanism_exists(root: Path, cited: str) -> bool:
+    """Whether a path an Enforcement clause names is in the corpus.
+
+    A path with a directory resolves against the root. A bare filename names a
+    mechanism, and resolves against the directories mechanisms live in: a
+    record that says `leak-check.yml` refuses something means the workflow of
+    that name, which sits in both of them and never at the root.
+    """
+    if (root / cited).exists():
+        return True
+    if "/" in cited:
+        return False
+    return any((root / directory / cited).is_file() for directory in MECHANISM_DIRS)
+
 
 def sibling_repositories(root: Path) -> dict[str, Path | None]:
     """Every other QM repository in the roster, mapped to its checkout here.
@@ -244,7 +265,7 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
     enforcing_gates = [g["id"] for g in gates if rel in (g.get("enforces") or [])]
     if match:
         named = {m.group(1) for m in CITED_PATH.finditer(match.group("body"))}
-        missing = sorted(p for p in named if not (root / p).exists())
+        missing = sorted(p for p in named if not mechanism_exists(root, p))
         for gone in missing:
             findings.append({
                 "kind": "enforcement-names-a-missing-mechanism",

@@ -39,12 +39,13 @@ MARK = {
     "generated": "[G]",
     "standing": "[S]",
     "transient": "[T]",
+    "dated": "[H]",
     "unknown": "[??]",
 }
 
 # Ordered so a reader meets the binding states first.
 ORDER = ["ratified", "proposed", "draft", "unknown", "responded", "acknowledged",
-         "declined", "unreviewed", "generated", "standing", "transient"]
+         "declined", "unreviewed", "generated", "standing", "transient", "dated"]
 
 
 def reason(value: object) -> str | None:

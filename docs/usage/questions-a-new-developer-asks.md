@@ -80,6 +80,13 @@ harness` takes the name of one surface. It will not start the terminal front
 end, on purpose: a detached terminal draws where nobody is looking. That one you
 run yourself, in the terminal you want to watch.
 
+To say once which repositories your machine runs, name a family or a selection
+of your own: `uv run qm instances register --family core`, or `--repo` once
+for each repository. `uv run qm dashboard --start-registered` then brings up
+the surfaces in it, and `uv run qm instances` says which of them is up.
+[Bring your set up](../journeys/bring-your-set-up.md) walks it, with where
+to look in each front end.
+
 **"How do I see the same data in both front ends, side by side?"**
 
 `uv run qm demo --side-by-side` runs one topology through every window and checks
@@ -161,10 +168,11 @@ person who asked for the work; do not request a review.
 
 **"The suite is green. Does that mean the tests are any good?"**
 
-Not on its own — a passing test may be asserting nothing. `uv run qm mutate
-<module>` breaks a module on purpose and reports whether its tests noticed.
-`uv run qm posture` reports what the suite costs and what it catches together,
-because either number alone flatters. This is charter principle `a-check-is-evidence-after-it-fails`.
+Not on its own — a passing test may be asserting nothing. `uv run --extra dev
+qm mutate <module>` breaks a module on purpose and reports whether its tests
+noticed. `uv run --extra dev qm posture` reports what the suite costs and what
+it catches together, because either number alone flatters; both run pytest,
+which that extra installs. This is charter principle `a-check-is-evidence-after-it-fails`.
 
 **"This says zero. Does that mean nobody looked?"**
 

@@ -98,9 +98,18 @@ jobs:
       # vendor or model name is refused in a commit subject and in a record's
       # prose as well as in a trailer. A paragraph naming three or more competing
       # vendors is exempt: that is an interoperability claim, not a byline.
+      #
+      # A propagation's range holds main's merged commits, which nobody can amend,
+      # so on a pull request the trailer and author check reads only commits not
+      # already on main. On a push it reads the pushed range.
       - name: No vendor or model name outside a Tools note
         run: |
-          python project-seed/ci/check_attribution.py             --records-dir records             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+          merged=""
+          if [ "${{ github.event_name }}" = 'pull_request' ]; then
+            git fetch --no-tags origin main
+            merged="--merged-ref origin/main"
+          fi
+          python project-seed/ci/check_attribution.py             --records-dir records             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }} $merged
 
       # A record whose summary lives in an entry point declares where, and the
       # entry point names the record back. records/DRAFT-the-read-document-governs.md

@@ -226,12 +226,41 @@ def test_offline_reports_the_pull_requests_as_unread_not_as_clean(repo: Path) ->
 
 
 def test_out_writes_the_same_text_it_printed(repo: Path) -> None:
+    write(repo / ".gitignore", ".harness/\n")
+    commit_all(repo, "ignore the brief")
     result = run_tool(
         "cowork_context.py", "--offline", "--out", ".harness/session-brief.md", cwd=repo
     )
     assert result.returncode == 0, result.stdout + result.stderr
     written = (repo / ".harness" / "session-brief.md").read_text(encoding="utf-8")
     assert written == result.stdout
+    assert git(repo, "status", "--porcelain") == ""
+
+
+def test_out_refuses_a_path_git_would_track(repo: Path) -> None:
+    """Written there, the brief is the dirty tree the next brief reports."""
+    result = run_tool(
+        "cowork_context.py", "--offline", "--out", ".harness/session-brief.md", cwd=repo
+    )
+    assert result.returncode == 2
+    assert "not written" in result.stderr
+    assert not (repo / ".harness").exists()
+    assert git(repo, "status", "--porcelain") == ""
+
+
+def test_out_refuses_to_overwrite_a_tracked_file(repo: Path) -> None:
+    write(repo / "notes.md", "kept\n")
+    commit_all(repo, "a tracked file")
+    result = run_tool("cowork_context.py", "--offline", "--out", "notes.md", cwd=repo)
+    assert result.returncode == 2
+    assert (repo / "notes.md").read_text(encoding="utf-8") == "kept\n"
+
+
+def test_out_writes_a_path_outside_the_repository(repo: Path) -> None:
+    target = repo.parent / "outside" / "session-brief.md"
+    result = run_tool("cowork_context.py", "--offline", "--out", str(target), cwd=repo)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert target.read_text(encoding="utf-8") == result.stdout
 
 
 def test_a_generated_document_is_reported_with_its_age(repo: Path) -> None:

@@ -1,9 +1,9 @@
 """One palette, measured: every reader takes its colours from ci/palette.py.
 
 These hold the contrast floors a colour must clear to be used as text, the
-agreement between the module and the stylesheet written from it, and the two
-promises the site's look makes: no font from a font service, and no name set
-in capitals.
+agreement between the module and the stylesheet written from it, that no family
+is drawn in pink or red, and the two promises the site's look makes: no font
+from a font service, and no name set in capitals.
 
 What this cannot do: say a page is legible. It measures pairs of colours the
 palette declares, and cannot see a colour a page sets for itself, a hue placed
@@ -12,6 +12,7 @@ on a ground it was not measured against, or a picture whose text is too small.
 
 from __future__ import annotations
 
+import colorsys
 import re
 import sys
 from pathlib import Path
@@ -68,6 +69,24 @@ def test_every_text_colour_is_readable_on_every_ground(name, scheme):
 def test_a_state_is_readable_on_its_own_pill(state, scheme):
     ratio = contrast(palette.STATE[state][scheme], palette.STATE[f"{state}-bg"][scheme])
     assert ratio >= READABLE, f"{state}: {ratio:.2f}:1"
+
+
+@pytest.mark.parametrize("scheme", [palette.LIGHT, palette.DARK])
+@pytest.mark.parametrize("name", sorted(palette.FAMILY))
+def test_no_family_is_drawn_in_pink_or_red(name, scheme):
+    """Pink and red are kept for what is to be noticed: a graph draws a
+    family's members in its hue, beside a failure or a refusal drawn in red. A
+    colour saturated enough to read as a hue, from 280 degrees round through
+    red to 12, orchid to red, is pink or red.
+
+    Mutation: give `show-control` its old #f0708f, or `commons` its old orchid
+    #cf8ce0, and this fails.
+    """
+    colour = palette.FAMILY[name][scheme]
+    hue, _, saturation = colorsys.rgb_to_hls(*(int(colour[i:i + 2], 16) / 255 for i in (1, 3, 5)))
+    degrees = hue * 360
+    assert saturation <= 0.3 or not (degrees >= 280 or degrees <= 12), \
+        f"{name} is drawn in {colour}, {degrees:.0f} degrees: pink or red"
 
 
 def test_every_family_the_record_declares_has_a_hue():

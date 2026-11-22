@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Break a module on purpose and see whether its tests notice.
 
-    uv run qm mutate ci/rulesets.py
-    uv run qm mutate ci/rulesets.py --list          # the mutants, without running
-    uv run qm mutate ci/rulesets.py --check         # exit non-zero on a survivor
+    uv run --extra dev qm mutate ci/rulesets.py
+    uv run --extra dev qm mutate ci/rulesets.py --list    # the mutants, without running
+    uv run --extra dev qm mutate ci/rulesets.py --check   # exit non-zero on a survivor
 
 It is a route, so the claim "these tests discriminate" carries a command
 anybody can reproduce, rather than a number from a script nobody else has.
@@ -135,8 +135,8 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
 
     Binary copies. A text-mode copy on Windows rewrites every line ending, and
     the diff then measures the copier. Symlinks are followed rather than
-    recreated -- `CLAUDE.md` and friends are real symlinks here, and creating
-    one on Windows needs a privilege a test run should not require.
+    recreated -- the `.vscode/` and `.claude/` pointers are real symlinks here,
+    and creating one on Windows needs a privilege a test run should not require.
     """
     destination = workdir / "tree"
     shutil.copytree(

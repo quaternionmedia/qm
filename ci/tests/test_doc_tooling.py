@@ -164,6 +164,22 @@ def test_a_declared_generated_document_absent_from_disk_is_still_listed(tmp_path
     assert "not on disk" in row["why_absent"]
 
 
+def test_the_sites_family_and_project_pages_are_generated(tmp_path: Path):
+    """The cookbook writes every page under these two directories, and a page
+    read as reference is one somebody edits by hand and loses at the next run.
+    Mutation: empty `GENERATED_UNDER`, and this fails."""
+    corpus(tmp_path)
+    write(tmp_path / "docs" / "projects" / "carlos.md", "# carlos\n")
+    write(tmp_path / "docs" / "families" / "index.md", "# families\n")
+    write(tmp_path / "docs" / "usage" / "build-these-docs.md", "# Build these docs\n")
+    doc = build(tmp_path)
+    assert states(doc)["docs/projects/carlos.md"] == "generated"
+    assert states(doc)["docs/families/index.md"] == "generated"
+    assert find(doc, "docs/projects/carlos.md")["refresh"] == (
+        "uv run qm cookbook docs/families --site --write")
+    assert classify(tmp_path / "docs" / "usage" / "build-these-docs.md", tmp_path)[0] == "reference"
+
+
 def test_the_document_is_order_independent(tmp_path: Path):
     """Built twice with a file appearing in between, the earlier run must have
     already listed it -- otherwise --check can never pass."""

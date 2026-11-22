@@ -105,8 +105,8 @@ work that could be done once.
 **Weekly, or before any pull request that touches tests:**
 
 ```
-uv run qm posture                 # cost and yield, against the baseline
-uv run qm posture --baseline      # after a deliberate improvement
+uv run --extra dev qm posture             # cost and yield, against the baseline
+uv run --extra dev qm posture --baseline  # after a deliberate improvement
 ```
 
 Three rules make it a loop rather than a report.

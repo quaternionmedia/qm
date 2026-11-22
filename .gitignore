@@ -74,3 +74,8 @@ ci/workspace-local.yaml
 # A site preview `uv run qm cookbook --preview` writes: a copy of the site with
 # its pages regenerated, outside the committed one.
 .preview/
+
+# One machine's way of starting this repository's servers from an editor or an
+# assistant's preview pane. It names ports and commands for this disk and this
+# tool; the corpus names its ports in ci/ and its commands in the handbook.
+.claude/launch.json

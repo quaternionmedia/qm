@@ -1,10 +1,9 @@
 <!-- SEED FILE: this whole project-seed/ide/ directory mirrors the target
      project's own root layout 1:1 -- copy it recursively onto the project
      root (handbook/forking-a-project.md, step 5) rather than copying files
-     one at a time. CLAUDE.md and .github/copilot-
-     instructions.md are real symlinks to this file in the seed; a
-     symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
-     carries that forward so an edit to this file alone keeps both current.
+     one at a time. CLAUDE.md is a regular file holding the one line
+     `@AGENTS.md`, an import of this file, so a plain copy carries it and
+     an edit to this file alone keeps it current.
      Delete this comment in the copy. Replace every <name> placeholder with
      the project's own name, and fill in project-specific setup and test
      commands below the marked line. The governance section above that line
@@ -21,19 +20,25 @@ no other briefing, read this file fully before your first commit or edit.
 ## Before you do anything
 
 **Establish four facts about this session before you write anything**, by
-asking the repository rather than inheriting a previous session's belief:
+asking the repository rather than inheriting a previous session's belief.
+Each says what it needs.
 
-1. **The commit you are working against**, and the branch.
-2. **Which pull requests you already hold open, and how they stack** — small,
-   atomic pull requests, a dependent one stacked on its parent as a draft:
-   `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
-3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
-   sibling branch, an unpushed commit. Other sessions are likely running right
-   now, in other repositories, for the same reviewer;
-   `governance/qm/handbook/async-contract.md` is the short set of rules for
-   working alongside them.
-4. **Which gates exist**, and what each cannot see:
-   `python governance/qm/project-seed/ci/run_workflows_locally.py`.
+- **A. The commit you are working against**, and the branch. `git log -1` and
+  `git status` answer it, and need nothing but the clone.
+- **B. Which pull requests you already hold open, and how they stack** — small,
+  atomic pull requests, a dependent one stacked on its parent as a draft:
+  `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
+  It asks the host, so it needs a signed-in `gh`; without one it says
+  `gh auth login` and stops, and with no account the answer is none.
+- **C. What else is in flight in this clone** — a dirty tree you did not dirty,
+  a sibling branch, an unpushed commit. `git status` and `git branch -vv`
+  answer it. Other sessions are likely running right now, in other
+  repositories, for the same reviewer;
+  `governance/qm/handbook/async-contract.md` is the short set of rules for
+  working alongside them.
+- **D. Which gates exist**, and what each cannot see:
+  `python governance/qm/project-seed/ci/run_workflows_locally.py`, which
+  needs pyyaml, a signed-in `gh` and an `origin` to run every step.
 
 Those are the invariants. **How** you gather them is yours to choose — read the
 repository, run the scripts above, or use an adapter if one exists for your
@@ -58,8 +63,13 @@ quoting a figure.
    when you touch this project's records there — then **merge it yourself once
    every gate is green.** Your job is a default branch that is clean and
    working, entered through a pull request so the gates ran and the diff stays
-   readable afterwards. **Never push a shared branch directly**: that is the
-   one act that destroys the audit record.
+   readable afterwards. That route is a maintainer's. An outsider with this
+   project's records to change opens an issue or a pull request here, and a
+   maintainer pushes the project's `project/<name>` branch in the corpus on
+   their behalf. An outside tester's pull request is merged by its assignee,
+   a maintainer. **Never push
+   a shared branch directly**: that is the one act that destroys the audit
+   record.
    **The default branch is not a claim, so merging into it is not a release.**
    Per `governance/qm/records/DRAFT-version-tags-are-claims.md` §4, the default
    branch, a pull request and a local build are all drafts — they may be
@@ -184,19 +194,58 @@ quoting a figure.
     org's repositories, such as a chat product's shareable artifact or canvas:
     it is not versioned with the code, cannot be reviewed as a diff, and goes
     stale unseen. `check_leaks.py` refuses a committed link to one.
+16. **A shared allowance is drawn on politely** — record
+    `governance/qm/records/DRAFT-a-shared-allowance-is-drawn-on-politely.md`.
+    Before many calls to one service, read what remains of its allowance and
+    state the count; past a tenth, ask first. Sample for an estimate, keep each
+    response as it arrives, send a few at a time, and stop at the first refusal
+    that names a limit, saying when it resets. The allowance belongs to every
+    caller on the credential.
+17. **Check what your branch carries before you open the pull request.**
+    `python governance/qm/project-seed/ci/check_pr_base.py --base <base> --head
+    <branch>` reports the merge-base, the commit and file counts, the authors,
+    and any commit that also lives on another branch; paste its output into the
+    description. A branch cut from the wrong parent passes every other check,
+    because tests and lint measure the branch and not where it came from. It
+    refuses the directions the namespaces forbid, such as a `project/<name>`
+    head aimed at the default branch.
+18. **Run the CI locally before you call a pull request ready.**
+    `python governance/qm/project-seed/ci/run_workflows_locally.py` executes the
+    workflows' actual steps; reading a workflow and running the commands you
+    think it contains is not the same thing. Report what you ran and what it
+    said, including the steps the runner cannot reproduce, and say whether a
+    local failure is a defect or a difference in the environment.
+19. **Durable text carries as few integers as it can** — record
+    `governance/qm/records/DRAFT-few-integers-in-durable-text.md`. A number in
+    prose is a claim with an expiry date that the prose does not carry. Prefer
+    the relation to the count ("every service", not a total), and where a
+    figure is the point, name the command and the commit that produced it.
+    Never restate a figure a generated document already holds. A verification
+    section is the one place a bare count belongs. An assertion in code that goes
+    stale fails, which is the property prose lacks.
+20. **This page is read first, so it restates decisions it does not own** —
+    record `governance/qm/records/DRAFT-the-read-document-governs.md`. Where a
+    passage here summarizes a record, it names the record's path. When the
+    summary and the record disagree, the record is what was decided and the
+    summary is repaired, never the other way round.
+21. **Durable text states what is true now, for a reader who was not there** —
+    record `governance/qm/records/DRAFT-durable-text-states-what-is-true.md`. A
+    docstring, a page or a record says what the thing is, what it does, what it
+    cannot do and what to do with it, in the present tense. It does not tell how
+    it came to be: what it replaced, what was found, when or by whom. The
+    commit, the pull request and the retrospective hold that. The seed's
+    `timeless-check.yml` runs `check_timeless.py` on the lines a pull request
+    adds and refuses a phrase set in capitals and a phrase that only narrates.
 
-## One-time setup on a fresh clone (Windows)
+## The instruction files
 
-`CLAUDE.md` and `.github/copilot-instructions.md` are real symlinks to this
-file, not copies — POSIX checkouts resolve them with no setup. On Windows,
-enable Developer Mode (Settings → For developers) and run `git config
-core.symlinks true` once per clone, then `git checkout -- .` if the files
-were already checked out before that; the checkout then resolves them as a
-POSIX one does. Without that setting, each of the two checks out as a
-one-line file holding the relative path to this file: a person can follow
-it, and a tool that reads only that file gets the path rather than these
-instructions. The IDE-integrated governance discovery record in
-`governance/qm/records/` is the decision behind both files.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`: an import
+the tool that reads it expands into this page, on every platform, with no
+setup. This file is the one every tool reads, and no other instruction file
+is carried.
+`governance/qm/records/DRAFT-ide-integrated-governance-discovery.md` is the
+decision behind the file, and says when a project adds a
+`.github/copilot-instructions.md`.
 
 <!-- Project-specific setup commands, test commands, and conventions belong
      below this line. Above it, the governance section of

@@ -13,7 +13,7 @@
 | member | governed |
 |---|---|
 | `carlos` | yes |
-| `private-34` | no |
+| `loopwall` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
 | `midiphonor` | no |
@@ -25,16 +25,16 @@
 
 Also in another family, because each drives more than one thing:
 
-- `private-34` — [`performer-display`](./performer-display.md)
+- `loopwall` — [`performer-display`](./performer-display.md)
 - `uPhonor` — [`irl`](./irl.md)
 - `stomp` — [`irl`](./irl.md)
 
 ## Starting here
 
-2 of 10 members carry governance, so this family has a governed entry point. Begin in `carlos`:
+3 of 10 members carry governance, and each is a governed entry point: `carlos`, `loopwall`, `qmetronome`. Begin in any of them:
 
 ```sh
-cd carlos
+cd <member>               # one of those named above
 uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
 ```
 
@@ -50,4 +50,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-24 from `families.json`.*
+*Generated 2026-11-05 from `families.json`.*

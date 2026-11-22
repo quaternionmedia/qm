@@ -7,7 +7,8 @@ narrowed to `yourself` alone turned five cases red; `HANDLING` emptied turned
 five red; the login mention disabled turned one red; the fence handling
 removed turned the code-block case red. A first attempt at the first mutation
 edited nothing -- a shell escape ate the pattern -- and reported green; the
-mutations run from a script file now.
+mutations run from a script file now. The automation exemption guarded by
+`if False and` turned the automation case red.
 """
 
 from __future__ import annotations
@@ -106,3 +107,30 @@ def test_the_command_exits_nonzero_and_names_the_line(tmp_path):
                           capture_output=True, text=True)
     assert done.returncode == 0
     assert "addresses nobody" in done.stdout
+
+
+# The shape of a Dependabot body's commands section, in the second person.
+AUTOMATION_BODY = (
+    "Bumps the actions group with one update.\n\n"
+    "You can trigger a rebase of this pull request by commenting on it.\n"
+)
+
+
+def test_an_automation_authors_body_is_not_judged(tmp_path):
+    """A bot's body is posted under no person's account, so it speaks as nobody."""
+    assert voice.is_automation("dependabot[bot]")
+    assert not voice.is_automation("subcontrabass")
+    assert not voice.is_automation("robot-maker")
+    assert not voice.is_automation(None)
+
+    body = tmp_path / "body.md"
+    body.write_text(AUTOMATION_BODY, encoding="utf-8")
+    run = [sys.executable, str(SCRIPT), "--body-file", str(body), "--contributor"]
+
+    done = subprocess.run([*run, "dependabot[bot]"], capture_output=True, text=True)
+    assert done.returncode == 0
+    assert "automation account" in done.stdout
+
+    done = subprocess.run([*run, "subcontrabass"], capture_output=True, text=True)
+    assert done.returncode == 1
+    assert "second person" in done.stdout

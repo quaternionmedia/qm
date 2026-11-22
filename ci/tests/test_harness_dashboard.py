@@ -527,7 +527,7 @@ def test_the_full_artifact_set_is_a_complete_seed() -> None:
         {
             "adoption": {
                 "submodule": {"corpus_mounted_at": "governance/qm", "branch": "project/x"},
-                "ide": ["AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md"],
+                "ide": ["AGENTS.md", "CLAUDE.md"],
                 "ide_missing": [],
                 "seed_workflow_filenames_present": ["adr-lint.yml"],
                 "seed_workflow_filenames_absent": [],
@@ -546,7 +546,7 @@ def test_a_submodule_mounted_without_its_own_branch_is_incomplete() -> None:
         {
             "adoption": {
                 "submodule": {"corpus_mounted_at": "docs/qm", "branch": None},
-                "ide": ["AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md"],
+                "ide": ["AGENTS.md", "CLAUDE.md"],
                 "ide_missing": [],
                 "seed_workflow_filenames_present": ["adr-lint.yml"],
                 "seed_workflow_filenames_absent": [],

@@ -152,3 +152,28 @@ protocols:
       corpus's house vocabulary and knows nothing about anybody else's. It reads
       openings, which is a small fraction of any page: a document can open well
       and be unusable afterwards. And it reads only the repository it runs in.
+
+  - id: project-refresh
+    name: Project refresh
+    question: >
+      Is this project current with the corpus it adopted, do its own tests
+      pass, and does it meet the policies its gates enforce?
+    page: protocols/project-refresh.md
+    invoked_by: a human, or an agent asked to
+    cadence_days: 60
+    optional: false
+    produces: protocols/runs/<date>-project-refresh.md
+    steps:
+      - uv run qm project <name>
+      - uv run qm branch --base origin/project/<name> --head propagate/<name>-<date>
+      - uv run qm merge --repo quaternionmedia/qm --pr <number> --yes
+      - python governance/qm/project-seed/ci/run_workflows_locally.py --event pull_request --base-ref main
+      - uv run qm policies
+      - uv run qm docs generate
+      - uv run qm docs check
+    cannot_see: >
+      Whether the project's tests test anything, and whether a record on its
+      branch is right. What a gate does on the host, which a local run of its
+      steps approximates. Any project but the one named. And anything a fetch
+      has not brought in: the opening step reads remote-tracking refs, asks the
+      host whether they are stale when it can, and offline cannot tell.

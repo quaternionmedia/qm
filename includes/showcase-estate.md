@@ -2,6 +2,18 @@
 
 <div class="grid qm-showcase" markdown>
 
+<div class="card qm-f-irl" markdown>
+
+![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png){ .qm-thumb loading=lazy }
+
+[apothecary](projects/apothecary.md){ .qm-card-link }
+
+<span class="qm-meta">irl · v0.0.2</span>
+
+The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.
+
+</div>
+
 <div class="card qm-f-core" markdown>
 
 ![The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg){ .qm-thumb loading=lazy }

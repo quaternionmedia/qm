@@ -127,9 +127,17 @@ exact.
    above is about a page's content, and content properties are satisfiable on a
    branch no remote carries — `alfred`'s documentation guard reports `7 passed`
    on exactly such a branch today. So the walkthrough's check is satisfied only
-   by evidence of a run **on the repository's default branch**: the identifier
-   of an actual job run, not the presence of a workflow file. A file that would
-   have run is not a run.
+   by evidence of a job's run **of a commit the default branch carries**: the
+   identifier of an actual job run, not the presence of a workflow file. A file
+   that would have run is not a run.
+
+   A hermetic page's evidence is the run a push to the default branch makes. A
+   runtime-bound page's may be the run its version tag makes instead, where the
+   project runs its whole suite before every merge on the contributor's machine,
+   on the tree that lands, and the merge commit names that tree, the command
+   and what it counted. That run is what the merge rests on, and it is a claim;
+   the tag's run is the evidence. Between a change to a runtime-bound page and
+   the next tag, the page has a claim and no evidence.
 
 8. **A skip is not a pass, and a page that always skips is deleted.** Pages
    declare their runtime in their opening line:
@@ -179,7 +187,11 @@ exact.
   makes some examples awkward to write and is the honest reason to keep pages
   short.
 - Nothing here obliges an existing artifact to be deleted on adoption. Decision
-  7 obliges deletion only of a page that can never run.
+  8 obliges deletion only of a page that can never run.
+- A project taking decision 7's tag clause carries runtime-bound pages that
+  are, between tags, the contributor's word. The tag's run is where that word is
+  checked, and a project that cuts no tag has runtime-bound pages nobody has
+  checked.
 
 ## Alternatives considered
 
@@ -201,6 +213,24 @@ because they document by running the product, so they cannot introduce it: a
 reader must already have the product working, which is the one thing onboarding
 cannot assume.
 
+**Every page, the runtime-bound ones too, on every push to the default
+branch.** Decision 7 without its tag clause. It keeps the evidence beside every
+merge, and buys a provisioned runtime per merge: in `apothecary`, a push that
+ran its test workflow, the runtime-bound pages among it, took some twenty-five
+times the runner time of a push that ran its governance checks and lint (median
+job-minutes a push, 2026-10-24 to 2026-10-25, summed from `gh api
+repos/quaternionmedia/apothecary/actions/runs/RUN/jobs`). Rejected: the tag's
+run is one `DRAFT-version-tags-are-claims.md` §2 already requires of the tagged
+commit, and it is enough between tags, where each merge rests on the
+contributor's run of the tree that lands and names it.
+
+**The contributor's run as the evidence.** The merge commit names the tree,
+the command and what it counted, and the landed tree can be checked against
+the one named. Rejected: what it counted is the contributor's word about their
+own run, and `DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md` refuses a
+claim as its own evidence. It is what a merge rests on, not what the walkthrough
+is checked by.
+
 **Keep the status quo and write a style guide entry.** Rejected because the
 status quo already includes seven careful attempts. The problem was never that
 people did not know they should document; it is that the second copy was
@@ -212,8 +242,12 @@ cheaper to abandon than to maintain.
   decision 1. The convention is then not carrying its weight and the record is
   re-cut around what the two have in common.
 - A hermetic page acquires a runtime dependency without moving to the
-  runtime-bound tier. Decision 7's tiering has failed and needs a check rather
+  runtime-bound tier. Decision 8's tiering has failed and needs a check rather
   than a declaration.
+- A tag's run fails on a runtime-bound page that every merge since the last
+  tag reported passing on the contributor's machine. The tag clause in decision
+  7 is then carrying a claim the runs do not back, and every push to the default
+  branch runs the page.
 - The doctest form proves unworkable for a repository whose examples are
   genuinely not text. Decision 4 becomes the default there and the record says
   which repositories are in which mode.
