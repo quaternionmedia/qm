@@ -45,7 +45,7 @@ cannot reach its `main` until they merge (`qm-queue.md` §4).
 
 Branch `feat/alfred-excerpts` of `qmcp`, in the worktree
 `qmcp.worktrees/alfred-excerpts` beside the clone, cut from `main` at
-`2c53b78`. Six commits, `d2688b7` to `954545e`, signed and pushed: the flow, the
+`67e5bc3`. Six commits, `93f504b` to `72fdc47`, signed and pushed: the flow, the
 editor review's fixes (§4), a line length, the flow's output named an
 excerpt, the onboarding naming the flow
 ([`docs-review-editing-by-what-is-said.md`](docs-review-editing-by-what-is-said.md)),
@@ -73,16 +73,16 @@ worker, the site and joe as processes on the host against a MongoDB, and
 count bounds a project's captions or its words, the first pull request of the
 round [`the-algorithmic-layer.md`](the-algorithmic-layer.md) plans. Above
 that, that round's eight branches, signed and pushed,
-**`feat/who-spoke`** at `8caa1f78` at the top, and cut from it in parallel
-**`feat/no-cue-cap`** at `799da17c`, **`feat/topic-titles`** at `eb56004e`,
-**`feat/recipe-editor`** at `63302000`, **`feat/scene-cuts`** at
-`30dedcb7`, **`feat/drafts-measured`** at `033fc4a4`, **`feat/open-in`** at
-`1a648f11`, **`feat/speakers-to-words`** at `45a08774`,
-**`feat/trim-captions`** at `dfc3a4c8`, **`feat/fluid-tools`** at
-`3a5392f5` and **`feat/revealed-words`** at `ef0061c4`, the clone's
-checkout, with **`feat/labeller`** at `fef0dc01` above
+**`feat/who-spoke`** at `efa270d4` at the top, and cut from it in parallel
+**`feat/no-cue-cap`** at `7d2ac4c0`, **`feat/topic-titles`** at `dcae6162`,
+**`feat/recipe-editor`** at `fb60d8bd`, **`feat/scene-cuts`** at
+`dbe92ae6`, **`feat/drafts-measured`** at `4071ed77`, **`feat/open-in`** at
+`b8a50647`, **`feat/speakers-to-words`** at `e19b29e9`,
+**`feat/trim-captions`** at `446328c6`, **`feat/fluid-tools`** at
+`380f60f0` and **`feat/revealed-words`** at `2eb2db53`, the clone's
+checkout, with **`feat/labeller`** at `7f9099cc` above
 `feat/topic-titles`; that page's §5
-lists them in order, with qmcp's **`feat/alfred-drafts`** at `3fd0788`
+lists them in order, with qmcp's **`feat/alfred-drafts`** at `6ae513a`
 above `feat/alfred-excerpts` and looksatwords' **`feat/open-by-link`** at
 `ca30279` above `main`. In the clone and
 not a worktree because what serves on 1732, the family stack or the host
