@@ -12,7 +12,9 @@ does. It also says how far each stamped `main` has moved since.
 
 Exit 0: nothing the page names changed after its stamp. Exit 1: something did,
 or a number resolves to no pull request or issue; each is listed. Exit 2: the
-page, its stamp or the host could not be read.
+page, its stamp or the host could not be read, or there is no credential to
+read the host with: the login is checked first, by name, because without one
+every read fails the same way and the first to fail would be the stamp's.
 
 How a number is read. `owner/name#N` is that repository's. `name #N`, with
 `name` a roster repository (in backticks or not), is that repository's, and so
@@ -136,6 +138,16 @@ def when(stamp: str) -> datetime:
     return datetime.fromisoformat(stamp.replace("Z", "+00:00"))
 
 
+def signed_in() -> bool:
+    """Whether the host CLI holds a credential: `gh auth status` exits zero.
+
+    Asked before any other read. Without a credential the compare read fails
+    too, and its empty answer would be reported as the host not knowing the
+    page's stamp: a fault in the page, where the fault is the session's.
+    """
+    return host.gh("auth", "status").returncode == 0
+
+
 def read_stamp(repo: str, sha: str, org: str = DEFAULT_ORG) -> dict | None:
     """`{"ahead_by": n, "date": committer date of the stamp}`, or None."""
     reply = host.gh_json(
@@ -192,6 +204,10 @@ def report(page: Path, out, org: str = DEFAULT_ORG) -> int:
     if CORPUS not in stamped:
         out.write(f"queue: {page.as_posix()} carries no stamp for `{CORPUS}` "
                   f"(\"`{CORPUS}` `main` at `<commit>`\").\n")
+        return 2
+    if not signed_in():
+        out.write("queue: no host credential, so nothing the page names can be "
+                  "asked about. Run `gh auth login`, or set GH_TOKEN.\n")
         return 2
     lags = {repo: read_stamp(repo, sha, org) for repo, sha in stamped.items()}
     if lags[CORPUS] is None:

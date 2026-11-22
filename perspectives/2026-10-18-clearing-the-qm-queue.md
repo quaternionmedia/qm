@@ -94,7 +94,7 @@ a test, is open work.
 ## A restamped page that passed every gate
 
 **The assumption:** a handoff page whose figures were taken from the host on
-the day is accurate. The restamp of `handbook/handoffs/voice-set-landing.md`
+the day is accurate. The restamp of the voice set's landing handoff, `handbook/handoffs/voice-set-landing.md` until it was deleted,
 passed every check and was then read with the person, section by section,
 each figure re-derived. Eight were wrong. Some were written that day: the
 reading load said to be over its budget only after #136, when it was over

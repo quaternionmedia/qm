@@ -1,10 +1,11 @@
 # Handoff — A design review of qm, then of the estate
 
-**Stamped 2026-09-26.** `qm` `main` at `d6dc5cd`, the merge of #120. The
-method's first run is apothecary #22: `review/2026-09-26` at `276d8b8` on
-origin, cut from `1835b47`. Estate figures were read from the host the same
-day. Every figure below was true then and nowhere else, and each names the
-command that re-derives it.
+**Each part carries its own stamp.** Part 1 is stamped 2026-10-31 at `qm`
+`main` `debf210`; Part 2 is stamped 2026-09-26 at `d6dc5cd`, the merge of
+#120, with its estate figures read from the host that day. The method's
+first run is apothecary #22: `review/2026-09-26` at `276d8b8` on origin,
+cut from `1835b47`. Every figure below is true at its part's stamp and
+nowhere else, and each names the command that re-derives it.
 
 This corpus is reviewed first by the method apothecary #22 ran, then the
 estate in the order below. The method is
@@ -19,29 +20,41 @@ runbook, then this page. Nothing else first.
 
 ## Part 1 — qm
 
+**Stamped 2026-10-31.** `qm` `main` at `debf210`, the merge of #302. Phases 0,
+1 and 3 of the runbook ran against that commit, read-only, scoped to a
+stranger's first hour: whether someone with no context can adopt the corpus
+from `main` alone and reach a working loop, and which gaps stop them first,
+with outside testers arriving soon as the measure. The review states leads and
+decides nothing: nothing is fixed, cut or merged by it. Phases 4 to 7 remain,
+and the last section says what picks them up. Every figure below names the
+command that re-derives it and is true at `debf210`; re-run before acting.
+`perspectives/2026-10-31-the-strangers-first-hour.md` is the retrospective.
+
 ### Before the first command
 
-- **The charge.** It is not on this page and cannot be. Ask the owner for it in
-  the session and carry the answer verbatim into the audit and skeptic briefs.
+- **The scope.** Ask the owner for it in the session and carry the answer
+  verbatim into the audit and skeptic briefs, which are working files. The
+  scope above is what the first run used; a later run asks again.
 - **The dev extra.** `qm test`, `qm posture` and `qm mutate` need pytest, which
   is in the `dev` extra: bare `uv run qm test` exits 1 with `No module named
-  pytest`. Every `uv run` below that runs tests carries `--extra dev`.
+  pytest` and prints no remedy. Every `uv run` below that runs tests carries
+  `--extra dev`.
+- **The path, on Windows.** The site generator's extra fails to import at a
+  deep checkout path (`ImportError: DLL load failed ... The filename or
+  extension is too long`), and `git submodule add` with Git for Windows 2.37
+  fails from a deep project path with `fatal: '$GIT_DIR' too big`. Measure from
+  a short path, or the measurement describes the path.
 - **Adapters.** `adapters/README.md` lists any that drive the runbook for one
   tool. None is required, and the runbook wins over each.
-- **The four facts.** At the stamp, `uv run qm slot --repo quaternionmedia/qm
-  --per-base 'project/*'` showed the `main` slot free and one draft, #121 into
-  `project/apothecary`, holding that base's slot for another session. Leave it
-  alone. `uv run qm gates` lists the gates and what each cannot see.
-- **The audit launch's consent rides the harness queue** as an approval
-  request naming its exact count (`handbook/handoffs/the-voice-loop.md`
-  §5 has the id and the route), so the owner can answer away from a
-  terminal; each later phase's count goes back on the queue the same
-  way. The rule it implements is unchanged and stated next.
-- **Parallel sessions only on the owner's word in the session**, with the audit
-  block and each count stated before its launch, as the runbook's *Before you
-  start* says. Without that word, one session runs the phases in sequence.
-- **Branches.** The review on `evolve/design-review-<date>`, cut from `main`; its
-  retrospective on `perspective/<date>-design-review`. Anything belonging to one
+- **The four facts.** At the stamp, `uv run qm stacks --repo quaternionmedia/qm`
+  lists the open pull requests, every one into a `project/*` branch; nothing is
+  open into `main`. `uv run qm gates` lists the gates and what each cannot
+  see.
+- **Parallel sessions only on the owner's word in the session**, with the
+  audit block and each count stated before its launch, as the runbook's
+  *Before you start* says. The first run's audit block is in the retrospective.
+- **Branches.** The review on `evolve/design-review-<date>`, cut from `main`;
+  its retrospective on `perspective/<date>-<slug>`. Anything belonging to one
   project's records goes on a branch based on that `project/<name>`, never into
   the review's pull request.
 
@@ -50,228 +63,352 @@ runbook, then this page. Nothing else first.
 Every rule the corpus states is either refused by a named mechanism on the host,
 in CI or in preflight, with a test seen failing, or is labelled unenforced;
 everything else in the repository shortens an adopter's path to a correct first
-commit, or leaves.
+commit, or leaves. Read against a stranger's first hour, the second half is the
+one that bites: a page that presupposes a sibling clone, a credential, a
+person or a push right lengthens that path for everyone the corpus is about to
+meet.
 
 ### Phase 0, as measured at the stamp
 
-| Measure | Command | At `d6dc5cd` |
+| Measure | Command | At `debf210` |
 |---|---|---|
-| The suite, with CI's arguments | `uv run --extra dev qm test` | 1508 passed, 17 skipped; 34 s in parallel, 56 s serial |
-| The structural pass over the records | `uv run qm review` | 30 findings, 12 of them universals to read by hand and 7 dangling citations |
-| Generated documents | `uv run qm docs check` | exit 1: `status/documents.yaml` has drifted |
+| The suite, with CI's arguments | `uv run --extra dev qm test` | exit 1 on one test, `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree`: its skip condition reads whether two ports answer rather than whether the sibling clones exist, so where other services answer those ports and no clone sits beside the checkout it runs and fails. Where nothing answers those ports it skips. Everything else passes; the skips are in the same file. The tree is clean afterwards |
+| The preflight | `uv run --extra preflight qm preflight` | three steps of thirty-eight fail: the tooling tests, on that one test, and the two site builds, on the Windows path-length limit above; from a shorter path `zensical build --clean`, `ci/cookbook.py docs/families --site --check` and `ci/docs_audit.py` all exit 0 |
+| Generated documents | `uv run qm docs check` | exit 1: `status/documents.yaml` lacks the row for the perspective #302 adds. No workflow runs this check |
+| The standing queue | `uv run qm queue` | exit 1: three pull requests in other repositories merged since the page's stamp of 2026-10-24 |
+| The structural pass over the records | `uv run qm review` | runs; its two findings naming `leak-check.yml` as absent are false, since `.github/workflows/leak-check.yml` and `project-seed/ci/leak-check.yml` both exist |
 | Leaks | `uv run qm leaks` | clean |
-| Test yield, each minutes long: run in the background | `uv run --extra dev qm posture`; then `uv run --extra dev qm mutate <module>` per guard posture ranks lowest, with `--tests <suite>` where the module's tests live elsewhere (bare `qm mutate` exits 2: `module` is required) | last baseline `.qm-posture.json`, 2026-08-21; no workflow runs either |
-| The command surface | `uv run qm --help` | 48 subcommands |
-| Weight | `git ls-files ci records` | `ci/` modules 21,535 lines, `ci/tests` 15,494, twelve `*-registry.yaml` plus three other `ci/*.yaml`; 39 records |
-| The entry path | follow `handbook/forking-a-project.md` into a scratch repository and run its gates; for each rule in `AGENTS.md`, a branch that violates it | not run: which gate exits non-zero for which rule |
-| CI | `gh run list --repo quaternionmedia/qm --limit 50 --json name,conclusion,createdAt,updatedAt` | not read |
+| Timeless text | `uv run qm timeless --all --summary` | clean |
+| The host's barriers | `gh api repos/quaternionmedia/qm/branches/main/protection`; `uv run qm rulesets`; `git ls-remote --tags origin` | `main` unprotected (404); none of the six drafted rulesets applied; no tags |
+| The host's merge settings | `gh api repos/quaternionmedia/qm --jq '{allow_squash_merge,allow_rebase_merge,allow_merge_commit,delete_branch_on_merge}'` | all three merge methods allowed; branches deleted on merge |
+| Sibling clones | `uv run qm estate` | every rostered repository `MISSING`, the corpus itself included, exit 0 |
+| Test yield | `uv run --extra dev qm posture` | not measured: the baseline is red on the trio-demo test, so posture refuses to measure, which is the right refusal and leaves the guards' yield unknown at this commit |
+| The command surface | `uv run qm --help` | 55 subcommands in one flat list |
+| The entry path | `handbook/forking-a-project.md`, followed step by step into a scratch project | stops at step 2 for anyone without write access to this repository; the leads under *The fork* |
+| CI | `gh run list --repo quaternionmedia/qm --limit 60 --json name,conclusion,createdAt,updatedAt` | every push gate on `main` in the window succeeded; one pull-request run cancelled by concurrency |
 
-Runtime is not this corpus's problem. What is in question is yield (does each
-check discriminate) and weight (what `ci/` is for). Measure yield with the
-corpus's own instrument, `handbook/test-posture.md`, rather than a new one.
+### The areas, as run
 
-### The areas
+The runbook's ten areas for a governance corpus fold into four for this
+scope, each read by one reader against a detached checkout nothing else
+touched:
 
-The runbook's general areas fold in here: test runtime becomes yield under
-area 3, docs fall under areas 5 and 10, hygiene and dead weight under area 4.
+| Area as run | Folds in | Not covered, and why |
+|---|---|---|
+| The reader's path | areas 10, 5 and the contradictions of 9 | — |
+| The adoption path, run | area 7, and the entry path of Phase 0 | the propagation half of 7: an adopter's lag needs the adopter |
+| The working loop and its gates | areas 2, 3, 4 and 8 | yield (3): posture has no green baseline at this commit; the full classification of the command surface |
+| The standing state at open | areas 6 and 5, and the attribution lead of 9 | — |
+| — | area 1, record coherence | a stranger's hour does not reach the records' meaning; the semantic review is its home |
+| — | the rest of 9 | integers, drafts in place and protocol budgets are a maintainer's reading, not a stranger's |
 
-| Area | First questions |
-|---|---|
-| 1 Record coherence, read mechanically | Which pairs bind the same thing: the-read-document-governs and governance-arrives-as-a-mechanism; nothing-is-both-a-claim-and-its-own-evidence and a-check-is-evidence-only-after-it-has-failed; the loose-end, delta, knot and granularity cluster? Which records are process notes rather than decisions, by the charter's own test? Do `qm review`'s candidates hold? Could the set shrink without losing a decision? |
-| 2 Ceremony against enforcement | For each rule in `AGENTS.md` and the records, what stops a violation today: the host, CI, preflight, or nothing? What would applying `A-main.json` break? Can a tag pass `tag-determinism` with this suite? Which gates would a small team keep if each had to earn its place? |
-| 3 Tooling correctness | Does each `ci/gate-registry.yaml` entry's `gates:` and `refuses:` match its workflow's `on:` and its code? Do path filters exclude what a job executes? What do mutation yields say today for the direction guard and the record lint? Which tests assert on the real corpus, and which only on fixtures? |
-| 4 Tooling scope and weight | Which modules serve a record's enforcement, which one workstation, which a demo? Which subcommands does a workflow, a runbook or nobody run (`ci/tool-registry.yaml`)? Which registries have a consumer? What could move to a repository of its own, and does the seed's run-in-place contract allow it? |
-| 5 Routing sprawl | Which handoffs describe landed work? Which plans are live? Which handbook pages narrate history the style guide sends to perspectives? Are the two glossaries two sources of truth? |
-| 6 Generated documents | Which are read by a gate, a person, or nobody? Which are past their budget? Why did one drift on `main` unnoticed? Should generated state be committed at all? |
-| 7 Seed drift and propagation | How far behind is each project branch, and is every pin reachable (`uv run qm pins --root <adopter clone>` per adopter, or `status/governance.yaml` after `uv run qm docs generate`; run in qm itself it finds no submodules)? Which seed workflows does each adopter carry? Does the forking procedure list what the seed holds? Is one propagation pull request per project per change sustainable? |
-| 8 Branch and pull request hygiene | Is the five-namespace list the rule or a fiction? Which remote branches are merged, stranded or parked (`uv run qm branches`)? Do the host's merge settings match `handbook/merge-review.md`? |
-| 9 Self-application | Does the corpus obey its own records on integers, conversation, drafts in place, attribution and protocol budgets? |
-| 10 The reader's path | What is the least an agent reads before a correct first commit, here and in an adopter? How many places restate one rule? Does `project-seed/ide/AGENTS.md` carry the current contract to adopters? |
+### Leads, as hypotheses, in the order a stranger meets them
 
-### Leads, as hypotheses
+Each is measured at `debf210` and is a hypothesis until re-run. Where an
+ordinary explanation produces the same output, it is named: rule it out first
+(`AGENTS.md` item 11). The two leads that cut something went through phase 3;
+the section after this one has the verdicts, and the refuted one is not listed
+here.
 
-Each was measured at the stamp and is a hypothesis until re-run. Where an
-ordinary explanation could produce the same output, it is named: rule it out
-first (`AGENTS.md` item 11).
+**At open: the reading.**
 
-**Area 2.**
-- *Nothing on the host enforces a rule.* `gh api
-  repos/quaternionmedia/qm/branches/main/protection` answered 404, "Branch not
-  protected"; `uv run qm rulesets` showed six drafted and none applied; every
-  owner line in `.github/CODEOWNERS` starts `#=`. Applying a ruleset is a
-  person's act (`.github/rulesets/README.md`, stage 1): the
-  review recommends and never applies.
-- *Neither human gate has been exercised.* `git ls-remote --tags origin` printed
-  nothing; `status/documents.yaml` shows none Accepted.
-- *`tag-determinism` would refuse this corpus's own suite on a runner.* All 17
-  skips are `ci/tests/test_trio_demo.py`, which needs sibling clones; that
-  output fed to `python project-seed/ci/check_tag_claims.py --test-output`
-  printed `FAIL <test run> - 17 skipped -- §3` and exited 1. Rule out a runner
-  that has the clones.
-- *Record pull requests into `project/*` run a reduced, older gate set.* `git
-  ls-tree origin/project/apothecary .github/workflows/` listed 7 workflows
-  against `main`'s 15; #121 ran 5, with no leak check, signatures or
-  registries; `leak-check.yml` triggers on `main` only. Rule out a record that
-  intends project branches to carry fewer gates.
+- *The first-change recipe assumes write access and a named requester, and
+  no page gives an outsider's path.* `README.md` *Contributing*, `AGENTS.md`
+  item 3 and `docs/usage/getting-started.md` step 5 say to assign the person
+  who asked and merge it yourself; there is no `CONTRIBUTING` file, and no
+  first-hour page says fork, who is assigned when nobody asked, who merges, or
+  what the gates do on a fork. This is the gap that closes the loop for an
+  outside tester. `ls CONTRIBUTING*`; `grep -rln -i "outside contributor\|without
+  write access" README.md AGENTS.md docs/usage handbook/async-contract.md`
+  prints nothing.
+- *The mandatory reading is over its own budget, and the sources disagree
+  about it.* `status/documents.yaml` `reading_load` totals the four documents
+  it measures at seven lines over the budget of
+  `records/DRAFT-governance-arrives-as-a-mechanism.md` §4, with
+  `within_budget: false`; `handbook/handoffs/qm-queue.md` §1 item 6 says the
+  load is below it; `AGENTS.md` calls itself short on purpose at close to
+  three thousand words. The set `AGENTS.md` sends a reader to before a first
+  edit (itself, the charter, the README, the queue and the async contract) is
+  over an hour at a reading pace, and with the status documents it names in
+  the same breath, close to three; the measured set omits the README and the
+  queue. Rule out drift in the generated document, which `qm docs check`
+  reports at this commit; the sentence in the queue is contradicted either
+  way. `grep -n -A14 reading_load status/documents.yaml`; `cat AGENTS.md
+  PRINCIPLES.md README.md handbook/handoffs/qm-queue.md
+  handbook/async-contract.md | wc -w`.
+- *Two neutral pages name one adapter's slash commands as the way to open and
+  close a session.* `README.md`'s Start-here row says *start with `/cowork`*,
+  and `handbook/async-contract.md` §6 opens with `/cowork` and closes with
+  `/handoff`; the tool-neutral route (`uv run qm brief`,
+  `project-seed/ci/cowork_context.py`) is named only in that page's table.
+  `grep -n "/cowork\|/handoff" README.md handbook/async-contract.md`.
+- *The standing queue is red at open, is mostly about other repositories, and
+  names people and private references.* `uv run qm queue` exits 1 on a clean
+  `main`; §2 and §3 name pull requests into `project/*` branches a stranger
+  cannot act on, §4 is the largest section, and the page names a maintainer
+  by first name, `private-NN` references and `ci/workspace-private.yaml`,
+  which the stranger does not have. The stranger-relevant part is *How this
+  page is kept* and a few of the decisions in force, of which `AGENTS.md`
+  restates one (item 19). `awk '/^## /{print NR": "$0}'
+  handbook/handoffs/qm-queue.md`.
+- *The handoffs index carries two stamps that disagree.* `handbook/handoffs/README.md`
+  reads *Re-read on 2026-10-25* above its table and *Stamped 2026-08-14* in
+  its footer, with paragraphs describing the harness as newly landed and two
+  rows naming people as the blocker. `grep -n "Re-read on\|^\*Stamped"
+  handbook/handoffs/README.md`.
+- *The status documents a stranger is told to read instead of re-deriving are
+  host snapshots they cannot refresh.* `status/harness.yaml` carries a 24-hour
+  budget and is the longest file in the reading; a refresh needs a host
+  login; a workflow reads only `status/governance.yaml` and
+  `status/inventory.yaml`. `grep -rln "status/harness.yaml"
+  .github/workflows` prints nothing.
+- *On Windows without symlinks, `CLAUDE.md` is a nine-byte pointer, and the
+  remedy is the last section of `AGENTS.md`.* The pointer files are mode
+  `120000` in the index (`git ls-files -s CLAUDE.md
+  .github/copilot-instructions.md`); a checkout without `core.symlinks`
+  writes the target's name, and a tool that reads only that file gets a
+  filename. Rule out a Git for Windows installed with symlink support, where
+  nothing differs. Not run at this commit; derived from git's semantics.
+- *The drafting contract `AGENTS.md` item 7 mandates is a seed file addressed
+  to a project.* `project-seed/adr/README.md` opens as a seed to copy and
+  speaks of the project's decision memory and `ADR-XXXX`; the org drafter's
+  template is the root `TEMPLATE.md`, which no first-hour page names. `grep
+  -rn "TEMPLATE.md" --include=*.md . | grep -v "adr/TEMPLATE\|project-seed"`.
+- *`AGENTS.md` numbers two lists from 1, and "the whole surface" names seven
+  commands of fifty-five.* The four facts and the twenty items both start at
+  1, so *item 3* has two referents; the sentence on `uv run qm --help` names
+  stacks, branch, gates, tags, docs, preflight and brief. `grep -c '^    [a-z]'`
+  over the help output; `grep -n "^[0-9]\+\. " AGENTS.md`.
 
-**Area 3.**
-- *`ci-tooling-tests` does not run on changes to the pages it executes.* Its
-  `paths:` filter is `ci/**`, `project-seed/ci/**` and its own file; its steps
-  run `walkthrough/` and `docs/cookbook/` as doctests.
-- *A generated document drifted on `main` and nothing noticed.* `uv run qm docs
-  check` printed `FAIL document states status/documents.yaml` and exited 1; the
-  missing row is the perspective #120 added (regenerated by the pull request
-  that queued this page). No workflow runs `qm docs check`,
-  and it skips harness and families for want of a check mode.
-- *`qm review` resolves paths two ways, and reports a false positive.* It says
-  the Enforcement clause of `records/DRAFT-what-is-not-the-organisation.md`
-  names a missing `leak-check.yml`; `.github/workflows/leak-check.yml` and
-  `project-seed/ci/leak-check.yml` both exist. `ci/record_review.py` checks
-  Enforcement with `(root / p).exists()` and citations with an `rglob` fallback.
-- *`docs-audit` claims to refuse unreachable pages and has no code for it.* Its
-  registry entry says it refuses "a page the navigation does not reach"; `grep
-  -in 'reach\|orphan\|nav' ci/docs_audit.py` found nothing; `docs/ref/addresses.md`
-  is in no nav entry, and `python ci/docs_audit.py` exited 0. Rule out the site
-  build step warning about it, which was not tested.
-- *The gate registry can disagree with a trigger and still render ok.*
-  `namespace-guard` declares `gates: [main, push]`; its workflow triggers on
-  `project/**` only. Direction is still refused on every pull request by
-  `one-pr-check.yml`, so this is a claim defect, not a hole.
-- *The guards that matter most have the weakest measured yield, and nothing
-  re-measures.* `.qm-posture.json` gives `check_pr_base.py` 32.7% and
-  `adr_lint.py` 63.6%; no workflow mentions `mutate` or `posture`;
-  `handbook/gates.md` says three of adr-lint's four sub-checks cannot fire on
-  any ref CI runs against.
+**The four facts.**
 
-**Area 4.**
-- *The tooling outgrew the doctrine.* Non-merge numstat on `main` since
-  2026-08-01: `ci/` +41,354 lines, `records/` +7,117. The disk, devloop,
-  workspace, trio-demo, harness and dashboard modules come to about 7,100
-  lines; `ci/disk_reclaim.py` deletes one machine's caches; `ci/trio_demo.py`
-  ties the corpus to three product repositories. `pyproject.toml` calls this "a
-  corpus of prose, not a Python project".
-- *`uv run qm estate` cannot answer the question it is named for.* It reads
-  clones beside the corpus, and without them it reported every rostered
-  repository missing.
+- *Two of the four opening commands need a host credential and do not say
+  so.* With none, `uv run qm stacks --repo quaternionmedia/qm` prints `gh
+  auth login` and exits 1, and `uv run qm queue` exits 2 with *the host does
+  not know qm 8a6002b, the page's stamp*, which reads as a fault in the page.
+  `env GH_TOKEN= GH_CONFIG_DIR=/nonexistent uv run qm queue`.
+- *`uv run qm estate` reports the stranger's own clone `MISSING` and exits
+  0.* Its search root is two directories above the module and its roster
+  paths assume a layout; a checkout under any other name finds nothing,
+  fifty rows long. Rule out the checkout's directory name: a clone at
+  `<root>/qm/qm` is the layout `ci/workspace.yaml` names.
+- *Bare `uv run qm test` fails on a missing module and prints no remedy.* No
+  first-hour page names `--extra dev`; `AGENTS.md` names `--extra preflight`
+  twice. `grep -rn "extra dev" AGENTS.md README.md handbook/async-contract.md`
+  prints nothing.
+- *On a Windows console the corpus's dashes print as replacement
+  characters.* `uv run qm gates | head -1` prints the title with a replacement
+  character where the dash is; with `PYTHONIOENCODING=utf-8` it prints the
+  dash. The console code page, not the data; cosmetic.
 
-**Area 5.**
-- *The handoff queue breaks its own delete-on-land rule.* Rows say *built*,
-  *done*, *landed as #114 and #115*, *closed and left standing on purpose*; the
-  footer is stamped 2026-08-14 while rows cite 2026-09-20; 18 of the 23 pages
-  were last touched on or before 2026-08-31 (`git log -1 --format=%cs --
-  <page>`); `governance-loop-poc.md` names a branch gone from the remote.
-- *Two glossaries*, `handbook/glossary.md` and `docs/ref/glossary.md`, and
-  `docs_audit` reports no duplicates.
-- *`plans/`* holds several self-declared stubs in the one home the style guide
-  leaves unplaced; `perspectives/README.md` marks every row Unreviewed.
+**The first gates.**
 
-**Area 6.**
-- *Committed status documents outlive their own budgets.* `status/harness.yaml`
-  was generated 2026-09-20 against a 24-hour budget; the 168-hour ones
-  (governance, gates, rollout, inventory) run out during 2026-09-27.
-  `status/inventory.yaml` is JSON. `loose-ends.json` shows nothing claimed.
+- *`qm docs check` is red at `main`'s tip, no workflow runs it, and the
+  regeneration step is in a page the stranger is not sent to.* The three
+  index documents (`status/documents.yaml`, `handbook/document-states.md`,
+  `loose-ends.json`) change in most pull requests, so every landing
+  re-conflicts every other; the instruction lives in
+  `handbook/generated-documents.md` and `handbook/consolidation-runbook.md`,
+  not in `AGENTS.md`. `grep -n "docs generate\|docs check" AGENTS.md` prints
+  nothing; `grep -ln "docs check\|generate_docs" .github/workflows/*` prints
+  nothing.
+- *Path filters leave tests unrun for files they cover.*
+  `ci-tooling-tests.yml` filters on `ci/**` and `project-seed/ci/**` while
+  running pytest over `walkthrough/` and doctests over `docs/usage/`;
+  `docs-audit.yml` runs on `pull_request` alone with a `docs/**` filter, so a
+  stale generated page is the next contributor's red and not `main`'s. Read
+  the `on:` blocks.
+- *The trio-demo test's skip condition reads two ports, not the sibling
+  clones it needs.* A machine with those services up and no clones gets a red
+  suite and a red posture baseline. `ci/tests/test_trio_demo.py`, the
+  `skipif` above `test_the_deployed_front_ends_agree`.
+- *`qm review` resolves a bare workflow name against the repository root.*
+  `ci/record_review.py` tests `(root / p).exists()`, so an Enforcement clause
+  naming `leak-check.yml` reports it absent while both copies exist.
+- *The gate registry overstates two gates.* `docs-audit`'s entry promises to
+  refuse a page the navigation does not reach, and `grep -in
+  'reach\|orphan\|nav' ci/docs_audit.py` prints nothing; `namespace-guard`
+  declares `gates: [main, push]` while its workflow triggers on `project/**`
+  only, and the preflight prints `SKIP namespace-guard.yml` on `main`.
+  Direction into `main` is still refused by `one-pr-check.yml`, so this is a
+  claim defect.
+- *The gates page says nothing blocks a merge, and the stranger reads "merge
+  it yourself" first.* `handbook/gates.md` is reached from `qm gates` or a
+  link; `AGENTS.md` item 3 is read before it. `uv run qm gates --check
+  handbook/gates.md` exits 0.
 
-**Area 7.**
-- *The seed drifted from its procedure and its adopters.* `project-seed/ci/`
-  holds 7 workflows; `handbook/forking-a-project.md` step 4 names "all four"
-  plus the leak check, never `signature-check.yml` or `tag-claims.yml`, and
-  narrates its own history. apothecary carries 3 of the 7, and its `adr-lint`
-  and `submodule-check` differ from the seed's. `git rev-list --left-right
-  --count origin/main...origin/project/apothecary` printed `324 13`.
+**The fork.**
 
-**Area 8.**
-- *The namespace rule is not the practice.* `README.md` calls a branch outside
-  the five namespaces "a mistake"; the heads in `gh pr list --state all --limit 200
-  --json headRefName` include
-  `fix/`, `adr/` (every project-record pull request), `handoff/`, `seed/` and
-  `docs/`.
-- *Host settings contradict the runbook.* `gh api repos/quaternionmedia/qm`
-  shows `delete_branch_on_merge=false` and `allow_squash_merge=true`;
-  `handbook/merge-review.md` says never squash. Merged branches stay on the
-  remote (`adr/codecartographer-index-current`, merged as #116), and three
-  `evolve/` and `perspective/` branches have no pull request.
-- *`8229a40` may be a direct push to `main`.* `git rev-list --first-parent
-  --no-merges --since=2026-08-12 origin/main` lists it, and its only associated
-  pull request is #105, into `project/dossier`. Rule out a fast-forward merge
-  whose association was lost: read the repository's event history before
-  saying so.
+- *Step 2 of `handbook/forking-a-project.md` pushes a `project/<name>` branch
+  to this repository, and neither it nor `docs/usage/first-project.md` says
+  that needs write access or a maintainer.* Every later step rests on the
+  push: step 3's pin, step 4's submodule check, step 6's records. A stranger
+  stops here, and the pages do not say so before step 0. `grep -n -i "write
+  access\|permission\|maintainer" handbook/forking-a-project.md
+  docs/usage/first-project.md` prints nothing.
+- *Step 2's verify line refuses an unpushed branch for a reason other than
+  the guard, and reads as a pass.* `uv run qm branch --base main --head
+  project/<name>` before the push prints *exists locally but not on origin*,
+  exit 1; the page says a refusal proves the guard. Run it after the push,
+  and quote the guard's own message.
+- *Step 2 says copy `adr/` verbatim, and the verbatim copy keeps `<name>`,
+  which the seed's `adr-lint.yml` does not refuse.* `check_placeholders.py`
+  runs in this repository's `.github/workflows/adr-lint.yml` and not in
+  `project-seed/ci/adr-lint.yml`. `grep -n check_placeholders
+  project-seed/ci/adr-lint.yml` prints nothing.
+- *Step 4's local runner needs pyyaml, a signed-in `gh` and an `origin`, and
+  the page names none of them.* On a project with none, four of nine steps
+  fail, and `check_one_pr.py` without `gh` on the path ends in a raw
+  `FileNotFoundError`. `python governance/qm/project-seed/ci/run_workflows_locally.py`
+  from a fresh project.
+- *Step 5's `cp -a` on Windows lands the two pointer files as regular files,
+  and the remedy that works is a paragraph deep.* `git ls-files -s CLAUDE.md
+  .github/copilot-instructions.md` reads `100644` after the copy; the
+  `git update-index --cacheinfo 120000,<sha>,<path>` route on the same page
+  yields the seed's blobs. `AGENTS.md`'s one-time setup acts on a fresh clone,
+  not on an index already holding regular files.
+- *Step 6's lint refuses fewer forms than the banned list the pages give,
+  and a draft needs an index row the step does not mention.* `adr_lint.py`
+  matches *previously* and *originally* only in narrating constructions, by
+  design; a stranger who breaks it with a bare *previously* sees green and
+  concludes the lint is dead. A draft with no row under *Drafts in flight* in
+  `adr/README.md` is refused, and step 6 does not say to add one.
+- *Step 4's workflow set disagrees with the seed directory and with
+  `docs/usage/next-steps.md`.* The handbook names four plus the leak check;
+  `project-seed/ci/` holds eight, three of whose headers say *copy
+  verbatim*; next-steps says four. `ls project-seed/ci/*.yml`.
+- *The seed's `AGENTS.md` omits rules the root page carries, one of which a
+  seed gate enforces.* Items 4, 5, 14, 16 and 18 of the root page have no
+  counterpart in `project-seed/ide/AGENTS.md`, while `project-seed/ci/timeless-check.yml`
+  ships; the seed's item 6 has no counterpart in the root. Diff the item
+  lists by rule.
+- *On Windows, step 1 fails from a deep project path with an opaque git
+  error.* `git submodule add` under Git for Windows 2.37 prints `fatal:
+  '$GIT_DIR' too big`; from a short path the same command succeeds. Rule out
+  the git version first.
 
-**Area 9.**
-- "Eleven principles" at `README.md:44`, `docs/about/overview.md:27` and
-  `docs/about/index.md:5`; `uv run qm edges` counts 17.
-- Figures in `ci/run_tests.py`'s docstring, `pyproject.toml` and
-  `.qm-posture.json` are stale against the Phase 0 table; `AGENTS.md` calls
-  `qm --help` "the whole surface" and names seven commands.
-- `README.md` says every record is Proposed; some are Draft.
-- The handoffs README says both "merge it yourself once the gates are green" and
-  that none of these pages authorise "Merging to `main`"; `AGENTS.md` item 3
-  says the first.
-- `perspectives/session-transcript-2026-06-09.md` is a conversation, which
-  `records/DRAFT-what-is-not-the-organisation.md` puts outside the
-  organisation; several perspective filenames carry a model's name, which the
-  same record allows only in a `Tools:` note.
-- `uv run qm protocols`: the security review is past its budget; history-archive
-  and curriculum have never run.
+**The first pull request.**
 
-**Area 10.**
-- `AGENTS.md` calls itself short at 2,702 words, and calls `README.md` plus
-  `PRINCIPLES.md`, about 6,000 words, short. The pull request model is
-  restated in `AGENTS.md`, the handoffs README, `handbook/async-contract.md`
-  and twice in `README.md`. apothecary's `AGENTS.md` is an older, shorter copy
-  of `project-seed/ide/AGENTS.md`.
+- *Every pull request runs the signature gate, and no first-hour page says
+  how to sign.* `signature-check.yml` triggers on every `pull_request`;
+  `grep -in "sign" AGENTS.md README.md` prints nothing about signing; the one
+  page that mentions it, `docs/usage/questions-a-new-developer-asks.md`,
+  gives no steps and is linked from neither. Rule out host-side signing of a
+  web-editor commit, which is not tested.
+- *The voice check refuses an ordinary polite body.* `check_pr_voice.py` on
+  *Please let me know if you want changes* exits 1 on the second person; the
+  rule is stated in `AGENTS.md` item 3 in terms of what a session says, and
+  there is no pull request template.
+- *"Merge it yourself once every gate is green" assumes write access, and no
+  page says what an outsider does.* The same gap as the first lead under *At
+  open*, met again at the end: `main` is unprotected, so write access is the
+  only barrier, and `grep -n -i "write access\|collaborator" AGENTS.md
+  README.md handbook/async-contract.md` prints nothing.
+- *"A branch outside the namespaces is a mistake" is enforced by nothing, and
+  most heads on origin are outside them.* `docs/ref/namespaces.md` lists six
+  namespaces; `git ls-remote --heads origin` shows `adr/*`, `demo/*` and
+  `fix/*` heads beside them, the `adr/*` ones carrying every project-record
+  pull request; `project-seed/ci/check_pr_base.py` refuses three directions
+  and no unknown prefix. Rule out a page that documents `adr/<slug>` under
+  another phrasing. `git ls-remote --heads origin | sed 's#.*refs/heads/##' |
+  grep -vc '^\(project\|propagate\|perspective\|evolve\|workspace\|math\)/\|^main$'`.
+- *Nine perspective filenames carry a model's name.* The index names the
+  human author and carries the `Tools:` note the attribution rule asks for;
+  the filename reads as a byline. `ls perspectives | grep -i
+  "claude\|gpt\|gemini\|sonnet\|opus\|fable"`.
+
+**After the hour.**
+
+- *The page after adoption assumes someone with rights.*
+  `docs/usage/next-steps.md` says *someone cuts a `propagate/<name>-<date>`
+  branch* and *the org audits adopted projects*; every pointer on it exists,
+  and none says how an outside project is rostered, who ratifies, or what the
+  first working cycle is.
+- *No protocol is on the first-hour path, and two have never run.* `uv run qm
+  protocols`: the security review is past its budget; history-archive and
+  curriculum have never run. Nothing before the alpha depends on them.
+
+### The skeptic pass
+
+Two findings cut something, and each went to a skeptic whose brief was to
+refute it.
+
+- *Eight subcommands have no caller* — **refuted.** `config`, `lanes`,
+  `ledger`, `policies` and `restatements` run in
+  `.github/workflows/registries.yml` and `adr-lint.yml`, or are named in
+  `ci/gate-registry.yaml` and `ci/devloop.py`; `patterns`, `session` and
+  `tags` are wired in `ci/cli.py` and named in `ci/pattern-registry.yaml` and
+  an adapter command. The audit's scan matched the literal `uv run qm <sub>`
+  and nothing else. What survives is the recommendation that was never a
+  deletion: a help screen grouped into the loop's commands and the rest.
+- *Split the standing queue and move three decisions into `AGENTS.md`* —
+  **upheld, trimmed.** `ci/queue_page.py` reads the stamp and the pull
+  request numbers from the whole text, and no workflow, gate or test reads the
+  page, so a split breaks no parser; it does edit every page that cites the
+  queue by section (`grep -rl "qm-queue" --include=*.md --include=*.py
+  --include=*.yaml .`), and section numbers cited from perspectives stay where
+  they are. Decision 7 is already `AGENTS.md` item 19 and does not move;
+  decision 6 belongs to `records/DRAFT-governance-arrives-as-a-mechanism.md`
+  §4, which `ci/doc_status.py` enforces, and restating it in `AGENTS.md`
+  raises the load it limits; decision 1 restates no record. The cheapest
+  change for the stranger needs no split: make the page's *exits 0* close
+  rule true, or remove it from the page and from
+  `handbook/consolidation-runbook.md`. The triage counts this as an edit
+  across the citing pages, not a deletion.
 
 ### What the corpus already has, and how the review uses it
 
 - **The semantic review of the records**
   ([`semantic-review-of-the-records.md`](semantic-review-of-the-records.md),
-  `plans/semantic-review-instrument.md`) has never run, and is scoped to fifteen
-  or sixteen records where there are now 39. Do not do its reading. Check
-  whether its scope, order and schema still fit, re-scope it in place to the
-  current set, and name it in the triage as a follow-on a person does. Flag a
-  record contradiction only where it is mechanical, such as `README.md` against
-  the Status rows.
-- **`uv run qm review`**: candidates, not verdicts. Check the tool as well as
-  consume it.
-- **`protocols/`**: cite the runs, recommend which protocols survive, re-run one
-  only when an area needs it.
+  `plans/semantic-review-instrument.md`) has not run, and is scoped to a
+  smaller set than `records/` now holds (`git ls-files records | grep -c
+  DRAFT-`). Do not do its reading. Re-scope it in place to the current set, and
+  name it in the triage as a follow-on a person does.
+- **`uv run qm review`**: candidates, not verdicts, and it carries the false
+  positive above.
+- **`protocols/`**: cite the runs; re-run one only when an area needs it.
 - **`plans/first-ratification.md`, `plans/v0.0.1-review-packet.md`,
-  `plans/v0.0.1-blockers.md`**: inputs to area 2.
-- **Decisions waiting on a person** (`handbook/handoffs/qm-queue.md` §3): say which are still
-  live; start no parallel list.
+  `plans/v0.0.1-blockers.md`**: inputs to the enforcement area.
+- **Decisions waiting on a person** (`handbook/handoffs/qm-queue.md` §3): say
+  which are still live; start no parallel list.
 - **`qm posture` and `qm mutate`**: re-run them rather than invent a yield
-  measure.
-- **The retrospectives**: several are narrow reviews already
-  (`2026-08-21-a-green-suite-and-eight-holes.md`,
-  `2026-08-23-the-rules-with-nothing-behind-them.md`,
-  `2026-08-25-defects-between-two-green-suites.md`). Mine them for what
-  recurs; do not re-derive them.
+  measure, once the trio-demo test's skip condition reads the clones.
+- **The retrospectives** `2026-08-21-a-green-suite-and-eight-holes.md`,
+  `2026-08-23-the-rules-with-nothing-behind-them.md` and
+  `2026-08-25-defects-between-two-green-suites.md` each describe a check
+  that reports success while enforcing nothing; the path-filter, registry and
+  `qm review` leads above are the same shape.
 
 ### What "cut" means here
 
 Deleting handoffs whose work landed, moving any method they hold to a runbook;
-deleting plans nobody executes, the second glossary, and tooling nothing
-consumes; proposing that workstation and demo tooling move to a repository of
-their own. A record is merged or retired only in a pull request that argues for
-it, as a draft rewritten in place; ratification stays a person's. A change to
+deleting plans nobody executes and tooling nothing consumes; proposing that
+workstation and demo tooling move to a repository of their own. A record is
+merged or retired only in a pull request that argues for it, as a draft
+rewritten in place; ratification stays a person's. A change to
 `project-seed/` reaches adopters only by propagation, one pull request per
 project, never inside this one.
 
 For phase 3, a finding that merges, retires or moves a record, a handbook page
 or a seed file counts as `delete` and goes to a skeptic, whose caller search
-includes every `project/*` branch and adopter pin.
+includes every `project/*` branch and adopter pin. A deletion under
+`project-seed/` cannot stand from a machine that cannot search the private
+adopters.
 
 ### Before the pull request
 
 - `uv run --extra dev qm test`, and `uv run --extra preflight qm preflight` in
   the background, saying of each failure whether it is the environment or a
-  defect, and how you know.
+  defect, and how you know. From a deep path on Windows, two site-build steps
+  fail on the path; the trio-demo test fails wherever the two ports answer and
+  no clone sits beside the checkout.
 - `uv run qm leaks` and `uv run qm private-names --source host --strict`.
   Without the private roster it exits 1 *unverified*; record that as
   unverified, not as a failure.
-- When generated inputs change, `uv run qm docs generate` then `uv run qm docs
-  check`. `main` carried a drift at the stamp (area 3); the pull request that
-  added this page regenerated it, so the lead is why nothing noticed, not a
-  drift still to fix.
+- When a page is added, `python ci/doc_status.py --write status/documents.yaml`,
+  `python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md`
+  and `python ci/loose_ends.py --write loose-ends.json`, then `uv run qm docs
+  check`.
 - Push the review branch, never `main`. Then `uv run qm branch --base main
   --head <branch>`, which reads origin and refuses an unpushed branch, pasted
   into the body.
@@ -289,25 +426,27 @@ includes every `project/*` branch and adopter pin.
   signed: `git log --format='%G? %h %s' origin/main..<branch>`, where `N` stops
   the branch (`handbook/consolidation-runbook.md` Step 3).
 
-### Done looks like
+### What remains, and done looks like
 
-- One pull request from `evolve/design-review-<date>` whose body follows the
-  runbook's shape, with the verification section run on its tip, left open
-  with the owner as assignee. It retires governed pages, so the handoffs
-  README's no-merge rule holds here over `AGENTS.md` item 3's merge-yourself;
-  area 9 settles which should hold in general.
-- The Phase 0 table re-run on the tip, before and after, in the body's place of
-  *Faster*: yields from `qm posture` for the guards, `ci/` lines, the
-  mandatory-reading lines in `status/documents.yaml`, and the `AGENTS.md` rules
-  a seeded violation is refused for.
-- The owner's questions answered in the session, and recorded in the body as
-  decisions.
-- Every handoff whose work landed deleted, and the queue refilled
-  (`handbook/consolidation-runbook.md` Step 7).
-- The semantic review re-scoped to the current records and queued as a person's
-  work.
-- A retrospective in `perspectives/`.
-- This part deleted from this page. Part 2 stays until the estate is done.
+Phases 4 to 7 have not run. The next session takes the leads above as the
+upheld set, with the skeptic verdicts applied, and:
+
+- runs the triage (phase 4) into file-disjoint workstreams, with the fork
+  pages, the opening commands and the first-hour pages as the *now* set;
+- asks the owner, in the session, the decisions the leads cannot settle: who
+  pushes a `project/<name>` branch for an outside project, or whether a fork of
+  this repository is a supported route; whether an outside tester merges, or
+  is assigned to someone who does; whether the reading budget's measured set
+  gains `README.md` and the queue; whether the three index documents stay
+  committed;
+- executes the workstreams (phase 5) in lanes, one pull request from
+  `evolve/design-review-<date>`, with the Phase 0 table re-run on the tip
+  before and after;
+- deletes every handoff whose work has landed and refills the queue
+  (`handbook/consolidation-runbook.md` Step 7);
+- re-scopes the semantic review to the current records and queues it as a
+  person's work;
+- then deletes this part from this page. Part 2 stays until the estate is done.
 
 ## Part 2 — the other repositories
 

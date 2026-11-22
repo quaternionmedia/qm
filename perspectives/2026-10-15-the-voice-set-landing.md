@@ -9,8 +9,10 @@
 
 The voice set -- `vox`, `qmcp` and `joe`, approved as one on 2026-10-12 --
 was landed in the review page's order, one merge asked for at a time, until
-`joe` #33, where testing by hand takes over. The state is in
-`handbook/handoffs/voice-set-landing.md`. This page is why the landing took
+`joe` #33, where testing by hand takes over. The landing's
+state was kept on a handoff page, since deleted; what remains of it is in
+`handbook/handoffs/qm-queue.md` §4 and `handbook/handoffs/the-voice-loop.md`.
+This page is why the landing took
 the shape it did: what was assumed, what that cost, and for each finding the
 check that would have caught it and whether that check exists.
 

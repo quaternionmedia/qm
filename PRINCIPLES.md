@@ -240,8 +240,8 @@ pages are named as an explicit path to the test runner, because `testpaths` is
 ignored the moment pytest is given one; an example may not discard a non-zero
 exit, because doctest passes an example that declares no output; a generator
 fails when an artifact it names is absent; a skip is not a pass; and the check
-is satisfied by a run observed on the default branch, not by a workflow file
-that would have run.
+is satisfied by a job's run of a commit the default branch carries, not by a
+workflow file that would have run.
 
 ↔ Edges: bears a-check-is-evidence-after-it-fails
 

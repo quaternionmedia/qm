@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. Session retrospective; the companion handoff is `handbook/handoffs/exploration-namespace.md`. |
+| **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. Session retrospective; the companion handoff is `handbook/handoffs/exploration-namespace.md` on `evolve/exploration-branch-namespace` at `22d7319`. |
 | **Author** | Peter Kagstrom |
 | **Tools** | Claude Opus 5 (Anthropic) |
 | **Date** | 2026-08-15 |

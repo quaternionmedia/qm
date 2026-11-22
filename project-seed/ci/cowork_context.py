@@ -15,8 +15,10 @@ What it refuses to do:
     printed as `unknown` with the reason, never omitted and never defaulted to
     the reassuring value. A brief that is quietly missing its pull-request
     section reads exactly like a repository with no open pull requests.
-  - It does not write to the repository. `--out` writes one file, and the
-    default location is ignored by git.
+  - It does not write to the repository. `--out` writes one file, and refuses
+    a path inside the repository that git does not ignore: the brief names
+    this machine's paths, and an untracked copy of it is the dirty tree the
+    next brief reports.
   - It does not act. Nothing here commits, pushes, opens, closes or fetches.
     The one network call is a read of the open pull request list, and
     `--offline` removes it.
@@ -532,6 +534,21 @@ def emit(root: Path, args: argparse.Namespace) -> str:
     return "\n".join(lines) + "\n"
 
 
+def lands_in_the_tree(root: Path, target: Path) -> bool:
+    """True when `target` is inside `root` and writing it would change `git status`.
+
+    `check-ignore` exits 0 for an ignored path, 1 for one that is not, and
+    128 on error; only 1 is read as landing in the tree. A tracked file is never
+    reported ignored, so overwriting one is refused too.
+    """
+    try:
+        relative = target.resolve().relative_to(root.resolve())
+    except ValueError:
+        return False
+    status, _ = git(root, "check-ignore", "-q", relative.as_posix())
+    return status == 1
+
+
 def main(argv: list[str] | None = None) -> int:
     force_utf8_output()
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
@@ -552,6 +569,14 @@ def main(argv: list[str] | None = None) -> int:
         target = Path(args.out)
         if not target.is_absolute():
             target = root / target
+        if lands_in_the_tree(root, target):
+            print(
+                f"\ncowork_context: not written. {target} is inside the repository and"
+                " git does not ignore it. Ignore its directory in .gitignore, or pass"
+                " a path outside the repository.",
+                file=sys.stderr,
+            )
+            return 2
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(brief, encoding="utf-8", newline="\n")
         print(f"\nwritten to {target}", file=sys.stderr)

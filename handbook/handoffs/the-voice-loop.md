@@ -2,18 +2,17 @@
 
 **Stamped 2026-10-18.** `qm` `main` at `157cbf6`; `vox` `main` at
 `1721e6f`; `joe` `main` at `d72b65b`; `qmcp` `main` at `df42315`; `dossier`
-`main` at `414be1c`. The voice set has landed apart from `joe` #33 and #34
-(§1). Every figure here was true at those commits and nowhere else.
+`main` at `414be1c`. The voice set has landed, `joe` #33 and #34 last, on
+2026-10-26 (§1). Every figure here was true at those commits and nowhere else.
 Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
 state is recorded here and nowhere else. `vox` joined the roster on
 2026-09-27, in `core`; `joe` is in `performer-display` and predates this
 work.
-[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
-set, with the decisions it left to a person, and
-[`voice-set-landing.md`](voice-set-landing.md) is how far its landing has got
-and what is left of it. Nothing in this page is a decision.
+The set's review page is gone with its work, its decisions closed in
+[`qm-queue.md`](qm-queue.md) §1. The set is landed whole; what is left of it
+is in §1 below and in the queue's §4. Nothing in this page is a decision.
 
 The why of all of it is in the retrospectives, and not here:
 `perspectives/2026-09-27-the-voice-loop.md`,
@@ -69,10 +68,12 @@ onboarding.
 
 ## 1. What remains, and what done looks like
 
-- **`joe` #33 and #34.** #33, the transcript lane, waits on a test by hand;
-  #34 is stacked on it. The README and cookbook pull requests that replace
-  the closed #24 and #25 follow #34. `voice-set-landing.md` §3 says what done
-  is for each.
+- **`joe`'s README and cookbook are in.** `joe` #33, the transcript lane, and #34
+  merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
+  pull requests that replace the closed #24 and #25 are `joe` #56 and #52,
+  merged on 2026-10-31 (`qm-queue.md` §1 decision 12). `joe`'s other pull
+  requests opened after the set landed with them; what remains is in the
+  queue's §4.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
@@ -82,13 +83,11 @@ onboarding.
   onboarding and architecture pages; Phase 2 bounds the transcript's storage
   and rendering cost; Phase 3 makes the declared checks' boundaries explicit.
   New capabilities come after.
-- **The governance pin bump in `qmcp`.** `governance/qm` is at `235708c`. The
-  bump copies again the six seed workflows `qmcp` carries and adds
-  `timeless-check.yml`, takes the REUSE step through `uvx` (§4), and retires
-  the `AGENTS.md` paragraph about that step. `voice-set-landing.md` §3 lists
-  it with the other steps after the set: Phase 10's boxes on the roadmap, the
-  two read-back helpers made one, `vendor/vox` moved to `vox`'s `main`, and the
-  demo branches deleted.
+- **The steps after the set**: Phase 10's boxes on the roadmap, the two
+  read-back helpers made one, `vendor/vox` moved to `vox`'s `main` to take its
+  two documentation merges, and the demo branches deleted (the queue's §4).
+  `qmcp`'s governance pin bump, which took the REUSE step through `uvx` (§4),
+  landed as `qmcp` #117 on 2026-10-25, pinning `f4786fe`.
 - **`joe` records on one host API, and the other three are a reading of one
   run.** `joe` #20 moved capture to a callback stream, because WDM-KS
   implements no blocking read, and on the hardware that run used the WDM-KS
@@ -111,8 +110,8 @@ onboarding.
   and a standing worker needs one.
 - **Merged branches in every repository above.** Some remain and some are
   gone, and `uv run qm branches` says what deleting one would cost. `qmcp`'s
-  were deleted on 2026-10-25 at the person's word. Its remote holds `main` and
-  one Dependabot branch whose pull request is closed. `handbook/handoffs/README.md`
+  were deleted on 2026-10-25 at the person's word, and its last Dependabot
+  branch on 2026-10-27; its remote holds `main` alone. `handbook/handoffs/README.md`
   now forbids deleting a branch only when another pull request is based on
   it.
 
@@ -131,12 +130,13 @@ other. `dossier dev doctor` is the preflight, landed as `dossier` #58;
 | harness | `qmcp` | 3141 | `DOSSIER_HARNESS_PORT` |
 | panel | `dossier` | 1618 | `DOSSIER_PORT` |
 | maps | `codecartographer` | 2718 | `CODECARTO_PORT` |
-| speech | `joe` | 8000 | `JOE_PORT` |
+| speech | `joe` | 1059 | `JOE_PORT` |
 
-The allocation is declared once in `dossier/src/dossier/threads.py`. Only
-the harness is required. 8000 is the one to move first when two loops run
-at once: it is the port anything grabs, and the one `dossier`'s `seam-port`
-diagnostic exists because of.
+Every port is the dashboard's allocation, owned by `ci/dashboard.py`;
+`dossier/src/dossier/threads.py` and `loop.py` carry the panel's copy. Only
+the harness is required. joe sat on 8000, the port anything grabs and the one
+`dossier`'s `seam-port` diagnostic exists because of, until it took the twelfth
+root of two, 1059, beside alfred's editor on root three, 1732.
 
 **Set `DOSSIER_DATABASE_URL` before running `dossier`'s suite.**
 `pytest_configure` shells `dossier dev purge` against whatever database the

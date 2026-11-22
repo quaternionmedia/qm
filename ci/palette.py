@@ -47,17 +47,19 @@ NEUTRAL = {
     "accent": ("#9a520b", "#f2aa4c"),
 }
 
-# One hue per family: what it drives, in colour.
+# One hue per family: what it drives, in colour. None is pink or red: a graph
+# draws a family's members in its hue beside the reds kept for what is to be
+# noticed -- a failure, a refusal, a danger -- and a family in pink read as one.
 FAMILY = {
     "performing": ("#9a520b", "#f2aa4c"),
-    "show-control": ("#b3305a", "#f0708f"),
+    "show-control": ("#4d6e12", "#a9d05c"),
     "instruments": ("#0a6f6b", "#43c6bf"),
     "performer-display": ("#5a43b5", "#a693f3"),
     "irl": ("#94551f", "#dd9b63"),
     "infra": ("#55647a", "#98a7bc"),
     "core": ("#2a61bd", "#74a8f6"),
     "games": ("#2d7241", "#73c886"),
-    "commons": ("#8a3f9e", "#cf8ce0"),
+    "commons": ("#7d5e00", "#e0bd4f"),
 }
 NEUTRAL_HUE = NEUTRAL["muted"]
 

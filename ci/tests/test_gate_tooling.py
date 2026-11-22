@@ -22,7 +22,9 @@ import pytest
 CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
-from gate_status import build, discover, gate_row, local_layers, unknown  # noqa: E402
+from gate_status import (  # noqa: E402
+    build, discover, gate_row, local_layers, stands_before, unknown,
+)
 
 STATUS = CI_DIR / "gate_status.py"
 DASHBOARD = CI_DIR / "gate_dashboard.py"
@@ -191,6 +193,107 @@ def test_an_empty_registry_is_refused_not_rendered_clean(tmp_path: Path):
     write(reg, "schema: 1\ngates: []\n")
     with pytest.raises(SystemExit):
         build(reg, workflows_dir(tmp_path), "o/r", host=False)
+
+
+# --- the claim against the on: block -----------------------------------------
+#
+# `gates` in the registry says what a check stands in front of, and the
+# workflow's `on:` block says where it runs. The two are compared in one
+# vocabulary, so a gate claimed before `main` whose workflow is filtered to
+# `project/**` is a disagreement and not a line somebody has to notice.
+
+
+def on_block(tmp_path: Path, name: str, job: str, on: str) -> Path:
+    """A workflow with the given `on:` block, in the fixture's workflows directory."""
+    path = tmp_path / "workflows"
+    path.mkdir(parents=True, exist_ok=True)
+    write(path / f"{name}.yml",
+          f"name: {name}\non:\n{on}jobs:\n  {job}:\n"
+          f"    runs-on: ubuntu-latest\n    steps: []\n")
+    return path
+
+
+PROJECT_ONLY = ("  pull_request:\n    branches: ['project/**']\n"
+                "  push:\n    branches: ['project/**']\n")
+
+
+@pytest.mark.parametrize("on, expected", [
+    ("  pull_request:\n  push:\n    branches: [main]\n", ["main", "push"]),
+    ("  pull_request:\n    branches: [main]\n    types: [opened]\n", ["main"]),
+    ("  pull_request:\n    paths: ['docs/**']\n", ["main"]),
+    (PROJECT_ONLY, ["project", "push"]),
+    ("  push:\n    tags: ['v*']\n  workflow_dispatch:\n", ["tag"]),
+    ("  push:\n    branches: [main]\n", ["push"]),
+    ("  push:\n", ["push"]),
+    ("  workflow_dispatch:\n", []),
+])
+def test_an_on_block_is_read_in_the_registrys_vocabulary(on: str, expected: list[str]):
+    """Mutation: read `main` from any pull-request trigger regardless of its
+    branch filter and the project-only case fails."""
+    doc = yaml.safe_load("on:\n" + on)
+    assert stands_before(doc.get(True, doc.get("on"))) == expected
+
+
+def test_a_bare_trigger_list_is_read_too():
+    """`on: [push, pull_request]` and `on: push` carry no filter at all."""
+    assert stands_before(["push", "pull_request"]) == ["main", "push"]
+    assert stands_before("push") == ["push"]
+    assert stands_before(None) == []
+
+
+def test_a_gate_claiming_main_over_a_project_only_workflow_warns(tmp_path: Path):
+    """The claim is `main, push`; the workflow runs on `project/**` alone. A
+    reader of the registry believes a pull request into `main` meets this
+    check, and none does.
+
+    Mutation: compare the declared list with itself and this fails.
+    """
+    reg = registry(tmp_path, entry("guard", "wf", "job", gates=["main", "push"]))
+    doc = build(reg, on_block(tmp_path, "wf", "job", PROJECT_ONLY), "o/r", host=False)
+    row = doc["gates"][0]
+    assert row["state"] == "warn"
+    assert row["evidence"]["gates_declared"] is False
+    assert row["evidence"]["stands_before"] == ["project", "push"]
+
+
+def test_a_gate_whose_claim_matches_its_on_block_is_ok(tmp_path: Path):
+    reg = registry(tmp_path, entry("guard", "wf", "job", gates=["project", "push"]))
+    doc = build(reg, on_block(tmp_path, "wf", "job", PROJECT_ONLY), "o/r", host=False)
+    assert doc["gates"][0]["state"] == "ok"
+    assert doc["gates"][0]["evidence"]["gates_declared"] is True
+
+
+def test_the_disagreement_names_both_sides_on_the_page(tmp_path: Path):
+    """A warn with no reason is a mark a reader cannot act on."""
+    reg = registry(tmp_path, entry("guard", "wf", "job", gates=["main", "push"]))
+    wfs = on_block(tmp_path, "wf", "job", PROJECT_ONLY)
+    doc_path = tmp_path / "status/gates.yaml"
+    assert run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
+               "--write", str(doc_path)).returncode == 0
+    page = run(DASHBOARD, str(doc_path), "--format", "md").stdout
+    assert "stands before main, push" in page
+    assert "`on:` block stands before project, push" in page
+
+
+def test_every_registry_entry_stands_where_its_workflow_runs():
+    """`ci/gate-registry.yaml` against the `on:` blocks in `.github/workflows/`.
+
+    The fixtures above prove the comparison; this reads the registry and the
+    workflows the corpus commits, so a claim that drifts from its trigger is
+    red here and not a mark on a page somebody has to notice.
+
+    Mutation: declare `namespace-guard` before `main` in the registry and this
+    fails, naming it.
+    """
+    doc = build(CI_DIR / "gate-registry.yaml", CI_DIR.parent / ".github" / "workflows",
+                "o/r", host=False)
+    wrong = {
+        gate["id"]: {"registry": gate["gates"], "on": gate["evidence"].get("stands_before")}
+        for gate in doc["gates"]
+        if isinstance(gate.get("evidence"), dict)
+        and gate["evidence"].get("gates_declared") is False
+    }
+    assert wrong == {}, f"the registry's `gates` disagrees with the `on:` block: {wrong}"
 
 
 def test_a_gate_with_no_cannot_see_is_a_gap_not_a_clean_bill(tmp_path: Path):

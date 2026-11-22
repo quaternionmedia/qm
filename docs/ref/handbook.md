@@ -11,6 +11,7 @@ The [handbook](https://github.com/quaternionmedia/qm/tree/main/handbook) holds Q
 | [governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) | How far the [corpus](../ref/glossary.md#corpus){ .glossary-term } has got in governing itself, and what [ratification](../ref/glossary.md#ratification){ .glossary-term } waits on |
 | [adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) | Which projects are audited, and how to run the rest |
 | [async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) | The rules that exist because several agent sessions run at once |
+| [running-several-repositories.md](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md) | How several repositories' servers run on one workstation at once, and how to tell which is which |
 | [generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) | The status documents: refresh commands, staleness budgets, dashboards |
 | [style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) | Where explanation belongs: inline, README, `docs/`, or a retrospective |
 | [public-by-default.md](https://github.com/quaternionmedia/qm/blob/main/handbook/public-by-default.md) | When work may be closed |

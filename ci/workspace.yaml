@@ -155,7 +155,7 @@ repositories:
 
   - name: vox
     role: project
-    family: core
+    family: [core, irl]
     phase: v0.0.0
     phase_source: scaffolded
     attention: active
@@ -166,8 +166,20 @@ repositories:
       the border test in
       records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
       output acts on is the corpus's own tooling, not the sound it emits and
-      not the family of the engine it talks to.
+      not the family of the engine it talks to. In irl as well: at a bench
+      it recognises and speaks the word said over the work, and that output
+      acts on the record of the making and on the person at the work
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/vox, vox]
+
+  - name: hearth
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      the contract a family's members keep, family/1, its vector set and check,
+      the member library and the coordinator an exemplar runs; no family placed
+    paths: [qm/hearth]
 
   - name: rad
     role: project
@@ -180,15 +192,19 @@ repositories:
 
   - name: alfred
     role: project
-    family: performing
+    family: [performing, irl]
     phase: v0.0.1
     phase_source: scaffolded
-    note: video editor; UI migration and Playwright coverage in flight
+    note: >
+      video editor; UI migration and Playwright coverage in flight. In irl
+      as well: at a bench its output acts on the video of the making, the
+      frames a camera keeps of the work
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/alfred]
 
   - name: otto
     role: project
-    family: performing
+    family: [performing, irl]
     phase: v0.0.0
     phase_source: scaffolded
     attention: active
@@ -198,7 +214,9 @@ repositories:
       `alfred/otto`. Placed in performing by the border test in
       records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
       output acts on is the video of a show, before it and after it, as
-      alfred's does.
+      alfred's does. In irl as well, as alfred is: at a bench the picture
+      it renders is the video of the making
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [qm/otto, otto, qm/alfred/alfred/otto]
 
   - name: apothecary
@@ -206,7 +224,9 @@ repositories:
     family: irl
     phase: v0.0.2
     phase_source: stated
-    note: parametric assembly; named as a v0.0.2 integration consumer
+    note: >
+      parametric assembly; named as a v0.0.2 integration consumer; the irl
+      family's hub, running hearth's coordinator on family/1
     paths: [qm/apothecary]
 
   - name: datum
@@ -271,7 +291,7 @@ repositories:
       not `main`.
     paths: [carlos, qm/carlos]
 
-  - ref: private-34
+  - name: loopwall
     role: project
     phase: v0.0.1
     phase_source: scaffolded
@@ -283,6 +303,8 @@ repositories:
 
   # Both of these carry a project/<name> branch in this repository, so the
   # corpus governs them.
+    paths: [qm/loopwall, loopwall]
+
   - ref: private-36
     role: project
     phase: v0.0.1
@@ -332,6 +354,17 @@ repositories:
       plans/governance-prose-signals.md as where prose analysis belongs, rather
       than in ci/.
     paths: [qm/looksatwords, looksatwords]
+
+  - name: cathy
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      a digital assistant whose subject is the public internet. Reads a site's
+      export into pages its owner keeps and fetches the public assets those
+      pages show; it posts nothing, per its adoption record's 2 on
+      project/cathy.
+    paths: [qm/cathy, cathy]
 
   - name: moat
     role: unmanaged
@@ -486,10 +519,13 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: performer-display
+    family: [performer-display, irl]
     note: >
       an audio workbench: chroma visualisations and MIDI from audio files,
-      and the media API that alfred's captions reach through vox
+      and the media API that alfred's captions reach through vox. In irl as
+      well: at a bench it is the mic, and its output acts on the record of
+      the making and on the person at the work, who hears it spoken back
+      (records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3).
     paths: [joe, qm/joe]
 
   - name: leo

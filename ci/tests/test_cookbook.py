@@ -19,6 +19,13 @@ sys.path.insert(0, str(CI_DIR))
 import cookbook  # noqa: E402
 
 
+@pytest.fixture(autouse=True)
+def _no_show_documents(tmp_path_factory, monkeypatch):
+    """A page is built from the show documents its test gives, never from the
+    ones `docs/show/` holds on this disk, which an export may be writing."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path_factory.mktemp("show"))
+
+
 def family(name="a-family", drives="the thing", members=("one", "two")):
     return {"name": name, "drives": drives, "members": list(members)}
 
@@ -46,14 +53,29 @@ def test_a_family_with_a_governed_member_names_one():
     assert "cd one" in text
 
 
-def test_the_corpus_is_the_entry_point_for_its_own_family():
+def test_the_corpus_is_an_entry_point_for_its_own_family():
     """Reading only `project/*` branches printed the corpus as ungoverned and
     sent a reader to the next repository listed."""
     text = cookbook.page(
         family(members=("dossier", "qm")),
         [state("dossier", adopted=True), state("qm", adopted=True)],
         "2026-01-01")
-    assert "cd qm" in text
+    assert "entry point: `dossier`, `qm`" in text
+
+
+def test_every_governed_member_is_an_entry_point():
+    """A family with several governed members names them all, in name order,
+    and sends the reader to none in particular: a claim list has no first,
+    and neither does the roster's order of rows.
+
+    Mutation: make `entry_points` return only the first governed member in
+    `states` order and this fails.
+    """
+    states = [state("editor", adopted=True), state("bench", adopted=True), state("part")]
+    text = cookbook.page(family(members=("editor", "bench", "part")), states, "2026-01-01")
+    assert "2 of 3 members carry governance, and each is a governed entry point: " \
+           "`bench`, `editor`. Begin in any of them:" in text
+    assert "cd <member>" in text and "cd editor" not in text and "cd bench" not in text
 
 
 def test_the_committed_page_carries_no_machine_scoped_state():
@@ -258,6 +280,48 @@ def test_a_site_page_names_its_family_and_where_it_sits():
     assert "Start in [`synth`](../projects/synth.md)" in page
 
 
+def test_a_site_page_starts_in_every_governed_member():
+    """Several governed members are all named, in name order, each linked when
+    it has a page; none is picked.
+
+    Mutation: make `entry_point` name only the first of `entry_points` and
+    this fails.
+    """
+    page = cookbook.site_page(
+        {"name": "irl", "drives": "matter", "within": None},
+        [state("editor", adopted=True), state("bench", adopted=True), state("part")],
+        projects={"bench": _project("bench", governed=True)})
+    assert "Start in any of [`bench`](../projects/bench.md), `editor`: each one's " \
+           "records and its `AGENTS.md` say how work arrives there." in page
+
+
+def test_a_project_in_several_families_wears_every_family_s_hue():
+    """A project in one family is titled and carded in that family's hue; one
+    in several runs through every one of them, in the order its families are
+    named, and its showcase card names them all.
+
+    Mutation: make `hue` return the first family's class for any list and
+    this fails.
+    """
+    by_name = {"irl": {"name": "irl", "within": None},
+               "instruments": {"name": "instruments", "within": "performing"},
+               "performing": {"name": "performing", "within": None}}
+    one = _project("bench", families=("irl",), pictures=["b.png"])
+    two = _project("pedal", families=("instruments", "irl"), pictures=["p.png"])
+    both = ('style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), '
+            'var(--qm-family-irl))"')
+    assert '# bench<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }' \
+        in cookbook._project_title(one, by_name)
+    assert (f'# <span class="qm-name">pedal</span><span class="qm-dot">.</span> '
+            f'{{ .qm-family-title .qm-f-many {both} }}') in cookbook._project_title(two, by_name)
+    assert "[instruments](../families/instruments.md) · [irl](../families/irl.md) · " \
+           "within [performing](../families/performing.md)" in cookbook._project_title(two, by_name)
+    assert cookbook.showcase_card(one, "")[0] == '<div class="card qm-f-irl" markdown>'
+    card = cookbook.showcase_card(two, "")
+    assert card[0] == f'<div class="card qm-f-many" {both} markdown>'
+    assert '<span class="qm-meta">instruments · irl · v0.0.0</span>' in card
+
+
 def test_a_member_with_a_page_is_a_card_that_opens_it():
     """The card's title links the project's page and covers the card; its
     first picture leads it; the other families it is in are links too.
@@ -275,6 +339,27 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
     assert "also in [`irl`](irl.md)" in page
     assert '<span class="qm-meta">v0.0.1</span>' in page
     assert "governed" not in page and "not adopted" not in page
+
+
+def test_a_member_in_several_families_wears_them_all_on_its_family_s_page():
+    """A card wears the project's own hues wherever its name is styled: on its
+    family's page a member in one family takes that hue, and one in several
+    the rainbow of all of them, whether or not it has a page yet.
+
+    Mutation: make `site_page` card every member in the page's family alone
+    and this fails.
+    """
+    both = ('style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), '
+            'var(--qm-family-irl))"')
+    page = cookbook.site_page(
+        {"name": "instruments", "drives": "the sound", "within": None},
+        [state("synth", adopted=True), state("pedal"), state("planned")],
+        also={"pedal": ["irl"], "planned": ["irl"]},
+        projects={"synth": _project("synth", governed=True),
+                  "pedal": _project("pedal", families=("instruments", "irl"))})
+    assert '<div class="card qm-f-instruments" markdown>\n\n[synth](../projects/synth.md)' in page
+    assert f'<div class="card qm-f-many" {both} markdown>\n\n[pedal](../projects/pedal.md)' in page
+    assert f'<div class="card qm-f-many" {both} markdown>\n\n[planned](../projects/index.md#planned)' in page
 
 
 def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():
@@ -669,7 +754,8 @@ def test_a_detail_block_is_a_page_of_its_own_sections(tmp_path):
     assert '<div class="card" markdown>\n\n**the browser**' in page
     assert "beside it\n{ .qm-eyebrow }" in page and "**tooling**" in page
     assert "default branch yet" not in page and "A local preview" not in page
-    assert page.count('<section class="qm-section" markdown>') == 3
+    # Its steps, its feature and how it is built, then its Showcase.
+    assert page.count('<section class="qm-section" markdown>') == 4
 
 
 def test_a_detail_picture_the_default_branch_does_not_hold_waits(tmp_path):
@@ -707,7 +793,9 @@ def test_a_project_without_a_detail_block_keeps_its_page(tmp_path):
     engine = projects["engine"]
     assert "details" not in engine and "details" in projects["editor"]
     assert cookbook.project_page(engine, BY_NAME, projects) == cookbook.project_page(engine, BY_NAME)
-    assert "qm-section" not in cookbook.project_page(engine, BY_NAME, projects)
+    # No section a block would give it: only the Showcase every page has.
+    plain = cookbook.project_page(engine, BY_NAME, projects)
+    assert plain.count('<section class="qm-section" markdown>') == 1 and "## Showcase" in plain
 
 
 @pytest.mark.parametrize("block, where", [
@@ -850,3 +938,245 @@ def test_a_resolved_ref_is_read_at_its_commit(monkeypatch):
     found = cookbook.preview_refs("org", {"editor": "feat/x"}, {"editor": ["a.png", "b.png"]})
     assert found == {"editor": {"ref": sha, "label": "feat/x", "held": ["a.png"]}}
     assert asked == {"ref": sha, "wanted": {"editor": ["a.png", "b.png"]}}
+
+
+# The showgraph: what codecartographer drew of a subject, from its show
+# document under docs/show/ (`uv run codecarto show export`).
+
+def _show(root: Path, folder: str, views: dict, files: dict, held=None) -> None:
+    import json
+    where = root / folder
+    where.mkdir(parents=True)
+    (where / "show.json").write_text(json.dumps({
+        "schema": 1,
+        "provenance": {"claims": {"repo": "org/qm", "commit": "c" * 40, "digest": "sha256:x"},
+                       "source": {"repo": "org/synth", "commit": "s" * 40},
+                       "drawn_by": {"graph": "codecartographer@" + "d" * 40},
+                       "drawn_at": "2026-10-26T12:00:00Z"},
+        "views": views, "files": files}), encoding="utf-8")
+    for name in (files.values() if held is None else held):
+        (where / name).write_text("<svg/>", encoding="utf-8")
+
+
+DRAWN = {"graph": {"nodes": {}, "edges": []}}
+
+
+def test_a_project_page_shows_each_view_codecarto_drew_and_says_why_one_is_not(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth",
+          {"estate": DRAWN, "code": DRAWN,
+           "system": {"absent": True, "problem": "synth declares no system this window reads",
+                      "remedy": "", "where": "/show/project/synth/views"}},
+          {"estate": "estate.svg", "code": "code.svg"})
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    # Mutation: leave the showgraph off the project page -- this fails.
+    assert "](../show/project/synth/estate.svg)" in page
+    assert "](../show/project/synth/code.svg)" in page
+    assert "**Its system:** not drawn. synth declares no system this window reads.\n" in page
+    assert "codecartographer at `ddddddd`" in page
+    assert "the corpus at `ccccccc`" in page
+    assert "default branch at `sssssss`" in page
+    # Each picture opens at its full size.
+    assert "[![" in page and "](../show/project/synth/estate.svg)" in page
+
+
+def test_a_picture_the_document_names_and_the_folder_lacks_is_said_not_shown(tmp_path, monkeypatch):
+    """A show document naming a file that is not beside it is never a broken image."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN, "code": DRAWN},
+          {"estate": "estate.svg", "code": "code.svg"}, held=["estate.svg"])
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    # Mutation: show every file the document names -- the code map is a broken
+    # image, and this fails.
+    assert "](../show/project/synth/code.svg)" not in page
+    assert "its picture, `code.svg`, is not in docs/show" in page
+
+
+def test_a_subject_with_no_show_document_says_none_is_drawn(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    page = cookbook.project_page(_project("plain"), {"instruments": {}})
+    assert "No showgraph has been drawn for plain yet." in page
+    assert "../show/" not in page
+
+
+def test_a_detail_page_shows_its_showgraph_too(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN}, {"estate": "estate.svg"})
+    project = {**_project("synth"), "details": cookbook.detail_block({"lede": "A synth."}, "synth")}
+    page = cookbook.detail_page(project, {"instruments": {}}, {})
+    # Mutation: leave it off the detail page -- this fails.
+    assert "](../show/project/synth/estate.svg)" in page
+
+
+def test_the_families_index_shows_every_family_and_a_family_page_its_projects_code(tmp_path, monkeypatch):
+    """The index is every family, named for what it is, not where one subject
+    sits. The whole corpus is drawn a family at a time: a family's code view is
+    the family with each of its projects' code in it.
+
+    Mutation: title the index's view by its name alone -- it is captioned
+    "Where it sits", and this fails. Mutation: say nothing of a family's code
+    view -- it is captioned "Code", and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    index = cookbook.site_index({"families": families, "unstated": []},
+                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                {f["name"]: f for f in families})
+    assert "<figcaption><strong>Every family.</strong>" in index
+    assert "Where it sits" not in index and "whole corpus" not in index.lower()
+    _show(tmp_path, "family/instruments", {"estate": DRAWN, "code": FAMILY_CODE},
+          {"estate": "estate.svg", "code": "code.svg"})
+    family = "\n".join(cookbook.showgraph("family", "instruments"))
+    assert "](../show/family/instruments/code.svg)" in family
+    assert ("<figcaption><strong>Its code.</strong> Each of its projects with its code in it."
+            "</figcaption>") in family
+
+
+def _under_showcase(page: str) -> list[str]:
+    """The headings from the page's Showcase section to its next section."""
+    headings = [line for line in page.splitlines() if line.startswith("#")]
+    assert "## Showcase" in headings, "the page has no Showcase section"
+    start = headings.index("## Showcase")
+    after = next((i for i, h in enumerate(headings[start + 1:], start + 1) if h.startswith("## ")),
+                 len(headings))
+    return headings[start:after]
+
+
+def test_the_showgraph_is_a_subsection_of_the_showcase(tmp_path, monkeypatch):
+    """A page's showcase is what its subject looks like: its pictures and the
+    graphs codecarto draws of it. A Showgraph section of its own read as a
+    second, unrelated heading beside the pictures.
+
+    Mutation: give the showgraph a section of its own -- the pages have a
+    `## Showgraph` and no Showcase holding it, and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    project = _project("synth", pictures=["a.png", "b.png", "c.png"])
+    detail = {**_project("synth"), "details": cookbook.detail_block({"lede": "A synth."}, "synth")}
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    pages = {
+        "project": cookbook.project_page(project, {"instruments": {}}),
+        "detail": cookbook.detail_page(detail, {"instruments": {}}, {}),
+        "family": cookbook.site_page({"name": "instruments", "drives": "the sound", "within": None},
+                                     [state("synth", adopted=True)]),
+        "index": cookbook.site_index({"families": families, "unstated": []},
+                                     [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                     {f["name"]: f for f in families}),
+    }
+    for kind, page in pages.items():
+        assert "## Showgraph" not in page.splitlines(), f"the {kind} page gave the showgraph a section of its own"
+        assert "### Showgraph" in _under_showcase(page), f"the {kind} page's showgraph is not in its showcase"
+    # A project's further pictures are its showcase too, before the graphs.
+    showcase = pages["project"].split("## Showcase", 1)[1].split("### Showgraph", 1)[0]
+    assert "raw/HEAD/b.png" in showcase and "raw/HEAD/c.png" in showcase
+
+
+def test_a_family_page_and_the_families_index_show_theirs(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    page = cookbook.site_page({"name": "instruments", "drives": "the sound", "within": None},
+                              [state("synth", adopted=True)])
+    assert "](../show/family/instruments/estate.svg)" in page
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    index = cookbook.site_index({"families": families, "unstated": []},
+                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                {f["name"]: f for f in families})
+    # Mutation: leave the estate's showgraph off the families index -- this fails.
+    assert "](../show/index/estate.svg)" in index
+
+
+# A family's code view as the export writes it: the commits of the code maps
+# it drew, and none of their graphs again.
+FAMILY_CODE = {"graph": "each project's code view's",
+               "metadata": {"code": {"synth": "c" * 40, "stomp": "d" * 40}}}
+
+
+def _code(depth: int, nodes: int) -> dict:
+    return {"graph": {"nodes": {f"n{i}": {} for i in range(nodes)}, "edges": []}, "metadata": {"depth": depth}}
+
+
+def test_a_project_page_steps_to_the_same_graph_of_the_projects_beside_it(tmp_path, monkeypatch):
+    """A reader looks at one project's code map, then the next one's: each view
+    links to that view of the projects before and after it, alphabetically and
+    round, and to every project's on the drawer's page. A project whose view
+    was not drawn is stepped over.
+
+    Mutation: leave the links off -- a page links to no other project's
+    graph, and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    for name in ("alpha", "beta", "codecartographer", "delta"):
+        _show(tmp_path, f"project/{name}", {"estate": DRAWN, "code": _code(1, 120)},
+              {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "project/gamma",
+          {"estate": DRAWN, "code": {"absent": True, "problem": "no default branch", "remedy": "", "where": ""}},
+          {"estate": "estate.svg"})
+    projects = {n: _project(n) for n in ("delta", "alpha", "gamma", "codecartographer", "beta")}
+    beta = cookbook.project_page(projects["beta"], {"instruments": {}}, projects)
+    assert "[← alpha](alpha.md#showgraph-code)" in beta
+    assert "[codecartographer →](codecartographer.md#showgraph-code)" in beta
+    assert "[every project's code](codecartographer.md#every-projects-code)" in beta
+    assert '<figure class="qm-shot" id="showgraph-code" markdown>' in beta
+    # Round from the first to the last, and over gamma, whose code is not drawn.
+    alpha = cookbook.project_page(projects["alpha"], {"instruments": {}}, projects)
+    assert "[← delta](delta.md#showgraph-code)" in alpha
+    delta = cookbook.project_page(projects["delta"], {"instruments": {}}, projects)
+    assert "[alpha →](alpha.md#showgraph-code)" in delta and "gamma.md#showgraph-code" not in delta
+    # Its estate steps through every project, gamma's among them.
+    assert "[gamma →](gamma.md#showgraph-estate)" in delta
+
+
+def test_the_drawer_s_page_shows_every_showgraph_and_no_other_page_does(tmp_path, monkeypatch):
+    """The page of the project that draws the showgraphs is their showcase:
+    the whole corpus a family at a time, each family with its projects' code,
+    then each view of every project and every family, each opening its page.
+
+    Mutation: give every project page the galleries, or none -- and this fails.
+    Mutation: leave the families' code out -- the corpus is on no page, and
+    this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    for name, depth, nodes in (("alpha", 3, 104), ("codecartographer", 1, 521)):
+        _show(tmp_path, f"project/{name}", {"estate": DRAWN, "code": _code(depth, nodes)},
+              {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "family/instruments", {"estate": DRAWN, "code": FAMILY_CODE},
+          {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    projects = {n: _project(n) for n in ("alpha", "codecartographer")}
+    drawer = cookbook.project_page(projects["codecartographer"], {"instruments": {}}, projects)
+    showcase = _under_showcase(drawer)
+    assert "### Every showgraph { #every-showgraph }" in showcase
+    assert "#### Every family's code { #every-familys-code }" in showcase
+    assert ("](../show/family/instruments/code.svg){ loading=lazy }](../families/instruments.md#showgraph-code)"
+            in drawer)
+    assert "[instruments](../families/instruments.md#showgraph-code), 2 projects' code" in drawer
+    assert "every-node" not in drawer
+    assert "](../show/project/alpha/code.svg){ loading=lazy }](alpha.md#showgraph-code)" in drawer
+    assert "[alpha](alpha.md#showgraph-code), 104 nodes, to its members" in drawer
+    assert "](../families/instruments.md#showgraph-estate)" in drawer
+    other = cookbook.project_page(projects["alpha"], {"instruments": {}}, projects)
+    assert "Every showgraph" not in other
+
+
+def test_a_code_map_says_how_deep_it_was_drawn(tmp_path, monkeypatch):
+    """codecarto holds a code map to a floor of nodes, so a small project's is
+    drawn to its symbols or its members. Mutation: say "by directory and file"
+    of every code map -- and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"code": _code(2, 281)}, {"code": "code.svg"})
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    assert "<strong>Its code.</strong> Its default branch, by directory, file and symbol." in page
+
+
+def test_a_stale_page_names_the_command_that_writes_it(tmp_path, monkeypatch, capsys):
+    """The remedy is the command that wrote the page. A site page sent to the
+    walkthrough's default directory is regenerated somewhere nobody reads."""
+    monkeypatch.setattr(cookbook, "build", lambda out, site=False: {"a.md": "fresh\n"})
+    (tmp_path / "a.md").write_text("old\n", encoding="utf-8")
+
+    assert cookbook.main([str(tmp_path), "--site", "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --site --write`" in capsys.readouterr().err
+
+    assert cookbook.main([str(tmp_path), "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --write`" in capsys.readouterr().err

@@ -104,7 +104,7 @@ The column on the right tells the senses apart.
 : A cycle the relations form, reported and never broken. Refusing to store one makes the tool consistent and the record false, and the deletion gets made by whoever was least equipped to judge it.
 
 **Workspace** { #workspace }
-: A permanent branch (`workspace/<slug>`) for research that never merges back to `main`. Non-binding. See [Branch namespaces](namespaces.md).
+: A permanent branch (`workspace/<slug>`) for research that never merges back to `main`. Non-binding. Research reaches it on a `math/<slug>` exploration, cut from it and merged back into it. See [Branch namespaces](namespaces.md).
 
 ## Words with a narrow meaning here
 

@@ -16,14 +16,25 @@ The classes sort by what it costs to be wrong about, so the question "what am
 I about to lose" is answered first and the safe rows sort last:
 
   stranded   the local ref is ahead of its own remote -- commits on one disk
-  local      a local branch with no remote at all
-  gone       a remote branch whose local ref is gone (nothing to lose here)
+  local      a local branch with no remote of its name, contained in no
+             remote branch
   ahead      unmerged work that is pushed and reachable
+  held       a local branch with no remote of its name, whose tip another
+             remote branch contains; deleting it loses the name and nothing else
+  gone       a remote branch whose local ref is gone (nothing to lose here)
   merged     every commit is on the default branch; deleting loses nothing
+
+The remote is read from the tracking refs, as of the last fetch. A branch is
+read as held only once the host confirms it: one `git ls-remote --heads` says
+which branches the host holds now, and a holder it has deleted, or moved to a
+commit this clone never fetched, does not count. `--offline` asks the host
+nothing and reads holders from the tracking refs alone.
 
 What this cannot tell: whether an `ahead` branch is abandoned or paused. It
 reports the age of the tip and stops; a threshold would be a guess nobody
-agreed. `docs/ref/ci/gates-and-checks.md` describes the census.
+agreed. A branch that remote branches hold only in part is local, and its
+counts include the commits they hold. `docs/ref/ci/gates-and-checks.md`
+describes the census.
 """
 
 from __future__ import annotations
@@ -37,15 +48,17 @@ STRANDED = "stranded"
 LOCAL = "local"
 GONE = "gone"
 AHEAD = "ahead"
+HELD = "held"
 MERGED = "merged"
 
 # Sorted by what it costs to be wrong about, not by tidiness. See the header.
-ORDER = (STRANDED, LOCAL, AHEAD, GONE, MERGED)
+ORDER = (STRANDED, LOCAL, AHEAD, HELD, GONE, MERGED)
 
 WHAT_IT_COSTS = {
     STRANDED: "commits exist on this disk and nowhere else",
     LOCAL: "never pushed; deleting the clone deletes the work",
     AHEAD: "unmerged, and reachable from the remote",
+    HELD: "every commit is on another remote branch; deleting loses the name",
     GONE: "on the remote only; this clone has no copy",
     MERGED: "nothing -- every commit is on the default branch",
 }
@@ -139,29 +152,101 @@ def default_branch(remote: str, repo: str) -> str:
         return "main"
 
 
-def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
-    """Every branch this clone or its remote knows about."""
-    base = f"{remote}/{default_branch(remote, repo)}"
+def refs(remote: str, repo: str) -> tuple[dict[str, tuple[str, str, str]],
+                                         dict[str, tuple[str, str, str]]]:
+    """Local and remote branches, each name -> (short sha, date, author).
 
-    head = default_branch(remote, repo)
-    prefix = f"{remote}/"
-
-    remote_refs = set()
-    for ref in lines("for-each-ref", "--format=%(refname:short)",
-                     f"refs/remotes/{remote}", repo=repo):
+    One listing for every ref, rather than three reads per branch.
+    """
+    local: dict[str, tuple[str, str, str]] = {}
+    remotes: dict[str, tuple[str, str, str]] = {}
+    heads, tracking = "refs/heads/", f"refs/remotes/{remote}/"
+    for line in lines("for-each-ref", "--format=%(refname)%09%(objectname:short)"
+                      "%09%(authordate:short)%09%(authorname)",
+                      "refs/heads", f"refs/remotes/{remote}", repo=repo):
+        ref, tip, when, who = line.split("\t")
+        if ref.startswith(heads):
+            local[ref[len(heads):]] = (tip, when, who)
         # `origin/HEAD` is a symbolic ref, not a branch. Counting it reports a
         # duplicate of the default branch under a name nobody pushed.
-        if ref.endswith("/HEAD") or not ref.startswith(prefix):
-            continue
-        remote_refs.add(ref[len(prefix):])
-    remote_refs.discard(head)
+        elif ref.startswith(tracking) and ref != f"{tracking}HEAD":
+            remotes[ref[len(tracking):]] = (tip, when, who)
+    return local, remotes
 
-    local_refs = set(lines("for-each-ref", "--format=%(refname:short)",
-                           "refs/heads", repo=repo))
-    local_refs.discard(head)
+
+def host_heads(remote: str, repo: str) -> dict[str, str] | None:
+    """Branch name -> tip sha as the host holds it now; None if it cannot be asked."""
+    try:
+        out = lines("ls-remote", "--heads", remote, repo=repo)
+    except RuntimeError:
+        return None
+    heads = {}
+    for line in out:
+        sha, _, ref = line.partition("\t")
+        heads[ref.removeprefix("refs/heads/")] = sha
+    return heads
+
+
+def holders(branch: str, remote: str, repo: str) -> list[tuple[str, str]]:
+    """The remote branches whose tracking ref contains `branch`, with their tips.
+
+    The remote as of the last fetch. `<remote>/HEAD` needs no skip: it names
+    the default branch, and a branch ahead of that is in no copy of it.
+    """
+    prefix = f"refs/remotes/{remote}/"
+    found = []
+    for line in lines("for-each-ref", "--contains", branch,
+                      "--format=%(objectname) %(refname)",
+                      f"refs/remotes/{remote}", repo=repo):
+        sha, _, ref = line.partition(" ")
+        found.append((ref.removeprefix(prefix), sha))
+    return found
+
+
+def contains(branch: str, tip: str, repo: str) -> bool:
+    """Whether `tip` contains `branch`; False when `tip` is not in this clone."""
+    try:
+        git("merge-base", "--is-ancestor", branch, tip, repo=repo)
+    except RuntimeError:
+        return False
+    return True
+
+
+def confirmed(branch: str, recorded: list[tuple[str, str]], host: dict[str, str],
+              repo: str) -> list[str]:
+    """Those of `recorded` the host still has at a tip that contains `branch`.
+
+    A branch read as held is one a person deletes, so a holder the host has
+    deleted since the last fetch, or moved to a commit this clone never
+    fetched, does not count.
+    """
+    kept = []
+    for name, sha in recorded:
+        tip = host.get(name)
+        if tip is None:
+            continue
+        if tip != sha and not contains(branch, tip, repo):
+            continue
+        kept.append(name)
+    return kept
+
+
+def census(repo: str = ".", remote: str = "origin", online: bool = True) -> list[Branch]:
+    """Every branch this clone or its remote knows about.
+
+    `online` asks the host, once, which branches it holds now, so that a
+    branch is read as held only when the host confirms its holder.
+    """
+    head = default_branch(remote, repo)
+    base = f"{remote}/{head}"
+    host = host_heads(remote, repo) if online else None
+
+    local_refs, remote_refs = refs(remote, repo)
+    local_refs.pop(head, None)
+    remote_refs.pop(head, None)
 
     found = []
-    for name in sorted(remote_refs | local_refs):
+    for name in sorted(remote_refs.keys() | local_refs.keys()):
         here = name in local_refs
         there = name in remote_refs
         # The remote ref is the shared truth; fall back to the local one only
@@ -169,20 +254,23 @@ def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
         # somebody else can see.
         tip_ref = f"{remote}/{name}" if there else name
         branch = Branch(name=name)
-        branch.tip = git("rev-parse", "--short", tip_ref, repo=repo)
-        branch.when = git("log", "-1", "--format=%ad", "--date=short", tip_ref,
-                          repo=repo)
-        branch.who = git("log", "-1", "--format=%an", tip_ref, repo=repo)
-        branch.ahead = int(git("rev-list", "--count", f"{base}..{tip_ref}",
-                               repo=repo))
-        branch.behind = int(git("rev-list", "--count", f"{tip_ref}..{base}",
-                                repo=repo))
+        branch.tip, branch.when, branch.who = (remote_refs if there else local_refs)[name]
+        behind, ahead = git("rev-list", "--left-right", "--count",
+                            f"{base}...{tip_ref}", repo=repo).split()
+        branch.ahead, branch.behind = int(ahead), int(behind)
 
         if here and there:
             branch.unpushed = int(git("rev-list", "--count",
                                       f"{remote}/{name}..{name}", repo=repo))
 
-        if here and (branch.unpushed or not there):
+        recorded = (holders(name, remote, repo)
+                    if here and not there and branch.ahead else [])
+        if online:
+            held_by = confirmed(name, recorded, host or {}, repo)
+        else:
+            held_by = [holder for holder, _ in recorded]
+
+        if here and (branch.unpushed or not there) and not held_by:
             # Only work this clone alone holds is worth the patch comparison.
             branch.unique = unique_commits(base, name, repo=repo)
 
@@ -193,8 +281,16 @@ def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
             branch.notes.append(
                 f"{branch.unpushed} commit(s) not on {remote}")
             branch.notes.append(describe_unique(branch.unique))
+        elif held_by:
+            branch.kind = HELD
+            more = f" and {len(held_by) - 1} more" if len(held_by) > 1 else ""
+            branch.notes.append(f"all on {remote}/{held_by[0]}{more}")
         elif here and not there:
             branch.kind = LOCAL
+            if recorded:
+                branch.notes.append(
+                    f"{remote}/{recorded[0][0]} held it at the last fetch, "
+                    f"and the host does not confirm it")
             branch.notes.append(describe_unique(branch.unique))
         elif there and not here:
             branch.kind = GONE if branch.ahead else MERGED
@@ -270,9 +366,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--fail-on-stranded", action="store_true",
         help="exit non-zero when work exists only in this clone")
+    parser.add_argument(
+        "--offline", action="store_true",
+        help="ask the host nothing; read holders from the tracking refs alone")
     args = parser.parse_args(argv)
 
-    found = census(args.repo, args.remote)
+    found = census(args.repo, args.remote, online=not args.offline)
     sys.stdout.write(render(found, args.remote))
 
     if args.fail_on_stranded:

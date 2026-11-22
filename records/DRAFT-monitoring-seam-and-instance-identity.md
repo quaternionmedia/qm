@@ -25,12 +25,17 @@ the code, not inferred from its shape.
 
 **Reading the queue writes to it.** `GET /v1/human/requests/{id}` assigns
 `status = EXPIRED` to a pending request whose `expires_at` has passed
-(`qmcp/server.py:373-382`), and the session context manager commits on exit
-(`qmcp/db/engine.py:69-74`), so the transition is persisted *by the read*. It
-is also the only mechanism that ever produces `expired`; the list endpoint
-applies no expiry, so the two endpoints disagree about the same row. Expiry is
-terminal — the answer POST then returns 410, no endpoint un-expires a request,
-and `CANCELLED` exists in the enum with no code path that sets it. A tab that
+(`qmcp/server.py:448-457`), and the session context manager commits on exit
+(`qmcp/db/engine.py:68-73`), so the transition is persisted *by the read*. It
+is also the only path that persists `expired`. The answer POST assigns it to a
+request past its expiry and then refuses with 410 (`qmcp/server.py:494-503`),
+and the refusal rolls the session back, so the row stays `pending`. The list
+endpoint leaves such a request out of a `pending` listing and writes nothing
+(`qmcp/server.py:411-415`). So one row is stored as pending, listed as not
+pending, and stored as expired by the first detail read of it. Expiry is
+terminal — the answer POST refuses a request past its expiry whatever its
+stored status, no endpoint un-expires a request, and `CANCELLED` exists in the
+enum (`qmcp/db/models.py:44`) with no code path that sets it. A tab that
 polled detail URLs to show who had answered would expire the gates it displayed
 by looking at them, and the write it performed is a decision the human can no
 longer make.
@@ -38,9 +43,12 @@ longer make.
 **The service cannot say which service it is.** `/health` returns
 `{"status": "healthy", "version": __version__}`, and that version is a package
 constant, byte-identical across every `qmcp` process on the machine and every
-clone of it. The queue itself is a SQLite file resolved against one process's
-working directory (`sqlite+aiosqlite:///./qmcp.db`, `qmcp/config.py:23`) behind
-a port that defaults to `3333` (`qmcp/config.py:19`). So two clones have two
+clone of it. `qmcp/identity.py` names the repository a checkout belongs to,
+from its `origin` remote, which two clones of one repository share, and no
+route serves it. The queue itself is a SQLite file resolved against one
+process's working directory (`sqlite+aiosqlite:///./qmcp.db`,
+`qmcp/config.py:37`) behind a port that defaults to `3141`
+(`qmcp/config.py:33`). So two clones have two
 different queues, both answer `/health` identically, and nothing obtainable
 over HTTP distinguishes them.
 
@@ -149,9 +157,11 @@ governs the internal one, and does not relax that record.
 - Cost accepted: the reviewer sees the queue one refresh behind rather than
   live. Given that a live read expires the gates it displays, one refresh
   behind is the feature.
-- `qmcp` is not yet governed — no `AGENTS.md`, no `.github`, no `LICENSE`, no
-  submodule — and nothing the harness depends on should read a repository with
-  no gates. Onboarding it precedes wiring it.
+- Nothing the harness depends on reads a repository with no gates, and `qmcp`
+  has them: an `AGENTS.md`, this corpus as a submodule on its `project/qmcp`
+  branch, REUSE licensing (`REUSE.toml`, `LICENSES/`), and the ADR, leak,
+  one-PR, REUSE and submodule checks in `.github/workflows/`. What wiring it
+  waits on is the run-file and the identity endpoint above.
 
 ## Alternatives considered
 

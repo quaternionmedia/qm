@@ -124,6 +124,8 @@ def fake_host(states: dict[str, dict | None], stamp_date: str | None = STAMP_DAT
 
     def gh(*args):
         calls.append(args)
+        if args[:2] == ("auth", "status"):
+            return subprocess.CompletedProcess(args, 0, "", "")
         if args[:2] == ("api", "graphql"):
             query = args[3]
             data = {}
@@ -235,3 +237,35 @@ def test_a_reply_without_data_is_unreadable_not_empty(monkeypatch):
 def test_the_route_is_registered_as_qm_queue():
     import cli
     assert cli.ROUTES["queue"] == ("queue_page", False, [])
+
+
+def test_without_a_credential_it_names_the_login_and_asks_the_host_nothing(
+        tmp_path, monkeypatch):
+    """Without a credential every host read fails, and a reader that took the
+    compare's empty answer for the host's would say the stamp is unknown: a
+    fault in the page, where the fault is the session's. The login is checked
+    first, by name, and nothing else is asked.
+
+    Mutation: drop the `signed_in` check from `report`, and this exits 2 with
+    *does not know* and a compare call on the record.
+    """
+    page = tmp_path / "queue.md"
+    page.write_text(PAGE, encoding="utf-8")
+    calls = []
+
+    def gh(*args):
+        calls.append(args)
+        if args[:2] == ("auth", "status"):
+            return subprocess.CompletedProcess(
+                args, 1, "",
+                "You are not logged into any GitHub hosts. To log in, run: gh auth login")
+        return subprocess.CompletedProcess(
+            args, 4, "", "To get started with GitHub CLI, please run:  gh auth login")
+
+    monkeypatch.setattr(merge_review, "gh", gh)
+    monkeypatch.setattr(queue_page, "repositories", lambda: NAMES)
+    out = io.StringIO()
+    assert queue_page.report(page, out) == 2
+    assert "gh auth login" in out.getvalue()
+    assert "does not know" not in out.getvalue()
+    assert calls == [("auth", "status")]

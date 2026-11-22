@@ -327,13 +327,43 @@ def test_the_harness_serves_a_topology_over_http():
     assert "payload" in document and "encoding" in document
 
 
-@pytest.mark.skipif(
-    not (_reachable("http://127.0.0.1:3141/health")
-         and _reachable("http://127.0.0.1:2718/topology/data")),
-    reason="the trio is not up; `uv run qm dashboard --start harness --start web`")
+def _deployed_trio_missing() -> str:
+    """What the deployed-trio test lacks here, or "" when it has everything.
+
+    The body runs `qm demo --over-http`, which asks the harness on 3141 and the
+    web front end on 2718 and then draws the dossier window under that
+    sibling's own interpreter, so it needs the ports *and* the siblings. A
+    condition that reads the ports alone runs the test on a machine where
+    another process answers them and no clone sits beside the checkout, and
+    fails it on the missing clone instead of skipping; a worktree is such a
+    checkout. Each missing piece is named, so a skip says what it skipped on.
+    """
+    missing = []
+    if not _siblings_present():
+        missing.append("qmcp and dossier beside this clone")
+    if not _reachable("http://127.0.0.1:3141/health"):
+        missing.append("the harness on 3141")
+    if not _reachable("http://127.0.0.1:2718/topology/data"):
+        missing.append("the web front end on 2718")
+    if not missing:
+        return ""
+    return ("the deployed trio needs " + ", ".join(missing)
+            + "; `uv run qm dashboard --start harness --start web` from a clone "
+              "with the siblings beside it")
+
+
+_DEPLOYED_TRIO_MISSING = _deployed_trio_missing()
+
+
+@pytest.mark.skipif(bool(_DEPLOYED_TRIO_MISSING), reason=_DEPLOYED_TRIO_MISSING)
 def test_the_deployed_front_ends_agree():
     """The demo as deployed: every answer comes from a process somebody could
-    open in a browser."""
+    open in a browser.
+
+    Mutation: make the skip condition read the two ports alone and run this
+    from a checkout with no sibling beside it while the ports answer, and it
+    fails on `is not beside this clone` instead of skipping.
+    """
     done = _via_cli("--over-http")
     assert done.returncode == 0, done.stdout[-2500:]
     assert "windows agree about every box" in done.stdout
