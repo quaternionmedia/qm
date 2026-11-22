@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-19T21:03:20Z'
+generated_at: '2026-11-22T18:46:02Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -47,11 +47,11 @@ reading_load:
   - path: handbook/async-contract.md
     lines: 273
   - path: handbook/handoffs/README.md
-    lines: 150
-  total_lines: 1234
+    lines: 151
+  total_lines: 1235
   budget_lines: 1200
   within_budget: false
-  headroom_lines: -34
+  headroom_lines: -35
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -111,7 +111,7 @@ readiness:
       proposed: 42
     documents_in_unknown_state: 0
     reading_within_budget: false
-    reading_total_lines: 1234
+    reading_total_lines: 1235
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -123,15 +123,15 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 318
+  documents: 324
   by_state:
     dated: 2
     draft: 3
     generated: 57
     proposed: 42
-    standing: 91
-    transient: 25
-    unreviewed: 98
+    standing: 94
+    transient: 26
+    unreviewed: 100
   disagreements: 0
   unknown: 0
 documents:
@@ -1200,6 +1200,13 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/the-algorithmic-layer.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/the-triplet.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -2018,6 +2025,22 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-11-21-the-evidence-was-in-the-context.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-11-22-the-first-reading-of-the-instrument.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/README.md
   class: index
   class_reason: the index for its directory, not a member of it
@@ -2323,6 +2346,15 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: protocols/project-refresh.md
+  class: protocol
+  class_reason: a procedure run deliberately, and its runs
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: protocols/runs/2026-08-17-local-demo.md
   class: protocol
   class_reason: a procedure run deliberately, and its runs
@@ -2360,6 +2392,24 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: protocols/runs/2026-08-27-local-demo.md
+  class: protocol
+  class_reason: a procedure run deliberately, and its runs
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: protocols/runs/2026-11-20-project-refresh.md
+  class: protocol
+  class_reason: a procedure run deliberately, and its runs
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: protocols/runs/2026-11-21-project-refresh.md
   class: protocol
   class_reason: a procedure run deliberately, and its runs
   declared_status: null

@@ -15,8 +15,9 @@ from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
 `project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`, and those
 that name 2026-11-19 at `qm` `02fa287`, `qmcp` `8aece3e` and `joe` `188a2cb`,
-asking the host nothing. The rest of the page holds at the stamp, which those
-entries do not move.
+asking the host nothing. Those that name 2026-11-21 were re-derived at `qm`
+`5baf779`, `project/qmetronome` `348e31f` and `qmetronome` `3aaaa28`. The rest
+of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -197,7 +198,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
-| #147, #148, #149, #150, #151, #153, #156 | seven project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #147, #148, #149, #150, #151, #156 | six project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
 | #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
@@ -433,8 +434,9 @@ Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
 re-checked and is re-derived before anyone acts on it.
 
 - **`one-pr-check.yml` in every project.** On four projects' default
-  branches; absent on alfred, apothecary, datum, dossier, factorio-sysops,
-  qmetronome and rad, and not read for the private projects. Done is the
+  branches; absent on alfred, apothecary, datum, dossier, factorio-sysops
+  and rad, and not read for the private projects. qmetronome's default
+  branch carries the seed's file besides (2026-11-21). Done is the
   workflow on every project's default branch, which follows the propagations
   in §2 and a copy in each project. alfred's copy is the seed's file
   verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
@@ -445,9 +447,9 @@ re-checked and is re-derived before anyone acts on it.
   step exempting automation accounts included. The copy
   goes onto alfred's stack with a pin bump, and reaches its `main` when the
   stack lands.
-- **Unsubstituted placeholders.** Six project branches' `adr/README.md`
-  still reads `project/<name>`: apothecary, factorio-sysops, qmetronome,
-  `private-32`, `private-33` and `private-34`.
+- **Unsubstituted placeholders.** Five project branches' `adr/README.md`
+  still reads `project/<name>`: apothecary, factorio-sysops,
+  `private-32`, `private-33` and `private-34`. qmetronome's is substituted (2026-11-21).
   `project-seed/ci/check_placeholders.py` refuses it at each branch's next
   propagation, so the propagation substitutes it, as alfred's did on
   2026-10-29. Done is that check clean on every project branch.
@@ -696,6 +698,12 @@ re-checked and is re-derived before anyone acts on it.
 - That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
   on `main`: every local run on 2026-10-31 skipped it, because the families
   step before it failed first (§4).
+- That qmetronome's unit suite is stable (2026-11-21, at `39c1beb`).
+  `MetronomeEngineTest` drives the engine on real threads against the wall
+  clock, and the body of the pull request merged as `a591c00` measures it red
+  on the host intermittently. `MidiActionSenderTest` collects what its fake
+  destination receives in a plain list while its sender delivers on a
+  background dispatcher; it has not been seen to fail.
 
 ## 6. Standing constraints
 

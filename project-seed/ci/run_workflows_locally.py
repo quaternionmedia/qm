@@ -384,6 +384,11 @@ def main() -> int:
         ["git", "remote", "get-url", "origin"], capture_output=True, text=True
     ).stdout.strip()
     slug = re.sub(r"^(?:git@[^:]+:|https?://[^/]+/)", "", origin).removesuffix(".git")
+    # The expression forms of the same fact. The seed's adr-lint.yml names its
+    # project with `github.event.repository.name`, which is the slug's last
+    # segment in every event, so a fork's run reaches the steps after it.
+    ctx["github.repository"] = slug
+    ctx["github.event.repository.name"] = slug.rsplit("/", 1)[-1]
     # GITHUB_HEAD_REF is the branch you are actually on, not `--ref`. The two
     # differ on purpose: `--ref` decides which workflows a *push* event matches
     # and defaults to the default branch so a local run exercises everything,

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-19T21:03:21Z",
+  "generated_at": "2026-11-21T23:44:34Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-19T21:03:20Z"
+        "generated_at": "2026-11-21T23:43:09Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -1267,10 +1267,10 @@
     },
     {
       "kind": "document-unreviewed",
-      "address": "quaternionmedia/qm/doc/perspectives-2026-11-19-the-video-journey",
-      "title": "perspectives/2026-11-19-the-video-journey.md",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-21-the-evidence-was-in-the-context",
+      "title": "perspectives/2026-11-21-the-evidence-was-in-the-context.md",
       "detail": "written, and no maintainer has looked at it",
-      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-19-the-video-journey",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-21-the-evidence-was-in-the-context",
       "address_parses": true
     },
     {

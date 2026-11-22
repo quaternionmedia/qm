@@ -17,6 +17,7 @@ the table below says what each protocol is for, not when it was last done.
 |---|---|
 | [plain-language.md](https://github.com/quaternionmedia/qm/blob/main/protocols/plain-language.md) | Can somebody who has never seen this repository read its first page and know what it is for? |
 | [security-review.md](https://github.com/quaternionmedia/qm/blob/main/protocols/security-review.md) | What could leak from this repository, and what actually protects it right now? |
+| [project-refresh.md](https://github.com/quaternionmedia/qm/blob/main/protocols/project-refresh.md) | Is this project current with the corpus it adopted, do its own tests pass, and does it meet the policies its gates enforce? |
 | [local-demo.md](https://github.com/quaternionmedia/qm/blob/main/protocols/local-demo.md) | Does this project actually do the thing, on this machine, today? *(optional)* |
 | [curriculum.md](https://github.com/quaternionmedia/qm/blob/main/protocols/curriculum.md) | In what order should someone with no context read this [corpus](../ref/glossary.md#corpus){ .glossary-term }, and what can they do afterwards? *(optional)* |
 
