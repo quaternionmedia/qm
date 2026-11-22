@@ -5,7 +5,7 @@ at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
 at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
 at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
 `d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
-`993bfc9e`, `feat/speakers-to-words` at `af0941b6`, `feat/trim-captions` at `5d4f062c` and `feat/fluid-tools` at `d8aa98dd` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
+`993bfc9e`, `feat/speakers-to-words` at `af0941b6`, `feat/trim-captions` at `5d4f062c`, `feat/fluid-tools` at `d8aa98dd` and `feat/revealed-words` at `45e40bef` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
@@ -460,7 +460,12 @@ is not.
   recipe's own steps shortened them, so the instrument reads a recipe's cut
   as a person's; the correction, a draft carrying its length as made for
   the instrument to compare against, is open on `feat/drafts-measured`
-  (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`). What remains is a person's pass: the built-in recipes' drafts
+  (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`). The long recording's drafts were then
+  dropped from the editor, all but one, while the host run served a branch
+  that does not hold `feat/drafts-measured`, so no source remembers those
+  drops and the instrument cannot count them; a pass meant to be read is
+  made with the host run serving `feat/drafts-measured`, or a stack holding
+  it. What remains is a person's pass: the built-in recipes' drafts
   opened and kept or dropped, *highlights* first;
   what the person dropped, what they kept, and the difference between a
   kept draft's timeline and the timeline they rendered from it are the
@@ -574,9 +579,13 @@ where one adds work, it names the §2 row that carries it.
   pull request of its own against the branch beneath:
   `feat/trim-captions`, two commits, where every timeline tool acts on the
   Text lane's captions and words as it does on a clip and what it changed
-  saves itself; and `feat/fluid-tools`, one commit, where the Timeline tools
+  saves itself; `feat/fluid-tools`, one commit, where the Timeline tools
   panel flows to fill its shape, as many tools to a row as it holds, so
-  docked as a strip over the timeline it is one row.
+  docked as a strip over the timeline it is one row; and
+  `feat/revealed-words`, three commits, where what a longer, slipped,
+  rolled, slid or added clip shows is said as the draft's sources, nearest
+  first, and the owner's other projects that play the file said it
+  (`POST /project/{id}/captions/said`), saved with the timeline.
   qmcp's
   `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
   in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
@@ -595,7 +604,7 @@ where one adds work, it names the §2 row that carries it.
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
   as the later ones land.
-- **alfred's clone is checked out on `feat/fluid-tools`**, with vox and
+- **alfred's clone is checked out on `feat/revealed-words`**, with vox and
   otto at the stack's pins,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
@@ -798,6 +807,39 @@ named:
   **Open in joe** at the engine's page. `conversation.spec.js` on the
   `chromium` and `phone` projects: 4 passed, 2 skipped, the skips the cases for a server without a language engine, the link's case among the passes. looksatwords' own
   suite at `aeb22b6`: 238 passed, 1 skipped.
+
+### For what an edit shows, at alfred `45e40bef`
+
+Each figure one run at that commit, in the host virtualenv, against the host
+run on 1732 serving the branch, its bundle and its api checked for the said
+route first:
+
+- the unit tier, every module: 2054 passed, 37 skipped, 8 xfailed, 4
+  failed, the four this host's as above; `test_said.py` and the said
+  route's tests among them. The database tier against its own database on
+  this machine's MongoDB, which it names `_test_` and drops: 227 passed, 4
+  skipped, 2 failed, the two health checks that count the task broker's
+  queue, which fail alike from the base's code in the worktree. Four
+  mutations, the sources read farthest first, the owner's other projects
+  read before the chain, the editor not asking and held words put on again,
+  reddened 3, 1, 1 and 1; restored, all pass. `black`, `ruff`,
+  `check_timeless.py --base feat/who-spoke` and `check_leaks.py` clean. The
+  first database-tier test stored a draft without its recipe, which a
+  superuser's listing in another module refused; the third commit gives it
+  one;
+- the browser suite: `follow-clips.spec.js` in Node, 19 passed; the
+  transcript spec's new test, a longer clip saying what is served over what
+  it shows, and the trim test beside it on both projects, 4 passed; the
+  transcript, follow-clips, cut-ranges, timeline-tools, lanes, autosave,
+  editor and captions specs on both projects, 140 passed and 7 failed, the
+  seven that fail alike at the base with its bundle verified as served;
+- on the host run, from a fresh browser, the Quotes draft cut from the
+  Teaser draft of the long recording, its saves answered in the page and
+  none written: its clip trimmed in kept 19 words; trimmed back out to
+  where it ended, the editor asked once for the stretch shown, the server
+  answered 25 words and 4 captions from the Teaser draft and the long
+  recording, and the lane held 44 words; the stored draft read the same
+  before and after.
 
 ### For the tools on the Text lane, at alfred `5d4f062c`, and the fluid tools panel at `d8aa98dd`
 
