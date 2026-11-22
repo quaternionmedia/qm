@@ -635,12 +635,14 @@ re-checked and is re-derived before anyone acts on it.
   (l), a Sculpt stage between Source and Edit where recipes cut a long
   source into drafts, each a project to refine by hand, and the transcript
   read by looksatwords for who spoke and what about; that page's §3 is
-  settled, and two more branches cut from `feat/who-spoke` build its (n), the
-  cues' count off, and the title in its (h), each draft named by the topic
-  the engine has live over it. Done is *keep everything local* lifted,
-  otto's branch released and the pin moved to the release, then each branch
-  a pull request against the one beneath; the labeller in (h), (i) to (k)
-  and (m) remain planned. (2026-11-21)
+  settled, and three more branches cut from `feat/who-spoke` build its (n),
+  the cues' count off, the title in its (h), each draft named by the topic
+  the engine has live over it, and its (m), a recipe edited on Sculpt; qmcp's
+  `feat/alfred-drafts`, cut from `feat/alfred-excerpts`, builds its (i), the
+  excerpt flow over alfred's drafts route. Done is *keep everything local*
+  lifted, otto's branch released and the pin moved to the release, then each
+  branch a pull request against the one beneath; the labeller in (h), (j) and
+  (k) remain planned. (2026-11-21)
 
 ## 5. Not verified
 
@@ -679,11 +681,12 @@ re-checked and is re-derived before anyone acts on it.
 
 - *Keep everything local* is **not** in force for this page's work, and is
   **in force** for the video journey's branches, `qmcp`
-  `feat/alfred-excerpts`, `qm` `evolve/the-video-journey`, `alfred`
-  `docs/excerpts-in-the-family`, `feat/synced-timeline`, `fix/host-run`,
-  `fix/no-caption-cap`, the algorithmic layer's eight above it
-  (`feat/cut-arithmetic` to `feat/who-spoke`) and the two cut from the last
-  (`feat/no-cue-cap`, `feat/topic-titles`), `otto` `feat/motion` in
+  `feat/alfred-excerpts` and `feat/alfred-drafts` above it, `qm`
+  `evolve/the-video-journey`, `alfred` `docs/excerpts-in-the-family`,
+  `feat/synced-timeline`, `fix/host-run`, `fix/no-caption-cap`, the
+  algorithmic layer's eight above it (`feat/cut-arithmetic` to
+  `feat/who-spoke`) and the three cut from the last (`feat/no-cue-cap`,
+  `feat/topic-titles`, `feat/recipe-editor`), `otto` `feat/motion` in
   alfred's submodule checkout, and `joe`
   `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)

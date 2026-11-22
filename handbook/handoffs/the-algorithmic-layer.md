@@ -2,10 +2,11 @@
 
 **Stamped 2026-11-21.** `qm` `main` at `5baf779`; `alfred` `feat/who-spoke`
 at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
-at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42` and `feat/topic-titles`
-at `bfcb0526` each cut from it (§5); `otto` `feat/motion` at `eac657d`, which alfred pins;
-`looksatwords` `test` at `7d9089d`; `qmcp` `feat/alfred-excerpts` at
-`763414c`; `joe` `main` at `188a2cb`. Every figure on this page was true at
+at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
+at `bfcb0526` and `feat/recipe-editor` at `c9b92d4c` each cut from it (§5);
+`otto` `feat/motion` at `eac657d`, which alfred pins; `looksatwords` `test`
+at `7d9089d`; `qmcp` `feat/alfred-drafts` at `6ee6d44`, cut from
+`feat/alfred-excerpts` at `763414c`; `joe` `main` at `188a2cb`. Every figure on this page was true at
 those commits and nowhere else; re-derive before acting on one.
 
 This page is a plan: the round of feature work that takes alfred from an
@@ -17,11 +18,11 @@ builds on [`the-video-journey.md`](the-video-journey.md), where the first step
 of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
-leaves out. Of the work it names, §2 (a) to (g), (l), (n) and the title in
-(h) are built, each as a local branch that is a pull request to open once
-*keep everything local* is lifted; the labeller in (h), (i) to (k) and (m)
-are planned. The built part runs on the host run (`docs/host-run.md`) over
-the long recording: §6.
+leaves out. Of the work it names, §2 (a) to (g), (i), (l), (m), (n) and
+the title in (h) are built, each as a local branch that is a pull request to
+open once *keep everything local* is lifted; the labeller in (h), (j) and
+(k) are planned. The built part runs on the host run (`docs/host-run.md`)
+over the long recording: §6.
 
 ## 0. What the round is for
 
@@ -99,9 +100,9 @@ drafts    projects, each carrying its source, its spans, its recipe and its scor
 | motion in the picture over time, and scene changes | otto | the engine that reads frames, with the ffmpeg `otto.media.probe` runs | not built |
 | a title, a category, a score for how well a stretch stands alone | a title from the topic the language engine has live over the stretch; a category and a score from the local model, reached by a contract that names no model, as vox's does | the reading already carries the topics; language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up; in alfred, §2 (h) |
 | who spoke, which topics were live and when, where the talk went off and whether it came back | looksatwords, the language engine, reached by its conversation route | reading prose is its charter, and its border with codecartographer says so | built, §2 (l): `ALFRED_LANGUAGE_ENGINE_URL`, `utils/language_engine.py` |
-| the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | built, §2 (b) and (e): `utils/cut.py` and `utils/sculpt.py`, the browser's copy held equal by shared fixtures; qmcp's `propose` and `excerpt_edl` stand until (i) |
+| the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | built, §2 (b) and (e): `utils/cut.py` and `utils/sculpt.py`, the browser's copy held equal by shared fixtures; qmcp's `propose` and `excerpt_edl` are retired by (i), and the stand-in alfred in qmcp's tests keeps an arithmetic of its own that claims nothing of alfred's |
 | recipes as documents; drafts as projects with their provenance; the job that runs a recipe | alfred | lifecycle state is the seam's | built, §2 (e) and (f) |
-| the review of each draft by a person, the run and its record, delivery | qmcp, the flow | its queue, its record | built, for excerpts |
+| the review of each draft by a person, the run and its record, delivery | qmcp, the flow | its queue, its record | built, over alfred's drafts, §2 (i) |
 | choosing recipes and their knobs; reading and dropping the drafts | the editor, on a Sculpt stage between Source and Edit | where the person is | built, §2 (g) |
 
 The plan takes four positions, and §3 puts each to the person with its
@@ -313,17 +314,27 @@ is not.
   Done, for the labeller, is `label` scoring with one and skipping without
   one, each a test, and the health report.
 
-- **(i) qmcp follows the route.** Tools `alfred_recipes`, `alfred_drafts` and
-  `alfred_drafts_status`; the `alfred-excerpts` flow's `propose` step calls
-  `alfred_drafts` with the *excerpts* recipe, its review puts each draft to
-  the person, approve renders the draft's timeline and reject drops it, and
-  the run's summary, the spoken form, delivery and the record stay as they
-  are. `propose`, `excerpt_edl` and `excerpt_captions` leave
-  `qmcp/cookbook/alfred_excerpts.py`, the stand-in alfred in
-  `tests/alfred_stub.py` grows the routes, and
-  `walkthrough/12-a-long-recording-is-offered-as-excerpts.md` is rewritten
-  over the tools. Done is the walkthrough running under the ordinary test
-  command, and `docs/integrations/alfred.md` naming the tools.
+- **(i) qmcp follows the route.** Built: qmcp `6ee6d44`,
+  `feat/alfred-drafts`, cut from `feat/alfred-excerpts`. Tools
+  `alfred_recipes`, `alfred_drafts`, `alfred_drafts_status` and
+  `alfred_drafts_drop`; the `alfred-excerpts` flow's `propose` step calls
+  `alfred_drafts` with the *excerpts* recipe, its knobs sent as text, and
+  follows `alfred_drafts_status` to done within `--drafts-timeout`, taking
+  as the proposal the drafts the run added and reading each one's captions
+  with `alfred_captions`; its review puts each draft to the person, named as
+  alfred named it; approve renders the draft's own timeline by its id, with
+  the draft's captions burned in, and reject drops it, the rejected together
+  once every answer is in; the labeller sorts a draft into a category and
+  titles nothing, since the title is alfred's; the summary, the spoken form,
+  delivery and the record stay as they were, the flow's cues now one per
+  draft beside alfred's own. `propose`, `excerpt_edl` and `excerpt_captions`
+  left `qmcp/cookbook/alfred_excerpts.py`; the stand-in alfred in
+  `tests/alfred_stub.py` answers the recipes and drafts routes, its worker
+  cutting drafts with an arithmetic of its own in `tests/alfred_cuts.py`;
+  and `walkthrough/12-a-long-recording-is-offered-as-excerpts.md` runs over
+  the tools, `docs/integrations/alfred.md` naming them. §6 is the run. What
+  it does not do: run the Metaflow flow against the host run, which a
+  person's check is.
 
 - **(j) The engines, the rest.** otto: `otto.media.scenes`, scene changes by
   the ffmpeg it runs, as a list of seconds with a threshold, kept at `GET
@@ -356,13 +367,20 @@ is not.
   score a recipe's candidates, which is a `topics` operation for a later
   round.
 
-- **(m) A recipe edited on Sculpt.** The Recipes panel copies a built-in or
-  one of the account's own, lets its steps and their parameters be changed,
-  checks the copy as `POST /recipes` does and shows each refusal beside the
-  step it names, and saves it as the account's own; a built-in is never
-  written. Done is a copy of *highlights* with one step changed, saved and
-  run from the panel; a refused step shown where it is; and a spec on the
-  desktop and the phone.
+- **(m) A recipe edited on Sculpt.** Built: alfred `c9b92d4c`,
+  `feat/recipe-editor`, cut from `feat/who-spoke` beside the other two. The
+  Recipes panel's Copy, on any recipe, and Edit, on one of the account's
+  own, open it in the panel: its name, label and description, and its steps
+  in order, each an operation chosen from `GET /recipes/operations` with its
+  parameters drawn from what that lists, a blank one the operation's own and
+  `$knob` a read of a knob; steps are added, removed and moved. Check asks
+  `POST /recipes/check`, which checks as a write would and stores nothing,
+  and a refusal is shown beside the step its sentence names; Save as mine
+  stores it by `POST` or `PUT /recipes`, listed and ticked; Delete removes
+  one of the account's own by `DELETE /recipes/{id}`; a built-in is never
+  written. The spec copies *highlights*, has a step refused where it is and
+  the copy saved, and runs a copy of *chapters* with a step changed, on the
+  desktop and the phone. §6 is the run.
 
 - **(n) The cues' count comes off.** Built: alfred `e73e5b42`,
   `feat/no-cue-cap`, cut from `feat/who-spoke` beside `feat/topic-titles`.
@@ -444,6 +462,10 @@ where one adds work, it names the §2 row that carries it.
   Sculpt leaves drafts, not deliveries.
 - No model in alfred's image, and no model named in alfred: the labeller is a
   URL.
+- The Source stage lists what `GET /project` answers by default, and a
+  database holding more projects than that page, as a long recording's
+  drafts make, lists the rest nowhere; paging the Source stage is a round of
+  its own.
 
 ## 5. Standing constraints
 
@@ -454,22 +476,30 @@ where one adds work, it names the §2 row that carries it.
   page. This round's eight branches stack above `fix/no-caption-cap`, each
   one commit, in this order: `feat/cut-arithmetic`, `feat/timeline-sound`,
   `feat/picture-motion`, `fix/host-reload-waits`, `feat/recipes`,
-  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; above the last, two
-  more, each cut from it and one commit, parallel since neither needs the
-  other: `feat/no-cue-cap` and `feat/topic-titles`. None pushed, no pull
-  request open. otto's `feat/motion` is a branch in the submodule's checkout
-  under `alfred/otto`, one commit, not pushed, which `feat/picture-motion`
-  pins. Landing is each as a pull request against the one beneath, in order,
-  and the two above `feat/who-spoke` each against it.
-- **alfred's clone is checked out on `feat/topic-titles`**,
+  `feat/drafts`, `feat/sculpt-stage`, `feat/who-spoke`; above the last,
+  three more, each cut from it and one commit, parallel since none needs
+  another: `feat/no-cue-cap`, `feat/topic-titles` and `feat/recipe-editor`.
+  qmcp's `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one
+  commit, in a worktree beside qmcp's clone in a folder named `qmcp`. None
+  pushed, no pull request open. otto's `feat/motion` is a branch in the
+  submodule's checkout under `alfred/otto`, one commit, not pushed, which
+  `feat/picture-motion` pins. Landing is each as a pull request against the
+  one beneath, in order, and the three above `feat/who-spoke` each against
+  it; the two that touch `docs/drafts.md` and the changelog meet in a small
+  conflict there when the second lands.
+- **alfred's clone is checked out on `feat/recipe-editor`**,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
   with `uv run looksatwords serve --no-open --port 8000` and
   `LOOKSATWORDS_DB` pointed at a scratch file, so its own database is left
   alone; the host run was started with `ALFRED_LANGUAGE_ENGINE_URL` naming
-  it. The api reloads itself when its code changes, now within a few seconds
-  whatever a tab streams; the worker does not, so a change to a task is
-  `./al host down` then `./al host up`. The site's watcher has crashed once
+  it. The api reloads itself when its code changes, and has stalled twice
+  while its log said "Reloading...", once with `fix/host-reload-waits`'s
+  bounded wait on its command line, so the flag does not bound it; the sign
+  is no "Started server process" after the line, and a route the file has
+  answering 404, and `./al host down` then `up` is the route after a branch
+  switch or an api edit. The worker does not reload, so a change to a task is
+  the same. The site's watcher has crashed once
   on a temporary file of its own under Windows; `./al host` says when its
   process is gone, and `down` then `up` brings it back. A browser that
   opened the editor before a change holds the old bundle under the same file
@@ -560,6 +590,32 @@ clone, (n) in its worktree:
   want of a point within their span, the job's notes empty, the reading
   kept beside the library, and the Sculpt stage's Drafts panel listing them
   by title.
+
+### For §2 (m), at alfred `c9b92d4c`, and (i), at qmcp `6ee6d44`
+
+Each figure one run at that commit; alfred's in the host virtualenv against
+the host run on 1732, qmcp's in its worktree with the clone's virtualenv,
+which imports the worktree's `qmcp`:
+
+- (m): the unit tier, every module: 2040 passed, 37 skipped, 8 xfailed, 4
+  failed, the four this host's as above; the recipe route tests, the
+  refusal codes, the route inventory and the docs' accounting: 123 passed;
+  the browser suite's `sculpt.spec.js` on the `chromium` and `phone`
+  projects, the host run restarted on the commit: 8 passed and 4 failed, of
+  which the two new editor cases passed, the `@slow` run of a copied
+  *chapters* recipe through the real worker passed, and the one earlier
+  `@slow` case failed on both projects at its last assertion, which looks
+  for the source's draft group on the Source stage: the host run's database
+  holds more projects than `GET /project` lists by default, so the group is
+  past the page, a cap the Source stage meets with a long recording's drafts
+  and this page names in §4; `black`, `ruff`, `check_timeless.py --base
+  feat/who-spoke` and `check_leaks.py` clean; the cookbook regenerated;
+- (i): `test_alfred_excerpts.py`, `test_alfred_tools.py` and the walkthrough
+  page: 145 passed; the whole suite with every walkthrough, the governance
+  and vox submodules checked out in the worktree first: 1802 passed, 12 skipped, 14 deselected;
+  `ruff` clean on the files the change touches; qm's `check_timeless.py
+  --base feat/alfred-excerpts` 0 findings; `check_leaks.py` clean. The flow
+  was not run against the host run.
 
 ### For §2 (a), at alfred `a0f7a32b`
 

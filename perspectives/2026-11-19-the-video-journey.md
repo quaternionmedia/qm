@@ -314,3 +314,25 @@ as the habit is, in a folder named for the project and not the branch, since
 the continuity tests read the project from the folder's name, which the
 section above on scaffolding had already recorded; this time it was read
 before the suite ran rather than after.
+
+The last two rows of the round, the recipe editor and the flow over the
+drafts route, were built the same evening, and three things the scaffolding
+did were read before they were believed. The api's reloader stalled again
+after a branch switch, with the bounded wait from earlier in the round on its
+command line: the log said it was reloading and a route the file plainly had
+answered 404, which is the shape the earlier stall had, so the flag is
+recorded as not bounding it and the restart as the route, rather than the
+reload being trusted because a fix for it had landed. The browser pane's own
+page stopped populating after that restart while a fresh browser against
+the same server rendered everything, and the pane was set aside as the odd
+instance once a token-less probe from a fresh browser had shown the server
+and the bundle sound; what the pane was doing is not known and is written
+down as not known. And the one earlier browser case that went red did so at
+the Source stage, where it looks for a draft group that the project list no
+longer reaches: the host run's database had grown past what the list
+answers by default, a cap the demo itself had filled, which the plan now
+names as a round of its own rather than a flake. The flow's rewrite retired
+qmcp's cut arithmetic into alfred, as the seam rule had placed it a session
+earlier; what the stand-in alfred keeps is an arithmetic of its own, for
+leaving drafts that look like alfred's, and the page that runs it says so,
+so nobody reads a stand-in's cut as alfred's.
