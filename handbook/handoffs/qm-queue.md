@@ -639,10 +639,15 @@ re-checked and is re-derived before anyone acts on it.
   the cues' count off, the title in its (h), each draft named by the topic
   the engine has live over it, and its (m), a recipe edited on Sculpt; qmcp's
   `feat/alfred-drafts`, cut from `feat/alfred-excerpts`, builds its (i), the
-  excerpt flow over alfred's drafts route. Done is *keep everything local*
-  lifted, otto's branch released and the pin moved to the release, then each
-  branch a pull request against the one beneath; the labeller in (h), (j) and
-  (k) remain planned. (2026-11-21)
+  excerpt flow over alfred's drafts route; three more alfred branches cut
+  from `feat/who-spoke` build its (j), scene changes from otto with the
+  `scenes` and `speakers` operations, the instrument of its (k), and its (o),
+  the editor's links into joe's and looksatwords' own pages, the last with a
+  looksatwords branch that opens a conversation by its id; joe's half of (j)
+  is a session's, under way. Done is *keep everything local* lifted, otto's
+  branches released and the pin moved to the release, then each branch a
+  pull request against the one beneath; the labeller in (h), joe's half of
+  (j) and the measurement of (k) remain open. (2026-11-21)
 
 ## 5. Not verified
 
@@ -685,8 +690,10 @@ re-checked and is re-derived before anyone acts on it.
   `evolve/the-video-journey`, `alfred` `docs/excerpts-in-the-family`,
   `feat/synced-timeline`, `fix/host-run`, `fix/no-caption-cap`, the
   algorithmic layer's eight above it (`feat/cut-arithmetic` to
-  `feat/who-spoke`) and the three cut from the last (`feat/no-cue-cap`,
-  `feat/topic-titles`, `feat/recipe-editor`), `otto` `feat/motion` in
+  `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
+  `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
+  `feat/drafts-measured`, `feat/open-in`), `looksatwords`
+  `feat/open-by-link`, `otto` `feat/motion` and `feat/scenes` in
   alfred's submodule checkout, and `joe`
   `docs/what-the-words-are-for`, until
   the person lifts it; [`the-video-journey.md`](the-video-journey.md) §3 (f)
