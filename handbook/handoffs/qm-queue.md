@@ -16,7 +16,7 @@ from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 `project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. Those
 that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
 `348e31f` and `qmetronome` `3aaaa28`. Those that name 2026-11-22 were
-re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `5540589`. The
+re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -517,13 +517,7 @@ re-checked and is re-derived before anyone acts on it.
   declared in its range, and a member this machine registers reads as
   `missing`. Done is the demo writing a run-file for each member it starts,
   with the run's name as its session. (2026-10-29)
-- **qmcp's open pull requests** (2026-11-22). qmcp#137 has the roadmap say
-  how reliably project names transcribe, citing
-  `perspectives/2026-10-25-what-whisper-heard.md`; qmcp#138 redraws
-  `docs/architecture.md` as the seam, its clients and engines (decision 24).
-  qmcp#140 moves the governance pin to `project/qmcp`'s tip, `5c5b0fa`,
-  which carries the restated adoption record (decision 8).
-  Each is done when merged green. qmcp#129 and its stacked draft qmcp#130,
+- **qmcp's open pull requests** (2026-11-22). qmcp#129 and its stacked draft qmcp#130,
   alfred's excerpt and drafts flows, land in the cross-repository order #345
   records. qmcp#125, `qmcp tour`, is a draft until the tour's records land in
   the corpus (#331, #332).
