@@ -1,11 +1,11 @@
 # Handoff — the algorithmic layer: from a long source to drafts, by recipe
 
-**Stamped 2026-11-21.** `qm` `main` at `5baf779`; `alfred` `feat/who-spoke`
+**Stamped 2026-11-22.** `qm` `main` at `2617723`; `alfred` `feat/who-spoke`
 at `e56b386e`, the top of eight branches stacked above `fix/no-caption-cap`
 at `a0f7a32b`, with `feat/no-cue-cap` at `e73e5b42`, `feat/topic-titles`
 at `bfcb0526`, `feat/recipe-editor` at `c9b92d4c`, `feat/scene-cuts` at
 `d26c9784`, `feat/drafts-measured` at `bb5a969d`, `feat/open-in` at
-`993bfc9e` and `feat/speakers-to-words` at `af0941b6` each cut from it (§5); `otto` `feat/scenes` at `0b0f558` above
+`993bfc9e` and `feat/speakers-to-words` at `af0941b6` each cut from it, and `feat/labeller` at `0fc7b9aa` cut from `feat/topic-titles` (§5); `otto` `feat/scenes` at `0b0f558` above
 its `feat/motion` at `eac657d`, which `feat/scene-cuts` pins; `looksatwords`
 `feat/open-by-link` at `aeb22b6` above `test` at `7d9089d`; `qmcp`
 `feat/alfred-drafts` at `6ee6d44`, cut from `feat/alfred-excerpts` at
@@ -23,12 +23,13 @@ builds on [`the-video-journey.md`](the-video-journey.md), where the first step
 of that layer, qmcp's `alfred-excerpts` flow, stands, and it carries the shape
 of the layer, where each part of it lives, the pull requests in order with
 what done looks like for each, what the person settled and what the round
-leaves out. Of the work it names, §2 (a) to (g), (i), (l), (m), (n), (o),
-the title in (h), (j) in otto, joe, vox and alfred, the words named by
-joe's turns, and the instrument of (k) are built, each as a local branch
-that is a pull request to open once *keep everything local* is lifted; the
-labeller in (h) and the measurement of (k) over real recordings are open. The built part
-runs on the host run (`docs/host-run.md`) over the long recording: §6.
+leaves out. Of the work it names, every row, §2 (a) to (o), (j) in otto,
+joe, vox and alfred with the words named by joe's turns, is built, each as a
+local branch that is a pull request to open once *keep everything local* is
+lifted; the first reading of (k)'s instrument over two real recordings is
+taken, with no person's choices in it, so no default has moved
+(`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`). The built part runs on the host run (`docs/host-run.md`) over the
+long recording: §6.
 
 ## 0. What the round is for
 
@@ -104,7 +105,7 @@ drafts    projects, each carrying its source, its spans, its recipe and its scor
 | hearing the words, the silences, the level over time, the beats | joe, through vox's contract | the audio engine | built: `peaks` is the level over time, `loudness` one figure per file |
 | telling speakers apart; music from speech | joe | the engine that hears; nothing in the family does either | built, §2 (j): joe's `speakers` feature letters each turn's voice, and vox's contract carries it; music is not told from speech, and a sustained tone is lettered as a voice; the `speakers` operation reads the speaker each word carries and does not wait on it, §3 item 7 |
 | motion in the picture over time, and scene changes | otto | the engine that reads frames, with the ffmpeg `otto.media.probe` runs | built, §2 (d) and (j): `otto.media.motion` and `otto.media.scenes` |
-| a title, a category, a score for how well a stretch stands alone | a title from the topic the language engine has live over the stretch; a category and a score from the local model, reached by a contract that names no model, as vox's does | the reading already carries the topics; language is nobody's engine in the family | the flow's labeller, in qmcp, over the chat route qmcp's `localmodel` stands up; in alfred, §2 (h) |
+| a title, a category, a score for how well a stretch stands alone | a title from the topic the language engine has live over the stretch; a category and a score from the local model, reached by a contract that names no model, as vox's does | the reading already carries the topics; language is nobody's engine in the family | built, §2 (h): `ALFRED_LABELLER_URL` and `ALFRED_LABELLER_MODEL`, `utils/labeller.py`, over the chat route qmcp's `localmodel` stands up; the flow's labeller, in qmcp, over the same route |
 | who spoke, which topics were live and when, where the talk went off and whether it came back | looksatwords, the language engine, reached by its conversation route | reading prose is its charter, and its border with codecartographer says so | built, §2 (l): `ALFRED_LANGUAGE_ENGINE_URL`, `utils/language_engine.py` |
 | the arithmetic: windows and segments from times, the scores from what the engines measured, filters, a timeline cut, the words and captions carried through | alfred, the seam | it owns the project, the timeline, the captions and the words, and no engine should; a score is arithmetic over the engines' measurements | built, §2 (b) and (e): `utils/cut.py` and `utils/sculpt.py`, the browser's copy held equal by shared fixtures; qmcp's `propose` and `excerpt_edl` are retired by (i), and the stand-in alfred in qmcp's tests keeps an arithmetic of its own that claims nothing of alfred's |
 | recipes as documents; drafts as projects with their provenance; the job that runs a recipe | alfred | lifecycle state is the seam's | built, §2 (e) and (f) |
@@ -300,7 +301,7 @@ is not.
   Done is the spec, the journey and the recorded recipe.
 
 - **(h) A title from the reading, then a labeller behind a contract.** Two
-  pull requests, in this order; the first is built: alfred `bfcb0526`,
+  pull requests, in this order, both built; the title: alfred `bfcb0526`,
   `feat/topic-titles`, cut from `feat/who-spoke`. The title: `label` names
   each candidate by the topic the language engine has live over it, the one
   whose points within the span carry the most intensity, read through
@@ -310,15 +311,22 @@ is not.
   step, a draft is named `<source> – <title> <n>`, and its cue on the source
   with it. A span with no live topic keeps the recipe's name, no setting
   arrives, and a run without the engine, or whose engine fails, titles
-  nothing and says why in the job. The labeller: `ALFRED_LABELLER_URL`
-  names a chat route of the shape qmcp's `localmodel` serves, and alfred
-  names no model: `alfred/core/utils/labeller.py` carries the prompts for a
-  category and a score, from the flow's `category_prompt` with a score added,
-  and a stand-in for the tests as `tests/stubs/audio_engine.py` stands in for
-  joe. `GET /health` reports the labeller as it reports the audio engine. A
-  draft made without one keeps its topic title; the recipe runs all the same.
-  Done, for the labeller, is `label` scoring with one and skipping without
-  one, each a test, and the health report.
+  nothing and says why in the job. The labeller: alfred `0fc7b9aa`,
+  `feat/labeller`, cut from `feat/topic-titles`. `ALFRED_LABELLER_URL` names
+  the base of an OpenAI-style chat route, the shape qmcp's `localmodel`
+  serves, `ALFRED_LABELLER_MODEL` the model it serves, and alfred names no
+  model: `alfred/core/utils/labeller.py` carries the two questions, the
+  flow's category prompt and a score for how well the stretch stands alone,
+  answered as a whole number and scaled, and is handed to `sculpt.run` so
+  the arithmetic reaches no model; `label` takes `categories` and `score`,
+  asks a kept candidate at a time after the filters, stops at the first
+  failure with a note, and without a labeller says why in the job; the
+  draft carries `source.category` and `scores.label`, the Drafts panel shows
+  the category, and `GET /health` reports the labeller as it reports the
+  engines, `ok` only when the route also serves the model named. The tests
+  stand in for the route with a mock transport, and the stacks pass the
+  three settings. No built-in asks it; a stored copy of one with
+  `categories` does.
 
 - **(i) qmcp follows the route.** Built: qmcp `6ee6d44`,
   `feat/alfred-drafts`, cut from `feat/alfred-excerpts`. Tools
@@ -445,8 +453,15 @@ is not.
   reads every project and render from the host run's database and prints,
   per source and recipe, what was made, held, dropped, edited and rendered,
   with the mean length as made, as held and as rendered; a source is named
-  by its id alone. The measurement itself is open: the built-in recipes run
-  on several real recordings, *highlights* first, with every draft kept;
+  by its id alone. The first reading is taken, at `bb5a969d` over the host
+  run's database, with every built-in run over the long recording and a
+  short second one and every draft kept: nothing dropped, since no person
+  has chosen, and `edited` counting the two *tight-cut* drafts whose
+  recipe's own steps shortened them, so the instrument reads a recipe's cut
+  as a person's; the correction, a draft carrying its length as made for
+  the instrument to compare against, is open on `feat/drafts-measured`
+  (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`). What remains is a person's pass: the built-in recipes' drafts
+  opened and kept or dropped, *highlights* first;
   what the person dropped, what they kept, and the difference between a
   kept draft's timeline and the timeline they rendered from it are the
   signal for each default: the window's length range, the count for a
@@ -454,8 +469,8 @@ is not.
   only where words are said or anywhere, which takes a dropped prop with
   nobody speaking under the second reading only. The video journey's §3 (e)
   made concrete; a retrospective in `perspectives/` with the figures at
-  their commit. No default moves before this; §6 holds the first reading of
-  the instrument, over one recording and no person's choices.
+  their commit. No default moves before this; §6 holds the reading's
+  figures, over two recordings and no person's choices.
 
 - **(o) Open in the family's programs.** Built: alfred `993bfc9e`,
   `feat/open-in`, cut from `feat/who-spoke`, two commits; looksatwords
@@ -552,7 +567,9 @@ where one adds work, it names the §2 row that carries it.
   `feat/no-cue-cap`, `feat/topic-titles`, `feat/recipe-editor`,
   `feat/scene-cuts` (four commits), `feat/drafts-measured`, `feat/open-in`
   (two commits) and `feat/speakers-to-words`, the rest one commit each;
-  the last pins vox's `feat/speakers`, so vox's branch lands before it.
+  the last pins vox's `feat/speakers`, so vox's branch lands before it;
+  and `feat/labeller`, one commit, cut from `feat/topic-titles` and a
+  draft against it until that one merges.
   qmcp's
   `feat/alfred-drafts` is cut from its `feat/alfred-excerpts`, one commit,
   in a worktree beside qmcp's clone in a folder named `qmcp`; looksatwords'
@@ -562,7 +579,8 @@ where one adds work, it names the §2 row that carries it.
   commit each, not pushed; `feat/picture-motion` pins the first and
   `feat/scene-cuts` the second. vox's `feat/speakers` is a branch in the
   submodule's checkout under `alfred/vox`, one commit, not pushed, which
-  `feat/speakers-to-words` pins and the clone's checkout sits at; joe's
+  `feat/speakers-to-words` pins, the clone's checkout sitting at alfred's
+  pin while the clone is on `feat/labeller`; joe's
   `feat/speaker-turns` is one commit, not pushed, in a worktree beside
   joe's clone, and joe's clone sits detached at that commit so the host run's
   joe hears speakers, to go back to `main` when the branch lands. Landing is
@@ -570,13 +588,17 @@ where one adds work, it names the §2 row that carries it.
   above `feat/who-spoke` each against it; those that touch `docs/drafts.md`,
   `sculpt.py`, `recipes.py` and the changelog meet in small conflicts there
   as the later ones land.
-- **alfred's clone is checked out on `feat/speakers-to-words`**,
+- **alfred's clone is checked out on `feat/labeller`**, with vox and otto
+  at that branch's pins,
   which the host run serves on 1732 (`docs/host-run.md`), with its MongoDB
   on 27018, joe on 1059 and looksatwords on 8000, started from its own clone
   with `uv run looksatwords serve --no-open --port 8000` and
   `LOOKSATWORDS_DB` pointed at a scratch file, so its own database is left
   alone; the host run was started with `ALFRED_LANGUAGE_ENGINE_URL` naming
-  it. The api reloads itself when its code changes, and has stalled twice
+  it, and with `ALFRED_LABELLER_URL` and `ALFRED_LABELLER_MODEL` naming the
+  local model server on 11434 and the model qmcp's `localmodel` installs.
+  The alfred worktree beside the clone sits on `feat/drafts-measured`, where
+  `scripts/measured.py` reads the host run's database. The api reloads itself when its code changes, and has stalled twice
   while its log said "Reloading...", once with `fix/host-reload-waits`'s
   bounded wait on its command line, so the flag does not bound it; the sign
   is no "Started server process" after the line, and a route the file has
@@ -764,6 +786,37 @@ named:
   **Open in joe** at the engine's page. `conversation.spec.js` on the
   `chromium` and `phone` projects: 4 passed, 2 skipped, the skips the cases for a server without a language engine, the link's case among the passes. looksatwords' own
   suite at `aeb22b6`: 238 passed, 1 skipped.
+
+### For §2 (h), the labeller, at alfred `0fc7b9aa`, and the first reading of (k) at `bb5a969d`
+
+Each figure one run at that commit, in the host virtualenv, against the
+host run on 1732:
+
+- (h): the unit tier, every module, with vox and otto at the branch's pins:
+  2081 passed, 37 skipped, 8 xfailed, 4 failed, the four this host's as
+  above; the modules the change touches, the labeller, the sculpt
+  arithmetic, the drafts task and the health route, with the docs-accounted
+  test: 111 passed; two mutations, a category read as the longest whatever
+  the answer and a failing labeller skipped instead of ending the asking,
+  reddened 2 and 1; restored, all pass; `black`, `ruff`,
+  `check_timeless.py --base feat/topic-titles` and `check_leaks.py` clean.
+  In the worktree, before the clone moved, the stacks' settings test
+  reddened six times on the four speaker settings of vox's `feat/speakers`,
+  which the clone's vox checkout then sat at and the venv imports: the
+  checkout, not the change, and green once the checkout was at the pin;
+- (h) on the host run: `GET /health` reported the labeller configured and
+  ok against the local model server on 11434; a stored copy of *highlights*
+  with four categories and `score` ran over the short recording in 10 s
+  and left 9 drafts, 5 explanation, 3 story, 1 planning, scores 0.2 to 0.8;
+  a cold model answered its first question in 76 s and a warm one in about
+  a second; from a fresh browser the Drafts panel showed the nine
+  categories beside the recipe and the scores;
+- (k): the second recording transcribed through joe at `b2c0d00`, 32
+  segments and 350 words; six built-ins over it, 41 drafts in 5 s; three
+  over the long recording, 112 in 10 s; `scripts/measured.py` from the
+  `feat/drafts-measured` worktree over the host run's database: made 317,
+  held 317, dropped 0, edited 5, rendered 1, the per-recipe lines in the
+  retrospective.
 
 ### For the words named by the sound, at alfred `af0941b6`
 

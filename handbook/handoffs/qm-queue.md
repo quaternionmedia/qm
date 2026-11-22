@@ -649,8 +649,13 @@ re-checked and is re-derived before anyone acts on it.
   `feat/speakers-to-words` takes the turns to the words nobody has named.
   Done is *keep everything local* lifted, otto's and vox's branches
   released and the pins moved to the releases, then each branch a pull
-  request against the one beneath; the labeller in (h) and the measurement
-  of (k) remain open. (2026-11-21)
+  request against the one beneath; alfred's `feat/labeller`, cut from
+  `feat/topic-titles`, builds the labeller in (h), so every row is built;
+  the first reading of (k)'s instrument over two real recordings is taken
+  with no person's choices in it, so no default has moved, and the
+  instrument reads a recipe's own cuts as a person's, to correct on
+  `feat/drafts-measured` (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`); a person's pass over the drafts,
+  *highlights* first, remains open. (2026-11-22)
 
 ## 5. Not verified
 
@@ -695,8 +700,8 @@ re-checked and is re-derived before anyone acts on it.
   algorithmic layer's eight above it (`feat/cut-arithmetic` to
   `feat/who-spoke`) and the six cut from the last (`feat/no-cue-cap`,
   `feat/topic-titles`, `feat/recipe-editor`, `feat/scene-cuts`,
-  `feat/drafts-measured`, `feat/open-in`, `feat/speakers-to-words`),
-  `looksatwords`
+  `feat/drafts-measured`, `feat/open-in`, `feat/speakers-to-words`, and
+  `feat/labeller` above `feat/topic-titles`), `looksatwords`
   `feat/open-by-link`, `joe` `feat/speaker-turns`, `vox` `feat/speakers` in
   alfred's submodule checkout, `otto` `feat/motion` and `feat/scenes` in
   alfred's submodule checkout, and `joe`

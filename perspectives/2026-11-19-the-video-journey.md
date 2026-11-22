@@ -382,3 +382,10 @@ than pretending A is one person across files. The first naming of the long
 recording took the engine's time whole, since nothing had asked it for
 speakers before, and the route says that a second ask is quick because the
 answer is kept, which is the same shape as the measures a session earlier.
+
+The last two rows closed on the 22nd, and the second of them has a
+retrospective of its own, `2026-11-22-the-first-reading-of-the-instrument.md`: the labeller sits behind a
+route of the shape the family already serves and alfred names no model,
+which kept the vendor out of the code as the plan said it would; and the
+instrument's first reading over two real recordings held no person's choice
+and one count that described the instrument rather than the recipes.
