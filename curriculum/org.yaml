@@ -104,8 +104,8 @@ units:
     teaches: handbook/async-contract.md
     after_this_you_can: >
       Share a clone with another session without either of you losing work, and
-      know why a stacked pull request stays a draft, and that one active stack
-      per developer is encouraged and never enforced.
+      know why a stacked pull request merges after the one beneath it, and that
+      one active stack per developer is encouraged and never enforced.
     prerequisites: [namespaces]
 
   - id: what-actually-gates

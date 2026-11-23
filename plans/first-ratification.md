@@ -151,7 +151,7 @@ should not reach the renaming step.
 - [ ] **Establish the commit.** `git rev-parse --short HEAD` and
       `git status --short`. Every figure below was true at some commit and
       nowhere else.
-- [ ] **No pull request of yours is ready while stacked.** `uv run qm stacks --repo <owner/name>`.
+- [ ] **Know your open pull requests and how they stack.** `uv run qm stacks --repo <owner/name>`.
 
 ## B — Is the record true?
 

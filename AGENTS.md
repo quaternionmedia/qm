@@ -15,7 +15,7 @@ Each says what it needs.
   page here is true at some commit, and not necessarily at yours. `git log -1`
   and `git status` answer it, and need nothing but the clone.
 - **B. Which pull requests you already hold open, and how they stack.** Small,
-  atomic pull requests; a dependent one is stacked on its parent as a draft.
+  atomic pull requests; a dependent one is stacked on its parent.
   One active stack at a time is the habit to aim for, never a limit.
   `uv run qm stacks --repo <owner/name>` lists them. It asks the host, so it
   needs a signed-in `gh`; without one it says `gh auth login` and stops, and
@@ -107,10 +107,10 @@ how a session keeps it.
      — is said in the session, never written into the body. `check_pr_voice.py`
      refuses the second person. `handbook/async-contract.md` §3, and clause 5
      of `records/DRAFT-human-only-contributorship.md`.
-   - **Draft means incomplete, or stacked on an open PR, and nothing else.** It
-     is not a holding pen for finished work: nobody is waiting at the far end
-     of that queue, so a green PR left in draft against `main` is a change that
-     never reached it.
+   - **Draft means incomplete, and nothing else.** A stacked PR whose work is
+     finished is marked ready like any other. A draft is not a holding pen for
+     finished work: nobody is waiting at the far end of that queue, so a green
+     PR left in draft is a change that never reached its base.
    - **Closing a pull request is a git operation.** Pushing a PR's head onto its
      base *merges* it — GitHub records the merge, and a later `gh pr close` is a
      silent no-op. **Close the PR first, then push**, or retarget it. The order
@@ -129,11 +129,11 @@ how a session keeps it.
    - **One change per PR; parallel when independent, stacked when dependent.**
      Two changes that could land alone are two PRs, each ready against its
      base. A PR that needs another's work is cut from that branch, targets it
-     as its base, and stays a draft until the one beneath it merges, however
-     finished it is. When it does, retarget the next PR onto the target
-     *before* deleting the merged branch — deleting it first closes every PR
-     based on it; `uv run qm merge` keeps that order. Never close a PR in
-     favour of one that contains it. `handbook/async-contract.md` §1.
+     as its base, is ready when finished, and merges after the one beneath it.
+     When that one merges, retarget the next PR onto the target *before*
+     deleting the merged branch — deleting it first closes every PR based on
+     it; `uv run qm merge` keeps that order. Never close a PR in favour of one
+     that contains it. `handbook/async-contract.md` §1.
 
 4. **Check what your branch actually carries, before opening the PR.**
    `uv run qm branch --base <base> --head <branch>` reports the merge-base,

@@ -23,11 +23,11 @@ Ordering below is dependency and stacking. Nothing here is calendar.
 |---|---|---|
 | **O — operational** | Live systems and credential stores. No branch, no pull request | Nothing. Independent of every other lane, and should not wait on one |
 | **C — corpus** | `quaternionmedia/qm` | One item, on which the whole of lane P's governance work blocks |
-| **P — project** | `quaternionmedia/moat` | One active stack: each item is cut from the one above it and stays a draft until that one merges. Sequential by dependency — the binding constraint on this page |
+| **P — project** | `quaternionmedia/moat` | One active stack: each item is cut from the one above it and merges after that one. Sequential by dependency — the binding constraint on this page |
 
 Both open pull requests in `moat` belong to one contributor, the network one
-stacked on the adoption one. Under the stack rule the upper one stays a draft
-until the lower one merges, and lane P works the stack from the bottom.
+stacked on the adoption one. Under the stack rule the upper one merges after
+the lower one, and lane P works the stack from the bottom.
 
 `uv run qm stacks --repo quaternionmedia/moat` shows the stack before any lane P
 session writes anything.
@@ -167,15 +167,15 @@ gh pr list --repo quaternionmedia/moat --state open \
 gh pr checks 3; gh pr checks 4
 ```
 
-**Do.** Leave the network pull request a draft, stacked on the adoption
-branch: it inherits every finding below, which is why it lands after it. If it
+**Do.** Leave the network pull request stacked on the adoption branch: it
+inherits every finding below, which is why it lands after it. If it
 should land alone, retarget its base to `main` instead.
 
 **Watch the ordering.** Pushing a pull request's head onto its base *merges* it,
 and a later `gh pr close` is a silent no-op. Close first, then push. Retargeting
 is the safer of the two.
 
-**Done when.** No pull request in `moat` is ready while stacked, and `one-pr-check` is green on each.
+**Done when.** The network pull request is based on the adoption branch, and `one-pr-check` is green on each.
 
 ### P1 — Reduce the adoption pull request to its record
 
@@ -295,7 +295,7 @@ fail for the reason it exists, and the mutation is written down beside it:
 |---|---|
 | `adr-lint` | Put a banned narrating word in a draft. Then rename a draft to a numbered filename with a non-Accepted status. Then edit an Accepted record's body outside its Amendments section |
 | `submodule-check` | Commit a submodule pointer bump without pushing the submodule commit |
-| `one-pr-check` | Mark ready a pull request whose base is another open pull request's branch; it must fail. Mark it a draft; it must pass. A green here that does not distinguish the two has not been tested |
+| `one-pr-check` | Write a pull request body in the second person; it must fail. Write it in the third; it must pass. A green here that does not distinguish the two has not been tested |
 | `reuse-lint` | Add a tracked file no annotation covers |
 
 A check nobody has watched fail tells you what its author meant, not what it

@@ -76,11 +76,11 @@ project branch is: all twelve fell behind again when #38 and #41 landed. Read
 
 **One pull request carries one change: parallel when independent, stacked
 when dependent.** Nothing limits how many a contributor holds open, and one
-active stack at a time is a habit, never a rule. A pull request above the
-bottom of a stack stays a draft. `handbook/async-contract.md` §1 is the rule
-and the reasoning; `uv run qm stacks` lists your open pull requests and refuses
-one marked ready while stacked, and `one-pr-check.yml` runs it on every pull
-request.
+active stack at a time is a habit, never a rule. A pull request in a stack is
+marked ready when it is finished and merges after the one beneath it.
+`handbook/async-contract.md` §1 is the rule and the reasoning; `uv run qm
+stacks` lists your open pull requests and the stack each sits in, and `uv run
+qm merge` refuses a stacked one until the one beneath it merges.
 
 **Never request a review, and merge it yourself once the gates are green.**
 Add the person who asked for the work as assignee. The pull request is the

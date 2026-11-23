@@ -26,7 +26,8 @@ Each says what it needs.
 - **A. The commit you are working against**, and the branch. `git log -1` and
   `git status` answer it, and need nothing but the clone.
 - **B. Which pull requests you already hold open, and how they stack** — small,
-  atomic pull requests, a dependent one stacked on its parent as a draft:
+  atomic pull requests, a dependent one stacked on its parent and merged
+  after it:
   `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
   It asks the host, so it needs a signed-in `gh`; without one it says
   `gh auth login` and stops, and with no account the answer is none.
@@ -84,19 +85,19 @@ quoting a figure.
    review request pulls a second person into work that asserts nothing yet, and
    against a branch carrying a live `CODEOWNERS` it fires the moment the PR
    opens — you name no one, and the notification cannot be recalled.
-   **Draft means unfinished, or stacked on an open PR, and nothing else.** It
-   is not a holding pen for finished work: a green PR left in draft against
-   the default branch is a change that never landed.
+   **Draft means unfinished, and nothing else.** A stacked PR whose work is
+   finished is marked ready like any other. A draft is not a holding pen: a
+   green PR left in draft is a change that never landed.
    **One change per PR; parallel when independent, stacked when dependent.**
    Two changes that could land alone are two PRs, each ready against its base.
    A PR that needs another's work is cut from that branch, targets it as its
-   base, and stays a draft until the one beneath it merges, however finished
-   it is. When it does, retarget the next PR onto the target *before*
-   deleting the merged branch — deleting it first closes every PR based on
-   it. Never close a PR in favour of one that contains it
+   base, and is marked ready when it is finished; it merges after the one
+   beneath it, never into it. When that one merges, retarget the next PR onto
+   the target *before* deleting the merged branch — deleting it first closes
+   every PR based on it. Never close a PR in favour of one that contains it
    (`governance/qm/handbook/async-contract.md` §1).
-   `.github/workflows/one-pr-check.yml` refuses a ready stacked PR; run
-   `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
+   `governance/qm/project-seed/ci/check_one_pr.py` lists your open PRs and the
+   stack each sits in; run it before you open anything.
    One active stack at a time is the habit to aim for, never a limit.
    **The pull request body speaks as the contributor, to the world.** It is
    posted under a human's account and addresses nobody — a question or a
