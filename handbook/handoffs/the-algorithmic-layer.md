@@ -590,9 +590,11 @@ where one adds work, it names the §2 row that carries it.
   of the ten touch `docs/drafts.md`, `sculpt.py`, `recipes.py` or the
   changelog, the later one meets a small conflict there as it lands.
   alfred's open stack below them, quaternionmedia/alfred#118 to
-  quaternionmedia/alfred#141, is marked ready while stacked, which the
-  stacked-drafts check reports on every alfred pull request of the person's
-  until it is drafts again. *Keep everything local* still holds for joe's
+  quaternionmedia/alfred#141, is marked ready while stacked, which the stack
+  rule allows (quaternionmedia/qm#347). alfred's `slot` check runs the stack
+  step from its governance pin, `project/alfred` at `d324759`, and reports
+  them on every alfred pull request of the person's until that branch takes
+  `main` and alfred's pin moves. *Keep everything local* still holds for joe's
   `docs/what-the-words-are-for`. joe's clone sits detached at
   `feat/speaker-turns`'s head so the host run's joe hears speakers, to go
   back to `main` when the branch lands; the vox and otto checkouts under
