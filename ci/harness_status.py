@@ -156,7 +156,6 @@ def slot_layer(slug: str) -> dict:
     except json.JSONDecodeError:
         return unknown(f"check_one_pr output was not JSON: {out.splitlines()[0][:120]}")
     payload["exit_status"] = status
-    payload["compliant"] = not payload["violations"]
     return payload
 
 
@@ -631,8 +630,6 @@ def build(
         "generator": {
             "tool": "ci/harness_status.py",
             "org": org,
-            "rule": "no pull request is ready while stacked on another open one",
-            "rule_source": "handbook/async-contract.md",
             "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
             "phase_layer_is_a_claim": (
                 "phase and phase_source come from ci/workspace.yaml and record "
@@ -711,8 +708,6 @@ def build(
             "repositories": len(repositories),
             "slots_measured": len(measured),
             "slots_unknown": len(repositories) - len(measured),
-            "compliant": sum(1 for r in measured if r["slots"]["compliant"]),
-            "over_limit": sum(1 for r in measured if not r["slots"]["compliant"]),
             # Counted over what could be read, never over the roster: a project
             # with no evidence is absent from both numerator and denominator,
             # so neither reads as a project measured and found wanting.
@@ -831,8 +826,7 @@ def main(argv: list[str] | None = None) -> int:
         totals = status["totals"]
         print(
             f"wrote {args.write}: {totals['repositories']} repositories, "
-            f"{totals['compliant']} compliant, {totals['over_limit']} ready while stacked, "
-            f"{totals['slots_unknown']} unknown"
+            f"{totals['slots_measured']} read, {totals['slots_unknown']} unknown"
         )
         if governance is not None:
             print(

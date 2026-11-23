@@ -34,8 +34,6 @@ def document(**overrides) -> dict:
         "generator": {
             "tool": "ci/harness_status.py",
             "org": "example",
-            "rule": "no pull request is ready while stacked on another open one",
-            "rule_source": "handbook/async-contract.md",
             "layers": ["slots", "local"],
             "local_layer_scope": "one machine, one set of clones",
         },
@@ -52,8 +50,6 @@ def document(**overrides) -> dict:
             "repositories": 3,
             "slots_measured": 2,
             "slots_unknown": 1,
-            "compliant": 1,
-            "over_limit": 1,
             "governance_readable": 2,
             "seed_complete": 1,
             "at_v0.0.0": 0,
@@ -73,7 +69,7 @@ def document(**overrides) -> dict:
                 "intent": None,
                 "governance": {"seed": "complete", "missing": [],
                                "behind_corpus": 0},
-                "slots": {"open_prs": [], "violations": [], "compliant": True},
+                "slots": {"open_prs": [], "stacked": []},
                 "local": {"branch": "main", "dirty": 0, "upstream": "origin/main", "ahead": 0},
             },
             {
@@ -95,9 +91,8 @@ def document(**overrides) -> dict:
                         {"number": 9, "author": "ada", "bot": False, "base": "feat/a",
                          "head": "feat/b", "draft": False, "title": "Two"},
                     ],
-                    "violations": [{"author": "ada", "base": "feat/a", "numbers": [9],
-                                    "parent": 8}],
-                    "compliant": False,
+                    "stacked": [{"number": 9, "author": "ada", "base": "feat/a",
+                                 "parent": 8}],
                 },
                 "local": {"branch": "wip", "dirty": 3, "upstream": None, "ahead": None},
             },
@@ -178,24 +173,18 @@ def test_the_reason_a_repository_is_unknown_survives_into_the_page() -> None:
     assert "HTTP 404" in section
 
 
-def test_a_violation_is_distinguished_in_form_and_not_only_in_words() -> None:
-    """Colour alone is not a signal; the row carries a class either way."""
+def test_a_ready_stacked_pull_request_is_not_a_finding() -> None:
+    """A stacked pull request may be ready (handbook/async-contract.md 1).
+
+    busy-repo's #9 is ready and stacked on #8: neither view flags it, and
+    neither asks for it to be made a draft.
+    """
     page = hd.render(DOC)
-    assert 'class="over"' in row_for(page, "busy-repo")
-    assert 'class="over"' not in row_for(page, "clean-repo")
-
-
-def test_the_ready_stacked_pull_request_and_its_parent_are_named() -> None:
-    """A count without numbers cannot be acted on."""
-    page = hd.render(DOC)
-    assert "#8" in page and "#9" in page
-    assert "ada" in page
-
-
-def test_a_compliant_repository_is_not_described_as_over() -> None:
-    row = row_for(hd.render(DOC), "clean-repo")
-    assert "p-ok" in row
-    assert "ready while stacked" not in row
+    text = hd.render_markdown(DOC)
+    assert 'class="over"' not in row_for(page, "busy-repo")
+    for view in (page, text):
+        assert "ready while stacked" not in view.lower()
+        assert "Mark it draft" not in view
 
 
 def test_an_unanswered_phase_is_carried_into_the_question_list() -> None:
@@ -246,13 +235,6 @@ def test_text_from_the_document_containing_markup_is_escaped() -> None:
     page = hd.render(doc)
     assert "<script>" not in page
     assert page.count("&lt;script&gt;") >= 3
-
-
-def test_zero_violations_says_so_rather_than_showing_an_empty_section() -> None:
-    doc = document()
-    doc["repositories"] = [doc["repositories"][0]]
-    page = hd.render(doc)
-    assert "No stacked pull request is marked ready" in page
 
 
 @pytest.mark.parametrize(
@@ -355,13 +337,13 @@ def test_the_collector_reports_a_silent_check_as_unknown(monkeypatch) -> None:
 def test_the_collector_records_the_checks_exit_status(monkeypatch) -> None:
     payload = json.dumps(
         {"repository": "example/thing", "open_prs": [],
-         "violations": [{"author": "ada", "base": "feat/a", "numbers": [2],
-                         "parent": 1}]}
+         "stacked": [{"number": 2, "author": "ada", "base": "feat/a", "parent": 1}]}
     )
-    monkeypatch.setattr(hs, "run", lambda *a, **k: (1, payload, ""))
+    monkeypatch.setattr(hs, "run", lambda *a, **k: (0, payload, ""))
     result = hs.slot_layer("example/thing")
-    assert result["exit_status"] == 1
-    assert result["compliant"] is False
+    assert result["exit_status"] == 0
+    assert result["stacked"] == [
+        {"number": 2, "author": "ada", "base": "feat/a", "parent": 1}]
 
 
 def test_the_collector_marks_a_missing_clone_unknown(tmp_path: Path) -> None:
@@ -370,7 +352,7 @@ def test_the_collector_marks_a_missing_clone_unknown(tmp_path: Path) -> None:
     assert "no clone" in result["unknown"]
 
 
-def test_the_totals_never_count_an_unknown_as_compliant(monkeypatch) -> None:
+def test_the_totals_never_count_an_unknown_as_measured(monkeypatch) -> None:
     """The arithmetic behind the summary cards, which is where a lie compounds."""
     monkeypatch.setattr(
         hs, "slot_layer", lambda slug: {"unknown": "could not read"}
@@ -380,8 +362,6 @@ def test_the_totals_never_count_an_unknown_as_compliant(monkeypatch) -> None:
     assert totals["repositories"] == 1
     assert totals["slots_measured"] == 0
     assert totals["slots_unknown"] == 1
-    assert totals["compliant"] == 0
-    assert totals["over_limit"] == 0
 
 
 # --- the phase ladder: a claim and its evidence, kept apart ----------------
@@ -727,10 +707,10 @@ def test_the_markdown_view_never_leaves_a_state_implied_by_an_empty_cell() -> No
             assert not line.endswith("| |"), line
 
 
-def test_the_markdown_view_names_the_violating_pull_requests() -> None:
+def test_the_markdown_view_counts_each_repository_s_open_pull_requests() -> None:
     text = hd.render_markdown(DOC)
-    assert "OVER" in text
-    assert "#8" in text and "#9" in text
+    busy = next(line for line in text.splitlines() if line.startswith("| busy-repo |"))
+    assert "| 2 |" in busy
 
 
 def test_the_markdown_view_carries_the_staleness_budget_and_refresh() -> None:
@@ -749,9 +729,8 @@ def test_the_markdown_view_carries_the_do_not_list() -> None:
 def test_the_markdown_view_collects_what_needs_a_human() -> None:
     text = hd.render_markdown(DOC)
     section = text.split("## What needs a human")[1].split("## ")[0]
-    assert "busy-repo" in section
-    assert "Mark it draft until the pull request beneath it merges" in section
     assert "clean-repo" in section  # scaffolded phase
+    assert "Mark it draft" not in section
 
 
 def test_the_markdown_view_lists_a_phase_stated_as_intent() -> None:
@@ -1180,20 +1159,20 @@ def test_an_unstated_family_is_a_word_never_an_empty_cell() -> None:
 
 
 def test_the_rollup_adds_up_per_family_with_unstated_last() -> None:
-    """Mutation: count `over` from every member rather than the measured
-    ones, and the unstated row's over/unreadable split fails; drop the sort,
+    """Mutation: count `unreadable` as every member rather than those whose
+    pull requests could not be read, and the core row fails; drop the sort,
     and the order fails.
     """
     rows = hd.by_family(families())
 
     assert [r["family"] for r in rows] == ["core", "irl", hd.UNSTATED]
     core, irl, unstated = rows
-    assert core == {"family": "core", "repositories": 1, "within": 1, "over": 0,
+    assert core == {"family": "core", "repositories": 1,
                     "unreadable": 0, "threads": 0, "stalled": 0}
-    assert irl == {"family": "irl", "repositories": 1, "within": 0, "over": 1,
+    assert irl == {"family": "irl", "repositories": 1,
                    "unreadable": 0, "threads": 1, "stalled": 1}
-    assert unstated == {"family": hd.UNSTATED, "repositories": 1, "within": 0,
-                        "over": 0, "unreadable": 1, "threads": 0, "stalled": 0}
+    assert unstated == {"family": hd.UNSTATED, "repositories": 1,
+                        "unreadable": 1, "threads": 0, "stalled": 0}
 
 
 def test_the_rollup_reaches_both_rendered_views() -> None:
@@ -1204,8 +1183,8 @@ def test_the_rollup_reaches_both_rendered_views() -> None:
 
     assert "<h2>By family</h2>" in page
     assert "## By family" in md
-    assert "| irl | 1 | 0 | 1 | 0 | 1 | 1 |" in md
-    assert f"| {hd.UNSTATED} | 1 | 0 | 0 | 1 | 0 | 0 |" in md
+    assert "| irl | 1 | 0 | 1 | 1 |" in md
+    assert f"| {hd.UNSTATED} | 1 | 1 | 0 | 0 |" in md
     assert "<th scope=\"row\"><span class=\"mono\">irl</span></th>" in page
 
 

@@ -88,8 +88,8 @@ def by_family(document: dict) -> list[dict]:
 
     Families in name order, `unstated` last. Every count is over what could be
     read, as the document's own totals are: a repository whose slots are
-    unknown is in `repositories` and in `unreadable`, and in neither `over`
-    nor `within`, so no family reads as clean because nobody could measure it.
+    unknown is in `repositories` and in `unreadable`, so no family reads as
+    having nothing open because nobody could measure it.
     """
     groups: dict[str, list[dict]] = {}
     for repo in document.get("repositories", []):
@@ -107,8 +107,6 @@ def by_family(document: dict) -> list[dict]:
         rows.append({
             "family": name,
             "repositories": len(members),
-            "within": sum(1 for r in measured if not r["slots"].get("violations")),
-            "over": sum(1 for r in measured if r["slots"].get("violations")),
             "unreadable": len(members) - len(measured),
             "threads": len(threads),
             "stalled": sum(1 for t in threads if t.get("stalled")),
@@ -127,32 +125,10 @@ def pill(text: str, state: str) -> str:
     return f'<span class="pill p-{state}">{esc(text)}</span>'
 
 
-def stacked_ready(v: dict) -> str:
-    """One violation from check_one_pr.py, in words."""
-    listed = ", ".join(f"#{n}" for n in v["numbers"])
-    on = f" (#{v['parent']})" if v.get("parent") else ""
-    return f"{v['author']}'s {listed} is ready but stacked on {v.get('base', '')}{on}"
-
-
-def slot_cell(slots: dict) -> tuple[str, str]:
-    """(cell HTML, row class) for one repository's stack state."""
-    reason = unknown_reason(slots)
-    if reason is not None:
-        return (
-            f'<td class="s-unknown" title="{esc(reason)}">unknown</td>',
-            "unmeasured",
-        )
-    if slots.get("violations"):
-        numbers = [esc(stacked_ready(v)) for v in slots["violations"]]
-        return (
-            "<td>"
-            + pill("ready while stacked", WARN)
-            + '<div class="sub">'
-            + "<br>".join(numbers)
-            + "</div></td>",
-            "over",
-        )
-    return f"<td>{pill('no ready stack', OK)}</td>", ""
+def slot_row(slots: dict) -> str:
+    """The row class for one repository: unmeasured when its pull requests
+    could not be read."""
+    return "unmeasured" if unknown_reason(slots) is not None else ""
 
 
 def local_cell(local: object) -> str:
@@ -261,8 +237,9 @@ def stated_as_intent(repositories: list[dict]) -> list[tuple[dict, str, str]]:
 
 
 def pr_counts(slots: dict) -> str:
-    if unknown_reason(slots) is not None:
-        return '<td class="s-unknown">unknown</td>'
+    reason = unknown_reason(slots)
+    if reason is not None:
+        return f'<td class="s-unknown" title="{esc(reason)}">unknown</td>'
     prs = slots.get("open_prs", [])
     human = sum(1 for p in prs if not p.get("bot"))
     bot = len(prs) - human
@@ -281,7 +258,7 @@ def render(document: dict, fragment: bool = False) -> str:
     rows = []
     for repo in repositories:
         slots = repo.get("slots", {})
-        cell, row_class = slot_cell(slots)
+        row_class = slot_row(slots)
         rows.append(
             f'<tr class="{row_class}">'
             f'<th scope="row">{esc(repo.get("name"))}'
@@ -293,16 +270,10 @@ def render(document: dict, fragment: bool = False) -> str:
             )
             + governance_cell(repo.get("governance"))
             + pr_counts(slots)
-            + cell
             + local_cell(repo.get("local"))
             + "</tr>"
         )
 
-    over = [
-        r
-        for r in repositories
-        if unknown_reason(r.get("slots", {})) is None and r["slots"].get("violations")
-    ]
     unmeasured = [
         r for r in repositories if unknown_reason(r.get("slots", {})) is not None
     ]
@@ -314,21 +285,6 @@ def render(document: dict, fragment: bool = False) -> str:
         if str(r.get("phase", UNKNOWN)) == UNKNOWN
         and unknown_reason(r.get("local", {})) is None
     ]
-
-    over_html = (
-        "".join(
-            f'<div class="gap"><h3>{esc(r["name"])}</h3>'
-            + "".join(
-                f"<p>{esc(stacked_ready(v))}. Mark it draft until the pull "
-                "request beneath it merges.</p>"
-                for v in r["slots"]["violations"]
-            )
-            + "</div>"
-            for r in over
-        )
-        or "<p class=\"s-ok\">No stacked pull request is marked ready, in every "
-        "repository this document could read.</p>"
-    )
 
     unplaced_html = (
         "".join(
@@ -401,11 +357,9 @@ def render(document: dict, fragment: bool = False) -> str:
     )
 
     family_html = LINE_BREAK.join(
-        f'<tr class="{"over" if f["over"] else ""}">'
+        "<tr>"
         f'<th scope="row">{family_cell(f)[4:-5]}</th>'
         f'<td>{esc(f["repositories"])}</td>'
-        f'<td>{esc(f["within"])}</td>'
-        f'<td>{pill(esc(f["over"]), WARN) if f["over"] else esc(f["over"])}</td>'
         f'<td>{pill(esc(f["unreadable"]), UNKNOWN) if f["unreadable"] else esc(f["unreadable"])}</td>'
         f'<td>{esc(f["threads"])}</td>'
         f'<td>{pill(esc(f["stalled"]), WARN) if f["stalled"] else esc(f["stalled"])}</td>'
@@ -418,11 +372,7 @@ def render(document: dict, fragment: bool = False) -> str:
         families=family_html,
         org=esc(generator.get("org")),
         generated_at=esc(document.get("generated_at")),
-        rule=esc(generator.get("rule")),
-        rule_source=esc(generator.get("rule_source")),
         n_repos=esc(totals.get("repositories")),
-        n_compliant=esc(totals.get("compliant")),
-        n_over=esc(totals.get("over_limit")),
         n_unknown=esc(totals.get("slots_unknown")),
         n_unplaced=len(unplaced),
         n_seed=esc(totals.get("seed_complete")),
@@ -439,7 +389,6 @@ def render(document: dict, fragment: bool = False) -> str:
         n_ready=esc(stages.get("ready", 0)),
         n_stalled=esc(totals.get("threads_stalled", 0)),
         stalled_after=esc(generator.get("stalled_after_hours")),
-        over=over_html,
         unplaced=unplaced_html,
         intent=intent_html,
         unmeasured=unmeasured_html,
@@ -459,14 +408,10 @@ BODY = """<main>
 <h1>Harness status — {org}</h1>
 <div class="stamp">
   <span>generated <b>{generated_at}</b></span>
-  <span>rule <b>{rule}</b></span>
-  <span>defined in <b class="mono">{rule_source}</b></span>
 </div>
 
 <div class="cards">
   <div class="card"><div class="n">{n_repos}</div><div class="l">repositories</div></div>
-  <div class="card"><div class="n s-ok">{n_compliant}</div><div class="l">within the stack rule</div></div>
-  <div class="card"><div class="n s-warn">{n_over}</div><div class="l">ready while stacked</div></div>
   <div class="card"><div class="n s-unknown">{n_unknown}</div><div class="l">could not read</div></div>
   <div class="card"><div class="n">{n_past}</div><div class="l">past v0.0.0</div></div>
   <div class="card"><div class="n">{n_seed} <span class="s-muted">/ {n_readable}</span></div><div class="l">seed complete</div></div>
@@ -482,7 +427,6 @@ BODY = """<main>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
   <th scope="col">Seed <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
-  <th scope="col">Stacks</th>
   <th scope="col">This machine</th>
 </tr></thead>
 <tbody>
@@ -491,7 +435,7 @@ BODY = """<main>
 </table>
 </div>
 <div class="legend">
-  <span><span class="pill p-ok">ok</span> measured, within the stack rule</span>
+  <span><span class="pill p-ok">ok</span> measured, nothing for a human</span>
   <span><span class="pill p-warn">warn</span> measured, needs a human</span>
   <span><span class="pill p-unknown">unknown</span> not measured — not the same as nothing wrong</span>
 </div>
@@ -500,15 +444,13 @@ BODY = """<main>
 <p>The table above, added up per family. A family is a <b>claim</b> a person
 made in <span class="mono">ci/workspace.yaml</span>, bordered by the record the
 document names; <span class="s-muted">unstated</span> is a repository nobody has
-placed, not one outside every family. Counts are over what could be read:
-<b>unreadable</b> repositories are counted in neither column.</p>
+placed, not one outside every family. A repository whose pull requests
+could not be read is counted as <b>unreadable</b>.</p>
 <div class="scroll">
 <table>
 <thead><tr>
   <th scope="col">Family</th>
   <th scope="col">Repositories</th>
-  <th scope="col">Within the stack rule</th>
-  <th scope="col">Ready while stacked</th>
   <th scope="col">Unreadable</th>
   <th scope="col">Threads in flight</th>
   <th scope="col">Stalled</th>
@@ -552,14 +494,6 @@ about. Stalled means untouched for more than {stalled_after}h.</p>
 </table>
 </div>
 {threads_note}
-
-<h2>Ready while stacked</h2>
-<p>A pull request whose base is another open pull request's branch stays a draft
-until the one beneath it merges. Closing one in favour of another has an order:
-close the pull request first, then push its commits onto the branch that
-survives — pushing first merges it, with no review and no way to undo the
-record.</p>
-{over}
 
 <h2>Stated as intent</h2>
 <p>The ladder is <span class="mono">{ladder_source}</span>. A project is at
@@ -747,13 +681,15 @@ def md_version(version: object) -> str:
     return version if isinstance(version, str) else "not collected"
 
 
-def md_slot(slots: dict) -> str:
+def md_prs(slots: dict) -> str:
+    """The open pull request count, or why it could not be read, in words."""
     reason = unknown_reason(slots)
     if reason is not None:
         return f"unknown ({reason})"
-    if not slots.get("violations"):
-        return "ok"
-    return "OVER — " + "; ".join(stacked_ready(v) for v in slots["violations"])
+    prs = slots.get("open_prs", [])
+    human = sum(1 for p in prs if not p.get("bot"))
+    bot = len(prs) - human
+    return f"{human}" + (f" + {bot} bot" if bot else "")
 
 
 def render_markdown(document: dict) -> str:
@@ -773,7 +709,6 @@ def render_markdown(document: dict) -> str:
     add(f"# Harness status — {generator.get('org', 'unknown')}")
     add("")
     add(f"- generated: **{document.get('generated_at')}**")
-    add(f"- rule: {generator.get('rule')} (`{generator.get('rule_source')}`)")
     add(f"- layers: {', '.join(generator.get('layers') or [])}")
     if reading.get("staleness_budget_hours"):
         add(
@@ -789,8 +724,6 @@ def render_markdown(document: dict) -> str:
     add("")
     add(
         f"**Totals** — {totals.get('repositories')} repositories, "
-        f"{totals.get('compliant')} within the stack rule, "
-        f"{totals.get('over_limit')} over it, "
         f"{totals.get('slots_unknown')} unreadable; "
         f"{totals.get('past_v0.0.0')} past v0.0.0, {totals.get('at_v0.0.0')} at it, "
         f"{totals.get('version_unknown')} unknown; seed complete in "
@@ -805,14 +738,14 @@ def render_markdown(document: dict) -> str:
         "adoption has got and never decides a rung."
     )
     add("")
-    add("| Repository | Family (claimed) | Version | Phase (claimed) | Source | Seed (evidence) | Stacks | Release |")
+    add("| Repository | Family (claimed) | Version | Phase (claimed) | Source | Seed (evidence) | Open PRs | Release |")
     add("|---|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
             f"| {repo.get('name')} | {family_of(repo)} | {md_version(repo.get('version'))} | "
             f"{repo.get('phase')} | "
             f"{repo.get('phase_source')} | {md_state(repo.get('governance'))} | "
-            f"{md_slot(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
+            f"{md_prs(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
         )
     add("")
     add(
@@ -830,16 +763,16 @@ def render_markdown(document: dict) -> str:
     add(
         "The table above, added up per family. A family is a claim a person "
         "made in `ci/workspace.yaml`; `unstated` is a repository nobody has "
-        "placed, not one outside every family. Unreadable repositories are in "
-        "neither column."
+        "placed, not one outside every family. A repository whose pull "
+        "requests could not be read is counted as unreadable."
     )
     add("")
-    add("| Family | Repositories | Within the stack rule | Ready while stacked | Unreadable | Threads in flight | Stalled |")
-    add("|---|---|---|---|---|---|---|")
+    add("| Family | Repositories | Unreadable | Threads in flight | Stalled |")
+    add("|---|---|---|---|---|")
     for f in by_family(document):
         add(
-            f"| {f['family']} | {f['repositories']} | {f['within']} | "
-            f"{f['over']} | {f['unreadable']} | {f['threads']} | {f['stalled']} |"
+            f"| {f['family']} | {f['repositories']} | "
+            f"{f['unreadable']} | {f['threads']} | {f['stalled']} |"
         )
     add("")
 
@@ -872,12 +805,6 @@ def render_markdown(document: dict) -> str:
     add("")
     actions = []
     for repo in document.get("repositories", []):
-        slots = repo.get("slots", {})
-        if unknown_reason(slots) is None and slots.get("violations"):
-            actions.append(
-                f"- **{repo['name']}**: {md_slot(slots)}. Mark it draft until "
-                "the pull request beneath it merges."
-            )
         for thread in threads_of(repo):
             if thread.get("stage") == "pushed":
                 actions.append(
