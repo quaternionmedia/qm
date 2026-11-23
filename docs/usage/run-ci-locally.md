@@ -50,7 +50,7 @@ You can also run the underlying checks directly:
 # Record index matches the records directory; no banned vocabulary
 python project-seed/ci/adr_lint.py --records-dir records --index README.md
 
-# No stacked pull request is marked ready
+# Your open pull requests, and the stack each one sits in
 python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <login>
 
 # The branch targets the right base and carries what you think it carries

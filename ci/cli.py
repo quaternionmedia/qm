@@ -112,7 +112,7 @@ COMMANDS: tuple[tuple[str, str], ...] = (
     ("restatements", "every declared restatement of a record names it back"),
     ("edges", "every principle declares how it relates to the others, or why not"),
     ("glossary-links", "link the first use of each glossary term on every docs page"),
-    ("stacks", "your open pull requests, and is any ready while stacked?"),
+    ("stacks", "your open pull requests, and the stack each one sits in"),
     ("pins", "is every submodule pin a commit somebody else could get?"),
     ("leaks", "does anything committed name a person, a machine or a conversation?"),
     ("timeless", "does added text shout or narrate its own history? --all for everything"),

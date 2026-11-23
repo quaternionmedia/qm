@@ -222,7 +222,7 @@ def test_offline_reports_the_pull_requests_as_unread_not_as_clean(repo: Path) ->
     """The whole point: 'nothing was read' must never render as 'nothing wrong'."""
     text = brief(repo)
     assert "`--offline` was passed, so no pull request was read" in text
-    assert "None of yours is ready while stacked" not in text
+    assert "is marked ready when its work is finished" not in text
 
 
 def test_out_writes_the_same_text_it_printed(repo: Path) -> None:

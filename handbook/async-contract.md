@@ -47,10 +47,10 @@ second stack, and independent changes still go in parallel.
 
 **Dependent changes go in series, as a stack.** A branch that needs another
 branch's work is cut *from that branch*, and its pull request's base *is* that
-branch, so its diff shows only its own change. Only the bottom of a stack — the
-pull request whose base is the real target — is ready. Every pull request above
-it is a **draft, even when its work is finished**: ready means merge once green,
-and merging it now would land it in its parent's branch rather than the target.
+branch, so its diff shows only its own change. Each is **marked ready when its
+work is finished**, wherever it stands in the stack, and merges after the one
+beneath it, retargeted onto the real target: merged sooner, it would land in its
+parent's branch rather than the target.
 
 **When the bottom merges, the next one moves down, in this order.**
 
@@ -66,7 +66,7 @@ and merging it now would land it in its parent's branch rather than the target.
 4. Update the next branch from the target. Workflows filtered on the target
    branch never ran while it was stacked, and the host's own retarget starts
    none of them; the update is a push, and a push runs everything.
-5. Mark it ready once its gates pass.
+5. Merge it once its gates pass against the target: it is the bottom now.
 
 `gh pr merge --delete-branch` deletes the branch before anything retargets, so
 a pull request stacked on it is closed. The order lives in the base chain, where
@@ -75,17 +75,17 @@ that cut the branches.
 
 **Never close a pull request in favour of one that contains it.** A pull
 request whose commits are all contained in a larger branch stays open and ready
-against its target, and the larger branch opens as a draft whose base is that
-pull request's branch. Folding several pull requests into one leaves one diff
+against its target, and the larger branch opens as a pull request whose base
+is that pull request's branch. Folding several pull requests into one leaves one diff
 too large to read in place of several that each can be.
 
 Automation accounts are outside the rule: Dependabot's pull requests have their
 own queue.
 
-**Mechanical.** `project-seed/ci/check_one_pr.py`, wired as
-`one-pr-check.yml`. It fails a pull request that is marked ready while its base
-is the branch of another open pull request, and prints every open pull request
-and the stack it sits in.
+**Mechanical.** `uv run qm merge` refuses a pull request whose base is another
+open pull request's branch, and retargets those stacked on a merged one before
+its branch goes. `project-seed/ci/check_one_pr.py` (`uv run qm stacks`) lists
+every open pull request and its stack, and fails nothing.
 
 **Closing a pull request has an order, and the order is the whole safeguard.**
 Where one must be closed and its commits carried elsewhere, close the pull
@@ -112,11 +112,11 @@ Requesting a review pulls a second person in anyway, and against a branch
 carrying a live `CODEOWNERS` it fires automatically the moment a pull request
 opens: you name nobody and the notification cannot be recalled.
 
-**Draft means unfinished, or stacked.** A draft is either work that is not
-done, or a pull request waiting on the one beneath it in a stack (§1). It is
-not a holding pen for anything else: a green pull request left in draft against
-the real target is a change that never reached `main` — which is the opposite
-of the job.
+**Draft means unfinished.** A draft is work that is not done. A finished pull
+request is marked ready whether its base is the real target or another pull
+request's branch (§1). A draft is not a holding pen for anything else: a green
+pull request left in draft is a change that never reached its base — which is
+the opposite of the job.
 
 ## 3. A pull request states decisions, not questions
 
@@ -233,7 +233,7 @@ part a session executes:
 |---|---|---|
 | The scripts a session runs | `project-seed/ci/` | run from the submodule, never copied |
 | The context builder behind `/cowork` | `project-seed/ci/cowork_context.py` | run from the submodule |
-| The stack check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
+| The stack lister, and the voice check | `project-seed/ci/check_one_pr.py`, `check_pr_voice.py` + `one-pr-check.yml` | workflow copied, scripts run from the submodule |
 | The branch check | `project-seed/ci/check_pr_base.py` | run from the submodule |
 | The gate runner | `project-seed/ci/run_workflows_locally.py` | run from the submodule |
 | This page | `handbook/async-contract.md` | read through the submodule mount |

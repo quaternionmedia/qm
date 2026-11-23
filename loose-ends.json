@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-21T23:44:34Z",
+  "generated_at": "2026-11-23T18:02:10Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-21T23:43:09Z"
+        "generated_at": "2026-11-23T18:01:55Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-05T16:23:09Z"
+        "generated_at": "2026-11-23T17:59:18Z"
       }
     }
   },
@@ -44,15 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 247,
+    "loose_ends": 245,
     "by_kind": {
-      "blind-spot": 22,
+      "blind-spot": 21,
       "document-proposed": 42,
       "document-unreviewed": 98,
-      "over-slot": 1,
       "stalled-thread": 84
     },
-    "open": 247,
+    "open": 245,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -191,14 +190,6 @@
       "title": "secret-scan cannot see",
       "detail": "Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-secret-scan",
-      "address_parses": true
-    },
-    {
-      "kind": "blind-spot",
-      "address": "quaternionmedia/qm/doc/gate-stacked-drafts",
-      "title": "stacked-drafts cannot see",
-      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
-      "key": "blind-spot:quaternionmedia/qm/doc/gate-stacked-drafts",
       "address_parses": true
     },
     {
@@ -1351,14 +1342,6 @@
       "title": "perspectives/session-transcript-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-session-transcript-2026-06-09",
-      "address_parses": true
-    },
-    {
-      "kind": "over-slot",
-      "address": "quaternionmedia/otto",
-      "title": "quaternionmedia/otto has a ready pull request stacked on another",
-      "detail": "subcontrabass's #34 is ready but stacked on fix/makecolor-accepts-every-colour-spelling (#33); it stays a draft until that one merges",
-      "key": "over-slot:quaternionmedia/otto",
       "address_parses": true
     },
     {

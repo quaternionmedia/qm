@@ -418,8 +418,8 @@ stays. It is a chart, not a graph, and nothing here replaces it.
 ## Phases and the stacks
 
 Each phase ends in something a person can open. Within a repository the pull
-requests stack: each is a draft on top of the one beneath it, and only the
-bottom one is ready. Across repositories the order below holds.
+requests stack: each is cut from the one beneath it and merges after it.
+Across repositories the order below holds.
 
 **Before any of it: codecartographer's open stack.** Forty of its pull
 requests are one linear stack, each targeting `main`, and every one is red on

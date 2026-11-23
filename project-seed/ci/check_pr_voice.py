@@ -39,7 +39,7 @@ What it leaves alone
   - a body an automation account posts, `dependabot[bot]` among them. Its body
     is not posted under a person's account, so it is no person's statement, and
     the rule has nobody for it to speak as. The login's `[bot]` suffix decides,
-    as it does for `check_one_pr.py`, the other step in the same job.
+    as it does for `check_one_pr.py`, which lists the stacks.
 
 What this cannot see: whether the body is honest, complete, or about the diff.
 It reads for one voice, and a body that addresses the contributor in the third
