@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-07 |
 | **Pends on** | Nothing — ready for ratification. The decision stands on its own; only its implementation is outstanding. |
-| **Principle** | P3 — replaceability is the risk strategy |
+| **Principle** | `seams-on-standard-protocols` — replaceability is the risk strategy |
 
 ## Context
 
@@ -57,7 +57,7 @@ the two questions.
 
 5. **The remaining sovereignty exposure is named rather than implied.** An S3
    seam makes the provider replaceable. It does not make a hosted service
-   ownable-offline, which P1 asks for and which no protocol choice can
+   ownable-offline, which `ownership-is-the-deliverable` asks for and which no protocol choice can
    deliver. Whether a self-hosted S3 implementation should back this in a
    deployed instance is a separate decision, not settled here.
 

@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-07 |
 | **Pends on** | Org amendments to the house-stack record covering Python packaging and frontend applications. Adoption itself is not contingent on them; only §5's disposition is. |
-| **Principle** | P6 — decisions are documented or they didn't happen |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen |
 | **Written against** | alfred `main` at `7fff7ae`. The first review pass for this record was performed against `pdm`, which was 21 commits behind with nothing unique on it; every finding was re-established against `main` before being written down. |
 
 ## Context
@@ -52,12 +52,12 @@ preamble to it.
    | # | Conflict | Org record | What compliance would look like |
    |---|---|---|---|
    | 1 | MongoDB is the datastore, the Celery broker, and the result backend. The deployed image `mongo:bionic` is MongoDB 4.4.6, whose own `/usr/share/doc/mongodb-org-server/copyright` states `License: SSPL` — a source-available regime the exclusion rule names explicitly. Read from the image rather than recalled. | Open-license §1 | A datastore and a broker under OSI or FSF-free licenses. Decided in the datastore and task-queue record, not here. |
-   | 2 | The database image is `mongo:bionic`, whose `/etc/os-release` reports `Ubuntu 18.04.5 LTS (Bionic Beaver)` — out of standard support since April 2023 — and the tag is not digest-pinned. Read from the image. | Open-license §1; P8 | A supported, digest-pinned base for every image the stack runs. |
+   | 2 | The database image is `mongo:bionic`, whose `/etc/os-release` reports `Ubuntu 18.04.5 LTS (Bionic Beaver)` — out of standard support since April 2023 — and the tag is not digest-pinned. Read from the image. | Open-license §1; `systems-over-heroics` | A supported, digest-pinned base for every image the stack runs. |
    | 3 | Object storage is Google Cloud Storage, reached through the vendor's own SDK: `alfred/core/utils/bucket.py` imports `google.cloud.storage` and constructs `storage.Client()`. A search of the control plane for `boto3`, `botocore`, `minio` or `endpoint_url` returns nothing, so no protocol-shaped path exists to fall back to. | Seams §2, §3 | A seam on a protocol with multiple independent implementations. Decided in the object-storage seam record, not here. |
    | 4 | The built frontend bundle loads a font from `fonts.gstatic.com` (a `src:url(...)` in the emitted CSS) and two images from a Squarespace CDN (`img src=` in the emitted JS). Verified against the output of `yarn parcel build`, not against the sources. | Open-license §1, which requires frontend assets be vendored and never CDN-loaded | Every asset served from the application's own origin, vendored into the repository. |
-   | 5 | The application image builds `FROM python` with no tag and no digest, and **no longer builds at all**. The unpinned base now resolves to Python 3.14, which does not ship setuptools, so a dependency fails at `pip install` with `No module named 'pkg_resources'`. Pinning to 3.11 gets past that and then fails on `rm /etc/ImageMagick-6/policy.xml` — the base carries ImageMagick 7 and the version-6 path is gone. Both reproduced against Docker. | P1; P8 | A pinned base image, rebuilt deliberately rather than implicitly, and no hardcoded path into a dependency's private layout. |
+   | 5 | The application image builds `FROM python` with no tag and no digest, and **no longer builds at all**. The unpinned base now resolves to Python 3.14, which does not ship setuptools, so a dependency fails at `pip install` with `No module named 'pkg_resources'`. Pinning to 3.11 gets past that and then fails on `rm /etc/ImageMagick-6/policy.xml` — the base carries ImageMagick 7 and the version-6 path is gone. Both reproduced against Docker. | `ownership-is-the-deliverable`; `systems-over-heroics` | A pinned base image, rebuilt deliberately rather than implicitly, and no hardcoded path into a dependency's private layout. |
    | 6 | `fastapi-crudrouter` is installed at build time from a QM fork branch — the installed distribution's `direct_url.json` records `https://github.com/quaternionmedia/fastapi-crudrouter.git`, so this is the resolved artifact and not only a manifest entry. | Contribution §2, under which an unregistered build-time patch is a lint failure | The patch registered in `registers/carried-patches.md` with its upstream status. |
-   | 7 | The frontend has no committed lockfile; `package-lock.json` and `yarn.lock` are both git-ignored, and **the frontend no longer builds either**. `parcel` floats from `^2.8.3` to 2.16.4 while `@parcel/transformer-sass` is pinned to exactly `2.8.3`; parcel requires them to match, so the build fails and no `dist/` is produced. Reproduced from a clean install. | P8 — recreatable from version control | A committed lockfile, so a build is reproducible from the repository alone. |
+   | 7 | The frontend has no committed lockfile; `package-lock.json` and `yarn.lock` are both git-ignored, and **the frontend no longer builds either**. `parcel` floats from `^2.8.3` to 2.16.4 while `@parcel/transformer-sass` is pinned to exactly `2.8.3`; parcel requires them to match, so the build fails and no `dist/` is produced. Reproduced from a clean install. | `systems-over-heroics` — recreatable from version control | A committed lockfile, so a build is reproducible from the repository alone. |
    | 8 | Packaging is PDM and the frontend is a mithril/parcel application. The house-stack record blesses `uv`, and contemplates frontend JS only as single-file visualization deliverables. | House stack §2 | Resolved at org level, not here. See §5. |
 
    **How each row is pinned.** Kept out of the table above, which is already
@@ -140,7 +140,7 @@ preamble to it.
    names them, and leaves the project ungoverned for exactly as long as it is
    most in need of governance.
 2. **Adopt with the conflicts unstated, and fix them quietly.** Rejected:
-   this is the failure mode P6 exists to prevent. It would also make the
+   this is the failure mode `decisions-are-documented` exists to prevent. It would also make the
    corpus's own instantiation claim false — a project that reports compliance
    it does not have is worse for the org than one that reports the gap.
 3. **Adopt with a dated remediation schedule per conflict.** Rejected: the
