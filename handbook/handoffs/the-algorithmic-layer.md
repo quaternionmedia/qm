@@ -591,10 +591,13 @@ where one adds work, it names the §2 row that carries it.
   changelog, the later one meets a small conflict there as it lands.
   alfred's open stack below them, quaternionmedia/alfred#118 to
   quaternionmedia/alfred#141, is marked ready while stacked, which the stack
-  rule allows (quaternionmedia/qm#347). alfred's `slot` check runs the stack
-  step from its governance pin, `project/alfred` at `d324759`, and reports
-  them on every alfred pull request of the person's until that branch takes
-  `main` and alfred's pin moves. *Keep everything local* still holds for joe's
+  rule allows (quaternionmedia/qm#347). `project/alfred` carries that rule
+  since its propagation of 2026-11-24 (`0335b41`, quaternionmedia/qm#349).
+  quaternionmedia/alfred#136, the first pull request in the stack with a
+  `slot` check, pins that commit with the seed's `one-pr-check.yml`, and its
+  `slot` passes. A pull request whose base still pins `d324759` runs the old
+  stack step and reports the ready stack, until it is retargeted onto `main`
+  after the ones beneath it land. *Keep everything local* still holds for joe's
   `docs/what-the-words-are-for`. joe's clone sits detached at
   `feat/speaker-turns`'s head so the host run's joe hears speakers, to go
   back to `main` when the branch lands; the vox and otto checkouts under

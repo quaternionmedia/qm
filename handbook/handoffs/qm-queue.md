@@ -18,8 +18,10 @@ that name 2026-11-19 at `qm` `02fa287`, `qmcp` `8aece3e` and `joe` `188a2cb`,
 asking the host nothing. Those that name 2026-11-21 were re-derived at `qm`
 `5baf779`, `project/qmetronome` `348e31f` and `qmetronome` `3aaaa28`. Those
 that name 2026-11-22 were re-derived at `qm` `2617723`, `project/qmcp`
-`5c5b0fa` and `qmcp` `bd02434`. The rest of the page holds at the stamp, which
-those entries do not move.
+`5c5b0fa` and `qmcp` `bd02434`, and those that name 2026-11-24 at `qm`
+`bbb606a`, `project/alfred` `0335b41` and alfred's `feat/ui-journeys`
+`da5f6cf`. The rest of the page holds at the stamp, which those entries do not
+move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -209,7 +211,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
 | #147, #148, #149, #150, #151, #156 | six project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
-| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-11-24 (`0335b41`, #349) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -456,15 +458,11 @@ re-checked and is re-derived before anyone acts on it.
   and rad, and not read for the private projects. qmetronome's default
   branch carries the seed's file besides (2026-11-21). Done is the
   workflow on every project's default branch, which follows the propagations
-  in §2 and a copy in each project. alfred's copy is the seed's file
-  verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
-  pull request is a draft, and alfred #117, the bottom one, is ready on
-  `main`. alfred's `main` has no governance submodule yet, and its stack
-  pins `e76827d`, where neither script the workflow runs exists;
-  `project/alfred` carries both since its propagation of 2026-10-31, voice
-  step exempting automation accounts included. The copy
-  goes onto alfred's stack with a pin bump, and reaches its `main` when the
-  stack lands.
+  in §2 and a copy in each project. alfred's copy is on its stack: alfred
+  #136, the first pull request there to carry it, holds the seed's file and
+  pins `project/alfred` at `0335b41`, the propagation of 2026-11-24, and its
+  `slot` passes. alfred's `main` has no governance submodule yet; the copy
+  reaches it when the stack lands.
 - **Unsubstituted placeholders.** Five project branches' `adr/README.md`
   still reads `project/<name>`: apothecary, factorio-sysops,
   `private-32`, `private-33` and `private-34`. qmetronome's is substituted (2026-11-21).
