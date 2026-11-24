@@ -3,13 +3,14 @@
 A test suite has a **cost** and a **yield**, and the two are read together.
 
 ```sh
-uv run qm posture                          # cost and yield, side by side
-uv run qm posture --baseline               # record the reading as the baseline
-uv run qm posture --against .qm-posture.json
-uv run qm mutate <module> --tests <tests>  # break one module, see what notices
+uv run --extra dev qm posture                          # cost and yield, side by side
+uv run --extra dev qm posture --baseline               # record the reading as the baseline
+uv run --extra dev qm posture --against .qm-posture.json
+uv run --extra dev qm mutate <module> --tests <tests>  # break one module, see what notices
 ```
 
-The source is `ci/test_posture.py`; the mutator is `ci/mutate.py`.
+The source is `ci/test_posture.py`; the mutator is `ci/mutate.py`. Both run
+pytest, which the `dev` extra installs; without it each says so and stops.
 
 ## Cost and yield
 
@@ -54,7 +55,7 @@ would be expensive, including [seed](../../ref/glossary.md#seed){ .glossary-term
 
 ## Running the suite
 
-`uv run qm test` (`ci/run_tests.py`) is the one way to run the tests: the
+`uv run --extra dev qm test` (`ci/run_tests.py`) is the one way to run the tests: the
 argument list is the one `.github/workflows/ci-tooling-tests.yml` passes, and
 `ci/tests/test_run_tests.py` asserts the two match. Both suites always run;
 extra arguments are added rather than substituted, so narrowing is `-k` and a
@@ -73,7 +74,7 @@ the mutation score answers that.
 
 ## Mutation
 
-`uv run qm mutate <module>` (`ci/mutate.py`) applies one-for-one textual
+`uv run --extra dev qm mutate <module>` (`ci/mutate.py`) applies one-for-one textual
 substitutions to a module and runs its tests against each mutant. A surviving
 mutant means a test is missing or the change makes no behavioural difference;
 the tool cannot tell which and judges none. Every mutant runs against a copy of

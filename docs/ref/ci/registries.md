@@ -22,15 +22,19 @@ what may leave the machine:
 | File | Holds | Committed |
 |---|---|---|
 | `status/inventory.yaml` | Public repositories by name, counts, and references standing in for the rest | Yes |
+| `ci/private-references.yaml` | The ledger: each assigned reference against its repository's creation date, no name | Yes |
 | inventory-private.json | Reference to private repository name | Never |
 | inventory-local.json | What is cloned on this disk, and where | Never |
 
 The split is the control, not a redaction: a public file that never receives
 private names cannot leak them however broken the code is. Private repositories
-are counted and referenced, never dropped. References are assigned in creation
-order, which is append-only, so `private-03` means the same repository in every
-document that cites it; `uv run qm inventory --resolve private-03` reads the
-mapping back on a machine that has it.
+are counted and referenced, never dropped. A reference is
+looked up in the ledger by the repository's creation date. A repository that
+leaves the private set keeps its entry, so no later reference moves; one the
+ledger does not hold takes the next number after the highest, in creation order,
+and `uv run qm inventory --write` appends it. `private-03` therefore means the
+same repository in every document that cites it. `uv run qm inventory --resolve
+private-03` reads the mapping back on a machine that has it.
 
 **Recency** comes from the default branch's last commit date, not `updatedAt`
 (which moves on a description edit and lags a push) or `pushedAt` (which moves

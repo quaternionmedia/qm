@@ -20,7 +20,7 @@ alfred, otto
 
 `instruments` · 10 members
 
-carlos, qmetronome, holophonor, midiphonor, uPhonor, and 4 more
+carlos, loopwall, qmetronome, holophonor, midiphonor, and 5 more
 
 [The instruments family →](families/instruments.md){ .qm-card-link }
 
@@ -32,7 +32,7 @@ carlos, qmetronome, holophonor, midiphonor, uPhonor, and 4 more
 
 `performer-display` · 3 members
 
-joe, leo
+loopwall, joe, leo
 
 [The performer-display family →](families/performer-display.md){ .qm-card-link }
 

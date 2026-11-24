@@ -144,17 +144,17 @@ partly exercised locally, and that a local pass is evidence rather than proof.
 **"Do I open a pull request for this?"**
 
 Yes, and you merge it yourself once the gates are green. Never push `main`
-directly. Draft means incomplete, or stacked on another open pull request — a
-finished pull request left in draft against `main` is a change that never
-arrives.
+directly. Draft means incomplete — a finished pull request left in draft is a
+change that never arrives.
 
 **"How many pull requests can I have open?"**
 
 As many as you have independent changes. Each pull request carries one change;
 independent ones sit side by side, each ready against its base. One that needs
-another's work is cut from that branch, based on it, and stays a draft until the
-one beneath it merges. `uv run qm stacks --repo <owner>/<name>` lists yours and
-refuses a stacked one marked ready — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
+another's work is cut from that branch, based on it, and marked ready when it
+is finished; it merges after the one beneath it. `uv run qm stacks --repo
+<owner>/<name>` lists yours and the stack each sits in, and `uv run qm merge`
+refuses a stacked one until the one beneath it merges — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
 §1 has the reasoning.
 
 **"Who has to approve it?"**
@@ -168,10 +168,11 @@ person who asked for the work; do not request a review.
 
 **"The suite is green. Does that mean the tests are any good?"**
 
-Not on its own — a passing test may be asserting nothing. `uv run qm mutate
-<module>` breaks a module on purpose and reports whether its tests noticed.
-`uv run qm posture` reports what the suite costs and what it catches together,
-because either number alone flatters. This is charter principle `a-check-is-evidence-after-it-fails`.
+Not on its own — a passing test may be asserting nothing. `uv run --extra dev
+qm mutate <module>` breaks a module on purpose and reports whether its tests
+noticed. `uv run --extra dev qm posture` reports what the suite costs and what
+it catches together, because either number alone flatters; both run pytest,
+which that extra installs. This is charter principle `a-check-is-evidence-after-it-fails`.
 
 **"This says zero. Does that mean nobody looked?"**
 

@@ -87,7 +87,7 @@ def test_an_unrecognised_disposition_leaves_the_item_open():
 
 
 def test_a_claim_for_a_different_item_does_not_close_this_one():
-    got = judge(ITEM, {"over-slot:quaternionmedia/qm": {"disposition": "carried"}})
+    got = judge(ITEM, {"stalled-thread:quaternionmedia/qm/pr/2": {"disposition": "carried"}})
     assert got["open"]
 
 

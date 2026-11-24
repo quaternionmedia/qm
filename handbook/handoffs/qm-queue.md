@@ -9,13 +9,18 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
 `474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
-day. Entries that name 2026-10-31 were re-derived at `qm` `2e6820d`. The rest of the page holds at the stamp, which those entries do not
-move.
+day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
+those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
+from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
+2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
+`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. Those
+that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
+`348e31f` and `qmetronome` `3aaaa28`. Those that name 2026-11-22 were
+re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. The
+rest of the page holds at the stamp, which those entries do not move.
 
-[`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
-two `joe` pull requests merged on 2026-10-26, and the steps after it;
-[`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after it,
-#35 to #58, which a person merges one at a time;
+The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
+#35 to #58, on 2026-10-31; what remains of both is in §4.
 [`the-voice-loop.md`](the-voice-loop.md) is the loop;
 [`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
 landed on its `main`, and how it keeps landing;
@@ -81,15 +86,101 @@ pick up alone; that page is then listed in the index and named here.
    (`records/DRAFT-work-is-delivered-into-a-repository.md`, on `main` since
    `d85dd12`). (2026-10-24)
 8. **qmcp's adoption record is restated in two steps.** C2, C3 and C7 were
-   restated by the pull request merged into `project/qmcp` as `6a4819a`.
-   C1, C5, C6 and C8 come next, in a pull request of their own based on
-   `project/qmcp`. (2026-10-24)
+   restated by the pull request merged into `project/qmcp` as `6a4819a`, and
+   C1, C4, C5, C6 and C8 by the one merged as `5c5b0fa`. (2026-11-22)
+
+9. **A remembered approval covers runs that spend nothing, and nothing
+   else.** Phase 11 of `qmcp`'s roadmap, habits into auto-approvals, is built
+   on that reading of `records/DRAFT-no-unattended-spending.md`. (2026-10-31)
+10. **`match_option`'s wider reading holds for every closed choice**, the
+    approval dialog included: a hyphen is a word break, and of several options
+    named the one covering the others wins. (2026-10-31)
+11. **Instruct by voice sits in joe's Voice window**, which the dock opens from
+    a transport button, a key or the Panels menu and closes after the stream or
+    the queue ends, as joe's dock pull request has it. (2026-10-31)
+12. **joe adopts the corpus after its open set has landed**: a joe pull request
+    adds `governance/qm` by its HTTPS URL, the seed's `AGENTS.md` and
+    workflows, and `project/joe` takes its propagation; nothing opens before
+    the set is in. joe's README pull request (#56) and its lane-pages pull request
+    (#52) stand for the README and cookbook pull requests that were to follow
+    the voice set. (2026-10-31)
+13. **`openai-whisper` becomes an optional `voice` extra of joe**, in a pull
+    request after the set lands: joe without it serves the media API and the
+    page, and says so where a voice route is asked. (2026-10-31)
+14. **joe's open set landed one pull request at a time, merged by the session
+    that readied each** once its gates were green and the finding recorded
+    against it was fixed on it; the checklist in `joe-manual-validation.md` is
+    walked against `main` afterwards, and a finding becomes a fix pull
+    request. (2026-10-31)
+15. **`status/governance.yaml`'s open questions are settled**: records on
+    project branches are listed per project and do not count in the corpus's
+    figure; CI holds no credential for private repositories, and whoever opens
+    a pull request touching the status documents regenerates them, the owner
+    weekly otherwise; gap detail about a private project is published by
+    reference; a committed status document and the refusal to commit a gate's
+    output square as `handbook/generated-documents.md` states; a project's
+    vendored copy is true at its pin, which is its stamp. (2026-10-31)
+16. **loopwall is public and is rostered by name.** The repository rostered
+    as `private-34` was made public on 2026-10-31; its roster row carries its
+    name once private references have a ledger (§4), and the pages and
+    fixtures that name it by reference are renamed in a sweep of their own.
+    (2026-10-31)
+17. **benchmark's `main` requires no status check for now**: the three
+    contexts its protection named came from a matrix its workflow no longer
+    has, and the workflow runs on pushes to `main` alone. A pull request gives
+    `deploy.yml` a `pull_request` trigger, after which the protection requires
+    `test`. (2026-10-31)
+18. **The design review of this corpus runs from its handoff page**, Part 1
+    only, with the owner's charge: a stranger's first hour before the alpha.
+    The consent request that waited on the harness since 2026-09-28 is
+    superseded by that start. (2026-10-31)
+19. **A shared workflow is exercised from a consumer before it merges**:
+    the organisation's shared Python workflows, moved to Node 24 actions with a
+    Python version, submodules and pip arguments as inputs, were taken on
+    holophonor's run of the black and ruff workflows at the branch, and merged.
+    (2026-10-31)
+20. **A project's docs are timeless, and its dated history lives here**, at
+    `docs/projects/<name>/` beside its page: its retrospectives, its round log
+    with each round's branch, pull request and dates, the counts each round
+    measured, and a timeline `uv run qm timeline` draws from git and the round
+    log. Each project adopts the boundary by a record of its own, alfred
+    first. `records/DRAFT-a-projects-history-lives-in-the-corpus.md`, on
+    `main`, is the boundary. (2026-10-31)
+21. **The instruction pointer files are one-line imports, not symlinks.**
+    `CLAUDE.md` holds the single line `@AGENTS.md`; `AGENTS.md` is the one
+    document every tool reads, and no `.github/copilot-instructions.md` is
+    carried, since the agent, review and VS Code chat surfaces read a root
+    `AGENTS.md` and the record names the chat surfaces that do not. The
+    `.vscode/` and `.claude/` configuration pointers stay symlinks to their
+    seed copies, since they have no import syntax, and the symlink-integrity
+    gate holds those alone.
+    `records/DRAFT-ide-integrated-governance-discovery.md` is the decision,
+    on `main`. (2026-11-01)
+22. **The trailer and author check is on `main`, and reads new commits only.**
+    `check_attribution.py` refuses a commit trailer or author field naming a
+    tool or standing on an address nobody reads, and the seed's `adr-lint.yml`
+    runs it, so a project takes it at its next seed re-copy. It moved from
+    `project/carlos` with what it refuses unchanged. On a pull request the
+    corpus's own workflow passes `--merged-ref origin/main`, so a propagation
+    does not read commits already on `main`, 48 of which carried such a trailer
+    at `1d8ae63`. **A new commit whose `Tools:` trailer names a product is refused
+    on its pull request**, so a commit's `Tools:` line names no product; a note
+    naming one sits on the artifact that calls for it, such as a perspective.
+    (2026-11-05)
+23. **qmcp's lock is read against published advisories on every pull
+    request, and the check blocks**: a locked version inside an advisory's
+    range fails the pull request whether or not it touched a dependency, and
+    Dependabot's grouped security update is the way back to green
+    (`.github/workflows/advisories.yml` in `qmcp`, qmcp#134). (2026-11-22)
+24. **qmcp's architecture page follows its control-plane record**: the server
+    starts a process only for a person at the machine, on a loopback route,
+    after consent; and tools keep no state but a client's credentials, as the
+    `alfred_*` tools keep alfred's token. (2026-11-22)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-No pull request into `main` is this page's; every one it names is into a
-project branch. `uv run qm stacks --repo
-quaternionmedia/qm` lists them. Two causes account for most of the red: a
+Every pull request this page names is into a project branch. `uv run qm
+stacks --repo quaternionmedia/qm` lists them. Two causes account for most of the red: a
 project branch that took `main` before the stack rule carries the old `slot`
 check, which refuses every pull request into it after the first; and commits
 made on 2026-10-13 that the host reads as unsigned.
@@ -99,8 +190,8 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
-| #147, #148, #149, #150, #151, #153, #156 | seven project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
-| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-29 | brought level with `project/alfred`, merged |
+| #147, #148, #149, #150, #151, #156 | six project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -112,60 +203,47 @@ each pull request into it is behind its base until brought level.
 
 ## 3. Blocked on a person
 
-- **A private name in `main`'s history.** Two commit messages that name the
-  private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
-  with the performing family's pull requests. `performing-family-consolidation.md`
-  lists them for Peter, with "a history rewrite of those pull requests" as the
-  remedy; on `main` that remedy now means rewriting `main`. Whether to do so
-  is a person's decision.
-- **qmcp's open adoption decisions**, as
-  `adr/DRAFT-constitution-adoption-scope.md` on `project/qmcp` states them:
-  - C3: two sessions started in one checkout share one queue, through the
-    default port 3141 and a database path relative to the working directory.
-  - C7: `POST /v1/human/responses` authenticates nobody.
-  - C4: a `GET` writes `EXPIRED`.
-  - Phase 11 of `qmcp`'s roadmap, auto-approvals from habits, is built only
-    after the corpus has read it.
 - **qmcp's control-plane record**, `adr/DRAFT-control-plane-and-engine-boundary.md`
   on `project/qmcp` (2026-10-25), is `Proposed` and pends on two inputs: (a)
   whether the clients `qmcp` ships beside its seam, the cookbook's flows and
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
-- **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
-  `voice-set-landing.md` §4.
-- **quaternionmedia/.github#9**, a draft on that repository's `main`: a Python
-  version, submodules and pip arguments for the shared Python workflows, on
-  Node 24 actions. Every action version it pins exists upstream; nothing in
-  that repository runs the workflows it changes, so its one green check says
-  nothing about them. Its review is a person's.
+- **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
+  held by the person (2026-11-22). The stated intent is a licence under which
+  a derivative stays open, with Creative Commons named; the outbound-licensing
+  record (`records/DRAFT-outbound-licensing.md`) puts a QM service under
+  AGPL-3.0-or-later (§4) and prose under CC-BY-SA-4.0 (§1). `REUSE.toml`
+  records MIT as the current state and says it does not ratify it. Done is the
+  class chosen, then a root `LICENSE`, the `license` key in `pyproject.toml`
+  and `REUSE.toml`'s default block stating it.
 - **Applying the rulesets.** `.github/rulesets/README.md` sets out the staged
   path and shows the host at stage 0, no ruleset applied. Stage 1 is a person
   running `apply.sh`; an agent never does.
-- **A share link committed on `main`**, in
-  `views-declare-what-they-need.md`; `uv run qm leaks` allows it by a stated
-  reason. Redact it, or confirm the link is dead.
-- **rad's Pages.** GitHub Pages is disabled for rad, which its `deploy` job
-  needs; a repository setting.
-- **Held pull requests:** datum #2, alfred #113 and benchmark #7 — merge or
-  close.
-- **apothecary's picture on the site.** `ci/showcase.yaml` lists
-  `docs/assets/fractal-viewer-walkthrough.gif` for apothecary, which its
-  default branch no longer holds, so its project page holds it back. A
-  person picks another picture, or drops the entry.
-- **Six questions about `status/governance.yaml`** that its `undefined:` block
-  does not carry: whether project records count in the corpus census; whether
-  CI gets a credential that can read private repositories; whether gap detail
-  about private projects is published, now that it names them by reference;
-  who refreshes the document; how a committed generated artifact squares with
-  refusing to commit what a gate generated; and the stale copy every project
-  vendors with the corpus.
+- **A shared-conversation link in `main`'s history**, named in
+  `views-declare-what-they-need.md`: recoverable from commit `0c1ac0b`, and it
+  still answers. Removing it from the working tree did not remove it from
+  history; revoking it where it was shared is the one act that closes this,
+  and it is the owner's.
+- **cathy's real-export demo** waits on the owner's download of the site's
+  export, placed as `export.xml` beside a `cathy.toml` in a folder that
+  belongs to the site and never in cathy's repository.
+- **alfred #113**, a configuration change of 2023 by another contributor,
+  is left as it is for now, with alfred's branches that exist on one disk
+  alone and titanharvest's design branch.
 - **The decisions in `hil-review-2026-10-31.md` §4**: alfred's and
   titanharvest's branches that exist on one disk alone; the worktrees only a
   person may remove.
 
 ## 4. Unfinished, and what done looks like
 
+- **The design review of qm, phases 4 to 7.** Phases 0, 1 and 3 ran at
+  `debf210`, read-only, scoped to a stranger's first hour; the review's pull request carries Part 1
+  of `design-review-of-the-estate.md` with the leads as hypotheses and the
+  skeptic verdicts, and the retrospective, and stays open for the owner to
+  read. Done is the review's pull request merged, then the triage, the owner's decisions asked in
+  the session, and the workstreams landed from `evolve/design-review-<date>`.
+  (2026-10-31)
 - **`project/apothecary`'s unsigned history.** #121's 33 commits are unsigned,
   dated 2026-09-18 to 2026-10-13. `project/apothecary` is one of eight project
   branches without `signature-check.yml`, so nothing on a pull request into it
@@ -174,10 +252,10 @@ each pull request into it is behind its base until brought level.
 - **Dependabot's updates, grouped** (decision 5). At the stamp Dependabot holds
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
-  open. At `qmcp` `82b2d58`, `qmcp` has no `dependabot.yml`, no open
-  Dependabot pull request and no open alert. Its one leftover Dependabot
-  branch, whose pull request was closed on 2026-10-25 because `main` already
-  locks the version it set, was deleted on 2026-10-27 at the person's word.
+  open. `qmcp` carries `groups:` since qmcp#131 (2026-11-22), and its first
+  grouped pull request, qmcp#133, takes sqlmodel to the version qmcp#136
+  adapts qmcp to. Done is qmcp#133 brought level with `main` by Dependabot,
+  green, and merged.
 - **The signature gate reads an SSH signature as none.** `check_signatures`
   runs `git` with no allowed-signers file, so a commit the host verifies by an
   SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
@@ -208,6 +286,51 @@ each pull request into it is behind its base until brought level.
   alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
+- **alfred adopts the record on a project's dated history.**
+  `docs/projects/alfred/` holds alfred's round log through round 14, its
+  measured counts and its two retrospectives, and its `git.yaml` is read from
+  alfred's `main` at `7fff7ae`, which predates alfred's stack. The adopting
+  record is open as #310 into `project/alfred`. Done is #310 merged; alfred's
+  `CHANGELOG.md` and `docs/` without the rounds, the counts and the
+  retrospectives; and, once alfred's stack has merged, `uv run qm timeline
+  alfred --write` in a pull request here. (2026-11-01)
+- **hearth and carlos carry the one-line import.** `hearth/CLAUDE.md` and
+  `carlos/CLAUDE.md` hold the bare text `AGENTS.md` until each moves its pin.
+  quaternionmedia/hearth#6 pins `project/hearth` at `72d8ad5` and
+  quaternionmedia/carlos#23 pins `project/carlos` at `8e957a1`, each left for the
+  owner's merge. carlos#23's `reuse` stays red, as carlos's `GOVERNANCE.md`
+  records, since its licensing pass waits on the outbound licence class. Done is
+  both merged. (2026-11-05)
+- **The seed's leak and timeless workflows fire on a branch named `main` only.**
+  carlos's default branch is `they`, so its re-copy leaves both out, and its
+  `GOVERNANCE.md` says so. `check_leaks.py` run by hand at `carlos` `a5540e7` finds
+  six home-path hits in `tests/test_walkthrough.py`. The `push` filter in the
+  seed's `adr-lint.yml` and `reuse-lint.yml` names `main` the same way. Done is the
+  seed's filters reaching a project's default branch under any name, and carlos
+  carrying both, clean. (2026-11-05)
+- **The local runner stops on the seed's lint workflow.**
+  `run_workflows_locally.py` has no substitution for
+  `github.event.repository.name`, which the seed's placeholder step uses, so a
+  run in a project stops at `adr-lint.yml` and runs nothing after it. Done is the
+  runner substituting it. Beside it, the voice step writes to `$RUNNER_TEMP`,
+  which a local run leaves unset, so it fails on `/pr-body.md`. (2026-11-05)
+- **hearth's lint is red on its `main`.** `uv run ruff check .` at `hearth`
+  `c08b48b` reports an import order at `tests/test_coordinator.py:9`, and no
+  workflow runs ruff. Done is the imports sorted in a hearth pull request.
+  (2026-11-05)
+- **The first page assumes `uv` is installed.** `AGENTS.md` names
+  `uv run qm` for every one of the four facts and nowhere says where `uv`
+  comes from or what a reader without it does. Done is one sentence on the
+  page, before the four facts, naming the install and the no-`uv` route (the
+  scripts in `ci/` and `project-seed/ci/` run under any Python with the
+  dependencies `pyproject.toml` lists). (2026-11-01)
+- **`qm estate`'s default search root from a worktree is the clone's
+  `.claude` folder.** The default is the grandparent of the running checkout
+  (`ci/estate.py`); for a worktree under `.claude/worktrees/` that is the
+  clone's `.claude`, so every roster row reads MISSING there, and the refusal
+  names the root it searched and `--search-root`. Done is a default that
+  resolves from a worktree to the same root as from the clone, with a test
+  that runs the command from a worktree. (2026-11-01)
 - **The namespaces are declared by hand, in several places.**
   `docs/ref/namespaces.md` is canonical; `AGENTS.md` item 3, `README.md` and
   `.github/rulesets/E-naming.json` each restate it, and
@@ -245,45 +368,88 @@ each pull request into it is behind its base until brought level.
   private repository's name. Done is the check clean, by redaction in the
   show generator or by an allowance with a stated reason. (2026-10-26)
 
-- **Two green pull requests left a generated page on `main` stale, and no gate
-  saw it.** The pull request that put cathy in the roster moved the roster,
-  and the one that drew every showgraph as a Showcase carried
-  `docs/families/index.md` as generated before it; each passed
-  `docs-audit.yml` at its own tip, and
-  merged in that order they left `main`'s page one rostered repository
-  behind. The audit runs on `pull_request` alone, filtered to `docs/**` and
-  the generator's inputs, so `main` was never checked after either merge and
-  the red surfaced on the next pull request that touched `docs/`, as a
-  failure its branch did not cause. Three local runs the same day read the
-  step's wording, *no longer describe this disk*, as an environment
-  difference; the host's run and a regeneration from `main` showed the same
-  one-line drift. Done is the audit running on every push to `main` as well,
-  so a stale generated page is `main`'s red and not the next contributor's,
-  and the step saying *stale against its committed inputs* rather than
-  naming a disk. `hil-review-2026-10-31.md` §5 names the three pull requests.
+- **benchmark's workflow runs on pull requests.** `deploy.yml`'s `test` job
+  runs on pushes to `main` alone, so no pull request into benchmark produces
+  a check its protection could require. Done is a `pull_request` trigger for
+  the `test` job, `deploy` kept to pushes to `main`, and the protection
+  requiring `test` again. (2026-10-31)
+- **loopwall by name.** The roster row carries the name; the pages and
+  fixtures that name it by reference, `private-34-simultaneous-run.md`,
+  `ci/family-demo.yaml`, two tests and the show documents under `docs/show/`,
+  still read `private-34`. Done is every tracked file naming it, the show
+  documents regenerated, and `git grep private-34` empty. (2026-10-31)
+- **joe's voice extra and joe's adoption** follow the set's landing
+  (decisions 12 and 13). Done is each as its own joe pull request, and
+  `project/joe` level with `main`.
+- **cathy's stack lands.** cathy#1 moves its governance pin to
+  `project/cathy`'s tip and merges; #2 is retargeted onto `main` before the
+  adopt branch is deleted, readied, merged; #3, then #4 brought level with
+  `tests/test_convert.py` keeping both sides. Done is no open pull request in
+  cathy and its suite passing on `main`. Beside it, the independent bypass
+  pass on `tests/test_network_boundary.py` that cathy's `AGENTS.md` item 12
+  asks for, with a narrower brief than the one a safety classifier stopped.
   (2026-10-31)
+- **The governance generator's `undefined` block is static text**, and its
+  entry on the `propagate/*` namespace is stale: `docs/ref/namespaces.md`
+  declares that namespace. Done is the entry removed or computed from the
+  namespaces page, and `fix/*` checked the same way. (2026-10-31)
+- **The checklist is walked.** `joe-manual-validation.md` against joe's
+  `main` now the set is in; a finding becomes a fix pull request. (2026-10-31)
+- **joe's API moves to port 1059.** #59 (`feat/constant-port`) is open: the
+  twelfth root of two, qm's allocation for joe (`docs/ref/ci/demos.md`).
+  Whatever in joe still names 8000 as its address takes 1059 with it. Done is
+  #59 merged and `git grep 8000` in joe naming only what is not joe's API.
+  (2026-10-31)
+- **The voice set's branches are deleted by a person.**
+  `demo/voice-loop-2026-10-04` stands in `vox`, `joe` and `qm`, and
+  `integrate/open-prs` in `joe`. `qmcp`'s demo branch was deleted on 2026-10-25. Before
+  each deletion, `check_pr_base.py --base main --head <branch>` lists the
+  commits no other branch holds. (2026-10-31)
+- **joe's recorded choices wait for a design.** Below 1024 pixels with a take
+  and its note showing, the transport's playback group runs under the window
+  buttons; the specs hold the bar at 1024 and 1280 pixels only. `LABEL_W` is
+  defined in three files and `capture.py` has no test, and one `LABEL_W`
+  changes `src/index.js`'s imports. A take's audio route sends no
+  `Cache-Control`, so a recording deleted by hand stays in a browser's cache.
+  A panel told it is shown a frame after its window opens has no spec that
+  fails without it. Done is each decided in a joe pull request or left as it
+  is in `joe`'s docs. (2026-10-31)
 
+- **A repository leaving the private set renumbers every later reference.**
+  `ci/inventory.py`'s `assign_references` numbers the repositories that are
+  private now, by creation order, so when loopwall went public the regenerated
+  documents named the repository the roster carries as `private-36` as
+  `private-35`, and `private-38` as `private-37`, while the roster rows, the
+  handoffs and the show documents keep the old numbers; the roster test caught
+  it on the loopwall pull request, which is a draft until this is done. The
+  references were meant to be append-only, so that a document six months old
+  keeps pointing where it did. Done is a committed ledger of assigned
+  references, kept when a repository leaves the set, that the inventory and
+  the status generators read before numbering anything new, with a test that
+  removes a private repository and sees every other reference unmoved.
+  (2026-10-31)
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
 re-checked and is re-derived before anyone acts on it.
 
 - **`one-pr-check.yml` in every project.** On four projects' default
-  branches; absent on alfred, apothecary, datum, dossier, factorio-sysops,
-  qmetronome and rad, and not read for the private projects. Done is the
+  branches; absent on alfred, apothecary, datum, dossier, factorio-sysops
+  and rad, and not read for the private projects. qmetronome's default
+  branch carries the seed's file besides (2026-11-21). Done is the
   workflow on every project's default branch, which follows the propagations
   in §2 and a copy in each project. alfred's copy is the seed's file
   verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
   pull request is a draft, and alfred #117, the bottom one, is ready on
   `main`. alfred's `main` has no governance submodule yet, and its stack
   pins `e76827d`, where neither script the workflow runs exists;
-  `project/alfred` carries both since its propagation of 2026-10-29, voice
+  `project/alfred` carries both since its propagation of 2026-10-31, voice
   step exempting automation accounts included. The copy
   goes onto alfred's stack with a pin bump, and reaches its `main` when the
   stack lands.
-- **Unsubstituted placeholders.** Six project branches' `adr/README.md`
-  still reads `project/<name>`: apothecary, factorio-sysops, qmetronome,
-  `private-32`, `private-33` and `private-34`.
+- **Unsubstituted placeholders.** Five project branches' `adr/README.md`
+  still reads `project/<name>`: apothecary, factorio-sysops,
+  `private-32`, `private-33` and `private-34`. qmetronome's is substituted (2026-11-21).
   `project-seed/ci/check_placeholders.py` refuses it at each branch's next
   propagation, so the propagation substitutes it, as alfred's did on
   2026-10-29. Done is that check clean on every project branch.
@@ -301,17 +467,6 @@ re-checked and is re-derived before anyone acts on it.
   `project/qmetronome` still calls itself "a real, accepted departure" from
   the QM record it relaxes. Done is the draft tightened, or the departure
   taken to the org as an amendment.
-- **qmcp's adoption record, C1, C5, C6 and C8** (decision 8). Their readings
-  at `qmcp` `a41f9a3` are under "Outside this pull request" in the
-  description of the pull request merged into `project/qmcp` as `6a4819a`.
-  Done is a pull request based on `project/qmcp` that restates the four
-  rows, then a `qmcp` pin bump that takes it. `qmcp`'s pin has been `f4786fe`
-  since 2026-10-25, and that commit does not carry the four rows.
-- **Three of qmcp's tests name the project after the checkout's directory.**
-  `qmcp/instructions/check.py:403` resolves `project or clone.name`, so three
-  tests in `tests/test_cookbook_instruct.py` fail in any checkout not named
-  `qmcp`, a worktree among them. Done is those tests passing the project's
-  name. (2026-10-25)
 - **No gate measures how far a project's pin lags `main`.** On 2026-10-25,
   until the propagation merged into `project/qmcp` as `777a275`, `qmcp`'s pin
   was two commits behind that branch and the branch 343 behind `main`. Most
@@ -362,32 +517,10 @@ re-checked and is re-derived before anyone acts on it.
   declared in its range, and a member this machine registers reads as
   `missing`. Done is the demo writing a run-file for each member it starts,
   with the run's name as its session. (2026-10-29)
-- **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
-  planes, and the instruction loop appears in it only as a departure it names;
-  the archive and speech do not appear. `qmcp tools list` lists the built-in
-  tools only, where `GET /v1/tools` lists the `alfred_*` tools too. Done is
-  each describing what the code does. (2026-10-25)
-- **qmcp declares no licence where a packager reads one.** At `qmcp`
-  `82b2d58` it carries `REUSE.toml` (MIT for `**`), `LICENSES/` and a REUSE
-  lint workflow, but no root `LICENSE` and no `license` key in
-  `pyproject.toml`. Done is a licence declared in both places, and C1
-  restated in its adoption record (decision 8).
-- **qmcp's roadmap still calls project names unmeasured.** Phase 10's
-  constraints in `qmcp`'s `docs/ROADMAP.md` say "Whether project names
-  transcribe reliably is unmeasured", and
-  `perspectives/2026-10-25-what-whisper-heard.md` measures it on synthesized
-  speech. Done is that line citing the perspective. Making that change was
-  asked on 2026-10-25 and not yet answered.
-- **qmcp's `flows` extra asks for `pydantic-ai[openai]`**, an extra that no
-  pydantic-ai release from 2.31 to 2.61 provides, so uv warns on every lock.
-  Done is the extra naming what it needs.
-- **No check reads qmcp's lock against open advisories before a pull
-  request.** On the change that took `qmcp`'s lock past its 36 alerts (merged
-  2026-10-25 as `82b2d58`), `uv lock --upgrade-package` stopped pydantic-ai at
-  2.32.2, below the 2.53.0 that fixes one of its alerts, and reported it as
-  updated. A one-off script that compared each alert's range with the lock
-  caught it. Done is that comparison as a preflight step, or the reason it
-  cannot be one.
+- **qmcp's open pull requests** (2026-11-22). qmcp#129 and its stacked draft qmcp#130,
+  alfred's excerpt and drafts flows, land in the cross-repository order #345
+  records. qmcp#125, `qmcp tour`, is a draft until the tour's records land in
+  the corpus (#331, #332).
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
@@ -437,27 +570,29 @@ re-checked and is re-derived before anyone acts on it.
   (one branch, 60 commits), each checked out by a session at work that day.
   alfred's seven feature branches are *held*, every commit on a pushed
   branch, so deleting them loses only the names. `qmcp`'s were pruned on
-  2026-10-25 at the person's word, and the one Dependabot branch above on
-  2026-10-27; its remote holds `main` alone.
+  2026-10-25 at the person's word. On 2026-11-22 its remote also holds
+  `fix/flows-extra-names-what-it-needs`, a branch with no pull request whose
+  one change merged as qmcp#132 under another commit; deleting it loses only
+  the name.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
 - *Carried.* **A check that every `project/<name>` branch has a roster entry**,
   treating an unmatched private branch as unknown where the companion is
   absent.
+- **`status/rollout.yaml`'s private rows read unverifiable until it is
+  regenerated where the companion is.** The document is written from the
+  host, and a clone without `ci/workspace-private.yaml` cannot name a private
+  repository, so each of their file steps carries that reason in place of a
+  verdict. Done is `uv run qm rollout --write status/rollout.yaml --source
+  host` run where the companion is, landed by a pull request of its own.
+  (2026-11-03)
 
 ## 5. Not verified
 
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.
-- That a local run of a project-branch pull request now agrees with the host
-  on the ADR lint's *default branch carries no project records* step, which
-  #229 changes the runner for. A project branch carries its own copy of the
-  runner. The local run of the pull request merged into `project/qmcp` as
-  `6a4819a` needed `--ref` for that step to pass, because neither that branch
-  nor `qmcp`'s pin had #229. Both have it at `f4786fe`, and no local run of a
-  pull request into `project/qmcp` has been made since.
 - `qmcp`'s provider SDKs as locked at `82b2d58` (anthropic 2.3.0, google-genai
   2.33.0, logfire 5.3.0) against their services. `-m live_anthropic` and the
   `--live` cookbook checks were not run. The offline suite, the local-model
@@ -468,12 +603,22 @@ re-checked and is re-derived before anyone acts on it.
   read it online: exercised against a local bare remote only. Against the
   host, only holders whose tip equals the tracking ref have been read.
 - That `joe`'s transcript lane was tested by hand before it merged on
-  2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
-  its pull request carries no comment or review saying so. The session that
-  asked for its merge records Peter's test (`joe-open-set.md` §2).
+  2026-10-26 (`joe` `c7dccf4`): its pull request carries no comment or review
+  saying so. The session that asked for its merge records Peter's test, by
+  step 4 of `joe`'s `docs/paths/voice-loop.md` §4.
+- Tiers 2 and 3 of the voice demonstration, the local model and a microphone,
+  were not run on any `main` during the landing. No test drives joe's
+  microphone, a live recording, `GET /api/results/latest` or
+  `POST /api/voice/transcribe`.
 - That `docs-audit.yml`'s second step, *the pages match the corpus*, is green
   on `main`: every local run on 2026-10-31 skipped it, because the families
   step before it failed first (§4).
+- That qmetronome's unit suite is stable (2026-11-21, at `39c1beb`).
+  `MetronomeEngineTest` drives the engine on real threads against the wall
+  clock, and the body of the pull request merged as `a591c00` measures it red
+  on the host intermittently. `MidiActionSenderTest` collects what its fake
+  destination receives in a plain list while its sender delivers on a
+  background dispatcher; it has not been seen to fail.
 
 ## 6. Standing constraints
 
@@ -491,8 +636,19 @@ re-checked and is re-derived before anyone acts on it.
   `pull_request` workflow: #217, #220 and #139 ran nothing at theirs. A body
   edit fires `edited`. `qm merge` refuses a pull request whose `main`-only
   gates never ran, and a push to its branch starts them.
-- `uv run qm docs check` runs in no workflow and no preflight step; run it
-  before a pull request is ready.
+- A `qmcp` pull request that pins `vendor/vox` at a `vox` branch head gets
+  one commit moving it to that branch's merge commit
+  (`git update-index --cacheinfo 160000,<merge>,vendor/vox`); merging `main`
+  then conflicts on the pin, and the merge commit is the resolution. A pull
+  request merged by hand is run locally as well: `qmcp` with
+  `governance/qm/project-seed/ci/run_workflows_locally.py --event pull_request
+  --base-ref origin/main` from Git Bash, `joe` with `uv run pytest tests/`,
+  `npx playwright test` and `npm run build`. In a `joe` worktree a page spec
+  runs on a free port with `reuseExistingServer: false`, as
+  `handbook/running-several-repositories.md` asks.
+- `uv run qm docs check` runs as the `docs-check` gate on every pull request
+  into `main` and every push to it, and so in the preflight; run it before a
+  pull request is ready, since a stale index document is a red.
 - A propagation pull request goes red on `namespace` once `main` moves past
   the commit it merged: the guard compares every file the merge brings with
   `main`'s tip. Merging `main` into the `propagate/*` branch again clears it;

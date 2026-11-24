@@ -54,9 +54,9 @@ count, a status or a branch state from a document, check it.
 Open your first message with these, in this order:
 
 - **The commit you are working against**, and the branch.
-- **Your open pull requests**, and how they stack. If one is ready while
-  stacked, say which and mark it draft until the one beneath it merges. A new
-  change that needs one of them is cut from its branch as a draft against it.
+- **Your open pull requests**, and how they stack. A new change that needs
+  one of them is cut from its branch and opened against it, and merges after
+  it.
 - **Whether *keep everything local* is in force.** If you cannot tell from the
   session, ask. It survives compaction and it overrides delivery.
 - **Anything else in flight** — a dirty tree you did not dirty, a sibling

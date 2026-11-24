@@ -8,35 +8,47 @@ commit or edit — it is short on purpose.
 ## Before you do anything
 
 **Establish four facts about this session before you write anything**, by
-asking the repository rather than inheriting a previous session's belief:
+asking the repository rather than inheriting a previous session's belief.
+Each says what it needs.
 
-1. **The commit you are working against**, and the branch. Every number in a
-   page here is true at some commit, and not necessarily at yours.
-2. **Which pull requests you already hold open, and how they stack.** Small,
-   atomic pull requests; a dependent one is stacked on its parent as a draft.
-   One active stack at a time is the habit to aim for, never a limit.
-   `uv run qm stacks --repo <owner/name>` lists them.
-3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
-   sibling branch, an unpushed commit. Other sessions are very likely running
-   right now, in other repositories, for the same reviewer.
-   `uv run qm estate` reports it across every rostered repository;
-   `handbook/async-contract.md` is the short set of rules for working
-   alongside them.
-4. **Which gates exist**, and what each one cannot see.
-   `uv run qm gates` lists them with what each one misses;
-   `uv run --extra preflight qm preflight` runs their real steps.
+- **A. The commit you are working against**, and the branch. Every number in a
+  page here is true at some commit, and not necessarily at yours. `git log -1`
+  and `git status` answer it, and need nothing but the clone.
+- **B. Which pull requests you already hold open, and how they stack.** Small,
+  atomic pull requests; a dependent one is stacked on its parent.
+  One active stack at a time is the habit to aim for, never a limit.
+  `uv run qm stacks --repo <owner/name>` lists them. It asks the host, so it
+  needs a signed-in `gh`; without one it says `gh auth login` and stops, and
+  with no account the answer is none.
+- **C. What else is in flight in this clone** — a dirty tree you did not dirty,
+  a sibling branch, an unpushed commit. Other sessions are very likely running
+  right now, in other repositories, for the same reviewer.
+  `uv run qm estate` reports it across every rostered repository. It reads
+  sibling clones laid out as `ci/workspace.yaml` names them, two directories
+  above this clone unless `--search-root` says where; with no clone there it
+  says so and exits non-zero, and `git status` and `git branch -vv` answer for
+  this clone alone. `handbook/async-contract.md` is the short set of rules for
+  working alongside the other sessions.
+- **D. Which gates exist**, and what each one cannot see.
+  `uv run qm gates` lists them with what each one misses, from the registry in
+  this clone and nothing else; `uv run --extra preflight qm preflight` runs
+  their real steps, and needs that extra, with a signed-in `gh` and an
+  `origin` for the steps that read the host.
 
-**`uv run qm --help` is the whole surface** — stacks, branch, gates, tags, docs,
-preflight, brief. It dispatches to the scripts in `ci/` and
+**`uv run qm --help` is the whole surface**, and its first group is exactly
+the commands this page names. It dispatches to the scripts in `ci/` and
 `project-seed/ci/` and decides nothing itself, so a command's output is that
-script's output and its exit status is that script's status. **In a project
-repository the CLI does not exist**: a fork runs the seed scripts in place, out
-of `governance/qm/project-seed/ci/`, and installs nothing. `project-seed/ide/AGENTS.md`
-is written that way.
+script's output and its exit status is that script's status. Three commands
+run pytest, which the `dev` extra installs: `uv run --extra dev qm test`, and
+the same for `posture` and `mutate`; without the extra each says so and stops.
+**In a project repository the CLI does not exist**: a fork runs the seed
+scripts in place, out of `governance/qm/project-seed/ci/`, and installs
+nothing. `project-seed/ide/AGENTS.md` is written that way.
 
 Those are the invariants. **How** you gather them is yours to choose: read the
-repository, run the CLI or the scripts directly, or use an adapter if one exists
-for your tooling. `adapters/` holds any that do, each named for the product it targets
+repository, run the CLI or the scripts directly (`uv run qm brief` writes the
+four into one opening brief), or use an adapter if one exists for your
+tooling. `adapters/` holds any that do, each named for the product it targets
 and none of them required — this corpus states what must be true and does not
 name a vendor to get there. See `handbook/async-contract.md` §1 for the
 reasoning, and the seams doctrine in `records/` for why a governance document
@@ -48,12 +60,14 @@ carries its own refresh command, staleness budget and `do_not` list in a
 `reading:` block inside the file. `handbook/generated-documents.md` indexes
 both, and `uv run qm harness` renders the second as prose. Check the age
 before quoting a figure — a stale number delivered
-with a date looks checked.
+with a date looks checked. `uv run qm docs check` says whether any generated
+document has drifted from the repository it describes.
 
 **Read the standing queue at open, and leave it true at close.**
 `handbook/handoffs/qm-queue.md` holds what is open, blocked and unfinished
 across sessions; `uv run qm queue` lists what the host says merged or closed
-since its stamp. Its first section says how a session keeps it.
+since its stamp, and needs a signed-in `gh` to ask. Its first section says
+how a session keeps it.
 
 1. Read `PRINCIPLES.md` (the charter) in full and the opening points of `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
 2. This corpus governs its own drafting. Records live in `records/` as
@@ -66,7 +80,11 @@ since its stamp. Its first section says how a session keeps it.
    `math/<slug>`, cut from `workspace/<slug>` and opened against it, for an
    exploration — open a PR, and **merge it yourself once every gate is
    green.** Your output is a `main` that is clean and working, entered through
-   a pull request so the gates ran and the diff stays readable.
+   a pull request so the gates ran and the diff stays readable. That route is
+   a maintainer's. An outsider with a project's records to change opens an
+   issue or a pull request in that project's repository, and a maintainer
+   pushes its `project/<name>` branch here on their behalf. An outside
+   tester's pull request here is merged by its assignee, a maintainer.
 
    **Never push `main` directly**, however small or obviously correct the change
    looks. That is the one act that destroys the audit record.
@@ -76,7 +94,8 @@ since its stamp. Its first section says how a session keeps it.
    branch and a local build are all drafts — they may be perfectly good and they
    assert nothing. **There are exactly two human gates**, and the pull request is
    neither: *ratification* for what this corpus says, and the *version tag* for
-   what a project ships. Keeping `main` clean is what makes cutting a tag cheap.
+   what a project ships. Keeping `main` clean is what makes cutting a tag cheap,
+   and `uv run qm tags` audits every tag in the org against the tag record.
 
    The traps that recur:
 
@@ -88,10 +107,10 @@ since its stamp. Its first section says how a session keeps it.
      — is said in the session, never written into the body. `check_pr_voice.py`
      refuses the second person. `handbook/async-contract.md` §3, and clause 5
      of `records/DRAFT-human-only-contributorship.md`.
-   - **Draft means incomplete, or stacked on an open PR, and nothing else.** It
-     is not a holding pen for finished work: nobody is waiting at the far end
-     of that queue, so a green PR left in draft against `main` is a change that
-     never reached it.
+   - **Draft means incomplete, and nothing else.** A stacked PR whose work is
+     finished is marked ready like any other. A draft is not a holding pen for
+     finished work: nobody is waiting at the far end of that queue, so a green
+     PR left in draft is a change that never reached its base.
    - **Closing a pull request is a git operation.** Pushing a PR's head onto its
      base *merges* it — GitHub records the merge, and a later `gh pr close` is a
      silent no-op. **Close the PR first, then push**, or retarget it. The order
@@ -110,11 +129,11 @@ since its stamp. Its first section says how a session keeps it.
    - **One change per PR; parallel when independent, stacked when dependent.**
      Two changes that could land alone are two PRs, each ready against its
      base. A PR that needs another's work is cut from that branch, targets it
-     as its base, and stays a draft until the one beneath it merges, however
-     finished it is. When it does, retarget the next PR onto the target
-     *before* deleting the merged branch — deleting it first closes every PR
-     based on it; `uv run qm merge` keeps that order. Never close a PR in
-     favour of one that contains it. `handbook/async-contract.md` §1.
+     as its base, is ready when finished, and merges after the one beneath it.
+     When that one merges, retarget the next PR onto the target *before*
+     deleting the merged branch — deleting it first closes every PR based on
+     it; `uv run qm merge` keeps that order. Never close a PR in favour of one
+     that contains it. `handbook/async-contract.md` §1.
 
 4. **Check what your branch actually carries, before opening the PR.**
    `uv run qm branch --base <base> --head <branch>` reports the merge-base,
@@ -139,8 +158,12 @@ since its stamp. Its first section says how a session keeps it.
    this repo. Tool involvement is disclosed as a `Tools:` note where the
    artifact calls for one (see `perspectives/README.md`'s Attribution row),
    never as a byline.
-7. Follow the drafting-session handoff contract in
-   `project-seed/adr/README.md` before writing or amending any record.
+7. **A record here is drafted from the root `TEMPLATE.md`**, whose header
+   comment carries the drafting rules, and gets its row in the index at the
+   end of `README.md`. The drafting-session contract in
+   `project-seed/adr/README.md` — plan first, squash continuously, never
+   number, say what pends — holds here as it does in the project that page
+   addresses.
 8. **Put explanation in one place**, per `handbook/style-guide.md`: inline
    comments carry clarifying facts about the code, `README.md` is a shallow
    onramp to the docs site, `docs/` is reference, and **every why goes to a
@@ -279,15 +302,17 @@ version of `adr/`, `ci/`, or this file's own seed copy in
 
 ## One-time setup on a fresh clone (Windows)
 
-`CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's own
-`.vscode/settings.json`/`extensions.json` are real symlinks, not copies —
-POSIX checkouts resolve them with no setup. On Windows, enable Developer
-Mode (Settings → For developers) and run `git config core.symlinks true`
-once per clone, then `git checkout -- .` if the files were already checked
-out before that; the checkout then resolves them as a POSIX one does.
-Without that setting, each checks out as a one-line file holding the
-relative path to its target. A person can follow it, but a tool that reads
-only that file gets the path: `CLAUDE.md` and
-`.github/copilot-instructions.md` carry none of these instructions, and the
-`.vscode` files none of their configuration. The IDE-integrated governance
-discovery record in `records/` is the decision behind these files.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`: an import
+the tool that reads it expands into this page, on every platform, with no
+setup. This repo's own `.vscode/settings.json`/`extensions.json`, and the
+other pointers `.github/workflows/symlink-integrity.yml` lists, are real
+symlinks to their canonical copies, not copies — POSIX checkouts resolve
+them with no setup. On Windows, enable Developer Mode (Settings → For
+developers) and run `git config core.symlinks true` once per clone, then
+`git checkout -- .` if the files were already checked out before that; the
+checkout then resolves them as a POSIX one does. Without that setting, each
+checks out as a one-line file holding the relative path to its target. A
+person can follow it, but a tool that reads only that file gets the path,
+and the `.vscode` files carry none of their configuration.
+`records/DRAFT-ide-integrated-governance-discovery.md` is the decision
+behind these files.

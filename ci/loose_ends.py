@@ -141,54 +141,6 @@ def stalled_threads(harness: Any) -> list[dict]:
     return found
 
 
-def over_slot(harness: Any) -> list[dict]:
-    """A repository holding a pull request that is ready while stacked.
-
-    The rule is the harness document's; this reports the violations it
-    already recorded rather than recounting them. The kind keeps the name
-    `over-slot` because dispositions are keyed on it.
-    """
-    found = []
-    for repo in harness.get("repositories", []):
-        slug = repo.get("slug") or repo.get("name")
-        slots = repo.get("slots") or {}
-        if _is_unknown(slots):
-            continue
-        for violation in slots.get("violations") or []:
-            found.append({
-                "kind": "over-slot",
-                "address": str(slug),
-                "title": f"{slug} has a ready pull request stacked on another",
-                "detail": _violation(violation),
-            })
-    return found
-
-
-def _violation(violation: Any) -> str:
-    """One stack violation, in a sentence.
-
-    The harness records these as a mapping, and pasting the mapping into a
-    detail column puts JSON in front of a person for a fact that is one
-    sentence long. Anything shaped unexpectedly falls back to the raw value
-    rather than being dropped -- a violation nobody can read is still a
-    violation, and silently losing it would be worse than an ugly line.
-    """
-    if isinstance(violation, str):
-        return violation
-    if not isinstance(violation, dict):
-        return str(violation)
-    numbers = violation.get("numbers") or []
-    author = violation.get("author") or "somebody"
-    base = violation.get("base") or "another pull request's branch"
-    parent = violation.get("parent")
-    on = f" (#{parent})" if parent else ""
-    if numbers:
-        listed = ", ".join(f"#{n}" for n in numbers)
-        return (f"{author}'s {listed} is ready but stacked on {base}{on}; "
-                "it stays a draft until that one merges")
-    return json.dumps(violation, sort_keys=True)
-
-
 def waiting_on_a_person(docs: Any) -> list[dict]:
     """Documents whose next step is a human act, and only those.
 
@@ -360,7 +312,7 @@ def build(root: Path) -> dict:
     items: list[dict] = []
 
     for label, document, collectors in (
-        ("harness", harness, (stalled_threads, over_slot)),
+        ("harness", harness, (stalled_threads,)),
         ("docs", docs, (waiting_on_a_person,)),
         ("gates", gates, (blind_spots,)),
     ):

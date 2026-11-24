@@ -356,3 +356,105 @@ def test_stopping_acts_on_a_recorded_pid_rather_than_a_port():
     if "web" not in dashboard.running():
         assert ok is False
         assert "did not start" in detail
+
+
+# --- what a command needs, said before the run -----------------------------
+
+
+def test_a_command_that_runs_pytest_names_the_dev_extra_when_it_is_missing(
+        monkeypatch, capsys):
+    """`qm test`, `qm posture` and `qm mutate` run pytest, which the `dev`
+    extra installs. Without it the module's own failure is `No module named
+    pytest`: the symptom, not the remedy. The dispatcher says the remedy
+    before the run, as it does for `preflight` without pip, and runs nothing.
+
+    Mutation: drop the pytest check from `main`, and each command dispatches
+    (status 0 here) with nothing on stderr.
+    """
+    monkeypatch.setattr(cli.importlib.util, "find_spec",
+                        lambda name: None if name == "pytest" else object())
+    dispatched = []
+    monkeypatch.setattr(cli, "dispatch",
+                        lambda module, argv: dispatched.append(module) or 0)
+    monkeypatch.chdir(CORPUS)
+    for command in ("test", "posture", "mutate"):
+        assert cli.main([command, "--", "-k", "x"]) == 2, command
+        err = capsys.readouterr().err
+        assert f"uv run --extra dev qm {command}" in err, err
+    assert dispatched == []
+
+
+def test_a_command_that_runs_pytest_dispatches_when_pytest_is_present(monkeypatch):
+    """The check fires on absence only. Mutation: invert it, and `qm test` is
+    refused on every machine that has pytest."""
+    monkeypatch.setattr(cli.importlib.util, "find_spec", lambda name: object())
+    dispatched = []
+    monkeypatch.setattr(cli, "dispatch",
+                        lambda module, argv: dispatched.append((module, argv)) or 0)
+    monkeypatch.chdir(CORPUS)
+    assert cli.main(["test"]) == 0
+    assert dispatched == [("run_tests", [])]
+
+
+def test_the_console_is_utf8_whatever_the_locale_says():
+    """The registries and pages carry dashes outside ASCII, and Python writes
+    with the console's code page by default, so on a Windows console the title
+    of `qm gates` reaches a reader as a replacement character, or as a crash
+    where the console is strict. The dispatcher sets both streams to UTF-8
+    before any module prints.
+
+    Mutation: drop the `reconfigure` from `main`, and under a strict ASCII
+    console this exits non-zero at the first dash. Visible while the gates'
+    title carries one, which `ci/gate-registry.yaml` does.
+    """
+    env = {**os.environ, "PYTHONIOENCODING": "ascii:strict"}
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "cli.py"), "gates"],
+        capture_output=True, cwd=str(CORPUS), env=env)
+    assert result.returncode == 0, result.stderr.decode("utf-8", "replace")
+    assert "UnicodeEncodeError" not in result.stderr.decode("utf-8", "replace")
+    result.stdout.decode("utf-8")  # strict: the bytes are UTF-8, not replaced
+
+
+# --- the help screen is grouped --------------------------------------------
+
+
+def help_sections(text: str) -> tuple[list[str], list[str]]:
+    """The command names under each heading of the help screen, in order."""
+    after_first = text.split(cli.FIRST_HOUR_HEADING, 1)[1]
+    first, after_rest = after_first.split(cli.THE_REST_HEADING, 1)
+    rest = after_rest.split("\noptions:", 1)[0]
+    names = lambda block: re.findall(r"^  ([a-z][a-z-]*)", block, re.MULTILINE)
+    return names(first), names(rest)
+
+
+def test_the_help_screen_lists_the_first_hour_before_everything_else():
+    """A stranger reads the screen top down, and the commands the first page
+    names are the ones to find. The first-hour group comes first, holds
+    exactly `FIRST_HOUR` in its order, and every other listed command is
+    under the second heading, once.
+
+    Mutation: list every command under one heading, and the split fails;
+    move `stacks` out of `FIRST_HOUR`, and the first group is short of it.
+    """
+    out = run("--help", cwd=CORPUS).stdout
+    first, rest = help_sections(out)
+    assert first == list(cli.FIRST_HOUR)
+    assert not set(rest) & set(cli.FIRST_HOUR)
+    listed = first + rest
+    assert len(listed) == len(set(listed)), "a command is listed twice"
+    assert set(listed) == (set(cli.ROUTES) - {"slot"}) | {"docs"}
+
+
+def test_every_command_the_first_page_names_is_in_the_first_hour_group():
+    """The group is defined by the page, not by taste: the commands
+    `AGENTS.md` tells its reader to run are exactly the ones the help screen
+    lists first, so the heading's claim is read against the page.
+
+    Mutation: drop `estate` from `FIRST_HOUR`, or add a command the page
+    never names, and this names the difference.
+    """
+    page = (CORPUS / "AGENTS.md").read_text(encoding="utf-8")
+    named = set(re.findall(r"`uv run (?:--extra \w+ )?qm ([a-z][a-z-]*)", page))
+    assert named, "AGENTS.md names no qm command"
+    assert named == set(cli.FIRST_HOUR), sorted(named ^ set(cli.FIRST_HOUR))

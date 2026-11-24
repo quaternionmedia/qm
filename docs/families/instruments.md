@@ -44,6 +44,16 @@ Browser workspace for sketching hardware rigs from real gear, patched on the fac
 
 </div>
 
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-performer-display))" markdown>
+
+[loopwall](../projects/loopwall.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.1</span> · also in [`performer-display`](performer-display.md)
+
+Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above.
+
+</div>
+
 <div class="card qm-f-instruments" markdown>
 
 ![The default visualizer running at 120 BPM in 4/4, with tap, play and hold.](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif){ .qm-thumb loading=lazy }
@@ -76,7 +86,7 @@ A Holophonor implementation, using Tone.js
 
 </div>
 
-<div class="card qm-f-instruments" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
 
 [uPhonor](../projects/uPhonor.md){ .qm-card-link }
 
@@ -86,7 +96,7 @@ Micro-Holophonor
 
 </div>
 
-<div class="card qm-f-instruments" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" markdown>
 
 [stomp](../projects/stomp.md){ .qm-card-link }
 
@@ -130,9 +140,7 @@ VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a defa
 
 </div>
 
-1 private repository is counted here and not named.
-
-Start in [`carlos`](../projects/carlos.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`carlos`](../projects/carlos.md), [`loopwall`](../projects/loopwall.md), [`qmetronome`](../projects/qmetronome.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

@@ -10,7 +10,7 @@ qm/
 ├── PRINCIPLES.md          the charter: what QM believes, and why
 ├── README.md              the entry point
 ├── AGENTS.md              instructions for coding agents
-├── CLAUDE.md              symlink to AGENTS.md
+├── CLAUDE.md              one-line import of AGENTS.md
 ├── TEMPLATE.md            the record template
 ├── records/               org records; the only binding documents
 ├── registers/             live org-level registers (carried patches)
@@ -21,6 +21,7 @@ qm/
 ├── docs/                  this documentation site
 │   ├── families/          generated: a page per family
 │   ├── projects/          generated: a page per project
+│   │   └── <name>/        a project's dated history: its timeline, round log and retrospectives
 │   └── show/              the showgraphs: pictures a tool drew, with their show documents
 ├── includes/              the front page's showcase, generated and included by docs/index.md
 ├── families.json          generated: every family and its members, from the family record
@@ -34,9 +35,9 @@ qm/
 └── REUSE.toml             per-path license and copyright metadata
 ```
 
-## Symlinks
+## Pointer files
 
-`CLAUDE.md` and `.github/copilot-instructions.md` are symlinks to `AGENTS.md`, so any tool reading either gets its current content. `.vscode/` symlinks into `project-seed/ide/`, which is the single source for what a project copies.
+`CLAUDE.md` is a regular file holding the one line `@AGENTS.md`, the import the tool that reads it expands, so that tool gets `AGENTS.md`'s current content; no `.github/copilot-instructions.md` is carried. `.vscode/` symlinks into `project-seed/ide/`, which is the single source for what a project copies. `records/DRAFT-ide-integrated-governance-discovery.md` is the decision.
 
 Nothing vendor-specific is in `project-seed/`. Anything there is copied into every adopting project and would become an org standard by accident, so per-tool glue lives in `adapters/<product>/` instead — optional, and the governance text depends on none of it.
 
@@ -46,9 +47,10 @@ Do not edit these by hand. `ci/doc_status.py` lists them, and `status/documents.
 
 | Files | Refresh command |
 |---|---|
-| `docs/families/`, `docs/projects/`, `includes/` | `uv run qm cookbook docs/families --site --write` |
+| `docs/families/`, `docs/projects/` but a project's subtree, `includes/` | `uv run qm cookbook docs/families --site --write` |
+| `docs/projects/<name>/timeline.md` and `git.yaml` | `uv run qm timeline <name> --write`, which reads the project's clone |
 
-They are committed, and CI regenerates none of them. The `docs-audit` workflow refuses a family page, project page or front-page snippet that no longer matches its sources, per [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md). The pictures under `docs/show/` are drawn by codecartographer's `uv run codecarto show export`, and are regenerated rather than edited. See [Build these docs](../usage/build-these-docs.md), [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+They are committed, and CI regenerates none of them. The `docs-audit` workflow refuses a family page, project page, front-page snippet or project timeline that no longer matches its sources, per [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md). The pictures under `docs/show/` are drawn by codecartographer's `uv run codecarto show export`, and are regenerated rather than edited. See [Build these docs](../usage/build-these-docs.md), [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 The `site/` directory (the built documentation) and `.cache/` (the build cache) are generated and not committed.
 

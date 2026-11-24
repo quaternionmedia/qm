@@ -79,17 +79,28 @@ GENERATED = {
 # The directories one generator writes whole, listed by directory because the
 # pages in them follow the roster: a member added is a page added, and a list
 # of names would fall behind it. Every file under each is the generator's
-# (records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md §1).
+# (records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md §1),
+# except a project's subtree below.
 GENERATED_UNDER = {
     "docs/families/": "uv run qm cookbook docs/families --site --write",
     "docs/projects/": "uv run qm cookbook docs/families --site --write",
 }
+# A project's dated account, docs/projects/<name>/, is not the cookbook's
+# (records/DRAFT-a-projects-history-lives-in-the-corpus.md §3): its timeline is
+# ci/timeline.py's, and every other page in it is a dated page a person wrote.
+SUBTREE = re.compile(r"^docs/projects/(?P<name>[^/]+)/(?P<file>.+)$")
+TIMELINE = "timeline.md"
 
 
 def refresh_of(rel: str) -> str | None:
     """The command that writes `rel`, or None when nothing generates it."""
     if rel in GENERATED:
         return GENERATED[rel]
+    subtree = SUBTREE.match(rel)
+    if subtree:
+        if subtree.group("file") == TIMELINE:
+            return f"uv run qm timeline {subtree.group('name')} --write"
+        return None
     return next((command for under, command in GENERATED_UNDER.items()
                  if rel.startswith(under)), None)
 
@@ -164,6 +175,7 @@ STATES = {
     "generated": "written by a tool. Do not edit by hand; check its age before quoting.",
     "standing": "policy or charter with no lifecycle defined for its class.",
     "transient": "working instructions, deleted when the work lands.",
+    "dated": "a project's dated history, true of the days it names. Never brought up to date; read it for what happened, not for what is.",
     "unknown": "the state could not be established, which is not the same as fine.",
 }
 
@@ -245,6 +257,8 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
     # `docs/` is the reference tier named in handbook/style-guide.md; it and the
     # three governed directories below it each have a class, so none of their
     # pages falls through to "not in a governed directory".
+    if SUBTREE.match(rel):
+        return "history", "a project's dated account, in its subtree beside its page"
     if rel.startswith("docs/"):
         return "reference", "the reference: contracts, interfaces, procedures"
     if rel.startswith("protocols/"):
@@ -344,6 +358,10 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
 
     if kind == "handoff":
         entry["state"] = "transient"
+        return entry
+
+    if kind == "history":
+        entry["state"] = "dated"
         return entry
 
     entry["state"] = "standing"

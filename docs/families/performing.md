@@ -32,21 +32,21 @@ Drives a show — what an audience sees and hears, and the video made before and
 
 <div class="grid" markdown>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 [alfred](../projects/alfred.md){ .qm-card-link }
 
-<span class="qm-meta">v0.0.1</span>
+<span class="qm-meta">v0.0.1</span> · also in [`irl`](irl.md)
 
 serverless video editing
 
 </div>
 
-<div class="card qm-f-performing" markdown>
+<div class="card qm-f-many" style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-irl), var(--qm-family-performing))" markdown>
 
 [otto](../projects/otto.md){ .qm-card-link }
 
-<span class="qm-meta">v0.0.0</span>
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 automatic video generation
 
@@ -58,7 +58,7 @@ automatic video generation
 
 `instruments` · 10 members
 
-[carlos](../projects/carlos.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md), and 1 private
+[carlos](../projects/carlos.md), [loopwall](../projects/loopwall.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md)
 
 </div>
 
@@ -68,7 +68,7 @@ automatic video generation
 
 `performer-display` · 3 members
 
-[joe](../projects/joe.md), [leo](../projects/leo.md), and 1 private
+[loopwall](../projects/loopwall.md), [joe](../projects/joe.md), [leo](../projects/leo.md)
 
 </div>
 
@@ -84,7 +84,7 @@ automatic video generation
 
 </div>
 
-Start in [`alfred`](../projects/alfred.md): its records and its `AGENTS.md` say how work arrives there.
+Start in any of [`alfred`](../projects/alfred.md), [`carlos`](../projects/carlos.md), [`loopwall`](../projects/loopwall.md), [`qmetronome`](../projects/qmetronome.md): each one's records and its `AGENTS.md` say how work arrives there.
 
 <section class="qm-section" markdown>
 

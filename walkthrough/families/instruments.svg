@@ -7,9 +7,9 @@
 <circle class="c-instruments" cx="22" cy="76" r="5"/>
 <text class="mono" x="36" y="80" font-size="13">carlos</text>
 <text class="mono muted" x="276" y="80" font-size="12">governed</text>
-<circle class="s-instruments" cx="22" cy="102" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="106" font-size="13">private-34</text>
-<text class="mono muted" x="276" y="106" font-size="12">not adopted</text>
+<circle class="c-instruments" cx="22" cy="102" r="5"/>
+<text class="mono" x="36" y="106" font-size="13">loopwall</text>
+<text class="mono muted" x="276" y="106" font-size="12">governed</text>
 <circle class="c-instruments" cx="22" cy="128" r="5"/>
 <text class="mono" x="36" y="132" font-size="13">qmetronome</text>
 <text class="mono muted" x="276" y="132" font-size="12">governed</text>
