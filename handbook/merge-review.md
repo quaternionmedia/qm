@@ -15,9 +15,9 @@ uv run qm merge --repo owner/name     # one
 For every open pull request of yours it prints the host's live state — draft
 or not, mergeable or not, the host's own merge verdict, and every check that
 is failing or still pending, by name — and marks a pull request **READY** only
-when all of those are clean at once. A pull request stacked on another is a
-draft until the one beneath it merges (`handbook/async-contract.md` §1), so it
-is never READY; merge the bottom of a stack, and the next one moves down.
+when all of those are clean at once. A pull request stacked on another may be
+ready (`handbook/async-contract.md` §1), and is never READY while the one
+beneath it is open; merge the bottom of a stack, and the next one moves down.
 
 This mode mutates nothing. A repository it could not read is listed as
 unknown rather than as empty, and a private entry the clone cannot name is

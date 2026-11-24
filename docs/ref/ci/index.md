@@ -2,7 +2,8 @@
 
 How the [corpus](../../ref/glossary.md#corpus){ .glossary-term }'s own tools behave: what each family of scripts in `ci/` and
 `project-seed/ci/` reads, decides and cannot see. `uv run qm --help` lists every
-command; these pages explain the behaviour the commands share.
+command, the ones `AGENTS.md` names first; these pages explain the behaviour
+the commands share.
 
 - **[Gates and checks](gates-and-checks.md)**: the checks that refuse
   something, and the rules they share.

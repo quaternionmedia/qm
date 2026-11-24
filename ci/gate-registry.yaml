@@ -24,8 +24,14 @@
 # interchangeable:
 #
 #   main     it runs on pull requests into the default branch
+#   project  it runs on pull requests into a `project/<name>` branch, and on
+#            none into the default branch
 #   tag      it runs on a `v*` push and judges the tag, not the branch
 #   push     it runs on direct pushes as well, so it also reports on landed work
+#
+# `ci/gate_status.py` derives the same words from each workflow's `on:` block
+# and shows them beside the claim; `ci/tests/test_gate_tooling.py` fails when
+# the two disagree, so a value here is checked against the trigger it describes.
 #
 # `exists: false` is a declaration. A gate listed here without an
 # implementation is a rule this org has decided on and not yet made mechanical.
@@ -45,8 +51,10 @@ gates:
     refuses: >
       A record whose header table, status or index row is malformed; banned
       narration vocabulary in a pre-ratification draft; a vendor or model name
-      in a record's prose or a commit subject; a seed copy still showing its
-      template placeholder to a reader; a record whose declared restatement
+      in a record's prose or a commit subject; a commit trailer or author field
+      naming a tool where a person should be, or standing on an address nobody
+      reads; a seed copy still showing its template placeholder to a reader; a
+      record whose declared restatement
       does not name it back; a principle that declares no relationship to the
       others and gives no reason, or declares one the other end does not
       declare back.
@@ -73,27 +81,13 @@ gates:
       finding and not yet fixed. One commit subject is exempt from the
       vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the
       rule is taught from -- and check_attribution.py prints that exemption and
-      its reason on every run.
-
-  - id: stacked-drafts
-    workflow: one-pr-check.yml
-    job: slot
-    gates: [main]
-    seed: true
-    exists: true
-    refuses: >
-      A pull request marked ready whose base is the branch of another open pull
-      request in the same repository. It fails every such pull request of the
-      author, not only the one whose event ran it.
-    runs:
-      - project-seed/ci/check_one_pr.py
-    enforces:
-      - handbook/async-contract.md
-    cannot_see: >
-      Whether a pull request is one change. A branch cut from another pull
-      request's branch but opened against the target, carrying its parent's
-      commits. A pull request closed in favour of one that contains it -- closed
-      pull requests are not read.
+      its reason on every run. The attribution check does not read the
+      committer: every squash merge on this host is committed by the forge's own
+      no-reply identity, so reading it would fail every merge the org makes. And
+      a byline naming no vendor, at an address that accepts mail, is
+      indistinguishable from a person -- `A Bot <bot@example.com>` passes. On a
+      pull request in this corpus the trailer and author check does not read a
+      commit already on main, so a trailer merged before it existed stays merged.
 
   - id: one-pr-voice
     workflow: one-pr-check.yml
@@ -117,22 +111,52 @@ gates:
       them without a pronoun, so it is allowed; and whether the body is honest,
       complete, or about the diff at all.
 
-  - id: namespace-guard
-    workflow: namespace-guard.yml
-    job: namespace
-    gates: [main, push]
+  - id: pr-direction
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
     seed: false
     exists: true
     refuses: >
-      A pull request opened in the wrong direction between namespaces, and a
-      project branch whose own commits touch anything outside `adr/`.
+      A pull request whose head is a `project/<name>` branch, which is
+      permanent and never a merge source; a `math/<slug>` exploration aimed at
+      anything but a `workspace/*` branch; and a head carrying a top-level
+      `adr/` at the default branch. The step is in this corpus's copy of the
+      workflow and not in the seed: a project's own repository has no
+      `project/*` branches, so there the same step could never fail.
     runs:
       - project-seed/ci/check_pr_base.py
     enforces:
-      - README.md
+      - docs/ref/namespaces.md
     cannot_see: >
-      A branch cut from the wrong parent whose direction is nonetheless legal.
-      `check_pr_base.py` reports the inheritance; nothing fails on it.
+      A branch under a prefix the namespaces page does not list: it refuses
+      three directions and no unknown prefix, so an `adr/*` or `fix/*` head
+      passes it. A branch cut from the wrong parent whose direction is legal:
+      the merge-base and the commits shared with another branch are reported
+      as an advisory, and nothing fails on them.
+
+  - id: namespace-guard
+    workflow: namespace-guard.yml
+    job: namespace
+    gates: [project, push]
+    seed: false
+    exists: true
+    refuses: >
+      A `project/<name>` branch whose own commits touch anything outside
+      `adr/`, on a pull request into the branch and, after the fact, on a push
+      to it. It compares content with `main` and not commits, so org content
+      arriving by a merge from `main` is not mistaken for the project editing
+      it.
+    runs:
+      - .github/workflows/namespace-guard.yml
+    enforces:
+      - docs/ref/namespaces.md
+    cannot_see: >
+      Anything on a pull request into `main`: both its triggers are filtered to
+      `project/**`, so the direction of a pull request between namespaces is
+      `pr-direction`'s to refuse. A push cannot be refused, so on a push it
+      reports and prevents nothing. A branch cut from the wrong parent whose
+      own commits touch `adr/` only.
 
   - id: ci-tooling-tests
     workflow: ci-tooling-tests.yml
@@ -197,49 +221,92 @@ gates:
     seed: false
     exists: true
     refuses: >
-      A pointer file that has stopped being a symlink -- mode other than
-      120000 -- which is how a Windows checkout silently forks a shared
-      document into two.
+      A .vscode/ or .claude/ configuration pointer that has stopped being a
+      symlink -- mode other than 120000 -- which is how a Windows checkout
+      without core.symlinks silently forks a shared file into two.
     runs:
       - .github/workflows/symlink-integrity.yml
     enforces:
       - records/DRAFT-ide-integrated-governance-discovery.md
     cannot_see: >
-      A rule missing from one of the two genuinely different AGENTS.md files.
-      They are not symlinked to each other, so this check cannot notice them
-      disagreeing.
+      The instruction pointers. CLAUDE.md and project-seed/ide/CLAUDE.md are
+      regular files holding the one line `@AGENTS.md`, an import and not a
+      link, so a wrong line in either is a text change this check does not
+      read. And a rule missing from one of the two genuinely different
+      AGENTS.md files: they are not linked to each other, so this check cannot
+      notice them disagreeing.
 
   - id: docs-audit
     workflow: docs-audit.yml
     job: audit
-    gates: [pull_request]
+    gates: [main, push]
     seed: false
     exists: true
     refuses: >
-      A documentation site that builds but does not hold together -- a page
-      the navigation does not reach, a link to a page that is not published,
-      a claim the audit's four dimensions can check -- and a generated family
-      page, project page or front-page snippet that no longer matches its
-      sources.
+      A documentation site that no longer builds, or builds and emits nothing;
+      a generated family page, project page or front-page snippet that no
+      longer matches its sources; and a project's timeline that no longer
+      matches its committed round log and git snapshot, or a retrospective
+      beside it with no date. A link to nothing, a corpus path a page names
+      that does not exist, and a page that shadows a corpus document are
+      reported and do not fail the run. On a push to `main` it runs with no
+      path filter, so two pull requests each green at their own tip that
+      together leave a generated page stale make `main` red, and not the next
+      contributor's pull request.
     runs:
       - ci/docs_audit.py
       - ci/cookbook.py
+      - ci/timeline.py
       - .github/workflows/docs-audit.yml
     enforces:
       - records/DRAFT-the-read-document-governs.md
       - records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md
+      - records/DRAFT-a-projects-history-lives-in-the-corpus.md
     cannot_see: >
-      Whether a page is true. It builds the site and reads what the build
-      reads, so it finds a page nobody can reach and not a page that is wrong.
-      `uv run qm prose` reads the openings; a person reads the rest. Of the
-      generated pages it sees only whether they match their sources: not
-      whether a showcase caption describes its picture, nor whether a
-      showgraph was drawn from the commits its project is at.
+      Whether a page is true. It builds the site and follows the links, so it
+      finds a link to nothing and not a page that is wrong, and it does not
+      read the navigation, so a page nothing links to passes. `uv run qm
+      prose` reads the openings; a person reads the rest. Of the generated
+      pages it sees only whether they match their sources: not whether a
+      showcase caption describes its picture, nor whether a showgraph was
+      drawn from the commits its project is at. Of a timeline it sees the
+      committed files only: not a git snapshot behind its project, nor a round
+      left out of the round log. On a pull request it runs only when the
+      change touches the site or a generator's input, by path filter.
+
+  - id: docs-check
+    workflow: docs-check.yml
+    job: generated
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A committed generated document that no longer matches what its generator
+      writes from this tree: the governance and gate documents, the gate view,
+      the site palette, the family cookbook and the family site pages, the
+      rollout, and the three index documents, `status/documents.yaml`,
+      `handbook/document-states.md` and `loose-ends.json`. It runs with no path
+      filter, so a page that changes state without its index is red on the
+      pull request that changed it, and `main` is checked after every merge.
+    runs:
+      - ci/generate_docs.py --check
+    enforces:
+      - handbook/generated-documents.md
+    cannot_see: >
+      A document with no check mode, `status/harness.yaml` and `families.json`:
+      their freshness is the staleness budget each carries in its own
+      `reading:` block, and the run reports them skipped. The enforcement layer
+      of `status/gates.yaml`, which is read from the host and changes without
+      a commit here. Whether a generated document is true: it compares each
+      with what its generator writes from the same tree, so a generator that
+      is wrong is wrong on both sides and passes. The rollout's evidence: its
+      check compares the committed document's membership with the tree's,
+      and what the host or one disk said about a step is not compared.
 
   - id: docs-draft
     workflow: docs-draft.yml
     job: draft
-    gates: [pull_request]
+    gates: [main]
     seed: false
     exists: true
     refuses: >
@@ -450,7 +517,8 @@ gates:
       longer true; those are the reviewer's. Text already on the base, which
       `--all` reports and a sweep removes. Capitals in title case or spaced
       out, a phrase broken so that no line holds three of its words, and file
-      types it does not read.
+      types it does not read. In this corpus it does not read a project's
+      subtree under `docs/projects/<name>/`, which is dated history.
 
   - id: rulesets
     workflow: null

@@ -8,7 +8,7 @@ hide:
 [instruments](../families/instruments.md) · [irl](../families/irl.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# stomp<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
+# <span class="qm-name">stomp</span><span class="qm-dot">.</span> { .qm-family-title .qm-f-many style="--qm-rainbow: linear-gradient(90deg, var(--qm-family-instruments), var(--qm-family-irl))" }
 
 <p class="qm-lede">a midi foot controller for Arduino / Teensy</p>
 

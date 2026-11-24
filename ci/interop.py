@@ -94,7 +94,8 @@ def total_cases(surface: dict, roots) -> int | None:
     if clone is None:
         return None
     try:
-        return len(json.loads((clone / spec["file"]).read_text(encoding="utf-8"))["cases"])
+        document = json.loads((clone / spec["file"]).read_text(encoding="utf-8"))
+        return sum(len(document[key]) for key in spec.get("cases", ["cases"]))
     except (OSError, json.JSONDecodeError, KeyError):
         return None
 

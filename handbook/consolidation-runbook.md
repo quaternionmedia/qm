@@ -223,9 +223,8 @@ refuses the wrong direction.
 
 *Verify:* `gh pr view <number> --json isDraft,reviewRequests,assignees` shows
 not a draft, no reviewers, and the assignee you set — for a pull request whose
-base is `main`. Draft means unfinished, or stacked on another open pull request;
-a green pull request left in draft against `main` is a change that never
-reached it.
+base is `main`. Draft means unfinished; a green pull request left in draft
+against `main` is a change that never reached it.
 
 ## Step 5 — audit what a green pull request state cannot see
 

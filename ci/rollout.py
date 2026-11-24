@@ -4,7 +4,8 @@
     rollout.py                          # the current rollout: phases, members, steps
     rollout.py --next                   # the open phase's members and their next unmet step
     rollout.py --claim REPO STEP        # a person states a step done: dated, attributed, appended
-    rollout.py --check                  # refuse a claim the evidence contradicts, or a plan that names nothing
+    rollout.py --check                  # refuse a contradicted claim, a plan that names nothing, or a
+                                        #   committed document whose members the tree has moved
     rollout.py --write status/rollout.yaml --source host
 
 The plan is a claim and the report is a measurement, and this tool never
@@ -35,7 +36,10 @@ What this cannot do: tell whether a step *should* be in the plan, or whether the
 detector measures the thing the step means. A detector is a regular expression or
 a ref, and a step whose meaning it does not capture reports green on the wrong
 fact. Read the step's `means` and its `evidence` together before trusting a row.
-It also cannot see a repository the roster does not list.
+It also cannot see a repository the roster does not list. `--check` compares
+the committed document's membership with the tree's -- the rollout, its steps,
+each phase's families and members -- and not its evidence, which is the host's
+or one disk's at one time.
 
 Records: `records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md`,
 `records/DRAFT-a-disagreement-is-a-delta.md`,
@@ -63,6 +67,8 @@ import roster  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 PLAN = ROOT / "ci" / "rollout.yaml"
 FAMILIES = ROOT / "families.json"
+DOCUMENT = ROOT / "status" / "rollout.yaml"
+REFRESH = "uv run qm rollout --write status/rollout.yaml --source host"
 SEARCH_ROOTS = (ROOT.parent, ROOT.parent.parent)
 ORG = "quaternionmedia"
 
@@ -285,8 +291,11 @@ class HostSource:
 
     def measure(self, evidence: dict, entry: dict) -> Verdict:
         repo = entry.get("name")
-        if not repo:
-            return Verdict("unverifiable", "a private repository whose name this machine cannot resolve")
+        # Without the companion a private entry's name is its reference, which
+        # names no repository on the host; asked, the host's 404 would read as a fail.
+        if not repo or (entry.get("ref") and repo == entry.get("ref")):
+            return Verdict("unverifiable", "a private repository whose name this machine cannot "
+                           "resolve; ci/workspace-private.yaml holds it")
         kind = evidence.get("kind")
         ref = evidence.get("ref")
         if kind in ("file-matches", "path-exists"):
@@ -452,7 +461,7 @@ def document(doc: dict, source_name: str) -> dict:
         "generator": {"tool": "ci/rollout.py", "source": source_name,
                       "plan": str(PLAN.relative_to(ROOT)).replace("\\", "/")},
         "reading": {
-            "refresh": "uv run qm rollout --write status/rollout.yaml --source host",
+            "refresh": REFRESH,
             "staleness_budget_hours": 168,
             "claims_come_from": "ci/rollout.yaml, written by a person; never inferred here",
             "evidence_comes_from": "the host's default branch (--source host) or clones on one disk "
@@ -466,6 +475,65 @@ def document(doc: dict, source_name: str) -> dict:
         },
         **out,
     }
+
+
+def membership(doc: dict) -> dict:
+    """What a rollout document says from the plan and the roster alone: the
+    rollout's name, its step ids, and each phase's families and members in
+    order. The evidence is left out: it is the host's or one disk's, at one
+    time, and a check that compared it would be red on every run."""
+    return {
+        "rollout": doc.get("rollout"),
+        "steps": [s["id"] for s in doc.get("steps", []) or []],
+        "phases": [{"name": p.get("name"), "families": list(p.get("families", []) or []),
+                    "members": [m["repo"] for m in p.get("members", []) or []]}
+                   for p in doc.get("phases", []) or []],
+    }
+
+
+def drift(committed: dict, fresh: dict) -> list[str]:
+    """Every way the committed document's membership differs from the tree's: a
+    rollout or step list the plan no longer has, phases it names or orders
+    otherwise, a family a phase no longer names, a member the roster now places
+    in another phase or in none, or members in another order."""
+    old, new = membership(committed), membership(fresh)
+    found: list[str] = []
+    if old["rollout"] != new["rollout"]:
+        found.append(f"the document is of rollout {old['rollout']!r}; the plan's is {new['rollout']!r}")
+    if old["steps"] != new["steps"]:
+        found.append(f"steps: the document has {old['steps']}, the plan {new['steps']}")
+    old_names = [p["name"] for p in old["phases"]]
+    new_names = [p["name"] for p in new["phases"]]
+    if old_names != new_names:
+        found.append(f"phases: the document has {old_names}, the plan {new_names}")
+    by_old = {p["name"]: p for p in old["phases"]}
+    for phase in new["phases"]:
+        before = by_old.get(phase["name"])
+        if before is not None and before["families"] != phase["families"]:
+            found.append(f"phase {phase['name']!r}: the document names families {before['families']}, "
+                         f"the plan {phase['families']}")
+    old_phase = {m: p["name"] for p in old["phases"] for m in p["members"]}
+    new_phase = {m: p["name"] for p in new["phases"] for m in p["members"]}
+    for member in sorted(set(old_phase) | set(new_phase)):
+        was, now = old_phase.get(member), new_phase.get(member)
+        if was == now:
+            continue
+        if was and now:
+            found.append(f"{member}: the document lists it in {was!r}; the tree places it in {now!r}")
+        elif was:
+            found.append(f"{member}: the document lists it in {was!r}; the tree places it in no phase")
+        else:
+            found.append(f"{member}: the tree places it in {now!r}; the document does not list it")
+    for phase in new["phases"]:
+        before = by_old.get(phase["name"])
+        if before is None:
+            continue
+        shared_old = [m for m in before["members"] if m in phase["members"]]
+        shared_new = [m for m in phase["members"] if m in before["members"]]
+        if shared_old != shared_new:
+            found.append(f"phase {phase['name']!r}: the document orders its members {shared_old}, "
+                         f"the tree {shared_new}")
+    return found
 
 
 # --- claims --------------------------------------------------------------------
@@ -570,6 +638,15 @@ def main(argv: list[str] | None = None) -> int:
         failures = list(doc["problems"])
         if doc["summary"]["contradicted"]:
             failures.append(f"{doc['summary']['contradicted']} claim(s) contradicted by the evidence")
+        # The committed document is checked here because this is the entry the
+        # docs-check gate runs. Membership only: the evidence differs per source.
+        if not args.write and DOCUMENT.is_file():
+            committed = yaml.safe_load(DOCUMENT.read_text(encoding="utf-8")) or {}
+            shown = str(DOCUMENT.relative_to(ROOT)) if DOCUMENT.is_relative_to(ROOT) else str(DOCUMENT)
+            moved = drift(committed, doc)
+            failures.extend(f"{shown}: {d}" for d in moved)
+            if moved:
+                failures.append(f"{shown} no longer matches the plan and the roster. Regenerate: {REFRESH}")
         for f in failures:
             print(f"  {f}", file=sys.stderr)
         if failures:

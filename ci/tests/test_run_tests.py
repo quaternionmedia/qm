@@ -53,6 +53,24 @@ def test_both_suites_are_present_because_one_would_be_half_the_tooling():
     assert {"project-seed/ci/tests", "ci/tests"} <= set(SUITES)
 
 
+def test_ci_runs_the_suites_on_every_change():
+    """The suites read the whole repository: the first page, the workflows,
+    the records, the registries, and the pages the doctests execute. A path
+    filter on the workflow is a list of paths that drifts from what the tests
+    read, and a change outside the list lands with the suite unrun.
+
+    Mutation: add a `paths:` filter to either trigger and this fails.
+    """
+    doc = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
+    triggers = doc.get(True, doc.get("on")) or {}
+    for event in ("push", "pull_request"):
+        assert event in triggers, f"ci-tooling-tests.yml does not run on {event}"
+        spec = triggers[event] or {}
+        assert "paths" not in spec and "paths-ignore" not in spec, (
+            f"the {event} trigger carries a path filter, and the suites read "
+            f"the whole repository")
+
+
 def test_the_walkthrough_is_named_on_the_command_line():
     """records/DRAFT-one-executable-walkthrough.md §2, measured there: pytest
     ignores `testpaths` the moment it receives a path argument, and this

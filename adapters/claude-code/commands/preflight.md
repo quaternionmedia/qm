@@ -20,16 +20,15 @@ Exit 1 means *explain this*, not *broken*. Read the ratio: "1 of 61" is a merge
 you did deliberately; "18 of 20" is a branch you did not mean to be on. Keep the
 output — it goes in the pull request description verbatim.
 
-## 2. Is anything of yours ready while stacked
+## 2. Your open pull requests, and how they stack
 
 ```
 python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <your login>
 ```
 
 It lists your open pull requests and the stack each sits in. If this change
-needs one of them, cut it from that branch and open it as a draft against it.
-If the check fails, mark the named pull request draft until the one beneath it
-merges. Never close a pull request in favour of one that contains it.
+needs one of them, cut it from that branch and open it against it; it merges
+after that one. Never close a pull request in favour of one that contains it.
 
 ## 3. Run the gates
 

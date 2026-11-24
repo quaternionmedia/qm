@@ -82,6 +82,37 @@ def test_an_enforcement_clause_naming_nothing_at_all_is_reported(tmp_path: Path)
     assert "enforcement-clause-names-no-mechanism" in kinds(tmp_path)
 
 
+def test_a_bare_workflow_name_resolves_against_the_workflow_directories(tmp_path: Path):
+    """A record says `leak-check.yml` refuses something, and the workflow of
+    that name sits in `.github/workflows/` and in `project-seed/ci/`, never at
+    the root. Resolving the bare name against the root alone reports a
+    mechanism that exists as missing, and a false finding about a real gate
+    trains a reader to skip the report.
+
+    Mutation: resolve against the root alone and this fails.
+    """
+    write(tmp_path / ".github" / "workflows" / "leak-check.yml", "name: leaks\n")
+    corpus(tmp_path, decision="6. **Enforcement.** `leak-check.yml` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" not in kinds(tmp_path)
+
+
+def test_a_bare_seed_script_name_resolves_against_the_seed_directory(tmp_path: Path):
+    write(tmp_path / "project-seed" / "ci" / "check_leaks.py", "")
+    corpus(tmp_path, decision="6. **Enforcement.** `check_leaks.py` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" not in kinds(tmp_path)
+
+
+def test_a_bare_name_in_no_mechanism_directory_is_still_missing(tmp_path: Path):
+    """The resolution is to the directories mechanisms live in, not to anywhere
+    in the tree: a file of that name elsewhere is not the gate the clause claims.
+
+    Mutation: resolve a bare name anywhere under the root and this fails.
+    """
+    write(tmp_path / "plans" / "gone.yml", "name: a plan\n")
+    corpus(tmp_path, decision="6. **Enforcement.** `gone.yml` refuses it.")
+    assert "enforcement-names-a-missing-mechanism" in kinds(tmp_path)
+
+
 def test_a_gate_enforcing_a_record_that_never_says_so_is_reported(tmp_path: Path):
     corpus(tmp_path)
     gates = [{"id": "some-gate", "enforces": ["records/DRAFT-a.md"]}]

@@ -60,6 +60,9 @@ generated view prints beside its tables.
    when, how often something failed, or what an earlier version said. That
    account belongs to the commit message, the pull request body, or a
    retrospective in `perspectives/`, each of which is dated by construction.
+   A project that has adopted
+   `records/DRAFT-a-projects-history-lives-in-the-corpus.md` keeps its own
+   dated account in its subtree in the corpus, `docs/projects/<name>/`.
    Where the history explains a constraint a reader must respect, the
    constraint is stated as a present fact and the history is left out.
 
@@ -95,7 +98,9 @@ generated view prints beside its tables.
      that spans several modules.
    - **A narrative moves to a dated retrospective** in the corpus's
      `perspectives/`: how the thing came to be, what was found and by what,
-     and a lesson told as an event.
+     and a lesson told as an event. A narrative of one project's development
+     moves to that project's subtree, `docs/projects/<name>/`, once the
+     project has adopted the record on a project's dated history.
 
    The pull request that sweeps an area states, passage by passage, which home
    each one went to.

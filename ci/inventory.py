@@ -28,10 +28,12 @@ carries
 
     private-01   ->  "quaternionmedia private repo 1"
 
-with the name only in the private file. References are assigned by creation
-order, which is append-only, so `private-03` means the same repository next
-month and in every document that cites it. `--resolve` reads the mapping back on
-a machine that has it.
+with the name only in the private file. A reference is a repository's creation
+date against a number in `ci/private-references.yaml`, which is committed and
+holds no name. The ledger only grows: a repository that leaves the private set
+keeps its number, a new one takes the next free number in creation order, so
+`private-03` means the same repository next month and in every document that
+cites it. `--resolve` reads the mapping back on a machine that has it.
 
 What this cannot do: see a repository the credential cannot read, a clone
 outside the search roots, or anything on a machine that is not this one. Those
@@ -61,6 +63,7 @@ PUBLIC = "status/inventory.yaml"
 SHOWCASE = ROOT / "ci" / "showcase.yaml"
 PRIVATE = "inventory-private.json"
 LOCAL = "inventory-local.json"
+LEDGER = ROOT / "ci" / "private-references.yaml"
 
 NEVER_COMMIT = (
     "Machine-scoped. Gitignored on purpose. Do not commit this file, paste from "
@@ -459,19 +462,69 @@ def roster_names(path: Path) -> tuple[dict[str, dict], dict[str, dict], dict | N
     )
 
 
-def assign_references(private: list[dict], org: str) -> dict[str, dict]:
-    """name -> {ref, label}, ordered by creation date.
+def load_ledger(path: Path = LEDGER) -> list[dict]:
+    """The assigned references, `[{ref, created_at}]`, or empty where none is committed."""
+    if not path.is_file():
+        return []
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return [dict(e) for e in document.get("references") or []]
 
-    Creation order is append-only: a repository made tomorrow takes the next
-    number and never renumbers the ones before it. Ordering by name or by hash
-    would shift every reference each time the org gained a repository, which
-    would make a reference in a six-month-old document point somewhere else.
+
+def write_ledger(entries: list[dict], path: Path = LEDGER) -> None:
+    document = {"schema": SCHEMA, "references": sorted(entries, key=lambda e: e["ref"])}
+    path.write_text(LEDGER_HEADER + yaml.safe_dump(document, sort_keys=False),
+                    encoding="utf-8", newline="\n")
+
+
+LEDGER_HEADER = "".join(
+    f"# {line}\n" for line in (
+        "Every private-NN reference ever assigned, by the creation date of the",
+        "repository it stands for. Holds no name. Append-only: an entry stays when",
+        "its repository leaves the private set, so the number is never reused.",
+        "Written by `uv run qm inventory --write`; see docs/ref/ci/registries.md.",
+    )
+)
+
+
+def _number(ref: str) -> int:
+    return int(ref.rsplit("-", 1)[1])
+
+
+def assign_references(private: list[dict], org: str,
+                      ledger: list[dict] | None = None) -> dict[str, dict]:
+    """name -> {ref, label}.
+
+    A repository whose creation date is in `ledger` keeps that entry's number,
+    whether or not repositories before it have left the private set. One that
+    is not takes the next number after the highest the ledger holds, in creation
+    order. With no ledger the numbers run from 1 in creation order.
+
+    Creation order is what makes a new number append-only. Ordering by name or
+    by hash would shift every reference each time the org gained a repository,
+    and numbering only the repositories private now would shift every later one
+    each time a repository left.
     """
-    ordered = sorted(private, key=lambda r: (r.get("createdAt") or "", r["name"]))
-    return {
-        repo["name"]: {"ref": f"private-{i:02d}", "label": f"{org} private repo {i}"}
-        for i, repo in enumerate(ordered, start=1)
-    }
+    held: dict[str, list[str]] = {}
+    for entry in sorted(ledger or [], key=lambda e: e["ref"]):
+        held.setdefault(entry["created_at"], []).append(entry["ref"])
+    following = max((_number(e["ref"]) for e in ledger or []), default=0) + 1
+    refs = {}
+    for repo in sorted(private, key=lambda r: (r.get("createdAt") or "", r["name"])):
+        waiting = held.get(repo.get("createdAt") or "")
+        if waiting:
+            ref = waiting.pop(0)
+        else:
+            ref, following = f"private-{following:02d}", following + 1
+        refs[repo["name"]] = {"ref": ref, "label": f"{org} private repo {_number(ref)}"}
+    return refs
+
+
+def ledger_additions(private: list[dict], refs: dict[str, dict],
+                     ledger: list[dict]) -> list[dict]:
+    """The entries `refs` assigned that `ledger` does not hold yet."""
+    held = {e["ref"] for e in ledger}
+    return [{"ref": refs[r["name"]]["ref"], "created_at": r.get("createdAt") or ""}
+            for r in private if refs[r["name"]]["ref"] not in held]
 
 
 def local_clone(name: str, entry: dict | None, search_roots: list[Path]) -> str | None:
@@ -485,9 +538,13 @@ def local_clone(name: str, entry: dict | None, search_roots: list[Path]) -> str 
     return None
 
 
-def build(org: str, roster_path: Path,
-          search_roots: list[Path]) -> tuple[dict, dict, dict]:
-    """Returns (public, private, local). Only the first may ever be committed."""
+def build(org: str, roster_path: Path, search_roots: list[Path],
+          ledger: list[dict] | None = None) -> tuple[dict, dict, dict]:
+    """Returns (public, private, local). Only the first may ever be committed.
+
+    `ledger` is read for the references already assigned, and the entries this
+    run assigns are appended to it in place, for the caller to write.
+    """
     host = host_repositories(org)
     roster, roster_by_ref, roster_problem = roster_names(roster_path)
     commits = default_branch_commits(org)
@@ -497,7 +554,10 @@ def build(org: str, roster_path: Path,
         return ({"schema": SCHEMA, "generated_at": now(), "host": host,
                  "repositories": [], "totals": {}}, {}, {})
 
-    references = assign_references([r for r in host if r.get("isPrivate")], org)
+    private_now = [r for r in host if r.get("isPrivate")]
+    references = assign_references(private_now, org, ledger)
+    if ledger is not None:
+        ledger.extend(ledger_additions(private_now, references, ledger))
     host_names = {r["name"] for r in host}
 
     dates = {} if isinstance(commits, dict) and "unknown" in commits else commits
@@ -577,7 +637,7 @@ def build(org: str, roster_path: Path,
             "org": org,
             "private_repository_names_listed": False,
             "absolute_paths_written": False,
-            "private_repositories_referenced_as": "private-NN, by creation order",
+            "private_repositories_referenced_as": "private-NN, from ci/private-references.yaml",
             "companion_files": {
                 PRIVATE: "reference -> name. Gitignored, never committed.",
                 LOCAL: "clone paths on one machine. Gitignored, never committed.",
@@ -803,9 +863,14 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     roots = [Path(r).resolve() for r in (args.search_root or [ROOT.parent, ROOT.parent.parent])]
-    public, private_doc, local_doc = build(args.org, Path(args.roster), roots)
+    ledger = load_ledger()
+    before = len(ledger)
+    public, private_doc, local_doc = build(args.org, Path(args.roster), roots, ledger)
 
     if args.write:
+        if len(ledger) > before:
+            write_ledger(ledger)
+            print(f"wrote {LEDGER.relative_to(ROOT).as_posix()}  (committable)")
         for name, doc in ((PUBLIC, public), (PRIVATE, private_doc), (LOCAL, local_doc)):
             if not doc:
                 continue

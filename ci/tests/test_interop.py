@@ -72,6 +72,17 @@ def test_a_missing_clone_says_so_rather_than_reporting_a_version():
     assert any("no clone on this disk" in p for p in found)
 
 
+def test_a_publisher_may_keep_its_cases_under_several_keys(tmp_path, monkeypatch):
+    """hearth keeps a member's cases and a hub's apart, and they are one surface."""
+    clone = tmp_path / "publisher"
+    clone.mkdir()
+    (clone / "vectors.json").write_text('{"member": [1, 2], "hub": [3]}', encoding="utf-8")
+    monkeypatch.setattr(interop, "clone_of", lambda name, roots: clone)
+    spec = {"repo": "publisher", "file": "vectors.json"}
+    assert interop.total_cases({"publisher": {**spec, "cases": ["member", "hub"]}}, []) == 3
+    assert interop.total_cases({"publisher": spec}, []) is None
+
+
 def test_the_registry_registers_the_surface_this_estate_has():
     """A registry nobody added to is the state every registry check reports as
     clean, so the committed file is asserted rather than only its schema."""
