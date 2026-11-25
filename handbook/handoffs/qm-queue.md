@@ -652,6 +652,14 @@ re-checked and is re-derived before anyone acts on it.
 - That `examples/lean-proofs` in codecartographer#170 compiles. Done is `lake
   build` in that directory exiting zero, with the one `sorry` its README names
   as the only warning of its kind.
+- That `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree` is
+  stable where its servers run (2026-11-24, at `63c92f8`). It asks the
+  harness on 3141 and the codecartographer and dossier front ends that
+  happen to be running. In full local runs of the tooling suite it failed in
+  three of four, codecartographer's front end answering without a rendering,
+  and it passed alone each time, at the base commit as well. Once
+  `test_dashboard.py`'s started-server test failed beside it. Nothing
+  established which server was slow or why.
 
 ## 6. Standing constraints
 
