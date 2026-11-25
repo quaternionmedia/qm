@@ -16,7 +16,10 @@ from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 `project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. Those
 that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
 `348e31f` and `qmetronome` `3aaaa28`. Those that name 2026-11-22 were
-re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. The
+re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. Those
+that name 2026-11-24 were re-derived at `qm` `63c92f8` and `codecartographer`
+`main` `0eb0b72`, with codecartographer#170 at `726634f` and
+codecartographer#171 at `0ff746e`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -234,6 +237,18 @@ each pull request into it is behind its base until brought level.
 - **The decisions in `hil-review-2026-10-31.md` §4**: alfred's and
   titanharvest's branches that exist on one disk alone; the worktrees only a
   person may remove.
+- **codecartographer#170, the Lean reader** (2026-11-24), is ready against
+  `main`, every check on the host green, and is merged by a person:
+  codecartographer's `AGENTS.md` item 3 keeps that click for one. It reads
+  `.lean` files at the declaration level, joins Lean to the construct
+  vocabulary and a lexicon, and bundles `examples/lean-proofs`.
+- **Whether a symbol's node id keeps its file's absolute key** in
+  codecartographer (2026-11-24). A file node's id is its path from the root; a
+  Rust or Lean symbol's id carries the file's key, which for a local
+  repository is the absolute path on the machine that read it, so that path
+  travels with every graph, bookmark and cache entry made there. Changing it
+  moves every such id, which bookmarks and cached graphs name. The question is
+  whether symbol ids are re-keyed from the root as file ids are.
 
 ## 4. Unfinished, and what done looks like
 
@@ -428,6 +443,15 @@ each pull request into it is behind its base until brought level.
   the status generators read before numbering anything new, with a test that
   removes a private repository and sees every other reference unmoved.
   (2026-10-31)
+- **codecartographer#171, a dragged node's edges** (2026-11-24), is a draft
+  stacked on codecartographer#170, every check on the host green. It escapes a
+  node id before the id goes into a selector, so a node whose id holds a
+  backslash or a quote takes its edges and label with it when dragged. Done is
+  codecartographer#170 merged, this one retargeted onto `main` before the
+  merged branch is deleted, marked ready, and merged by a person. Two sibling worktrees of
+  codecartographer, `lean-reader` and `edges-follow`, hold the two branches;
+  each goes when its pull request lands.
+
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
@@ -619,6 +643,15 @@ re-checked and is re-derived before anyone acts on it.
   on the host intermittently. `MidiActionSenderTest` collects what its fake
   destination receives in a plain list while its sender delivers on a
   background dispatcher; it has not been seen to fail.
+- That codecartographer's Lean reader agrees with Lean (2026-11-24, at
+  codecartographer#170's `726634f`). It was written and tested with no Lean
+  toolchain installed: its tests hold it to sources written for them, not to
+  what Lean reports of the same sources, and it has not read Mathlib. Done is
+  its declarations and `uses` edges for one real library compared with what
+  Lean itself lists.
+- That `examples/lean-proofs` in codecartographer#170 compiles. Done is `lake
+  build` in that directory exiting zero, with the one `sorry` its README names
+  as the only warning of its kind.
 
 ## 6. Standing constraints
 
