@@ -224,10 +224,13 @@ Answered by Peter Kagstrom on 2026-09-20, in session.
 
 **Answering the human queue from the web.** Attested by `ci/attested-registry.yaml`;
 dossier's terminal does it with a required name, one question at a time, no
-batch. Whether the web window should ever post an answer — and if so under what
-identity, since a browser session names nobody by default — wants its own
-consideration and review before it is built. Until then the queue is read-only
-here, and a panel that shows a question says where it can be answered.
+batch. `adr/DRAFT-the-web-window-carries-a-persons-answer.md` on
+`project/codecartographer` is the decision, Proposed: the window relays the
+answer a person gives to a consent request an act on an instruction raised, on
+a loopback bind only. Under what identity it answers, since a browser session
+names nobody by default, is that record's `Pends on`. Every other request on
+the queue is read-only here, and a panel that shows one says where it can be
+answered.
 
 ## Open
 
