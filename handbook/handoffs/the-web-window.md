@@ -138,9 +138,14 @@ in Phase 2's overlay; its draft lands in the human queue. **Every decision is
 the harness's:** an execution route in qmcp (not yet written), the spend
 declared and consented there (`records/DRAFT-no-unattended-spending.md`), the
 refusal of a shape against an attested act asked of `orchestration.refuses` at
-run. Nothing in the window turns a draft into a decision, and **answering the
-queue from the web is deferred by decision** — build nothing for it until it
-has been reviewed.
+run. Nothing in the window turns a draft into a decision. **Answering the
+queue from the web is bounded by a record**,
+`adr/DRAFT-the-web-window-carries-a-persons-answer.md` on
+`project/codecartographer`, Proposed: the window relays the answer a person
+gives to a consent request an act on an instruction raised, on a loopback bind,
+and shows every other request without answering it. Whether the consent a
+run of a shape asks for is one of those requests is that record's revision
+trigger, read when the execution route exists.
 
 ## 5. Phase 5 — cartography and chrestomathy
 
