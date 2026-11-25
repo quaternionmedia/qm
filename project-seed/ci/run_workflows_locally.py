@@ -216,8 +216,18 @@ def _force_utf8_output() -> None:
 
 
 def triggers(workflow: dict) -> dict:
-    # `on:` parses as the boolean True under YAML 1.1.
-    return workflow.get("on", workflow.get(True)) or {}
+    """The workflow's events, each with its filters or None.
+
+    `on:` parses as the boolean True under YAML 1.1, and Actions takes it in
+    three forms: one event (`on: push`), a list of events (`on: [push,
+    pull_request]`) and a mapping of events to their filters. The first two
+    have no filters, so each event maps to None."""
+    on = workflow.get("on", workflow.get(True)) or {}
+    if isinstance(on, str):
+        return {on: None}
+    if isinstance(on, list):
+        return {event: None for event in on}
+    return on
 
 
 def applies(wf: dict, event: str, ref: str, base_ref: str) -> tuple[bool, str]:

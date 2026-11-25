@@ -62,6 +62,41 @@ def test_a_genuinely_passing_step_is_reported_as_pass(repo: Path):
     assert "PASS" in result.stdout
 
 
+# Mutation: return `on:` as written, list or string -- both fail.
+def test_a_workflow_triggered_by_a_list_of_events_runs(repo: Path):
+    """`on: [push, pull_request]` names its events without filters; the step
+    runs, and its failure is reported rather than the runner crashing."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        (
+            "name: T\non: [push, pull_request]\n\n"
+            "jobs:\n  j:\n    runs-on: ubuntu-latest\n    steps:\n"
+            "      - name: runs, and fails\n        run: exit 1\n"
+        ),
+    )
+    commit_all(repo, "add a workflow triggered by a list of events")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "main", cwd=repo)
+    assert "Traceback" not in result.stdout + result.stderr, result.stderr
+    assert result.returncode == 1, result.stdout
+    assert "FAIL" in result.stdout
+
+
+def test_one_event_named_alone_is_not_matched_as_a_substring(repo: Path):
+    """`on: pull_request_target` is not a pull request: the workflow is skipped."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        (
+            "name: T\non: pull_request_target\n\n"
+            "jobs:\n  j:\n    runs-on: ubuntu-latest\n    steps:\n"
+            "      - name: never runs here\n        run: exit 1\n"
+        ),
+    )
+    commit_all(repo, "add a workflow triggered by one other event")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "main", cwd=repo)
+    assert "Traceback" not in result.stdout + result.stderr, result.stderr
+    assert "SKIP" in result.stdout
+
+
 def test_a_branch_filter_that_does_not_match_skips_rather_than_passes(repo: Path):
     """A skipped workflow must not be counted as a passing one."""
     write(
