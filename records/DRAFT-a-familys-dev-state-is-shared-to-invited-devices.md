@@ -7,7 +7,7 @@
 | **Namespace** | org |
 | **Binds** | This corpus, and any project that adopts it |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | `ownership-is-the-deliverable` — the share runs on a host the organisation holds, and no request to it passes through a relay somebody else rents out; `systems-over-heroics` — a share is recreated from commits and a manifest, and its state from a snapshot, never from what one developer's machine happens to hold |
+| **Principle** | `ownership-is-the-deliverable` — the share runs on a host the organisation holds, and who can reach it is decided by enrolling a device, not by holding a link somebody else's service issued; `systems-over-heroics` — a share is recreated from commits and a manifest, and its state from a snapshot, never from what one developer's machine happens to hold |
 
 ## Context
 
@@ -65,7 +65,12 @@ the same address, so a link one of them sends works for the others. The host
 may also serve it on its own loopback, for the sessions and monitors on that
 machine.
 
-Enrolling a device is the share's operator's act, one device at a time.
+Enrolling a device is the share's operator's act, one device at a time. The
+network's membership is kept by a controller on a host the organisation holds,
+so enrolling a device depends on no hosted service. Where two devices cannot
+reach each other directly, the network may carry their packets through relays
+it does not own; they carry them encrypted, and they decide nothing about who
+reaches the share.
 
 ### §2 — The application's own login, and no bypass
 
@@ -165,8 +170,8 @@ from going stale.
    command and no configuration. It cannot outlive the session that opened it,
    its address changes each time, so nothing can link to it, and it exposes
    whatever the developer's working tree runs at that moment, bypass included.
-   Its traffic passes through the tunnel provider's relay. It never goes stale
-   and is never stable, which is why it is rejected.
+   Its address is the provider's, and anyone holding the link reaches it. It
+   never goes stale and is never stable, which is why it is rejected.
 3. **A public address, with the application's login as the only gate.** It
    costs a domain, certificates and an open port, and stays current as the share
    does. It cannot keep a development branch's unreviewed routes off the
