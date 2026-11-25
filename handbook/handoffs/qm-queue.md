@@ -550,10 +550,9 @@ re-checked and is re-derived before anyone acts on it.
   every local gate green and waits on a person's merge, as that repository's
   `AGENTS.md` item 3 has it. Done is it merged, and then
   [`the-web-window.md`](the-web-window.md) §2 moved into its §0. The harness
-  gives a box an address only for a repository its archive knows, so a
-  subject it does not know is drawn with no address and its state is listed
-  as naming no box. Done for that is the harness sending the subject's
-  address whenever its roster holds the name.
+  gives a subject its address whenever the corpus's roster names it, since
+  qmcp#143; a subject the roster does not name is drawn with no address, and
+  its state is listed as naming no box.
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
