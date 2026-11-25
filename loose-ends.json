@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-23T18:02:10Z",
+  "generated_at": "2026-11-25T01:18:23Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-23T18:01:55Z"
+        "generated_at": "2026-11-25T01:17:10Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 245,
+    "loose_ends": 246,
     "by_kind": {
       "blind-spot": 21,
       "document-proposed": 42,
-      "document-unreviewed": 98,
+      "document-unreviewed": 99,
       "stalled-thread": 84
     },
-    "open": 245,
+    "open": 246,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1262,6 +1262,14 @@
       "title": "perspectives/2026-11-21-the-evidence-was-in-the-context.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-21-the-evidence-was-in-the-context",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-24-a-reader-written-without-its-language",
+      "title": "perspectives/2026-11-24-a-reader-written-without-its-language.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-24-a-reader-written-without-its-language",
       "address_parses": true
     },
     {

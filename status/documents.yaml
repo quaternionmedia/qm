@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-23T18:01:55Z'
+generated_at: '2026-11-25T01:17:10Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -123,7 +123,7 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 318
+  documents: 319
   by_state:
     dated: 2
     draft: 3
@@ -131,7 +131,7 @@ totals:
     proposed: 42
     standing: 93
     transient: 23
-    unreviewed: 98
+    unreviewed: 99
   disagreements: 0
   unknown: 0
 documents:
@@ -1988,6 +1988,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-11-21-the-evidence-was-in-the-context.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-11-24-a-reader-written-without-its-language.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
