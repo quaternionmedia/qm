@@ -19,7 +19,9 @@ that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
 re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. Those
 that name 2026-11-24 were re-derived at `qm` `63c92f8` and `codecartographer`
 `main` `0eb0b72`, with codecartographer#170 at `726634f` and
-codecartographer#171 at `0ff746e`. The
+codecartographer#171 at `0ff746e`. Those that name 2026-11-25 were re-derived
+at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
+alfred#169 open on `feat/who-spoke` at `efa270d`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -179,6 +181,16 @@ pick up alone; that page is then listed in the index and named here.
     starts a process only for a person at the machine, on a loopback route,
     after consent; and tools keep no state but a client's credentials, as the
     `alfred_*` tools keep alfred's token. (2026-11-22)
+25. **A family's development state is shared by one standing share on one
+    host**, reached only from devices enrolled in a private network whose
+    controller is a host the organisation holds, signed in with the
+    application's own login, serving commits a machine-scoped manifest names,
+    with state of its own snapshotted by name
+    (`records/DRAFT-a-familys-dev-state-is-shared-to-invited-devices.md`).
+    alfred's is `./al share` (alfred#169), and `docs/join.md` there is the
+    page an invited person with no technical background follows. A session
+    uses the standing share rather than starting a second, and moves it with
+    `./al share move`. (2026-11-25)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -451,6 +463,26 @@ each pull request into it is behind its base until brought level.
   merged branch is deleted, marked ready, and merged by a person. Two sibling worktrees of
   codecartographer, `lean-reader` and `edges-follow`, hold the two branches;
   each goes when its pull request lands.
+- **alfred#169, the shared family** (2026-11-25), is ready on `feat/who-spoke`
+  beside alfred#157 to alfred#167, and merges after alfred#156 in the stack's
+  order, once alfred's `main` takes approved merges. It rebuilds alfred#168,
+  closed, whose `feat/family-share` branch differs from it only in one commit's
+  author and can be deleted once alfred#169 lands. Done is alfred#169 merged.
+  What it leaves, each its own piece of work:
+  - `./al share` writes no run-file, so `qm instances` reads the share's ports
+    as undeclared. Done is the share declaring each member as
+    `handbook/running-several-repositories.md` has a server declare itself.
+  - alfred's login page offers Create an account and Forgot password on a
+    server that takes no registrations and sends no mail. Done is the page
+    offering only what the server does, which needs the server to say so.
+  - The local workflow runner runs a step with the workstation's own global
+    configuration, so a step that writes it, as a deploy job's
+    `git config --global` does, writes the person's. Done is every step run
+    with a scratch global git configuration and home, and a test whose step
+    writes one and finds the person's unchanged.
+  - looksatwords keeps its `data.json` in its clone, outside the share's
+    directory, so no snapshot holds it. Done is looksatwords taking a state
+    directory, as `qm family-demo`'s contract asks of a member.
 
 ### Carried from retired pages
 
@@ -622,6 +654,9 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 5. Not verified
 
+- A device other than a share's host reaching the share over its private
+  network: the share's own address was reached from the host, at a phone's
+  width, and no other device had joined. (2026-11-25)
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.
