@@ -244,6 +244,111 @@ def applies(wf: dict, event: str, ref: str, base_ref: str) -> tuple[bool, str]:
     return False, f"{event} branches {branches} do not match {target!r}"
 
 
+class Unevaluated(Exception):
+    """An `if:` outside the grammar `evaluate_if` reads."""
+
+
+_IF_TOKEN = re.compile(
+    r"(?P<op>\(|\)|&&|\|\||==|!=|!)"
+    r"|'(?P<string>(?:[^']|'')*)'"
+    r"|(?P<literal>true|false)\b"
+    r"|(?P<name>[A-Za-z_][\w.-]*)"
+)
+
+
+def evaluate_if(condition, ctx: dict) -> bool:
+    """A job's `if:`, for the grammar the estate's workflows use: context names
+    from `ctx` and quoted strings or booleans, compared with `==` and `!=`,
+    joined with `!`, `&&`, `||` and parentheses. Strings compare without case,
+    as Actions compares them.
+
+    Anything else raises `Unevaluated`: a function, a name `ctx` does not
+    hold, a null, or a comparison across types, where Actions coerces and this
+    would have to guess. The caller does not run such a job."""
+    if isinstance(condition, bool):
+        return condition
+    text = str(condition).strip()
+    wrapped = re.fullmatch(r"\$\{\{(.*)\}\}", text, re.S)
+    if wrapped:
+        text = wrapped.group(1).strip()
+    tokens: list[tuple[str, object]] = []
+    pos = 0
+    while pos < len(text):
+        if text[pos].isspace():
+            pos += 1
+            continue
+        m = _IF_TOKEN.match(text, pos)
+        if not m:
+            raise Unevaluated(condition)
+        if m.group("op"):
+            tokens.append(("op", m.group("op")))
+        elif m.group("string") is not None:
+            tokens.append(("value", m.group("string").replace("''", "'")))
+        elif m.group("literal"):
+            tokens.append(("value", m.group("literal") == "true"))
+        else:
+            name = m.group("name")
+            if name not in ctx or ctx[name] is None:
+                raise Unevaluated(condition)
+            tokens.append(("value", ctx[name]))
+        pos = m.end()
+
+    def peek(i: int):
+        return tokens[i] if i < len(tokens) else ("end", None)
+
+    def truth(value) -> bool:
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, str):
+            return value != ""
+        raise Unevaluated(condition)
+
+    def operand(i: int):
+        kind, value = peek(i)
+        if (kind, value) == ("op", "!"):
+            inner, i = operand(i + 1)
+            return not truth(inner), i
+        if (kind, value) == ("op", "("):
+            inner, i = either(i + 1)
+            if peek(i) != ("op", ")"):
+                raise Unevaluated(condition)
+            return inner, i + 1
+        if kind != "value":
+            raise Unevaluated(condition)
+        return value, i + 1
+
+    def comparison(i: int):
+        left, i = operand(i)
+        kind, op = peek(i)
+        if (kind, op) not in (("op", "=="), ("op", "!=")):
+            return left, i
+        right, i = operand(i + 1)
+        if type(left) is not type(right):
+            raise Unevaluated(condition)
+        if isinstance(left, str):
+            left, right = left.lower(), right.lower()
+        return (left == right) == (op == "=="), i
+
+    def both(i: int):
+        value, i = comparison(i)
+        while peek(i) == ("op", "&&"):
+            other, i = comparison(i + 1)
+            value = truth(value) and truth(other)
+        return value, i
+
+    def either(i: int):
+        value, i = both(i)
+        while peek(i) == ("op", "||"):
+            other, i = both(i + 1)
+            value = truth(value) or truth(other)
+        return value, i
+
+    value, end = either(0)
+    if end != len(tokens):
+        raise Unevaluated(condition)
+    return truth(value)
+
+
 # An `env:` value the runner would fill from something that does not exist off
 # the runner: the installation token, and any secret. There is no correct local
 # value for these -- and the two wrong ones both cost a real failure.
@@ -414,6 +519,18 @@ def main() -> int:
     # A local run has no number, so the head branch stands in. A push runs on `--ref`.
     ref_name = f"{args.head_ref or current}/merge" if args.event == "pull_request" else args.ref
     ctx["github.ref_name"] = ref_name
+    # The full ref, as a job's `if:` compares it: the merge ref on a pull
+    # request, the branch on a push.
+    ctx["github.ref"] = (
+        f"refs/pull/{ref_name}" if args.event == "pull_request" else f"refs/heads/{args.ref}"
+    )
+    # What a job's `if:` may read beyond that: a local run checks a pull
+    # request as it runs once it is ready, so it is not a draft.
+    conditions = (
+        {**ctx, "github.event.pull_request.draft": False}
+        if args.event == "pull_request"
+        else ctx
+    )
     gh_env = {
         "GITHUB_REPOSITORY": slug,
         "GITHUB_REF_NAME": ref_name,
@@ -445,6 +562,21 @@ def main() -> int:
             continue
         print(f"\n=== {f.name} ({name})")
         for job_id, job in wf.get("jobs", {}).items():
+            # A job's own `if:` decides whether it runs at all, as on the
+            # runner: a push-only deploy job never runs on a pull request. One
+            # this cannot evaluate is not run, because running it would do on
+            # this machine what the condition exists to prevent.
+            if "if" in job:
+                try:
+                    runs = evaluate_if(job["if"], conditions)
+                except Unevaluated:
+                    print(f"  - [skip] job {job_id}: its if: ({job['if']}) is not "
+                          f"evaluated here, so the job is not run")
+                    continue
+                if not runs:
+                    print(f"  - [skip] job {job_id}: its if: ({job['if']}) is false "
+                          f"for {args.event}")
+                    continue
             outputs: dict[str, str] = {}
             job_failed = False
             for step in job.get("steps", []):

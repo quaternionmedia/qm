@@ -62,6 +62,57 @@ def test_a_genuinely_passing_step_is_reported_as_pass(repo: Path):
     assert "PASS" in result.stdout
 
 
+def job_with_if(condition: str) -> str:
+    """One pull-request workflow whose only job carries `if: <condition>`, and
+    whose step leaves a file behind when it runs."""
+    return (
+        "name: T\non:\n  push:\n  pull_request:\n\n"
+        "jobs:\n  deploy:\n"
+        f"    if: {condition}\n"
+        "    runs-on: ubuntu-latest\n    steps:\n"
+        "      - name: leaves a mark\n        run: touch job-ran\n"
+    )
+
+
+# Mutation: run every job whatever its `if:` -- this fails, and the step it
+# runs is the one a deploy job's `git config --global` was.
+def test_a_job_for_another_event_is_not_run(repo: Path):
+    """A push-only job, as a deploy is, never runs on a pull-request run."""
+    write(repo / ".github" / "workflows" / "t.yml", job_with_if("github.event_name == 'push'"))
+    commit_all(repo, "add a push-only job")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "main", cwd=repo)
+    assert not (repo / "job-ran").exists(), result.stdout
+    assert "[skip] job deploy" in result.stdout
+
+
+# Mutation: run a job whose `if:` cannot be read -- this fails.
+def test_a_job_whose_condition_is_not_read_here_is_not_run(repo: Path):
+    """An `if:` outside what the runner evaluates is reported, never guessed."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        job_with_if("contains(github.event.head_commit.message, 'deploy')"),
+    )
+    commit_all(repo, "add a job with a condition the runner cannot read")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "main", cwd=repo)
+    assert not (repo / "job-ran").exists(), result.stdout
+    assert "not evaluated here" in result.stdout
+
+
+# Mutation: skip every job that carries an `if:` -- this fails.
+def test_a_job_whose_condition_holds_runs(repo: Path):
+    """The docs-draft job's condition holds for a ready pull request, so it runs."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        job_with_if(
+            "github.event_name == 'workflow_dispatch' || "
+            "(github.event.pull_request.draft == false && github.ref != 'refs/heads/main')"
+        ),
+    )
+    commit_all(repo, "add a job whose condition holds for a pull request")
+    result = run_tool("run_workflows_locally.py", "--base-ref", "main", cwd=repo)
+    assert (repo / "job-ran").exists(), result.stdout
+
+
 # Mutation: return `on:` as written, list or string -- both fail.
 def test_a_workflow_triggered_by_a_list_of_events_runs(repo: Path):
     """`on: [push, pull_request]` names its events without filters; the step
