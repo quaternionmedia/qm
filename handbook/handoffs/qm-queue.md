@@ -585,6 +585,11 @@ re-checked and is re-derived before anyone acts on it.
   gives a subject its address whenever the corpus's roster names it, since
   qmcp#143; a subject the roster does not name is drawn with no address, and
   its state is listed as naming no box.
+- **codecartographer's unfetched corpus** (2026-11-26). codecartographer#173
+  has a corpus checkout that holds nothing say it was not fetched and name
+  the command that fetches it, where it blamed the pin. It is open with every
+  local gate green and waits on a person's merge, as #172 does. Done is it
+  merged.
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
