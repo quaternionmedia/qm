@@ -64,6 +64,12 @@ uvx 'reuse[charset-normalizer]' lint
 
 When you report a local run, say what you ran and what it said — including which steps the runner could not reproduce. A local failure can be a real defect or an environment difference; establish which before reporting it.
 
+Servers running on the machine are one such difference. A test that asks a running surface skips when nothing is listening, and runs when something is: with the harness and the web front end up, `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree` asks them in the middle of the parallel suite, and the web front end can give up on the harness before the harness answers. Run that test alone before reading its failure as a defect:
+
+```bash
+uv run --extra dev python -m pytest ci/tests/test_trio_demo.py -q
+```
+
 ## Related
 
 - [project-seed/ci/run_workflows_locally.py](https://github.com/quaternionmedia/qm/blob/main/project-seed/ci/run_workflows_locally.py) — the runner
