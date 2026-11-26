@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-25T02:26:17Z",
+  "generated_at": "2026-11-26T02:00:00Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-25T02:25:25Z"
+        "generated_at": "2026-11-26T01:59:58Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 247,
+    "loose_ends": 248,
     "by_kind": {
       "blind-spot": 21,
       "document-proposed": 43,
-      "document-unreviewed": 99,
+      "document-unreviewed": 100,
       "stalled-thread": 84
     },
-    "open": 247,
+    "open": 248,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1278,6 +1278,14 @@
       "title": "perspectives/2026-11-24-a-reader-written-without-its-language.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-24-a-reader-written-without-its-language",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-25-sharing-a-dev-state",
+      "title": "perspectives/2026-11-25-sharing-a-dev-state.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-25-sharing-a-dev-state",
       "address_parses": true
     },
     {
