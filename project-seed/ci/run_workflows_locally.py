@@ -31,6 +31,14 @@ What this does NOT reproduce, and where it can therefore be wrong:
 
 So a pass here is evidence, not proof.
 
+What it keeps off this machine: git's global configuration. A runner is a
+fresh machine per job, so a workflow may set an identity with
+`git config --global` -- a docs deploy committing as a bot, say. Here each job's
+steps get `GIT_CONFIG_GLOBAL` pointing at a copy of this machine's global
+configuration, so a step reads what it would have read and its writes stay in
+the copy, which is deleted with the job. Anything else a step writes under the
+home directory is written for real.
+
 A failure is not proof either, and saying otherwise was wrong: a step can fail
 locally for reasons the runner image does not have -- missing browsers, no
 display, a different OS. Apothecary's suite fails here and is green in CI for
@@ -172,6 +180,10 @@ def environment_report(env: dict[str, str]) -> list[str]:
     it is labelled as unused because no workflow step here calls it.
     """
     lines = [f"  - [env ] shell: {resolve_bash()}"]
+    lines.append(
+        "  - [env ] git: each job's steps get a copy of this machine's global "
+        "config, and their writes stay in it"
+    )
 
     code, out = probe(["gh", "auth", "status"])
     if code is None:
@@ -293,6 +305,33 @@ def step_env(
             text = text.replace("${{" + expr + "}}", str(value))
         resolved[key] = text
     return resolved, dropped
+
+
+def global_git_configs(env: dict[str, str]) -> list[Path]:
+    """The files git reads as its global configuration in `env`, existing or not.
+
+    `GIT_CONFIG_GLOBAL` replaces both of the others when it is set.
+    """
+    if env.get("GIT_CONFIG_GLOBAL"):
+        return [Path(env["GIT_CONFIG_GLOBAL"])]
+    home = Path(env.get("HOME") or Path.home())
+    xdg = Path(env["XDG_CONFIG_HOME"]) if env.get("XDG_CONFIG_HOME") else home / ".config"
+    return [xdg / "git" / "config", home / ".gitconfig"]
+
+
+def job_git_config(env: dict[str, str], into: Path) -> Path:
+    """A copy of this machine's global git configuration for one job's steps.
+
+    The copy holds each global file that exists, in the order git reads them, so
+    `git config --global` reads the same values and writes to the copy. An
+    `[include]` with a relative path resolves against the copy's directory, not
+    the original's.
+    """
+    config = into / "gitconfig"
+    config.write_bytes(
+        b"".join(real.read_bytes() + b"\n" for real in global_git_configs(env) if real.is_file())
+    )
+    return config
 
 
 def substitute(script: str, ctx: dict, outputs: dict) -> str:
@@ -447,6 +486,8 @@ def main() -> int:
         for job_id, job in wf.get("jobs", {}).items():
             outputs: dict[str, str] = {}
             job_failed = False
+            job_dir = Path(tempfile.mkdtemp())
+            git_config = job_git_config(dict(os.environ), job_dir)
             for step in job.get("steps", []):
                 label = step.get("name") or step.get("uses", "<step>")
                 # Actions halts a job at its first failed step. Running on past
@@ -478,7 +519,12 @@ def main() -> int:
                     path = fh.name
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
-                env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
+                env = {
+                    **os.environ,
+                    "GITHUB_OUTPUT": str(out_file),
+                    "GIT_CONFIG_GLOBAL": str(git_config),
+                    **gh_env,
+                }
                 # The workflow's env, then the job's, then the step's, as a runner
                 # exports them: jobs that share their steps and differ only in env
                 # (a shard number, say) run as themselves.
@@ -551,6 +597,7 @@ def main() -> int:
                     # carry on, which is what the runner does.
                     job_failed = job_failed or not step.get("continue-on-error")
                 os.unlink(path)
+            shutil.rmtree(job_dir, ignore_errors=True)
 
     print(f"\n{'=' * 60}")
     if failures:

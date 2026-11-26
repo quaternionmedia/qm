@@ -14,9 +14,11 @@ when the summary says PASS.
 
 from __future__ import annotations
 
+import subprocess
+import sys
 from pathlib import Path
 
-from conftest import commit_all, git, run_tool, write
+from conftest import CI_DIR, ENV, commit_all, git, run_tool, write
 
 
 def workflow(body: str) -> str:
@@ -459,3 +461,44 @@ def test_an_origin_with_no_base_branch_is_told_to_fetch(repo: Path):
     result = run_tool("run_workflows_locally.py", "--base-ref", "no-such-branch", cwd=repo)
     assert "git fetch origin" in result.stdout, result.stdout
     assert result.stdout.index("git fetch origin") < result.stdout.index("[PASS] fine")
+
+
+def test_a_steps_global_git_config_stays_in_its_job(repo: Path, tmp_path: Path):
+    """A workflow that sets a bot identity with `git config --global` sets it for
+    its own job, as on a fresh runner, and never in this machine's file. A step
+    still reads the machine's values, and the next job starts from them again.
+
+    Mutation: leave `GIT_CONFIG_GLOBAL` out of a step's environment -- the
+    machine's file takes the bot's name, and the first assertion fails.
+    """
+    machine = tmp_path / "machine.gitconfig"
+    machine.write_text("[user]\n\tname = Developer\n", encoding="utf-8", newline="\n")
+    before = machine.read_bytes()
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        "name: T\non:\n  pull_request:\n\njobs:\n"
+        "  deploy:\n    runs-on: ubuntu-latest\n    steps:\n"
+        "      - name: reads then sets\n        run: |\n"
+        '          echo "read $(git config --global user.name)"\n'
+        "          git config --global user.name bot\n"
+        "      - name: sees the set\n"
+        '        run: echo "then $(git config --global user.name)"\n'
+        "  next:\n    runs-on: ubuntu-latest\n    steps:\n"
+        "      - name: a fresh job\n"
+        '        run: echo "fresh $(git config --global user.name)"\n',
+    )
+    commit_all(repo, "a workflow that sets a global identity")
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "run_workflows_locally.py")],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        cwd=str(repo),
+        env={**ENV, "GIT_CONFIG_GLOBAL": str(machine)},
+    )
+    assert machine.read_bytes() == before, machine.read_text(encoding="utf-8")
+    assert result.returncode == 0, result.stdout
+    assert "read Developer" in result.stdout, result.stdout
+    assert "then bot" in result.stdout, result.stdout
+    assert "fresh Developer" in result.stdout, result.stdout
