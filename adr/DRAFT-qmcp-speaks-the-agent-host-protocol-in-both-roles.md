@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-11-26 |
-| **Pends on** | Two inputs. **(a)** How a turn started over the protocol states its budget. An act's budget defaults to zero, which declares and stops, and the protocol's turn carries no budget; §4 keeps that default until this is settled. **(b)** How qmcp knows who answered a consent request relayed by an attached client. §5 bounds the relay to the one case where the question has an answer without it |
+| **Pends on** | How qmcp knows who answered a consent request relayed by an attached client. §5 bounds the relay to the one case where the question has an answer without it |
 | **Principle** | `build-the-seam-buy-the-engines` — custom code concentrates where sovereignty matters |
 
 ## Context
@@ -63,9 +63,10 @@ are qmcp's and are unchanged.**
    adds no second record of the work: the instruction row and its outcome are
    the record.
 
-4. **Consent and budget are the act's own.** A turn's act asks its consent on
-   the human queue as every act does, and runs nothing until it is approved.
-   Its budget is the act's default until **(a)** is settled.
+4. **A turn is issued against one run.** The protocol's turn carries no
+   budget, so the host states one: a turn's act may make one run. It asks
+   consent for that run on the human queue as every act with a budget does,
+   and runs nothing until it is approved. A turn states no other budget.
 
 5. **An attached client may relay a person's answer to that consent, on a
    loopback connection.** The host shows the request as the queue holds it and
@@ -113,16 +114,16 @@ whose wire types may change.
 A consent request becomes answerable from one more surface. The queue's
 refusal of a second answer orders the surfaces. `responded_by` naming a
 protocol is weaker than naming a person; on a loopback connection that is the
-gap the command line already has, and it is **(b)**.
+gap the command line already has, and it is what this record pends on.
 
 `ci/attested-registry.yaml`'s entry for answering the queue is unchanged: its
 evidence is the response row, and the relay writes that row through the
 queue's own route.
 
-A turn that cannot state a budget runs under the default of zero, so over the
-protocol an act declares what it would need and stops. That makes the host
-role incomplete for any runtime that spends until **(a)** is settled, and the
-incompleteness is the spending record working.
+A turn is one run and one consent. A client cannot raise that, so work that
+needs more runs is issued as an act from the command line or a page, where
+the budget is stated. Every turn puts a request on the human queue, and one
+left unanswered expires as any request does.
 
 Tests hold each clause without a second program: a fake host for the client
 role, a fake client for the host role, both over an in-process message
@@ -159,9 +160,16 @@ routes absent.
    so a change in the protocol is a refused handshake and a failing test, not
    silent drift.
 
+7. **A turn runs under the act's default budget of zero.** The turn declares
+   what it would need and stops, and a person issues the act elsewhere with a
+   budget. It lost because a client then starts nothing that runs, and §5 has
+   no request to relay.
+
 ## Revision triggers
 
-- **(a)** or **(b)** in **Pends on** is settled.
+- The input in **Pends on** is settled.
+- A turn is wanted against more than one run, or against a budget the client
+  states.
 - The protocol publishes a version that removes or renames a message this
   record's clauses rest on: the session's creation, a turn's start and end,
   or the held confirmation.
