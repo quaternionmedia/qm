@@ -22,7 +22,7 @@ that name 2026-11-24 were re-derived at `qm` `63c92f8` and `codecartographer`
 codecartographer#171 at `0ff746e`. Those that name 2026-11-25 were re-derived
 at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
 alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
-2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `a7c2d61`,
+2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
 `project/qmcp` and `apothecary` `main` `538daf70`. The
 rest of the page holds at the stamp, which those entries do not move.
 
@@ -226,15 +226,15 @@ each pull request into it is behind its base until brought level.
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
-- **How a turn over the Agent Host Protocol states its budget**
-  (2026-11-26), input (a) of
+- **Who answered a consent that a client relayed over the Agent Host
+  Protocol** (2026-11-26), the input
   `adr/DRAFT-qmcp-speaks-the-agent-host-protocol-in-both-roles.md` on
-  `project/qmcp`, which is `Proposed`. `qmcp` serves the protocol's clients at
-  `/v1/ahp`, and a turn runs under the act's default budget of zero, so it
-  declares and stops and no runtime runs over the protocol. Clause 5 of the
-  record, a client relaying a person's consent answer on loopback, is not
-  built: with no budget no consent is asked, so no turn could reach it. Its
-  input (b), who answered a relayed consent, waits behind (a).
+  `project/qmcp` pends on; the record is `Proposed`. `qmcp` serves the
+  protocol's clients at `/v1/ahp`. A turn is issued against one run, its
+  consent is shown in the chat, and a client attached from the machine `qmcp`
+  runs on relays a person's answer through the queue's own route. The
+  response row names `agent-host-protocol` as the surface the answer came
+  through and names no person.
 - **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
   held by the person (2026-11-22). The stated intent is a licence under which
   a derivative stays open, with Creative Commons named; the outbound-licensing
