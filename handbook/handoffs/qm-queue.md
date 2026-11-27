@@ -492,11 +492,6 @@ each pull request into it is behind its base until brought level.
   - alfred's login page offers Create an account and Forgot password on a
     server that takes no registrations and sends no mail. Done is the page
     offering only what the server does, which needs the server to say so.
-  - The local workflow runner runs a step with the workstation's own global
-    configuration, so a step that writes it, as a deploy job's
-    `git config --global` does, writes the person's. Done is every step run
-    with a scratch global git configuration and home, and a test whose step
-    writes one and finds the person's unchanged.
   - looksatwords keeps its `data.json` in its clone, outside the share's
     directory, so no snapshot holds it. Done is looksatwords taking a state
     directory, as `qm family-demo`'s contract asks of a member.
@@ -714,7 +709,9 @@ re-checked and is re-derived before anyone acts on it.
   model, by a script no repository holds. (2026-11-26)
 - A device other than a share's host reaching the share over its private
   network: the share's own address was reached from the host, at a phone's
-  width, and no other device had joined. (2026-11-25)
+  width, and no other device had joined. The two tests that establish it,
+  and who runs each step, are [`share-connection-test.md`](share-connection-test.md).
+  (2026-11-25)
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.

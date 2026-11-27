@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-11-27T13:21:40Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-11-27T19:37:32Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 46**; 43 proposed |
-| Mandatory reading | under budget | 1232 of 1200 lines — **over** |
+| Mandatory reading | under budget | 1233 of 1200 lines — **over** |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **323**, unfiltered.
+Every governed document in this corpus: **324**, unfiltered.
 
 | | |
 |---|---|
@@ -64,7 +64,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] `unreviewed` | 101 |
 | [G] `generated` | 57 |
 | [S] `standing` | 94 |
-| [T] `transient` | 23 |
+| [T] `transient` | 24 |
 | [H] `dated` | 2 |
 
 ## Documents
@@ -384,6 +384,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/private-34-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qm-queue.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/share-connection-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/showrunner-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/showstopper-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/simultaneous-performing-family-plan-2026-09-21.md` | handoff | — |
