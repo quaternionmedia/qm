@@ -26,8 +26,9 @@ alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name
 2026-11-27 were re-derived at `qm` `fe83a23`, `qmcp` `5e61ec5`,
 `project/qmcp` `37d7041` and `codecartographer` `main` `0eb0b72`, with
-codecartographer#174 at `8bc613d` and codecartographer#175 at `db46281`. The
-rest of the page holds at the stamp, which those entries do not move.
+codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281` and
+codecartographer#176 at `07856a9`. The rest of the page holds at the stamp,
+which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -631,12 +632,19 @@ re-checked and is re-derived before anyone acts on it.
   and a *draw as a graph* control that put the harness's instructions,
   questions, answers and tool runs on the canvas as nodes and edges, a
   protocol turn reading as client, instruction, consent question and whoever
-  answered. It names no machine and no checked person. Seen in a browser, the
-  picture cannot be read: no registered layout places a turn's path in
-  reading order, and with node labels on the labels collide. Done is a layout
-  under which the two turns of a seeded harness can be followed by eye, then
-  #172, #174 and #175 merged in order by a person, each retargeted onto
-  `main` before the branch beneath it is deleted.
+  answered. It names no machine and no checked person. Under the layouts it
+  can ask for, the picture cannot be read; #176 gives it one of its own.
+- **The interactions graph, in reading order** (2026-11-27).
+  codecartographer#176, stacked on #175, is a draft with every host check
+  green: the graph is laid out left to right as who, instruction, question,
+  answerer, with every name drawn and no setting to change, and unnamed rows
+  that belong to no turn drawn as counted nodes. Seen in a browser on a
+  seeded harness, both protocol turns read as straight rows; the lines to
+  sources and projects still cross names. On a harness of many rows it is a
+  column taller than it is wide, with the lines to projects crossing the
+  rows and their names; how such a harness is drawn is undecided. Done
+  is #172, #174, #175 and #176 merged in order by a person, each retargeted
+  onto `main` before the branch beneath it is deleted.
 - **The shop assistant** (2026-11-26).
   [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
   plan: a local model that answers for the workshop through tools `qmcp`
