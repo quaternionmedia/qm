@@ -21,7 +21,9 @@ that name 2026-11-24 were re-derived at `qm` `63c92f8` and `codecartographer`
 `main` `0eb0b72`, with codecartographer#170 at `726634f` and
 codecartographer#171 at `0ff746e`. Those that name 2026-11-25 were re-derived
 at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
-alfred#169 open on `feat/who-spoke` at `efa270d`. The
+alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
+2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `a7c2d61`,
+`project/qmcp` and `apothecary` `main` `538daf70`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -224,6 +226,15 @@ each pull request into it is behind its base until brought level.
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
+- **How a turn over the Agent Host Protocol states its budget**
+  (2026-11-26), input (a) of
+  `adr/DRAFT-qmcp-speaks-the-agent-host-protocol-in-both-roles.md` on
+  `project/qmcp`, which is `Proposed`. `qmcp` serves the protocol's clients at
+  `/v1/ahp`, and a turn runs under the act's default budget of zero, so it
+  declares and stops and no runtime runs over the protocol. Clause 5 of the
+  record, a client relaying a person's consent answer on loopback, is not
+  built: with no budget no consent is asked, so no turn could reach it. Its
+  input (b), who answered a relayed consent, waits behind (a).
 - **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
   held by the person (2026-11-22). The stated intent is a licence under which
   a derivative stays open, with Creative Commons named; the outbound-licensing
@@ -590,6 +601,16 @@ re-checked and is re-derived before anyone acts on it.
   the command that fetches it, where it blamed the pin. It is open with every
   local gate green and waits on a person's merge, as #172 does. Done is it
   merged.
+- **The shop assistant** (2026-11-26).
+  [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
+  plan: a local model that answers for the workshop through tools `qmcp`
+  serves. The read tools are on `qmcp`'s `main`. Nothing joins a model to
+  them as a command, and the plan's comparison of three models ran from a
+  script kept in no repository. Next is `apothecary` starting on Windows,
+  which its `main` does not under Python 3.13, then the assistant as a `qmcp`
+  command with the plan's question set as its test. Done is the plan's first
+  job: a typed question about the workshop answered from a command a reader
+  can run.
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
@@ -659,6 +680,13 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 5. Not verified
 
+- `qmcp`'s two Agent Host Protocol roles against another program: the client
+  role has run against a stand-in host and against `qmcp`'s own host role,
+  the host role against a stand-in client and `qmcp`'s own client role. Both
+  were read from the same type definitions, so their agreement proves neither
+  against a host or a client somebody else wrote. (2026-11-26)
+- The figures in `plans/the-shop-assistant.md`, *Measured*: one run per
+  model, by a script no repository holds. (2026-11-26)
 - A device other than a share's host reaching the share over its private
   network: the share's own address was reached from the host, at a phone's
   width, and no other device had joined. (2026-11-25)
