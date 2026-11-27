@@ -16,11 +16,18 @@ from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 `project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`, and those
 that name 2026-11-19 at `qm` `02fa287`, `qmcp` `8aece3e` and `joe` `188a2cb`,
 asking the host nothing. Those that name 2026-11-21 were re-derived at `qm`
-`5baf779`, `project/qmetronome` `348e31f` and `qmetronome` `3aaaa28`. Those
-that name 2026-11-22 were re-derived at `qm` `2617723`, `project/qmcp`
-`5c5b0fa` and `qmcp` `bd02434`, and those that name 2026-11-24 at `qm`
-`bbb606a`, `project/alfred` `0335b41` and alfred's `feat/ui-journeys`
-`da5f6cf`. The rest of the page holds at the stamp, which those entries do not
+`5baf779`, `project/qmetronome` `348e31f` and `qmetronome` `3aaaa28`. Those that
+name 2026-11-22 were re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and
+`qmcp` `bd02434`. Those that name 2026-11-24 were re-derived at `qm` `63c92f8`
+and `codecartographer` `main` `0eb0b72`, with codecartographer#170 at `726634f`
+and codecartographer#171 at `0ff746e`, and at `qm` `bbb606a`, `project/alfred`
+`0335b41` and alfred's `feat/ui-journeys` `da5f6cf`. Those that name 2026-11-25
+were re-derived at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family`
+`323448b`, with alfred#169 open on `feat/who-spoke` at `efa270d`. Those that
+name 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
+`project/qmcp` and `apothecary` `main` `538daf70`. Those that name 2026-11-27
+were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and `project/qmcp`
+`46198d3`. The rest of the page holds at the stamp, which those entries do not
 move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -180,14 +187,24 @@ pick up alone; that page is then listed in the index and named here.
     starts a process only for a person at the machine, on a loopback route,
     after consent; and tools keep no state but a client's credentials, as the
     `alfred_*` tools keep alfred's token. (2026-11-22)
-25. **The step that cuts a long recording into excerpts lives in a qmcp flow**,
+25. **A family's development state is shared by one standing share on one
+    host**, reached only from devices enrolled in a private network whose
+    controller is a host the organisation holds, signed in with the
+    application's own login, serving commits a machine-scoped manifest names,
+    with state of its own snapshotted by name
+    (`records/DRAFT-a-familys-dev-state-is-shared-to-invited-devices.md`).
+    alfred's is `./al share` (alfred#169), and `docs/join.md` there is the
+    page an invited person with no technical background follows. A session
+    uses the standing share rather than starting a second, and moves it with
+    `./al share move`. (2026-11-25)
+26. **The step that cuts a long recording into excerpts lives in a qmcp flow**,
     placed by the seam record's ordering rule: span-finding from a
     transcript's timing is seam logic no engine owns, labelling by language
     goes to the local model behind a flag, and the review and the render are
     qmcp's already. A joe route and an alfred panel were the alternatives;
     the panel would stack above alfred's open pull requests.
     [`the-video-journey.md`](the-video-journey.md) is the handoff. (2026-11-19)
-26. **The editor shows the harness's proposal through a route of alfred's
+27. **The editor shows the harness's proposal through a route of alfred's
     own, and reads nothing from qmcp.** A project carries cues, moments and
     stretches of its timeline with a label and a state, which the editor
     draws in a lane under the clips and the excerpt flow writes as its
@@ -229,6 +246,19 @@ each pull request into it is behind its base until brought level.
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
+- **Who answered a consent that a client relayed over the Agent Host
+  Protocol** (2026-11-26), the input
+  `adr/DRAFT-qmcp-speaks-the-agent-host-protocol-in-both-roles.md` on
+  `project/qmcp` pends on; the record is `Proposed`. `qmcp` serves the
+  protocol's clients at `/v1/ahp`. A turn is issued against one run, its
+  consent is shown in the chat, and a client attached from the machine `qmcp`
+  runs on relays a person's answer through the queue's own route. The
+  response row names `agent-host-protocol` as the surface the answer came
+  through and names no person.
+- **Whether a protocol client's `decline` or `cancel` is an answer**
+  (2026-11-27). `qmcp` refuses both, because the queue takes one of its
+  options and neither is one; a person who means no chooses `hold`. Reading
+  either as `hold` is the other course, and nobody has chosen between them.
 - **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
   held by the person (2026-11-22). The stated intent is a licence under which
   a derivative stays open, with Creative Commons named; the outbound-licensing
@@ -254,6 +284,18 @@ each pull request into it is behind its base until brought level.
 - **The decisions in `hil-review-2026-10-31.md` §4**: alfred's and
   titanharvest's branches that exist on one disk alone; the worktrees only a
   person may remove.
+- **codecartographer#170, the Lean reader** (2026-11-24), is ready against
+  `main`, every check on the host green, and is merged by a person:
+  codecartographer's `AGENTS.md` item 3 keeps that click for one. It reads
+  `.lean` files at the declaration level, joins Lean to the construct
+  vocabulary and a lexicon, and bundles `examples/lean-proofs`.
+- **Whether a symbol's node id keeps its file's absolute key** in
+  codecartographer (2026-11-24). A file node's id is its path from the root; a
+  Rust or Lean symbol's id carries the file's key, which for a local
+  repository is the absolute path on the machine that read it, so that path
+  travels with every graph, bookmark and cache entry made there. Changing it
+  moves every such id, which bookmarks and cached graphs name. The question is
+  whether symbol ids are re-keyed from the root as file ids are.
 
 ## 4. Unfinished, and what done looks like
 
@@ -448,6 +490,35 @@ each pull request into it is behind its base until brought level.
   the status generators read before numbering anything new, with a test that
   removes a private repository and sees every other reference unmoved.
   (2026-10-31)
+- **codecartographer#171, a dragged node's edges** (2026-11-24), is a draft
+  stacked on codecartographer#170, every check on the host green. It escapes a
+  node id before the id goes into a selector, so a node whose id holds a
+  backslash or a quote takes its edges and label with it when dragged. Done is
+  codecartographer#170 merged, this one retargeted onto `main` before the
+  merged branch is deleted, marked ready, and merged by a person. Two sibling worktrees of
+  codecartographer, `lean-reader` and `edges-follow`, hold the two branches;
+  each goes when its pull request lands.
+- **alfred#169, the shared family** (2026-11-25), is ready on `feat/who-spoke`
+  beside alfred#157 to alfred#167, and merges after alfred#156 in the stack's
+  order, once alfred's `main` takes approved merges. It rebuilds alfred#168,
+  closed, whose `feat/family-share` branch differs from it only in one commit's
+  author and can be deleted once alfred#169 lands. Done is alfred#169 merged.
+  What it leaves, each its own piece of work:
+  - `./al share` writes no run-file, so `qm instances` reads the share's ports
+    as undeclared. Done is the share declaring each member as
+    `handbook/running-several-repositories.md` has a server declare itself.
+  - alfred's login page offers Create an account and Forgot password on a
+    server that takes no registrations and sends no mail. Done is the page
+    offering only what the server does, which needs the server to say so.
+  - The local workflow runner runs a step with the workstation's own global
+    configuration, so a step that writes it, as a deploy job's
+    `git config --global` does, writes the person's. Done is every step run
+    with a scratch global git configuration and home, and a test whose step
+    writes one and finds the person's unchanged.
+  - looksatwords keeps its `data.json` in its clone, outside the share's
+    directory, so no snapshot holds it. Done is looksatwords taking a state
+    directory, as `qm family-demo`'s contract asks of a member.
+
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
@@ -528,6 +599,12 @@ re-checked and is re-derived before anyone acts on it.
   its run-file alone. Done is each serving repository's health route naming
   its pid and port, as `qmcp/instance.py` does, and `qm instances` reading it
   as `identified`. (2026-10-29)
+- **No server says which commit it serves.** `qmcp`'s health answer names its
+  pid, its port, its database and when it started, and names no commit, so a
+  harness started before a merge reads as healthy while it serves none of
+  what the merge added. Done is the health answer naming the commit of the
+  checkout it runs from, and `qm dashboard` printing it beside the state.
+  (2026-11-27)
 - **The family demo declares nothing.** `qm family-demo` keeps its members in
   a manifest, so while it runs every member reads as a listener nobody
   declared in its range, and a member this machine registers reads as
@@ -537,6 +614,29 @@ re-checked and is re-derived before anyone acts on it.
   alfred's excerpt and drafts flows, land in the cross-repository order #345
   records. qmcp#125, `qmcp tour`, is a draft until the tour's records land in
   the corpus (#331, #332).
+- **The web window's Phase 2** (2026-11-24). codecartographer#172, the
+  read-only Harness panel and the run-state marks on the canvas, is open with
+  every local gate green and waits on a person's merge, as that repository's
+  `AGENTS.md` item 3 has it. Done is it merged, and then
+  [`the-web-window.md`](the-web-window.md) §2 moved into its §0. The harness
+  gives a subject its address whenever the corpus's roster names it, since
+  qmcp#143; a subject the roster does not name is drawn with no address, and
+  its state is listed as naming no box.
+- **codecartographer's unfetched corpus** (2026-11-26). codecartographer#173
+  has a corpus checkout that holds nothing say it was not fetched and name
+  the command that fetches it, where it blamed the pin. It is open with every
+  local gate green and waits on a person's merge, as #172 does. Done is it
+  merged.
+- **The shop assistant** (2026-11-26).
+  [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
+  plan: a local model that answers for the workshop through tools `qmcp`
+  serves. The read tools are on `qmcp`'s `main`. Nothing joins a model to
+  them as a command, and the plan's comparison of three models ran from a
+  script kept in no repository. Next is `apothecary` starting on Windows,
+  which its `main` does not under Python 3.13, then the assistant as a `qmcp`
+  command with the plan's question set as its test. Done is the plan's first
+  job: a typed question about the workshop answered from a command a reader
+  can run.
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
@@ -659,6 +759,29 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 5. Not verified
 
+- `qmcp`'s two Agent Host Protocol roles against another program: the client
+  role has run against a stand-in host and against `qmcp`'s own host role,
+  the host role against a stand-in client and `qmcp`'s own client role. Both
+  were read from the same type definitions, so their agreement proves neither
+  against a host or a client somebody else wrote. (2026-11-26)
+- A turn over the protocol on a harness started by `qm dashboard`. The turns
+  that ran, one approved from the client and one held, ran on a server
+  started for the purpose with a database of its own. Asked on 2026-11-27,
+  the harness on 3141 answered at `/v1/ahp` and listed the workshop tools;
+  no turn was started on it.
+- That the queue's refusal of a relayed answer reaches a client where `qmcp`
+  runs as a server. The tests raise the refusal through a test client, whose
+  error is another class than the one the server's own client raises;
+  `ServerActs.answer` reads either by its response, and no run has shown the
+  second. (2026-11-27)
+- The example on `qmcp`'s `docs/integrations/agent-host-protocol.md` against
+  a running server, since a turn asks for one run. A test holds what it
+  prints. (2026-11-27)
+- The figures in `plans/the-shop-assistant.md`, *Measured*: one run per
+  model, by a script no repository holds. (2026-11-26)
+- A device other than a share's host reaching the share over its private
+  network: the share's own address was reached from the host, at a phone's
+  width, and no other device had joined. (2026-11-25)
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.
@@ -688,6 +811,23 @@ re-checked and is re-derived before anyone acts on it.
   on the host intermittently. `MidiActionSenderTest` collects what its fake
   destination receives in a plain list while its sender delivers on a
   background dispatcher; it has not been seen to fail.
+- That codecartographer's Lean reader agrees with Lean (2026-11-24, at
+  codecartographer#170's `726634f`). It was written and tested with no Lean
+  toolchain installed: its tests hold it to sources written for them, not to
+  what Lean reports of the same sources, and it has not read Mathlib. Done is
+  its declarations and `uses` edges for one real library compared with what
+  Lean itself lists.
+- That `examples/lean-proofs` in codecartographer#170 compiles. Done is `lake
+  build` in that directory exiting zero, with the one `sorry` its README names
+  as the only warning of its kind.
+- That `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree` is
+  stable where its servers run (2026-11-24, at `63c92f8`). It asks the
+  harness on 3141 and the codecartographer and dossier front ends that
+  happen to be running. In full local runs of the tooling suite it failed in
+  three of four, codecartographer's front end answering without a rendering,
+  and it passed alone each time, at the base commit as well. Once
+  `test_dashboard.py`'s started-server test failed beside it. Nothing
+  established which server was slow or why.
 
 ## 6. Standing constraints
 

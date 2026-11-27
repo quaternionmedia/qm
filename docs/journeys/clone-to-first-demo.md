@@ -13,13 +13,14 @@ Five repositories cloned side by side, each synced, and one command that runs th
 
 ## 1. Clone the core, side by side
 
-Make one folder and clone into it. `qmcp` carries a submodule, so it is cloned with it.
+Make one folder and clone into it. `qmcp` carries a submodule, so it is cloned with it. `codecartographer` reads the corpus from a submodule of its own, fetched by name after the clone: its other submodule is not public, and the web front end runs without it.
 
 ```sh
 mkdir estate && cd estate
 git clone https://github.com/quaternionmedia/qm.git
 git clone --recurse-submodules https://github.com/quaternionmedia/qmcp.git
 git clone https://github.com/quaternionmedia/codecartographer.git
+git -C codecartographer submodule update --init governance/qm
 git clone https://github.com/quaternionmedia/dossier.git
 git clone https://github.com/quaternionmedia/looksatwords.git
 ```
@@ -85,6 +86,7 @@ uv run qm demo --over-http --side-by-side
 | `program not found` for `qm` | the command ran outside the `qm` clone | `cd qm` first |
 | `<repo> is not beside this clone` | that repository is not in the same folder as `qm` | clone it beside `qm` |
 | `qmcp` fails to sync, naming `vendor/vox` | the submodule was not cloned | `git submodule update --init` in `qmcp` |
+| the web front end's **Estate** tab shows the corpus and the families down | `codecartographer`'s corpus submodule was not fetched | `git submodule update --init governance/qm` in `codecartographer` |
 | `http://127.0.0.1:2718/` shows a page asking for a build | the web front end has no built page | step 2's `npm run build` |
 | a front end reports `has no environment yet` | that repository was not synced | step 2, in that repository |
 
