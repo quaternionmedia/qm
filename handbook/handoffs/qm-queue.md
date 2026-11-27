@@ -26,7 +26,7 @@ alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name
 2026-11-27 were re-derived at `qm` `fe83a23`, `qmcp` `5e61ec5`,
 `project/qmcp` `37d7041` and `codecartographer` `main` `0eb0b72`, with
-codecartographer#174 at `8bc613d`. The
+codecartographer#174 at `8bc613d` and codecartographer#175 at `db46281`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -626,6 +626,17 @@ re-checked and is re-derived before anyone acts on it.
   because the check `codecartographer` pins refuses a ready pull request
   stacked on another; the corpus's current check takes one. Done is #172
   merged, #174 retargeted onto `main`, marked ready and merged by a person.
+- **The web window's interactions graph** (2026-11-27). codecartographer#175,
+  stacked on #174, is a draft with every host check green: `/harness/gjgf`
+  and a *draw as a graph* control that put the harness's instructions,
+  questions, answers and tool runs on the canvas as nodes and edges, a
+  protocol turn reading as client, instruction, consent question and whoever
+  answered. It names no machine and no checked person. Seen in a browser, the
+  picture cannot be read: no registered layout places a turn's path in
+  reading order, and with node labels on the labels collide. Done is a layout
+  under which the two turns of a seeded harness can be followed by eye, then
+  #172, #174 and #175 merged in order by a person, each retargeted onto
+  `main` before the branch beneath it is deleted.
 - **The shop assistant** (2026-11-26).
   [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
   plan: a local model that answers for the workshop through tools `qmcp`
