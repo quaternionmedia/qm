@@ -560,9 +560,8 @@ where one adds work, it names the §2 row that carries it.
 
 ## 5. Standing constraints
 
-- **The round is open as pull requests**, each against the one beneath, a
-  draft while that one is open, as the stacking rule has it, and assigned to
-  the person: alfred's twelve in a chain on alfred's open stack,
+- **The round is open as pull requests**, each against the one beneath and
+  marked ready, as the stack rule has it, and assigned to the person: alfred's twelve in a chain on alfred's open stack,
   quaternionmedia/alfred#145 → quaternionmedia/alfred#146 →
   quaternionmedia/alfred#147 → quaternionmedia/alfred#148 →
   quaternionmedia/alfred#149 → quaternionmedia/alfred#150 →
@@ -579,7 +578,9 @@ where one adds work, it names the §2 row that carries it.
   quaternionmedia/alfred#165 `feat/fluid-tools`, quaternionmedia/alfred#166
   `feat/revealed-words`; and quaternionmedia/alfred#167 `feat/labeller` on
   `feat/topic-titles`. otto's quaternionmedia/otto#37 `feat/motion` and
-  quaternionmedia/otto#38 `feat/scenes` on quaternionmedia/otto#36, vox's
+  quaternionmedia/otto#38 `feat/scenes` on quaternionmedia/otto#36, above
+  quaternionmedia/otto#39, which reads a video's rotation in either spelling
+  ffmpeg gives and sits beneath quaternionmedia/otto#35, vox's
   quaternionmedia/vox#19 `feat/speakers` on quaternionmedia/vox#16, joe's
   quaternionmedia/joe#62 `feat/speaker-turns`, looksatwords'
   quaternionmedia/looksatwords#25 `feat/open-by-link` and qmcp's

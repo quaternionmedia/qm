@@ -27,7 +27,8 @@ were re-derived at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family`
 name 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name 2026-11-27
 were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and `project/qmcp`
-`46198d3`. The rest of the page holds at the stamp, which those entries do not
+`46198d3`, and at `qm` `ce255b9` with alfred's and otto's open pull requests
+read from the host. The rest of the page holds at the stamp, which those entries do not
 move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -239,6 +240,11 @@ it. The codecartographer propagation (#174) showed both. On 2026-10-26
 each pull request into it is behind its base until brought level.
 
 ## 3. Blocked on a person
+
+- **alfred's and otto's `main` take a pull request only with one approving
+  review** (2026-11-27), from someone other than its author; an admin's merge
+  is not held to it. No pull request of the round has one, and the round's
+  merges wait for it. vox, joe, looksatwords and qmcp protect no branch.
 
 - **qmcp's control-plane record**, `adr/DRAFT-control-plane-and-engine-boundary.md`
   on `project/qmcp` (2026-10-25), is `Proposed` and pends on two inputs: (a)
@@ -756,6 +762,22 @@ re-checked and is re-derived before anyone acts on it.
   its sources said there. The long recording's drafts were dropped while
   the host run served none of the instrument's memory, so a pass to be read
   is made on `feat/drafts-measured`. (2026-11-22)
+- **alfred's stack has checks that fail low in it and pass higher up.** With
+  the Black and ruff the shared workflows install unpinned on 2026-11-27
+  (26.10.1 and 0.17.6), quaternionmedia/alfred#117 to quaternionmedia/alfred#123
+  fail both and quaternionmedia/alfred#124 passes, and
+  quaternionmedia/alfred#130, quaternionmedia/alfred#131,
+  quaternionmedia/alfred#126 and quaternionmedia/alfred#132 to
+  quaternionmedia/alfred#139 fail Black and quaternionmedia/alfred#140 passes.
+  Landed one at a time, each of those lands red unless the fix moves beneath
+  it. GitGuardian fails quaternionmedia/alfred#128 and quaternionmedia/alfred#133
+  on two tokens written as test fixtures, cleared in GitGuardian's dashboard or
+  by an ignore file in alfred. quaternionmedia/alfred#117 to
+  quaternionmedia/alfred#125 and quaternionmedia/otto#33 last ran CI before the
+  shared workflows' ruff and pytest fixes, and the host re-runs no run over a
+  month old, so each needs a new push to be read. alfred's `alfred/otto` pins
+  name otto heads without quaternionmedia/otto#39; done is a pin on otto's
+  `main` once otto's stack lands. (2026-11-27)
 
 ## 5. Not verified
 
