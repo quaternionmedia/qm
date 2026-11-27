@@ -52,7 +52,7 @@ Choose a project and the media and templates for its timeline, or generate the d
 
 <span class="qm-meta">step 2</span>
 
-Arrange, trim and cut the clips on the timeline, and set a title's text, length and colours.
+Arrange, trim and cut the clips on the timeline, set a title's text, length and colours, and once the audio engine has heard the sound, cut the video by deleting words from its transcript.
 
 </div>
 

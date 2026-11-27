@@ -13,20 +13,23 @@ day. Entries that name 2026-10-31 were re-derived at `qm` `debf210`, and
 those that name 2026-11-01 at `qm` `5126c2e`, and those that name 2026-11-03
 from the tree at `qm` `dcc4863`, asking the host nothing. Those that name
 2026-11-05 were re-derived at `qm` `27a9d5b`, `project/hearth` `72d8ad5`,
-`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`. Those
-that name 2026-11-21 were re-derived at `qm` `5baf779`, `project/qmetronome`
-`348e31f` and `qmetronome` `3aaaa28`. Those that name 2026-11-22 were
-re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and `qmcp` `bd02434`. Those
-that name 2026-11-24 were re-derived at `qm` `63c92f8` and `codecartographer`
-`main` `0eb0b72`, with codecartographer#170 at `726634f` and
-codecartographer#171 at `0ff746e`. Those that name 2026-11-25 were re-derived
-at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
-alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
-2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
-`project/qmcp` and `apothecary` `main` `538daf70`. Those that name
-2026-11-27 were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and
-`project/qmcp` `46198d3`. The
-rest of the page holds at the stamp, which those entries do not move.
+`project/carlos` `8e957a1`, `hearth` `c08b48b` and `carlos` `a5540e7`, and those
+that name 2026-11-19 at `qm` `02fa287`, `qmcp` `8aece3e` and `joe` `188a2cb`,
+asking the host nothing. Those that name 2026-11-21 were re-derived at `qm`
+`5baf779`, `project/qmetronome` `348e31f` and `qmetronome` `3aaaa28`. Those that
+name 2026-11-22 were re-derived at `qm` `2617723`, `project/qmcp` `5c5b0fa` and
+`qmcp` `bd02434`. Those that name 2026-11-24 were re-derived at `qm` `63c92f8`
+and `codecartographer` `main` `0eb0b72`, with codecartographer#170 at `726634f`
+and codecartographer#171 at `0ff746e`, and at `qm` `bbb606a`, `project/alfred`
+`0335b41` and alfred's `feat/ui-journeys` `da5f6cf`. Those that name 2026-11-25
+were re-derived at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family`
+`323448b`, with alfred#169 open on `feat/who-spoke` at `efa270d`. Those that
+name 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
+`project/qmcp` and `apothecary` `main` `538daf70`. Those that name 2026-11-27
+were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and `project/qmcp`
+`46198d3`, and at `qm` `ce255b9` with alfred's and otto's open pull requests
+read from the host. The rest of the page holds at the stamp, which those entries do not
+move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -195,6 +198,22 @@ pick up alone; that page is then listed in the index and named here.
     page an invited person with no technical background follows. A session
     uses the standing share rather than starting a second, and moves it with
     `./al share move`. (2026-11-25)
+26. **The step that cuts a long recording into excerpts lives in a qmcp flow**,
+    placed by the seam record's ordering rule: span-finding from a
+    transcript's timing is seam logic no engine owns, labelling by language
+    goes to the local model behind a flag, and the review and the render are
+    qmcp's already. A joe route and an alfred panel were the alternatives;
+    the panel would stack above alfred's open pull requests.
+    [`the-video-journey.md`](the-video-journey.md) is the handoff. (2026-11-19)
+27. **The editor shows the harness's proposal through a route of alfred's
+    own, and reads nothing from qmcp.** A project carries cues, moments and
+    stretches of its timeline with a label and a state, which the editor
+    draws in a lane under the clips and the excerpt flow writes as its
+    proposal and where each span stands; a writer replaces its own cues and
+    leaves another's. The seam keeps its direction: qmcp drives alfred, and
+    alfred holds what it is told. `alfred`'s `docs/lanes.md` is the
+    reference; [`the-video-journey.md`](the-video-journey.md) §1 names the
+    branch. (2026-11-19)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -210,7 +229,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
 | #147, #148, #149, #150, #151, #156 | six project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
-| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-31 (`d324759`) | brought level with `project/alfred`, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-11-24 (`0335b41`, #349) | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -221,6 +240,11 @@ it. The codecartographer propagation (#174) showed both. On 2026-10-26
 each pull request into it is behind its base until brought level.
 
 ## 3. Blocked on a person
+
+- **alfred's and otto's `main` take a pull request only with one approving
+  review** (2026-11-27), from someone other than its author; an admin's merge
+  is not held to it. No pull request of the round has one, and the round's
+  merges wait for it. vox, joe, looksatwords and qmcp protect no branch.
 
 - **qmcp's control-plane record**, `adr/DRAFT-control-plane-and-engine-boundary.md`
   on `project/qmcp` (2026-10-25), is `Proposed` and pends on two inputs: (a)
@@ -511,15 +535,11 @@ re-checked and is re-derived before anyone acts on it.
   and rad, and not read for the private projects. qmetronome's default
   branch carries the seed's file besides (2026-11-21). Done is the
   workflow on every project's default branch, which follows the propagations
-  in §2 and a copy in each project. alfred's copy is the seed's file
-  verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
-  pull request is a draft, and alfred #117, the bottom one, is ready on
-  `main`. alfred's `main` has no governance submodule yet, and its stack
-  pins `e76827d`, where neither script the workflow runs exists;
-  `project/alfred` carries both since its propagation of 2026-10-31, voice
-  step exempting automation accounts included. The copy
-  goes onto alfred's stack with a pin bump, and reaches its `main` when the
-  stack lands.
+  in §2 and a copy in each project. alfred's copy is on its stack: alfred
+  #136, the first pull request there to carry it, holds the seed's file and
+  pins `project/alfred` at `0335b41`, the propagation of 2026-11-24, and its
+  `slot` passes. alfred's `main` has no governance submodule yet; the copy
+  reaches it when the stack lands.
 - **Unsubstituted placeholders.** Five project branches' `adr/README.md`
   still reads `project/<name>`: apothecary, factorio-sysops,
   `private-32`, `private-33` and `private-34`. qmetronome's is substituted (2026-11-21).
@@ -689,6 +709,75 @@ re-checked and is re-derived before anyone acts on it.
   verdict. Done is `uv run qm rollout --write status/rollout.yaml --source
   host` run where the companion is, landed by a pull request of its own.
   (2026-11-03)
+- **The excerpt flow against a live alfred.** `qmcp`'s `feat/alfred-excerpts`
+  carries the `alfred-excerpts` recipe, its tools, tests and walkthrough, run
+  against a live alfred to its end: seven excerpts approved on the queue,
+  rendered by alfred's worker, approved from their links and delivered to
+  `local`, with the proposal drawn on the editor's timeline as cues, in the
+  lanes `alfred`'s `feat/synced-timeline` adds; `alfred`'s `fix/host-run`
+  above it runs the api, a worker, the site and joe on the host against any
+  MongoDB (`./al host up`, `docs/host-run.md`), for a machine whose Docker
+  is down. Done is
+  [`the-video-journey.md`](the-video-journey.md) §3 (a) to (e), (g) and (h)
+  each as a record or a pull request of its own, and (f) once *keep
+  everything local* is lifted. (2026-11-19)
+- **The algorithmic layer over alfred's editor.** Built as eight local
+  branches stacked above `alfred`'s `fix/no-caption-cap`, `feat/who-spoke`
+  at the top, with otto's `feat/motion` in the submodule's checkout:
+  [`the-algorithmic-layer.md`](the-algorithmic-layer.md) §2 (a) to (g) and
+  (l), a Sculpt stage between Source and Edit where recipes cut a long
+  source into drafts, each a project to refine by hand, and the transcript
+  read by looksatwords for who spoke and what about; that page's §3 is
+  settled, and three more branches cut from `feat/who-spoke` build its (n),
+  the cues' count off, the title in its (h), each draft named by the topic
+  the engine has live over it, and its (m), a recipe edited on Sculpt; qmcp's
+  `feat/alfred-drafts`, cut from `feat/alfred-excerpts`, builds its (i), the
+  excerpt flow over alfred's drafts route; three more alfred branches cut
+  from `feat/who-spoke` build its (j), scene changes from otto with the
+  `scenes` and `speakers` operations, the instrument of its (k), and its (o),
+  the editor's links into joe's and looksatwords' own pages, the last with a
+  looksatwords branch that opens a conversation by its id; joe's
+  `feat/speaker-turns` and vox's `feat/speakers` build joe's half of (j),
+  who is speaking when told apart by the sound, and alfred's
+  `feat/speakers-to-words` takes the turns to the words nobody has named.
+  Every branch is open as a pull request against the one beneath
+  (2026-11-22), alfred's from quaternionmedia/alfred#145 on
+  quaternionmedia/alfred#141 to quaternionmedia/alfred#167, with otto's
+  quaternionmedia/otto#37 and quaternionmedia/otto#38, vox's quaternionmedia/vox#19,
+  joe's quaternionmedia/joe#62, looksatwords' quaternionmedia/looksatwords#25 and qmcp's
+  quaternionmedia/qmcp#129 and quaternionmedia/qmcp#130; done is each merged in
+  the order the alfred bodies carry, and otto's and vox's released with the
+  pins moved to the releases; alfred's `feat/labeller`, cut from
+  `feat/topic-titles`, builds the labeller in (h), so every row is built;
+  the first reading of (k)'s instrument over two real recordings is taken
+  with no person's choices in it, so no default has moved
+  (`perspectives/2026-11-22-the-first-reading-of-the-instrument.md`), and a
+  draft keeps the length its recipe cut it to, so the instrument no longer
+  reads a recipe's own cuts as a person's; a person's pass over the drafts,
+  *highlights* first, remains open. Beside them, cut from the same top and
+  outside the round, alfred's `feat/trim-captions` has every timeline tool
+  act on the Text lane's captions and words, `feat/fluid-tools` has the
+  Timeline tools panel flow to its shape, one row as a strip, and
+  `feat/revealed-words` gives what a longer or added clip shows the words
+  its sources said there. The long recording's drafts were dropped while
+  the host run served none of the instrument's memory, so a pass to be read
+  is made on `feat/drafts-measured`. (2026-11-22)
+- **alfred's stack has checks that fail low in it and pass higher up.** With
+  the Black and ruff the shared workflows install unpinned on 2026-11-27
+  (26.10.1 and 0.17.6), quaternionmedia/alfred#117 to quaternionmedia/alfred#123
+  fail both and quaternionmedia/alfred#124 passes, and
+  quaternionmedia/alfred#130, quaternionmedia/alfred#131,
+  quaternionmedia/alfred#126 and quaternionmedia/alfred#132 to
+  quaternionmedia/alfred#139 fail Black and quaternionmedia/alfred#140 passes.
+  Landed one at a time, each of those lands red unless the fix moves beneath
+  it. GitGuardian fails quaternionmedia/alfred#128 and quaternionmedia/alfred#133
+  on two tokens written as test fixtures, cleared in GitGuardian's dashboard or
+  by an ignore file in alfred. quaternionmedia/alfred#117 to
+  quaternionmedia/alfred#125 and quaternionmedia/otto#33 last ran CI before the
+  shared workflows' ruff and pytest fixes, and the host re-runs no run over a
+  month old, so each needs a new push to be read. alfred's `alfred/otto` pins
+  name otto heads without quaternionmedia/otto#39; done is a pin on otto's
+  `main` once otto's stack lands. (2026-11-27)
 
 ## 5. Not verified
 
@@ -764,7 +853,11 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 6. Standing constraints
 
-- *Keep everything local* is **not** in force.
+- *Keep everything local* is **not** in force for this page's work, nor
+  for the video journey's and the algorithmic layer's branches, which are
+  open as pull requests ([`the-algorithmic-layer.md`](the-algorithmic-layer.md)
+  §5); it is **in force** for `joe` `docs/what-the-words-are-for`, until the
+  person lifts it. (2026-11-22)
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.
 - Project branches take changes in and never out: records reach them on a pull

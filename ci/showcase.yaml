@@ -111,7 +111,7 @@ details:
         - name: Source
           text: Choose a project and the media and templates for its timeline, or generate the demo clips.
         - name: Edit
-          text: Arrange, trim and cut the clips on the timeline, and set a title's text, length and colours.
+          text: Arrange, trim and cut the clips on the timeline, set a title's text, length and colours, and once the audio engine has heard the sound, cut the video by deleting words from its transcript.
         - name: Render
           text: Choose the output's size and queue a render, which the server makes.
           picture:
