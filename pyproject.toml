@@ -58,6 +58,15 @@ docs = [
   "zensical>=0.0.53",
 ]
 
+# The linter `qm tidy` counts unused code with. An extra for the reason `docs`
+# is one: no other command needs it, and without it that one column reads
+# `unknown: ruff not installed` and every other column is unaffected.
+#
+#     uv run --extra tidy qm tidy
+tidy = [
+  "ruff>=0.6",
+]
+
 # What `qm preflight` needs to reproduce CI faithfully.
 #
 # Most workflows install their own tools with `python -m pip install ...`, and

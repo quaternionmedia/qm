@@ -62,6 +62,7 @@ working tree — the checked-out branch is an accident of who ran what last.
 ```sh
 uv run qm estate                          # every rostered repository, one table
 uv run qm branches --repo <path>          # one repository, each branch and its cost
+uv run --extra tidy qm tidy --family <family>  # one family, what there is to tidy
 ```
 
 `uv run qm estate` reads refs across every repository the roster names and
@@ -75,6 +76,20 @@ how many pull requests you hold open in each. It deletes nothing and takes no
 flag that could. `uv run qm branches --repo <path>` is the same reading for one
 repository, sorted by what it would cost to be wrong: stranded first, merged
 last.
+
+`uv run qm tidy` reads what the other two do not count, one row per
+repository a family claims: the files its default branch tracks, the branches
+on its remote and how many of them the default branch already contains, its
+local branches and linked worktrees, its open pull requests with those an
+automation account opened and those in draft counted apart, and the unused
+imports, redefinitions and unused locals in the default branch's Python. Each
+figure describes the default branch at the commit the row names, never the
+checkout, and a fact it could not establish reads `unknown` with the reason
+beneath the table. The default branch is the one the host names; `--offline`
+asks the host nothing and reads the one the clone recorded, and a clone that
+recorded none is unknown, not `main`. Without the `tidy` extra the unused-code
+column says `ruff not installed` and every other column is unaffected.
+`--json` carries the same reading. It exits zero whatever it found.
 
 Read a working-tree finding separately from a branch finding. A dirty tree
 that moves a submodule gitlink is a different class of thing from stray build
