@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-21T23:44:34Z",
+  "generated_at": "2026-11-27T13:21:41Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-21T23:43:09Z"
+        "generated_at": "2026-11-27T13:21:40Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-11-05T16:23:09Z"
+        "generated_at": "2026-11-23T17:59:18Z"
       }
     }
   },
@@ -44,15 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 247,
+    "loose_ends": 249,
     "by_kind": {
-      "blind-spot": 22,
-      "document-proposed": 42,
-      "document-unreviewed": 98,
-      "over-slot": 1,
+      "blind-spot": 21,
+      "document-proposed": 43,
+      "document-unreviewed": 101,
       "stalled-thread": 84
     },
-    "open": 247,
+    "open": 249,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -195,14 +194,6 @@
     },
     {
       "kind": "blind-spot",
-      "address": "quaternionmedia/qm/doc/gate-stacked-drafts",
-      "title": "stacked-drafts cannot see",
-      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
-      "key": "blind-spot:quaternionmedia/qm/doc/gate-stacked-drafts",
-      "address_parses": true
-    },
-    {
-      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
       "detail": "The instruction pointers. CLAUDE.md and project-seed/ide/CLAUDE.md are regular files holding the one line `@AGENTS.md`, an import and not a link, so a wrong line in either is a text change this check does not read. And a rule missing from one of the two genuinely different AGENTS.md files: they are not linked to each other, so this check cannot notice them disagreeing.",
@@ -263,6 +254,14 @@
       "title": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-family-is-bordered-by-what-it-drives",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-familys-dev-state-is-shared-to-invited-devices",
+      "title": "records/DRAFT-a-familys-dev-state-is-shared-to-invited-devices.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-familys-dev-state-is-shared-to-invited-devices",
       "address_parses": true
     },
     {
@@ -1275,6 +1274,30 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-24-a-reader-written-without-its-language",
+      "title": "perspectives/2026-11-24-a-reader-written-without-its-language.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-24-a-reader-written-without-its-language",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-25-sharing-a-dev-state",
+      "title": "perspectives/2026-11-25-sharing-a-dev-state.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-25-sharing-a-dev-state",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-27-the-harness-reached-by-another-program",
+      "title": "perspectives/2026-11-27-the-harness-reached-by-another-program.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-27-the-harness-reached-by-another-program",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -1351,14 +1374,6 @@
       "title": "perspectives/session-transcript-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-session-transcript-2026-06-09",
-      "address_parses": true
-    },
-    {
-      "kind": "over-slot",
-      "address": "quaternionmedia/otto",
-      "title": "quaternionmedia/otto has a ready pull request stacked on another",
-      "detail": "subcontrabass's #34 is ready but stacked on fix/makecolor-accepts-every-colour-spelling (#33); it stays a draft until that one merges",
-      "key": "over-slot:quaternionmedia/otto",
       "address_parses": true
     },
     {

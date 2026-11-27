@@ -22,10 +22,9 @@ not:
   dirty       uncommitted changes in the working tree. Not a branch, and the
               cheapest thing here to lose.
 
-With the host reachable it also asks, per repository, which pull requests
-the current user has open, and flags one that is ready while its base is
-another of them: a stacked pull request stays a draft until the one beneath it
-merges (`handbook/async-contract.md` 1).
+With the host reachable it also asks, per repository, how many pull
+requests the current user has open. A stacked one may be ready
+(`handbook/async-contract.md` 1), so none is flagged for it.
 
 What it refuses to do:
 
@@ -205,20 +204,6 @@ class Repository:
         detail blocks and the closing line, so they cannot disagree.
         """
         return bool(self.one_copy or self.ahead)
-
-    @property
-    def stacked_ready(self) -> list[dict]:
-        """Open pull requests marked ready whose base is another one's branch.
-
-        The gate's rule (`check_one_pr.py`) over this user's own pull
-        requests only: a parent opened by somebody else is not listed here,
-        and the gate still sees it.
-        """
-        if self.open_prs is None:
-            return []
-        heads = {pr.get("headRefName") for pr in self.open_prs}
-        return [pr for pr in self.open_prs
-                if not pr.get("isDraft") and pr.get("baseRefName") in heads]
 
 
 def default_branch(repo: Path, remote: str, online: bool) -> tuple[str, str]:
@@ -459,7 +444,7 @@ def table(rows: list[Repository], width: int, online: bool) -> list[str]:
         if r.open_prs is None:
             slot = "-" if not online else "?"
         else:
-            slot = str(len(r.open_prs)) + (" STACKED" if r.stacked_ready else "")
+            slot = str(len(r.open_prs))
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
                    f"{len(r.one_copy):>8}  {len(r.held):>4}  {len(r.ahead):>5}  {slot}")
     return out
@@ -486,8 +471,7 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         out.append("")
 
     for r in found:
-        if r.missing or not (r.holds_one_copy or r.held or r.dirty
-                             or r.stacked_ready):
+        if r.missing or not (r.holds_one_copy or r.held or r.dirty):
             continue
         out.append(f"  {r.name}  ({r.path})")
         if r.dirty:
@@ -501,9 +485,6 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         for b in r.ahead:
             out.append(f"      ahead     +{b.unpushed:<3} {b.name}  "
                        f"(not on its remote copy)")
-        for p in r.stacked_ready:
-            out.append(f"      ready but stacked: #{p.get('number')} "
-                       f"{p.get('headRefName')} -> {p.get('baseRefName')}")
         out.append("")
 
     for r in found:
@@ -549,8 +530,7 @@ def as_document(found: list[Repository], roster: Path, search_roots: list[Path],
         "search_roots": [str(p) for p in search_roots],
         "offline": not online,
         "repositories": [
-            {**asdict(r), "missing": r.missing, "holds_one_copy": r.holds_one_copy,
-             "stacked_ready": r.stacked_ready}
+            {**asdict(r), "missing": r.missing, "holds_one_copy": r.holds_one_copy}
             for r in found
         ],
         "totals": totals(found),

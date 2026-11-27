@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-11-05T16:23:09Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
+**Generated `2026-11-23T17:59:18Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,14 +16,13 @@
 
 **Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
-**22 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 21 ok, 0 warn, 1 unknown.
+**21 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 20 ok, 0 warn, 1 unknown.
 
 ## Every gate
 
 | | Gate | Stands before | Trigger | Seed | Refuses |
 |---|---|---|---|---|---|
 | [ok] | `adr-lint` | main, push | pull_request, push | yes | A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a commit trailer or author field naming a tool where a person should be, or standing on an address nobody reads; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back; a principle that declares no relationship to the others and gives no reason, or declares one the other end does not declare back. |
-| [ok] | `stacked-drafts` | main | pull_request | yes | A pull request marked ready whose base is the branch of another open pull request in the same repository. It fails every such pull request of the author, not only the one whose event ran it. |
 | [ok] | `one-pr-voice` | main | pull_request | yes | A pull request body that speaks to its contributor rather than as them: the second person, the handling phrases that have leaked ("assigned, no review requested", "merge when ready"), or the contributor's own login mentioned. Code spans, fenced blocks and quoted lines are left alone. |
 | [ok] | `pr-direction` | main | pull_request | no | A pull request whose head is a `project/<name>` branch, which is permanent and never a merge source; a `math/<slug>` exploration aimed at anything but a `workspace/*` branch; and a head carrying a top-level `adr/` at the default branch. The step is in this corpus's copy of the workflow and not in the seed: a project's own repository has no `project/*` branches, so there the same step could never fail. |
 | [ok] | `namespace-guard` | project, push | pull_request, push | no | A `project/<name>` branch whose own commits touch anything outside `adr/`, on a pull request into the branch and, after the fact, on a push to it. It compares content with `main` and not commits, so org content arriving by a merge from `main` is not mistaken for the project editing it. |
@@ -50,7 +49,6 @@
 Read this before quoting a green check. Every defect this corpus has found in its own tooling was a check that reported success while enforcing nothing.
 
 - **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run. The attribution check does not read the committer: every squash merge on this host is committed by the forge's own no-reply identity, so reading it would fail every merge the org makes. And a byline naming no vendor, at an address that accepts mail, is indistinguishable from a person -- `A Bot <bot@example.com>` passes. On a pull request in this corpus the trailer and author check does not read a commit already on main, so a trailer merged before it existed stays merged.
-- **`stacked-drafts`** — Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.
 - **`one-pr-voice`** — The third person. "Peter merges once the gates are green" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.
 - **`pr-direction`** — A branch under a prefix the namespaces page does not list: it refuses three directions and no unknown prefix, so an `adr/*` or `fix/*` head passes it. A branch cut from the wrong parent whose direction is legal: the merge-base and the commits shared with another branch are reported as an advisory, and nothing fails on them.
 - **`namespace-guard`** — Anything on a pull request into `main`: both its triggers are filtered to `project/**`, so the direction of a pull request between namespaces is `pr-direction`'s to refuse. A push cannot be refused, so on a push it reports and prevents nothing. A branch cut from the wrong parent whose own commits touch `adr/` only.
@@ -77,7 +75,6 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | Gate | Record or page |
 |---|---|
 | `adr-lint` | `records/DRAFT-decision-record-discipline.md`, `records/DRAFT-human-only-contributorship.md`, `records/DRAFT-the-read-document-governs.md`, `records/DRAFT-governance-arrives-as-a-mechanism.md` |
-| `stacked-drafts` | `handbook/async-contract.md` |
 | `one-pr-voice` | `records/DRAFT-human-only-contributorship.md`, `handbook/async-contract.md` |
 | `pr-direction` | `docs/ref/namespaces.md` |
 | `namespace-guard` | `docs/ref/namespaces.md` |

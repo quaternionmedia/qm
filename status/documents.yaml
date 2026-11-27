@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-21T23:43:09Z'
+generated_at: '2026-11-27T13:21:40Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -106,9 +106,9 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 45
+      total: 46
       ratified: 0
-      proposed: 42
+      proposed: 43
     documents_in_unknown_state: 0
     reading_within_budget: false
     reading_total_lines: 1232
@@ -123,15 +123,15 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 318
+  documents: 323
   by_state:
     dated: 2
     draft: 3
     generated: 57
-    proposed: 42
-    standing: 93
+    proposed: 43
+    standing: 94
     transient: 23
-    unreviewed: 98
+    unreviewed: 101
   disagreements: 0
   unknown: 0
 documents:
@@ -1995,6 +1995,30 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-11-24-a-reader-written-without-its-language.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-11-25-sharing-a-dev-state.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-11-27-the-harness-reached-by-another-program.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/README.md
   class: index
   class_reason: the index for its directory, not a member of it
@@ -2184,6 +2208,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: plans/the-active-set-and-the-pair.md
+  class: other
+  class_reason: not in a governed directory
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: plans/the-shop-assistant.md
   class: other
   class_reason: not in a governed directory
   declared_status: null
@@ -2403,6 +2436,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-a-family-is-bordered-by-what-it-drives.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-a-familys-dev-state-is-shared-to-invited-devices.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed

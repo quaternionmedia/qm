@@ -10,6 +10,8 @@ python project-seed/ci/run_workflows_locally.py
 
 This reads the workflow files in `.github/workflows/` and executes their actual steps. That is the point: running the commands you *think* a workflow contains is not the same as running the workflow, and the difference is where false "CI is green" claims come from.
 
+The steps run on your machine. Each job's steps get a copy of your global git configuration, so a step that sets an identity with `git config --global` changes the copy and not yours. Anything else a step writes under your home directory is written for real.
+
 ## Options
 
 All flags are optional:
@@ -50,7 +52,7 @@ You can also run the underlying checks directly:
 # Record index matches the records directory; no banned vocabulary
 python project-seed/ci/adr_lint.py --records-dir records --index README.md
 
-# No stacked pull request is marked ready
+# Your open pull requests, and the stack each one sits in
 python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <login>
 
 # The branch targets the right base and carries what you think it carries
@@ -63,6 +65,12 @@ uvx 'reuse[charset-normalizer]' lint
 ## Reporting results
 
 When you report a local run, say what you ran and what it said — including which steps the runner could not reproduce. A local failure can be a real defect or an environment difference; establish which before reporting it.
+
+Servers running on the machine are one such difference. A test that asks a running surface skips when nothing is listening, and runs when something is: with the [harness](../ref/glossary.md#harness){ .glossary-term } and the web front end up, `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree` asks them in the middle of the parallel suite, and the web front end can give up on the harness before the harness answers. Run that test alone before reading its failure as a defect:
+
+```bash
+uv run --extra dev python -m pytest ci/tests/test_trio_demo.py -q
+```
 
 ## Related
 

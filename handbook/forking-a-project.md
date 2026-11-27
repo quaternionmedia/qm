@@ -132,8 +132,8 @@ passes, not when its command exits zero.
    that says to copy it verbatim; whether `leak-check.yml` joins the four the
    ladder requires is the `Pends on` of
    `records/DRAFT-what-is-not-the-organisation.md`.
-   `one-pr-check.yml` is the org-wide stack rule of `handbook/async-contract.md`
-   §1, and its own header says to copy it verbatim like the others. Start
+   `one-pr-check.yml` is the org-wide voice rule of `handbook/async-contract.md`
+   §3, and its own header says to copy it verbatim like the others. Start
    `reuse-lint` in
    reporting mode; a project that has not had its licensing pass fails it
    immediately, which is useful rather than a reason to leave it out. The submodule check is

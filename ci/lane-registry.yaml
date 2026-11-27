@@ -10,7 +10,7 @@
 #
 # NOT A WORKFLOW. Nothing here sequences the lanes or blocks one on another.
 # Work in any lane can start whenever, and the stack rule is unchanged -- one
-# change per pull request, stacked as drafts when dependent, whatever lane.
+# change per pull request, stacked when dependent, whatever lane.
 
 schema: 1
 
