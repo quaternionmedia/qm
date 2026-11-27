@@ -23,7 +23,9 @@ codecartographer#171 at `0ff746e`. Those that name 2026-11-25 were re-derived
 at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
 alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
-`project/qmcp` and `apothecary` `main` `538daf70`. The
+`project/qmcp` and `apothecary` `main` `538daf70`. Those that name
+2026-11-27 were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and
+`project/qmcp` `46198d3`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -235,6 +237,10 @@ each pull request into it is behind its base until brought level.
   runs on relays a person's answer through the queue's own route. The
   response row names `agent-host-protocol` as the surface the answer came
   through and names no person.
+- **Whether a protocol client's `decline` or `cancel` is an answer**
+  (2026-11-27). `qmcp` refuses both, because the queue takes one of its
+  options and neither is one; a person who means no chooses `hold`. Reading
+  either as `hold` is the other course, and nobody has chosen between them.
 - **qmcp's licence class**, the adoption record's C1 and its `Pends on`, is
   held by the person (2026-11-22). The stated intent is a licence under which
   a derivative stays open, with Creative Commons named; the outbound-licensing
@@ -579,6 +585,12 @@ re-checked and is re-derived before anyone acts on it.
   its run-file alone. Done is each serving repository's health route naming
   its pid and port, as `qmcp/instance.py` does, and `qm instances` reading it
   as `identified`. (2026-10-29)
+- **No server says which commit it serves.** `qmcp`'s health answer names its
+  pid, its port, its database and when it started, and names no commit, so a
+  harness started before a merge reads as healthy while it serves none of
+  what the merge added. Done is the health answer naming the commit of the
+  checkout it runs from, and `qm dashboard` printing it beside the state.
+  (2026-11-27)
 - **The family demo declares nothing.** `qm family-demo` keeps its members in
   a manifest, so while it runs every member reads as a listener nobody
   declared in its range, and a member this machine registers reads as
@@ -685,6 +697,19 @@ re-checked and is re-derived before anyone acts on it.
   the host role against a stand-in client and `qmcp`'s own client role. Both
   were read from the same type definitions, so their agreement proves neither
   against a host or a client somebody else wrote. (2026-11-26)
+- A turn over the protocol on a harness started by `qm dashboard`. The turns
+  that ran, one approved from the client and one held, ran on a server
+  started for the purpose with a database of its own. Asked on 2026-11-27,
+  the harness on 3141 answered at `/v1/ahp` and listed the workshop tools;
+  no turn was started on it.
+- That the queue's refusal of a relayed answer reaches a client where `qmcp`
+  runs as a server. The tests raise the refusal through a test client, whose
+  error is another class than the one the server's own client raises;
+  `ServerActs.answer` reads either by its response, and no run has shown the
+  second. (2026-11-27)
+- The example on `qmcp`'s `docs/integrations/agent-host-protocol.md` against
+  a running server, since a turn asks for one run. A test holds what it
+  prints. (2026-11-27)
 - The figures in `plans/the-shop-assistant.md`, *Measured*: one run per
   model, by a script no repository holds. (2026-11-26)
 - A device other than a share's host reaching the share over its private
