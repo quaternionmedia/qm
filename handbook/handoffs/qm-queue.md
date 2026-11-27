@@ -24,8 +24,8 @@ at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
 alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name
-2026-11-27 were re-derived at `qm` `ffe6863`, `qmcp` `fa657bc` and
-`project/qmcp` `46198d3`. The
+2026-11-27 were re-derived at `qm` `9a5efc7`, `qmcp` `c99379f` and
+`project/qmcp` `37d7041`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -591,8 +591,8 @@ re-checked and is re-derived before anyone acts on it.
   declared in its range, and a member this machine registers reads as
   `missing`. Done is the demo writing a run-file for each member it starts,
   with the run's name as its session. (2026-10-29)
-- **qmcp's open pull requests** (2026-11-22). qmcp#129 and its stacked draft qmcp#130,
-  alfred's excerpt and drafts flows, land in the cross-repository order #345
+- **qmcp's open pull requests** (2026-11-27). qmcp#129 and qmcp#130, which is
+  stacked on it and ready, alfred's excerpt and drafts flows, land in the cross-repository order #345
   records. qmcp#125, `qmcp tour`, is a draft until the tour's records land in
   the corpus (#331, #332).
 - **The web window's Phase 2** (2026-11-24). codecartographer#172, the
@@ -687,11 +687,18 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 5. Not verified
 
-- `qmcp`'s two Agent Host Protocol roles against another program: the client
-  role has run against a stand-in host and against `qmcp`'s own host role,
-  the host role against a stand-in client and `qmcp`'s own client role. Both
-  were read from the same type definitions, so their agreement proves neither
-  against a host or a client somebody else wrote. (2026-11-26)
+- `qmcp`'s Agent Host Protocol client role against a host somebody else
+  wrote. It has run against a stand-in host and against `qmcp`'s own host
+  role, and both were read from the same type definitions. The protocol's
+  repository publishes clients and no host. (2026-11-27)
+- `qmcp`'s host role against the protocol's published client in a test. It
+  holds against the published TypeScript client and the protocol's JSON
+  schemas in a run made by hand, which
+  `docs/integrations/agent-host-protocol.md` in `qmcp` describes; the run
+  needs Node and the package, and its scripts are in no repository. The
+  tests hold the host to values written by hand from the protocol's reducer.
+  A session's `inputNeeded` list and the root's notifications of sessions
+  are not sent. (2026-11-27)
 - A turn over the protocol on a harness started by `qm dashboard`. The turns
   that ran, one approved from the client and one held, ran on a server
   started for the purpose with a database of its own. Asked on 2026-11-27,
