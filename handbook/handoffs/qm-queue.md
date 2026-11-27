@@ -24,8 +24,9 @@ at `qm` `4e6c5e1` and `alfred` `feat/sharing-the-family` `323448b`, with
 alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 2026-11-26 were re-derived at `qm` `303eaea`, `qmcp` `fa657bc`,
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name
-2026-11-27 were re-derived at `qm` `9a5efc7`, `qmcp` `c99379f` and
-`project/qmcp` `37d7041`. The
+2026-11-27 were re-derived at `qm` `fe83a23`, `qmcp` `5e61ec5`,
+`project/qmcp` `37d7041` and `codecartographer` `main` `0eb0b72`, with
+codecartographer#174 at `8bc613d`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -228,6 +229,15 @@ each pull request into it is behind its base until brought level.
   the agent library, stay in its repository; (b) whether `vox` gains a
   release line, which decides whether it is an engine `qmcp` consumes or seam
   code.
+- **What `qmcp` records of who and where** (2026-11-27). The web window's
+  interactions view names no machine and no checked person, because
+  `qmcp`'s rows hold neither: an instruction carries its way in and, for a
+  protocol turn, the id the client gave; an answer carries `responded_by`
+  as free text; a tool run carries no caller; the health answer names a
+  pid, a port and a database and no machine; a caller's address is logged
+  and stored on no row. Whether `qmcp` records a person, a machine or an
+  address on its rows, and whether the window reads more than one harness,
+  are not decided.
 - **Who answered a consent that a client relayed over the Agent Host
   Protocol** (2026-11-26), the input
   `adr/DRAFT-qmcp-speaks-the-agent-host-protocol-in-both-roles.md` on
@@ -608,6 +618,14 @@ re-checked and is re-derived before anyone acts on it.
   the command that fetches it, where it blamed the pin. It is open with every
   local gate green and waits on a person's merge, as #172 does. Done is it
   merged.
+- **The web window's interactions view** (2026-11-27). codecartographer#174,
+  stacked on #172, is a draft with every host check green:
+  `/harness/interactions` and an Interactions panel that list the harness's
+  instructions, questions, answers and tool runs by the way in and the name
+  each row carries, for the one harness the window reads. It is a draft
+  because the check `codecartographer` pins refuses a ready pull request
+  stacked on another; the corpus's current check takes one. Done is #172
+  merged, #174 retargeted onto `main`, marked ready and merged by a person.
 - **The shop assistant** (2026-11-26).
   [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
   plan: a local model that answers for the workshop through tools `qmcp`
@@ -691,14 +709,18 @@ re-checked and is re-derived before anyone acts on it.
   wrote. It has run against a stand-in host and against `qmcp`'s own host
   role, and both were read from the same type definitions. The protocol's
   repository publishes clients and no host. (2026-11-27)
-- `qmcp`'s host role against the protocol's published client in a test. It
-  holds against the published TypeScript client and the protocol's JSON
-  schemas in a run made by hand, which
-  `docs/integrations/agent-host-protocol.md` in `qmcp` describes; the run
-  needs Node and the package, and its scripts are in no repository. The
-  tests hold the host to values written by hand from the protocol's reducer.
-  A session's `inputNeeded` list and the root's notifications of sessions
-  are not sent. (2026-11-27)
+- `qmcp`'s host role against the protocol's JSON schemas in a test.
+  `tests/test_agents_host_published_client.py` in `qmcp` holds the host to
+  the protocol's published TypeScript client, whose reducers must hold the
+  state the host's snapshots do; the workflow installs Node and the package
+  and fails the tests where either is missing. The package carries no
+  schemas, and the host's messages were held to them once, by hand. A
+  session's `inputNeeded` list and the root's notifications of sessions are
+  not sent. (2026-11-27)
+- The web window's interactions view against a harness that holds a
+  person's rows, or one a second machine reaches. codecartographer#174 was
+  seen in a browser against a harness started for the purpose and seeded
+  through its own routes. (2026-11-27)
 - A turn over the protocol on a harness started by `qm dashboard`. The turns
   that ran, one approved from the client and one held, ran on a server
   started for the purpose with a database of its own. Asked on 2026-11-27,
