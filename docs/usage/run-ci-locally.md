@@ -10,6 +10,8 @@ python project-seed/ci/run_workflows_locally.py
 
 This reads the workflow files in `.github/workflows/` and executes their actual steps. That is the point: running the commands you *think* a workflow contains is not the same as running the workflow, and the difference is where false "CI is green" claims come from.
 
+The steps run on your machine. Each job's steps get a copy of your global git configuration, so a step that sets an identity with `git config --global` changes the copy and not yours. Anything else a step writes under your home directory is written for real.
+
 ## Options
 
 All flags are optional:
