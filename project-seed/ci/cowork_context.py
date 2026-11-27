@@ -337,7 +337,7 @@ def viewer_login() -> tuple[str | None, str | None]:
 
 
 def pr_report(slug: str, login: str) -> tuple[str, int | None]:
-    """The stack check's own report, verbatim, plus its exit status."""
+    """The stack lister's own report, verbatim, plus its exit status."""
     script = Path(__file__).with_name("check_one_pr.py")
     status, out = run(sys.executable, str(script), "--repo", slug, "--contributor", login)
     return out, status
@@ -420,14 +420,16 @@ def emit(root: Path, args: argparse.Namespace) -> str:
             add("")
             if status == 0:
                 add(
-                    "None of yours is ready while stacked. A new change that "
-                    "needs one of these is cut from its branch and opened as a "
-                    "draft against it; anything else opens against its target."
+                    "A pull request is marked ready when its work is finished, "
+                    "stacked or not. A new change that needs one of these is cut "
+                    "from its branch and opened against it, and merges after it; "
+                    "anything else opens against its target."
                 )
             else:
                 add(
-                    "**A pull request of yours is ready while stacked.** Mark it "
-                    "draft until the one beneath it merges."
+                    f"**The list could not be read** (exit {status}): the lines "
+                    "above are the lister's own, and nothing was established "
+                    "about your pull requests."
                 )
     add("")
 

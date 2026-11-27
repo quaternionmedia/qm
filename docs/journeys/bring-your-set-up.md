@@ -139,7 +139,9 @@ uv run qm dashboard --stop prose
 | `stale` | the process is gone and its run-file is not | `uv run qm instances prune --yes` |
 | `has no environment yet, so nothing was started` | the repository was never synced | run the command it names, in that repository |
 | `something is already listening on 3141` | another process holds the port | `uv run qm instances --port 3141` says whose it is |
+| the harness answers `Internal Server Error`, and the log step 2 named says `no such column` | its database is older than its code | in `qmcp`: `uv run qmcp db backup`, then `uv run qmcp db upgrade` |
 | a seam in **Estate** shows a fix | that seam is down | the fix it shows, run in the repository it names |
+| the [corpus](../ref/glossary.md#corpus){ .glossary-term } and the families seams are both down in **Estate** | `codecartographer`'s corpus submodule was not fetched | `git submodule update --init governance/qm` in `codecartographer` |
 
 [Running several repositories](https://github.com/quaternionmedia/qm/blob/main/handbook/running-several-repositories.md) is the procedure behind these steps, for a person and for several sessions sharing one machine.
 

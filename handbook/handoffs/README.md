@@ -34,6 +34,7 @@ page exists.
 | [`joe-manual-validation.md`](joe-manual-validation.md) | **a human, and nothing else** — joe's open set validated by hand: the three lane pages step by step with the spec or test behind each, every docs page against what the lanes showed, and the tests, with a findings log; steps no spec or test drives are marked. Walked against joe's `main`; delete it when the walk is done | joe |
 | [`the-voice-loop.md`](the-voice-loop.md) | **nothing — read this for the loop**: what landed across `joe`, `vox`, `dossier`, `qmcp` and this corpus, the voice set included — Phase 10 of `qmcp`'s roadmap built on the local model, continuity from `qmcp`'s record — what remains, and the baseline Phase 0 of `qmcp`'s next phases established on `qmcp`'s `main`. Carries the three-process development environment, audio capture on the engine's machine, what no check covers, and the standing constraints | vox + joe + qmcp + dossier |
 | [`hil-review-2026-10-31.md`](hil-review-2026-10-31.md) | **a human, and nothing else** — what to start to review the estate by hand: the docs site as `main` renders it, the trio on its reserved ports, and joe's checklist; what landed on 2026-10-31 and what to look at in each; the decisions only a person takes; the findings log. Delete it when its findings are closed | qm + joe |
+| [`share-connection-test.md`](share-connection-test.md) | **a person, for each elevated step and the phone** — a device other than the share's host reaching alfred's shared family: a ZeroTier node in a container on the host, then a phone on mobile data following alfred's `docs/join.md`, each result recorded and every mismatch fixed on alfred#169's branch | qm + alfred |
 | [`design-review-of-the-estate.md`](design-review-of-the-estate.md) | **the next session, for phases 4 to 7** — the first of the estate's design reviews, by `handbook/design-review-runbook.md`. Part 1 ran phases 0, 1 and 3 against `main` at `debf210`, read-only and scoped to a stranger's first hour, and carries the leads as hypotheses with the command behind each, the skeptic verdicts, and what remains; the semantic review stays downstream rather than redone. Then the order for the rest of the estate, tiered by adoption and activity and re-derived from the host, because `qm estate` needs sibling clones | qm, then every repo
 | [`the-web-window.md`](the-web-window.md) | **nothing — read this for the window**: Phases 0 and 1 of `plans/the-web-window.md` landed on 2026-09-20 in five repositories, and this page is where Phases 2 to 6 are picked up — the live flow on a topology's shape, the designer on the routes the harness now serves, manipulation through the governed seam, cartography with chrestomathy and the prose reader's bridge, the triangle walkthrough — each with what to read first, where it goes, and what done looks like. Also the slice's residue: an address kind, a `dossier.sources` row, a record branch that exists only in a local clone, and a dossier test that names a private repository | qm + codecartographer + qmcp + looksatwords + rad + dossier |
 | [`the-triplet.md`](the-triplet.md) | **nothing — read this for the graph leg**: the triplet's graphs from the pages on. codecartographer's show seam, its Show panel and `codecarto show export` are on its `main`, and every family's and project's showgraph is on its page in `main` here, with how to draw them again. Then the show document's schema, `qm cookbook --check` reading the documents, a refresh protocol, the seed's last three workflows, measured edges from the host, and the viewer, the READMEs and dossier's leg, each with what done looks like | qm + codecartographer |
@@ -73,11 +74,11 @@ project branch is: all twelve fell behind again when #38 and #41 landed. Read
 
 **One pull request carries one change: parallel when independent, stacked
 when dependent.** Nothing limits how many a contributor holds open, and one
-active stack at a time is a habit, never a rule. A pull request above the
-bottom of a stack stays a draft. `handbook/async-contract.md` §1 is the rule
-and the reasoning; `uv run qm stacks` lists your open pull requests and refuses
-one marked ready while stacked, and `one-pr-check.yml` runs it on every pull
-request.
+active stack at a time is a habit, never a rule. A pull request in a stack is
+marked ready when it is finished and merges after the one beneath it.
+`handbook/async-contract.md` §1 is the rule and the reasoning; `uv run qm
+stacks` lists your open pull requests and the stack each sits in, and `uv run
+qm merge` refuses a stacked one until the one beneath it merges.
 
 **Never request a review, and merge it yourself once the gates are green.**
 Add the person who asked for the work as assignee. The pull request is the

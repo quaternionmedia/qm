@@ -375,22 +375,19 @@ def test_online_asks_for_the_current_user_s_open_pull_requests(root, monkeypatch
     assert asked and asked[0][:2] == ["pr", "list"] and "@me" in asked[0]
     assert "baseRefName" in asked[0][-1]
     assert len(repo.open_prs) == 2
-    assert repo.stacked_ready == []
-    assert "STACKED" not in estate.render([repo], online=True)
 
 
-@pytest.mark.parametrize("child_is_draft,stacked", [(False, [2]), (True, [])])
-def test_a_ready_pull_request_stacked_on_another_is_flagged_and_a_draft_is_not(
-        child_is_draft, stacked):
-    """The reader agrees with the gate: ready with an open parent is flagged."""
+def test_a_ready_pull_request_stacked_on_another_is_counted_and_not_flagged():
+    """A stacked pull request may be ready (`handbook/async-contract.md` 1):
+    the row counts it, and no detail block asks a person about it."""
     repo = estate.Repository(name="r", path="p", open_prs=[
         {"number": 1, "headRefName": "a", "isDraft": False, "baseRefName": "main"},
-        {"number": 2, "headRefName": "b", "isDraft": child_is_draft, "baseRefName": "a"},
+        {"number": 2, "headRefName": "b", "isDraft": False, "baseRefName": "a"},
     ])
-    assert [p["number"] for p in repo.stacked_ready] == stacked
     text = estate.render([repo], online=True)
-    assert ("2 STACKED" in text) == bool(stacked)
-    assert ("ready but stacked: #2 b -> a" in text) == bool(stacked)
+    assert text.splitlines()[1].rstrip().endswith("  2")
+    assert "stacked" not in text.lower()
+    assert "  r  (p)" not in text
 
 
 def test_a_host_that_says_no_leaves_the_stack_unknown_rather_than_clear(
@@ -402,7 +399,6 @@ def test_a_host_that_says_no_leaves_the_stack_unknown_rather_than_clear(
     estate.host_pull_requests(repo)
 
     assert repo.open_prs is None
-    assert repo.stacked_ready == []
     assert repo.notes == ["pull requests unknown: no GitHub remotes found"]
     assert "  ?" in estate.render([repo], online=True)
 

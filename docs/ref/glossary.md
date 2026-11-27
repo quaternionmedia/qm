@@ -11,7 +11,7 @@ The column on the right tells the senses apart.
 | Word | Sense | Told apart by |
 |---|---|---|
 | **draft** | a record before ratification (`DRAFT-*.md`) | it is a filename prefix |
-| | a pull request that is **unfinished, or stacked** on another open one | GitHub's draft flag. Never a holding pen for finished work against the real target |
+| | a pull request that is **unfinished** | GitHub's draft flag. Never a holding pen for finished work, stacked or not |
 | | anything untagged — `main`, a branch, a local build | `records/DRAFT-version-tags-are-claims.md` §4. Asserts nothing |
 | **review** | the gates running on a pull request | mechanical, and the pull request is an audit record |
 | | a human reading a change set before a `v*` tag | the **only** human review of shipped work |

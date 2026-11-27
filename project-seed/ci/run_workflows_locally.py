@@ -31,6 +31,14 @@ What this does NOT reproduce, and where it can therefore be wrong:
 
 So a pass here is evidence, not proof.
 
+What it keeps off this machine: git's global configuration. A runner is a
+fresh machine per job, so a workflow may set an identity with
+`git config --global` -- a docs deploy committing as a bot, say. Here each job's
+steps get `GIT_CONFIG_GLOBAL` pointing at a copy of this machine's global
+configuration, so a step reads what it would have read and its writes stay in
+the copy, which is deleted with the job. Anything else a step writes under the
+home directory is written for real.
+
 A failure is not proof either, and saying otherwise was wrong: a step can fail
 locally for reasons the runner image does not have -- missing browsers, no
 display, a different OS. Apothecary's suite fails here and is green in CI for
@@ -172,6 +180,10 @@ def environment_report(env: dict[str, str]) -> list[str]:
     it is labelled as unused because no workflow step here calls it.
     """
     lines = [f"  - [env ] shell: {resolve_bash()}"]
+    lines.append(
+        "  - [env ] git: each job's steps get a copy of this machine's global "
+        "config, and their writes stay in it"
+    )
 
     code, out = probe(["gh", "auth", "status"])
     if code is None:
@@ -216,8 +228,18 @@ def _force_utf8_output() -> None:
 
 
 def triggers(workflow: dict) -> dict:
-    # `on:` parses as the boolean True under YAML 1.1.
-    return workflow.get("on", workflow.get(True)) or {}
+    """The workflow's events, each with its filters or None.
+
+    `on:` parses as the boolean True under YAML 1.1, and Actions takes it in
+    three forms: one event (`on: push`), a list of events (`on: [push,
+    pull_request]`) and a mapping of events to their filters. The first two
+    have no filters, so each event maps to None."""
+    on = workflow.get("on", workflow.get(True)) or {}
+    if isinstance(on, str):
+        return {on: None}
+    if isinstance(on, list):
+        return {event: None for event in on}
+    return on
 
 
 def applies(wf: dict, event: str, ref: str, base_ref: str) -> tuple[bool, str]:
@@ -232,6 +254,111 @@ def applies(wf: dict, event: str, ref: str, base_ref: str) -> tuple[bool, str]:
     if any(fnmatch.fnmatch(target, pat) for pat in branches):
         return True, ""
     return False, f"{event} branches {branches} do not match {target!r}"
+
+
+class Unevaluated(Exception):
+    """An `if:` outside the grammar `evaluate_if` reads."""
+
+
+_IF_TOKEN = re.compile(
+    r"(?P<op>\(|\)|&&|\|\||==|!=|!)"
+    r"|'(?P<string>(?:[^']|'')*)'"
+    r"|(?P<literal>true|false)\b"
+    r"|(?P<name>[A-Za-z_][\w.-]*)"
+)
+
+
+def evaluate_if(condition, ctx: dict) -> bool:
+    """A job's `if:`, for the grammar the estate's workflows use: context names
+    from `ctx` and quoted strings or booleans, compared with `==` and `!=`,
+    joined with `!`, `&&`, `||` and parentheses. Strings compare without case,
+    as Actions compares them.
+
+    Anything else raises `Unevaluated`: a function, a name `ctx` does not
+    hold, a null, or a comparison across types, where Actions coerces and this
+    would have to guess. The caller does not run such a job."""
+    if isinstance(condition, bool):
+        return condition
+    text = str(condition).strip()
+    wrapped = re.fullmatch(r"\$\{\{(.*)\}\}", text, re.S)
+    if wrapped:
+        text = wrapped.group(1).strip()
+    tokens: list[tuple[str, object]] = []
+    pos = 0
+    while pos < len(text):
+        if text[pos].isspace():
+            pos += 1
+            continue
+        m = _IF_TOKEN.match(text, pos)
+        if not m:
+            raise Unevaluated(condition)
+        if m.group("op"):
+            tokens.append(("op", m.group("op")))
+        elif m.group("string") is not None:
+            tokens.append(("value", m.group("string").replace("''", "'")))
+        elif m.group("literal"):
+            tokens.append(("value", m.group("literal") == "true"))
+        else:
+            name = m.group("name")
+            if name not in ctx or ctx[name] is None:
+                raise Unevaluated(condition)
+            tokens.append(("value", ctx[name]))
+        pos = m.end()
+
+    def peek(i: int):
+        return tokens[i] if i < len(tokens) else ("end", None)
+
+    def truth(value) -> bool:
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, str):
+            return value != ""
+        raise Unevaluated(condition)
+
+    def operand(i: int):
+        kind, value = peek(i)
+        if (kind, value) == ("op", "!"):
+            inner, i = operand(i + 1)
+            return not truth(inner), i
+        if (kind, value) == ("op", "("):
+            inner, i = either(i + 1)
+            if peek(i) != ("op", ")"):
+                raise Unevaluated(condition)
+            return inner, i + 1
+        if kind != "value":
+            raise Unevaluated(condition)
+        return value, i + 1
+
+    def comparison(i: int):
+        left, i = operand(i)
+        kind, op = peek(i)
+        if (kind, op) not in (("op", "=="), ("op", "!=")):
+            return left, i
+        right, i = operand(i + 1)
+        if type(left) is not type(right):
+            raise Unevaluated(condition)
+        if isinstance(left, str):
+            left, right = left.lower(), right.lower()
+        return (left == right) == (op == "=="), i
+
+    def both(i: int):
+        value, i = comparison(i)
+        while peek(i) == ("op", "&&"):
+            other, i = comparison(i + 1)
+            value = truth(value) and truth(other)
+        return value, i
+
+    def either(i: int):
+        value, i = both(i)
+        while peek(i) == ("op", "||"):
+            other, i = both(i + 1)
+            value = truth(value) or truth(other)
+        return value, i
+
+    value, end = either(0)
+    if end != len(tokens):
+        raise Unevaluated(condition)
+    return truth(value)
 
 
 # An `env:` value the runner would fill from something that does not exist off
@@ -283,6 +410,33 @@ def step_env(
             text = text.replace("${{" + expr + "}}", str(value))
         resolved[key] = text
     return resolved, dropped
+
+
+def global_git_configs(env: dict[str, str]) -> list[Path]:
+    """The files git reads as its global configuration in `env`, existing or not.
+
+    `GIT_CONFIG_GLOBAL` replaces both of the others when it is set.
+    """
+    if env.get("GIT_CONFIG_GLOBAL"):
+        return [Path(env["GIT_CONFIG_GLOBAL"])]
+    home = Path(env.get("HOME") or Path.home())
+    xdg = Path(env["XDG_CONFIG_HOME"]) if env.get("XDG_CONFIG_HOME") else home / ".config"
+    return [xdg / "git" / "config", home / ".gitconfig"]
+
+
+def job_git_config(env: dict[str, str], into: Path) -> Path:
+    """A copy of this machine's global git configuration for one job's steps.
+
+    The copy holds each global file that exists, in the order git reads them, so
+    `git config --global` reads the same values and writes to the copy. An
+    `[include]` with a relative path resolves against the copy's directory, not
+    the original's.
+    """
+    config = into / "gitconfig"
+    config.write_bytes(
+        b"".join(real.read_bytes() + b"\n" for real in global_git_configs(env) if real.is_file())
+    )
+    return config
 
 
 def substitute(script: str, ctx: dict, outputs: dict) -> str:
@@ -404,6 +558,18 @@ def main() -> int:
     # A local run has no number, so the head branch stands in. A push runs on `--ref`.
     ref_name = f"{args.head_ref or current}/merge" if args.event == "pull_request" else args.ref
     ctx["github.ref_name"] = ref_name
+    # The full ref, as a job's `if:` compares it: the merge ref on a pull
+    # request, the branch on a push.
+    ctx["github.ref"] = (
+        f"refs/pull/{ref_name}" if args.event == "pull_request" else f"refs/heads/{args.ref}"
+    )
+    # What a job's `if:` may read beyond that: a local run checks a pull
+    # request as it runs once it is ready, so it is not a draft.
+    conditions = (
+        {**ctx, "github.event.pull_request.draft": False}
+        if args.event == "pull_request"
+        else ctx
+    )
     gh_env = {
         "GITHUB_REPOSITORY": slug,
         "GITHUB_REF_NAME": ref_name,
@@ -435,8 +601,25 @@ def main() -> int:
             continue
         print(f"\n=== {f.name} ({name})")
         for job_id, job in wf.get("jobs", {}).items():
+            # A job's own `if:` decides whether it runs at all, as on the
+            # runner: a push-only deploy job never runs on a pull request. One
+            # this cannot evaluate is not run, because running it would do on
+            # this machine what the condition exists to prevent.
+            if "if" in job:
+                try:
+                    runs = evaluate_if(job["if"], conditions)
+                except Unevaluated:
+                    print(f"  - [skip] job {job_id}: its if: ({job['if']}) is not "
+                          f"evaluated here, so the job is not run")
+                    continue
+                if not runs:
+                    print(f"  - [skip] job {job_id}: its if: ({job['if']}) is false "
+                          f"for {args.event}")
+                    continue
             outputs: dict[str, str] = {}
             job_failed = False
+            job_dir = Path(tempfile.mkdtemp())
+            git_config = job_git_config(dict(os.environ), job_dir)
             for step in job.get("steps", []):
                 label = step.get("name") or step.get("uses", "<step>")
                 # Actions halts a job at its first failed step. Running on past
@@ -468,7 +651,12 @@ def main() -> int:
                     path = fh.name
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
-                env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
+                env = {
+                    **os.environ,
+                    "GITHUB_OUTPUT": str(out_file),
+                    "GIT_CONFIG_GLOBAL": str(git_config),
+                    **gh_env,
+                }
                 # The workflow's env, then the job's, then the step's, as a runner
                 # exports them: jobs that share their steps and differ only in env
                 # (a shard number, say) run as themselves.
@@ -541,6 +729,7 @@ def main() -> int:
                     # carry on, which is what the runner does.
                     job_failed = job_failed or not step.get("continue-on-error")
                 os.unlink(path)
+            shutil.rmtree(job_dir, ignore_errors=True)
 
     print(f"\n{'=' * 60}")
     if failures:

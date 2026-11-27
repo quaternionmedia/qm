@@ -62,10 +62,14 @@ qmcp's `docs/ROADMAP.md` (Phase 9), looksatwords' `docs/open-questions.md`.
 ## 2. Phase 2 — the live flow on the shape
 
 **What.** A topology is drawn as a shape; the harness knows what is running
-through it. `GET /v1/invocations` and `GET /v1/human/requests` already exist and
-every row carries an address (`owner/repo/invocation/<id>`,
-`owner/repo/ask/<id>`). The window joins those addresses to the boxes it drew
-and shows run state on them — the `idle / active / success / failed` channel
+through it. `GET /v1/invocations`, `GET /v1/human/requests` and
+`GET /v1/instructions` exist. Their rows carry no address and name no box: an
+instruction and a consent request name a project, and a tool run names
+neither. So a project's state is read from the newest instruction acted on
+for it and from any question still waiting on a person, and the window gives
+it to every box whose address has that project as its repository; a state no
+box carries is listed in the panel. codecartographer#172 builds it this way.
+The window shows run state on the boxes — the `idle / active / success / failed` channel
 `SystemRenderer` already has for the PAM view, moved onto the one canvas as an
 extension rather than a second renderer. A Harness panel shows recent runs and
 the human queue **read-only**, including how many rows the harness held back
@@ -138,9 +142,14 @@ in Phase 2's overlay; its draft lands in the human queue. **Every decision is
 the harness's:** an execution route in qmcp (not yet written), the spend
 declared and consented there (`records/DRAFT-no-unattended-spending.md`), the
 refusal of a shape against an attested act asked of `orchestration.refuses` at
-run. Nothing in the window turns a draft into a decision, and **answering the
-queue from the web is deferred by decision** — build nothing for it until it
-has been reviewed.
+run. Nothing in the window turns a draft into a decision. **Answering the
+queue from the web is bounded by a record**,
+`adr/DRAFT-the-web-window-carries-a-persons-answer.md` on
+`project/codecartographer`, Proposed: the window relays the answer a person
+gives to a consent request an act on an instruction raised, on a loopback bind,
+and shows every other request without answering it. Whether the consent a
+run of a shape asks for is one of those requests is that record's revision
+trigger, read when the execution route exists.
 
 ## 5. Phase 5 — cartography and chrestomathy
 

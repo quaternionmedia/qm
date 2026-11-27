@@ -146,7 +146,8 @@ class FakeHost:
 
     def __init__(self, *, view=None, checks=None, listing=None, login="someone",
                  merge=None, after=None, checks_reply=None, listing_reply=None,
-                 stacked=(), retarget=None, workflows=None, workflows_reply=None):
+                 stacked=(), retarget=None, workflows=None, workflows_reply=None,
+                 parents=None, parents_reply=None):
         self.view = READY_VIEW if view is None else view
         self.checks = GREEN_CHECKS if checks is None else checks
         self.listing = [self.view] if listing is None else listing
@@ -163,6 +164,10 @@ class FakeHost:
                        "mergeCommit": {"oid": "abc123"}}
                       if after is None else after)
         self.stacked = list(stacked)
+        # Head branch -> the open pull request made from it, as the host's
+        # `head=` filter answers; a whole reply where it is not JSON.
+        self.parents = parents or {}
+        self.parents_reply = parents_reply
         self.retarget = done() if retarget is None else retarget
         self.calls: list[tuple[str, ...]] = []
 
@@ -187,6 +192,12 @@ class FakeHost:
             return self.merge
         if args[0] == "api" and "pulls?state=open&base=" in args[1]:
             return done(json.dumps(self.stacked))
+        if args[0] == "api" and "pulls?state=open&head=" in args[1]:
+            if self.parents_reply is not None:
+                return self.parents_reply
+            branch = args[1].split("&head=", 1)[1].split(":", 1)[1].split("&", 1)[0]
+            number = self.parents.get(branch)
+            return done(json.dumps([{"number": number}] if number else []))
         if args[0] == "api" and "/contents/.github/workflows?ref=" in args[1]:
             if self.workflows_reply is not None:
                 return self.workflows_reply
@@ -246,6 +257,8 @@ WAITING = [{"name": "docs", "bucket": "pending"}]
 
 @pytest.mark.parametrize("label,setup", [
     ("draft", dict(view={**READY_VIEW, "isDraft": True})),
+    ("stacked", dict(parents={"main": 6})),
+    ("unreadable-parent", dict(parents_reply=done("", "boom", 1))),
     ("not-open", dict(view={**READY_VIEW, "state": "MERGED"})),
     ("not-mergeable", dict(view={**READY_VIEW, "mergeable": "CONFLICTING"})),
     ("dirty", dict(view={**READY_VIEW, "mergeStateStatus": "DIRTY"})),
@@ -264,7 +277,8 @@ def test_each_failing_condition_alone_blocks_ready(host, label, setup):
     the fake does.
 
     Mutation: delete the `if pr.draft` branch of `blockers` and the `draft`
-    row goes red alone; delete the pending branch and `pending` goes red.
+    row goes red alone; delete the pending branch and `pending` goes red;
+    delete the `elif pr.parent` branch and `stacked` goes red.
     """
     host(**setup)
     pr = merge_review.view(REPO, 7)
@@ -366,13 +380,32 @@ def test_the_listing_issues_only_read_verbs(host):
 
 
 def test_the_listing_counts_open_pull_requests_and_keeps_a_draft_out_of_ready(host):
-    """Two open is not a finding; the stacked draft is simply not READY."""
+    """Two open is not a finding; the draft is simply not READY."""
     host(listing=[READY_VIEW, {**READY_VIEW, "number": 8, "isDraft": True}])
     text = merge_review.listing([("r", REPO)])
     assert "2 open pull requests" in text
-    assert "stacked on another pull request" in text
+    assert "it is a draft" in text
     ready = [line for line in text.splitlines() if "READY:" in line]
     assert ready and f"{REPO}#7" in ready[0] and "#8" not in ready[0]
+
+
+def test_a_ready_pull_request_stacked_on_another_is_kept_out_of_ready(host):
+    """A stacked pull request may be ready, and it merges after its parent.
+
+    Merged first, it would land in its parent's branch rather than the
+    target; the listing names the parent, and the act refuses it.
+    """
+    stacked = {**READY_VIEW, "number": 8, "headRefName": "evolve/next",
+               "baseRefName": "evolve/slice"}
+    fake = host(listing=[READY_VIEW, stacked], view=stacked,
+                parents={"evolve/slice": 7})
+    text = merge_review.listing([("r", REPO)])
+    assert "it is stacked on #7" in text
+    ready = [line for line in text.splitlines() if "READY:" in line]
+    assert ready and f"{REPO}#7" in ready[0] and "#8" not in ready[0]
+    code, _ = run_main("--repo", REPO, "--pr", "8", "--yes")
+    assert code != 0
+    assert fake.merges == []
 
 
 def test_an_unreadable_repository_is_unknown_rather_than_empty(host):

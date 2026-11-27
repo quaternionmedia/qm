@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-05T16:23:09Z'
+generated_at: '2026-11-23T17:59:18Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -41,15 +41,15 @@ enforcement:
   branch_protection_on_main: false
   blocks_a_merge: false
 totals:
-  gates: 22
-  built: 22
+  gates: 21
+  built: 21
   declared_not_built: 0
   by_state:
-    ok: 21
+    ok: 20
     warn: 0
     unknown: 1
-  gate_main: 16
-  seed: 8
+  gate_main: 15
+  seed: 7
   undeclared_workflows: 0
 gates:
 - id: adr-lint
@@ -109,37 +109,6 @@ gates:
     - adr-lint
     job_declared: true
   state: ok
-- id: stacked-drafts
-  gates:
-  - main
-  seed: true
-  external: false
-  declared_built: true
-  workflow: one-pr-check.yml
-  job: slot
-  runs:
-  - project-seed/ci/check_one_pr.py
-  enforces:
-  - handbook/async-contract.md
-  refuses: A pull request marked ready whose base is the branch of another open pull
-    request in the same repository. It fails every such pull request of the author,
-    not only the one whose event ran it.
-  cannot_see: Whether a pull request is one change. A branch cut from another pull
-    request's branch but opened against the target, carrying its parent's commits.
-    A pull request closed in favour of one that contains it -- closed pull requests
-    are not read.
-  evidence:
-    present: true
-    workflow_name: Stacked PRs are drafts
-    triggers: &id001
-    - pull_request
-    stands_before: &id002
-    - main
-    gates_declared: true
-    jobs: &id003
-    - slot
-    job_declared: true
-  state: ok
 - id: one-pr-voice
   gates:
   - main
@@ -163,11 +132,14 @@ gates:
     the diff at all.
   evidence:
     present: true
-    workflow_name: Stacked PRs are drafts
-    triggers: *id001
-    stands_before: *id002
+    workflow_name: Pull requests speak as their contributor
+    triggers: &id001
+    - pull_request
+    stands_before: &id002
+    - main
     gates_declared: true
-    jobs: *id003
+    jobs: &id003
+    - slot
     job_declared: true
   state: ok
 - id: pr-direction
@@ -195,7 +167,7 @@ gates:
     fails on them.'
   evidence:
     present: true
-    workflow_name: Stacked PRs are drafts
+    workflow_name: Pull requests speak as their contributor
     triggers: *id001
     stands_before: *id002
     gates_declared: true

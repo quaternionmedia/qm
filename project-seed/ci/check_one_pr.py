@@ -1,34 +1,38 @@
 #!/usr/bin/env python3
-"""No pull request is marked ready while it is stacked on another open one.
+"""Every open pull request in a repository, and the stack each one sits in.
 
-A seed file, run in place. The filename predates the rule and is kept because
-every project's copied one-pr-check.yml runs it by this path.
+A seed file, run in place. A project's copied one-pr-check.yml may run it by
+this path, so the path stays whatever the file does.
 
 The rule (handbook/async-contract.md 1): one change per pull request.
-Independent changes are parallel pull requests, each ready against its base,
-and there is no limit on how many a contributor holds. A change that needs
-another's work is *stacked*: its branch is cut from that branch, its pull
-request's base IS that branch, and it stays a draft until the one beneath it
-merges -- however finished it is. Ready means merge once green, and merging a
-stacked pull request lands it in its parent's branch rather than the target.
+Independent changes are parallel pull requests, each against its base, and
+there is no limit on how many a contributor holds. A change that needs
+another's work is *stacked*: its branch is cut from that branch and its pull
+request's base IS that branch. It is marked ready when its work is finished,
+wherever it stands in the stack, and it merges after the one beneath it,
+retargeted onto that one's base: merged sooner, it would land in its parent's
+branch rather than the target. `ci/merge_review.py` (`uv run qm merge`) holds
+that order; this file lists.
 
-What this fails
+What it lists
 
-  - A human's open pull request that is not a draft and whose base is the head
-    branch of another open pull request in the same repository.
+  - Every human's open pull request, draft or ready, and for each one whose
+    base is the head branch of another open pull request in the same
+    repository, that pull request's number.
 
 What it cannot see:
 
-  - Whether a pull request is one change. Size is not scope.
   - A "stack" that skips the base chain: a branch cut from another pull
     request's branch but opened against the target, carrying its parent's
     commits. Seeing that needs a compare call per pair of open pull requests.
-  - A pull request closed in favour of one that contains it. Closed pull
-    requests are not read.
+  - Closed pull requests, which are not read.
 
-Automation authors are not judged: Dependabot's queue is its own.
+Automation's pull requests are counted and not listed: Dependabot's queue is
+its own.
 
-Exit status is 1 when any pull request in scope is ready and stacked.
+It fails nothing about a stack. Exit status is 0 once the list is read, and
+non-zero only when it could not be: a repository nobody could read is never
+reported as one with nothing open.
 
 Usage:
     python check_one_pr.py --repo quaternionmedia/qm
@@ -45,11 +49,10 @@ import subprocess
 import sys
 from collections import defaultdict
 
-# Accounts whose pull requests this check does not judge. GitHub
-# reports these with user.type == "Bot", but the REST list endpoint has been
-# seen to return a plain "User" type for app-authored PRs, so the login suffix
-# is checked too. Both, because a missed bot would be judged by a rule written
-# for people.
+# Accounts whose pull requests are counted and not listed. GitHub reports
+# these with user.type == "Bot", but the REST list endpoint has been seen to
+# return a plain "User" type for app-authored PRs, so the login suffix is
+# checked too. Both, because a missed bot would be listed among people's work.
 BOT_LOGIN_SUFFIXES = ("[bot]",)
 
 
@@ -105,8 +108,8 @@ def fetch_open_prs(repo: str) -> list[dict]:
         sys.exit(
             "check_one_pr: `gh` is not installed or not on PATH. Install it from "
             "https://cli.github.com, then run `gh auth login`.\n"
-            "This check reads pull requests; it cannot report a repository "
-            "it could not read as compliant."
+            "This lists pull requests; it cannot report a repository it could "
+            "not read as one with nothing open."
         )
     if result.returncode != 0:
         # gh exits 4 when it holds no credential, and says `gh auth login`
@@ -117,14 +120,14 @@ def fetch_open_prs(repo: str) -> list[dict]:
             sys.exit(
                 "check_one_pr: no host credential. Run `gh auth login`, or set "
                 "GH_TOKEN to a token that can read pull requests.\n"
-                "This check reads pull requests; it cannot report a repository "
-                "it could not read as compliant."
+                "This lists pull requests; it cannot report a repository it "
+                "could not read as one with nothing open."
             )
         sys.exit(
             f"check_one_pr: gh api repos/{repo}/pulls failed:\n"
             f"{result.stderr.strip()}\n"
-            "This check reads pull requests; it cannot report a repository it "
-            "could not read as compliant."
+            "This lists pull requests; it cannot report a repository it could "
+            "not read as one with nothing open."
         )
     # --paginate concatenates JSON arrays as separate documents on some gh
     # versions and splices them into one on others. Decoding whatever arrives
@@ -171,17 +174,25 @@ def parents(prs: list[dict], repo: str) -> dict[str, dict]:
     return {pr["head"]: pr for pr in prs if pr["head_repo"] == repo and pr["head"]}
 
 
-def find_violations(
+def listed(prs: list[dict], contributor: str | None) -> list[dict]:
+    """The human pull requests in scope: every one, or one login's."""
+    return [
+        pr for pr in prs
+        if not pr["bot"] and (not contributor or pr["author"] == contributor)
+    ]
+
+
+def find_stacked(
     prs: list[dict], repo: str, contributor: str | None
 ) -> list[tuple[dict, dict]]:
-    """(pull request, the one it is stacked on) for every ready stacked one."""
+    """(pull request, the one it is stacked on) for every stacked one in scope.
+
+    The parent may be anybody's: the base chain is what orders the merges,
+    whoever cut each branch.
+    """
     by_head = parents(prs, repo)
     found = []
-    for pr in prs:
-        if pr["bot"] or pr["draft"]:
-            continue
-        if contributor and pr["author"] != contributor:
-            continue
+    for pr in listed(prs, contributor):
         parent = by_head.get(pr["base"])
         if parent is not None and parent["number"] != pr["number"]:
             found.append((pr, parent))
@@ -191,9 +202,7 @@ def find_violations(
 def report(repo: str, prs: list[dict], contributor: str | None) -> int:
     human = [pr for pr in prs if not pr["bot"]]
     bots = len(prs) - len(human)
-    by_head = parents(prs, repo)
-    violations = find_violations(prs, repo, contributor)
-    bad = {pr["number"] for pr, _ in violations}
+    on_parent = {pr["number"]: parent for pr, parent in find_stacked(prs, repo, contributor)}
 
     print(f"repository   {repo}")
     print(f"open PRs     {len(prs)}  ({len(human)} human, {bots} automation)")
@@ -201,26 +210,21 @@ def report(repo: str, prs: list[dict], contributor: str | None) -> int:
         print(f"contributor  {contributor}")
 
     print()
-    for pr in sorted(human, key=lambda p: (p["author"], p["number"])):
-        parent = by_head.get(pr["base"])
+    for pr in sorted(listed(prs, contributor), key=lambda p: (p["author"], p["number"])):
+        parent = on_parent.get(pr["number"])
         on = f" (on #{parent['number']})" if parent else ""
-        mark = "FAIL" if pr["number"] in bad else "ok  "
-        kind = "draft" if pr["draft"] else "READY"
-        print(f"{mark} #{pr['number']} [{kind}] {pr['author']}: "
+        kind = "draft" if pr["draft"] else "ready"
+        print(f"#{pr['number']} [{kind}] {pr['author']}: "
               f"{pr['head']} -> {pr['base']}{on}  {pr['title']}")
 
-    if not violations:
-        print("\nNo stacked pull request is marked ready.")
-        return 0
-
-    print()
-    for pr, parent in violations:
+    if on_parent:
         print(
-            f"#{pr['number']} ({pr['author']}) is ready, but its base "
-            f"{pr['base']} is #{parent['number']}'s branch. Mark it draft "
-            f"(gh pr ready {pr['number']} --undo) until #{parent['number']} merges."
+            f"\n{len(on_parent)} stacked on another open pull request. Each merges "
+            "after the one beneath it, retargeted onto that one's base."
         )
-    return 1
+    else:
+        print("\nNone is stacked on another open pull request.")
+    return 0
 
 
 def force_utf8_output() -> None:
@@ -240,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--repo", required=True, help="owner/name")
     parser.add_argument(
         "--contributor",
-        help="Limit the exit status to this login. Others are still listed.",
+        help="List this login's pull requests only. A parent is found whoever opened it.",
     )
     parser.add_argument(
         "--from-json",
@@ -248,7 +252,7 @@ def main(argv: list[str] | None = None) -> int:
         help="Read the pull request list from a file instead of calling gh.",
     )
     parser.add_argument(
-        "--json", action="store_true", help="Emit the finding as JSON, for a reader."
+        "--json", action="store_true", help="Emit the list as JSON, for a reader."
     )
     args = parser.parse_args(argv)
 
@@ -259,32 +263,31 @@ def main(argv: list[str] | None = None) -> int:
         raw = fetch_open_prs(args.repo)
     prs = normalise(raw)
 
-    violations = find_violations(prs, args.repo, args.contributor)
-
     if args.json:
         json.dump(
             {
                 "repository": args.repo,
                 "contributor": args.contributor,
+                # Every open pull request, whatever --contributor names: a
+                # reader counting a repository's queue counts all of it.
                 "open_prs": prs,
-                # One entry per ready stacked pull request. `base` is the
-                # parent's branch and `numbers` the offender, the shape every
-                # reader of this document already consumes.
-                "violations": [
+                # One entry per stacked pull request in scope, `base` being
+                # its parent's branch.
+                "stacked": [
                     {
+                        "number": pr["number"],
                         "author": pr["author"],
                         "base": pr["base"],
-                        "numbers": [pr["number"]],
                         "parent": parent["number"],
                     }
-                    for pr, parent in violations
+                    for pr, parent in find_stacked(prs, args.repo, args.contributor)
                 ],
             },
             sys.stdout,
             indent=2,
         )
         print()
-        return 1 if violations else 0
+        return 0
 
     return report(args.repo, prs, args.contributor)
 

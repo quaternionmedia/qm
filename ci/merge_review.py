@@ -150,6 +150,10 @@ class PullRequest:
     # `gates_read` is False when the base's workflows could not be read.
     gated: list[str] = field(default_factory=list)
     gates_read: bool = True
+    # The open pull request whose branch is this one's base, when there is
+    # one. `parent_read` is False when the host could not say.
+    parent: int | None = None
+    parent_read: bool = True
 
     @classmethod
     def from_host(cls, repo: str, raw: dict) -> "PullRequest":
@@ -182,7 +186,13 @@ def blockers(pr: PullRequest) -> list[str]:
     if pr.state != OPEN:
         why.append(f"state is {pr.state or 'unknown'}, not {OPEN}")
     if pr.draft:
-        why.append("it is a draft: incomplete, or stacked on another pull request")
+        why.append("it is a draft: its work is incomplete")
+    if not pr.parent_read:
+        why.append("whether its base is another open pull request's branch "
+                   "could not be read")
+    elif pr.parent:
+        why.append(f"it is stacked on #{pr.parent}: it merges after that one, "
+                   "retargeted onto that one's base")
     if pr.mergeable != MERGEABLE:
         why.append(f"mergeable is {pr.mergeable or 'unknown'}, not {MERGEABLE}")
     if pr.merge_state != CLEAN:
@@ -285,6 +295,26 @@ def read_gates(pr: PullRequest) -> None:
         pr.gated = gated
 
 
+def read_parent(pr: PullRequest) -> None:
+    """Fill in the open pull request whose branch is this one's base, if any.
+
+    A stacked pull request is marked ready when its work is finished
+    (`handbook/async-contract.md` section 1). Merged before the one beneath
+    it, it would land in its parent's branch rather than the target, so the
+    host is asked which open pull request has this one's base as its head.
+    """
+    if not pr.base:
+        return
+    owner = pr.repo.split("/", 1)[0]
+    rows = gh_json("api", f"repos/{pr.repo}/pulls?state=open&head={owner}:{pr.base}"
+                   "&per_page=1")
+    if not isinstance(rows, list):
+        pr.parent_read = False
+        return
+    if rows:
+        pr.parent = int(rows[0].get("number", 0)) or None
+
+
 def read_checks(pr: PullRequest) -> None:
     """Fill in the failing and pending check names, or mark them unreadable."""
     done = gh("pr", "checks", str(pr.number), "--repo", pr.repo,
@@ -328,6 +358,7 @@ def open_pull_requests(repo: str) -> list[PullRequest] | None:
     for pr in found:
         read_checks(pr)
         read_gates(pr)
+        read_parent(pr)
     return found
 
 
@@ -339,6 +370,7 @@ def view(repo: str, number: int) -> PullRequest | None:
     pr = PullRequest.from_host(repo, raw)
     read_checks(pr)
     read_gates(pr)
+    read_parent(pr)
     return pr
 
 
@@ -379,10 +411,9 @@ def render(pr: PullRequest) -> list[str]:
 def listing(repos: list[tuple[str, str | None]]) -> str:
     """What a person reads before choosing which pull request to merge.
 
-    Grouped per repository. A pull request stacked on another is a draft
-    until the one beneath it merges (`handbook/async-contract.md` section 1),
-    so the draft blocker keeps it out of READY; one marked ready anyway fails
-    the stack gate and is kept out by its failing check.
+    Grouped per repository. A pull request stacked on another may be ready
+    (`handbook/async-contract.md` section 1), and the stacked blocker keeps it
+    out of READY until the one beneath it merges and it is retargeted.
     """
     out: list[str] = []
     unreadable: list[str] = []
