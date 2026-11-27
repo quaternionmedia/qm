@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-11-26T01:59:58Z'
+generated_at: '2026-11-27T02:05:11Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -123,13 +123,13 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 321
+  documents: 322
   by_state:
     dated: 2
     draft: 3
     generated: 57
     proposed: 43
-    standing: 93
+    standing: 94
     transient: 23
     unreviewed: 100
   disagreements: 0
@@ -2200,6 +2200,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: plans/the-active-set-and-the-pair.md
+  class: other
+  class_reason: not in a governed directory
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: plans/the-shop-assistant.md
   class: other
   class_reason: not in a governed directory
   declared_status: null
