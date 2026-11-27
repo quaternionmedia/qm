@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-27T04:44:46Z",
+  "generated_at": "2026-11-27T13:21:41Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-11-27T04:44:44Z"
+        "generated_at": "2026-11-27T13:21:40Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 248,
+    "loose_ends": 249,
     "by_kind": {
       "blind-spot": 21,
       "document-proposed": 43,
-      "document-unreviewed": 100,
+      "document-unreviewed": 101,
       "stalled-thread": 84
     },
-    "open": 248,
+    "open": 249,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1286,6 +1286,14 @@
       "title": "perspectives/2026-11-25-sharing-a-dev-state.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-25-sharing-a-dev-state",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-11-27-the-harness-reached-by-another-program",
+      "title": "perspectives/2026-11-27-the-harness-reached-by-another-program.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-11-27-the-harness-reached-by-another-program",
       "address_parses": true
     },
     {
