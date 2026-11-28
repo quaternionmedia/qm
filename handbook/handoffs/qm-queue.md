@@ -745,6 +745,13 @@ re-checked and is re-derived before anyone acts on it.
   the window served to another machine. Done is #184 merged after #183 by a
   person, and a record drafted for the window's writes, or a decision that
   the answer record covers them.
+- **A test that times a live harness** (2026-11-28).
+  `ci/tests/test_trio_demo.py::test_the_deployed_front_ends_agree` asks the
+  servers running on the machine. With a thread archive, the harness takes
+  about three seconds to answer what the archive says of one project, and
+  the web window gives it six; inside the whole suite the window then
+  reports the harness unreachable and the test fails, while alone it passes.
+  Done is the test not depending on how busy the machine is.
 - **Two faults met on the way** (2026-11-28). dossier's overview counts a
   project record made for one pull request as a repository never synced;
   done is the count reading repositories alone. codecartographer's
