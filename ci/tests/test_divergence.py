@@ -30,7 +30,6 @@ from divergence import (  # noqa: E402
     MISSING,
     OPENING_PHASE,
     SCHEMA,
-    Divergence,
     compare,
     converged,
     describe,

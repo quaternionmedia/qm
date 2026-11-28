@@ -145,7 +145,6 @@ def stability(ledger: dict) -> dict:
 def checkout(inventory: dict, roster: list[dict], roots: list[Path], deep: bool) -> dict:
     """Which of the org's repositories are on this disk, and in what state."""
     repos = inventory.get("repositories") or []
-    wanted = [r for r in repos if r.get("in_roster")]
     active = [r for r in repos if not r.get("archived")]
 
     found: dict[str, Path] = {}

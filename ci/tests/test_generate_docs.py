@@ -15,8 +15,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-import pytest
-
 CI = Path(__file__).resolve().parent.parent
 CORPUS = CI.parent
 
@@ -73,7 +71,6 @@ def test_the_state_document_is_written_last():
     loose-ends join above it and `test_a_renderer_runs_after_the_document_it_reads`'s
     sibling below catches the join reading a stale page.
     """
-    labels = [label for label, *_ in generate_docs.STEPS]
     writes = [out for _, _, out, _, _ in generate_docs.STEPS]
 
     assert "status/documents.yaml" in writes, writes

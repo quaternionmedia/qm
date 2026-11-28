@@ -37,7 +37,6 @@ import argparse
 import json
 import re
 import subprocess
-import sys
 from pathlib import Path
 
 # Account names that are deliberately not anybody's. Extend this rather than

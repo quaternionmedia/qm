@@ -1168,8 +1168,6 @@ def _reader(name: str, project: Path, script: str, document: str,
             subject: str = "") -> Reading:
     """One reader, fed the thread on stdin. Same pipe, same rule as `_window`:
     this side never edits what the other side reported."""
-    import os
-
     env = _env(project)
     if subject:
         env["TRIO_SUBJECT"] = subject

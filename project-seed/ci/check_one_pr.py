@@ -47,7 +47,6 @@ import argparse
 import json
 import subprocess
 import sys
-from collections import defaultdict
 
 # Accounts whose pull requests are counted and not listed. GitHub reports
 # these with user.type == "Bot", but the REST list endpoint has been seen to
