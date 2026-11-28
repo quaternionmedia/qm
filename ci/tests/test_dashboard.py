@@ -191,6 +191,117 @@ def test_start_registered_refuses_when_nothing_is_registered(machine, capsys):
     assert "nothing is registered" in capsys.readouterr().out
 
 
+# Writes the directory it runs in beside the port it then binds.
+SERVES_AND_SAYS_WHERE = ("import os, pathlib, socket, sys, time\n"
+                         "pathlib.Path(sys.argv[2]).write_text(os.getcwd())\n"
+                         "s = socket.socket(); s.bind(('127.0.0.1', int(sys.argv[1]))); s.listen()\n"
+                         "time.sleep(60)\n")
+
+
+def project(where: Path) -> Path:
+    where.mkdir(parents=True, exist_ok=True)
+    (where / "pyproject.toml").write_text("[project]\nname = 'probe'\n", encoding="utf-8")
+    return where
+
+
+def one_surface(monkeypatch, probe: dashboard.Surface, beside: Path) -> None:
+    monkeypatch.setattr(dashboard, "SURFACES", (probe,))
+    monkeypatch.setattr(dashboard, "BY_NAME", {probe.name: probe})
+    monkeypatch.setattr(dashboard, "repo_of", lambda s: beside)
+
+
+def test_a_surface_is_started_from_the_checkout_named_for_it(machine, monkeypatch, capsys):
+    """Mutation: take the clone beside this one whatever `--from` says, in
+    `main`, and the child runs there. Mutation: drop the checkout from the
+    report's line, and nothing says which tree is being served."""
+    tmp_path, children = machine
+    beside, worktree = project(tmp_path / "beside"), project(tmp_path / "worktree")
+    port, said = free_port(), tmp_path / "cwd.txt"
+    one_surface(monkeypatch, surface(port, SERVES_AND_SAYS_WHERE, str(port), str(said)), beside)
+    assert dashboard.main(["--start", "probe", "--from", f"probe={worktree}", "--wait", "20"]) == 0
+    record = dashboard.running()["probe"]
+    children.append(record["pid"])
+    assert Path(said.read_text()).resolve() == worktree.resolve()
+    assert Path(record["repo"]).resolve() == worktree.resolve()
+    line = next(row for row in capsys.readouterr().out.splitlines() if row.startswith("probe "))
+    assert f"started here, pid {record['pid']}, from " in line and "worktree" in line
+
+
+def test_a_surface_started_from_the_clone_beside_this_one_names_no_checkout(machine, monkeypatch,
+                                                                            capsys):
+    """Mutation: name the checkout on every started surface, and the ordinary
+    start carries a path nobody asked about."""
+    tmp_path, children = machine
+    beside = project(tmp_path / "beside")
+    port, said = free_port(), tmp_path / "cwd.txt"
+    one_surface(monkeypatch, surface(port, SERVES_AND_SAYS_WHERE, str(port), str(said)), beside)
+    assert dashboard.main(["--start", "probe", "--wait", "20"]) == 0
+    pid = dashboard.running()["probe"]["pid"]
+    children.append(pid)
+    line = next(row for row in capsys.readouterr().out.splitlines() if row.startswith("probe "))
+    assert line.rstrip().endswith(f"(started here, pid {pid})")
+
+
+def test_start_registered_takes_the_named_checkout(machine, monkeypatch):
+    """Mutation: leave `sources` out of `start_registered`, and the registered
+    surface starts from the clone beside this one."""
+    tmp_path, _ = machine
+    (tmp_path / "registered.json").write_text(json.dumps(
+        {"name": "local", "families": [], "repos": ["apothecary"],
+         "registered_at": "2026-10-30T00:00:00Z"}), encoding="utf-8")
+    started = []
+    monkeypatch.setattr(dashboard, "repo_of", lambda s: tmp_path)
+    monkeypatch.setattr(dashboard, "listening", lambda port: False)
+    monkeypatch.setattr(dashboard, "start",
+                        lambda s, repo, wait: (started.append((s.name, repo)), (True, "up"))[1])
+    worktree = project(tmp_path / "worktree")
+    assert dashboard.start_registered(sources={"parts": worktree}) == 0
+    assert started == [("parts", worktree)]
+
+
+def test_a_from_that_names_no_surface_or_no_project_is_refused(machine):
+    """Mutation: drop the `pyproject.toml` test from `checkouts`, and a
+    mistyped path is a directory the command is run in. Mutation: drop the
+    name test, and a mistyped surface is silently never started."""
+    tmp_path, _ = machine
+    with pytest.raises(ValueError, match="is not a surface"):
+        dashboard.checkouts([f"nosuch={project(tmp_path / 'p')}"])
+    (tmp_path / "empty").mkdir()
+    with pytest.raises(ValueError, match="holds no pyproject.toml"):
+        dashboard.checkouts([f"web={tmp_path / 'empty'}"])
+    with pytest.raises(ValueError, match="holds no pyproject.toml"):
+        dashboard.checkouts(["web"])
+    with pytest.raises(SystemExit):
+        dashboard.main(["--start", "web", "--from", f"web={tmp_path / 'empty'}"])
+
+
+def test_the_report_says_started_here_only_of_the_process_it_started(machine, monkeypatch,
+                                                                     capsys):
+    """A record outlives a process ended outside `--stop`, and another process
+    may take its port. Mutation: say `started here` of any recorded name, in
+    `report` or in `--json`, and a stranger on the port is called this
+    command's."""
+    tmp_path, _ = machine
+    gone = subprocess.Popen([sys.executable, "-c", "pass"])
+    gone.wait()
+    port = free_port()
+    one_surface(monkeypatch, surface(port, SLEEPS), project(tmp_path / "beside"))
+    (tmp_path / "dashboard.json").write_text(json.dumps(
+        {"probe": {"pid": gone.pid, "port": port, "repo": str(tmp_path / "beside"),
+                   "created": 1}}), encoding="utf-8")
+    with socket.socket() as stranger:
+        stranger.bind(("127.0.0.1", port))
+        stranger.listen()
+        assert dashboard.report() == 0
+        line = next(row for row in capsys.readouterr().out.splitlines()
+                    if row.startswith("probe "))
+        assert "something is listening" in line and "started here" not in line
+        assert dashboard.main(["--json"]) == 0
+        answer = json.loads(capsys.readouterr().out)["probe"]
+        assert answer["listening"] is True
+        assert answer["started_here"] is False and answer["started_from"] is None
+
+
 def test_a_fresh_clone_is_refused_with_what_to_run_in_it(machine, monkeypatch):
     """A clone nobody has synced has no environment for `uv run --no-sync` to
     run in. Mutation: drop the check from `start`, and the server is launched

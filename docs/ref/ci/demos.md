@@ -109,6 +109,7 @@ uv run qm dashboard --start harness  # detach the harness into its own process
 uv run qm dashboard --start web
 uv run qm dashboard --stop harness   # stop what --start launched, by its pid
 uv run qm dashboard --start-registered  # every surface this machine registered, not yet up
+uv run qm dashboard --start web --from web=PATH  # the web front end, from the checkout at PATH
 uv run qm journey-pictures          # the journeys' pictures, from the surfaces that are up
 ```
 
@@ -157,6 +158,17 @@ speech engine it hears its captions with.
   (`uv run qm instances register`), the harness first, skipping a surface whose
   port already answers. For a stack its owner starts it prints what the report
   does, and starts nothing.
+- **`--from NAME=PATH` runs a surface from another checkout**: a worktree
+  holding a branch, in place of the clone beside the corpus, under that
+  checkout's own environment. It applies to `--start` and
+  `--start-registered`, and is refused for a name that is no surface or a path
+  that holds no `pyproject.toml`. The report names the checkout beside the
+  pid, so a table that says the web front end is up also says which tree it
+  serves.
+- **"Started here" is said of a live process only.** The report and `--json`
+  say it while the recorded pid is still the process `--start` launched. A
+  record whose process was ended any other way says nothing, whatever now
+  holds its port.
 - **A busy port is "something is listening"**, not "the harness is up": any
   process may hold a port, and the ordinary cause of a surprise is a stale
   process from an earlier session.
