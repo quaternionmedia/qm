@@ -693,13 +693,12 @@ re-checked and is re-derived before anyone acts on it.
   `sync-org` and `sync-user` skip a repository whose listing shows no push
   and no settings change since its sync, and `sync-org --repo NAME` syncs
   named repositories. Measured against the host, a repository fetched costs
-  about forty calls and one skipped costs none beyond the listing. The core
-  family's repositories were synced with it; every other repository that
-  changed since its sync was not, so dossier's overview is current for the
-  core family alone. Not done: what one repository's sync costs, and seeing
-  an issue opened with no push. Done is #66 merged by a person, then
-  `dossier github sync-org quaternionmedia` run once with the allowance read
-  first.
+  about forty calls and one skipped costs none beyond the listing. The whole
+  organization was synced from the branch on 2026-11-28: every repository
+  the listing showed changed was fetched and none failed. dossier's overview
+  counts some projects as never synced after that run; which they are was
+  not read. Not done: what one repository's sync costs, and seeing an issue
+  opened with no push. Done is #66 merged by a person.
 - **A surface from a named checkout** (2026-11-28). `uv run qm dashboard
   --start NAME --from NAME=PATH` runs a surface from a worktree, and the
   report names it. A web front end started that way reads dossier's overview
