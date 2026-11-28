@@ -6,9 +6,13 @@
     uv run qm dashboard --start web
     uv run qm dashboard --stop harness
     uv run qm dashboard --start-registered
+    uv run qm dashboard --start web --from web=PATH
 
 `--start-registered` starts every surface whose repository this machine has
 registered (`uv run qm instances register`) and that is not already up.
+`--from NAME=PATH` runs a surface from the checkout at PATH in place of the
+clone beside this one: a worktree holding a branch, under that checkout's own
+environment. The report names the checkout a surface was started from.
 
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
 on the web and `dossier` its front end in a terminal; neither owns anything,
@@ -242,6 +246,48 @@ def running() -> dict[str, dict]:
         return {}
 
 
+def still_ours(record: dict) -> bool:
+    """Whether the pid this command recorded is still the process it started.
+
+    A record outlives a process ended by anything but `--stop`, and its pid may
+    since name another process."""
+    pid = int(record.get("pid") or 0)
+    if not instances.alive(pid):
+        return False
+    return record.get("created") is None or instances.created(pid) == record["created"]
+
+
+def checkouts(pairs: list[str] | None) -> dict[str, Path]:
+    """`NAME=PATH` pairs as surface name -> checkout.
+
+    Raises ValueError for a pair that names no surface, or whose path is not a
+    project: the command would otherwise run in whatever directory it was
+    handed."""
+    found: dict[str, Path] = {}
+    for pair in pairs or []:
+        name, _, where = pair.partition("=")
+        if name not in BY_NAME:
+            raise ValueError(f"--from {pair}: {name or 'nothing'} is not a surface; "
+                             f"the surfaces are {', '.join(BY_NAME)}")
+        checkout = Path(where).expanduser()
+        if not where or not (checkout / "pyproject.toml").is_file():
+            raise ValueError(f"--from {pair}: {where or 'no path'} holds no "
+                             f"pyproject.toml, so it is not a checkout of "
+                             f"{BY_NAME[name].repo}")
+        found[name] = checkout.resolve()
+    return found
+
+
+def started_from(record: dict, surface: Surface) -> str:
+    """The checkout a started surface runs from, where it is not the clone
+    beside this one; otherwise nothing."""
+    beside = repo_of(surface)
+    ran = Path(record.get("repo") or "")
+    if beside is not None and ran.resolve() == beside.resolve():
+        return ""
+    return instances.tilde(ran) or ""
+
+
 def _remember(found: dict[str, dict]) -> None:
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(found, indent=2), encoding="utf-8")
@@ -411,8 +457,11 @@ def registered() -> set[str]:
     return set(instances.expected(document, known)[0])
 
 
-def start_registered(wait: float = WAIT) -> int:
-    """Start every registered surface that is not up, the harness first."""
+def start_registered(wait: float = WAIT,
+                     sources: dict[str, Path] | None = None) -> int:
+    """Start every registered surface that is not up, the harness first, each
+    from the checkout `sources` names for it or the clone beside this one."""
+    sources = sources or {}
     if instances.read_registration() is None:
         print("start-registered: nothing is registered on this machine. "
               "`uv run qm instances register --family NAME` or `--repo NAME` "
@@ -423,7 +472,7 @@ def start_registered(wait: float = WAIT) -> int:
     for surface in SURFACES:
         if surface.repo not in wanted:
             continue
-        repo = repo_of(surface)
+        repo = sources.get(surface.name) or repo_of(surface)
         if repo is None:
             print(f"{surface.name}: {surface.repo} is not beside this clone")
             status = 1
@@ -469,8 +518,11 @@ def report() -> int:
             missing.append(surface)
         elif listening(surface.port):
             state = "something is listening"
-            if surface.name in started:
-                state += f" (started here, pid {started[surface.name]['pid']})"
+            record = started.get(surface.name)
+            if record and still_ours(record):
+                where = started_from(record, surface)
+                state += (f" (started here, pid {record['pid']}"
+                          f"{', from ' + where if where else ''})")
         else:
             state = "nothing listening"
             missing.append(surface)
@@ -563,6 +615,11 @@ def build_parser() -> argparse.ArgumentParser:
         help=("start every surface whose repository this machine has "
               "registered (`qm instances register`) and is not already up"))
     parser.add_argument(
+        "--from", metavar="NAME=PATH", action="append", dest="sources",
+        help=("run this surface from the checkout at PATH, a worktree holding "
+              "a branch, in place of the clone beside this one; repeatable. "
+              "It applies to --start and --start-registered"))
+    parser.add_argument(
         "--wait", type=float, default=WAIT, metavar="SECONDS",
         help=(f"how long a start waits for its port to answer before saying "
               f"it did not (default {WAIT:g})"))
@@ -573,7 +630,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    try:
+        sources = checkouts(args.sources)
+    except ValueError as refused:
+        parser.error(str(refused))
 
     if args.as_json:
         started = running()
@@ -584,7 +646,11 @@ def main(argv: list[str] | None = None) -> int:
                      "owner_starts": s.owner_starts, "health": s.health,
                      "present": repo_of(s) is not None,
                      "listening": listening(s.port),
-                     "started_here": s.name in started,
+                     "started_here": (s.name in started
+                                      and still_ours(started[s.name])),
+                     "started_from": (started[s.name].get("repo")
+                                      if s.name in started
+                                      and still_ours(started[s.name]) else None),
                      "registered": s.repo in wanted}
             for s in SURFACES}, indent=2))
         return 0
@@ -597,7 +663,7 @@ def main(argv: list[str] | None = None) -> int:
 
     for name in args.to_start or []:
         surface = BY_NAME[name]
-        repo = repo_of(surface)
+        repo = sources.get(name) or repo_of(surface)
         if repo is None:
             print(f"{name}: {surface.repo} is not beside this clone")
             status = 1
@@ -607,7 +673,7 @@ def main(argv: list[str] | None = None) -> int:
         status = status or (0 if ok else 1)
 
     if args.start_registered:
-        status = start_registered(args.wait) or status
+        status = start_registered(args.wait, sources) or status
 
     if args.to_start or args.to_stop or args.start_registered:
         print()
