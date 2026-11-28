@@ -26,9 +26,9 @@ alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 `project/qmcp` and `apothecary` `main` `538daf70`. Those that name
 2026-11-27 were re-derived at `qm` `fe83a23`, `qmcp` `5e61ec5`,
 `project/qmcp` `37d7041` and `codecartographer` `main` `0eb0b72`, with
-codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281` and
-codecartographer#176 at `07856a9`. The rest of the page holds at the stamp,
-which those entries do not move.
+codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281`,
+codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`. The
+rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -642,9 +642,16 @@ re-checked and is re-derived before anyone acts on it.
   seeded harness, both protocol turns read as straight rows; the lines to
   sources and projects still cross names. On a harness of many rows it is a
   column taller than it is wide, with the lines to projects crossing the
-  rows and their names; how such a harness is drawn is undecided. Done
-  is #172, #174, #175 and #176 merged in order by a person, each retargeted
-  onto `main` before the branch beneath it is deleted.
+  rows and their names; #177 draws such a harness as rows.
+- **The interactions graph, as rows** (2026-11-27). codecartographer#177,
+  stacked on #176, is a draft: the button draws the reading alone, with the
+  way an instruction came in written in its name and its project, session
+  and chat on its hover, rows set close and wrapped into blocks side by
+  side; a checkbox draws every node as #176 does. Seen in a browser, a
+  harness of a few dozen rows is on one canvas with every name drawn. Not
+  seen: a canvas smaller than 1440 by 900, and a harness of hundreds of rows.
+  Done is #172, #174, #175, #176 and #177 merged in order by a person, each
+  retargeted onto `main` before the branch beneath it is deleted.
 - **The shop assistant** (2026-11-26).
   [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
   plan: a local model that answers for the workshop through tools `qmcp`
