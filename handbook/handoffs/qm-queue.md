@@ -506,11 +506,13 @@ each pull request into it is behind its base until brought level.
   - looksatwords keeps its `data.json` in its clone, outside the share's
     directory, so no snapshot holds it. Done is looksatwords taking a state
     directory, as `qm family-demo`'s contract asks of a member.
-- **The tidy of the core family** (2026-11-27, at `qm` `03d5e3b`, `qmcp`
-  `a331984`, `dossier` `414be1c` and `looksatwords` `01da481`). `uv run qm
-  tidy` reads, per family, what each default branch holds to prune, and
-  `handbook/consolidation-runbook.md` Step 1 names it. `qmcp`'s unused
-  names are removed on its `main`. What is open:
+- **The tidy of the core family** (2026-11-28, at `qm` `4a6bcff`, `qmcp`
+  `a331984`, `dossier` `414be1c`, `codecartographer` `0eb0b72` and
+  `looksatwords` `01da481`). `uv run qm tidy` reads, per family, what each
+  default branch holds to prune, and `handbook/consolidation-runbook.md`
+  Step 1 names it. `qmcp`'s and `qm`'s unused names are removed on each
+  `main`; what `qm tidy` still counts for `qm` is one fixture, `corpus`,
+  that `ci/tests/test_governance_status.py` takes by name. What is open:
   - dossier#64 removes dossier's unused names, is ready with every host
     check green, and is merged by a person, as dossier's `AGENTS.md` item 3
     has it. Done is it merged.
@@ -519,10 +521,24 @@ each pull request into it is behind its base until brought level.
     because looksatwords' check takes one open pull request for each
     contributor and looksatwords#25 holds it. Done is looksatwords#25
     merged, then the branch opened as a pull request and merged.
-  - The unused names in codecartographer and in `qm` are not removed, and
-    codecartographer's remote branches that its `main` already holds are
-    not listed for deletion. Done is each as its own pull request, and the
-    list read by a person, who deletes.
+  - codecartographer#179 removes codecartographer's unused names, is ready
+    with every host check green, and is merged by a person. It keeps
+    `import os` in `python_language_parser.py`, which `main` does not use
+    and the stack from codecartographer#159 up does. Done is it merged.
+  - dossier#65 and codecartographer#178 each add a `.github/dependabot.yml`
+    that groups updates as `qmcp`'s does, ready with every host check green
+    and merged by a person. Neither repository carries the file on its
+    `main`, and its automation pull requests are the host's security
+    updates; the file also starts weekly version updates, which neither
+    receives now. Done is each merged, a grouped pull request seen to open,
+    and each ungrouped one closed after its replacement.
+  - Nine of codecartographer's remote branches have a tip its `main` holds
+    and are checked out in a worktree on one disk. Done is each worktree
+    removed and its branch deleted, by a person: the repository's ruleset
+    forbids deleting a branch, and the person's account bypasses it.
+  - codecartographer keeps a head branch after its merge
+    (`delete_branch_on_merge` is off), so merged branches gather there.
+  - rad and vox are not read for a tidy beyond `qm tidy`'s row.
   - `qmcp selfcheck` reports `tag-claims` red at `5e61ec5` and at
     `a331984` alike; the cause is not established.
 
