@@ -23,7 +23,7 @@ CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
 from gate_status import (  # noqa: E402
-    build, discover, gate_row, local_layers, stands_before, unknown,
+    build, local_layers, stands_before, unknown,
 )
 
 STATUS = CI_DIR / "gate_status.py"

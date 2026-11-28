@@ -509,7 +509,7 @@ def test_somebody_else_s_pull_request_is_theirs_to_merge(host):
 
 
 def test_the_host_refusing_the_merge_is_a_refusal_with_its_words(host):
-    fake = host(merge=done("", "base branch was modified", 1))
+    host(merge=done("", "base branch was modified", 1))
     code, text = run_main("--repo", REPO, "--pr", "7", "--yes")
     assert code == 1
     assert "base branch was modified" in text
