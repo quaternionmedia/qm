@@ -31,8 +31,9 @@ codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`.
 Those that name 2026-11-28 were re-derived at `qm` `259d27d`, `qmcp` `main`
 `a331984` and `dossier` `main` `414be1c`, with dossier#66 at `287f204`,
 codecartographer#180 at `7ddcf0e`, codecartographer#181 at `a5be62f`,
-codecartographer#182 at `b49a64f` and codecartographer#183 at `7119296`. The
-rest of the page holds at the stamp, which those entries do not move.
+codecartographer#182 at `b49a64f`, codecartographer#183 at `7119296` and
+codecartographer#184 at `77a6265`. The rest of the page holds at the stamp,
+which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -727,6 +728,23 @@ re-checked and is re-derived before anyone acts on it.
   tests' stand-in: a harness that reports a shape able to run, and one that
   serves the plane without the second document. Done is #183 merged after
   #182 by a person.
+- **A design composed and saved from the web window** (2026-11-28).
+  codecartographer#184, stacked on #183, is a draft: a Compose panel builds
+  its form from the harness's schema for a kind, relays one design to the
+  harness, and shows the harness's row and verdict, or its refusal beside
+  each field. Each reference ticked is drawn as a line before anything is
+  saved, and the harness panels link to one another. A save is relayed only
+  for a request from the machine the window runs on, as an instruction is.
+  Nothing changes, deletes or runs a design, no component is saved, and
+  nothing is composed on the canvas: the plan's authored verbs wait on a
+  record naming `rad`. No record on `project/codecartographer` states that
+  the window writes a design to the harness; this is its second write after
+  the instruction above. The harness refuses a design with no description,
+  with a message about its type. Not seen outside the tests' stand-in: a
+  saved component, a reference to something the harness does not hold, and
+  the window served to another machine. Done is #184 merged after #183 by a
+  person, and a record drafted for the window's writes, or a decision that
+  the answer record covers them.
 - **Two faults met on the way** (2026-11-28). dossier's overview counts a
   project record made for one pull request as a repository never synced;
   done is the count reading repositories alone. codecartographer's
