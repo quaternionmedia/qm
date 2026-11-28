@@ -27,7 +27,9 @@ alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 2026-11-27 were re-derived at `qm` `fe83a23`, `qmcp` `5e61ec5`,
 `project/qmcp` `37d7041` and `codecartographer` `main` `0eb0b72`, with
 codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281`,
-codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`. The
+codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`.
+Those that name 2026-11-28 were re-derived at `qm` `259d27d`, `qmcp` `main`
+`a331984` and `dossier` `main` `414be1c`, with dossier#66 at `287f204`. The
 rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
@@ -687,6 +689,24 @@ re-checked and is re-derived before anyone acts on it.
   seen: a canvas smaller than 1440 by 900, and a harness of hundreds of rows.
   Done is #172, #174, #175, #176 and #177 merged in order by a person, each
   retargeted onto `main` before the branch beneath it is deleted.
+- **dossier's sync, by change** (2026-11-28). dossier#66 is ready and green:
+  `sync-org` and `sync-user` skip a repository whose listing shows no push
+  and no settings change since its sync, and `sync-org --repo NAME` syncs
+  named repositories. Measured against the host, a repository fetched costs
+  about forty calls and one skipped costs none beyond the listing. The core
+  family's repositories were synced with it; every other repository that
+  changed since its sync was not, so dossier's overview is current for the
+  core family alone. Not done: what one repository's sync costs, and seeing
+  an issue opened with no push. Done is #66 merged by a person, then
+  `dossier github sync-org quaternionmedia` run once with the allowance read
+  first.
+- **A surface from a named checkout** (2026-11-28). `uv run qm dashboard
+  --start NAME --from NAME=PATH` runs a surface from a worktree, and the
+  report names it. A web front end started that way reads dossier's overview
+  only when `DOSSIER_OVERVIEW_SEAM` names the file `dossier overview --json`
+  wrote; nothing in the dashboard writes that file or sets that variable.
+  Done is the dashboard writing the seam and pointing the web front end at
+  it, or a decision that a person does.
 - **The shop assistant** (2026-11-26).
   [`plans/the-shop-assistant.md`](../../plans/the-shop-assistant.md) is the
   plan: a local model that answers for the workshop through tools `qmcp`
