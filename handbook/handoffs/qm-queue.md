@@ -30,9 +30,9 @@ codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281`,
 codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`.
 Those that name 2026-11-28 were re-derived at `qm` `259d27d`, `qmcp` `main`
 `a331984` and `dossier` `main` `414be1c`, with dossier#66 at `287f204`,
-codecartographer#180 at `7ddcf0e`, codecartographer#181 at `a5be62f` and
-codecartographer#182 at `b49a64f`. The rest of the page holds at the stamp,
-which those entries do not move.
+codecartographer#180 at `7ddcf0e`, codecartographer#181 at `a5be62f`,
+codecartographer#182 at `b49a64f` and codecartographer#183 at `7119296`. The
+rest of the page holds at the stamp, which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -716,6 +716,17 @@ re-checked and is re-derived before anyone acts on it.
   harness's account of what could run takes a hand other than its own, and
   whether saved designs are listed before authoring exists. Done is #182
   merged by a person, the panel built, and the page deleted.
+- **The Designer panel's gallery, built** (2026-11-28).
+  codecartographer#183, stacked on #182, is a draft: a Designer panel under
+  the Harness heading lists every shape the harness's plane declares beside
+  the harness's account of whether it could run, and draws shapes against
+  the needs they state, dashed where a need is unmet. It reads and sends
+  nothing, the plane is a row of the window's seam table, and it deletes the
+  design page. Both questions the page left open stay open: the panel has no
+  control for another hand and lists no saved design. Not seen outside the
+  tests' stand-in: a harness that reports a shape able to run, and one that
+  serves the plane without the second document. Done is #183 merged after
+  #182 by a person.
 - **Two faults met on the way** (2026-11-28). dossier's overview counts a
   project record made for one pull request as a repository never synced;
   done is the count reading repositories alone. codecartographer's
