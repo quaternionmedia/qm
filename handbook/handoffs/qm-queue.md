@@ -29,8 +29,10 @@ alfred#169 open on `feat/who-spoke` at `efa270d`. Those that name
 codecartographer#174 at `8bc613d`, codecartographer#175 at `db46281`,
 codecartographer#176 at `07856a9` and codecartographer#177 at `2f9c554`.
 Those that name 2026-11-28 were re-derived at `qm` `259d27d`, `qmcp` `main`
-`a331984` and `dossier` `main` `414be1c`, with dossier#66 at `287f204`. The
-rest of the page holds at the stamp, which those entries do not move.
+`a331984` and `dossier` `main` `414be1c`, with dossier#66 at `287f204`,
+codecartographer#180 at `7ddcf0e`, codecartographer#181 at `a5be62f` and
+codecartographer#182 at `b49a64f`. The rest of the page holds at the stamp,
+which those entries do not move.
 
 The voice set landed on 2026-10-26 and `joe`'s pull requests opened after it,
 #35 to #58, on 2026-10-31; what remains of both is in §4.
@@ -689,6 +691,37 @@ re-checked and is re-derived before anyone acts on it.
   seen: a canvas smaller than 1440 by 900, and a harness of hundreds of rows.
   Done is #172, #174, #175, #176 and #177 merged in order by a person, each
   retargeted onto `main` before the branch beneath it is deleted.
+- **An instruction from the web window** (2026-11-28). codecartographer#180,
+  stacked on #177, is a draft: a form in the Harness panel sends what a
+  person typed to the harness, which records it with `page` as its way in
+  and runs nothing. The window relays only for a request from the machine it
+  runs on to that machine, with no forwarding header and no page origin on
+  another host. Acting on an instruction and answering its consent stay in a
+  terminal. No record on `project/codecartographer` states that the window
+  writes an instruction to the harness;
+  `adr/DRAFT-the-web-window-carries-a-persons-answer.md` presumes it. Not
+  seen: the window served to another device, and a proxy in front of it.
+  Done is #180 merged after #177 by a person, and a record drafted for the
+  write, or a decision that the answer record covers it.
+- **The add menu, by whose data** (2026-11-28). codecartographer#181,
+  stacked on #180, is a draft: the `+` menu lists panels under Canvas, Code,
+  Harness and Organisation, each with a sentence for what it answers, and
+  Estate, Show, Overview and Capabilities are told apart by source. No panel
+  is renamed. Done is #181 merged after #180 by a person.
+- **The Designer panel's gallery, designed** (2026-11-28).
+  codecartographer#182, stacked on #181, is a draft that adds
+  `docs/roadmap/the-designer-gallery.md`: every shape the harness's plane
+  declares, what each needs, and which could run, read and drawn, with
+  nothing authored or run. Nothing is built. Open in the page: whether the
+  harness's account of what could run takes a hand other than its own, and
+  whether saved designs are listed before authoring exists. Done is #182
+  merged by a person, the panel built, and the page deleted.
+- **Two faults met on the way** (2026-11-28). dossier's overview counts a
+  project record made for one pull request as a repository never synced;
+  done is the count reading repositories alone. codecartographer's
+  `demo-graph.spec.ts` fails when `MONGODB_URI` is set and no database
+  listens, on the console errors the mounted database routes then make;
+  done is the test passing either way, or the suite unsetting the variable.
 - **dossier's sync, by change** (2026-11-28). dossier#66 is ready and green:
   `sync-org` and `sync-user` skip a repository whose listing shows no push
   and no settings change since its sync, and `sync-org --repo NAME` syncs
